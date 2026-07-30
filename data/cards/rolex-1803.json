@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-1803",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "1803",
+    "name": "Day-Date",
+    "nickname": "President",
+    "collection": "Day-Date",
+    "tier": "crown",
+    "produced": { "start_year": 1959, "end_year": 1978, "discontinued": true },
+    "movement": { "caliber": "1555, later 1556", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "18k yellow gold (also white and rose gold)", "bezel": "fluted gold" },
+    "one_liner": "The vintage Day-Date of 1959-1978 — the pie-pan-dial 'President' associated with heads of state."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 1803 is the reference most people mean by vintage President: 36mm gold case, fluted bezel, pie-pan dial, and the non-quickset calibers 1555 and 1556. Its association with power is literal — Lyndon Johnson wore a Day-Date in office, and the President bracelet name attached to the model in that era. Long production and high volume keep entry prices reasonable for a solid-gold vintage Rolex.",
+    "collector_notes": "Most are yellow gold; white and rose gold examples are scarcer and trade higher. Original dials matter — refinished dials are endemic on this reference. Non-quickset day and date is normal, not a defect.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

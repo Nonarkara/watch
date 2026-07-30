@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-124300",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "124300",
+    "name": "Oyster Perpetual 41",
+    "nickname": null,
+    "collection": "Oyster Perpetual",
+    "tier": "crown",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3230", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "domed steel" },
+    "one_liner": "The 41mm Oyster Perpetual whose 2020 lacquer dial colors became a speculative market of their own."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2020 OP41 launched with a set of lacquer dials — turquoise, yellow, coral red, green — that turned Rolex's simplest model into its most talked-about. After the Tiffany-dial Nautilus frenzy, the turquoise OP was recast as 'the Tiffany OP' and traded at several times retail. Rolex dropped turquoise, yellow, and coral red from the 41mm line in 2022, converting a color option into an instant discontinued-dial premium.",
+    "collector_notes": "Dial color is the whole market: the discontinued colors, turquoise above all, trade far above the silver, black, and blue staples. Verify the dial is factory-fitted — color swaps exist.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

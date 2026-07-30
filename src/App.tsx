@@ -1,0 +1,65 @@
+import { createContext, useContext, useEffect, useState } from 'react'
+import { Outlet, NavLink, useLocation } from 'react-router-dom'
+import { loadDataset, type Dataset } from './lib/data.ts'
+
+const DataContext = createContext<Dataset | null>(null)
+export const useDataset = () => useContext(DataContext)
+
+const NAV = [
+  { to: '/', label: 'Register' },
+  { to: '/compare', label: 'Compare' },
+  { to: '/starter', label: 'Starter Paths' },
+  { to: '/methodology', label: 'Methodology' },
+  { to: '/paper', label: 'Paper' },
+]
+
+export default function App() {
+  const [data, setData] = useState<Dataset | null>(null)
+  const [err, setErr] = useState<string | null>(null)
+  const { pathname } = useLocation()
+
+  useEffect(() => { loadDataset().then(setData, (e) => setErr(String(e))) }, [])
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+
+  return (
+    <DataContext.Provider value={data}>
+      <header className="hdr">
+        <div className="shell hdr-in">
+          <NavLink to="/" className="wordmark">
+            <span className="wm-main">THE WATCH REGISTER</span>
+            <span className="wm-sub mono">COLLECTIBLE WATCH INTELLIGENCE · WATCH.NONARKARA.ORG</span>
+          </NavLink>
+          <nav className="nav">
+            {NAV.map((n) => (
+              <NavLink key={n.to} to={n.to} end={n.to === '/'}
+                className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}>
+                {n.label.toUpperCase()}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+      </header>
+      <main className="shell">
+        {err ? (
+          <p className="boot mono">DATASET FAILED TO LOAD — {err}. The register refuses to render placeholder data.</p>
+        ) : !data ? (
+          <p className="boot mono">LOADING REGISTER…</p>
+        ) : (
+          <Outlet />
+        )}
+      </main>
+      <footer className="ftr">
+        <div className="shell">
+          <p className="mono micro">
+            {data ? `${data.count} REFERENCES · DATA BUILT ${data.built} · METHODOLOGY V${data.methodology_version}` : ''}
+          </p>
+          <p className="micro dim">
+            Every number on this site traces to a cited public source or is computed from cited evidence — the
+            methodology page shows how, including what we refuse to estimate. No affiliation with any watch brand.
+            Prices are evidence, not financial advice. A Dr Non system.
+          </p>
+        </div>
+      </footer>
+    </DataContext.Provider>
+  )
+}

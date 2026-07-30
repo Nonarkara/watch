@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116520",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116520",
+    "name": "Cosmograph Daytona",
+    "nickname": null,
+    "collection": "Daytona",
+    "tier": "crown",
+    "produced": { "start_year": 2000, "end_year": 2016, "discontinued": true },
+    "movement": { "caliber": "4130", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "engraved steel tachymeter" },
+    "one_liner": "The first Daytona with Rolex's own chronograph movement, produced 2000-2016."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 116520 launched in 2000 with the new in-house caliber 4130, ending the Zenith era with a simpler architecture: fewer parts, a vertical clutch, and a 72-hour reserve. It spent sixteen years as the steel Daytona, spanning the model's shift from steady seller to allocation piece. Early examples with the 'APH' dial (a spacing error in COSMOGRAPH) and cream-aged subdials draw specific attention.",
+    "collector_notes": "Early white dials age toward cream — original unrestored dials matter. With so many small revisions over sixteen years, serial-era consistency between watch, bezel, and papers is what separates good full sets.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

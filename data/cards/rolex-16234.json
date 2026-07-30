@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-16234",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "16234",
+    "name": "Datejust",
+    "nickname": null,
+    "collection": "Datejust",
+    "tier": "crown",
+    "produced": { "start_year": 1988, "end_year": 2006, "discontinued": true },
+    "movement": { "caliber": "3135", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "stainless steel and white gold", "bezel": "fluted white gold" },
+    "one_liner": "The five-digit sapphire Datejust 36 of 1988-2006 with caliber 3135."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 16234 modernized the Datejust with a sapphire crystal and the caliber 3135 while keeping the 36mm case and fluted white-gold bezel. Produced in large numbers for nearly two decades, it is the workhorse neo-vintage Datejust — the reference most people's inherited Rolex turns out to be.",
+    "collector_notes": "Enormous dial variety, from silver sticks to Roman numerals to Tapestry dials. Hollow-link Jubilee bracelets stretch — check bracelet condition before agreeing a price.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

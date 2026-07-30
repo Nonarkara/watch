@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-1601",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "1601",
+    "name": "Datejust",
+    "nickname": null,
+    "collection": "Datejust",
+    "tier": "crown",
+    "produced": { "start_year": 1959, "end_year": 1977, "discontinued": true },
+    "movement": { "caliber": "1565, later 1575", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "stainless steel and white gold", "bezel": "fluted white gold" },
+    "one_liner": "The pie-pan-dial Datejust of circa 1959-1977, one of the highest-production vintage Rolex references."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 1601 is the classic acrylic-crystal Datejust: 36mm, fluted white-gold bezel, and the stepped 'pie-pan' dial edge that marks the era. Made in very large numbers across calibers 1565 and 1575, it is one of the least expensive routes into vintage Rolex, with condition and dial originality separating ordinary examples from collectible ones.",
+    "collector_notes": "Look for original pie-pan dials without spotting, non-quickset date behavior that matches the caliber, and period-correct Jubilee bracelets. Sigma dials and unusual colors carry premiums.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116610lv-hulk",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116610LV",
+    "name": "Submariner Date",
+    "nickname": "Hulk",
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 2010, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "3135", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "green Cerachrom" },
+    "one_liner": "The green-dial, green-bezel Submariner of 2010-2020 whose discontinuation pushed its market price far above the black model's."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Launched alongside the black 116610LN in 2010, the LV paired a green sunburst dial with a green Cerachrom bezel — the first all-green Submariner, following the green-bezel-only 'Kermit' 16610LV. Collectors named it the Hulk for the color and the heavy maxi case. When Rolex dropped it in 2020 without a direct all-green successor, secondary prices moved sharply upward and have stayed above the black model's since.",
+    "collector_notes": "The dial shifts with light from deep green to near-black; photographs oversell the effect. Discontinuation made 2019-2020-carded full sets the sought-after configuration.",
+    "starter_alternative": "tudor-bb58-79030n"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

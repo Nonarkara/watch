@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-16570",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "16570",
+    "name": "Explorer II",
+    "nickname": null,
+    "collection": "Explorer II",
+    "tier": "crown",
+    "produced": { "start_year": 1991, "end_year": 2011, "discontinued": true },
+    "movement": { "caliber": "3185, later 3186", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "engraved steel 24-hour" },
+    "one_liner": "The Explorer II of 1991-2011 in Polar white or black, 40mm."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 16570 ran twenty years as the understated professional Rolex: 40mm, fixed steel 24-hour bezel, independently settable hour hand, and a choice of black or Polar white dials. Long overlooked next to Submariners and GMTs, it was repriced upward in the late 2010s as collectors worked through the five-digit references.",
+    "collector_notes": "Late examples with caliber 3186 and 'rectangular lume' plots carry a premium. Polar dials show cream-versus-white aging clearly — original handsets matter.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

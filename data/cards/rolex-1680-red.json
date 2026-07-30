@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-1680-red",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "1680",
+    "name": "Submariner Date",
+    "nickname": "Red Sub",
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 1969, "end_year": 1975, "discontinued": true },
+    "movement": { "caliber": "1575", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "one_liner": "The first Submariner with a date, wearing red 'Submariner' dial text for roughly its first six years of production."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 1680 added a date and cyclops to the Submariner, and early production printed the model name in red — a detail dropped around 1975 when the text turned white. Collectors sort Red Subs into Mark I through Mark VI dials by font and depth-rating layout, with the early meters-first marks the most valued. The red dial era turned a production quirk into one of vintage Rolex's most recognized sub-categories.",
+    "collector_notes": "Verify the dial mark against the serial range; redialed and service-dial examples are everywhere. Feet-first versus meters-first depth text and open versus closed 6s are the fast checks.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

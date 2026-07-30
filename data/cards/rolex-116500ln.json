@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116500ln",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116500LN",
+    "name": "Cosmograph Daytona",
+    "nickname": "Ceramic Daytona",
+    "collection": "Daytona",
+    "tier": "crown",
+    "produced": { "start_year": 2016, "end_year": 2023, "discontinued": true },
+    "movement": { "caliber": "4130", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "black Cerachrom with tachymeter" },
+    "one_liner": "The steel Daytona whose ceramic bezel and multi-year waitlists defined the 2016-2023 hype market."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Rolex put a black Cerachrom bezel on the steel Daytona in 2016, visually recalling the black-bezel 6241 of the 1960s and immediately dating the outgoing 116520. Demand outran supply for its entire seven-year run: authorized dealers kept multi-year lists and the watch traded at a large premium over retail throughout, peaking in early 2022. Discontinued in 2023 for the 126500LN, it remains the shorthand example of the retail-versus-grey-market gap.",
+    "collector_notes": "White 'panda' dials carry a consistent premium over black. Check the bezel edge for chips and the warranty-card date; 2023-dated full sets mark the final production year.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "testbrand-tb1",
+  "_fixture_note": "SYNTHETIC TEST FIXTURE — never published; example.com URLs mark it as fake by construction.",
+  "identity": {
+    "brand": "Testbrand",
+    "reference": "TB1",
+    "name": "Test Chronograph",
+    "nickname": null,
+    "collection": "Test",
+    "tier": "core",
+    "produced": { "start_year": 2016, "end_year": 2023, "discontinued": true },
+    "movement": { "caliber": "T100", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "steel", "bezel": "steel" },
+    "one_liner": "A synthetic reference used only to prove the index math."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2016, "price_usd": 10000, "source_url": "https://example.com/msrp-2016" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2021-03-10", "price_usd": 15000, "venue": "phillips", "url": "https://example.com/c1", "condition": null, "box_papers": "full_set" },
+      { "date": "2021-06-20", "price_usd": 15500, "venue": "ebay", "url": "https://example.com/c2", "condition": null, "box_papers": null },
+      { "date": "2021-07-05", "price_usd": 16000, "venue": "christies", "url": "https://example.com/c3", "condition": null, "box_papers": "box_only" },
+      { "date": "2025-09-15", "price_usd": 19000, "venue": "ebay", "url": "https://example.com/c4", "condition": null, "box_papers": null },
+      { "date": "2025-11-02", "price_usd": 20000, "venue": "phillips", "url": "https://example.com/c5", "condition": null, "box_papers": "full_set" },
+      { "date": "2026-01-18", "price_usd": 19500, "venue": "sothebys", "url": "https://example.com/c6", "condition": null, "box_papers": null },
+      { "date": "2026-03-09", "price_usd": 21000, "venue": "ebay", "url": "https://example.com/c7", "condition": null, "box_papers": "watch_only" },
+      { "date": "2026-04-22", "price_usd": 20500, "venue": "phillips", "url": "https://example.com/c8", "condition": null, "box_papers": "full_set" },
+      { "date": "2026-05-30", "price_usd": 22000, "venue": "ebay", "url": "https://example.com/c9", "condition": null, "box_papers": null },
+      { "date": "2026-06-25", "price_usd": 21500, "venue": "christies", "url": "https://example.com/c10", "condition": null, "box_papers": "full_set" },
+      { "date": "2026-07-15", "price_usd": 21200, "venue": "ebay", "url": "https://example.com/c11", "condition": null, "box_papers": null }
+    ],
+    "listing_observations": [
+      { "date": "2026-06-01", "venue": "reddit_wx", "active_count": 4 },
+      { "date": "2026-07-01", "venue": "reddit_wx", "active_count": 6 }
+    ]
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [
+      { "date": "2022-03", "description": "Synthetic waitlist evidence.", "source_url": "https://example.com/wl" }
+    ],
+    "auction_appearances_5y": 6
+  },
+  "provenance_events": [
+    { "date": "2020-05-01", "person_or_event": "Test event", "description": "A synthetic provenance event for fixture purposes.", "source_url": "https://example.com/p1" }
+  ],
+  "narrative": {
+    "story": "This synthetic card exists so the invariant tests can prove the math without touching real data.",
+    "collector_notes": "None — it is a fixture.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "fixture",
+    "curated_date": "2026-07-31",
+    "sources": ["https://example.com"]
+  }
+}

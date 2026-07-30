@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-114060",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "114060",
+    "name": "Submariner",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 2012, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "3130", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black Cerachrom" },
+    "one_liner": "The 2012-2020 no-date Submariner: ceramic bezel, maxi case, caliber 3130."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 114060 brought the no-date Sub into the ceramic era two years after the Date version, pairing Cerachrom and the Super Case with the time-only 3130. Its eight-year run made it the reference many collectors call the last tool-simple Sub: 40mm, no cyclops, solid-link bracelet with Glidelock.",
+    "collector_notes": "Values sit below the 116610LN. There are no dial or bezel variants to chase within the reference, so condition drives the price.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126500ln",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126500LN",
+    "name": "Cosmograph Daytona",
+    "nickname": null,
+    "collection": "Daytona",
+    "tier": "crown",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "4131", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "black Cerachrom with polished steel edge" },
+    "one_liner": "The 2023 update of the steel Daytona for the model's 60th year, with caliber 4131 and a metal-edged ceramic bezel."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced at Watches and Wonders 2023 for the Daytona's 60th anniversary, the 126500LN reworked the case lines and framed the Cerachrom bezel with a thin polished-steel edge. Inside, the 4131 replaced the long-serving 4130, adding the Chronergy escapement and a redesigned rotor. The white dial kept its predecessor's market pattern: it is the harder allocation and the stronger trader of the two dials.",
+    "collector_notes": "Differences from the 116500LN are subtle at a glance — the steel bezel lip, slimmer lugs, and reworked subdial rings. White dials command the premium; grey-market spreads narrowed from the 2022 peak but stay above retail.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126234",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126234",
+    "name": "Datejust 36",
+    "nickname": null,
+    "collection": "Datejust",
+    "tier": "crown",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3235", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "Oystersteel and white gold", "bezel": "fluted white gold" },
+    "one_liner": "The current Datejust 36 with a white-gold fluted bezel and caliber 3235, introduced 2018."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 126234 updated the steel Datejust 36 in 2018 with the 3235 and a subtly reshaped case. The fluted bezel is white gold on a steel case — the Rolesor formula the Datejust has used for decades. Dial choice drives this market more than the reference itself: palm motif, azzurro blue, and mother-of-pearl options each trade differently.",
+    "collector_notes": "Available in many dial and bracelet permutations; Jubilee with the fluted bezel is the classic spec. Datejusts are usually obtainable at retail with patience, so grey premiums are thin.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

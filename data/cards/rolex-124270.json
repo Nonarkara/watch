@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-124270",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "124270",
+    "name": "Explorer",
+    "nickname": null,
+    "collection": "Explorer",
+    "tier": "crown",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3230", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "Oystersteel", "bezel": "smooth steel" },
+    "one_liner": "The Explorer's 2021 return to 36mm, with caliber 3230."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "After eleven years at 39mm, the Explorer went back to its historic 36mm size in 2021 as the 124270, carrying the 3230 and the black-dial 3-6-9 layout that traces to the Everest-era originals of 1953. It is the smallest and simplest current professional Rolex, and one of the more obtainable at retail.",
+    "collector_notes": "The spec is fixed — no dial or bezel variants — so condition and completeness set the price. The 36mm size divides buyers; try it on before assuming it wears small.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

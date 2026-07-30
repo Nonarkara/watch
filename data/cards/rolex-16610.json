@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-16610",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "16610",
+    "name": "Submariner Date",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 1988, "end_year": 2010, "discontinued": true },
+    "movement": { "caliber": "3135", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "one_liner": "The aluminum-bezel Submariner Date of 1988-2010, the longest-serving modern Sub."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 16610 carried the Submariner Date through 22 years with the caliber 3135, a sapphire crystal, and an aluminum bezel insert that fades with wear rather than staying showroom-new. Its long run and high production make it the most accessible route into a discontinued Sub, and late examples overlap the first years of the ceramic 116610.",
+    "collector_notes": "Check the lug holes (pre-circa-2003 cases have them, later cases do not), insert fade and originality, and whether the bracelet is the earlier hollow-end-link 93150 type or the later solid-end-link style. Serial-era consistency matters for full sets.",
+    "starter_alternative": "tudor-bb58-79030n"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

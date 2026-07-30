@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116710blnr-batman",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116710BLNR",
+    "name": "GMT-Master II",
+    "nickname": "Batman",
+    "collection": "GMT-Master II",
+    "tier": "crown",
+    "produced": { "start_year": 2013, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "3186", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "blue-black Cerachrom" },
+    "one_liner": "The 2013-2019 blue-black GMT that proved a two-color ceramic bezel could be made in one piece."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 116710BLNR carried the first two-color Cerachrom bezel — Rolex's answer to the assumption that a one-piece ceramic insert could not hold two colors. Blue-black was a new combination for the GMT line, and the watch pulled long waitlists on the Oyster bracelet with caliber 3186. Discontinued in 2019 for the Jubilee-equipped 126710BLNR, it keeps a following as the original Batman.",
+    "collector_notes": "Sold only on the Oyster bracelet — a Jubilee example is a swap or the later reference. Bezel condition dictates price; the blue half of early inserts varies slightly in tone.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126710blro-pepsi",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126710BLRO",
+    "name": "GMT-Master II",
+    "nickname": "Pepsi",
+    "collection": "GMT-Master II",
+    "tier": "crown",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3285", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "red-blue Cerachrom" },
+    "one_liner": "The steel Pepsi GMT-Master II, returned in 2018 on a Jubilee bracelet with caliber 3285."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Rolex brought the red-and-blue bezel back to steel in 2018 after five years in which the ceramic Pepsi existed only in white gold, launching the 126710BLRO on a Jubilee bracelet with the new 3285. It immediately became one of the hardest steel allocations. An Oyster bracelet option was added in 2021, and the reference remains the definitive traveler's Rolex.",
+    "collector_notes": "Jubilee versus Oyster configuration matters to buyers; early examples are Jubilee-only. Check the two-color Cerachrom for edge chips — damage shows more on the red half.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

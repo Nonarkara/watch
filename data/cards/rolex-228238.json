@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-228238",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "228238",
+    "name": "Day-Date 40",
+    "nickname": "President",
+    "collection": "Day-Date",
+    "tier": "crown",
+    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3255", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "18k yellow gold", "bezel": "fluted yellow gold" },
+    "one_liner": "The Day-Date 40 in yellow gold, launched 2015 with caliber 3255."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 228238 introduced the Day-Date 40 as the flagship of Rolex's 2015 movement generation: the 3255 with Chronergy escapement, 70-hour reserve, and a case that replaced the short-lived Day-Date II. In yellow gold with a champagne dial it continues the 'President' image the model has carried since 1956.",
+    "collector_notes": "Dial choice is the market variable — champagne and green dials trade strongest in yellow gold. Gold cases show desk wear readily; check bracelet stretch and case edges.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126710blnr",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126710BLNR",
+    "name": "GMT-Master II",
+    "nickname": "Batgirl",
+    "collection": "GMT-Master II",
+    "tier": "crown",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3285", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "blue-black Cerachrom" },
+    "one_liner": "The blue-black GMT-Master II reissued in 2019 with caliber 3285 and a Jubilee bracelet."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "A year after the Pepsi's return to steel, Rolex moved the blue-black bezel onto the same updated platform — caliber 3285, Jubilee bracelet — and collectors distinguished it from the outgoing Batman with the 'Batgirl' nickname. From 2021 it could be had on an Oyster bracelet as well. It trades close to, and usually just under, the Pepsi.",
+    "collector_notes": "Nicknames blur in listings — a 126710BLNR on either bracelet is often just called Batman. Bracelet configuration and card date are the main variables.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

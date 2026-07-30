@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126610ln",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126610LN",
+    "name": "Submariner Date",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3235", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "black Cerachrom" },
+    "one_liner": "The current-generation Submariner Date: 41mm case, caliber 3235, introduced 2020."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2020 Submariner refresh moved the case from 40 to 41mm while slimming the lugs, retreating from the slab-sided 'Super Case' of the 116610 generation. The 3235 brought the Chronergy escapement and a 70-hour reserve. It stays one of the hardest steel-sports allocations at retail, though grey-market premiums have thinned since the 2022 peak.",
+    "collector_notes": "The spread between retail and grey narrowed after 2022, so condition and full-set status decide most of the price now. Check the warranty-card date against serial-era expectations.",
+    "starter_alternative": "tudor-bb58-79030n"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

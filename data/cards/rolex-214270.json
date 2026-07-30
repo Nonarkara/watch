@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-214270",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "214270",
+    "name": "Explorer",
+    "nickname": null,
+    "collection": "Explorer",
+    "tier": "crown",
+    "produced": { "start_year": 2010, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "3132", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "smooth steel" },
+    "one_liner": "The Explorer at 39mm, produced 2010-2021 in two distinct dial marks."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 214270 moved the Explorer from 36 to 39mm in 2010 with caliber 3132. The first version drew criticism for short hands and unlumed 3-6-9 numerals; the 2016 Mark 2 update lengthened the handset and filled the numerals with Chromalight, and the later dial is the one buyers seek. It was the last Explorer before the model returned to 36mm in 2021.",
+    "collector_notes": "Mk1 versus Mk2 is the first question — lumed numerals and the longer handset identify the Mk2. Values sit close together, with the Mk2 slightly ahead.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

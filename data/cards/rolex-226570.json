@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-226570",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "226570",
+    "name": "Explorer II",
+    "nickname": null,
+    "collection": "Explorer II",
+    "tier": "crown",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3285", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "Oystersteel", "bezel": "engraved steel 24-hour" },
+    "one_liner": "The current Explorer II: 42mm, caliber 3285, updated in 2021 for the model's 50th year."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 226570 arrived in 2021, fifty years after the original 1655, keeping its predecessor's 42mm case but slimming the lugs and fitting the 3285. It comes with a black dial or the white 'Polar' dial, with the fixed 24-hour bezel and orange GMT hand that define the line. The Polar dial is the stronger seller.",
+    "collector_notes": "Polar versus black is the only real choice. One of the professional models still obtainable at retail within a reasonable wait.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

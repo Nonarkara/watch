@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-1016",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "1016",
+    "name": "Explorer",
+    "nickname": null,
+    "collection": "Explorer",
+    "tier": "crown",
+    "produced": { "start_year": 1963, "end_year": 1989, "discontinued": true },
+    "movement": { "caliber": "1560, later 1570", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "stainless steel", "bezel": "smooth steel" },
+    "one_liner": "The Explorer of 1963-1989: matte black dial, 3-6-9 numerals, 36mm, and a 26-year production run."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 1016 distilled the Explorer to its lasting form — matte black dial, luminous 3-6-9, calibers 1560 then 1570 — and held it for two and a half decades. Early gilt-dial examples and the rare 'Space-Dweller' variant sit at the top of the market, while later matte watches are the canonical entry into vintage sports Rolex. Its plainness is the point: one dial, one case, no date.",
+    "collector_notes": "Gilt dials (pre-circa-1967) trade far above matte. Check for original lume, unpolished lug bevels, and era-correct riveted or folded-link bracelets.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

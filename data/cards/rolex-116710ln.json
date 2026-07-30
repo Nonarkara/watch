@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116710ln",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116710LN",
+    "name": "GMT-Master II",
+    "nickname": null,
+    "collection": "GMT-Master II",
+    "tier": "crown",
+    "produced": { "start_year": 2007, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "3186", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black Cerachrom" },
+    "one_liner": "The 2007-2019 GMT-Master II that introduced the Cerachrom bezel to the line, with a green 24-hour hand."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 116710LN restarted the GMT-Master II in 2007 with a single-color black ceramic bezel, a wider maxi case, and a green 24-hour hand as the only color on an otherwise monochrome watch. It ran twelve years as the accessible GMT while the two-color bezels drew the waitlists. Since discontinuation it has become the value entry into the ceramic GMT era.",
+    "collector_notes": "Long production means plenty of supply — buy on condition. Check the green hand's lume match against the dial and the bezel edge for wear.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

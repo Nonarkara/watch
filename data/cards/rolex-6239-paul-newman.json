@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-6239-paul-newman",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "6239",
+    "name": "Cosmograph Daytona",
+    "nickname": "Paul Newman",
+    "collection": "Daytona",
+    "tier": "crown",
+    "produced": { "start_year": 1963, "end_year": 1969, "discontinued": true },
+    "movement": { "caliber": "722 (Valjoux 72 base)", "type": "manual chronograph" },
+    "case": { "diameter_mm": 37, "material": "stainless steel", "bezel": "steel tachymeter" },
+    "one_liner": "The exotic-dial 6239 that became the most famous chronograph in collecting after Newman's own example sold for $17.75 million."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 6239 introduced the Daytona name in 1963 and moved the tachymeter from the dial to the bezel. A slow-selling 'exotic' dial option — Art Deco numerals, blocked subdials, a contrasting outer track — was later nicknamed for Paul Newman, who wore one given to him by Joanne Woodward. When Newman's actual watch sold at Phillips New York in October 2017, it set the record for any wristwatch at auction and repriced the entire exotic-dial market.",
+    "collector_notes": "Dial authenticity is everything: exotic dials were made by Singer and have known fonts, step details, and subdial geometry. Most surviving 6239s wear standard dials — a genuine Paul Newman dial multiplies the value several times over.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

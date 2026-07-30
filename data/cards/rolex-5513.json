@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-5513",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "5513",
+    "name": "Submariner",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 1962, "end_year": 1989, "discontinued": true },
+    "movement": { "caliber": "1530, later 1520", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "one_liner": "The no-date Submariner produced 1962-1989 — the longest-running Sub reference and the staple of vintage Rolex collecting."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5513 ran nearly three decades on calibers 1530 and 1520, spanning gilt gloss dials, matte dials with painted markers, and finally gloss dials with white-gold surrounds. That length of production created a catalog of collectible variants — 'Bart Simpson' coronets, meters-first depth text, serif dials — and a price ladder that runs from entry-vintage to six figures for early gilt examples. Roger Moore wore a modified 5513 in Live and Let Die.",
+    "collector_notes": "Dial originality first: service dials with modern lume are common and cut value hard. Match the dial era to the serial, check bezel-insert correctness, and expect unpolished cases to command large premiums.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

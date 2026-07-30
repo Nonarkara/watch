@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-124060",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "124060",
+    "name": "Submariner",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3230", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "black Cerachrom" },
+    "one_liner": "The no-date Submariner in the current 41mm case, caliber 3230, from 2020."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 124060 continues the no-date line that traces to the original 1953 Submariner: the cleanest dial in the range, no cyclops, and a lower list price than the Date. The 2020 update gave it the time-only 3230 and the revised case with slimmer lugs. Purists tend to prefer it, while the market prices it below the Date versions.",
+    "collector_notes": "The most attainable modern Sub at retail and on the grey market. The symmetric dial and uninterrupted crystal are why buyers pick it over the 126610LN — not price alone.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

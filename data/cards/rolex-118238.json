@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-118238",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "118238",
+    "name": "Day-Date 36",
+    "nickname": "President",
+    "collection": "Day-Date",
+    "tier": "crown",
+    "produced": { "start_year": 2000, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "3155", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "18k yellow gold", "bezel": "fluted yellow gold" },
+    "one_liner": "The Day-Date 36 in yellow gold with the double-quickset caliber 3155, produced 2000-2019."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 118238 refined the Day-Date 36 formula with a solid-link President bracelet, a sapphire crystal, and the 3155's independently quicksettable day and date. It served as the standard yellow-gold President for two decades and remains the practical neo-vintage choice: modern usability in the classic 36mm proportions.",
+    "collector_notes": "A vast dial range including diamond, onyx, and lacquer options. Bracelet condition is the price lever — solid links wear better than the older hollow style but still stretch.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}
