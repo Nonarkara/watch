@@ -10,12 +10,12 @@
     "tier": "core",
     "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
     "movement": { "caliber": "1847 MC", "type": "automatic" },
-    "case": { "diameter_mm": 39.8, "material": "stainless steel", "bezel": "polished steel bezel with exposed screws" },
-    "one_liner": "The large steel Santos from Cartier's 2018 relaunch, using a tool-free quick-change bracelet system and the brand's own automatic caliber."
+    "case": { "diameter_mm": 39.8, "material": "steel", "bezel": "steel bezel with exposed screws (signature Santos design)" },
+    "one_liner": "The large steel Santos from Cartier's 2018 relaunch, built around a tool-free bracelet swap system and the brand's own automatic caliber."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 9200
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,16 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Cartier's Santos line traces to 1904, when Louis Cartier built a wristwatch for his friend, the aviator Alberto Santos-Dumont, so he could check the time without taking a hand off the controls during flight — commonly cited as one of the first purpose-made men's wristwatches rather than a converted pocket watch. Cartier relaunched the Santos de Cartier in 2018 with a redesigned case, exposed bezel screws referencing the original, and a tool-free quick-change bracelet system that swaps between metal bracelet and leather strap.",
-    "collector_notes": "Bracelet link removal on this generation uses a push-button system rather than pins; confirm all original links are present, since replacement links are Cartier-specific parts rather than generic steel links.",
+    "story": "Cartier built the original Santos in 1904 for the aviator Alberto Santos-Dumont, who wanted to check the time without letting go of the controls — usually cited as one of the first men's wristwatches designed as such rather than adapted from a pocket watch. Cartier relaunched the Santos de Cartier in 2018 with a redesigned case, exposed bezel screws referencing the original, and a bracelet that swaps between steel and leather without tools, using the brand's own QuickSwitch and SmartLink systems.",
+    "collector_notes": "The QuickSwitch strap and SmartLink bracelet-sizing system are specific to this 2018-generation case; older Santos references and the smaller Santos-Dumont line do not share these exact parts.",
     "starter_alternative": "tissot-prx-t137-407"
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier",
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier/santos-de-cartier-watch-CRWSSA0018.html"
+    ]
   }
 }

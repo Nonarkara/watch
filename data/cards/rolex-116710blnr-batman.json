@@ -14,7 +14,9 @@
     "one_liner": "The 2013-2019 blue-black GMT that proved a two-color ceramic bezel could be made in one piece."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2013, "price_usd": 8950, "source_url": "https://www.chrono24.com/magazine/your-collections-hidden-cash-cow-the-rolex-gmt-master-ii-lunette-noire-p_44217/" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.chrono24.com/magazine/your-collections-hidden-cash-cow-the-rolex-gmt-master-ii-lunette-noire-p_44217/"
+    ]
   }
 }

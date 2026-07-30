@@ -14,8 +14,10 @@
     "one_liner": "The blue-black GMT-Master II reissued in 2019 with caliber 3285 and a Jubilee bracelet."
   },
   "retail": {
-    "msrp_history": [],
-    "current_msrp_usd": null
+    "msrp_history": [
+      { "effective_year": 2025, "price_usd": 11100, "source_url": "https://atlasluxury.us/rolex-price-guide-2025/" }
+    ],
+    "current_msrp_usd": 11100
   },
   "market_evidence": {
     "comps": [],
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://atlasluxury.us/rolex-price-guide-2025/"
+    ]
   }
 }

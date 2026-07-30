@@ -14,8 +14,11 @@
     "one_liner": "The current-generation Submariner Date: 41mm case, caliber 3235, introduced 2020."
   },
   "retail": {
-    "msrp_history": [],
-    "current_msrp_usd": null
+    "msrp_history": [
+      { "effective_year": 2020, "price_usd": 9150, "source_url": "https://stockx.com/rolex-submariner-date-126610ln-black" },
+      { "effective_year": 2025, "price_usd": 10650, "source_url": "https://atlasluxury.us/rolex-price-guide-2025/" }
+    ],
+    "current_msrp_usd": 10650
   },
   "market_evidence": {
     "comps": [],
@@ -36,6 +39,9 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://stockx.com/rolex-submariner-date-126610ln-black",
+      "https://atlasluxury.us/rolex-price-guide-2025/"
+    ]
   }
 }

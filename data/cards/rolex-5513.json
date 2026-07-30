@@ -18,7 +18,9 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2025-12-17", "price_usd": 10795, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-submariner-wristwatch-ref-5513-315/285402", "condition": null, "box_papers": "watch_only" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-submariner-wristwatch-ref-5513-315/285402"
+    ]
   }
 }

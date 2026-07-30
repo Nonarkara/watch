@@ -18,7 +18,9 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2016-10-26", "price_usd": 18750, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-autumn/rolex-gmt-master-ref-1675-1/33900", "condition": null, "box_papers": "full_set" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -27,7 +29,9 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    { "date": "2019-12-10", "person_or_event": "Marlon Brando 'Apocalypse Now' GMT-Master", "description": "Brando's bezel-less 1675, worn on the set of Apocalypse Now and hand-engraved 'M. Brando' on the caseback, sells for $1,952,000 including premium at Phillips' Game Changers auction in New York.", "source_url": "https://www.phillips.com/auction/NY080119" }
+  ],
   "narrative": {
     "story": "The 1675 carried the GMT-Master through two decades: early gilt chapter-ring dials with pointed crown guards, then matte dials, on calibers 1565 and later 1575. Its Pepsi bezel and long production made it the entry point of serious vintage Rolex collecting. Marlon Brando's bezel-less 1675, worn in Apocalypse Now, sold at Phillips New York in December 2019.",
     "collector_notes": "Dial and bezel-insert originality set the price; gilt and pointed-crown-guard early examples trade at multiples of 1970s matte watches. Check for correct-era hands and unpolished case lines.",
@@ -36,6 +40,10 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://onlineonly.christies.com/s/christies-watches-online-time-autumn/rolex-gmt-master-ref-1675-1/33900",
+      "https://www.phillips.com/auction/NY080119",
+      "https://www.rescapement.com/blog/brando-gmt-sells-for-1952-million-and-other-results-from-phillips-game-changers"
+    ]
   }
 }

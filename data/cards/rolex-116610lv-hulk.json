@@ -18,7 +18,9 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2026-06-12", "price_usd": 21590, "venue": "christies", "url": "https://www.christies.com/en/lot/lot-6590241", "condition": null, "box_papers": "box_only" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.christies.com/en/lot/lot-6590241"
+    ]
   }
 }

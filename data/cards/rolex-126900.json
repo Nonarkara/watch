@@ -14,7 +14,9 @@
     "one_liner": "The Air-King as redesigned in 2022: crown guards, 40mm, caliber 3230, and a corrected minute scale."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2022, "price_usd": 7400, "source_url": "https://www.ablogtowatch.com/hands-on-rolex-air-king-126900-watch-for-2022/" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.ablogtowatch.com/hands-on-rolex-air-king-126900-watch-for-2022/"
+    ]
   }
 }

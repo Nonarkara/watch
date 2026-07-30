@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "longines-spirit-zulu-time",
+  "identity": {
+    "brand": "Longines",
+    "reference": "L3.812.4.53.2",
+    "name": "Spirit Zulu Time",
+    "nickname": null,
+    "collection": "Spirit",
+    "tier": "attainable",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "L844.4", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "two-tone ceramic 24-hour" },
+    "one_liner": "A true flyer GMT with a silicon hairspring, priced at a fraction of the sports GMTs it competes with."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Longines ran the first Zulu Time — a 24-hour-capable pilot's watch — in 1925, and the 2022 Spirit Zulu Time reclaims the name with a modern flyer GMT: independently settable local hour, ceramic two-tone bezel, and a silicon hairspring with chronometer certification. It is the reference most often named when collectors are asked what a traveler's GMT costs before the waitlist economy begins.",
+    "collector_notes": "The 42mm case wears large; Longines added a 39mm version in 2023 for smaller wrists. Check bracelet versus strap on the specific sub-reference.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "main-session",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

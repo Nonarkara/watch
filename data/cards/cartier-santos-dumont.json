@@ -3,19 +3,19 @@
   "id": "cartier-santos-dumont",
   "identity": {
     "brand": "Cartier",
-    "reference": "WSSA0022",
+    "reference": "WSSA0085",
     "name": "Santos-Dumont",
     "nickname": null,
     "collection": "Santos",
     "tier": "core",
     "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "quartz", "type": "quartz" },
-    "case": { "diameter_mm": 43.5, "material": "stainless steel", "bezel": "no bezel — thin polished steel case with exposed screws" },
-    "one_liner": "The direct descendant of Cartier's original 1904 Santos design — thinner and more rectangular than the sportier automatic Santos de Cartier."
+    "movement": { "caliber": "high-autonomy quartz", "type": "quartz" },
+    "case": { "diameter_mm": 43.5, "material": "steel", "bezel": "flat sapphire crystal, no bezel (rectangular case)" },
+    "one_liner": "The closest current-catalog descendant of Cartier's 1904 Santos, built to the original's thin rectangular proportions rather than the sportier automatic Santos de Cartier."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 5250
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,17 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "The Santos-Dumont keeps closer to the proportions of the 1904 original than the automatic Santos de Cartier does: a thinner rectangular case, a smaller footprint, and — on most current references — a quartz movement rather than automatic, which lets Cartier keep the case slim in the way the early design was. It exists in the current catalog specifically to preserve the historical proportions that the sportier Santos de Cartier deliberately moved away from in its 2018 relaunch.",
-    "collector_notes": "Santos-Dumont references split between quartz and manual-wind mechanical movements, and between fixed and interchangeable straps across sub-references; confirm movement type specifically, since 'Santos-Dumont' alone does not specify it.",
+    "story": "In 1904, the aviator Alberto Santos-Dumont complained to his friend Louis Cartier that a pocket watch was impractical to check mid-flight; Cartier's response was a flat-cased wristwatch with a distinctive square bezel, generally cited as Cartier's first men's wristwatch and one of the earliest wristwatches purpose-built for a man rather than adapted from a pocket watch. The current Santos-Dumont keeps closer to those slim, elongated proportions than the automatic Santos de Cartier, which was redesigned sportier in 2018.",
+    "collector_notes": "Santos-Dumont references split between steel quartz models like this one and gold or platinum manual-wind pieces on higher calibers; confirm movement type and case material specifically, since the name alone does not fix either.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier",
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier/santos-dumont-watch-CRWSSA0085.html",
+      "https://en.wikipedia.org/wiki/Cartier_(jeweler)"
+    ]
   }
 }

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tissot-prx-t137-407",
+  "identity": {
+    "brand": "Tissot",
+    "reference": "T137.407.11.041.00",
+    "name": "PRX Powermatic 80",
+    "nickname": "PRX",
+    "collection": "PRX",
+    "tier": "attainable",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Powermatic 80.111", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "fixed steel" },
+    "one_liner": "The 1978 Seastar-derived integrated-bracelet design that became the default first mechanical watch of the 2020s."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": 850
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Tissot revived its 1978 Seastar quartz case as the PRX in 2021, first as a quartz watch and months later with the Powermatic 80 automatic and a waffle dial. It arrived exactly when steel integrated-bracelet sports watches from Patek, AP, and Vacheron had become unobtainable, and it offered the same design language for under a thousand dollars. Watch media and collectors adopted it almost immediately as the standard answer to the question of where to start.",
+    "collector_notes": "The bracelet's butterfly clasp and non-quick-adjust sizing are the common gripes; the 80-hour reserve and the dial execution at this price are the reasons to forgive them. Check that the reference matches the dial variant — the PRX family shares the T137 prefix across quartz, automatic, and chronograph lines.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "main-session",
+    "curated_date": "2026-07-31",
+    "sources": ["https://www.tissotwatches.com/en-us/t1374071104100.html"]
+  }
+}

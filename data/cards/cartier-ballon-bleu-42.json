@@ -3,19 +3,19 @@
   "id": "cartier-ballon-bleu-42",
   "identity": {
     "brand": "Cartier",
-    "reference": "WSBB0061",
+    "reference": "WSBB0049",
     "name": "Ballon Bleu de Cartier",
     "nickname": null,
     "collection": "Ballon Bleu",
     "tier": "core",
     "produced": { "start_year": 2007, "end_year": null, "discontinued": false },
     "movement": { "caliber": "1847 MC", "type": "automatic" },
-    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "polished steel bezel" },
-    "one_liner": "Cartier's round sports-dress case, defined by a blue cabochon-set crown protected by an arched guard rather than by any bezel detail."
+    "case": { "diameter_mm": 42, "material": "steel", "bezel": "smooth polished steel bezel" },
+    "one_liner": "Cartier's round sports-dress case, identified by a fluted crown set with a blue cabochon under an arched guard rather than by any bezel detail."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 8500
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,17 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Cartier launched the Ballon Bleu in 2007 as a round case sitting apart from its rectangular Tank and older Santos lines, distinguished by a curved crown guard set with a blue synthetic spinel cabochon. The 42mm size sits at the top of a range that also runs smaller, and the line has become one of Cartier's standard round-case options alongside the far older Pasha.",
-    "collector_notes": "Case-back and crown-guard finishing has changed subtly across production years; check that the cabochon crown itself is original and undamaged, since it is a common wear point from repeated winding and setting.",
+    "story": "Cartier launched the Ballon Bleu in 2007 as a round case sitting apart from the rectangular Tank family, distinguished by a curved crown guard over a fluted crown set with a blue cabochon-cut synthetic spinel. The 42mm steel automatic sits at the larger end of a range that also runs down to smaller quartz sizes, and the line has become one of Cartier's two standard round-case options alongside the far older Pasha.",
+    "collector_notes": "The cabochon crown is a common wear and damage point from repeated winding and date-setting; check that it is original, undamaged, and screws down smoothly before assuming a listing photo represents the watch's actual condition.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/Cartier_(jeweler)"]
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/ballon-de-cartier/",
+      "https://www.cartier.com/en-us/watches/collections/ballon-de-cartier/ballon-bleu-de-cartier-watch-CRWSBB0049.html",
+      "https://en.wikipedia.org/wiki/Cartier_(jeweler)"
+    ]
   }
 }

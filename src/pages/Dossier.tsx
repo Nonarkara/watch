@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../App.tsx'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
@@ -8,8 +9,12 @@ import Sparkline from '../components/Sparkline.tsx'
 export default function Dossier() {
   const { id } = useParams()
   const data = useDataset()
+  const c = data?.cards.find((x) => x.id === id)
+  useEffect(() => {
+    if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
+    return () => { document.title = 'The Watch Register — Objects, Stories & Market Signals' }
+  }, [c])
   if (!data) return null
-  const c = data.cards.find((x) => x.id === id)
   if (!c) {
     return (
       <>

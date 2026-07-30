@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tissot-prx-t137-410",
+  "identity": {
+    "brand": "Tissot",
+    "reference": "T137.410",
+    "name": "PRX 40 205",
+    "nickname": "PRX Quartz",
+    "collection": "PRX",
+    "tier": "attainable",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "ETA F06.115", "type": "quartz" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "fixed steel" },
+    "one_liner": "The quartz PRX that launched the revival — the cheapest honest way into the integrated-bracelet silhouette."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The PRX launched in 2021 as this quartz reference, reviving the 1978 Seastar Quartz case shape to a reception Tissot itself did not anticipate. The automatic followed on the same case, but the quartz remains the entry point: the same tonneau case, integrated bracelet, and dial discipline at a price where a mistake costs a dinner, not a holiday.",
+    "collector_notes": "Thinner than the Powermatic version and arguably truer to the 1978 original. If the ticking seconds hand bothers you, that is the sign to spend up for the automatic.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "main-session",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

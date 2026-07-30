@@ -3,19 +3,19 @@
   "id": "cartier-tank-louis",
   "identity": {
     "brand": "Cartier",
-    "reference": "WGTA0011",
+    "reference": "WGTA0211",
     "name": "Tank Louis Cartier",
-    "nickname": null,
+    "nickname": "TLC",
     "collection": "Tank",
     "tier": "core",
-    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "430 MC", "type": "manual" },
-    "case": { "diameter_mm": 29.5, "material": "18K yellow gold", "bezel": "no bezel — polished gold case, sapphire cabochon crown" },
-    "one_liner": "The rounded-corner Tank variant that has stood as Cartier's benchmark mechanical dress watch since the 1920s, built almost exclusively in gold rather than steel."
+    "produced": { "start_year": 1922, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "1917 MC", "type": "manual" },
+    "case": { "diameter_mm": 33.7, "material": "18K yellow gold", "bezel": "flat sapphire crystal, rectangular case, no bezel" },
+    "one_liner": "The rounded-corner, curved-side reading of Louis Cartier's 1919 Tank, sold under its own name since the early 1920s and still the brand's reference mechanical dress watch."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 16000
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,18 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Louis Cartier designed the original Tank in 1917, reportedly taking the case's parallel side bars from the aerial silhouette of Renault FT tanks he had seen described from the Western Front; a prototype went to American General John J. Pershing, and Cartier began full production in 1919 with six pieces. The rounded-corner Tank Louis Cartier variant followed in the 1920s and has remained the brand's reference mechanical dress watch since. Kennedy family estate sales have included Jacqueline Kennedy's own Cartier Tank, which drew bidding well above typical resale prices for the reference — provenance value rather than the watch's baseline market price.",
-    "collector_notes": "Tank Louis Cartier sizes and movement generations have changed repeatedly since the 1920s; confirm case dimensions and movement caliber against the specific reference rather than assuming the name alone fixes one spec.",
+    "story": "Louis Cartier designed the original Tank in 1919, its parallel case sides drawn from the aerial silhouette of the Renault FT tanks then arriving on the Western Front. The Tank Louis Cartier followed in the early 1920s as a softer reading of that shape, curving the brancards and swapping the apple-form hands for sword hands, and it has stayed close to that silhouette in continuous production ever since.",
+    "collector_notes": "The Tank Louis Cartier is sold across many sizes and materials, from a mini quartz in yellow gold to large automatic pieces on caliber 1899 MC; the reference here (WGTA0211) is the medium manual-wind version on caliber 1917 MC, and specs should always be checked against the specific size rather than the family name alone. Jacqueline Kennedy wore a Cartier Tank through much of her White House years, and Andy Warhol was photographed in various Tank Louis Cartier watches through the 1970s and 80s.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/Cartier_Tank"]
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/tank",
+      "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0211.html",
+      "https://en.wikipedia.org/wiki/Cartier_(jeweler)",
+      "https://www.sothebys.com/en/articles/how-to-collect-the-cartier-tank"
+    ]
   }
 }

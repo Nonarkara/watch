@@ -14,8 +14,11 @@
     "one_liner": "The 2023 update of the steel Daytona for the model's 60th year, with caliber 4131 and a metal-edged ceramic bezel."
   },
   "retail": {
-    "msrp_history": [],
-    "current_msrp_usd": null
+    "msrp_history": [
+      { "effective_year": 2023, "price_usd": 15100, "source_url": "https://professionalwatches.com/the-next-generation-rolex-daytona/" },
+      { "effective_year": 2025, "price_usd": 15500, "source_url": "https://atlasluxury.us/rolex-price-guide-2025/" }
+    ],
+    "current_msrp_usd": 15500
   },
   "market_evidence": {
     "comps": [],
@@ -36,6 +39,10 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://professionalwatches.com/the-next-generation-rolex-daytona/",
+      "https://atlasluxury.us/rolex-price-guide-2025/",
+      "https://www.hodinkee.com/articles/the-new-rolex-daytona-with-redesigned-case-and-new-caliber-4131-reference-126500"
+    ]
   }
 }

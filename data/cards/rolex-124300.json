@@ -14,11 +14,17 @@
     "one_liner": "The 41mm Oyster Perpetual whose 2020 lacquer dial colors became a speculative market of their own."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2021, "price_usd": 5900, "source_url": "https://professionalwatches.com/rolex-increased-prices-in-2022/" },
+      { "effective_year": 2022, "price_usd": 6150, "source_url": "https://professionalwatches.com/rolex-increased-prices-in-2022/" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2025-06-11", "price_usd": 21420, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-vibrant-stainless-steel-oyster-perpetual-ref-124300-201/260548", "condition": null, "box_papers": null },
+      { "date": "2025-06-11", "price_usd": 18900, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-oyster-perpetual-ref-124300-203/260550", "condition": null, "box_papers": null }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -27,7 +33,9 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    { "date": "2022-04", "person_or_event": "Colored-dial discontinuation", "description": "Rolex drops the coral red and yellow Oyster Perpetual dials across 31, 36, and 41mm and the turquoise dial in 41mm, instantly converting the 2020 colors into discontinued-dial premiums.", "source_url": "https://oracleoftime.com/every-watch-rolex-has-discontinued-in-2022/" }
+  ],
   "narrative": {
     "story": "The 2020 OP41 launched with a set of lacquer dials — turquoise, yellow, coral red, green — that turned Rolex's simplest model into its most talked-about. After the Tiffany-dial Nautilus frenzy, the turquoise OP was recast as 'the Tiffany OP' and traded at several times retail. Rolex dropped turquoise, yellow, and coral red from the 41mm line in 2022, converting a color option into an instant discontinued-dial premium.",
     "collector_notes": "Dial color is the whole market: the discontinued colors, turquoise above all, trade far above the silver, black, and blue staples. Verify the dial is factory-fitted — color swaps exist.",
@@ -36,6 +44,11 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://professionalwatches.com/rolex-increased-prices-in-2022/",
+      "https://oracleoftime.com/every-watch-rolex-has-discontinued-in-2022/",
+      "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-vibrant-stainless-steel-oyster-perpetual-ref-124300-201/260548",
+      "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-oyster-perpetual-ref-124300-203/260550"
+    ]
   }
 }

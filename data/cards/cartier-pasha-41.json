@@ -3,19 +3,19 @@
   "id": "cartier-pasha-41",
   "identity": {
     "brand": "Cartier",
-    "reference": "WSPA0009",
+    "reference": "WHPA0018",
     "name": "Pasha de Cartier",
     "nickname": null,
     "collection": "Pasha",
     "tier": "core",
     "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "1847 MC", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "screw-down crown-protector cap on a chain, attached to the case at 9 o'clock" },
-    "one_liner": "A round case with a screw-down crown-protector cap on a small chain — Cartier's answer to water resistance before screw-down crowns became standard."
+    "movement": { "caliber": "9624 MC", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "18K rose gold", "bezel": "smooth bezel beneath a screw-down crown-protector cap on a chain" },
+    "one_liner": "A round case with a screw-down crown-protector cap on a small chain, Cartier's own solution to water resistance before screw-down crowns became the industry standard."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 58500
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,17 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Cartier launched the Pasha as a watch line in 1985, building the design around a screw-down cap that locks over the crown and attaches to the case by a small chain — a water-resistance solution that predates the screw-down crown now standard on most sports watches. Cartier relaunched the Pasha in 2020 with an updated case and dial, keeping the chained crown cap as the model's clearest visual signature.",
-    "collector_notes": "The crown-protector chain is a specific wear point; check that it is intact and that the cap threads smoothly onto the crown tube without cross-threading, since a damaged cap or chain is a Cartier-specific replacement part.",
+    "story": "Cartier's own account traces the Pasha's design to a 1943 commission from the Pasha of Marrakech, who reportedly wanted a wristwatch he could swim in; Cartier did not launch the Pasha de Cartier as a catalog watch line until 1985, built around a screw-down cap that locks over the crown and attaches to the case by a small chain. Cartier refreshed the collection again in 2020, keeping the chained crown cap as the model's clearest visual signature.",
+    "collector_notes": "This reference (WHPA0018) is a skeletonized rose gold automatic on caliber 9624 MC, part of Cartier's current Pasha lineup, which is presently offered in precious metals rather than steel in Cartier's US catalog; the crown-protector chain is a specific wear point, so check that it is intact and threads smoothly without cross-threading.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/Cartier_(jeweler)"]
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/pasha-de-cartier.html",
+      "https://www.cartier.com/en-us/watches/collections/pasha-de-cartier/pasha-de-cartier-watch-CRWHPA0018.html",
+      "https://en.wikipedia.org/wiki/Cartier_(jeweler)"
+    ]
   }
 }

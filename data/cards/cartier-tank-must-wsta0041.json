@@ -4,18 +4,18 @@
   "identity": {
     "brand": "Cartier",
     "reference": "WSTA0041",
-    "name": "Tank Must",
+    "name": "Tank Must de Cartier",
     "nickname": null,
     "collection": "Tank",
     "tier": "core",
     "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "quartz", "type": "quartz" },
-    "case": { "diameter_mm": 33.7, "material": "stainless steel", "bezel": "no bezel — polished steel case, interchangeable strap system" },
-    "one_liner": "The relaunched entry point into the Tank line, pairing a steel quartz case with a tool-free interchangeable strap system rather than reviving one specific vintage Tank reference."
+    "movement": { "caliber": "high-autonomy quartz", "type": "quartz" },
+    "case": { "diameter_mm": 33.7, "material": "steel", "bezel": "flat sapphire crystal, rectangular case, no bezel" },
+    "one_liner": "The entry point into the Tank line, reintroduced in April 2021 with a quartz movement and an interchangeable steel bracelet at roughly a quarter of the price of the gold Tank Louis Cartier."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 4400
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,18 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Cartier relaunched the Tank Must in 2021 as a lower-priced reworking of the Tank Solo, built in steel and fitted with a quartz movement rather than mechanical, which keeps the price well below the brand's mechanical Tank references. The line uses a tool-free interchangeable strap system that lets an owner swap colors without a watchmaker, a departure from the fixed-strap approach used on Cartier's higher Tank tiers.",
-    "collector_notes": "Confirm whether a listing is quartz (Tank Must) or automatic (Tank Solo/Louis Cartier) before comparing prices — movement type is the main functional split within the broader Tank range, and secondary-market pricing reflects it.",
+    "story": "The Tank Must name first appeared in the 1970s as a quartz-powered, accessibly priced Tank built to survive the quartz crisis. Cartier revived the name in April 2021 for a new large-and-small steel line built around a tool-free interchangeable bracelet, putting the Tank silhouette within reach of buyers who could not stretch to the gold Tank Louis Cartier or the automatic Tank Française.",
+    "collector_notes": "Cartier's own site currently lists this large steel quartz Tank Must under reference WSTA0106 rather than the WSTA0041 code used at the 2021 launch; case, movement, and bracelet system are unchanged, only the internal reference has been revised.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/tank",
+      "https://www.cartier.com/en-us/watches/collections/tank/tank-must-de-cartier-watch-CRWSTA0106.html",
+      "https://revolutionwatch.com/introducing-cartier-tank-must/",
+      "https://en.wikipedia.org/wiki/Cartier_Tank"
+    ]
   }
 }

@@ -14,11 +14,16 @@
     "one_liner": "The steel Daytona whose ceramic bezel and multi-year waitlists defined the 2016-2023 hype market."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2016, "price_usd": 12400, "source_url": "https://robbreport.com/style/watch-collector/gallery/rolex-watches-collectors-should-know-1235599021/" },
+      { "effective_year": 2020, "price_usd": 13150, "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-116500ln-review" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2019-06-25", "price_usd": 30000, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994", "condition": null, "box_papers": "full_set" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -36,6 +41,10 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://robbreport.com/style/watch-collector/gallery/rolex-watches-collectors-should-know-1235599021/",
+      "https://www.hodinkee.com/articles/rolex-daytona-ref-116500ln-review",
+      "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994"
+    ]
   }
 }

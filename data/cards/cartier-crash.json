@@ -3,22 +3,31 @@
   "id": "cartier-crash",
   "identity": {
     "brand": "Cartier",
-    "reference": "WGCH0006",
+    "reference": "Cartier London Crash",
     "name": "Crash",
     "nickname": "the melted watch",
     "collection": "Crash",
     "tier": "core",
-    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "9618 MC", "type": "manual" },
-    "case": { "diameter_mm": 43.35, "material": "platinum", "bezel": "no bezel — asymmetric melted-form case" },
-    "one_liner": "The asymmetric 'melted watch' case that has become one of Cartier's most pursued auction lots, produced only in small, irregular batches rather than continuous production."
+    "produced": { "start_year": 1967, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "841", "type": "manual" },
+    "case": { "diameter_mm": 43, "material": "18K yellow gold", "bezel": "asymmetric curved case, no bezel" },
+    "one_liner": "An asymmetric, distorted case built by Cartier's London workshop in 1967, sold since only in small, irregular batches rather than continuous production."
   },
   "retail": {
     "msrp_history": [],
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2022-05-05",
+        "price_usd": 1654000,
+        "venue": "other_auction",
+        "url": "https://loupethis.com/auctions/cartier-london-crash-1967",
+        "condition": null,
+        "box_papers": "watch_only"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -29,13 +38,18 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "Jean-Jacques Cartier designed the Crash in 1967 at Cartier's London workshop, giving the case an asymmetric, distorted form that departed entirely from Cartier's usual rectangular and round vocabulary. Cartier has never put the Crash into continuous production; it has instead appeared in small, irregular batches and limited series across the decades since, which — combined with genuine rarity relative to demand from Tank and Santos buyers — has made it one of the most actively pursued Cartier references at auction, particularly among collectors in Hong Kong and Japan.",
-    "collector_notes": "The Crash is not one stable reference — case material, dial layout, and movement have varied across the 1967 original and later runs, so treat any 'Crash' listing as its own specific variant rather than assuming a universal spec or price level.",
+    "story": "Cartier's London workshop produced the Crash in 1967, giving it an asymmetric, folded case that broke entirely from the brand's rectangular and round vocabulary. One frequently repeated account, attributed to auction specialist Paul Boutros, traces the design to a Cartier London executive whose Baignoire Allongée watch melted in a car fire; Cartier has never put the Crash into continuous production, instead releasing it in small, irregular runs and occasional Cartier Privé limited editions, including a 67-piece platinum Crash Skeleton in 2015.",
+    "collector_notes": "The Crash is not one stable reference — case material, dial layout, and movement have changed across the 1967 original and later runs (the 2015 Skeleton uses manual caliber 9618 MC in a 45mm platinum case, distinct from the vintage 18K gold, caliber 841 pieces), so treat any Crash listing as its own specific variant rather than assuming a shared spec or price level.",
     "starter_alternative": null
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://en.wikipedia.org/wiki/Cartier_(jeweler)",
+      "https://monochrome-watches.com/cartier-crash-skeleton-review-price/",
+      "https://en.wikipedia.org/wiki/List_of_most_expensive_watches_sold_at_auction",
+      "https://loupethis.com/auctions/cartier-london-crash-1967"
+    ]
   }
 }

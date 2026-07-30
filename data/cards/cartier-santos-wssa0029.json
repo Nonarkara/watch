@@ -10,12 +10,12 @@
     "tier": "core",
     "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
     "movement": { "caliber": "1847 MC", "type": "automatic" },
-    "case": { "diameter_mm": 35.1, "material": "stainless steel", "bezel": "polished steel bezel with exposed screws" },
-    "one_liner": "The medium-size version of the 2018 Santos relaunch, sharing the large model's quick-change bracelet system in a smaller case."
+    "case": { "diameter_mm": 35.1, "material": "steel", "bezel": "steel bezel with exposed screws (signature Santos design)" },
+    "one_liner": "The medium-size version of the 2018 Santos relaunch, sharing the large model's exposed-screw case and quick-change bracelet in a smaller footprint."
   },
   "retail": {
     "msrp_history": [],
-    "current_msrp_usd": null
+    "current_msrp_usd": 8400
   },
   "market_evidence": {
     "comps": [],
@@ -29,13 +29,16 @@
   },
   "provenance_events": [],
   "narrative": {
-    "story": "The medium Santos de Cartier shares its case architecture, exposed bezel screws, and tool-free quick-change bracelet system with the large model from the 2018 relaunch, scaled down to a 35.1mm case that fits a wider range of wrist sizes.",
-    "collector_notes": "Medium and large Santos cases are not simply scaled versions of the same components; bracelets, buckles, and some case parts are not interchangeable between the two sizes.",
+    "story": "The medium Santos de Cartier shares the 2018 relaunch's case architecture, exposed bezel screws, and QuickSwitch/SmartLink bracelet system with the large model, scaled to a 35.1mm case that fits a wider range of wrists than the 39.8mm large version.",
+    "collector_notes": "Medium and large Santos cases are not simply scaled copies of the same parts — bracelets and some case components are sized specifically to each and are not interchangeable between the two.",
     "starter_alternative": "tissot-prx-t137-407"
   },
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier",
+      "https://www.cartier.com/en-us/watches/collections/santos-de-cartier/santos-de-cartier-watch-CRWSSA0029.html"
+    ]
   }
 }

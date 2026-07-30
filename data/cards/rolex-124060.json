@@ -14,7 +14,10 @@
     "one_liner": "The no-date Submariner in the current 41mm case, caliber 3230, from 2020."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2020, "price_usd": 8100, "source_url": "https://www.hodinkee.com/articles/rolex-submariner-ref-124060-41mm-new-release" },
+      { "effective_year": 2022, "price_usd": 8950, "source_url": "https://professionalwatches.com/rolex-increased-prices-in-2022/" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
@@ -36,6 +39,9 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.hodinkee.com/articles/rolex-submariner-ref-124060-41mm-new-release",
+      "https://professionalwatches.com/rolex-increased-prices-in-2022/"
+    ]
   }
 }

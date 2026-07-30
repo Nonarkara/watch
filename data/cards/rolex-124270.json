@@ -14,7 +14,9 @@
     "one_liner": "The Explorer's 2021 return to 36mm, with caliber 3230."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2021, "price_usd": 6450, "source_url": "https://www.hodinkee.com/articles/rolex-explorer-is-36mm-two-tone-introducing" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
@@ -36,6 +38,8 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://www.hodinkee.com/articles/rolex-explorer-is-36mm-two-tone-introducing"
+    ]
   }
 }

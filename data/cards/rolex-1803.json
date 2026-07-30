@@ -18,7 +18,10 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2016-04-05", "price_usd": 10000, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-spring/day-date-ref-1803-14/26398", "condition": null, "box_papers": null },
+      { "date": "2018-05-08", "price_usd": 11250, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-swiss-icons/rolex-day-date-ref-1803-172/56372", "condition": null, "box_papers": null }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -36,6 +39,9 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://onlineonly.christies.com/s/christies-watches-online-time-spring/day-date-ref-1803-14/26398",
+      "https://onlineonly.christies.com/s/christies-watches-online-swiss-icons/rolex-day-date-ref-1803-172/56372"
+    ]
   }
 }

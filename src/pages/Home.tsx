@@ -67,7 +67,6 @@ export default function Home() {
         <div className="purpose-grid">
           {DOORS.map((door) => (
             <Link to={door.to} className="purpose-card" key={door.n}>
-              <span className="purpose-n mono">{door.n}</span>
               <span className="eyebrow">{door.label}</span>
               <h3>{door.title}</h3>
               <p>{door.body}</p>

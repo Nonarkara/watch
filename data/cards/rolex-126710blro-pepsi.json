@@ -14,11 +14,15 @@
     "one_liner": "The steel Pepsi GMT-Master II, returned in 2018 on a Jubilee bracelet with caliber 3285."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      { "effective_year": 2018, "price_usd": 9250, "source_url": "https://stockx.com/rolex-gmtmaster-ii-pepsi-126710blro-black" }
+    ],
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2026-06-12", "price_usd": 25400, "venue": "christies", "url": "https://www.christies.com/en/lot/lot-6590231", "condition": null, "box_papers": "full_set" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -36,6 +40,9 @@
   "meta": {
     "curated_by": "agent-rolex",
     "curated_date": "2026-07-31",
-    "sources": []
+    "sources": [
+      "https://stockx.com/rolex-gmtmaster-ii-pepsi-126710blro-black",
+      "https://www.christies.com/en/lot/lot-6590231"
+    ]
   }
 }
