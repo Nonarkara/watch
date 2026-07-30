@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-chrono-79360n",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79360N",
+    "name": "Black Bay Chrono",
+    "nickname": "Panda",
+    "collection": "Black Bay",
+    "tier": "crown",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5813", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "black aluminum tachymeter" },
+    "one_liner": "Tudor's column-wheel chronograph, built on a movement architecture co-developed with Breitling, with a white 'panda' dial and contrasting black chronograph subdials."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Black Bay Chrono runs caliber MT5813, a movement built on the architecture Tudor co-developed with Breitling, which uses the same base for its own B01 chronograph. The panda-dial version pairs a white dial with black counters and a black aluminum tachymeter bezel, a color scheme that predates both brands and has been common on chronographs since the 1960s.",
+    "collector_notes": "Buyers checking movement authenticity look for the column-wheel actuation and vertical clutch shared with the Breitling B01, which is what separates this from Tudor's earlier ETA/Valjoux-based chronographs.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

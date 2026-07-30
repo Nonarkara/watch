@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "lange-odysseus-363-179",
+  "identity": {
+    "brand": "A. Lange & Söhne",
+    "reference": "363.179",
+    "name": "Odysseus",
+    "nickname": null,
+    "collection": "Odysseus",
+    "tier": "haute",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "L155.1", "type": "automatic" },
+    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "brushed and polished steel" },
+    "one_liner": "Lange's first stainless-steel, bracelet-equipped sports watch, launched in October 2019 after roughly a decade of internal development."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": 35620
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [
+      { "date": "2020-06", "description": "Nine months after launch, Monochrome Watches reported that finding a new steel Odysseus at retail price from a boutique had become 'quite challenging,' citing demand outpacing supply.", "source_url": "https://monochrome-watches.com/a-lange-sohne-odysseus-steel-review-price/" },
+      { "date": "2021-05", "description": "Langepedia noted the steel Odysseus entering the pre-owned auction market in May 2021 already starting from the high $80,000s against a roughly $35,000 retail price.", "source_url": "https://langepedia.com/a-lange-sohne-odysseus/" }
+    ],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2019-10-24", "person_or_event": "Odysseus launch", "description": "A. Lange & Söhne unveiled the Odysseus on 24 October 2019, its first stainless-steel sports watch with an integrated bracelet, ending years of speculation about whether the brand would enter the category.", "source_url": "https://monochrome-watches.com/a-lange-sohne-odysseus-steel-review-price/" }
+  ],
+  "narrative": {
+    "story": "Lange had resisted the steel sports-watch category through the genre's post-2016 boom, and the Odysseus arrived in October 2019 as the brand's answer: a stainless-steel case and bracelet on an automatic movement, functions and finishing kept to Lange's usual standard rather than simplified for the segment. Coming from a manufacture whose output runs a fraction of its steel-sports-watch rivals, the model was oversubscribed at boutiques within its first year.",
+    "collector_notes": "Dial color is the primary variant to track; the original blue, black, and grey dials each carry different waitlist dynamics at retail. Bracelet fit and the day-and-date module at 12 o'clock are the details buyers check most closely against catalog photos before ordering.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/a-lange-sohne-odysseus-steel-review-price/",
+      "https://langepedia.com/a-lange-sohne-odysseus/",
+      "https://www.thewatchpages.com/watches/a-lange-sohne-odysseus-363179/"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-monaco-caw211p",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "CAW211P",
+    "name": "Monaco Chronograph Calibre 11",
+    "nickname": "McQueen Monaco",
+    "collection": "Monaco",
+    "tier": "core",
+    "produced": { "start_year": 2015, "end_year": 2023, "discontinued": true },
+    "movement": { "caliber": "Calibre 11", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "none — square case, left-side crown" },
+    "one_liner": "TAG Heuer's blue-dial automatic reissue of the square chronograph Steve McQueen wore in Le Mans (1971), since discontinued."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2020-12-12", "price_usd": 2208000, "venue": "phillips", "url": "http://www.onthedash.com/monaco-mcqueen-alltounian-result/", "condition": null, "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-12-12",
+      "person_or_event": "Phillips 'Racing Pulse' auction",
+      "description": "The Heuer Monaco Steve McQueen gave to his Le Mans mechanic Haig Alltounian, caseback engraved \"To Haig / Le Mans 1970,\" sells at Phillips New York for $2,208,000 including buyer's premium — a record for any Heuer or TAG Heuer chronograph at auction.",
+      "source_url": "http://www.onthedash.com/monaco-mcqueen-alltounian-result/"
+    }
+  ],
+  "narrative": {
+    "story": "Heuer introduced the Monaco in 1969 as one of the first automatic chronographs, built around a square case with the crown on the left side. Steve McQueen wore a blue-dial Heuer Monaco on-screen as racing driver Michael Delaney in the 1971 film Le Mans, and the model he later gave his personal mechanic sold at Phillips in December 2020 for $2,208,000, a record for the brand at auction. TAG Heuer's modern Calibre 11 reissue, ref. CAW211P, revived the blue dial and left-side crown on a 39mm case before being discontinued.",
+    "collector_notes": "The 39mm case reads small next to contemporary chronographs, and the left-side crown takes some adjustment; check which Calibre 11-generation dial print (TAG Heuer vs. Heuer branding, date-window position) matches the specific reference before buying pre-owned.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://en.wikipedia.org/wiki/TAG_Heuer_Monaco",
+      "http://www.onthedash.com/monaco-mcqueen-alltounian-result/",
+      "https://www.phillips.com/press/release/phillips-racing-pulse-auction-realizes-276-million-concluding-a-recordsetting-year",
+      "https://www.timeandwatches.com/2020/10/heuer-monaco-worn-by-steve-mcqueen-for.html"
+    ]
+  }
+}

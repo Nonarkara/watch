@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-autavia-heritage",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "CBE2110",
+    "name": "Heritage Autavia",
+    "nickname": "Rindt",
+    "collection": "Autavia",
+    "tier": "core",
+    "produced": { "start_year": 2017, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "Heuer 02", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "bidirectional rotating tachymeter bezel" },
+    "one_liner": "TAG Heuer's 2017 reissue of the 1962 Autavia, its dial chosen by public vote and nicknamed for F1 driver Jochen Rindt, since discontinued."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2017, "price_usd": 5150, "source_url": "https://www.yourwatchhub.com/tag-heuer/tag-heuer-autavia-2017/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Heuer introduced the Autavia in 1962 as a dashboard and wrist chronograph aimed at both racing drivers and pilots — the name blends AUTomobile and AVIAtion. For its 2017 Heritage re-edition, TAG Heuer ran a public online vote across sixteen vintage Autavia references in 2016; the winning dial, resembling the watch worn by 1970 Formula 1 champion Jochen Rindt, became reference CBE2110, powered by the automatic Heuer 02 movement.",
+    "collector_notes": "Sold on leather strap (CBE2110.FC8226) or steel bracelet (CBE2110.BA0687) under the same base reference; both configurations are now listed as discontinued on TAG Heuer's own site.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.timeandwatches.com/2017/03/tag-heuer-autavia.html",
+      "https://www.yourwatchhub.com/tag-heuer/tag-heuer-autavia-2017/"
+    ]
+  }
+}

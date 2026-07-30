@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "omega-fois",
+  "identity": {
+    "brand": "Omega",
+    "reference": "311.32.40.30.01.001",
+    "name": "Speedmaster First Omega in Space",
+    "nickname": "FOIS",
+    "collection": "Speedmaster Professional",
+    "tier": "core",
+    "produced": { "start_year": 2012, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "1861", "type": "manual chronograph" },
+    "case": { "diameter_mm": 39.7, "material": "stainless steel", "bezel": "black anodized aluminum, tachymeter" },
+    "one_liner": "A 39.7mm tribute to the CK2998 that Wally Schirra wore aboard Mercury-Atlas 8 in October 1962, marketed by Omega as the actual first Omega worn in space, five years before Buzz Aldrin's Moonwatch."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "1962-10-03", "person_or_event": "Wally Schirra / Mercury-Atlas 8", "description": "Wally Schirra wears his personal Omega Speedmaster ref CK2998 aboard Mercury-Atlas 8 (Sigma 7), making it the first Omega worn in space, five years before the Moonwatch story of Buzz Aldrin on the lunar surface.", "source_url": "https://monochrome-watches.com/omega-speedmaster-first-omega-in-space-fois-discontinued-tribute/" }
+  ],
+  "narrative": {
+    "story": "Wally Schirra wore his own Omega Speedmaster ref CK2998 on his wrist during Mercury-Atlas 8 on October 3, 1962, three years before Omega's Speedmaster was formally qualified by NASA for spaceflight and five years before the Apollo 11 Moonwatch story took over the marketing narrative. Omega introduced the First Omega in Space in 2012 as a faithful-dimension tribute: a 39.7mm case matching the CK2998, a hand-wound Caliber 1861 chronograph, a matte black dial, a black anodized aluminum tachymeter bezel, and a sapphire crystal in place of the original's Hesalite. Each caseback carries a unique serial number and the inscription 'THE FIRST OMEGA IN SPACE' with the mission date, though Omega never stated a fixed edition size before discontinuing the reference in late 2020.",
+    "collector_notes": "The FOIS was leather-strap only - Omega never offered a steel bracelet option for this reference, unlike most other Speedmaster Professional variants. It's numbered but not officially limited; on full-set examples, check that the caseback serial matches the warranty card.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/omega-speedmaster-first-omega-in-space-fois-discontinued-tribute/",
+      "https://www.bobswatches.com/omega/omega-speedmaster-anniversay-series-first-in-space.html",
+      "https://pduggan.com/products/37848-omega-speedmaster-first-omega-in-space-311-32-40-30-01-001-2018-full-set"
+    ]
+  }
+}

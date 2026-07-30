@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "omega-speedmaster-1861",
+  "identity": {
+    "brand": "Omega",
+    "reference": "311.30.42.30.01.005",
+    "name": "Speedmaster Professional Moonwatch",
+    "nickname": null,
+    "collection": "Speedmaster",
+    "tier": "core",
+    "produced": { "start_year": 1997, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "1861", "type": "manual chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "black aluminum tachymeter bezel" },
+    "one_liner": "The hand-wound, hesalite-crystal Moonwatch Omega sold with only minor changes for 24 years before replacing it with the co-axial caliber 3861 in 2021."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Caliber 1861 replaced the 861 in the Speedmaster Professional line in 1997, a finishing and reliability update to a movement architecture that traces back to the manually wound caliber 321 NASA qualified for Apollo. Omega kept the 1861 essentially unchanged through reference 311.30.42.30.01.005, the hesalite-crystal Moonwatch, for 24 years — the longest run of any Speedmaster movement — before introducing the co-axial-escapement caliber 3861 in 2021 and phasing the 1861 out of the catalog.",
+    "collector_notes": "Check dial print generation and hand luminova color against known transitional periods, whether the caseback is the closed steel Seahorse medallion (hesalite version) or a sapphire display back (a different, later reference), and service history — manual-wind chronographs see more winding-crown and pusher wear than automatics.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://millenarywatches.com/omega-caliber-1861/",
+      "https://www.montredo.com/the-new-omega-speedmaster-professional-moonwatch-master-chronometer-from-1861-to-3861/",
+      "https://www.fratellowatches.com/hands-on-watch-review-omega-speedmaster-moonwatch-new-vs-old/"
+    ]
+  }
+}

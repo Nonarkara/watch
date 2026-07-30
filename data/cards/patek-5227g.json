@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-5227g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5227G",
+    "name": "Calatrava",
+    "nickname": null,
+    "collection": "Calatrava",
+    "tier": "trinity",
+    "produced": { "start_year": 2013, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "26-330 S C", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "white gold", "bezel": "polished, thin" },
+    "one_liner": "The 39mm Calatrava with an invisible-hinge officer's caseback — Patek's plainest watch hiding its best case trick."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced at Baselworld 2013, the 5227 updated the core Calatrava to 39mm and gave it a hunter-style officer's caseback whose hinge is machined invisibly into the caseband — you only find it with a fingernail. Time, date, center seconds, nothing else. It is the watch Patek points to when asked what the house does without complications.",
+    "collector_notes": "Open the dust cover before buying: the hinge and cover fit are where wear shows. Early examples carry caliber 324 S C, later ones 26-330 S C — the certificate settles which.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

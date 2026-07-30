@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-4520v",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "4520V/210A",
+    "name": "Overseas Self-Winding",
+    "nickname": null,
+    "collection": "Overseas",
+    "tier": "trinity",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "5100", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "six-sided, derived from the Maltese cross" },
+    "one_liner": "The current-generation 41mm Overseas — a quiet case-and-bracelet refinement of the 4500V, same caliber 5100."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Rather than reinvent a working formula, Vacheron rolled the 4520V out quietly from late 2023: same 41mm footprint and caliber 5100 as the 4500V, with reworked case and bracelet details and the interchangeable strap system carried over. No launch spectacle — boutiques simply began delivering the new reference. It is the Overseas you buy new today.",
+    "collector_notes": "Transitional years mean 4500V and 4520V examples sit side by side on the secondary market at similar money — check which reference is actually on the papers. All three wearing options should be in the box, as with the 4500V.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

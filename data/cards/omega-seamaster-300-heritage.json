@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "omega-seamaster-300-heritage",
+  "identity": {
+    "brand": "Omega",
+    "reference": "234.30.41.21.01.001",
+    "name": "Seamaster 300",
+    "nickname": null,
+    "collection": "Seamaster 300",
+    "tier": "core",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "8912", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "black anodized aluminum dive bezel" },
+    "one_liner": "The regular-production, vintage-styled Seamaster 300 that carries the broad-arrow hands and lollipop seconds hand of the 2015 Spectre limited edition into Omega's ongoing catalog."
+  },
+  "retail": { "msrp_history": [], "current_msrp_usd": null },
+  "market_evidence": { "comps": [], "listing_observations": [] },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The original Seamaster 300 launched in 1957 as Omega's dive-tool answer alongside the Speedmaster and Railmaster. Its broad-arrow-hands, lollipop-seconds design language returned in 2015 on the 233.32.41.21.01.001 Spectre limited edition, worn by Daniel Craig's Bond and built on the older caliber 8400. This reference is a distinct, non-limited follow-on that carries the same vintage look into regular production with a transparent caseback and the newer caliber 8912.",
+    "collector_notes": "Do not confuse this reference with the 233.32.41.21.01.001 Spectre limited edition: same design language, different case reference, a solid Bond-medallion caseback on the LE versus a sapphire display back here, and caliber 8400 on the LE versus 8912 on this one.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.watchmaxx.com/omega-watch-234-30-41-21-01-001",
+      "https://www.europeanwatch.com/blog/omega-seamaster-300-spectre-limited-edition-review",
+      "https://www.sakurawatches.com/omega-seamaster-300-master-chronometer-234-30-41-21-01-001"
+    ]
+  }
+}

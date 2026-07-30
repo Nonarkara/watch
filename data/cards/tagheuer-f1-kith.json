@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-f1-kith",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "WA121F.BA0023",
+    "name": "Formula 1 x Kith",
+    "nickname": "Kith Heuer",
+    "collection": "Formula 1",
+    "tier": "core",
+    "produced": { "start_year": 2024, "end_year": 2024, "discontinued": true },
+    "movement": { "caliber": null, "type": "quartz" },
+    "case": { "diameter_mm": 35, "material": "stainless steel (also released in black-PVD steel and Arnite plastic across the collection)", "bezel": "fixed bezel" },
+    "one_liner": "A May 2024 TAG Heuer x Kith collaboration spanning ten Formula 1 quartz models, sold out within weeks of release."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2024, "price_usd": 1500, "source_url": "https://hypebeast.com/2024/5/tag-heuer-x-kith-formula-1-watch-collection-info" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": true, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2024-05-06",
+      "person_or_event": "TAG Heuer x Kith launch",
+      "description": "TAG Heuer and Kith release a ten-model Formula 1 quartz collaboration (announced May 1, 2024, general release May 6) across a combined production of roughly 5,750 watches plus 75 ten-piece box sets. The range sells out shortly after launch; within a month, resale prices for individual models climb to roughly $1,800-$2,500 against the $1,500 retail price.",
+      "source_url": "https://www.onthedash.com/tag-heuer-kith-recap/"
+    }
+  ],
+  "narrative": {
+    "story": "TAG Heuer's Formula 1 line is its entry-level quartz sports watch, first introduced in 1986. In May 2024, TAG Heuer partnered with streetwear brand Kith on a ten-model capsule across steel, black-PVD steel, and Arnite plastic cases, each produced in runs of 250 to 1,350 pieces, plus a 75-unit ten-watch box set priced at $18,000. The collaboration drew heavy press coverage and sold out shortly after its Miami Grand Prix weekend debut.",
+    "collector_notes": "The collaboration spans ten distinct reference numbers (WA121F.BA0023, WA121J.BT0012, WA121L.BT0014, WA126A-E.BT0005-9, WA121N/P.BA0023) in different case materials and production runs; confirm the exact reference and material before assuming interchangeable value — this card represents the steel WA121F model.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://hypebeast.com/2024/5/tag-heuer-x-kith-formula-1-watch-collection-info",
+      "https://timeandtidewatches.com/tag-heuer-formula-1-kith-introducing/",
+      "https://www.onthedash.com/tag-heuer-kith-recap/",
+      "https://www.luxurybazaar.com/grey-market/tag-heuer-kith/"
+    ]
+  }
+}

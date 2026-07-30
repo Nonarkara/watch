@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "grandseiko-sbgj263",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGJ263",
+    "name": "Heritage Collection Hi-Beat GMT",
+    "nickname": null,
+    "collection": "Heritage Collection",
+    "tier": "core",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "9S86", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "Ever-Brilliant Steel", "bezel": "none — 44GS case shape" },
+    "one_liner": "A 44GS-shaped Hi-Beat 36000 GMT with a dial textured after the slopes of Mount Iwate, visible from the Shizukuishi studio where the movement is made."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 7900, "source_url": "https://www.grand-seiko.com/us-en/collections/sbgj263g" }
+    ],
+    "current_msrp_usd": 7900
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SBGJ263 carries the 44GS case shape — the sharp-angled, bezel-free design language Grand Seiko introduced in 1967 — into a GMT reference built on caliber 9S86, a Hi-Beat 36000 automatic movement with a 24-hour hand for a second time zone. It supersedes the earlier SBGJ201, an equivalent GMT Hi-Beat reference in the same case shape that Grand Seiko has since retired from the catalog. The dial's Mount Iwate texture references the mountain visible from the Grand Seiko Studio Shizukuishi, where the 9S movement family is built.",
+    "collector_notes": "Grand Seiko has cycled several 44GS-shaped GMT Hi-Beat references (SBGJ201 and SBGJ263 among them) with different dial textures and case-metal treatments; check the exact reference number against current production, since older 44GS GMT refs are discontinued and no longer carry a current MSRP.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.grand-seiko.com/us-en/collections/sbgj263g",
+      "https://grandseikoboutique.us/products/watch-hi-beat-gmt-44gs-sbgj201"
+    ]
+  }
+}

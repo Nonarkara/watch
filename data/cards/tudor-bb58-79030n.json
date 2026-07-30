@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-bb58-79030n",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79030N",
+    "name": "Black Bay Fifty-Eight",
+    "nickname": "BB58",
+    "collection": "Black Bay",
+    "tier": "crown",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5402", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "A 39mm diver named for 1958, the year Tudor's Submariner line reached 200 meters of water resistance, with a flatter profile and shorter lugs than the standard 41mm Black Bay."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Tudor introduced the Black Bay Fifty-Eight at Baselworld 2018, shrinking the standard Black Bay case from 41mm to 39mm and flattening the profile to sit closer to the proportions of Tudor's own 1950s-60s Submariners. It runs the in-house MT5402 movement with a 70-hour power reserve, launched the same year as the Black Bay GMT, and became the reference collectors point to when a comparable Rolex Submariner is priced out of reach.",
+    "collector_notes": "Early 2018-2019 production is checked against later runs for small differences in bracelet clasp and bezel-insert finish; none affect function, but some buyers pay a premium for identifiably first-batch examples.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Montres_Tudor_SA"]
+  }
+}

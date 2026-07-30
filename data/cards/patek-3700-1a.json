@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "patek-3700-1a",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "3700/1A",
+    "name": "Nautilus",
+    "nickname": "Jumbo",
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 1976, "end_year": 1990, "discontinued": true },
+    "movement": { "caliber": "28-255 C", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "rounded octagonal with 'ears', polished" },
+    "one_liner": "The 1976 original: Genta's porthole Nautilus, a 42mm steel watch priced like gold."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2024-12-07", "price_usd": 82550, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080424/42", "condition": "1977 example", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Gerald Genta sketched the Nautilus during a Basel fair lunch, borrowing the proportions of a ship's porthole: a two-part case sealed by lateral 'ears', an embossed horizontal-relief dial, an integrated bracelet. Patek launched it in 1976 as the 3700/1, a 42mm steel watch priced against gold dress watches — the second act of the Genta steel-luxury idea after the Royal Oak. The 28-255 C inside is the same ultra-thin JLC 920 base AP used in the 5402. Production ran, with bracelet revisions, until about 1990.",
+    "collector_notes": "Early first-series examples with correct dials and unstretched original bracelets carry the money; service dials and swapped clasps are common after five decades. The market corrected sharply after 2022 — recent New York results sit far below what identical watches asked at the peak.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.phillips.com/detail/patek-philippe/NY080424/42",
+      "https://robbreport.com/style/watch-collector/patek-philippe-nautilus-2024-watch-market-1236117040/"
+    ]
+  }
+}

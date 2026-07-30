@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "seiko-skx007",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SKX007",
+    "name": "Diver's 200m",
+    "nickname": null,
+    "collection": "Diver's (SKX Series)",
+    "tier": "attainable",
+    "produced": { "start_year": 1996, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "7S26", "type": "automatic" },
+    "case": { "diameter_mm": 42.5, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "A 200m automatic diver with no hacking or hand-winding that became the default first-automatic recommendation for a generation of collectors before its 2019 discontinuation."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2025-06-09", "person_or_event": "aBlogtoWatch retrospective on Seiko's shift",
+      "description": "aBlogtoWatch describes the SKX007 as watch collecting's 'gateway drug' — for years the default answer to what a first automatic watch should be, alongside the Orient Bambino — reflecting the reference's reputation among collectors following its 2019 discontinuation.",
+      "source_url": "https://www.ablogtowatch.com/wait-a-minute-what-happened-to-seiko/" }
+  ],
+  "narrative": {
+    "story": "The SKX007 ran caliber 7S26 — a 21-jewel automatic with no hacking seconds and no hand-winding — in a 42.5mm case with a 200m-rated screw-down crown and a unidirectional dive bezel. Introduced in 1996, it became the standard recommendation for a first automatic watch through the 2000s and 2010s on the strength of its price, durability, and ease of modification. Seiko discontinued the reference in 2019, a decision that drew sustained discussion across watch forums and pushed secondary-market prices above its original retail level.",
+    "collector_notes": "Sibling references SKX009 (blue dial) and SKX011 (orange bezel) share the same 7S26 movement and case; check the bezel action and lume plots on a used example, since the model's affordability made it a popular base for aftermarket modification.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.exquisitetimepieces.com/blog/seiko-skx/",
+      "https://usa.crystaltimes.net/history-of-the-seiko-skx007-watch/",
+      "https://www.ablogtowatch.com/wait-a-minute-what-happened-to-seiko/"
+    ]
+  }
+}

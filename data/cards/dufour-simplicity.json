@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "dufour-simplicity",
+  "identity": {
+    "brand": "Philippe Dufour",
+    "reference": "Simplicity",
+    "name": "Simplicity",
+    "nickname": null,
+    "collection": "Simplicity",
+    "tier": "haute",
+    "produced": { "start_year": 2000, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "in-house manual-wind, hand-finished entirely by Dufour", "type": "manual" },
+    "case": { "diameter_mm": 34, "material": "platinum, yellow gold, pink gold, or white gold", "bezel": "polished, matching case metal" },
+    "one_liner": "A time-only watch made almost entirely by one watchmaker's hands, built to demonstrate that traditional Geneva finishing techniques could still be executed to their original standard rather than approximated by machine."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2020-11", "price_usd": 1500000, "venue": "phillips", "url": "https://robbreport.com/style/watch-collector/phillips-sells-a-1-5-million-philippe-dufour-simplicity-1234580216/", "condition": "pink gold, hinged caseback, sold with guarantee and presentation box, Phillips Geneva Retrospective: 2000-2020 sale", "box_papers": "full_set" },
+      { "date": "2021-05", "price_usd": 1210000, "venue": "phillips", "url": "https://luxurylaunches.com/auctions/first-of-the-21-piece-limited-edition-philippe-dufour-simplicity-watches-fetches-1-21-million-at-phillips-auction.php", "condition": "first of a 21-piece limited edition, Phillips Geneva Auction XIV", "box_papers": null },
+      { "date": "2026-05", "price_usd": 1207287, "venue": "phillips", "url": "https://masterhorologer.com/2026/06/05/the-hong-kong-watch-auction-xxii-by-phillips-in-association-with-bacs-russo-realises-over-hk403-million-us51-5-million/", "condition": "stainless steel case, world auction record for a steel Simplicity, slate grey guilloche dial, Phillips Hong Kong Watch Auction XXII", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Philippe Dufour introduced the Simplicity in 2000 after decades restoring and complicating watches for other Geneva houses, stripping his own design down to hours, minutes, and a small seconds so the movement finishing had nowhere to hide. Every visible surface, from the anglage on the bridges to the black-polished steel of the small parts, is finished by hand using techniques Dufour learned from restoring 19th-century pocket watches rather than from CNC-assisted modern production. Annual output has stayed in the low double digits for its entire run, and Dufour has personally trained several of the watchmakers now working under their own names as independents, including Rexhep Rexhepi.",
+    "collector_notes": "Case metal and the rare stainless-steel examples define most of the price spread; dial layout and finishing are consistent across the run, so provenance and documented ownership history carry unusual weight for a watch this recently made, given how closely the collector community tracks individual serial numbers.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://robbreport.com/style/watch-collector/phillips-sells-a-1-5-million-philippe-dufour-simplicity-1234580216/",
+      "https://luxurylaunches.com/auctions/first-of-the-21-piece-limited-edition-philippe-dufour-simplicity-watches-fetches-1-21-million-at-phillips-auction.php",
+      "https://masterhorologer.com/2026/06/05/the-hong-kong-watch-auction-xxii-by-phillips-in-association-with-bacs-russo-realises-over-hk403-million-us51-5-million/"
+    ]
+  }
+}

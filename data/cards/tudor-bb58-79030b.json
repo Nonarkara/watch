@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-bb58-79030b",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79030B",
+    "name": "Black Bay Fifty-Eight",
+    "nickname": "BB58 Blue",
+    "collection": "Black Bay",
+    "tier": "crown",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5402", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "blue unidirectional dive bezel" },
+    "one_liner": "The blue dial and bezel version of the Black Bay Fifty-Eight, added to the line in 2020 on the same 39mm case and MT5402 movement as the original black."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Two years after launching the black Black Bay Fifty-Eight, Tudor added a deep blue dial and bezel option in 2020. Case, movement, bracelet options, and price point are otherwise identical to the 79030N, so the choice between the two comes down to dial color rather than any specification difference.",
+    "collector_notes": "Buyers comparing this to the earlier blue standard Black Bay or the larger Pelagos should confirm case size and dial finish rather than color alone, since Tudor has used similar blue tones across several models in the range.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

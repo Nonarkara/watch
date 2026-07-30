@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126600",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126600",
+    "name": "Sea-Dweller",
+    "nickname": "Single Red",
+    "collection": "Sea-Dweller",
+    "tier": "crown",
+    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3235", "type": "automatic" },
+    "case": { "diameter_mm": 43, "material": "Oystersteel", "bezel": "black Cerachrom" },
+    "one_liner": "The 43mm Sea-Dweller launched for the model's 50th anniversary in 2017 — the first in the line with a cyclops."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 126600 marked fifty years of the Sea-Dweller by growing the case to 43mm, printing the model name in red as on the 1967 original, and — controversially — adding a cyclops over the date for the first time in the line. Caliber 3235, 1,220m rating, helium escape valve. The single-red dial links it deliberately to the double-red collectible era.",
+    "collector_notes": "2017-carded examples mark the anniversary year. The cyclops divides Sea-Dweller buyers; it also distinguishes the reference from the 116600 at a glance.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

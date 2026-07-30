@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "breitling-navitimer-b01-43",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "AB0138",
+    "name": "Navitimer B01 Chronograph 43",
+    "nickname": null,
+    "collection": "Navitimer",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "B01", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 43, "material": "stainless steel", "bezel": "bidirectional circular slide-rule bezel" },
+    "one_liner": "The 43mm steel flagship of Breitling's slide-rule pilot chronograph, built around the in-house B01 movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 10700, "source_url": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/" }
+    ],
+    "current_msrp_usd": 10700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Breitling introduced the Navitimer in 1952 for members of the Aircraft Owners and Pilots Association, adapting the slide-rule bezel from its 1940s Chronomat into a tool for computing airspeed, fuel burn, and unit conversions in flight. The 2019 redesign dropped the interim \"Navitimer 1\" branding and paired the 43mm case with Breitling's in-house B01 chronograph movement, making AB0138 the collection's core steel model.",
+    "collector_notes": "Dial color and strap (leather vs. steel bracelet) are the main configuration variables within this reference family; bracelet versions carry a meaningfully higher price than leather-strap versions.",
+    "starter_alternative": "hamilton-intra-matic-68"
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/",
+      "https://en.wikipedia.org/wiki/Breitling_Navitimer",
+      "https://watchesbysjx.com/2015/05/breitling-pays-tribute-to-history-with-the-navitimer-aopa-limited-edition-with-specs-price.html"
+    ]
+  }
+}

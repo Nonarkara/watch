@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "iwc-aquatimer-iw3290",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW329001",
+    "name": "Aquatimer Automatic 2000",
+    "nickname": null,
+    "collection": "Aquatimer",
+    "tier": "core",
+    "produced": { "start_year": 2014, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "30110", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "unidirectional rotating dive bezel with SafeDive spring-loaded locking system" },
+    "one_liner": "A 2,000-meter dive watch built around IWC's SafeDive bezel-lock mechanism, from a collection IWC has scaled back sharply in recent years."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Aquatimer line carried IWC's dive-watch identity, distinguished by the SafeDive system — a spring-loaded inner ring that locks the external rotating bezel in place and only lets it turn in the safe direction, adding a mechanical safeguard against accidental bezel movement underwater. IWC reduced the Aquatimer collection significantly in the early 2020s, cutting it from a multi-model dive-watch range down to a much smaller presence in the current catalog.",
+    "collector_notes": "Because IWC has reduced Aquatimer's catalog footprint, confirm current availability and the exact reference directly with an authorized dealer rather than assuming any specific Aquatimer reference is still orderable — this is a line in genuine flux, not a stable long-running reference.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "panerai-radiomir-pam00992",
+  "identity": {
+    "brand": "Panerai",
+    "reference": "PAM00992",
+    "name": "Radiomir 8 Days",
+    "nickname": null,
+    "collection": "Radiomir",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "P.5000", "type": "manual" },
+    "case": { "diameter_mm": 45, "material": "stainless steel (aged finish)", "bezel": "fixed bezel, wire lugs" },
+    "one_liner": "Panerai's 45mm hand-wound Radiomir with an 8-day power reserve from the twin-barrel P.5000 movement, produced 2019-2021."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Radiomir name traces to the radium-based luminous compound Panerai patented in 1915 for military dive instruments. The modern Radiomir 8 Days keeps the cushion-shaped wire-lug case of the original line while running the in-house hand-wound P.5000 movement, whose twin barrels give an 8-day power reserve. Panerai discontinued PAM00992 in 2021.",
+    "collector_notes": "Manual winding and exposed wire lugs (rather than the Luminor's crown-guard bridge) are the key differences from Panerai's other lines; check the plexiglass front crystal for scratches, since it is softer than the sapphire exhibition caseback.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://panerai.watchlounge.com/watches/pam00992-radiomir-8-giorni/",
+      "https://wristreview.com/introducing-the-panerai-radiomir-8-days-45mm-pam992-watch/"
+    ]
+  }
+}

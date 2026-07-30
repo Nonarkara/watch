@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-82035",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "82035/000R",
+    "name": "Historiques American 1921",
+    "nickname": null,
+    "collection": "Historiques",
+    "tier": "trinity",
+    "produced": { "start_year": 2008, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "4400 AS", "type": "manual" },
+    "case": { "diameter_mm": 40, "material": "rose gold", "bezel": "cushion-form, polished" },
+    "one_liner": "The driver's watch revival — cushion case, dial rotated 45 degrees, crown at 1 o'clock, exactly as in 1921."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "In the early 1920s Vacheron built a small run of cushion-cased watches for the American market with the dial turned 45 degrees, so a driver could read the time with hands on the wheel. The Historiques American 1921, introduced in 2008 at 40mm, reproduces the idea faithfully: offset crown at 1 o'clock, rotated Breguet-numeral dial, manual caliber 4400 AS visible through the back. The line's centenary in 2021 brought new sizes and a platinum piece, but the rose gold 82035 remains the definitive configuration.",
+    "collector_notes": "It wears differently than anything else at this level and photographs deceptively large for 40mm — try before buying. Check the enamel-style printing on the dial for touch-ups; the exposed caseback makes movement condition easy to verify.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

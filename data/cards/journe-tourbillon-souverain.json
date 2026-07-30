@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "journe-tourbillon-souverain",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "TN",
+    "name": "Tourbillon Souverain",
+    "nickname": null,
+    "collection": "Classique",
+    "tier": "haute",
+    "produced": { "start_year": 1999, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "1403", "type": "manual" },
+    "case": { "diameter_mm": 42, "material": "platinum", "bezel": "polished platinum" },
+    "one_liner": "F.P. Journe's first tourbillon wristwatch, built with a remontoir d'égalité to feed the escapement constant force and a 30-second vertical tourbillon carriage."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2015", "person_or_event": "Only Watch 2015", "description": "A unique tantalum-cased Tourbillon Souverain with a chrome-blue dial, made to echo the Chronomètre Bleu, sold for CHF 550,000 at the Only Watch 2015 charity auction.", "source_url": "https://www.phillips.com/article/112549836/welcome-to-our-round-up-of-the-greatest-fp-journe-watches-sold-by-phillips-so-far" }
+  ],
+  "narrative": {
+    "story": "The Tourbillon Souverain was part of F.P. Journe's founding collection when he began producing watches under his own name, pairing a tourbillon regulator with a remontoir d'égalité that resets every 30 seconds to deliver the escapement a constant, uniform amount of energy rather than the naturally decaying force of an unwinding mainspring. The gold movement construction, rather than the more common brass or German silver, was itself a departure most other tourbillon makers of the period did not follow.",
+    "collector_notes": "This model was succeeded by the Tourbillon Souverain Vertical, which changed the tourbillon's orientation and the remontoir's visible position on the dial; collectors treat the two as related but distinct references rather than interchangeable.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://revolutionwatch.com/f-p-journe-tourbillon-souverain-guide/",
+      "https://www.phillips.com/article/112549836/welcome-to-our-round-up-of-the-greatest-fp-journe-watches-sold-by-phillips-so-far"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "cartier-tank-must-wsta0106",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WSTA0106",
+    "name": "Tank Must de Cartier",
+    "nickname": null,
+    "collection": "Tank",
+    "tier": "core",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "high-autonomy quartz", "type": "quartz" },
+    "case": { "diameter_mm": 33.7, "material": "steel", "bezel": "flat sapphire crystal, rectangular case, no bezel" },
+    "one_liner": "The entry-level Tank, reintroduced in 2021 with a quartz movement and an interchangeable steel bracelet aimed at buyers priced out of the gold Tank Louis Cartier."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": 4400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Tank Must name first appeared in the 1970s as Cartier's quartz-powered, accessibly priced Tank for a market squeezed by the quartz crisis. Cartier revived the name in April 2021 with a new large-and-small steel line built around a swappable bracelet, putting a Tank silhouette within reach of buyers who could not stretch to the gold Tank Louis Cartier. The current large steel model, WSTA0106, is the direct descendant of that relaunch generation.",
+    "collector_notes": "Cartier has revised the Tank Must reference numbers more than once since the 2021 relaunch as dial colors and strap options rotated; buyers should confirm which generation a given WSTA code belongs to before assuming interchangeability of parts.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.cartier.com/en-us/watches/collections/tank",
+      "https://www.cartier.com/en-us/watches/collections/tank/tank-must-de-cartier-watch-CRWSTA0106.html",
+      "https://revolutionwatch.com/introducing-cartier-tank-must/",
+      "https://en.wikipedia.org/wiki/Cartier_Tank"
+    ]
+  }
+}

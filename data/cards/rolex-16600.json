@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-16600",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "16600",
+    "name": "Sea-Dweller",
+    "nickname": null,
+    "collection": "Sea-Dweller",
+    "tier": "crown",
+    "produced": { "start_year": 1988, "end_year": 2008, "discontinued": true },
+    "movement": { "caliber": "3135", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "one_liner": "The Sea-Dweller of 1988-2008: 40mm, 1,220m, no cyclops, caliber 3135."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 16600 ran two decades as the working diver of the range — a thicker case than the Submariner, helium escape valve, flat crystal with no cyclops, and the 3135. Discontinued in 2008 with no direct 40mm successor until the Sea-Dweller 4000 in 2014, it became the tool-watch favorite among five-digit collectors.",
+    "collector_notes": "Look for unpolished cases and original bezel inserts. Very late examples carry an engraved rehaut, which is correct for the period. Values benefit from the reference's tool image rather than any variant chase.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "jlc-memovox",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q2028420",
+    "name": "Memovox",
+    "nickname": null,
+    "collection": "Memovox",
+    "tier": "haute",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "956", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "fixed steel bezel with inner alarm-setting disc" },
+    "one_liner": "A wearable mechanical alarm — a second mainspring and a hammer strike the caseback at the hour set on the inner disc."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Jaeger-LeCoultre introduced the Memovox in 1950, one of the first mechanical wristwatches with a built-in alarm — a second mainspring drives a hammer that strikes the caseback at a time set by an inner rotating disc. The first self-winding version followed in 1956 with caliber 815. JLC extended the idea to tool watches with the 1959 Deep Sea and the 1965 Polaris, which used a patented triple-case-back construction so the alarm could still be heard underwater; JLC revisited that design directly with a 2008 Memovox Tribute to Polaris reissue. The alarm mechanism is a genuine mechanical achievement rather than a styling exercise: it requires an entirely separate spring barrel and striking train alongside the timekeeping movement, in a case no larger than an ordinary three-hand watch.",
+    "collector_notes": "JLC has renamed and re-cased the Memovox several times across relaunches (plain Memovox, Master Control Memovox, Tribute to Polaris), so confirm the exact current reference and movement generation with an authorized dealer rather than assuming a name maps to one fixed specification. On used examples, test that the alarm actually winds, sets, and strikes audibly — alarm mechanisms see far less routine servicing attention than the timekeeping side and are the first thing to fail quietly.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Jaeger-LeCoultre"]
+  }
+}

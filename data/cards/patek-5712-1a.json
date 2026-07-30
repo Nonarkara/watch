@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "patek-5712-1a",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5712/1A-001",
+    "name": "Nautilus Moon Phases",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 2006, "end_year": 2025, "discontinued": true },
+    "movement": { "caliber": "240 PS IRM C LU", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "one_liner": "The asymmetric-dial Nautilus — moonphase, date, power reserve and small seconds on a 3.98mm micro-rotor caliber."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2024-06-08", "price_usd": 101600, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080124/129", "condition": null, "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Launched in 2006 alongside the 5711 for the Nautilus 30th anniversary, the 5712 kept the off-center complication layout of the 3712 it replaced: small seconds at 4-5, moonphase-date cluster at 7, power reserve under 12. The ultra-thin caliber 240 PS IRM C LU with its 22k gold micro-rotor is the reason the case stays wearable. Patek quietly dropped it from the catalogue in early 2025, ending the last steel time-and-complication Nautilus of the 5711 generation.",
+    "collector_notes": "The gradient blue dial shifted tone across production years, and the asymmetric layout hides a lot of service history — check moonphase alignment and pusher feel. Tiffany-stamped examples trade in a different bracket from standard dials.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.sothebys.com/en/articles/everything-about-the-discontinued-patek-philippe-nautilus-moonphase-5712-1a",
+      "https://www.phillips.com/detail/patek-philippe/NY080124/129"
+    ]
+  }
+}

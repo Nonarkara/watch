@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-bbgmt-79830rb",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79830RB",
+    "name": "Black Bay GMT",
+    "nickname": "Pepsi",
+    "collection": "Black Bay",
+    "tier": "crown",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5652", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "red and blue bidirectional 24-hour bezel" },
+    "one_liner": "Tudor's first in-house GMT, launched in 2018 with a red-and-blue bezel that nods to the Rolex GMT-Master 'Pepsi' made by Tudor's sibling brand."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced at Baselworld 2018 alongside the Black Bay Fifty-Eight, the Black Bay GMT was Tudor's first true GMT complication, built around the in-house MT5652 caliber with an independently adjustable local hour hand. The bi-color bezel is a direct homage to the Rolex GMT-Master, which Tudor's parent company also makes, and earned the watch its 'Pepsi' nickname within weeks of launch.",
+    "collector_notes": "Bracelet, dial print, and lume color have gone through small updates since 2018, so buyers comparing early examples check the caseback and any box/papers date rather than assume every 79830RB is identical.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Montres_Tudor_SA"]
+  }
+}

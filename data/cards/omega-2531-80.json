@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "omega-2531-80",
+  "identity": {
+    "brand": "Omega",
+    "reference": "2531.80",
+    "name": "Seamaster 300M Chronometer",
+    "nickname": "The Bond Watch",
+    "collection": "Seamaster 300M",
+    "tier": "core",
+    "produced": { "start_year": 1993, "end_year": 2006, "discontinued": true },
+    "movement": { "caliber": "1120", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "blue aluminum, unidirectional" },
+    "one_liner": "The automatic, COSC-certified Seamaster 300M that Pierce Brosnan wore across three Bond films, from Tomorrow Never Dies to Die Another Day, following the quartz 2541.80 that opened the Omega-Bond partnership in GoldenEye."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "1995-11-17", "person_or_event": "GoldenEye premiere", "description": "GoldenEye opens in the US; costume designer Lindy Hemming moves Bond from Rolex to Omega, with Pierce Brosnan wearing the quartz Seamaster 300M ref 2541.80 on screen and opening the franchise's Omega partnership that ref 2531.80 later carries through three films.", "source_url": "https://en.wikipedia.org/wiki/GoldenEye" },
+    { "date": "1997-12-19", "person_or_event": "Tomorrow Never Dies release", "description": "Tomorrow Never Dies opens in the US; ref 2531.80 makes its screen debut as Brosnan's Bond watch, the first automatic (COSC-certified Caliber 1120) Omega worn in the franchise.", "source_url": "https://www.analogshift.com/blogs/transmissions/james-bond-omega-seamaster-history" },
+    { "date": "1999-11-19", "person_or_event": "The World Is Not Enough release", "description": "The World Is Not Enough opens in the US, with Brosnan again wearing ref 2531.80.", "source_url": "https://www.analogshift.com/blogs/transmissions/james-bond-omega-seamaster-history" },
+    { "date": "2002-11-22", "person_or_event": "Die Another Day release", "description": "Die Another Day, Brosnan's fourth and final Bond film, opens in the US and closes out ref 2531.80's run before Daniel Craig's Casino Royale switches to the co-axial 2220.80.", "source_url": "https://www.analogshift.com/blogs/transmissions/james-bond-omega-seamaster-history" }
+  ],
+  "narrative": {
+    "story": "Costume designer Lindy Hemming moved Bond from Rolex to Omega for GoldenEye (1995), reasoning that Rolex had become too flashy for a character with a Royal Navy background; Pierce Brosnan wore the quartz Seamaster 300M ref 2541.80 on screen in that film. Omega followed with an automatic, COSC-certified version of the same watch, ref 2531.80 on Caliber 1120, which Brosnan wore in Tomorrow Never Dies (1997), The World Is Not Enough (1999), and Die Another Day (2002) - three films, making it the reference most associated with the Brosnan Bond years even though it wasn't the one on screen in GoldenEye itself. Daniel Craig's Casino Royale replaced it with the co-axial 2220.80.",
+    "collector_notes": "Confirm the bezel insert, crystal, and helium escape valve are original - all three are common service-replacement parts on a reference that's been worn and serviced continuously since the 1990s. 'First batch' 1993-1995 examples are tracked closely on Omega collector forums for small bracelet and end-link differences.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.jamesbondlifestyle.com/product/omega-seamaster-300m-chronometer-25318000",
+      "https://gearmoose.com/goldeneye-watch-omega-seamaster/",
+      "https://thecalibratedwrist.com/2024/08/19/the-bond-watch-omega-seamaster-300m-2531-80/",
+      "https://www.analogshift.com/blogs/transmissions/james-bond-omega-seamaster-history",
+      "https://en.wikipedia.org/wiki/GoldenEye",
+      "https://en.wikipedia.org/wiki/Tomorrow_Never_Dies",
+      "https://en.wikipedia.org/wiki/The_World_Is_Not_Enough",
+      "https://en.wikipedia.org/wiki/Die_Another_Day"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "ap-25721st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "25721ST",
+    "name": "Royal Oak Offshore",
+    "nickname": "The Beast",
+    "collection": "Royal Oak Offshore",
+    "tier": "trinity",
+    "produced": { "start_year": 1993, "end_year": 2002, "discontinued": true },
+    "movement": { "caliber": "2126/2840", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws, gasket-exposed construction" },
+    "one_liner": "The 1993 original Offshore — 42mm and 15mm thick when that was outrageous, the watch that invented the oversized luxury sports chronograph."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2018-11-10",
+      "person_or_event": "Designer Emmanuel Gueit's own Beast at Phillips Geneva",
+      "description": "Gueit's personal 25721ST — number 39 of the first 100 pieces, which carry only 'Royal Oak' on the caseback with no Offshore engraving — sold for CHF 102,500 including premium at the Geneva Watch Auction: EIGHT, a record at the time for a steel Offshore.",
+      "source_url": "https://www.watchcollectinglifestyle.com/home/price-guide-audemars-piguet-royal-oak-offshore-reference-25721st-the-beast"
+    }
+  ],
+  "narrative": {
+    "story": "AP gave 22-year-old designer Emmanuel Gueit the job of making the Royal Oak speak to a younger buyer for its 20th anniversary. His answer, drawn in 1989 and finally launched at Basel 1993, blew the case to 42mm and 15mm thick, exposed the blue gasket between bezel and case, and shielded the 2126/2840 movement against magnetism. Chairman Stephen Urquhart called it 'The Beast'; purists, including Genta himself, hated it. Fewer than 3,000 were made through 2002, and the oversized sports chronograph it invented carried AP for the next three decades.",
+    "collector_notes": "The first 100 casebacks without 'Offshore' engraving are the grail sub-variant, with blade-style clasps and screw-secured links. Tropical-turning dials and original strap/bracelet configurations move the price band; D-series serials date the earliest production.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/collectors-corner-guide-1993-audemars-piguet-royal-oak-offshore-first-generation-25721st/",
+      "https://www.watchcollectinglifestyle.com/home/price-guide-audemars-piguet-royal-oak-offshore-reference-25721st-the-beast"
+    ]
+  }
+}

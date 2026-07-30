@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-222-4200h",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "4200H/222",
+    "name": "Historiques 222",
+    "nickname": null,
+    "collection": "Historiques",
+    "tier": "trinity",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "2455/2", "type": "automatic" },
+    "case": { "diameter_mm": 37, "material": "yellow gold (2022) / stainless steel (2025)", "bezel": "fluted-notch tonneau, integrated bracelet" },
+    "one_liner": "The faithful reissue of Jorg Hysek's 1977 222 — 37mm, hidden Maltese cross on the case flank — in gold first, steel since 2025."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2025, "price_usd": 32000, "source_url": "https://www.ablogtowatch.com/new-release-vacheron-constantin-historiques-222-stainless-steel-watch/" }
+    ],
+    "current_msrp_usd": 32000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2025-01",
+      "person_or_event": "Steel 222 launched",
+      "description": "Vacheron put the Historiques 222 into stainless steel (ref. 4200H/222A-B934) at $32,000 — the configuration collectors had asked for since the 2022 yellow-gold reissue, and the closest thing to the original 1977 steel 222 the modern catalog offers.",
+      "source_url": "https://hypebeast.com/2025/1/vacheron-constantin-historiques-222-4200h-222a-b934-release-info"
+    }
+  ],
+  "narrative": {
+    "story": "The 222 was Vacheron's 1977 entry in the integrated-bracelet race — designed not by Genta but by a 24-year-old Jorg Hysek for the maison's 222nd anniversary, with a notched tonneau bezel and a small gold Maltese cross set into the case flank at 5 o'clock. The 2022 Historiques reissue in yellow gold reproduced it at 37mm almost line for line, down to the flank cross, on the modern caliber 2455/2. The steel version followed in 2025 at $32,000, and vintage 222s have been repriced upward in its wake.",
+    "collector_notes": "Reissue versus vintage is the whole conversation: the 4200H is a modern watch with a sapphire back and current water resistance, while original 44018 examples carry the collector premium. On the reissue, check the flank Maltese cross and bracelet taper for damage — both are expensive to make right.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.ablogtowatch.com/new-release-vacheron-constantin-historiques-222-stainless-steel-watch/",
+      "https://hypebeast.com/2025/1/vacheron-constantin-historiques-222-4200h-222a-b934-release-info"
+    ]
+  }
+}

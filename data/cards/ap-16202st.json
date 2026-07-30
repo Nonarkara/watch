@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "ap-16202st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "16202ST",
+    "name": "Royal Oak Jumbo Extra-Thin",
+    "nickname": "Jumbo",
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "7121", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The 50th-anniversary Jumbo: the 1972 case dimensions kept, the 50-year-old caliber 2121 finally replaced."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2022, "price_usd": 33200, "source_url": "https://professionalwatches.com/royal-oak-jumbo-16202/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Launched in 2022 for the Royal Oak's 50th anniversary, the 16202ST succeeded the 15202 with the case unchanged at 39mm x 8.1mm and the movement completely new: caliber 7121, larger, with 55 hours of reserve and a quick-set date the 2121 never had. First-year examples carry a '50 years' anniversary rotor. The blue petite tapisserie dial continues the Jumbo lineage unbroken.",
+    "collector_notes": "The anniversary rotor marks 2022 production and collectors already sort by it. Waitlists at AP boutiques remain the norm for steel; the smoked-dial and precious-metal variants trade very differently from the standard blue.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://professionalwatches.com/royal-oak-jumbo-16202/",
+      "https://monochrome-watches.com/complete-history-of-the-audemars-piguet-royal-oak-jumbo-series-5402-14802-15002-15202-16202-review/"
+    ]
+  }
+}

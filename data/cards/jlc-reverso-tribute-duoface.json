@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "jlc-reverso-tribute-duoface",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q3958420",
+    "name": "Reverso Tribute Duoface",
+    "nickname": null,
+    "collection": "Reverso",
+    "tier": "haute",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "854", "type": "manual" },
+    "case": { "diameter_mm": 47.5, "material": "stainless steel", "bezel": "no bezel — dual-dial reversible case" },
+    "one_liner": "A Reverso with a second dial on the back, turning the case-flip mechanism into a functional second time zone display."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "For the Reverso's first six decades, the caseback that faces outward when the watch is flipped was blank steel, sometimes engraved but otherwise unused. Jaeger-LeCoultre's Duoface variants put a second dial on that face instead, showing a second time zone independent of the primary dial on the front. It converts the original 1931 case mechanism, built to protect a dial from polo mallets, into a genuine travel complication rather than a purely decorative flip.",
+    "collector_notes": "Check which dial is wired as the 'home' time and which is the independently-settable second time zone — the two dials are not symmetric in function, and buyers sometimes assume the watch is a simple reversible pair of identical faces.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Reverso_(watch)"]
+  }
+}

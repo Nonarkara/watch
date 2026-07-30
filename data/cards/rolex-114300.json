@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-114300",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "114300",
+    "name": "Oyster Perpetual 39",
+    "nickname": null,
+    "collection": "Oyster Perpetual",
+    "tier": "crown",
+    "produced": { "start_year": 2015, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "3132", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "domed steel" },
+    "one_liner": "The 39mm Oyster Perpetual of 2015-2020, the in-between size the lineup later dropped."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 114300 gave the no-date Oyster Perpetual a 39mm case and caliber 3132, sold in grape, rhodium, and later white and black dials. It was the quiet value pick of the catalog until the 2020 OP refresh replaced it with the 41mm 124300 — after which the discontinued 39mm size, sitting between the 36 and the 41, picked up a modest following.",
+    "collector_notes": "White-dial examples became the popular spec after discontinuation. An affordable route into a discontinued modern Rolex; buy on condition, not rarity.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

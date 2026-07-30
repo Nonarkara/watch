@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "panerai-luminor-marina-pam01312",
+  "identity": {
+    "brand": "Panerai",
+    "reference": "PAM01312",
+    "name": "Luminor Marina 1950 3 Days Automatic",
+    "nickname": null,
+    "collection": "Luminor Marina",
+    "tier": "core",
+    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "P.9010", "type": "automatic" },
+    "case": { "diameter_mm": 44, "material": "stainless steel", "bezel": "fixed smooth bezel" },
+    "one_liner": "Panerai's 44mm steel Luminor Marina, running the automatic in-house P.9010 movement behind the brand's crown-protecting bridge."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 7500, "source_url": "https://www.paneraicentral.com/panerai-pam1312-luminor-marina-p-9010/" }
+    ],
+    "current_msrp_usd": 7500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Panerai supplied dive instruments and radium-luminous watches to Italian Navy frogmen from the 1930s through 1956, developing the crown-protecting bridge and cushion case that still define the Luminor line. PAM01312 is a modern civilian-market Luminor Marina built around Panerai's in-house automatic P.9010 movement, distinct from the historical Navy-issue pieces its design draws on.",
+    "collector_notes": "Confirm which strap an authorized dealer pairs with this exact reference (leather vs. bracelet), since price varies by configuration; a successor reference (PAM03312) has appeared in some markets, so verify current catalog status before assuming availability.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://panerai.watchlounge.com/watches/pam01312-luminor-marina-1950-3-days-automatic/",
+      "https://www.paneraicentral.com/panerai-pam1312-luminor-marina-p-9010/",
+      "https://en.wikipedia.org/wiki/Panerai"
+    ]
+  }
+}

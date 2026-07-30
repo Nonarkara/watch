@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "jlc-master-control-date",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q4018420",
+    "name": "Master Control Date",
+    "nickname": null,
+    "collection": "Master Control",
+    "tier": "haute",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "899", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "smooth polished bezel" },
+    "one_liner": "A three-hand automatic with date, built to Jaeger-LeCoultre's own internal testing standard rather than around a complication."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Master Control name refers to Jaeger-LeCoultre's own '1000 Hours Control' testing protocol, an internal quality program the manufacture developed to validate finished watches across temperature, position, and power-reserve checks before a case is closed. The Date model carries no complication beyond the date window — it exists to show what a JLC three-hander looks like once the brand's own testing and finishing standard is applied to the simplest possible layout.",
+    "collector_notes": "Bracelet and strap options change the perceived value materially on the secondary market; confirm whether a listing includes the steel bracelet, since aftermarket bracelets for this case are not cheap to source separately.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

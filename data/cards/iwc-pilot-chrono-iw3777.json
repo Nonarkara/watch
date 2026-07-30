@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "iwc-pilot-chrono-iw3777",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW377709",
+    "name": "Pilot's Watch Chronograph",
+    "nickname": null,
+    "collection": "Pilot's Watch",
+    "tier": "core",
+    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "79320", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 43, "material": "stainless steel", "bezel": "fixed steel bezel with tachymeter scale" },
+    "one_liner": "IWC's mid-size pilot's chronograph, sitting between the Mark line's simplicity and the Top Gun and Spitfire chronograph variants in case size and movement complexity."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Pilot's Watch Chronograph continues IWC's Mark-line design vocabulary — black dial, oversized luminous markers, anti-magnetic inner-case principles — scaled up to a 43mm chronograph case with a day-date window and tachymeter bezel. It has served as IWC's volume pilot chronograph, positioned below the ceramic-case Top Gun and in-house-movement Spitfire chronograph variants in both price and movement architecture.",
+    "collector_notes": "IWC has updated parts of its pilot chronograph range with newer in-house calibers alongside this cal. 79320-based reference; confirm the exact reference and movement generation before buying, since 'Pilot's Watch Chronograph' alone covers more than one movement architecture across the current catalog.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

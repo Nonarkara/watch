@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "casio-ga-2100",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GA-2100-1A1",
+    "name": "G-Shock GA-2100",
+    "nickname": "CasiOak",
+    "collection": "GA-2100 Series",
+    "tier": "attainable",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "battery quartz analog-digital module", "type": "quartz" },
+    "case": { "diameter_mm": 45.4, "material": "Carbon Core Guard resin (carbon-fiber-reinforced center)", "bezel": "octagonal resin bezel" },
+    "one_liner": "A thin, thirteen-sided resin G-Shock whose octagonal bezel drew Royal Oak comparisons and sold out worldwide within weeks of its 2019 release."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2019, "price_usd": 99, "source_url": "https://www.g-central.com/g-shock-ga-2100-retro-style-ana-digi-with-carbon-core-guard/" }
+    ],
+    "current_msrp_usd": 110
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2019-08", "person_or_event": "GA-2100 launch and worldwide shortage",
+      "description": "Casio released the GA-2100 in Japan in August 2019 with little advance promotion; demand outran supply almost immediately and the GA-2100-1A1 sold out worldwide, a reaction that surprised both fans and Casio.",
+      "source_url": "https://www.g-central.com/g-shock-ga-2100-retro-style-ana-digi-with-carbon-core-guard/" }
+  ],
+  "narrative": {
+    "story": "The GA-2100 paired a thin, faceted resin case with an analog-digital display when Casio released it in Japan in August 2019, and demand outran supply almost immediately — a reaction neither retailers nor Casio had anticipated. Its octagonal bezel drew comparisons to the Audemars Piguet Royal Oak, and the nickname 'CasiOak' stuck across watch forums and mainstream coverage alike.",
+    "collector_notes": "The original all-black GA-2100-1A1 is the reference collectors mean by 'CasiOak' by default; later colorways and metal-bezel variants (GA-2100-1A2, GA-2100-1A4, 'CasiOak Lite') expanded the line without carrying the same resale attention.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.g-central.com/g-shock-ga-2100-retro-style-ana-digi-with-carbon-core-guard/",
+      "https://www.g-central.com/specs/g-shock-ga-2100/",
+      "https://en.wikipedia.org/wiki/G-Shock"
+    ]
+  }
+}

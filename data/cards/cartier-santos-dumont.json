@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "cartier-santos-dumont",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WSSA0022",
+    "name": "Santos-Dumont",
+    "nickname": null,
+    "collection": "Santos",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "quartz", "type": "quartz" },
+    "case": { "diameter_mm": 43.5, "material": "stainless steel", "bezel": "no bezel — thin polished steel case with exposed screws" },
+    "one_liner": "The direct descendant of Cartier's original 1904 Santos design — thinner and more rectangular than the sportier automatic Santos de Cartier."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Santos-Dumont keeps closer to the proportions of the 1904 original than the automatic Santos de Cartier does: a thinner rectangular case, a smaller footprint, and — on most current references — a quartz movement rather than automatic, which lets Cartier keep the case slim in the way the early design was. It exists in the current catalog specifically to preserve the historical proportions that the sportier Santos de Cartier deliberately moved away from in its 2018 relaunch.",
+    "collector_notes": "Santos-Dumont references split between quartz and manual-wind mechanical movements, and between fixed and interchangeable straps across sub-references; confirm movement type specifically, since 'Santos-Dumont' alone does not specify it.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

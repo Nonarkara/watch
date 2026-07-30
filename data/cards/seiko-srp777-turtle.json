@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "seiko-srp777-turtle",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SRP777",
+    "name": "Prospex Turtle",
+    "nickname": "Turtle",
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": { "start_year": 2016, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "4R36", "type": "automatic" },
+    "case": { "diameter_mm": 44.3, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "A revival of Seiko's 1976 cushion-cased dive watch, discontinued around 2021 and replaced by the near-identical SRPE93."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2017, "price_usd": 371.25, "source_url": "https://www.60clicks.com/seiko-srp777-turtle-review/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SRP777 revived Seiko's 1976 'Turtle' dive watch case — a cushion-shaped, asymmetric profile named for its resemblance to a turtle shell — running caliber 4R36 in a black-dialed, 44.3mm case. Seiko released it in early 2016 as part of the modern Prospex relaunch and discontinued it around 2021, replacing it with the near-identical SRPE93, whose main change was updating the caseback text from 'air diver's' to 'diver's watch' to meet ISO water-resistance labeling standards.",
+    "collector_notes": "Functionally identical to its SRPE93 successor apart from caseback wording; choosing between a used SRP777 and a new SRPE93 mostly comes down to price and condition rather than spec differences.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.exquisitetimepieces.com/blog/srp777-vs-srpe93/",
+      "https://www.60clicks.com/seiko-srp777-turtle-review/"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "jlc-polaris-date",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q9068180",
+    "name": "Polaris Date",
+    "nickname": null,
+    "collection": "Polaris",
+    "tier": "haute",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "899", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "fixed steel bezel with dive-style minute track" },
+    "one_liner": "A dive-styled sports watch reviving JLC's 1960s Polaris case language without carrying over the original alarm complication."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Jaeger-LeCoultre revived the Polaris name for a modern sports collection in 2018, drawing on the case shape and inner-ring dial layout of the 1965 Memovox Polaris — a dive/alarm watch built with a patented triple caseback designed to transmit the alarm's sound underwater. The Polaris Date keeps the vintage silhouette and rotating inner chapter ring but drops the alarm mechanism entirely, making it a more straightforward everyday sports watch than its 1960s ancestor.",
+    "collector_notes": "The inner rotating ring is friction-set and can develop play over years of use; check that it turns smoothly in both directions and holds its position before buying used.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Jaeger-LeCoultre"]
+  }
+}

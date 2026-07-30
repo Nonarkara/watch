@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "mbf-lm101",
+  "identity": {
+    "brand": "MB&F",
+    "reference": "LM101",
+    "name": "Legacy Machine 101",
+    "nickname": "LM101",
+    "collection": "Legacy Machine",
+    "tier": "haute",
+    "produced": { "start_year": 2014, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "LM101", "type": "manual" },
+    "case": { "diameter_mm": 40, "material": "18k red gold or white gold", "bezel": "polished, matching case metal" },
+    "one_liner": "MB&F's most accessible Legacy Machine, built around a single oversized balance wheel raised above the dial on its own bridge rather than the twin-balance layout of the earlier LM1 and LM2."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "MB&F built its reputation on the more overtly mechanical, twin-balance-wheel Legacy Machine 1 and 2 before releasing LM101 in 2014 as a single-complication, single-balance simplification of the same visual language: a large balance wheel suspended on an arched bridge above a dial dominated by hours, minutes, and a power-reserve indicator. Max Büsser founded MB&F in 2005 after leaving executive roles at Jaeger-LeCoultre and Harry Winston, describing the company as a horological research lab rather than a conventional manufacture; LM101 was the model that made that lab's output ownable at a lower entry point than the rest of the Legacy Machine line.",
+    "collector_notes": "The movement was co-developed with independent watchmaker Kari Voutilainen, and finishing quality on early production runs is a frequent point of comparison collectors make against Voutilainen's own eponymous watches.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.mbandf.com"
+    ]
+  }
+}

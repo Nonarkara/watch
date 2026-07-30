@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "iwc-ingenieur-iw3289",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW328901",
+    "name": "Ingenieur Automatic 40",
+    "nickname": null,
+    "collection": "Ingenieur",
+    "tier": "core",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "32111", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "screw-down steel bezel with five recesses, integrated bracelet" },
+    "one_liner": "IWC's 2023 relaunch of the Ingenieur, reviving Gérald Genta's 1976 integrated-bracelet design rather than continuing the line's more recent round-bezel generations."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "IWC launched the Ingenieur in 1955 as reference 666, an anti-magnetic watch built for engineers and professionals working near electrical equipment. In 1976, designer Gérald Genta reworked it into the Ingenieur SL reference 1832 — a 40mm case nicknamed 'Jumbo' for its size at the time, with an integrated bracelet, a screw-down bezel with five visible recesses, rubber shock buffers, and a soft-iron inner case for magnetic shielding. Genta designed the SL the same year as the Patek Philippe Nautilus and six years after his Audemars Piguet Royal Oak — three integrated-bracelet steel sports watches from one designer within a single decade. IWC's 2023 Ingenieur Automatic 40 revives the SL's five-recess bezel and integrated-bracelet silhouette directly, after several intervening Ingenieur generations had moved toward more conventional round cases.",
+    "collector_notes": "Compare the new Ingenieur's bezel recess count and bracelet link shape directly against the 1976 SL if homage accuracy matters to you — IWC marketed this relaunch explicitly on faithfulness to the Genta original, so deviations are more collector-relevant here than on a line without that direct lineage claim.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/G%C3%A9rald_Genta", "https://en.wikipedia.org/wiki/IWC_Schaffhausen"]
+  }
+}

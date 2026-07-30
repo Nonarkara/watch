@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "richardmille-rm011",
+  "identity": {
+    "brand": "Richard Mille",
+    "reference": "RM 011",
+    "name": "RM 011 Automatic Flyback Chronograph Felipe Massa",
+    "nickname": null,
+    "collection": "RM 011",
+    "tier": "haute",
+    "produced": { "start_year": 2007, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "RMAC1", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 50, "material": "titanium (also produced in gold, ceramic, and carbon composites)", "bezel": "curved, matching case material" },
+    "one_liner": "A skeletonized automatic flyback chronograph with annual calendar, developed with then-Ferrari driver Felipe Massa and produced across a long-running series of material and color variants since 2007."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The RM 011 partnered Richard Mille with Felipe Massa, then racing for Ferrari, applying the brand's tonneau-case architecture to a chronograph rather than the tourbillons that had defined the marque's early output. The skeletonized dial and variable-geometry rotor were shown openly rather than hidden, which became a recognizable house signature across the RM catalog. The line has continued in numerous case materials and dial colorways well beyond its 2007 debut.",
+    "collector_notes": "Case material drives most of the price variance across RM 011 examples: titanium and ceramic versions trade well below gold, carbon composite, or limited color editions such as the Orange Storm. Buyers confirm the exact sub-reference against the movement serial before assuming a listing photo matches the described material.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.richardmille.com/historical-models/rm-011-automatic-chronograph-felipe-massa"
+    ]
+  }
+}

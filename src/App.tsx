@@ -6,11 +6,11 @@ const DataContext = createContext<Dataset | null>(null)
 export const useDataset = () => useContext(DataContext)
 
 const NAV = [
-  { to: '/', label: 'Register' },
+  { to: '/', label: 'Home' },
+  { to: '/register', label: 'Register' },
+  { to: '/discover', label: 'Discover' },
+  { to: '/rehome', label: 'Rehome' },
   { to: '/compare', label: 'Compare' },
-  { to: '/starter', label: 'Starter Paths' },
-  { to: '/methodology', label: 'Methodology' },
-  { to: '/paper', label: 'Paper' },
 ]
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark">
             <span className="wm-main">THE WATCH REGISTER</span>
-            <span className="wm-sub mono">COLLECTIBLE WATCH INTELLIGENCE · WATCH.NONARKARA.ORG</span>
+            <span className="wm-sub mono">OBJECTS · STORIES · MARKET SIGNALS · WATCH.NONARKARA.ORG</span>
           </NavLink>
           <nav className="nav">
             {NAV.map((n) => (
@@ -57,6 +57,11 @@ export default function App() {
             Every number on this site traces to a cited public source or is computed from cited evidence — the
             methodology page shows how, including what we refuse to estimate. No affiliation with any watch brand.
             Prices are evidence, not financial advice. A Dr Non system.
+          </p>
+          <p className="micro mono ftr-links">
+            <NavLink to="/starter">STARTER PATHS</NavLink>
+            <NavLink to="/methodology">METHODOLOGY</NavLink>
+            <NavLink to="/paper">WORKING PAPER</NavLink>
           </p>
         </div>
       </footer>

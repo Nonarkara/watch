@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "debethune-db28",
+  "identity": {
+    "brand": "De Bethune",
+    "reference": "DB28",
+    "name": "DB28",
+    "nickname": null,
+    "collection": "DB28",
+    "tier": "haute",
+    "produced": { "start_year": 2011, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "DB2115", "type": "manual" },
+    "case": { "diameter_mm": 42, "material": "titanium", "bezel": "polished titanium, floating lug construction" },
+    "one_liner": "De Bethune's signature case, suspended from lugs that pivot independently to follow the wrist rather than sitting fixed against it."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The DB28, introduced in 2011, built De Bethune's floating-lug construction into its own model line rather than as a one-off case detail: the lugs pivot independently on their own bearings so the case follows the curve of the wrist instead of forcing the wrist to conform to a fixed lug angle. De Bethune, founded by Denis Flageollet and David Zanetta in 2002, had already established a reputation for titanium case work and hand-finished polished blued surfaces before DB28 became the collection most associated with the brand.",
+    "collector_notes": "Case material variants (titanium, zirconium, and mixed titanium-platinum) affect both weight and price meaningfully; collectors also check the mirror-polished, hand-finished bridges for the specific heat-blued treatment De Bethune developed in-house, since it ages and reflects differently from standard bluing.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://everywatch.com/de-bethune"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "breitling-chronomat-b01-42",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "AB0134",
+    "name": "Chronomat B01 42",
+    "nickname": null,
+    "collection": "Chronomat",
+    "tier": "core",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "B01", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "unidirectional ratcheted bezel with rider tabs" },
+    "one_liner": "The 42mm steel core of Breitling's rider-tab chronograph line, redesigned in 2020 around the in-house B01 movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 9550, "source_url": "https://www.breitling.com/us-en/watches/chronomat/chronomat-b01-42/AB0134101B1A1/" }
+    ],
+    "current_msrp_usd": 9550
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Chronomat was introduced in 1984, based on a chronograph Breitling developed a year earlier for the Frecce Tricolori, the Italian Air Force's aerobatic display team, giving the model its signature rider-tab bezel and rouleaux bracelet. Breitling redesigned the case in 2020, sharpening its lines and standardizing the range on the in-house B01 chronograph movement.",
+    "collector_notes": "The rouleaux bracelet's fitted-link construction makes sizing less forgiving than a standard oyster-style bracelet; check link count and micro-adjustment before buying pre-owned.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/chronomat/chronomat-b01-42/AB0134101B1A1/"
+    ]
+  }
+}

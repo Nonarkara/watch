@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "lange-1815-chronograph-414-028",
+  "identity": {
+    "brand": "A. Lange & Söhne",
+    "reference": "414.028",
+    "name": "1815 Chronograph",
+    "nickname": null,
+    "collection": "1815",
+    "tier": "haute",
+    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "L951.5", "type": "manual chronograph" },
+    "case": { "diameter_mm": 39.5, "material": "18k white gold", "bezel": "polished white gold" },
+    "one_liner": "A flyback column-wheel chronograph built on the same movement architecture as the Datograph, fitted into a smaller, date-free case with a pulsometer scale."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": 82200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 1815 Chronograph borrows the Datograph's hand-wound, column-wheel flyback movement but drops the date display, which lets the case sit 1.5mm thinner than its sibling. This reference, released in 2017, pairs a solid-silver black dial with white Arabic numerals and a pulsometer scale ringing the edge, a period detail for reading pulse rate over thirty beats.",
+    "collector_notes": "The pulsometer scale and Arabic numeral set are specific to this dial variant; other 1815 Chronograph references use tachymeter scales or Roman numerals, so collectors match the exact reference number to the dial before assuming interchangeability.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.europeanwatch.com/blog/a-lange-sohne-1815-chronograph-ref-414-028-review",
+      "https://watchcharts.com/watch_model/12430-a-lange-sohne-1815-chronograph-414-028/overview"
+    ]
+  }
+}

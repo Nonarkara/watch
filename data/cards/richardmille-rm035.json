@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "richardmille-rm035",
+  "identity": {
+    "brand": "Richard Mille",
+    "reference": "RM 035",
+    "name": "RM 035 Rafael Nadal",
+    "nickname": null,
+    "collection": "RM 035",
+    "tier": "haute",
+    "produced": { "start_year": 2011, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "RM035", "type": "manual" },
+    "case": { "diameter_mm": 42.7, "material": "aluminum-magnesium-copper alloy or titanium", "bezel": "tonneau, matching case material" },
+    "one_liner": "A daily-wear complement to the ultralight RM 027 tourbillon Nadal wore in competition, built to Richard Mille's Chronofiable durability certification."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The RM 035 arrived in 2011 as part of Richard Mille's expanding Rafael Nadal line, positioned as a more wearable everyday counterpart to the extreme, ultralight RM 027 tourbillon Nadal wore during matches. It was the first Richard Mille model to carry the brand's Chronofiable certification, a durability standard developed to validate the watch under the shocks and torque of competitive tennis rather than typical wear.",
+    "collector_notes": "Later automatic variants, including the RM 35-03 with a butterfly rotor, are mechanically distinct from the original manual-wind RM 035; collectors match caliber and case reference together rather than assuming continuity across the Nadal RM 035 lineage.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.richardmille.com"
+    ]
+  }
+}

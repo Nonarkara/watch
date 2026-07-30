@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "cartier-crash",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WGCH0006",
+    "name": "Crash",
+    "nickname": "the melted watch",
+    "collection": "Crash",
+    "tier": "core",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "9618 MC", "type": "manual" },
+    "case": { "diameter_mm": 43.35, "material": "platinum", "bezel": "no bezel — asymmetric melted-form case" },
+    "one_liner": "The asymmetric 'melted watch' case that has become one of Cartier's most pursued auction lots, produced only in small, irregular batches rather than continuous production."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Jean-Jacques Cartier designed the Crash in 1967 at Cartier's London workshop, giving the case an asymmetric, distorted form that departed entirely from Cartier's usual rectangular and round vocabulary. Cartier has never put the Crash into continuous production; it has instead appeared in small, irregular batches and limited series across the decades since, which — combined with genuine rarity relative to demand from Tank and Santos buyers — has made it one of the most actively pursued Cartier references at auction, particularly among collectors in Hong Kong and Japan.",
+    "collector_notes": "The Crash is not one stable reference — case material, dial layout, and movement have varied across the 1967 original and later runs, so treat any 'Crash' listing as its own specific variant rather than assuming a universal spec or price level.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

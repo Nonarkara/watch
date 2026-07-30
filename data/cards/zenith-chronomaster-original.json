@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "zenith-chronomaster-original",
+  "identity": {
+    "brand": "Zenith",
+    "reference": "03.3200.3600",
+    "name": "Chronomaster Original",
+    "nickname": null,
+    "collection": "Chronomaster",
+    "tier": "haute",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "El Primero 3600", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "fixed steel tachymeter bezel" },
+    "one_liner": "A closer reissue of the 1969 El Primero case and dial proportions than the sportier Chronomaster Sport, kept at the original 38mm diameter."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Where the Chronomaster Sport updates the El Primero chronograph for a modern steel-sports look, the Chronomaster Original stays closer to the case and dial proportions of the earliest El Primero chronographs from 1969, including the smaller 38mm case diameter and the tricolor sub-dial treatment associated with references like the A384 and A385.",
+    "collector_notes": "Compare dial color and sub-dial combination carefully — Zenith has issued the Chronomaster Original in several tricolor variants that reference different vintage dials, so confirm which specific historical reference a given modern piece is drawing from.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

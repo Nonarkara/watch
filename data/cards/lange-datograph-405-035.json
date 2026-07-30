@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "lange-datograph-405-035",
+  "identity": {
+    "brand": "A. Lange & Söhne",
+    "reference": "405.035",
+    "name": "Datograph Up/Down",
+    "nickname": null,
+    "collection": "Datograph",
+    "tier": "haute",
+    "produced": { "start_year": 2012, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "L951.6", "type": "manual chronograph" },
+    "case": { "diameter_mm": 41, "material": "950 platinum", "bezel": "polished platinum" },
+    "one_liner": "The 2012 update to the original 1999 Datograph, adding a power-reserve display to the flyback chronograph movement collectors already rated among the finest column-wheel calibers made."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": 106100
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The original 1999 Datograph put Lange's in-house L951.1 column-wheel flyback chronograph on the map, hand-finished to a standard most chronograph houses reserved for time-only movements. The Up/Down update shown here, introduced at SIHH 2012, adds a power-reserve indicator alongside the running minute counter, giving the L951.6 a longer 60-hour reserve without changing the case proportions that made the original legible and symmetrical.",
+    "collector_notes": "Collectors check the jumping minute counter for a clean, instantaneous snap rather than a lagging creep, since the snail cam that drives it is a known service point. The black dial with white gold in this reference reads flatter under bright light than the silver dial versions; both are original factory options, not a later swap.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.prestigetime.com/item/A-Lange-Sohne/Datograph-Up-Down-41mm/405.035.html",
+      "https://langepedia.com/a-lange-sohne-datograph-guide/"
+    ]
+  }
+}

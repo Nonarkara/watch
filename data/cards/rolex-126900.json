@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126900",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126900",
+    "name": "Air-King",
+    "nickname": null,
+    "collection": "Air-King",
+    "tier": "crown",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3230", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "smooth steel" },
+    "one_liner": "The Air-King as redesigned in 2022: crown guards, 40mm, caliber 3230, and a corrected minute scale."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2022 Air-King kept the black dial with large 3-6-9 and the prominent minute scale derived from the cockpit instruments Rolex built for the Bloodhound land-speed project, but rebuilt the case with crown guards and straight sides, added a '0' before the 5, and fitted the 3230. It remains the odd one out in the professional lineup — a pilot's dial in a sports case — and one of the easier current models to buy at retail.",
+    "collector_notes": "Crown guards and the '05' minute numeral distinguish it from the 2016-2022 116900 at a glance. Retail availability keeps grey premiums minimal.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

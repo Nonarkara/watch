@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-5396g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5396G",
+    "name": "Annual Calendar",
+    "nickname": null,
+    "collection": "Complications",
+    "tier": "trinity",
+    "produced": { "start_year": 2006, "end_year": 2024, "discontinued": true },
+    "movement": { "caliber": "324 S QA LU 24H", "type": "automatic" },
+    "case": { "diameter_mm": 38.5, "material": "white gold", "bezel": "polished, thin" },
+    "one_liner": "Patek's annual calendar in its most classical dress — twin apertures, moonphase, 38.5mm Calatrava-style case."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The annual calendar is Patek's own 1996 invention — a calendar that only needs correcting each March — and the 5396 of 2006 put it in the most restrained package the complication has had: twin day-month apertures under 12, analog date around the moonphase at 6, a 24-hour indicator, all in a 38.5mm case. White gold variants ran through dial generations (baton, Breguet numeral, blue sunburst) until the reference wound down in 2024.",
+    "collector_notes": "Aperture alignment and crisp date-hand centering are the service tells. The 5396 trades well under the sports references, which makes it the value route into a complicated modern Patek.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

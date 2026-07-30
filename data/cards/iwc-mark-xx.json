@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "iwc-mark-xx",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW328201",
+    "name": "Pilot's Watch Mark XX",
+    "nickname": null,
+    "collection": "Pilot's Watch Mark",
+    "tier": "core",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "32111", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "no bezel — fixed black dial, soft-iron inner case for anti-magnetic protection" },
+    "one_liner": "The current generation of IWC's Royal Air Force-derived pilot's watch line, tracing its design directly to the 1948 Mark 11."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "IWC's Mark line began with the Mark 11 in 1948, a tool watch built for the Royal Air Force with a soft-iron inner case for anti-magnetic protection and the manually wound Caliber 89 with hacking seconds — features the RAF needed for navigation work around aircraft electronics. The Mark XX, introduced in 2022 as the successor to the Mark XVIII, keeps that same functional formula (black dial, anti-magnetic inner case, minimal complications) updated with IWC's current in-house automatic movement.",
+    "collector_notes": "Dial print and case finishing changed subtly between the Mark XVIII and Mark XX; compare the two side by side before buying, and check whether a used listing is genuinely new-old-stock Mark XVIII sold at a discount to the current model.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/IWC_Schaffhausen"]
+  }
+}

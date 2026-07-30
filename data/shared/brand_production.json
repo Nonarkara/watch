@@ -1,4 +1,6 @@
 {
   "_note": "Brand-level annual production estimates, sourced. Feeds only the brand_tightness signal (0-15) of the Scarcity Index; missing brands renormalize honestly.",
-  "rolex": { "annual_units": 1100000, "year": 2025, "source_url": "https://monochrome-watches.com/industry-new-morgan-stanley-top-50-watch-brands-for-2025-rolex-still-leading-the-pack-strong-polarization-of-the-market/" }
+  "rolex": { "annual_units": 1100000, "year": 2025, "source_url": "https://monochrome-watches.com/industry-new-morgan-stanley-top-50-watch-brands-for-2025-rolex-still-leading-the-pack-strong-polarization-of-the-market/" },
+  "patek philippe": { "annual_units": 72000, "year": 2025, "source_url": "https://thehourmarkers.com/articles/morgan-stanley-luxeconsult-ninth-annual-swiss-watcher-2025" },
+  "audemars piguet": { "annual_units": 53000, "year": 2025, "source_url": "https://www.loupe.watch/watch-guides/morgan-stanley-watch-report-2025" }
 }

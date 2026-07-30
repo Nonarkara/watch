@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "cartier-tank-louis",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WGTA0011",
+    "name": "Tank Louis Cartier",
+    "nickname": null,
+    "collection": "Tank",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "430 MC", "type": "manual" },
+    "case": { "diameter_mm": 29.5, "material": "18K yellow gold", "bezel": "no bezel — polished gold case, sapphire cabochon crown" },
+    "one_liner": "The rounded-corner Tank variant that has stood as Cartier's benchmark mechanical dress watch since the 1920s, built almost exclusively in gold rather than steel."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Louis Cartier designed the original Tank in 1917, reportedly taking the case's parallel side bars from the aerial silhouette of Renault FT tanks he had seen described from the Western Front; a prototype went to American General John J. Pershing, and Cartier began full production in 1919 with six pieces. The rounded-corner Tank Louis Cartier variant followed in the 1920s and has remained the brand's reference mechanical dress watch since. Kennedy family estate sales have included Jacqueline Kennedy's own Cartier Tank, which drew bidding well above typical resale prices for the reference — provenance value rather than the watch's baseline market price.",
+    "collector_notes": "Tank Louis Cartier sizes and movement generations have changed repeatedly since the 1920s; confirm case dimensions and movement caliber against the specific reference rather than assuming the name alone fixes one spec.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Cartier_Tank"]
+  }
+}

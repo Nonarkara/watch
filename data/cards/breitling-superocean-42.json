@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "breitling-superocean-42",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "A17375",
+    "name": "Superocean Automatic 42",
+    "nickname": null,
+    "collection": "Superocean",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Caliber 17", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "unidirectional ratcheted ceramic-inlay dive bezel" },
+    "one_liner": "The 300m-rated steel diver in Breitling's Superocean line, built around the time-only Caliber 17."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 5900, "source_url": "https://www.breitling.com/us-en/watches/superocean/superocean-automatic-42-my22/A17375E71G1A1/" }
+    ],
+    "current_msrp_usd": 5900
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Superocean name dates to Breitling's 1957 SuperOcean, developed alongside contemporary Rolex and Blancpain dive watches for the first wave of civilian scuba diving. The current Superocean Automatic 42, redesigned in 2019, is the collection's no-frills tool diver — a time-only complement to the heritage-styled Superocean Heritage '57.",
+    "collector_notes": "The unidirectional bezel and 300m rating are the functional core of this reference; dial colorways vary by market and retailer allocation.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/superocean/superocean-automatic-42-my22/A17375E71G1A1/"
+    ]
+  }
+}

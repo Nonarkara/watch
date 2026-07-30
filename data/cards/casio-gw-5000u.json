@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "casio-gw-5000u",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GW-5000U-1",
+    "name": "G-Shock GW-5000U",
+    "nickname": null,
+    "collection": "5000/5600 Origin Series",
+    "tier": "attainable",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Module 3495, Tough Solar quartz with Multi-Band 6", "type": "solar quartz" },
+    "case": { "diameter_mm": 42.8, "material": "stainless steel", "bezel": "DLC-coated stainless steel screw-back, mirror-polished caseback" },
+    "one_liner": "Casio's Japan-made premium square: a stainless screw-back case with Tough Solar power and Multi-Band 6 radio sync, built to a tighter finish than the resin DW-5600."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2021, "price_usd": 330, "source_url": "https://www.g-central.com/specs/g-shock-gw-5000u/" }
+    ],
+    "current_msrp_usd": 330
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The GW-5000U updates Casio's Japan-built metal square with a revised module (3495) that adds an LED backlight and an adjustable date format over the earlier GW-5000, while keeping the full stainless screw-back case, DLC coating, mirror-polished caseback, Tough Solar power, and Multi-Band 6 radio sync. It sits between the resin DW-5600 and the titanium MRG-B5000 as the metal-cased square built for daily wear rather than dress-watch presentation.",
+    "collector_notes": "Made in Japan, unlike most G-Shock resin squares assembled elsewhere; collectors treat the screw-back stainless case and DLC caseback as the marker that separates it from cheaper metal-look squares.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.g-central.com/specs/g-shock-gw-5000u/"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "patek-5167a",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5167A-001",
+    "name": "Aquanaut",
+    "nickname": null,
+    "collection": "Aquanaut",
+    "tier": "trinity",
+    "produced": { "start_year": 2007, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "26-330 S C", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, embossed dial pattern" },
+    "one_liner": "The 40mm steel Aquanaut on its Tropical composite strap — the last accessible door into Patek steel sports."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2025, "price_usd": 29875, "source_url": "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/" }
+    ],
+    "current_msrp_usd": 29875
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2025-06", "price_usd": 146050, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/217145", "condition": "Tiffany & Co.-signed dial, virtually new", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Aquanaut launched in 1997 as the young, rubber-strapped answer to the Nautilus; the 5167A of 2007 fixed the format at 40mm and became the modern reference point. Embossed grenade-pattern dial, matching Tropical composite strap, caliber 324 S C then 26-330 S C. After the 5711 died, the 5167A absorbed much of the steel-Patek demand; the bracelet version 5167/1A was discontinued, leaving the strap model as the remaining steel Aquanaut time-and-date.",
+    "collector_notes": "Straps age and are a real recurring cost — original Patek replacements only, and the fitted ends date the watch. Note the caliber generation on the certificate, and be aware that retailer-signed dials (the Phillips Tiffany result) trade in a separate universe from standard examples.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/",
+      "https://www.phillips.com/detail/patek-philippe/217145",
+      "https://watchcharts.com/watch_model/22557-patek-philippe-aquanaut-5167-stainless-steel-5167a/overview"
+    ]
+  }
+}

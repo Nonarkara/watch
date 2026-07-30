@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "cartier-tank-cintree",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WGTA0084",
+    "name": "Tank Cintrée",
+    "nickname": null,
+    "collection": "Tank",
+    "tier": "core",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "9755 MC", "type": "manual" },
+    "case": { "diameter_mm": 46.3, "material": "18K rose gold", "bezel": "no bezel — curved rectangular case following the wrist" },
+    "one_liner": "The elongated, curved Tank variant built to follow the wrist rather than sit flat against it, revived for the Tank's 2021 centenary."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Louis Cartier's workshop introduced the Tank Cintrée not long after the original 1919 Tank, stretching the rectangular case and curving it lengthwise so it follows the wrist instead of sitting flat — a more pronounced version of the curved-case idea Cartier had already used elsewhere in its Art Deco output. Cartier revived the Tank Cintrée for the Tank's 2021 centenary, marking one hundred years since the six original 1919 pieces went into production.",
+    "collector_notes": "The curved case makes strap replacement more specialized than on a flat-cased Tank; confirm any replacement strap is cut for the Cintrée's curvature, which a generic Tank strap will not match.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Cartier_Tank"]
+  }
+}

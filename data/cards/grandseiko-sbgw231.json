@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "grandseiko-sbgw231",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGW231",
+    "name": "Elegance Collection",
+    "nickname": null,
+    "collection": "Elegance Collection",
+    "tier": "core",
+    "produced": { "start_year": 2017, "end_year": 2023, "discontinued": true },
+    "movement": { "caliber": "9S64", "type": "manual" },
+    "case": { "diameter_mm": 37.3, "material": "stainless steel", "bezel": "none — Zaratsu-polished dress case" },
+    "one_liner": "A small manual-wind dress watch with a cream dial and box-shaped sapphire crystal, discontinued and replaced by the near-identical SBGW301."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2022, "price_usd": 4300, "source_url": "https://monochrome-watches.com/grand-seiko-sbgw231-review-the-battle-of-elegant-time-only-watches-part-2-price/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SBGW231 is a compact manual-wind dress watch built on caliber 9S64, with a 72-hour power reserve and a cream dial under a box-shaped, AR-coated sapphire crystal. At 37.3mm it sits closer to mid-century dress-watch proportions than most of Grand Seiko's current catalog. Grand Seiko discontinued the reference and replaced it with the near-identical SBGW301.",
+    "collector_notes": "Now discontinued, so buyers are working from remaining retailer stock or the secondary market; the successor SBGW301 carries essentially the same case and movement, so comparing the two before buying is worthwhile.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/grand-seiko-sbgw231-review-the-battle-of-elegant-time-only-watches-part-2-price/"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "moser-pioneer-centre-seconds",
+  "identity": {
+    "brand": "H. Moser & Cie",
+    "reference": "3200-1200",
+    "name": "Pioneer Centre Seconds",
+    "nickname": null,
+    "collection": "Pioneer",
+    "tier": "haute",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "HMC 200", "type": "automatic" },
+    "case": { "diameter_mm": 42.8, "material": "stainless steel", "bezel": "brushed steel, screw-down crown guard" },
+    "one_liner": "Moser's steel sports-adjacent dress watch, water resistant to 120 meters, built on the same fumé-dial language as the Endeavour line in a more robust, screw-crown case."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Pioneer collection extended H. Moser's fumé-dial dress-watch language into a steel case built for daily wear, with a screw-down crown and 120 meters of water resistance well beyond the brand's typically dressier Endeavour and Venturer lines. The centre-seconds hand and automatic HMC 200 movement carry over from Moser's core catalog, so the shift from Endeavour to Pioneer is a case and use-case change rather than a movement change.",
+    "collector_notes": "Dial color drives the collector market for Pioneer Centre Seconds far more than case finish; the Midnight Blue fumé of the original 3200-1200 remains the reference point buyers compare later colorways against.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.h-moser.com"
+    ]
+  }
+}

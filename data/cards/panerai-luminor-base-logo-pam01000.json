@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "panerai-luminor-base-logo-pam01000",
+  "identity": {
+    "brand": "Panerai",
+    "reference": "PAM01000",
+    "name": "Luminor Base Logo",
+    "nickname": null,
+    "collection": "Luminor Base",
+    "tier": "core",
+    "produced": { "start_year": 2016, "end_year": 2018, "discontinued": true },
+    "movement": { "caliber": "OP I", "type": "manual" },
+    "case": { "diameter_mm": 44, "material": "stainless steel", "bezel": "fixed smooth bezel" },
+    "one_liner": "Panerai's discontinued entry-level manual-wind Luminor, 44mm steel with the brand's vintage 'OP' logo dial, produced 2016-2018."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2018, "price_usd": 5900, "source_url": "https://www.prestigetime.com/Panerai-Luminor-Base-Logo-44mm-pam01000.html" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Luminor Base Logo was Panerai's accessible manual-wind model, pairing the 44mm Luminor case with a simple three-hand dial carrying the brand's vintage Officine Panerai 'Up/Down' logo. Panerai discontinued PAM01000 in 2018, succeeding it with reference PAM01086.",
+    "collector_notes": "As a hand-wound piece, check winding feel and power reserve against a known-good reference; verify the caseback engraving matches a genuine 2016-2018 production batch, since it has been out of catalog for several years.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://panerai.watchlounge.com/watches/pam01000-luminor-base-logo-snapback/",
+      "https://www.prestigetime.com/Panerai-Luminor-Base-Logo-44mm-pam01000.html"
+    ]
+  }
+}

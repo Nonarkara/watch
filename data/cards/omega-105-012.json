@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "omega-105-012",
+  "identity": {
+    "brand": "Omega",
+    "reference": "105.012",
+    "name": "Speedmaster Professional",
+    "nickname": "Pre-Moon",
+    "collection": "Speedmaster",
+    "tier": "core",
+    "produced": { "start_year": 1964, "end_year": 1968, "discontinued": true },
+    "movement": { "caliber": "321", "type": "manual chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "black aluminum tachymeter bezel" },
+    "one_liner": "The asymmetric-case, twisted-lug reference NASA qualified for spaceflight in 1965 and the exact configuration Buzz Aldrin wore outside his spacesuit on the Apollo 11 moonwalk."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "1969-07-21",
+      "person_or_event": "Apollo 11 moonwalk",
+      "description": "Buzz Aldrin wore his Speedmaster 105.012 strapped over his spacesuit cuff during the Apollo 11 lunar EVA, making it the first watch worn on the Moon. Neil Armstrong left his own 105.012 inside the Lunar Module as a backup timer after the LM's own clock had failed testing, so his watch never went outside on this mission.",
+      "source_url": "https://www.sothebys.com/en/buy/auction/2019/omega-speedmaster-to-the-moon-and-back/omega-speedmaster-ref-105-012-65-buzz-aldrin-a"
+    }
+  ],
+  "narrative": {
+    "story": "Introduced in 1964, the 105.012 was the first Speedmaster to carry the asymmetric case with crown guards, twisted lugs, and the 'Professional' designation — the case shape still used on the Moonwatch today. It is the exact reference configuration that passed NASA's 1965 qualification testing for extravehicular use on caliber 321. Aldrin's own 105.012, worn on the lunar surface in July 1969, was shipped to the Smithsonian in the early 1970s and went missing in transit; it has never been recovered, making it one of the most valuable unlocated objects in watch collecting.",
+    "collector_notes": "Confirm caliber 321, not the later 861 that arrived with the visually similar 145.012 in 1968, check dial and hand execution against known period variants, and treat any redial or relumed hands as a material condition issue given how heavily surviving examples have been serviced over sixty years.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.sothebys.com/en/buy/auction/2019/omega-speedmaster-to-the-moon-and-back/omega-speedmaster-ref-105-012-65-buzz-aldrin-a",
+      "https://ottuhr.com/watch-index/omega-speedmaster-105-012/",
+      "https://www.collectspace.com/news/news-101303a-buzz-aldrin-apollo-11-omega-speedmaster-missing-lawsuit.html",
+      "https://en.wikipedia.org/wiki/Omega_Speedmaster"
+    ]
+  }
+}

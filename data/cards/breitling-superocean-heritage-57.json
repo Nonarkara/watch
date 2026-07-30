@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "breitling-superocean-heritage-57",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "A10370",
+    "name": "Superocean Heritage '57",
+    "nickname": null,
+    "collection": "Superocean Heritage",
+    "tier": "core",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Breitling 10", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "concave bidirectional ceramic dive bezel" },
+    "one_liner": "Breitling's April 2020 capsule revival of the 1957 SuperOcean, offered in 42mm steel with a concave ceramic bezel."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 5250, "source_url": "https://www.breitling.com/us-en/watches/superocean-heritage/superocean-heritage-57-42mm/A10370161C1X1/" }
+    ],
+    "current_msrp_usd": 5250
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-04",
+      "person_or_event": "Superocean Heritage '57 Capsule Collection launch",
+      "description": "Breitling launches the Superocean Heritage '57 as a fashion-industry-style \"capsule collection\" — limited-time rather than limited-number — reviving the case proportions of the 1957 SuperOcean, including a 250-piece rainbow-marker colorway within the release.",
+      "source_url": "https://monochrome-watches.com/breitling-superocean-heritage-57-capsule-collection-introducing-price/"
+    }
+  ],
+  "narrative": {
+    "story": "The Superocean Heritage '57 revives the case proportions of Breitling's original 1957 SuperOcean dive watch. Breitling framed the April 2020 relaunch explicitly as a \"capsule collection\" — a limited-time release rather than a numbered limited edition — pairing 1950s dial and bezel styling with the automatic Caliber 10 movement.",
+    "collector_notes": "The 2020 capsule included a 250-piece rainbow-hour-marker colorway on a distinct reference suffix; confirm the exact reference and bracelet (leather vs. mesh), since pricing and availability differ meaningfully between configurations within the family.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/superocean-heritage/superocean-heritage-57-42mm/A10370161C1X1/",
+      "https://monochrome-watches.com/breitling-superocean-heritage-57-capsule-collection-introducing-price/",
+      "https://watchesbysjx.com/2020/04/breitling-superocean-heritage-57.html"
+    ]
+  }
+}

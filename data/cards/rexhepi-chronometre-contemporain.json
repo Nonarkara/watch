@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "rexhepi-chronometre-contemporain",
+  "identity": {
+    "brand": "Rexhep Rexhepi",
+    "reference": "RRCC",
+    "name": "Chronomètre Contemporain",
+    "nickname": "RRCC",
+    "collection": "Chronomètre Contemporain",
+    "tier": "haute",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "RR01", "type": "manual" },
+    "case": { "diameter_mm": 38, "material": "18k pink gold (also produced in platinum and stainless steel)", "bezel": "polished, matching case metal" },
+    "one_liner": "Rexhep Rexhepi's first watch under his own name, a hand-finished time-only piece with subsidiary seconds that established him as the reference point for the newest generation of independent watchmakers."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2023-05", "price_usd": 924000, "venue": "phillips", "url": "https://watchesbysjx.com/2023/05/rexhep-rexhepi-chronometre-contemporain-i-phillips-record-price.html", "condition": "Chronometre Contemporain I, pink gold, Phillips Hong Kong auction", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Rexhep Rexhepi trained under Patek Philippe and BNB (Vaucher's complications workshop) and briefly partnered in Akrivia before releasing the Chronomètre Contemporain in 2018 as the first watch carrying his own name on the dial. Built around a hand-finished manual movement with black-polished steel components and subsidiary seconds, the piece drew immediate comparisons to Philippe Dufour's Simplicity for its restraint and finishing quality, and within a few years of release was already appearing at major auction houses at multiples of its original retail price.",
+    "collector_notes": "Case metal (pink gold, platinum, and later stainless steel) is the primary variant collectors track; steel examples are the rarest of the three and carry the largest premium.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://watchesbysjx.com/2023/05/rexhep-rexhepi-chronometre-contemporain-i-phillips-record-price.html"
+    ]
+  }
+}

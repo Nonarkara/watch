@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-81180",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "81180",
+    "name": "Patrimony Manual-Winding",
+    "nickname": null,
+    "collection": "Patrimony",
+    "tier": "trinity",
+    "produced": { "start_year": 2004, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "1400", "type": "manual" },
+    "case": { "diameter_mm": 40, "material": "rose gold / white gold", "bezel": "knife-thin, polished" },
+    "one_liner": "Vacheron's purest dress watch — 40mm, two hands, a curved dial and the manual caliber 1400."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Patrimony line of 2004 distilled Vacheron's 1950s minimalism into a current product, and the 81180 is its center: 40mm but only 6.8mm thick, a dial that curves gently toward a razor bezel, pearl minute markers, baton hands, no seconds, no date. The Geneva Seal manual caliber 1400 fills exactly the role it should — thin, finished, invisible in use.",
+    "collector_notes": "The curved dial makes refinishing obvious under raking light, which helps authentication. This is the classic 'second watch' of sports-model collectors and trades gently below retail, making clean pre-owned examples the value entry into Geneva Seal Vacheron.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "moser-endeavour-centre-seconds",
+  "identity": {
+    "brand": "H. Moser & Cie",
+    "reference": "1200-1240",
+    "name": "Endeavour Centre Seconds Concept",
+    "nickname": null,
+    "collection": "Endeavour",
+    "tier": "haute",
+    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "HMC 200", "type": "automatic" },
+    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "brushed steel" },
+    "one_liner": "A deliberately unbranded dress watch, shown at SIHH 2016 with no logo or wordmark on a fumé dial to argue that the design should stand on its own."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "H. Moser & Cie showed the Concept version of the Endeavour Centre Seconds at SIHH 2016 with the brand's name, logo, and every printed word removed from the dial, leaving only hands over a fumé sunburst finish. The move was explicitly a statement about branding in watchmaking, made by a manufacture small enough to gamble a flagship launch on the argument that a well-made dial doesn't need a name on it to be recognized.",
+    "collector_notes": "Dial color is the primary collectible variable across Concept-line Centre Seconds pieces; because there is no branding on the dial to distinguish limited runs from standard production, buyers verify case-back engravings and documentation rather than dial text.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.h-moser.com"
+    ]
+  }
+}

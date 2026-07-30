@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "ap-15500st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "15500ST",
+    "name": "Royal Oak Selfwinding 41",
+    "nickname": null,
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 2019, "end_year": 2022, "discontinued": true },
+    "movement": { "caliber": "4302", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The 41mm Royal Oak that brought the modern caliber 4302 — a three-year reference between the 15400 and 15510."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2019, "price_usd": 19200, "source_url": "https://professionalwatches.com/introducing-the-audemars-piguet-royal-oak-15500/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 15500ST replaced the 15400 at SIHH 2019 and fixed that watch's two standing complaints: the movement (the new 4302, larger and with 70 hours of reserve, replacing the elderly 3120) and the dial (date window pushed to the edge, no frame, larger grande tapisserie pattern, applied logo). It ran only until 2022, when the 50th-anniversary 15510 refresh superseded it — a short window that has already made it a distinct collecting target.",
+    "collector_notes": "Black, blue and grey dials; the blue is the demand center. Three years of production means fewer examples than the 15400 generation — check for the 4302's correct running seconds action and screw-bezel alignment.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://professionalwatches.com/introducing-the-audemars-piguet-royal-oak-15500/"
+    ]
+  }
+}

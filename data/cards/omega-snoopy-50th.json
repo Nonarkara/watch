@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "omega-snoopy-50th",
+  "identity": {
+    "brand": "Omega",
+    "reference": "310.32.42.50.02.001",
+    "name": "Speedmaster Silver Snoopy Award 50th Anniversary",
+    "nickname": "Snoopy",
+    "collection": "Speedmaster Professional",
+    "tier": "core",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3861", "type": "manual chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "navy blue ceramic" },
+    "one_liner": "The 42mm hand-wound Speedmaster Omega released on October 5, 2020, the exact 50th anniversary of NASA's Silver Snoopy Award for the watch's role in the Apollo 13 rescue."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2020, "price_usd": 9600, "source_url": "https://www.europeanwatch.com/blog/omega-speedmaster-professional-silver-snoopy-award-50th-anniversary-310-32-42-50-02-001-review" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": "https://monochrome-watches.com/omega-speedmaster-silver-snoopy-award-50th-anniversary-31032425002001-price/" },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "1970-10-05", "person_or_event": "NASA Silver Snoopy Award to Omega", "description": "NASA presents Omega with the Silver Snoopy Award, recognizing the Speedmaster's role in calculating the critical engine burns that brought Apollo 13 home after its oxygen tank explosion.", "source_url": "https://monochrome-watches.com/history-snoopy-omega-speedmaster-apollo-13-nasa/" },
+    { "date": "2020-10-05", "person_or_event": "50th Anniversary launch", "description": "Omega introduces the Speedmaster Silver Snoopy Award 50th Anniversary on the exact 50th anniversary of the original 1970 award, positioning it as a special (not limited) ongoing model.", "source_url": "https://monochrome-watches.com/omega-speedmaster-silver-snoopy-award-50th-anniversary-31032425002001-price/" }
+  ],
+  "narrative": {
+    "story": "NASA gave Omega the Silver Snoopy Award on October 5, 1970, for the Speedmaster's part in timing the engine burns that returned the Apollo 13 crew safely to Earth after their oxygen tank exploded. Omega marked the award's 50th anniversary on the same date in 2020 with this reference: a manual-wind Caliber 3861 chronograph in a 42mm case, a solid Ag925 silver dial, a navy ceramic bezel, and a sapphire caseback where an animated Snoopy figure and rotating Earth disc move while the chronograph runs. Unlike Omega's earlier, numbered 2003 Snoopy edition, this piece was explicitly announced as a special model rather than a limited run, and has stayed in the catalog since.",
+    "collector_notes": "Confirm the caseback module still cycles correctly on a pre-owned example - the rotating Earth disc and swinging Snoopy figure are linked to the chronograph gear train and can stick if the watch sat unused for years. Because it isn't a numbered limited edition, there's no early/late production variant to chase; specification has stayed consistent since 2020.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.europeanwatch.com/blog/omega-speedmaster-professional-silver-snoopy-award-50th-anniversary-310-32-42-50-02-001-review",
+      "https://monochrome-watches.com/omega-speedmaster-silver-snoopy-award-50th-anniversary-31032425002001-price/",
+      "https://monochrome-watches.com/history-snoopy-omega-speedmaster-apollo-13-nasa/",
+      "https://www.luxurybazaar.com/product/omega-speedmaster-silver-snoopy-award-50th-anniversary-watch-310-32-42-50-02-001-2/"
+    ]
+  }
+}

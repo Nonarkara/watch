@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "tudor-pelagos-39",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "M25407N-0001",
+    "name": "Pelagos 39",
+    "nickname": null,
+    "collection": "Pelagos",
+    "tier": "crown",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5400", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "titanium", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "A 39mm titanium diver without a date window, sized down from the standard 42mm Pelagos while keeping the matte black finish, snowflake hands, and chronometer movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2025, "price_usd": 5000, "source_url": "https://professionalwatches.com/review-tudor-pelagos-39-at-maroon-bells/" }
+    ],
+    "current_msrp_usd": 5000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced in 2022, the Pelagos 39 drops the date window and shrinks the case to 39mm from the standard Pelagos's 42mm, using the same grade-2 titanium construction and MT5400 chronometer movement as the rest of the line. It targets buyers who want Pelagos build quality without the larger case.",
+    "collector_notes": "The 47mm lug-to-lug and 12mm thickness are what actually separate this from other 39-40mm divers on paper, so buyers used to a Black Bay Fifty-Eight's wrist feel should try this on before assuming the stated diameter alone tells the story.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://professionalwatches.com/review-tudor-pelagos-39-at-maroon-bells/",
+      "https://en.wikipedia.org/wiki/Tudor_Pelagos"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "zenith-a386-revival",
+  "identity": {
+    "brand": "Zenith",
+    "reference": "03.2087.400/69.C777",
+    "name": "El Primero A386 Revival",
+    "nickname": null,
+    "collection": "El Primero A386",
+    "tier": "haute",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "El Primero 400", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "fixed steel tachymeter bezel" },
+    "one_liner": "A close reissue of the 1969 A386 — the original case housing the El Primero, the movement that gave Zenith its claim to the first automatic chronograph."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "1969-01-10",
+      "person_or_event": "El Primero movement launch",
+      "description": "Zenith launches the El Primero inside the A386, described by the brand as the first high-frequency automatic chronograph movement, running at 36,000 vibrations per hour against the 18,000–21,600 vph typical of the era.",
+      "source_url": "https://en.wikipedia.org/wiki/Zenith_(watchmaker)"
+    }
+  ],
+  "narrative": {
+    "story": "The El Primero has since been credited, alongside the Heuer-Breitling-Hamilton 'Chronomatic' Caliber 11 and Seiko's Caliber 6139, as one of three roughly simultaneous claimants to the first automatic chronograph movement — a race horological histories still argue over rather than settle. During the mid-1970s quartz crisis, Zenith's then-owners ordered the El Primero's production tooling scrapped as the brand pivoted to quartz; watchmaker Charles Vermot hid the tooling and technical plans in the attic of the manufacture in Le Locle instead of destroying them. When demand for mechanical chronographs returned in the 1980s — including from Rolex, which used a modified El Primero as the base of its own Daytona movement from 1988 to 2000 — Vermot's hidden tooling let Zenith restart El Primero production rather than redesign the caliber from nothing.",
+    "collector_notes": "Compare the lume plot and dial printing closely against the specific vintage reference a given 'revival' claims to reissue — Zenith has released several A386-cased tricolor models over the years with small but collector-relevant differences in case finishing and dial text versus the actual 1969 original.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Zenith_(watchmaker)"]
+  }
+}

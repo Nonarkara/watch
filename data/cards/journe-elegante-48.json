@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "journe-elegante-48",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "Élégante 48mm",
+    "name": "Élégante",
+    "nickname": null,
+    "collection": "Élégante",
+    "tier": "haute",
+    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "1210", "type": "electromechanical" },
+    "case": { "diameter_mm": 48, "material": "titanium", "bezel": "brushed titanium, Tortue-shaped" },
+    "one_liner": "F.P. Journe's electro-mechanical movement, self-adjusting to a wearer's activity by shutting the motor down when the watch is left stationary and resetting hands the shortest path on pickup."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Élégante houses a Journe-designed electro-mechanical movement rather than a conventional quartz or automatic caliber: a motor drives the hands, but a motion sensor cuts power when the watch sits still for roughly 20 minutes, extending battery life to years rather than months, and the hands re-synchronize to the correct time by the shortest path when the watch moves again. The 48mm Tortue-shaped case is oversized relative to most of Journe's catalog, built to carry the movement rather than to read as a sport or dress reference.",
+    "collector_notes": "The Titalyt-coated titanium version, with its matte black ceramic-hardened finish, trades at a premium to the plain titanium case; buyers confirm which coating is present since photos at typical resolution can make the two look similar.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.fpjourne.com/en/collection/elegante-collection/elegante-48-mm-titanium",
+      "https://www.yourwatchhub.com/f-p-journe/f-p-journe-elegante-48-mm-titalyt-most-expensive-quartz/"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "casio-gmw-b5000",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GMW-B5000D-1",
+    "name": "G-Shock Full Metal 5000",
+    "nickname": "Full Metal Square",
+    "collection": "5000/5600 Origin Series",
+    "tier": "attainable",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Tough Solar quartz module", "type": "solar quartz" },
+    "case": { "diameter_mm": 43.2, "material": "stainless steel", "bezel": "none — DLC-coated screw-lock caseback, integrated square case" },
+    "one_liner": "The first G-Shock square built from solid stainless steel instead of resin, adding Bluetooth sync and solar charging to the 1983 case shape."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2018, "price_usd": 500, "source_url": "https://www.g-central.com/g-shock-gmw-b5000-metal-screw-back-bluetooth-solar/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The GMW-B5000D-1 is the first G-Shock square made entirely from stainless steel rather than a resin-clad case, applying full-metal construction to the silhouette of the original 1983 DW-5000C. Casio released it in Japan in April 2018 and in the US that May at $500, adding Bluetooth phone sync and Tough Solar charging to a shape that had run in resin form for 35 years. It sits above the resin DW-5600 and steel GW-5000U as the entry point into G-Shock's metal-square lineup, below the titanium MRG-B5000.",
+    "collector_notes": "The silver GMW-B5000D-1 is the standard full-metal square; a gold IP-plated GMW-B5000TFG-9 and later colorway variants exist at higher price points but the silver reference is what collectors mean by 'the full metal square' by default.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.g-central.com/g-shock-gmw-b5000-metal-screw-back-bluetooth-solar/",
+      "https://en.wikipedia.org/wiki/G-Shock"
+    ]
+  }
+}

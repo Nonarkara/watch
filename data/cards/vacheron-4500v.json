@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-4500v",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "4500V/110A",
+    "name": "Overseas Self-Winding",
+    "nickname": null,
+    "collection": "Overseas",
+    "tier": "trinity",
+    "produced": { "start_year": 2016, "end_year": 2024, "discontinued": true },
+    "movement": { "caliber": "5100", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "six-sided, derived from the Maltese cross" },
+    "one_liner": "The 2016 Overseas generation — in-house caliber 5100, Geneva Seal, and tool-free strap, bracelet and rubber swaps."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2016, "price_usd": 19900, "source_url": "https://www.timeandwatches.com/2016/02/sihh-2016-vacheron-constantin-overseas.html" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 4500V rebuilt the Overseas at SIHH 2016 around what the model had always lacked: a manufacture movement. Caliber 5100 brought a 22k gold rotor, 60 hours of reserve and the Geneva Seal, while the case kept the Maltese-cross-derived bezel and added the line's best trick — bracelet, leather and rubber all swap without tools, and every watch ships with all three. It became the third pillar of the integrated-steel trinity conversation alongside the Nautilus and Royal Oak, and the one you could actually buy. The 4520V generation phased it out from late 2023.",
+    "collector_notes": "Confirm all three strap/bracelet options are present — replacing them through VC is slow and not cheap. The blue dial is the reference configuration; the silver and later dial colors trade behind it.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.timeandwatches.com/2016/02/sihh-2016-vacheron-constantin-overseas.html"
+    ]
+  }
+}

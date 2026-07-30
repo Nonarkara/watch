@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "ap-15450st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "15450ST",
+    "name": "Royal Oak Selfwinding 37",
+    "nickname": null,
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 2012, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "3120", "type": "automatic" },
+    "case": { "diameter_mm": 37, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The 37mm Royal Oak — the mid-size that quietly became the best-proportioned modern reference."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Launched alongside the 15400 in 2012, the 15450ST sat between the Jumbo's 39mm and nothing — a 37mm case that many collectors argue wears closest to the 1972 original's intent. Produced to about 2021 as the mid-size alternative, it was long overlooked, then rediscovered as tastes moved back toward smaller cases. Silver and blue dials, caliber 3120.",
+    "collector_notes": "Marketed for years as a unisex/smaller option, so many examples come from lighter wear — good hunting for sharp cases. The 37mm slot was later refilled by the 15550 at 38mm, which keeps demand for this footprint alive.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://luxurywatchesusa.com/category/audemars-piguet/royal-oak/audemars-piguet-royal-oak-15202-jumbo/"
+    ]
+  }
+}

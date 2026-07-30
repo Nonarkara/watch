@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sarb033",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SARB033",
+    "name": "Spirit",
+    "nickname": "Baby Grand Seiko",
+    "collection": "Spirit",
+    "tier": "attainable",
+    "produced": { "start_year": 2008, "end_year": 2018, "discontinued": true },
+    "movement": { "caliber": "6R15", "type": "automatic" },
+    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "none — dress case" },
+    "one_liner": "A JDM-only dress watch with a silver-white day-date dial and exhibition caseback that earned a finish-quality reputation well above its price."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SARB033 is a Japan-domestic-market dress watch built on caliber 6R15 — a hacking, hand-windable automatic with a 50-hour reserve — in a 38mm case with a silver-white dial, a day-date window, and an exhibition caseback. Seiko never sold it through official US channels, but import demand earned it the nickname 'Baby Grand Seiko' for a finishing level above its price bracket. Seiko discontinued the Spirit line, including the SARB033, around 2018.",
+    "collector_notes": "Never officially imported to the US, so used examples come through gray-market dealers or Japanese auction sites; confirm the bracelet and clasp are original, since aftermarket straps show up on well-worn pieces.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://longislandwatch.com/seiko-sarb033-watch-sarb033/?revpage=10",
+      "https://www.thewatchcompany.com/blog/seiko-mechanical-sarb033/",
+      "https://chronometercheckblog.com/seiko-sarb033-review-baby-grand-seiko/"
+    ]
+  }
+}

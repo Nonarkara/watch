@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "zenith-pilot-type-20",
+  "identity": {
+    "brand": "Zenith",
+    "reference": "03.2430.679/21.C902",
+    "name": "Pilot Type 20",
+    "nickname": null,
+    "collection": "Pilot",
+    "tier": "haute",
+    "produced": { "start_year": 2012, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Elite 679", "type": "automatic" },
+    "case": { "diameter_mm": 45, "material": "stainless steel", "bezel": "no bezel — fixed brushed steel case with an oversized onion crown" },
+    "one_liner": "A large, oversized-crown pilot's watch styled after 1930s cockpit instruments rather than one specific vintage Zenith reference."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Zenith's Pilot Type 20 line draws its design language from 1930s cockpit instruments and observation watches generally rather than reviving one specific vintage Zenith pilot reference — the oversized onion-shaped crown, black dial with large luminous numerals, and cathedral-style hands all come from period military aviation equipment. The line sits apart from Zenith's El Primero chronograph identity, running simpler time-only or GMT automatic movements in deliberately oversized cases.",
+    "collector_notes": "Case sizes vary meaningfully across Pilot Type 20 sub-models (Extra Special, GMT, Chronograph); confirm the exact diameter before buying, since 'Pilot Type 20' alone does not specify one case size.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

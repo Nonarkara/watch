@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "ap-5402st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "5402ST",
+    "name": "Royal Oak",
+    "nickname": "Jumbo",
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 1972, "end_year": 1990, "discontinued": true },
+    "movement": { "caliber": "2121", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The 1972 original: Genta's octagonal steel watch at a gold price, the design that saved Audemars Piguet."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2024-12-07", "price_usd": 57150, "venue": "phillips", "url": "https://www.phillips.com/detail/audemars-piguet/NY080424/41", "condition": "1974 A-series", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "In 1971 AP asked Gerald Genta for a steel sports watch overnight; the story goes that he delivered the Royal Oak by morning — an octagonal bezel held by eight visible hexagonal screws, inspired by a diver's helmet, on an integrated bracelet. Launched at Basel 1972 at CHF 3,300, roughly ten times a contemporary steel watch, it was ridiculed, then it rescued a company being strangled by the quartz crisis. Production of the 5402 ran to about 1990 across A, B, C and D series, only a few thousand pieces in total, all on the ultra-thin caliber 2121.",
+    "collector_notes": "A-series examples (AP monogram at 6, earliest casebacks) are the blue chips; series identification via case numbers is the first authentication step. Dial replacements during AP service were common for decades — original 'petite tapisserie' with correct printing drives the price gap.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/complete-history-of-the-audemars-piguet-royal-oak-jumbo-series-5402-14802-15002-15202-16202-review/",
+      "https://www.phillips.com/detail/audemars-piguet/NY080424/41"
+    ]
+  }
+}

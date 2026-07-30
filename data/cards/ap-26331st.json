@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "ap-26331st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "26331ST",
+    "name": "Royal Oak Chronograph 41",
+    "nickname": null,
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 2017, "end_year": 2022, "discontinued": true },
+    "movement": { "caliber": "2385", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The 2017 Royal Oak chronograph refresh whose silver-and-black panda dial became the collected configuration."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Marking 20 years of the Royal Oak chronograph in 2017, the 26331ST reworked the 41mm chrono's dial: larger registers pushed outward, cleaner minute track, and a silver grande tapisserie face with black counters — the panda — that instantly became the one to have. Inside remained the compact F. Piguet-based caliber 2385. The reference ran until the 26240 generation with AP's integrated flyback 4401 took over in 2022.",
+    "collector_notes": "The panda and reverse-panda dominate demand over the blue and black dials. The 2385 is a modular-free, thin chronograph but lacks flyback and runs at 3Hz — check pusher action and register reset alignment.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

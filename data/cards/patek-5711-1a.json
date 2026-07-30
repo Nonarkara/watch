@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "patek-5711-1a",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5711/1A-010",
+    "name": "Nautilus",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 2006, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "26-330 S C", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "one_liner": "The steel Nautilus whose 2021 discontinuation set off the largest price run in modern watch collecting."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2019, "price_usd": 30620, "source_url": "https://quillandpad.com/2021/05/23/stainless-steel-patek-philippe-nautilus-market-madness-thoughts-on-the-current-market-situation-reprise/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2024-06-08", "price_usd": 76200, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080124/52", "condition": null, "box_papers": "full_set" }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-01",
+      "person_or_event": "Discontinuation announced",
+      "description": "Patek Philippe confirmed the end of the steel 5711/1A-010 after a 15-year run, at the peak of its waitlist era. Secondary asking prices jumped within days and roughly doubled over the following year.",
+      "source_url": "https://hypebeast.com/2021/1/patek-philippe-nautilus-ref-5711-discontinued-news"
+    },
+    {
+      "date": "2021-07",
+      "person_or_event": "First green-dial 5711/1A-014 at auction",
+      "description": "Antiquorum's Monaco sale offered the first olive-green 5711/1A-014 months after its debut; it sold at a large multiple of the $34,893 list price, confirming the post-discontinuation frenzy.",
+      "source_url": "https://quillandpad.com/2021/07/28/results-first-green-dial-patek-philippe-nautilus-ref-5711-1a-014-at-antiquorums-july-2021-auction-in-monaco-plus-other-highlights/"
+    }
+  ],
+  "narrative": {
+    "story": "The 5711 arrived in 2006 for the Nautilus 30th anniversary, a slimmed 40mm reading of Gerald Genta's 1976 porthole design. It carried caliber 324 S C until 2019, then 26-330 S C for its final two years. In January 2021 Patek killed it while demand was at its most absurd, sent a one-year olive-green dial out as the finale, and turned a five-figure sports watch into the defining hype asset of the era. Secondary prices peaked well into six figures in early 2022 and have retraced hard since, as the Phillips results show.",
+    "collector_notes": "Caliber generation matters: 2019-2021 examples run the 26-330 S C with a stop-seconds function the 324 S C lacks, so check the certificate against the movement. Full sets carry a real premium, and buyers today are pricing against the 2022 peak, not retail.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://quillandpad.com/2021/05/23/stainless-steel-patek-philippe-nautilus-market-madness-thoughts-on-the-current-market-situation-reprise/",
+      "https://hypebeast.com/2021/1/patek-philippe-nautilus-ref-5711-discontinued-news",
+      "https://monochrome-watches.com/introducing-patek-philippe-nautilus-5711-1a-014-green-price/",
+      "https://www.phillips.com/detail/patek-philippe/NY080124/52"
+    ]
+  }
+}

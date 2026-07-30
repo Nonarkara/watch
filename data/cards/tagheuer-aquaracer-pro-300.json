@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-aquaracer-pro-300",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "WBP201",
+    "name": "Aquaracer Professional 300 Date",
+    "nickname": null,
+    "collection": "Aquaracer",
+    "tier": "core",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Calibre 5", "type": "automatic" },
+    "case": { "diameter_mm": 43, "material": "stainless steel", "bezel": "unidirectional 12-facet ceramic dive bezel" },
+    "one_liner": "TAG Heuer's 2021-redesigned 300m dive watch, offered in steel with a ceramic bezel and the Calibre 5 automatic movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2021, "price_usd": 3000, "source_url": "https://www.timeandwatches.com/2021/06/review-tag-heuer-aquaracer-professional.html" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "TAG Heuer's Aquaracer line dates to 2004, building on the earlier Heuer Series 2000 dive watches of the 1980s. The range was fully redesigned in 2021 with a new case and the Calibre 5 automatic movement across the Professional 300 lineup. The WBP201 family covers the 43mm steel model in blue and black-ceramic-bezel colorways.",
+    "collector_notes": "Individual colorways within this reference family have been discontinued at different times — TAG Heuer's own site lists the blue steel and blue-bezel steel variants as discontinued while the black-DLC variant remained active — so confirm the full reference suffix before assuming current availability or price.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.tagheuer.com/int/en/timepieces/collections/tag-heuer-aquaracer/43-mm-calibre-5-automatic/WBP201A.BA0632.html",
+      "https://www.tagheuer.com/int/en/timepieces/collections/tag-heuer-aquaracer/43-mm-calibre-5-automatic/WBP201D.FT6197.html",
+      "https://www.timeandwatches.com/2021/06/review-tag-heuer-aquaracer-professional.html"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "jlc-master-ultra-thin-moon",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q1368430",
+    "name": "Master Ultra Thin Moon",
+    "nickname": null,
+    "collection": "Master Ultra Thin",
+    "tier": "haute",
+    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "925", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "smooth polished bezel" },
+    "one_liner": "A slim automatic dress watch with a moonphase display, positioned as JLC's standard-catalog entry point into its own complicated-watchmaking history."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Jaeger-LeCoultre has built moonphase watches across most of its history since its 1833 founding in Le Sentier, and the manufacture makes its own movements and components for other Richemont-group brands as well as itself. The Master Ultra Thin Moon takes that in-house depth and applies it to a simple, legible complication in a thin automatic case rather than reserving moonphases for limited or boutique-only pieces — the moon disc sits at six o'clock beneath a conventional three-hand-and-date layout.",
+    "collector_notes": "Confirm the moon disc's synodic accuracy claim on the specific generation — JLC has offered both standard (roughly one day of drift every 122 years) and higher-precision moonphase modules across different Master lines, and the two are not interchangeable in the same case.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

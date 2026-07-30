@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "panerai-submersible-pam00973",
+  "identity": {
+    "brand": "Panerai",
+    "reference": "PAM00973",
+    "name": "Luminor Submersible 42mm 3 Days Automatic",
+    "nickname": null,
+    "collection": "Submersible",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "P.900", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "unidirectional rotating dive bezel with 60-minute scale" },
+    "one_liner": "Panerai's 42mm steel Submersible dive watch, produced 2019-2021 and succeeded by PAM01973."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced as part of Panerai's 2019 Submersible relaunch, PAM00973 brought a 42mm case with a unidirectional dive bezel to the line, built around the automatic P.900 movement. Panerai discontinued it in 2021 in favor of the closely related PAM01973.",
+    "collector_notes": "The 42mm case is the smallest in the modern Submersible range; confirm bezel-insert condition and rubber-strap configuration, since near-identical cases were offered under multiple adjacent reference numbers.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://panerai.watchlounge.com/watches/pam00973-luminor-submersible-42-automatic-stainless-steel-black/"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sla023-mm300",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SLA023",
+    "name": "Prospex Marine Master 300 — 1968 Reinterpretation",
+    "nickname": "MM300",
+    "collection": "Prospex — Marinemaster",
+    "tier": "attainable",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "8L35", "type": "automatic" },
+    "case": { "diameter_mm": 44.3, "material": "stainless steel, monobloc case", "bezel": "ceramic 120-click unidirectional dive bezel" },
+    "one_liner": "A blue-dial continuation of the Marine Master 300 lineage, hand-assembled on caliber 8L35 using techniques shared with Grand Seiko's 9S movements."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SLA023 continues the Marine Master 300 lineage that traces back to Seiko's 1968 professional diver, running caliber 8L35 — a manually assembled, 192-part automatic built at the Shizukuishi Watch Studio using techniques shared with Grand Seiko's caliber 9S. It uses a monobloc case with no separate caseback, the movement accessed through the crystal, paired with a ceramic 120-click bezel and 300m water resistance. Seiko finished it in a blue sunburst dial rather than the black dial of the original 1968 reference.",
+    "collector_notes": "Currently shown as sold out at multiple authorized dealers rather than formally discontinued by Seiko; confirm current availability before assuming it's off the market for good.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://atelierdegriff.com/2020/05/14/hands-on-seiko-sla023/",
+      "https://www.cwwatchshop.com/products/seiko-prospex-marine-master-300m-blue-dial-ref-sla023"
+    ]
+  }
+}

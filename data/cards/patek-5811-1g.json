@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "patek-5811-1g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5811/1G-001",
+    "name": "Nautilus",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "26-330 S C", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "white gold", "bezel": "rounded octagonal, polished" },
+    "one_liner": "The 5711's successor: same design language at 41mm, moved from steel to white gold."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Announced in October 2022, the 5811/1G answered the question everyone asked after the 5711 died: what replaces it? Patek's answer was the same time-and-date Nautilus, one millimeter larger at 41mm, in white gold only. Thierry Stern's point was deliberate — the entry Nautilus would no longer be a steel watch. It keeps the 26-330 S C and adds a micro-adjustment fold-over clasp.",
+    "collector_notes": "At a glance it reads as steel, which is part of the appeal and part of the resale discount versus the 5711's mania. Blue-black gradient dial only so far; allocation still runs through relationship-based boutique lists.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.patek.com/en/collection/nautilus/5811-1G-001"
+    ]
+  }
+}

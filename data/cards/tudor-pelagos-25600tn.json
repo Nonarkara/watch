@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-pelagos-25600tn",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "25600TN",
+    "name": "Pelagos",
+    "nickname": null,
+    "collection": "Pelagos",
+    "tier": "crown",
+    "produced": { "start_year": 2012, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5612", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "titanium", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "Tudor's standard 42mm titanium dive tool watch, in production since 2012 with a matte black dial, snowflake hands, and a helium escape valve."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Pelagos launched in 2012 as Tudor's dedicated dive-tool watch, separate from the vintage-styled Black Bay line: titanium case, matte ceramic-insert bezel, and a rubber strap with a spring-loaded extension link for use over a wetsuit. Tudor later moved the line to its in-house MT5612 chronometer movement without changing the reference number.",
+    "collector_notes": "Buyers checking a used listing should confirm whether the movement is the original ETA-based caliber or the later in-house MT5612, since both were sold under the same 25600TN reference and only the caseback or a service record reliably distinguishes them.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Tudor_Pelagos"]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "panerai-luminor-due-pam00927",
+  "identity": {
+    "brand": "Panerai",
+    "reference": "PAM00927",
+    "name": "Luminor Due 42mm Automatic",
+    "nickname": null,
+    "collection": "Luminor Due",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "P.900", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "titanium", "bezel": "fixed bezel" },
+    "one_liner": "Panerai's slimmed-down 42mm titanium Luminor Due with a blue dial, part of a 2019 six-reference Due refresh."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Luminor Due line, introduced in 2016, is Panerai's thinner, dressier take on the Luminor case for wearers who find the brand's tool-watch proportions too bulky. PAM00927 was one of six references in a 2019 titanium refresh, pairing a blue sunburst dial with the automatic P.900 movement in a 42mm case. Panerai discontinued it in 2020.",
+    "collector_notes": "Titanium construction makes this notably lighter than a steel Luminor Marina at a similar diameter; confirm the alligator strap and clasp are original, since third-party straps are common on the secondary market.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://panerai.watchlounge.com/watches/pam00927-luminor-due-42-automatic-titanium-blue/",
+      "https://monochrome-watches.com/panerai-luminor-due-2019-collection-pam00926-pam00927-pam00964-pam01043-pam01045-pam01046-specs-price/"
+    ]
+  }
+}

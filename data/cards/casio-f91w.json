@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "casio-f91w",
+  "identity": {
+    "brand": "Casio",
+    "reference": "F-91W-1",
+    "name": "F-91W",
+    "nickname": null,
+    "collection": "Casio Classic",
+    "tier": "attainable",
+    "produced": { "start_year": 1989, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "quartz digital module", "type": "quartz" },
+    "case": { "diameter_mm": 34.5, "material": "resin", "bezel": "resin, integrated case" },
+    "one_liner": "A resin digital watch introduced in 1989 that has since sold over 100 million units, making it the most-produced watch in the world."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 22.95, "source_url": "https://teddybaldassarre.com/blogs/watches/casio-f-91w" }
+    ],
+    "current_msrp_usd": 22.95
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2011-04-25", "person_or_event": "The Guardian: Guantánamo Bay files report",
+      "description": "The Guardian reported that declassified Guantanamo Bay interrogation assessment documents, released via WikiLeaks, described the Casio F-91W as 'the sign of al-Qaida' because its timer function could be adapted for improvised explosive devices; the watch was cited in prisoner assessments roughly 150 times.",
+      "source_url": "https://www.theguardian.com/world/2011/apr/25/guantanamo-files-casio-wristwatch-alqaida" }
+  ],
+  "narrative": {
+    "story": "Designed by Ryusuke Moriai and introduced by Casio in June 1989, the F-91W has stayed in continuous production for over three decades on a formula of low price, long battery life, and an unchanged three-button digital layout. Cumulative production is estimated above 100 million units, making it the best-selling watch ever made. Its ubiquity has cut both ways: the same low cost and simple timer function that made it a favorite everyday watch also led declassified Guantanamo Bay documents to flag it as a marker associated with al-Qaeda bomb-making training.",
+    "collector_notes": "Case, dial print, and module have changed little since 1989; collectors distinguish era mainly by the small print on the caseback and country of assembly rather than by any cosmetic revision.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Casio_F-91W",
+      "https://thewatches.ca/blog/casio-f91w-most-sold-watch-history",
+      "https://teddybaldassarre.com/blogs/watches/casio-f-91w"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "ap-26393",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "26393",
+    "name": "Code 11.59 Selfwinding Chronograph",
+    "nickname": null,
+    "collection": "Code 11.59",
+    "tier": "trinity",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "4401", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 41, "material": "white gold / pink gold (later steel and two-tone)", "bezel": "round, on an octagonal case middle" },
+    "one_liner": "The chronograph of AP's first new collection in decades — launched to ridicule in 2019, carried by its caliber and case work."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Code 11.59 was AP's 2019 bet on life beyond the Royal Oak, and the internet's first reaction to the plain launch dials was brutal. The chronograph 26393 deserved better on day one: it debuted the caliber 4401, AP's first integrated in-house flyback chronograph with column wheel and vertical clutch, inside a case that sandwiches an octagonal middle between a round bezel and back, with open-worked lugs and a double-curved sapphire. Later smoked, embossed and steel variants did the rehabilitation work.",
+    "collector_notes": "Early plain-lacquer dials trade at a discount to the later smoked and textured dials — the launch controversy is priced in, which makes the 4401 the cheapest way into AP's flagship chronograph caliber. Check the polished-brushed transitions on the lug undersides for polish history.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

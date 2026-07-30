@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-carrera-glassbox-cbs2210",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "CBS2210",
+    "name": "Carrera Chronograph",
+    "nickname": "Glassbox",
+    "collection": "Carrera",
+    "tier": "core",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "TH20-00", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "fixed steel bezel; tachymeter scale printed on the dial flange under a domed sapphire crystal" },
+    "one_liner": "TAG Heuer's 2023 Carrera 60th-anniversary chronograph, nicknamed for the domed 'Glassbox' crystal that echoes 1960s acrylic crystals."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 7250, "source_url": "https://www.tourneau.com/watches/tag-heuer/carrera-chronograph-cbs2210.fc6534-HEU0170145.html" }
+    ],
+    "current_msrp_usd": 7250
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Heuer introduced the Carrera in 1963 as a chronograph built for endurance racing, named for the Carrera Panamericana road race. TAG Heuer marked the model's 60th anniversary in 2023 with the Chronograph 39mm, redesigning the chronograph pushers and giving the range a domed sapphire crystal — dubbed 'Glassbox' by press and retailers — that curves over the dial edge to keep the flange-printed tachymeter legible from an angle, over the in-house TH20-00 movement.",
+    "collector_notes": "The 'Glassbox' name is unofficial (not printed on the dial or caseback); confirm the exact reference suffix, since the black reverse-panda (CBS2210.FC6534) and blue (CBS2212.FC6535) dials share the same case and movement at the same price point.",
+    "starter_alternative": "hamilton-intra-matic-68"
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.tagheuer.com/int/en/timepieces/collections/tag-heuer-carrera/39-mm-th20-00/CBS2210.FC6534.html",
+      "https://monochrome-watches.com/new-2023-tag-heuer-carrera-chronograph-glassbox-cbs2210-fc6534-panda-cbs2212-fc6535-blue-new-calibre-th20-00-hands-on/",
+      "https://www.tourneau.com/watches/tag-heuer/carrera-chronograph-cbs2210.fc6534-HEU0170145.html"
+    ]
+  }
+}

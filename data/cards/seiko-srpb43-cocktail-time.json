@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "seiko-srpb43-cocktail-time",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SRPB43",
+    "name": "Presage Cocktail Time",
+    "nickname": null,
+    "collection": "Presage",
+    "tier": "attainable",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "4R35", "type": "automatic" },
+    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "none — dress case, box-shaped Hardlex crystal" },
+    "one_liner": "The ice-blue sunburst version of Seiko's Presage Cocktail Time, its dial finish styled after the layered gloss of a mixed drink."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 450, "source_url": "https://seikousa.com/products/srpb43" }
+    ],
+    "current_msrp_usd": 450
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SRPB43 is the ice-blue sunburst-dial version of Seiko's Presage Cocktail Time line, running caliber 4R35 — a 23-jewel automatic with roughly 41 hours of reserve — in a 40.5mm case under a box-shaped Hardlex crystal. The Cocktail Time name and dial style reference Japan's bartending culture, translating the layered gloss finish of a mixed drink into a sunburst dial pattern. It ships on a leather strap rather than the metal bracelet used on some other Presage lines.",
+    "collector_notes": "Currently listed as sold out on Seiko's own US site rather than formally discontinued; check current retailer stock before assuming it's off the market for good.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://seikousa.com/products/srpb43",
+      "https://skeies.com/products/seiko-presage-srpb43-cocktail-time-blue-dial-automatic-watch"
+    ]
+  }
+}

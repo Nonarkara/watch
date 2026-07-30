@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-5980-1a",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5980/1A",
+    "name": "Nautilus Chronograph",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 2006, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "CH 28-520 C", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "one_liner": "The first Nautilus chronograph — flyback caliber with a single co-axial 60-minute and 12-hour counter."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5980/1A-001 of 2006 gave the Nautilus its first chronograph, thirty years into the model's life. The flyback CH 28-520 C keeps the dial clean by stacking 60 minutes and 12 hours into one register at 6. The silver-to-black gradient of the original and the later blue-dial 5980/1A-014 both left the catalogue when Patek pulled steel Nautilus references in 2021; the chronograph continues only in gold and two-tone.",
+    "collector_notes": "The -001 gradient dial and the -014 blue are distinct markets; the mono-counter takes explanation but is the reference's signature. Sticky chronograph pushers are the common service tell.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

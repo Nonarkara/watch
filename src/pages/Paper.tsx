@@ -28,8 +28,12 @@ export default function Paper() {
         </p>
         <h2>Read it</h2>
         <p>
+          <a className="src-a" href="/paper.pdf" target="_blank" rel="noopener">
+            Read the full working paper (PDF) ↗
+          </a>
+          {' · '}
           <a className="src-a" href="/paper.md" download="WATCH_working-paper.md">
-            Download the full working paper (Markdown) ↗
+            Markdown ↗
           </a>
         </p>
         <p className="dim">

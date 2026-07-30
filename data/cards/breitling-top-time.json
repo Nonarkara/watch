@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "breitling-top-time",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "A23310",
+    "name": "Top Time Limited Edition",
+    "nickname": "Zorro",
+    "collection": "Top Time",
+    "tier": "core",
+    "produced": { "start_year": 2020, "end_year": 2020, "discontinued": true },
+    "movement": { "caliber": "Caliber 23 (B23)", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "fixed polished bezel" },
+    "one_liner": "A 2,000-piece 2020 reissue of the 1960s Top Time 'Zorro' dial, discontinued after its limited run."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": true, "stated_size": 2000, "source_url": "https://wornandwound.com/breitlings-zorro-dialed-top-time-gets-a-limited-edition-update/" },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2013-06-26",
+      "person_or_event": "Christie's pop-culture sale",
+      "description": "The screen-used 1962 Breitling Top Time worn by Sean Connery as James Bond in Thunderball (1965) — modified with a fictional Geiger counter for the plot — sells at Christie's London for $160,175 against a $60,500-$90,750 estimate, after being found years earlier at a UK car-boot sale for about £25. It is the only Breitling worn on-screen by a Bond actor.",
+      "source_url": "https://www.jckonline.com/editorial-article/james-bonds-breitling-top-time-watch-sells-for-160175-at-christies/"
+    }
+  ],
+  "narrative": {
+    "story": "The original Breitling Top Time launched in 1964 as an accessible chronograph; a variant with counter-shaded subdial rims on its Ref. 2002 dial earned the collector nickname \"Zorro\" for the diagonal mask-like shading. A modified 1962 Top Time, worn on-screen by Sean Connery as James Bond in Thunderball, later sold at Christie's for over $160,000. Breitling reissued the Zorro dial in 2020 as a numbered edition of 2,000 pieces, then discontinued it.",
+    "collector_notes": "This is a sold-out numbered limited edition with no current-catalog equivalent; confirm the individual number and any certificate against the box set when buying pre-owned, since it no longer appears on breitling.com.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Breitling_Top_Time",
+      "https://www.jckonline.com/editorial-article/james-bonds-breitling-top-time-watch-sells-for-160175-at-christies/",
+      "https://wornandwound.com/breitlings-zorro-dialed-top-time-gets-a-limited-edition-update/",
+      "https://www.jamesbondlifestyle.com/product/breitling-top-time"
+    ]
+  }
+}

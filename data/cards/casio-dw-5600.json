@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "casio-dw-5600",
+  "identity": {
+    "brand": "Casio",
+    "reference": "DW-5600E-1V",
+    "name": "G-Shock DW-5600",
+    "nickname": "The Square",
+    "collection": "5000/5600 Origin Series",
+    "tier": "attainable",
+    "produced": { "start_year": 1983, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "battery quartz digital module (current module 3525/3529, updated 2023)", "type": "quartz" },
+    "case": { "diameter_mm": 42.8, "material": "resin", "bezel": "resin, integrated square case" },
+    "one_liner": "The current-production resin square descended from the original 1983 DW-5000C that established G-Shock's shock-resistance design."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 99.95, "source_url": "https://the-gadgeteer.com/2026/05/08/casio-g-shock-dw-5600/" }
+    ],
+    "current_msrp_usd": 99.95
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Casio's original G-Shock square, the DW-5000C, debuted in April 1983 after engineer Kikuo Ibe's team built and dropped-tested over 200 prototypes to meet a self-imposed 'triple 10' brief: survive a 10-meter fall, resist 10 bar of water pressure, and run 10 years on one battery. The DW-5600 variant carried that shape forward in resin, and Casio has kept the case, screw-back, and three-button layout essentially unchanged for four decades while updating the internal module — the current DW-5600E runs module 3525/3529, introduced in 2023.",
+    "collector_notes": "The module number stamped inside the caseback identifies the production era (3229 from 2010, 3525/3529 from 2023); collectors track module changes more closely than case cosmetics, since the shell itself has barely changed.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://the-gadgeteer.com/2026/05/08/casio-g-shock-dw-5600/",
+      "https://en.wikipedia.org/wiki/G-Shock"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "breitling-premier-b01-42",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "AB0118",
+    "name": "Premier B01 Chronograph 42",
+    "nickname": null,
+    "collection": "Premier",
+    "tier": "core",
+    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "B01", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "fixed polished bezel" },
+    "one_liner": "The 42mm steel chronograph of Breitling's Premier dress-watch line, relaunched in 2018 around the in-house B01 movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 10200, "source_url": "https://www.breitling.com/us-en/watches/premier/premier-b01-chronograph-42/AB0118A61C1A1/" }
+    ],
+    "current_msrp_usd": 10200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Breitling's Premier line traces to a 1940s dress chronograph the brand sold alongside its more tool-oriented pilot and racing watches. Revived in 2018 after decades out of the catalog, the Premier B01 Chronograph 42 keeps the domed lugs and stepped bezel of the original while running Breitling's in-house B01 movement.",
+    "collector_notes": "Steel-bracelet and leather-strap versions of this reference sit at noticeably different price points; several limited co-branded dials (e.g. Wheels and Waves) share the same case and movement but carry distinct reference suffixes.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-bpt",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/premier/premier-b01-chronograph-42/AB0118A61C1A1/"
+    ]
+  }
+}

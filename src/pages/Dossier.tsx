@@ -13,7 +13,7 @@ export default function Dossier() {
   if (!c) {
     return (
       <>
-        <Link to="/" className="crumb">← REGISTER</Link>
+        <Link to="/register" className="crumb">← REGISTER</Link>
         <h1 className="pagetitle">Not in the register</h1>
         <p className="lede">No reference with id “{id}”. It may arrive in a future data build.</p>
       </>
@@ -26,7 +26,7 @@ export default function Dossier() {
 
   return (
     <>
-      <Link to="/" className="crumb">← REGISTER</Link>
+      <Link to="/register" className="crumb">← REGISTER</Link>
       <div className="masthead">
         <p className="eyebrow">{c.identity.brand} · {c.identity.collection} · {TIER_LABEL[c.identity.tier]}</p>
         <h1 className="pagetitle">{c.identity.name} <span className="mono">{c.identity.reference}</span></h1>
@@ -89,7 +89,7 @@ export default function Dossier() {
           <span className={'val big' + (confidence.tier ? '' : ' dim')}>{confidence.tier ?? dash}</span>
           <span className="note mono">
             {confidence.tier
-              ? `${confidence.n} SALES · ${confidence.venues} VENUE${confidence.venues === 1 ? '' : 'S'} · NEWEST ${confidence.newest}`
+              ? `${confidence.n} SALE${confidence.n === 1 ? '' : 'S'} · ${confidence.venues} VENUE${confidence.venues === 1 ? '' : 'S'} · NEWEST ${confidence.newest}`
               : reasonText(confidence.reason).toUpperCase()}
           </span>
           <Why text="A: ≥10 sales/24mo, ≥3 venues, ≤90 days fresh. B: ≥4 sales, ≥2 venues, ≤1yr. C: ≥1 verified sale." />
@@ -99,7 +99,7 @@ export default function Dossier() {
       {(c.retail.msrp_history.length > 0 || c.notable_sales.length > 0) && (
         <section className="sect">
           <h2 className="sect-h"><span>Price evidence</span>
-            {c.comp_summary && <span className="mono">{c.comp_summary.n} VERIFIED SALES · {c.comp_summary.date_range[0].slice(0, 4)}–{c.comp_summary.date_range[1].slice(0, 4)}</span>}
+            {c.comp_summary && <span className="mono">{c.comp_summary.n} VERIFIED SALE{c.comp_summary.n === 1 ? '' : 'S'} · {c.comp_summary.date_range[0].slice(0, 4) === c.comp_summary.date_range[1].slice(0, 4) ? c.comp_summary.date_range[0].slice(0, 4) : `${c.comp_summary.date_range[0].slice(0, 4)}–${c.comp_summary.date_range[1].slice(0, 4)}`}</span>}
           </h2>
           <Sparkline msrp={c.retail.msrp_history} sales={c.notable_sales} buildDate={c.computed.as_of_build} />
           {c.notable_sales.length > 0 && (

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-7924",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "7924",
+    "name": "Oyster Prince Submariner",
+    "nickname": "Big Crown",
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": { "start_year": 1958, "end_year": 1959, "discontinued": true },
+    "movement": { "caliber": "390", "type": "manual" },
+    "case": { "diameter_mm": 37, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "Tudor's first Submariner without crown guards, identified by an oversized winding crown relative to its thin case, which gave the reference its 'Big Crown' name among collectors."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Tudor's first Submariner-family divers, launched in 1954 as the Oyster Prince Submariner, initially had no crown guards, leaving the winding crown exposed at the case side. Reference 7924, made in 1958-59, is the last of that crown-guard-less generation before Tudor added guards with reference 7928, and its oversized crown relative to the thin case gave it the 'Big Crown' name collectors use today. The Black Bay Fifty-Eight, launched six decades later, takes its case proportions directly from this reference.",
+    "collector_notes": "Because 7924 was produced for only about a year before Tudor moved to the crown-guarded 7928, unmolested examples with matching dial, hands, and bezel insert are scarce; buyers check crown diameter, dial print generation, and bezel material closely against known reference photos before purchase.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Tudor_Pelagos"]
+  }
+}

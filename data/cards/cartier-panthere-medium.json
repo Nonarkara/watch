@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "cartier-panthere-medium",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WSPN0007",
+    "name": "Panthère de Cartier",
+    "nickname": null,
+    "collection": "Panthère",
+    "tier": "core",
+    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "quartz", "type": "quartz" },
+    "case": { "diameter_mm": 27, "material": "stainless steel and 18K yellow gold", "bezel": "polished bezel integrated into the quilted-link bracelet" },
+    "one_liner": "An integrated quilted-link bracelet watch that defined 1980s Cartier, revived in 2017 after roughly two decades out of the catalog."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Cartier launched the Panthère de Cartier in 1983, building the case and its flat quilted-link bracelet as one integrated piece rather than a case with a separate strap — a design decision shared with the sports-watch wave that followed the Royal Oak and Nautilus, though styled toward Cartier's own jewelry-house identity rather than a tool-watch one. Cartier discontinued the line for roughly two decades before reviving it in 2017, reintroducing the same integrated-bracelet silhouette to a generation that had mostly known Cartier through the Tank and Santos.",
+    "collector_notes": "Vintage 1980s–90s Panthère bracelets can stretch and develop play at the links over decades of wear; check bracelet tightness specifically on pre-2017 examples, since repair requires bracelet-specific parts rather than generic link tools.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/Cartier_(jeweler)"]
+  }
+}

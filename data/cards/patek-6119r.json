@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-6119r",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "6119R-001",
+    "name": "Calatrava",
+    "nickname": null,
+    "collection": "Calatrava",
+    "tier": "trinity",
+    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "30-255 PS", "type": "manual" },
+    "case": { "diameter_mm": 39, "material": "rose gold", "bezel": "Clous de Paris guilloche" },
+    "one_liner": "The hobnail-bezel Calatrava reborn at 39mm on a new twin-barrel manual caliber."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 6119 of 2021 brought back the Clous de Paris bezel of the 3919 — the definitive 1980s-90s Calatrava — but grew it to 39mm and built a movement for it: the 30-255 PS, a new manual caliber with two barrels, 65 hours of reserve and a full-width bridge layout that fills the caseback view. Rose gold 6119R with silver dial, white gold 6119G with charcoal.",
+    "collector_notes": "The hobnail bezel collects polish damage badly — inspect the pyramid edges under a loupe. This is the current-production dress Patek most often available at retail without a long wait.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

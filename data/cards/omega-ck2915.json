@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "omega-ck2915",
+  "identity": {
+    "brand": "Omega",
+    "reference": "CK2915",
+    "name": "Speedmaster",
+    "nickname": "Broad Arrow",
+    "collection": "Speedmaster",
+    "tier": "core",
+    "produced": { "start_year": 1957, "end_year": 1959, "discontinued": true },
+    "movement": { "caliber": "321", "type": "manual chronograph" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "steel bezel with black tachymeter scale" },
+    "one_liner": "The first Speedmaster reference, introduced in 1957 with a 39mm steel case and the first tachymeter scale printed on a wristwatch bezel rather than the dial."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2019-07-19", "price_usd": 250000, "venue": "sothebys", "url": "https://www.rescapement.com/blog/results-from-sothebys-omega-speedmaster-50th-anniversary-auction", "condition": "relumed hands, case polished", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-11-05",
+      "person_or_event": "Phillips Geneva Watch Auction XIV",
+      "description": "A CK2915-1 (lot 53) hammers for CHF 3,115,500 (about $3.4M USD), the highest price ever paid for an Omega at auction, against a pre-sale estimate of CHF 80,000-120,000.",
+      "source_url": "https://www.forbes.com/sites/matthewcatellier/2021/11/05/omega-speedmaster-ck2915-1-breaks-world-record-auction-price-at-3115500-chf/"
+    },
+    {
+      "date": "2023-04-09",
+      "person_or_event": "Perezcope investigation / 'Speedygate'",
+      "description": "Watch researcher Jose Perez publishes evidence that the record-priced CK2915-1 sold by Phillips in 2021 is an assembly of non-original parts; Omega later confirmed the finding and identified three former employees, including its former museum head, as responsible.",
+      "source_url": "https://perezcope.com/2023/04/09/tropical-speedmaster-2915-1-a-record-breaking-omegaga-at-phillips/"
+    }
+  ],
+  "narrative": {
+    "story": "Introduced in 1957 alongside the Railmaster and Seamaster 300 as part of what dealers now call the 'Broad Arrow' trilogy, the CK2915 was the first watch sold under the Speedmaster name and the first wristwatch with its tachymeter scale printed on a fixed steel bezel instead of the dial. It runs the manual-wind caliber 321, a Lemania-based column-wheel chronograph that Omega continued using through the mid-1960s Speedmasters worn during NASA's Gemini and early Apollo programs. Omega made it in three execution batches between 1957 and 1959, in low numbers, before replacing it with the CK2998 — the rarest regular-production Speedmaster reference, and one of the most closely examined watches in the vintage market since a widely publicized 2021 auction sale was later found to involve non-original parts.",
+    "collector_notes": "The three execution batches (2915-1, -2, -3) differ in bezel, hand, and dial details that collectors use to date a given watch within the 1957-1959 run; caliber 321 originality and correct broad-arrow hands are the standard checkpoints. The reference's most publicized recent sale — a CHF 3,115,500 Phillips hammer in November 2021 — was found in 2023 to be an assembly of non-original parts fitted by former Omega staff, so independent verification matters more on this reference than an Extract from the Archives alone.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.forbes.com/sites/matthewcatellier/2021/11/05/omega-speedmaster-ck2915-1-breaks-world-record-auction-price-at-3115500-chf/",
+      "https://www.phillips.com/detail/omega/CH080221/53",
+      "https://www.rescapement.com/blog/results-from-sothebys-omega-speedmaster-50th-anniversary-auction",
+      "https://perezcope.com/2023/04/09/tropical-speedmaster-2915-1-a-record-breaking-omegaga-at-phillips/",
+      "https://www.watchcollectinglifestyle.com/home/the-omega-speedmaster-broadarrow-that-sold-for-3-1-million-swiss-francs-at-the-phillips-geneva-watch-auction-xiv-is-a-frankenwatch",
+      "https://revolutionwatch.com/the-ck2915-effect/",
+      "https://www.fratellowatches.com/speedy-tuesday-first-omega-speedmaster-ck2915-1957/"
+    ]
+  }
+}

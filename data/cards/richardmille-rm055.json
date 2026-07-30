@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "richardmille-rm055",
+  "identity": {
+    "brand": "Richard Mille",
+    "reference": "RM 055",
+    "name": "RM 055 Bubba Watson",
+    "nickname": null,
+    "collection": "RM 055",
+    "tier": "haute",
+    "produced": { "start_year": 2012, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "RMUL2", "type": "manual" },
+    "case": { "diameter_mm": 42.7, "material": "grade 5 titanium", "bezel": "tonneau, matching case material" },
+    "one_liner": "A heavily skeletonized manual-wind tonneau developed with golfer Bubba Watson, following the architecture of Richard Mille's earlier RM 038 tourbillon."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The RM 055 was developed with professional golfer Bubba Watson, extending Richard Mille's roster of athlete partnerships beyond tennis and Formula 1 into golf. Its titanium baseplate and bridges are treated with a black PVD and Titalyt coating and cut down to extreme skeletonization, following the visual language Richard Mille established with the earlier RM 038 tourbillon rather than introducing a new case architecture.",
+    "collector_notes": "Case color (black, grey, or white titanium) is the primary differentiator across RM 055 examples on the secondary market; movement finishing is consistent regardless of case tone.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.richardmille.com"
+    ]
+  }
+}

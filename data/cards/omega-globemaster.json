@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "omega-globemaster",
+  "identity": {
+    "brand": "Omega",
+    "reference": "130.33.39.21.03.001",
+    "name": "Constellation Globemaster",
+    "nickname": "Pie-Pan",
+    "collection": "Globemaster",
+    "tier": "core",
+    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "8900", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "fluted 18k white gold bezel" },
+    "one_liner": "The 2015 Constellation revival and the first watch ever to carry METAS Master Chronometer certification, pairing a steel case with a fluted white-gold bezel and a stepped pie-pan dial referencing the original 1952 Constellation."
+  },
+  "retail": { "msrp_history": [], "current_msrp_usd": null },
+  "market_evidence": { "comps": [], "listing_observations": [] },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced at Baselworld 2015, the Globemaster restarted the Constellation line around the 1952 original's stepped 'pie-pan' dial and clous de Paris pattern, and it was the first watch of any brand to earn Master Chronometer status — METAS certification combining COSC-level accuracy with resistance to 15,000 gauss. The fluted bezel, executed in white gold even on the steel-cased model, was a deliberate break from the smooth bezels Constellation had used for decades.",
+    "collector_notes": "On steel-cased models the fluted bezel is 18k white gold, not steel — a two-metal detail that resale listings sometimes describe incorrectly. Dial color and strap options multiply the reference numbers within the same 39mm steel case, so confirm the exact suffix against the piece photographed.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/omega-globemaster-review-fully-explained-baselworld-2015-price/",
+      "https://www.fratellowatches.com/omega-globemaster/",
+      "https://www.luxurybazaar.com/grey-market/omega-globemaster/"
+    ]
+  }
+}

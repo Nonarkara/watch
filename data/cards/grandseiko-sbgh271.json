@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "grandseiko-sbgh271",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGH271",
+    "name": "Heritage Collection Hi-Beat",
+    "nickname": "Rikka",
+    "collection": "Heritage Collection — 62GS Sekki",
+    "tier": "core",
+    "produced": { "start_year": 2019, "end_year": 2025, "discontinued": true },
+    "movement": { "caliber": "9S85", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "none — 62GS bezel-less case" },
+    "one_liner": "A 62GS-shaped Hi-Beat automatic with a green dial marking rikka, the start of summer in Japan's 24-season calendar, discontinued in 2025 and replaced by the SBGH351."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2019, "price_usd": 6300, "source_url": "https://www.thewatchcompany.com/blog/grand-seiko-rikka-sbgh271-review/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SBGH271 carries the 62GS case — the sharp-lined, bezel-free shape introduced on the original 1967 62GS — into the Heritage Collection's Sekki line, which ties dial designs to Japan's 24 traditional micro-seasons. Its nickname Rikka names the early-summer season, reflected in a green dial. Grand Seiko launched it in 2019, initially as part of a US-exclusive four-watch Seasons release, and ran caliber 9S85, a Hi-Beat 36000 automatic movement. Grand Seiko discontinued it in February 2025 and replaced it with the SBGH351.",
+    "collector_notes": "Now discontinued; the successor SBGH351 uses the same 62GS case and 9S85 caliber with revised dial finishing, so buyers comparing the two should check dial texture and case-back engraving to confirm which reference a listing is describing.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://monochrome-watches.com/grand-seiko-updates-heritage-62gs-sekki-collection-new-rikka-sbgh351-and-shubun-sbgh353-ever-brilliant-steel-price/",
+      "https://www.thewatchcompany.com/blog/grand-seiko-rikka-sbgh271-review/"
+    ]
+  }
+}

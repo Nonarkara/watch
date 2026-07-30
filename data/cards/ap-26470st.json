@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "ap-26470st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "26470ST",
+    "name": "Royal Oak Offshore Chronograph 42",
+    "nickname": null,
+    "collection": "Royal Oak Offshore",
+    "tier": "trinity",
+    "produced": { "start_year": 2014, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "3126/3840", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws, ceramic pushers and crown" },
+    "one_liner": "The 2014 generation of the 42mm Offshore chronograph — in-house base caliber, ceramic crown and pushers."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 26470ST updated the 42mm Offshore chronograph in 2014, swapping the old 2226-based movement for the manufacture 3126 with a Dubois-Depraz chronograph module, and dressing the case with ceramic screw-down crown and pushers. Its dial family — safari, navy, grey 'elephant' — defined the Offshore's look through the late 2010s until the 26238 generation with the integrated 4401 chronograph replaced it.",
+    "collector_notes": "Ceramic pusher chips and aftermarket straps are the inspection points; AP's quick-change strap system arrived only with the successor, so strap condition matters here. Safari dials lead the variant hierarchy.",
+    "starter_alternative": "seiko-spb143"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

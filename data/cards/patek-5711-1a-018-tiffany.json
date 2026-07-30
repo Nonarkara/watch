@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "patek-5711-1a-018-tiffany",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5711/1A-018",
+    "name": "Nautilus",
+    "nickname": "Tiffany Blue Nautilus",
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 2021, "end_year": 2021, "discontinued": true },
+    "movement": { "caliber": "26-330 S C", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "one_liner": "170 double-signed steel Nautilus with a Tiffany Blue lacquer dial; piece No. 1 sold for $6.5 million at Phillips."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2021, "price_usd": 52635, "source_url": "https://monochrome-watches.com/phillips-sells-the-first-patek-philippe-nautilus-5711-1a-018-tiffany-for-usd-6-5-million/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2021-12-11", "price_usd": 6503500, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080121/1T", "condition": "piece No. 1 of 170, single-lot charity sale", "box_papers": null }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": true, "stated_size": 170, "source_url": "https://monochrome-watches.com/phillips-sells-the-first-patek-philippe-nautilus-5711-1a-018-tiffany-for-usd-6-5-million/" },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-12-11",
+      "person_or_event": "Phillips single-lot charity sale, New York",
+      "description": "The first 5711/1A-018 sold for $6,503,500 including fees, roughly 124 times its $52,635 retail price, with proceeds to The Nature Conservancy. It closed the 5711 story eleven months after the reference was discontinued.",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/NY080121/1T"
+    }
+  ],
+  "narrative": {
+    "story": "Patek's send-off for the 5711 and a nod to 170 years of retail partnership with Tiffany & Co.: 170 pieces with a Tiffany Blue lacquer dial, double-signed on dial and caseback, allocated only through Tiffany boutiques in December 2021. Piece No. 1 went straight to Phillips as a single-lot charity sale and made $6.5 million, the number that came to stand for the entire 2021 watch bubble.",
+    "collector_notes": "The dial and caseback double stamp is the whole game; paperwork tracing the Tiffany allocation matters more here than on any standard Nautilus. Later examples have changed hands far below the charity result, which was a one-off number with a philanthropic premium built in.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.phillips.com/detail/patek-philippe/NY080121/1T",
+      "https://monochrome-watches.com/phillips-sells-the-first-patek-philippe-nautilus-5711-1a-018-tiffany-for-usd-6-5-million/",
+      "https://nationaljeweler.com/articles/10444-patek-philippe-nautilus-with-tiffany-blue-dial-sells-for-6-5-million"
+    ]
+  }
+}

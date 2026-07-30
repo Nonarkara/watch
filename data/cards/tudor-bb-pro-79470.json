@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-bb-pro-79470",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79470",
+    "name": "Black Bay Pro",
+    "nickname": null,
+    "collection": "Black Bay",
+    "tier": "crown",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5652", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "fixed steel bezel with engraved 24-hour scale" },
+    "one_liner": "A GMT Black Bay with a fixed, engraved steel bezel instead of the rotating bi-color insert on the Black Bay GMT, styled closer to an explorer-type tool watch."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Launched in 2022, the Black Bay Pro pairs the same GMT-capable MT5652 movement used in the Black Bay GMT 'Pepsi' with a fixed, matte steel bezel engraved with a 24-hour scale instead of a rotating bi-color insert, plus a snowflake hour hand and a red-tipped GMT hand for the second time zone. The result reads closer to a fixed-bezel GMT tool watch than to the rotating-bezel GMT-Master lineage the Pepsi model references.",
+    "collector_notes": "Buyers comparing this to the Black Bay GMT should confirm the bezel is fixed rather than rotating, since the two share a movement family and case size but serve different roles as a tool watch.",
+    "starter_alternative": "longines-spirit-zulu-time"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

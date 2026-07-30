@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "casio-mrg-b5000",
+  "identity": {
+    "brand": "Casio",
+    "reference": "MRG-B5000D-1",
+    "name": "MR-G MRG-B5000",
+    "nickname": null,
+    "collection": "MR-G",
+    "tier": "attainable",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "Tough Solar quartz module with Multi-Band 6 and Bluetooth", "type": "solar quartz" },
+    "case": { "diameter_mm": 43.2, "material": "Ti64 titanium case, DAT55G titanium bracelet", "bezel": "Cobarion cobalt-chrome bezel" },
+    "one_liner": "MR-G's titanium and Cobarion take on the 1983 G-Shock square, built to watchmaking finishing tolerances above the steel GMW-B5000 and GW-5000U."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2022, "price_usd": 3500, "source_url": "https://revolutionwatch.com/the-ultimate-square-g-shock-mrg-b5000/" }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The MRG-B5000 applies MR-G's materials and finishing — a Ti64 titanium case, a Cobarion cobalt-chrome bezel rated four times harder than titanium, and a DAT55G titanium bracelet — to the DW-5000C square that started G-Shock in 1983. Casio launched it in 2022 at the top of the metal-square lineage, running the same Tough Solar, Multi-Band 6, and Bluetooth spec as the steel GMW-B5000 but assembled to MR-G's tighter tolerances.",
+    "collector_notes": "Two standard finishes exist: the titanium-carbide-coated MRG-B5000D at $3,500 and the full black-DLC MRG-B5000B with gold-tone accents at $4,000; limited colorway releases have followed at higher prices.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://revolutionwatch.com/the-ultimate-square-g-shock-mrg-b5000/",
+      "https://en.wikipedia.org/wiki/G-Shock"
+    ]
+  }
+}

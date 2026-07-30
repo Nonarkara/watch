@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "iwc-portugieser-chrono-iw3716",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW371604",
+    "name": "Portugieser Chronograph",
+    "nickname": null,
+    "collection": "Portugieser",
+    "tier": "core",
+    "produced": { "start_year": 2000, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "79350", "type": "automatic chronograph" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "no bezel — fixed silver-plated dial with a railway-track minute scale" },
+    "one_liner": "IWC's flagship round chronograph, pairing the oversized Portugieser case with two sub-dials and a railway-track minute scale borrowed from marine chronometer dials."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Portugieser line began in 1939 with reference 325, a 41.5mm wristwatch built around IWC's flat pocket-watch Caliber 74 rather than a movement designed for a normal-size wrist case — which is why the family still runs oversized relative to IWC's other collections. The modern Portugieser Chronograph carries that oversized-case identity forward with a two-register chronograph layout and a dial minute track styled after marine chronometers, IWC's original nineteenth-century business before it became known for wristwatches.",
+    "collector_notes": "IWC also produces an in-house-movement Portugieser Chronograph generation (caliber 69355) alongside this cal. 79350-based reference; the two look similar at a glance but differ in movement architecture, so confirm the caliber via the case back or reference number before assuming which generation a listing describes.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-cjzi",
+    "curated_date": "2026-07-31",
+    "sources": ["https://en.wikipedia.org/wiki/IWC_Schaffhausen"]
+  }
+}

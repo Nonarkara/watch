@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-5320g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5320G",
+    "name": "Perpetual Calendar",
+    "nickname": null,
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "324 S Q", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "white gold", "bezel": "polished, stepped lugs" },
+    "one_liner": "A 1940s-styled perpetual calendar — cream lacquer dial, syringe hands, triple-stepped lugs — on a current automatic caliber."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5320G of 2017 is Patek quoting its own archive: cream lacquered dial, luminous syringe hands and baton markers pulled from mid-century references like the 1591, day-month apertures under 12 and analog date with moonphase at 6, all on the automatic 324 S Q. The triple-stepped lugs are the detail collectors fixate on. A blue-dial 5320G-011 joined later.",
+    "collector_notes": "This is the entry point into current-production Patek perpetuals and trades closer to retail than the sports references. Lacquer dials show edge cracks around apertures with age — inspect under magnification.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

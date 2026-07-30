@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "seiko-srpd-5-sports",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SRPD79",
+    "name": "5 Sports Street",
+    "nickname": null,
+    "collection": "5 Sports",
+    "tier": "attainable",
+    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "4R36", "type": "automatic" },
+    "case": { "diameter_mm": 42.5, "material": "black hard-coated stainless steel", "bezel": "black unidirectional rotating bezel" },
+    "one_liner": "An all-black colorway from the 2019 Seiko 5 Sports relaunch, representative of a wide range sharing the same case and hacking, hand-windable 4R36 movement."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 375, "source_url": "https://seikousa.com/products/srpd79" }
+    ],
+    "current_msrp_usd": 375
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SRPD79 represents the 2019 relaunch of Seiko 5 Sports, which replaced the older Seiko 5 line's dressier day-date format with sport-diver styling and an upgraded caliber 4R36 — hacking and hand-windable, unlike the 7S-series calibers in older Seiko 5 watches. The SRPD79 runs an all-black colorway: hard-coated case, black dial, and a matching rotating bezel, one of dozens of dial and strap combinations Seiko released on the same case and movement.",
+    "collector_notes": "The SRPD range spans many colorways on the same 42.5mm case and 4R36 movement; confirm the exact reference number before comparing prices, since colorway and strap material move resale value more than the underlying watch does.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://seikousa.com/products/srpd79",
+      "https://www.strapcode.com/pages/2019-seiko-5-sports-new-line-review"
+    ]
+  }
+}

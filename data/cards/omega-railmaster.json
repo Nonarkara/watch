@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "omega-railmaster",
+  "identity": {
+    "brand": "Omega",
+    "reference": "220.10.40.20.01.001",
+    "name": "Railmaster",
+    "nickname": null,
+    "collection": "Railmaster",
+    "tier": "core",
+    "produced": { "start_year": 2017, "end_year": 2022, "discontinued": true },
+    "movement": { "caliber": "8800", "type": "automatic" },
+    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "fixed steel bezel, no insert" },
+    "one_liner": "The third of Omega's 1957 trilogy alongside the Speedmaster and Seamaster 300 — an anti-magnetic tool watch with a clean three-hand, no-date dial, pulled from the catalog around 2022."
+  },
+  "retail": { "msrp_history": [], "current_msrp_usd": null },
+  "market_evidence": { "comps": [], "listing_observations": [] },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The original 1957 Railmaster was built for workers around magnetic fields — railway engineers, power plant staff, lab technicians — the same year Omega launched the Speedmaster and Seamaster 300. This reference is the regular-production version of Omega's 2017 modern reissue, keeping the clean Arabic-numeral dial with no date window and no rotating bezel. Omega dropped the Railmaster from its lineup around 2022, leaving the Speedmaster and Seamaster 300 as the only two of the original trio still in active production.",
+    "collector_notes": "Verify caliber 8800 (no date function) rather than a date-equipped variant, and check whether the piece is the plain steel bracelet configuration this reference denotes versus leather-strap or two-tone versions sold under adjacent reference numbers.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.watchmaxx.com/omega-watch-220-10-40-20-01-001",
+      "https://omegaforums.net/threads/omega-railmaster-220-10-40-20-01-001.187578/",
+      "https://www.chrono24.com/omega/ref-22010402001001.htm"
+    ]
+  }
+}

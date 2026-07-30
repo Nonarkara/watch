@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126000-celebration",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126000",
+    "name": "Oyster Perpetual 36",
+    "nickname": "Celebration",
+    "collection": "Oyster Perpetual",
+    "tier": "crown",
+    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "3230", "type": "automatic" },
+    "case": { "diameter_mm": 36, "material": "Oystersteel", "bezel": "domed steel" },
+    "one_liner": "The Oyster Perpetual 36 with the 2023 'Celebration' dial: colored bubbles on turquoise blue, quoting the discontinued OP colors."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "At Watches and Wonders 2023 Rolex put a turquoise-blue dial scattered with yellow, coral, green, and pink circles on the Oyster Perpetual — an unusually playful move that directly quotes the 2020 dial colors it had discontinued the year before. Offered in 31, 36, and 41mm, the Celebration dial turned the OP color story into an official product rather than a grey-market phenomenon.",
+    "collector_notes": "Launch demand concentrated on the 36 and 41mm sizes; premiums have eased since. Confirm the dial is factory-fitted with matching papers — Celebration dials can be swapped onto standard 126000 cases.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-rolex",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "ap-15400st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "15400ST",
+    "name": "Royal Oak Selfwinding 41",
+    "nickname": null,
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": { "start_year": 2012, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "3120", "type": "automatic" },
+    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "one_liner": "The first 41mm Royal Oak — the reference that scaled the classic for the modern wrist."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Introduced in 2012 for the Royal Oak's 40th anniversary, the 15400ST moved the standard self-winding model from 39mm (15300) to 41mm and became the volume Royal Oak of the 2010s — the watch most people picture when they say 'Royal Oak'. Caliber 3120 with the full AP crest rotor, grande tapisserie dial in black, blue or silver.",
+    "collector_notes": "The framed date window and baton handset distinguish it from the later 15500 at a glance. Boutique-edition blue dials ('Boutique' 15400) trade at a premium; bracelet stretch and over-polished bevels are the usual condition traps.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

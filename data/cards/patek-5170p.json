@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "patek-5170p",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5170P-001",
+    "name": "Chronograph",
+    "nickname": null,
+    "collection": "Complications",
+    "tier": "trinity",
+    "produced": { "start_year": 2017, "end_year": 2019, "discontinued": true },
+    "movement": { "caliber": "CH 29-535 PS", "type": "manual" },
+    "case": { "diameter_mm": 39.4, "material": "platinum", "bezel": "concave, polished" },
+    "one_liner": "The platinum finale of the 5170 line — Patek's in-house manual chronograph with a blue dial and baguette diamond markers."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5170 was the reference that moved Patek's classic chronograph off the Lemania-based CH 27-70 and onto the in-house CH 29-535 PS. After yellow, white and rose gold versions, the platinum 5170P-001 arrived in 2017 with a blue sunburst dial and baguette diamond hour markers, ran only briefly, and gave way to the 5172G in 2019. Short production and end-of-line status made it the collected one.",
+    "collector_notes": "Look for the diamond set between the lugs at 6 — the platinum tell. The short run means few examples circulate; condition of the concave bezel and the sharp lug facets separates untouched pieces from polished ones.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-trinity",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}

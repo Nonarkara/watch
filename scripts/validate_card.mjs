@@ -5,7 +5,8 @@ const TIERS = ["trinity", "crown", "haute", "core", "attainable"];
 const VENUES = ["phillips", "christies", "sothebys", "antiquorum", "bonhams", "ebay", "other_auction"];
 const BOX = ["full_set", "box_only", "papers_only", "watch_only", null];
 const isUrl = (u) => typeof u === "string" && /^https?:\/\/.+\..+/.test(u);
-const isDate = (d) => typeof d === "string" && /^\d{4}-\d{2}(-\d{2})?$/.test(d) && !isNaN(new Date(d));
+// YYYY alone is legal for provenance/waitlist dates — honest when only the year is known.
+const isDate = (d) => typeof d === "string" && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(d) && !isNaN(new Date(d));
 
 export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   const errs = [];

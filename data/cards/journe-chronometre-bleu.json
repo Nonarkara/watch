@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "journe-chronometre-bleu",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "CB",
+    "name": "Chronomètre Bleu",
+    "nickname": null,
+    "collection": "Classique",
+    "tier": "haute",
+    "produced": { "start_year": 2009, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "1304", "type": "manual" },
+    "case": { "diameter_mm": 39, "material": "tantalum", "bezel": "polished tantalum" },
+    "one_liner": "F.P. Journe's first tantalum-cased watch, introduced in 2009 as the brand's entry-level model and now its most sought reference at auction."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2021", "person_or_event": "Journe secondary-market surge", "description": "Christie's collecting guide reported certain F.P. Journe models, the Chronomètre Bleu among the most cited, had risen roughly eight-fold in value over the preceding four years as independent watchmaking demand accelerated.", "source_url": "https://www.christies.com/en/stories/fp-journe-watches-collecting-guide" }
+  ],
+  "narrative": {
+    "story": "Francois-Paul Journe introduced the Chronomètre Bleu in 2009 as the least expensive watch in his catalog, using a fully polished tantalum case whose natural grey-blue cast supplied the color scheme without any dial paint or plating. Tantalum is dense and difficult to machine, which is part of why almost no other manufacture used it structurally at that price point. What began as Journe's accessible model became, over the following decade, the reference collectors point to first when they discuss the modern rise of independent watchmaking.",
+    "collector_notes": "Early examples carry a slightly different case finish and clasp than post-2010s production; collectors compare serial ranges against known finishing changes rather than assuming all Chronomètre Bleu examples are identical inside.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://timeandtidewatches.com/the-immortals-the-f-p-journe-chronometre-bleu/",
+      "https://monochrome-watches.com/fp-journe-chronometre-bleu-review-live-photos-price/",
+      "https://www.christies.com/en/stories/fp-journe-watches-collecting-guide"
+    ]
+  }
+}

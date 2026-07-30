@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "seiko-spb143",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SPB143",
+    "name": "Prospex Diver 62MAS",
+    "nickname": "62MAS",
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "6R35", "type": "automatic" },
+    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "one_liner": "A reissue of Seiko's 1965 62MAS, its first purpose-built dive watch, with a charcoal sunburst dial and a hacking, hand-windable 6R35 automatic."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 1200, "source_url": "https://teddybaldassarre.com/blogs/watches/seiko-prospex-spb143-review" }
+    ],
+    "current_msrp_usd": 1200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SPB143 reissues Seiko's 1965 62MAS, the brand's first purpose-built dive watch, running caliber 6R35 — a hacking, hand-windable automatic with a 70-hour reserve — in a 40.5mm case with a charcoal-grey sunburst dial. Seiko released it in 2020 alongside siblings SPB147 (black dial) and SPB149 (blue dial), returning the modern Prospex line to the 62MAS's original proportions after decades of larger dive-watch cases.",
+    "collector_notes": "A later black-dial reference, SPB453, covers similar ground in the current catalog; confirm which reference a listing describes, since the two are easy to conflate by description alone.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://teddybaldassarre.com/blogs/watches/seiko-prospex-spb143-review",
+      "https://monochrome-watches.com/seiko-prospex-diver-62mas-reissue-spb143-spb147-spb149-review-price/",
+      "https://straphabit.com/blogs/straphabit-reviews/old-vs-new-seiko-prospex-62mas-spb453-vs-spb143"
+    ]
+  }
+}

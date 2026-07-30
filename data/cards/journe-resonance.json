@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "journe-resonance",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "RS",
+    "name": "Chronomètre à Résonance",
+    "nickname": null,
+    "collection": "Classique",
+    "tier": "haute",
+    "produced": { "start_year": 2000, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "1499.3", "type": "manual" },
+    "case": { "diameter_mm": 40, "material": "18k rose gold or platinum", "bezel": "polished, matching case metal" },
+    "one_liner": "Two independent balance wheels regulating each other through resonance rather than a shared gear train, shown on a twin-dial layout that displays two time zones."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      { "date": "2026-06-13", "price_usd": 13922000, "venue": "phillips", "url": "https://www.europeanwatch.com/blog/journe-chronometre-resonance-auction-record", "condition": "Souscription series No. 007 of 20, circa 2000, platinum and pink gold, one of two known in this metal combination", "box_papers": null },
+      { "date": "2024-11-27", "price_usd": 2980000, "venue": "phillips", "url": "https://www.phillips.com/article/152081113/a-unique-fpjourne-chronometre-a-resonance-sells-for-usd-2-dollars-98-cents-million-for-charity", "condition": "unique piece, serial 638-RQ, charity commission for the Prince Albert II of Monaco Foundation", "box_papers": null },
+      { "date": "2025-12-06", "price_usd": 584200, "venue": "phillips", "url": "https://hypebeast.com/2025/10/francis-ford-coppola-personal-watch-collection-unique-f-p-journe-fcf-prototype-phillips-the-new-york-watch-auction-xiii-info", "condition": "platinum, ex-Francis Ford Coppola collection, gifted to him in 2009", "box_papers": null }
+      ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    { "date": "2026-06-13", "person_or_event": "Auction record for a 21st-century watch", "description": "A Souscription-series Chronomètre à Résonance, No. 007 of the original 20-piece founding-client edition from circa 2000, sold for $13,922,000 at Phillips New York Watch Auction XIV, the highest price ever paid at commercial auction for a 21st-century wristwatch and for any watch by an independent watchmaker.", "source_url": "https://www.europeanwatch.com/blog/journe-chronometre-resonance-auction-record" }
+  ],
+  "narrative": {
+    "story": "The Résonance was one of the first watches F.P. Journe produced under his own name, a subscription series of twenty pieces offered to founding clients around 2000 to help finance the fledgling company before it built the boutique network that supports it today. The mechanical premise is unusual: two separate balance wheels, each with its own escapement, are placed close enough together that they entrain each other through physical resonance, a phenomenon Journe used to improve rate stability rather than just as a display gimmick. The dial's twin sub-dials read two time zones, one for each balance train.",
+    "collector_notes": "Souscription-series pieces from the original circa-2000 run are a distinct, far scarcer population than the standard-production Résonance that followed; collectors treat them as effectively a different watch for valuation purposes despite sharing the model name.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-haute",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.europeanwatch.com/blog/journe-chronometre-resonance-auction-record",
+      "https://www.phillips.com/article/152081113/a-unique-fpjourne-chronometre-a-resonance-sells-for-usd-2-dollars-98-cents-million-for-charity",
+      "https://hypebeast.com/2025/10/francis-ford-coppola-personal-watch-collection-unique-f-p-journe-fcf-prototype-phillips-the-new-york-watch-auction-xiii-info"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sje083-kingseiko",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SJE083",
+    "name": "King Seiko KSK",
+    "nickname": "KSK",
+    "collection": "King Seiko",
+    "tier": "attainable",
+    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "6L35", "type": "automatic" },
+    "case": { "diameter_mm": 38.1, "material": "stainless steel with super-hard coating", "bezel": "none — dress case" },
+    "one_liner": "A numbered 3,000-piece recreation of King Seiko's 1965 reference 44-9990, reviving the King Seiko name as a modern limited edition."
+  },
+  "retail": {
+    "msrp_history": [
+      { "effective_year": 2026, "price_usd": 3300, "source_url": "https://seikoluxe.com/products/sje083/" }
+    ],
+    "current_msrp_usd": 3300
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": true, "stated_size": 3000, "source_url": "https://www.seikowatches.com/sg-en/products/kingseiko/sje083j1" },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SJE083 recreates King Seiko's 1965 reference 44-9990, nicknamed KSK, as a numbered limited edition of 3,000 pieces. It runs caliber 6L35, a 26-jewel automatic with hacking seconds and roughly 45 hours of reserve, in a 38.1mm case with a super-hard coating and a silvered sunburst dial with a textured pyramid pattern at 12 o'clock. It belongs to the King Seiko name's 2020 revival as a modern reissue line, sitting above the more widely available SPB27x-series King Seiko references.",
+    "collector_notes": "Individually numbered out of 3,000 pieces; check that the printed number on the caseback matches any accompanying certificate before buying used.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-japan",
+    "curated_date": "2026-07-31",
+    "sources": [
+      "https://www.seikowatches.com/sg-en/products/kingseiko/sje083j1",
+      "https://seikoluxe.com/products/sje083/",
+      "https://timeandtidewatches.com/king-seiko-ksk-sje083-hands-on/"
+    ]
+  }
+}

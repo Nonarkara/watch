@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tudor-ranger-79950",
+  "identity": {
+    "brand": "Tudor",
+    "reference": "79950",
+    "name": "Ranger",
+    "nickname": null,
+    "collection": "Ranger",
+    "tier": "crown",
+    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
+    "movement": { "caliber": "MT5402", "type": "automatic" },
+    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "smooth stainless steel" },
+    "one_liner": "A field-watch revival referencing Tudor's Ranger models from the 1960s-80s, using the same 39mm case and movement family as the Black Bay Fifty-Eight but without a rotating dive bezel."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Tudor revived the Ranger name in 2022 after decades away from the catalog, referencing field-watch variants of the Oyster Prince that Tudor sold under the Ranger name from the 1960s into the 1980s. The modern version uses black dial, cream-colored numeral markers, and a riveted-style bracelet or fabric strap rather than the rotating dive bezel Tudor's other Black Bay-family watches carry.",
+    "collector_notes": "Because 'Ranger' covered several different vintage case shapes across decades, collectors researching the lineage should check which specific 1960s-70s reference a given comparison is actually citing rather than treat 'Ranger' as one continuous design.",
+    "starter_alternative": "hamilton-khaki-field-h69439931"
+  },
+  "meta": {
+    "curated_by": "agent-omega-tudor",
+    "curated_date": "2026-07-31",
+    "sources": []
+  }
+}
