@@ -11,6 +11,7 @@ const NAV = [
   { to: '/discover', label: 'Discover' },
   { to: '/rehome', label: 'Rehome' },
   { to: '/compare', label: 'Compare' },
+  { to: '/signals', label: 'Signals' },
 ]
 
 export default function App() {
