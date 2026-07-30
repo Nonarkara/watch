@@ -20,9 +20,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-    <script type="module">
-      import { trackVisit } from 'https://nonarkara.org/_shared/lib/visitor-tracking.js';
-      trackVisit({ dashboard: 'WATCH' });
+    <script>
+      window.addEventListener('load', function () {
+        import('https://nonarkara.org/_shared/lib/visitor-tracking.js')
+          .then(function ({ trackVisit }) { trackVisit({ dashboard: 'WATCH' }); })
+          .catch(function () {});
+      });
     </script>
   </head>
   <body>
