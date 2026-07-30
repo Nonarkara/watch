@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useDataset } from '../App.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
 import { usd, dash } from '../lib/format.ts'
 

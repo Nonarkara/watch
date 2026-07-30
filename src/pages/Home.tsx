@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useDataset } from '../App.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
 
 const DOORS = [
   {

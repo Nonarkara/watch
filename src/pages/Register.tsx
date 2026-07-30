@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDataset } from '../App.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 
@@ -20,7 +20,7 @@ export default function Register() {
   const [tier, setTier] = useState<'all' | Card['identity']['tier']>('all')
   const [brand, setBrand] = useState('all')
   const [sort, setSort] = useState<SortKey>('collectibility')
-  const cards = data?.cards ?? []
+  const cards = useMemo(() => data?.cards ?? [], [data])
 
   const brands = useMemo(
     () => [...new Set(cards.map((c) => c.identity.brand))].sort(),

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useDataset } from '../App.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
 import Meter from '../components/Meter.tsx'
@@ -12,7 +12,7 @@ export default function Dossier() {
   const c = data?.cards.find((x) => x.id === id)
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
-    return () => { document.title = 'The Watch Register — Objects, Stories & Market Signals' }
+    return () => { document.title = 'The Watch Register — Objects, Stories & Scarcity' }
   }, [c])
   if (!data) return null
   if (!c) {

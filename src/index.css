@@ -114,6 +114,15 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-2xl); min
 .handover-checklist li > span { color: var(--amber); font-size: var(--text-micro); }
 .handover-checklist strong { font-weight: 600; }
 
+/* ── Scarcity economics ── */
+.scarcity-chips { margin-bottom: var(--space-md); }
+.scarcity-list { border-top: var(--border); }
+.scarcity-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md); align-items: center; min-height: var(--tap-min); padding: var(--space-sm) 0; border-bottom: var(--border); }
+.scarcity-row > span:first-child { min-width: 0; }
+.scarcity-reasons { display: block; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+.scarcity-score { text-align: right; }
+.scarcity-score > span { display: block; }
+
 /* ── Register controls ── */
 .controls { display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-md); }
 .controls-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
@@ -261,10 +270,11 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 /* ── Reduced motion: this site animates almost nothing by design ── */
 * { transition: none; }
 @media (hover: hover) and (pointer: fine) {
-  .lrow, .nav-a, .src-a, .chip, .btn, .purpose-card { transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease; }
+  .lrow, .scarcity-row, .nav-a, .src-a, .chip, .btn, .purpose-card { transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease; }
   .btn:hover { color: var(--bg); background: var(--amber); }
   .btn.secondary:hover { color: var(--bg); background: var(--fg); border-color: var(--fg); }
   .purpose-card:hover { background: rgba(245, 245, 240, 0.04); }
   .purpose-card:hover h3 { color: var(--amber); }
+  .scarcity-row:hover { background: rgba(245, 245, 240, 0.04); }
   .ftr-links a:hover { color: var(--fg); border-bottom-color: var(--amber); }
 }

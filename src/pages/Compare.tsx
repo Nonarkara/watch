@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { useDataset } from '../App.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 

@@ -1,9 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import { loadDataset, type Dataset } from './lib/data.ts'
-
-const DataContext = createContext<Dataset | null>(null)
-export const useDataset = () => useContext(DataContext)
+import { DataContext } from './lib/dataset-context.ts'
 
 const NAV = [
   { to: '/', label: 'Home' },
@@ -11,8 +9,20 @@ const NAV = [
   { to: '/discover', label: 'Discover' },
   { to: '/rehome', label: 'Rehome' },
   { to: '/compare', label: 'Compare' },
-  { to: '/signals', label: 'Signals' },
+  { to: '/signals', label: 'Scarcity' },
 ]
+
+const PAGE_TITLES: Record<string, string> = {
+  '/': 'The Watch Register — Objects, Stories & Scarcity',
+  '/register': 'Watch Reference Register — The Watch Register',
+  '/discover': 'Discover a Watch — The Watch Register',
+  '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
+  '/compare': 'Compare Watch References — The Watch Register',
+  '/signals': 'Scarcity Economics — The Watch Register',
+  '/starter': 'Starter Paths — The Watch Register',
+  '/methodology': 'Methodology — The Watch Register',
+  '/paper': 'Working Paper — The Watch Register',
+}
 
 export default function App() {
   const [data, setData] = useState<Dataset | null>(null)
@@ -21,6 +31,9 @@ export default function App() {
 
   useEffect(() => { loadDataset().then(setData, (e) => setErr(String(e))) }, [])
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  useEffect(() => {
+    if (!pathname.startsWith('/w/')) document.title = PAGE_TITLES[pathname] ?? PAGE_TITLES['/']
+  }, [pathname])
 
   return (
     <DataContext.Provider value={data}>
