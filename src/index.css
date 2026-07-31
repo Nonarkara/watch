@@ -699,3 +699,34 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 
 /* The dock is fixed, so the page needs room to finish above it. */
 .ftr { padding-bottom: calc(var(--space-xl) + var(--sab) + 64px); }
+
+/* ── Dossier: decision data first, catalogue reading behind a tab ──
+   The object and the identity share the top row so the fold carries the watch,
+   its name and its numbers instead of a full-width photograph. */
+.dsr-top { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); align-items: start; margin-bottom: var(--space-lg); }
+.dsr-top .dossier-object, .dsr-top .dossier-empty { margin: 0; }
+.dsr-top .masthead { margin-bottom: 0; }
+.dsr-tabs { display: flex; gap: var(--space-lg); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-lg); }
+.dsr-tab {
+  min-height: var(--tap-min); padding: 0 0 var(--space-sm); margin-bottom: -1px;
+  font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: .06em;
+  color: var(--dim); border-bottom: 2px solid transparent;
+}
+.dsr-tab.on { color: var(--fg); border-bottom-color: var(--amber); }
+@media (min-width: 880px) {
+  .dsr-top { grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: var(--space-xl); }
+}
+
+/* The shelf must never eat the page on a phone: one scrolling row, fixed height. */
+@media (max-width: 719px) {
+  .cdock-in { flex-wrap: nowrap; gap: var(--space-sm); min-height: 52px; }
+  .cdock-lab { display: none; }
+  .cdock.idle .cdock-lab { display: block; font-size: 10px; }
+  .cdock-slots { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .cdock-slots::-webkit-scrollbar { display: none; }
+  .cslot { white-space: nowrap; }
+  .cdock .btn { padding: 0 var(--space-sm); font-size: 10px; }
+  .cdock-clear { display: none; }
+  .dossier-empty { min-height: 180px; }
+  .dsr-top .dossier-object img { height: 220px; }
+}

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
@@ -26,6 +26,7 @@ export default function Dossier() {
       </>
     )
   }
+  const [view, setView] = useState<'evidence' | 'story'>('evidence')
   const starter = c.narrative.starter_alternative
     ? data.cards.find((x) => x.id === c.narrative.starter_alternative) : undefined
   const { estimate, premium, change_1y, change_5y, scarcity, collectibility, liquidity, confidence } = c.computed
@@ -34,7 +35,8 @@ export default function Dossier() {
   return (
     <>
       <Link to="/register" className="crumb">← REGISTER</Link>
-      
+
+      <div className="dsr-top">
       {c.media[0] ? (
         <figure className="dossier-object">
           <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={c.identity.name} /></a>
@@ -48,9 +50,21 @@ export default function Dossier() {
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
         
-        {c.brand_context.tier && <p className="brand-context mono micro">EDITORIAL TIER {c.brand_context.tier} · {c.brand_context.label?.toUpperCase()} · <a href={c.brand_context.source_url} target="_blank" rel="noreferrer">SOURCE ↗</a><br /><span>{c.brand_context.limitation}</span></p>}
+      </div>
       </div>
 
+      <div className="dsr-tabs" role="tablist" aria-label="Dossier view">
+        <button type="button" role="tab" aria-selected={view === 'evidence'}
+          className={'dsr-tab' + (view === 'evidence' ? ' on' : '')} onClick={() => setView('evidence')}>
+          EVIDENCE
+        </button>
+        <button type="button" role="tab" aria-selected={view === 'story'}
+          className={'dsr-tab' + (view === 'story' ? ' on' : '')} onClick={() => setView('story')}>
+          STORY & PROVENANCE
+        </button>
+      </div>
+
+      {view === 'evidence' && <>
       <div className="metric-strip">
         <div className="mcell">
           <span className="lab">Market estimate</span>
@@ -128,6 +142,9 @@ export default function Dossier() {
         </div>
       </div>
 
+      </>}
+
+      {view === 'story' && <>
       {c.screen_events.length > 0 && (
         <section className="sect dossier-screen">
           <div className="fact-bubble fact-bubble-yellow">
@@ -140,6 +157,9 @@ export default function Dossier() {
         </section>
       )}
 
+      </>}
+
+      {view === 'evidence' && <>
       {(c.retail.msrp_history.length > 0 || c.notable_sales.length > 0) && (
         <section className="sect">
           <h2 className="sect-h"><span>Price evidence</span>
@@ -202,6 +222,9 @@ export default function Dossier() {
         </section>
       )}
 
+      </>}
+
+      {view === 'story' && <>
       {c.provenance_events.length > 0 && (
         <section className="sect">
           <h2 className="sect-h"><span>Provenance & influence</span><span className="mono">{c.provenance_events.length} SOURCED EVENTS</span></h2>
@@ -217,6 +240,9 @@ export default function Dossier() {
         </section>
       )}
 
+      </>}
+
+      {view === 'evidence' && <>
       <section className="sect">
         <h2 className="sect-h"><span>Specification</span></h2>
         <dl className="spec-grid">
@@ -231,6 +257,9 @@ export default function Dossier() {
         </dl>
       </section>
 
+      </>}
+
+      {view === 'story' && <>
       <section className="sect prose">
         <h2 className="sect-h"><span>Why it matters</span></h2>
         <p>{c.narrative.story}</p>
@@ -251,6 +280,15 @@ export default function Dossier() {
           </p>
         </section>
       )}
+
+      {c.brand_context.tier && (
+        <p className="brand-context mono micro">
+          EDITORIAL TIER {c.brand_context.tier} · {c.brand_context.label?.toUpperCase()} ·{' '}
+          <a href={c.brand_context.source_url} target="_blank" rel="noreferrer">SOURCE ↗</a>
+          <br /><span>{c.brand_context.limitation}</span>
+        </p>
+      )}
+      </>}
 
       <p className="micro dim mono">
         CURATED {c.meta.curated_date} · DATA BUILD {c.meta.build_date} · {c.meta.sources.length} SOURCES ·{' '}
