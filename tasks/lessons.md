@@ -40,3 +40,29 @@
 - **Correct behaviour:** `public/_headers` sets `max-age=0, must-revalidate` on `data.json` and
   the paper, while hashed `/assets/*` stay immutable.
 - **How to recognise:** deploy-specific URL is correct but the alias domain disagrees.
+
+## 2026-07-31 · Premium needs to say which retail price it used
+
+- **What went wrong:** Two unlocked premiums (OP41 +248%, Pepsi GMT +175%) were computed
+  against 2022 and 2018 list prices for references *still in production*, and the UI labelled
+  both "final retail" — a phrase that only makes sense for a discontinued watch. The gap was
+  overstated and the label was false.
+- **Correct behaviour:** `premiumToRetail` now takes the discontinued flag and distinguishes
+  three baselines: current retail, final retail (YEAR) for discontinued, and a plain
+  "YEAR retail" for in-production references whose current list price is not on record. The
+  last case sets `stale_baseline: true`, which the dossier prints inline — not inside the
+  collapsed limits toggle — stating the real premium is smaller.
+- **How to recognise:** any in-production card whose `retail.current_msrp_usd` is null. The
+  premium is still publishable, but only with the baseline named.
+- **The general rule:** a ratio is only as honest as its denominator's label. Naming the
+  baseline is part of the number, not decoration around it.
+
+## 2026-07-31 · Verify the agent, not just its sourcing
+
+- Two lots priced at exactly $17,920 on the same date looked like a copy-paste error. Fetching
+  both Bonhams pages showed a genuine coincidence — a Pepsi GMT and a ceramic Daytona really
+  did both sell for US$17,920 inc. premium. The suspicion was worth the two fetches; the
+  agent was accurate, and the check cost less than a wrong retraction would have.
+- Cloudflare Pages alias domains serve the previous deployment for roughly a minute after
+  `wrangler pages deploy` reports success. Verify against the deployment-specific URL first,
+  then poll the alias — a stale alias read is not a failed deploy.
