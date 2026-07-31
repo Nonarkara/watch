@@ -3,7 +3,7 @@
 // BUILD_DATE env pins the date for deterministic builds (tests); defaults to today.
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { computeAll } from "./lib/indices.mjs";
+import { computeAll, isComparable } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
@@ -25,9 +25,13 @@ for (const f of files) {
   if (errs.length) { failed++; console.error(`✗ ${f}\n  - ${errs.join("\n  - ")}`); continue; }
 
   const computed = computeAll(card, shared, buildDate);
-  const comps = card.market_evidence.comps;
+  const comps = card.market_evidence.comps.filter(isComparable);
   const notable = [...comps].sort((a, b) => b.price_usd - a.price_usd).slice(0, 5)
     .map(({ date, price_usd, venue, url, box_papers }) => ({ date, price_usd, venue, url, box_papers: box_papers ?? null }));
+  // Real, cited sales of a different configuration — shown, never averaged.
+  const variants = card.market_evidence.comps.filter((c) => !isComparable(c))
+    .sort((a, b) => b.price_usd - a.price_usd)
+    .map(({ date, price_usd, venue, url, condition }) => ({ date, price_usd, venue, url, condition }));
 
   published.push({
     id: card.id,
@@ -46,6 +50,7 @@ for (const f of files) {
       date_range: [comps.map((c) => c.date).sort()[0], comps.map((c) => c.date).sort().at(-1)],
     } : null,
     notable_sales: notable,
+    variant_sales: variants,
     computed,
     meta: { ...card.meta, build_date: buildDate },
   });

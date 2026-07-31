@@ -137,6 +137,32 @@ export default function Dossier() {
         </section>
       )}
 
+      {c.variant_sales.length > 0 && (
+        <section className="sect">
+          <h2 className="sect-h"><span>Variant sales — not used in the estimate</span><span className="mono">{c.variant_sales.length} EXCLUDED</span></h2>
+          <p className="honest" style={{ marginBottom: 'var(--space-md)' }}>
+            These are real, cited sales of a different configuration — a special-signed dial, a
+            celebrity-owned example, a charity lot. They price a different object than this
+            reference, so the register shows them as evidence and keeps them out of the market
+            estimate. Averaging them in would inflate the number for every ordinary example.
+          </p>
+          <table className="sales-table">
+            <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Why excluded</th><th>Source</th></tr></thead>
+            <tbody>
+              {c.variant_sales.map((s, i) => (
+                <tr key={i}>
+                  <td className="mono">{s.date}</td>
+                  <td>{VENUE_LABEL[s.venue] ?? s.venue}</td>
+                  <td className="num">{usd(s.price_usd)}</td>
+                  <td className="dim">{s.condition}</td>
+                  <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer">record ↗</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
       {c.provenance_events.length > 0 && (
         <section className="sect">
           <h2 className="sect-h"><span>Provenance & influence</span><span className="mono">{c.provenance_events.length} SOURCED EVENTS</span></h2>

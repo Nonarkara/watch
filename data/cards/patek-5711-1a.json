@@ -8,26 +8,70 @@
     "nickname": null,
     "collection": "Nautilus",
     "tier": "trinity",
-    "produced": { "start_year": 2006, "end_year": 2021, "discontinued": true },
-    "movement": { "caliber": "26-330 S C", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "produced": {
+      "start_year": 2006,
+      "end_year": 2021,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "26-330 S C",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "rounded octagonal, polished"
+    },
     "one_liner": "The steel Nautilus whose 2021 discontinuation set off the largest price run in modern watch collecting."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2019, "price_usd": 30620, "source_url": "https://quillandpad.com/2021/05/23/stainless-steel-patek-philippe-nautilus-market-madness-thoughts-on-the-current-market-situation-reprise/" }
+      {
+        "effective_year": 2019,
+        "price_usd": 30620,
+        "source_url": "https://quillandpad.com/2021/05/23/stainless-steel-patek-philippe-nautilus-market-madness-thoughts-on-the-current-market-situation-reprise/"
+      }
     ],
     "current_msrp_usd": null
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-06-08", "price_usd": 76200, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080124/52", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2024-06-08",
+        "price_usd": 76200,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080124/52",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2025-12-06",
+        "price_usd": 254000,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080225/7",
+        "condition": "Tiffany & Co.-signed dial; Certificate of Origin dated 19 April 2019",
+        "box_papers": "full_set",
+        "comparable": false
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 266700,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080126/86",
+        "condition": "Purchased new by Eric Clapton in 2018; celebrity provenance premium",
+        "box_papers": "full_set",
+        "comparable": false
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

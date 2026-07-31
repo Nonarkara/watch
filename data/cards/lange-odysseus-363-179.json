@@ -18,7 +18,10 @@
     "current_msrp_usd": 35620
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2024-12-07", "price_usd": 60960, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-and-sohne/NY080424/109", "condition": null, "box_papers": "full_set" },
+      { "date": "2025-04-08", "price_usd": 50800, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-and-sohne/NY080325/2", "condition": null, "box_papers": "full_set" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

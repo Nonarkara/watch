@@ -43,6 +43,12 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
     req(BOX.includes(c.box_papers ?? null), `comps[${i}].box_papers invalid`);
+    req(c.comparable === undefined || typeof c.comparable === "boolean", `comps[${i}].comparable must be boolean`);
+    // Excluding a sale from the estimate is a judgement call — it must state its reason.
+    if (c.comparable === false) {
+      req(typeof c.condition === "string" && c.condition.length > 10,
+        `comps[${i}] marked comparable:false needs a condition string explaining why`);
+    }
   }
 
   const s = card.scarcity_inputs || {};

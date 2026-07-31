@@ -60,7 +60,21 @@ const limited = structuredClone(fixture);
 limited.scarcity_inputs.limited_edition = { is_limited: true, stated_size: 500, source_url: "https://example.com/le" };
 assert.ok(computeAll(limited, shared, BUILD).scarcity.value > c1.scarcity.value, "limited > unlimited scarcity");
 
-// 9. Windowing: comp dated after buildDate is ignored, not counted
+// 9. Non-comparable comps never reach the estimator: a $10M variant lot must not move the number
+const variant = structuredClone(fixture);
+variant.market_evidence.comps.push({ date: "2026-07-01", price_usd: 10000000, venue: "phillips",
+  url: "https://example.com/variant", condition: "Special-dial variant, not the base reference", box_papers: "full_set", comparable: false });
+assert.deepEqual(validateCard(variant, { id: "testbrand-tb1", buildDate: BUILD }), []);
+const cVariant = computeAll(variant, shared, BUILD);
+assert.equal(cVariant.estimate.value, c1.estimate.value, "comparable:false must not move the estimate");
+assert.equal(cVariant.estimate.n, c1.estimate.n, "comparable:false must not inflate n");
+// and a comparable:false comp without an explanation is rejected
+const unexplained = structuredClone(variant);
+unexplained.market_evidence.comps.at(-1).condition = null;
+assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).length > 0,
+  "comparable:false without a reason must fail validation");
+
+// 10. Windowing: comp dated after buildDate is ignored, not counted
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");

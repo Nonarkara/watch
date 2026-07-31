@@ -31,7 +31,13 @@ Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.jso
   "market_evidence": {
     "comps": [                              // REAL SOLD PRICES ONLY (auction results, eBay sold). Not asking prices.
       { "date": "2024-06-08", "price_usd": 27940, "venue": "phillips",   // venue: phillips|christies|sothebys|antiquorum|bonhams|ebay|other_auction
-        "url": "https://...", "condition": null, "box_papers": "full_set" }  // box_papers: full_set|box_only|papers_only|watch_only|null
+        "url": "https://...", "condition": null, "box_papers": "full_set" },  // box_papers: full_set|box_only|papers_only|watch_only|null
+      // Set comparable:false when the lot prices a DIFFERENT OBJECT than this reference —
+      // a special-signed dial (Tiffany), a celebrity-owned example, a charity lot, a wrong
+      // metal. It stays on the card as cited evidence and renders as a "variant sale", but
+      // never enters the estimate. condition MUST explain why (the validator enforces it).
+      { "date": "2025-12-06", "price_usd": 254000, "venue": "phillips", "url": "https://...",
+        "condition": "Tiffany & Co.-signed dial", "box_papers": "full_set", "comparable": false }
     ],
     "listing_observations": []              // asking-price context (r/Watchexchange etc): {date, venue, active_count} — script-filled, leave []
   },
@@ -62,6 +68,7 @@ Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.jso
 ## Field rules
 
 - `comps`: sold prices with the URL of the page stating the sale. USD figures only — if a result is only in CHF/HKD/GBP, skip it (no conversions). Auction prices include buyer's premium when that's what the page reports.
+- **Comparability is the estimator's trust boundary.** A comp must be the same object the card describes. Before adding one, ask: would a collector consider this an ordinary example of this reference? A Tiffany-signed dial, a celebrity's own watch, a charity lot, or a different metal answers no — add it with `"comparable": false` and explain in `condition`. Getting this wrong is worse than having no comp: three special lots produced a fake +729% premium on a standard Nautilus before this rule existed. Also watch for the *same physical watch* appearing twice across sales (match the Certificate of Origin date) — that is one data point, not two.
 - `msrp_history`: launch MSRP is the single most valuable retail fact. US MSRP. Archived brand pages, period press coverage, or reputable price-guide articles are acceptable sources.
 - `provenance_events`: the influence layer ("Federer effect"). Only real, dated, sourced events. 0 events is fine for most references.
 - `nickname`, `one_liner`, `story`: your knowledge, no source needed, but factual register — the no-AI-tells law applies (no "iconic", "boasts", "elevate", "testament to").

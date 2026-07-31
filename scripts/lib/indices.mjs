@@ -3,6 +3,12 @@
 
 const MS_DAY = 86400000;
 
+// A comp counts toward the estimate only if it is the same object the card describes.
+// Special-dial variants (a Tiffany-signed 5711), celebrity-provenance lots, and charity
+// sales are real, cited evidence — but they price a different thing, so they are carried
+// on the card as variant sales and never fed to the estimator.
+export const isComparable = (c) => c.comparable !== false;
+
 const daysBetween = (a, b) => Math.round((new Date(a) - new Date(b)) / MS_DAY);
 const monthKey = (iso) => iso.slice(0, 7);
 const round1 = (x) => Math.round(x * 10) / 10;
@@ -189,7 +195,7 @@ export function confidenceTier(comps, buildDate) {
 }
 
 export function computeAll(card, shared, buildDate) {
-  const comps = card.market_evidence.comps;
+  const comps = card.market_evidence.comps.filter(isComparable);
   const estimate = marketEstimate(comps, buildDate);
   const premium = premiumToRetail(estimate, card.retail);
   const change_1y = priceChange(comps, buildDate, 1, shared.cpi);

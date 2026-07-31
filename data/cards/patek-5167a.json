@@ -8,26 +8,71 @@
     "nickname": null,
     "collection": "Aquanaut",
     "tier": "trinity",
-    "produced": { "start_year": 2007, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "26-330 S C", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, embossed dial pattern" },
+    "produced": {
+      "start_year": 2007,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "26-330 S C",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "rounded octagonal, embossed dial pattern"
+    },
     "one_liner": "The 40mm steel Aquanaut on its Tropical composite strap — the last accessible door into Patek steel sports."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2025, "price_usd": 29875, "source_url": "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/" }
+      {
+        "effective_year": 2025,
+        "price_usd": 29875,
+        "source_url": "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/"
+      }
     ],
     "current_msrp_usd": 29875
   },
   "market_evidence": {
     "comps": [
-      { "date": "2025-06", "price_usd": 146050, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/217145", "condition": "Tiffany & Co.-signed dial, virtually new", "box_papers": null }
+      {
+        "date": "2025-06",
+        "price_usd": 146050,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/217145",
+        "condition": "Tiffany & Co.-signed dial, virtually new",
+        "box_papers": null,
+        "comparable": false
+      },
+      {
+        "date": "2023-12-09",
+        "price_usd": 95250,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080223/32",
+        "condition": "Tiffany & Co.-stamped Certificate of Origin dated 21 June 2011",
+        "box_papers": "full_set",
+        "comparable": false
+      },
+      {
+        "date": "2025-12-06",
+        "price_usd": 95250,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080225/5",
+        "condition": "Tiffany & Co.-signed dial, near-mint; same Certificate of Origin as the December 2023 Phillips lot",
+        "box_papers": "full_set",
+        "comparable": false
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

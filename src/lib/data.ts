@@ -3,6 +3,9 @@
 
 export interface MsrpEntry { effective_year: number; price_usd: number; source_url: string }
 export interface Sale { date: string; price_usd: number; venue: string; url: string; box_papers: string | null }
+/** A real, cited sale of a different configuration (special dial, celebrity provenance,
+ *  charity lot). Shown as evidence, never fed to the estimator. */
+export interface VariantSale { date: string; price_usd: number; venue: string; url: string; condition: string }
 export interface ProvenanceEvent { date: string; person_or_event: string; description: string; source_url: string }
 
 export interface Estimate {
@@ -41,6 +44,7 @@ export interface Card {
   narrative: { story: string; collector_notes: string | null; starter_alternative: string | null };
   comp_summary: { n: number; venues: string[]; date_range: [string, string] } | null;
   notable_sales: Sale[];
+  variant_sales: VariantSale[];
   computed: Computed;
   meta: { curated_by: string; curated_date: string; sources: string[]; build_date: string };
 }

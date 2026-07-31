@@ -29,6 +29,16 @@ export default function Methodology() {
           no estimate. Asking prices are never sales and never enter the estimate.
         </p>
 
+        <h2>What counts as comparable</h2>
+        <p>
+          A sale only enters the estimate if it is the same object the card describes. A
+          Tiffany-signed dial, a watch owned by someone famous, a charity lot bid far above the
+          market, a different case metal — each of these prices a different thing, however similar
+          the reference number looks. Those sales stay on the card, cited, under "variant sales",
+          and are excluded from the average. This matters more than it sounds: three special lots,
+          averaged in, once produced a 729% premium on an otherwise ordinary steel Nautilus.
+        </p>
+
         <h2>Vs retail, and the inflation adjustment</h2>
         <p>
           Premium is the estimate against the brand's published US retail price — current price for
