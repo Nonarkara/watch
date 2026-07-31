@@ -24,8 +24,6 @@ const MEDIAN = (xs: number[]) => {
   return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2
 }
 
-interface Quarterly { q: string; median: number; n: number; mean: number }
-
 // Pre-loaded real-world events from the working paper. Dates and labels are public record.
 const EVENTS: { date: string; label: string; tone: 'milestone' | 'peak' | 'trough' }[] = [
   { date: '2021-01-25', label: 'Patek discontinues 5711', tone: 'milestone' },
