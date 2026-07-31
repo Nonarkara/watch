@@ -68,5 +68,19 @@
     "license": "Unsplash License",
     "source_url": "https://unsplash.com/photos/a-black-g-shock-watch-with-a-white-dial-DXchB00aTWI",
     "caption": null
+  },
+  "patek-3700-1a": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Patek-Philippe-Nautilus-3700-1A.jpg/1200px-Patek-Philippe-Nautilus-3700-1A.jpg",
+    "credit": "Wikimedia Commons / Mechanicalnerd",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-3700-1A.jpg",
+    "caption": "Jumbo Nautilus ref. 3700/1A — the original 1976 Genta porthole, not the 5711. The 3700 is what the 5711 inherited the silhouette from."
+  },
+  "ap-26470st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG/1200px-Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
+    "credit": "Eternalsleeper",
+    "license": "CC BY 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
+    "caption": "Audemars Piguet Royal Oak Offshore — the 42mm chrono/Diver family. The 26470ST is a steel Diver; the image shows a 42mm Offshore from the same family."
   }
 }

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import MarketChart from '../components/MarketChart.tsx'
 
 export default function Economy() {
   const data = useDataset()
@@ -19,6 +20,18 @@ export default function Economy() {
         <p className="lede">A screen appearance may increase attention to a watch. It does not reduce supply. This lab keeps those two ideas separate, then shows where demand pressure could deserve closer study.</p>
         <div className="sticker">NO FORECASTS<br />NO FAKE RETURNS</div>
       </div>
+
+      <section className="sect">
+        <div className="section-rule">
+          <h2>What the secondary market is doing, by quarter</h2>
+          <span className="mono micro dim">MEDIAN PRICE OF VERIFIED SALES</span>
+        </div>
+        <MarketChart cards={data?.cards ?? []} brand="Rolex" height={300} />
+        <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
+          Open the About page to see the same chart across brands and the public market events that explain the lines.{' '}
+          <Link className="src-a" to="/about#the-market">All brands and the event overlay →</Link>
+        </p>
+      </section>
 
       <section className="pressure-lab">
         <div className="lab-controls">

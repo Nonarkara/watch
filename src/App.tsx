@@ -10,7 +10,7 @@ const NAV = [
   { to: '/photos', label: 'Rolex atlas' },
   { to: '/screen', label: 'On screen' },
   { to: '/economy', label: 'Economy' },
-  { to: '/rehome', label: 'Rehome' },
+  { to: '/about', label: 'About' },
   { to: '/compare', label: 'Compare' },
 ]
 
@@ -20,6 +20,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/photos': 'Rolex Object Atlas — The Watch Register',
   '/screen': 'Rolex On Screen — The Watch Register',
   '/economy': 'Attention, Supply & Price — The Watch Register',
+  '/about': 'About — Theories, History & The Build — The Watch Register',
   '/discover': 'Discover a Watch — The Watch Register',
   '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
   '/compare': 'Compare Watch References — The Watch Register',
@@ -80,6 +81,7 @@ export default function App() {
             Prices are evidence, not financial advice. A Dr Non system.
           </p>
           <p className="micro mono ftr-links">
+            <NavLink to="/about">ABOUT</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>
             <NavLink to="/compare">COMPARE</NavLink>
             <NavLink to="/signals">SCARCITY</NavLink>
