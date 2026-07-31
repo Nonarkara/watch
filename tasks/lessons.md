@@ -2,6 +2,12 @@
 
 (§13 Rule 3/10 — every correction lands here. Read at session start.)
 
+## 2026-07-31 · Dashboard-token overflow kills document scroll
+
+- **What went wrong:** `_shared/design-tokens/dr-non-brand.css` sets `html, body { height: 100dvh; overflow: hidden }` for app shells. The Register overrode with `overflow: visible` then `overflow-x: hidden`. Lightning CSS merged that to `overflow: hidden visible`. The root kept failing to scroll, so Codex’s tall atelier home looked like a frozen demo.
+- **Correct behaviour:** override the two axes separately on `html` (`overflow-x: hidden; overflow-y: scroll`) and leave `body` at `overflow: visible`. Also reset `overscroll-behavior`, re-enable text selection / touch callout, and give `#root` `min-height: 100%`. Never write the visible-then-x-hidden pair.
+- **How to recognise:** content taller than the viewport, wheel/trackpad does nothing, and the built CSS shows `overflow:hidden` or `overflow:hidden visible` on `html,body`.
+
 ## 2026-07-31 · A comp must be the same object as the card
 
 - **What went wrong:** A comp-enrichment pass added three Tiffany-signed Aquanaut lots (two of
