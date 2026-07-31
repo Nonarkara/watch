@@ -10,6 +10,7 @@ const NAV = [
   { to: '/rehome', label: 'Rehome' },
   { to: '/compare', label: 'Compare' },
   { to: '/signals', label: 'Scarcity' },
+  { to: '/patterns', label: 'Patterns' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
@@ -19,6 +20,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
   '/compare': 'Compare Watch References — The Watch Register',
   '/signals': 'Scarcity Economics — The Watch Register',
+  '/patterns': 'Pattern Screen — The Watch Register',
   '/starter': 'Starter Paths — The Watch Register',
   '/methodology': 'Methodology — The Watch Register',
   '/paper': 'Working Paper — The Watch Register',

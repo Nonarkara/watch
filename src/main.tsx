@@ -10,6 +10,7 @@ import Compare from './pages/Compare.tsx'
 import Discover from './pages/Discover.tsx'
 import Rehome from './pages/Rehome.tsx'
 import Signals from './pages/Signals.tsx'
+import Patterns from './pages/Patterns.tsx'
 import Starter from './pages/Starter.tsx'
 import Methodology from './pages/Methodology.tsx'
 import Paper from './pages/Paper.tsx'
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="discover" element={<Discover />} />
           <Route path="rehome" element={<Rehome />} />
           <Route path="signals" element={<Signals />} />
+          <Route path="patterns" element={<Patterns />} />
           <Route path="starter" element={<Starter />} />
           <Route path="methodology" element={<Methodology />} />
           <Route path="paper" element={<Paper />} />
