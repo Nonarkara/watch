@@ -1,7 +1,7 @@
 // Build: data/cards/*.json + data/shared/* → public/data.json (masked publish).
 // Full comps stay internal; the public gets gauges + comp_summary + ≤5 cited notable sales.
 // BUILD_DATE env pins the date for deterministic builds (tests); defaults to today.
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { computeAll, isComparable } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
@@ -15,6 +15,11 @@ const shared = {
   brand_tiers: JSON.parse(readFileSync(join(ROOT, "data/shared/brand_tiers.json"), "utf8")),
   rolex_catalog: JSON.parse(readFileSync(join(ROOT, "data/shared/rolex_catalog.json"), "utf8")),
   screen_sightings: JSON.parse(readFileSync(join(ROOT, "data/shared/watch_id_rolex.json"), "utf8")),
+  // Hand-curated, licence-checked photography. Optional: absent means every card
+  // falls back to the catalogue, and a card with neither simply shows no image.
+  images: existsSync(join(ROOT, "data/shared/images.json"))
+    ? JSON.parse(readFileSync(join(ROOT, "data/shared/images.json"), "utf8"))
+    : {},
 };
 
 function brandContext(brand) {
@@ -29,6 +34,17 @@ function brandContext(brand) {
 }
 
 function mediaFor(card) {
+  // A curated, licence-verified photograph wins over a catalogue match: it is the
+  // image we can actually attribute.
+  const curated = shared.images[card.id];
+  if (curated?.file) {
+    return [{
+      type: "image", url: curated.file, source_url: curated.source_url,
+      credit: curated.credit, license: curated.license ?? null,
+      rights_status: "licensed", caption: curated.caption ?? null,
+      match: curated.caption ? "reference_family" : "exact_reference",
+    }];
+  }
   return shared.rolex_catalog.records
     .filter((record) => record.brand === card.identity.brand && record.reference === card.identity.reference.toUpperCase())
     .slice(0, 3)

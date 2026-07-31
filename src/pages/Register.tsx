@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { useCompare } from '../lib/compare-context.tsx'
 import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 
@@ -120,48 +121,44 @@ export default function Register() {
 }
 
 function VisualCard({ c }: { c: Card }) {
+  const { has, toggle } = useCompare()
+  const inSet = has(c.id)
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
   return (
-    <Link to={`/w/${c.id}`} className="reg-card">
-      {c.media[0] ? (
-        <div className="photo-thumb-wrap" style={{ height: '140px', marginBottom: '8px' }}>
-          <img src={c.media[0].url} alt={c.identity.name} loading="lazy" className="photo-img" />
-          <span className="tier-badge mono">SOURCE-LINKED</span>
-        </div>
-      ) : <div className="empty-photo compact">IMAGE<br />NOT YET SOURCED</div>}
-      <div className="reg-card-head">
-        <span className="reg-card-brand">{c.identity.brand}</span>
-        {confidence.tier && <span className={'badge' + (confidence.tier === 'A' ? ' a' : '')}>{confidence.tier}</span>}
+    <Link
+      to={`/w/${c.id}`}
+      className={'reg-card' + (inSet ? ' picked' : '')}
+      draggable
+      onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
+    >
+      <div className="rc-media">
+        {c.media[0]
+          ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" className="photo-img" />
+          : <span className="rc-media-empty mono">NO IMAGE</span>}
       </div>
-      <div className="reg-card-title">
-        {c.identity.name} <span className="mono dim" style={{ fontSize: '13px' }}>{c.identity.reference}</span>
+      <div className="rc-id">
+        <span className="rc-brand">{c.identity.brand}</span>
+        <span className="rc-conf mono">{confidence.tier ?? dash}</span>
       </div>
-      {c.identity.nickname && <div className="l-nick micro">“{c.identity.nickname}”</div>}
-      
-      <div className="reg-card-metrics">
-        <div>
-          <span className="micro dim block">MARKET</span>
-          <span className="reg-card-price">{estimate.value != null ? usd(estimate.value) : dash}</span>
-        </div>
-        <div style={{ textAlign: 'right' }}>
-          <span className="micro dim block">VS RETAIL</span>
-          <span className={`mono bold ${delta && delta < 0 ? 'neg' : 'amber'}`}>
-            {delta != null ? pct(delta) : dash}
-          </span>
-        </div>
+      <button
+        type="button"
+        className={'rc-pick mono' + (inSet ? ' on' : '')}
+        aria-pressed={inSet}
+        aria-label={inSet ? `Remove ${c.identity.reference} from comparison` : `Add ${c.identity.reference} to comparison`}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(c.id) }}
+      >{inSet ? 'COMPARING' : 'COMPARE'}</button>
+      <div className="rc-name">{c.identity.name}</div>
+      <div className="rc-sub mono">
+        {c.identity.reference}{c.identity.nickname ? ` · ${c.identity.nickname}` : ''}
       </div>
-
-      <div className="mini-specs" style={{ marginTop: '8px', paddingTop: '4px' }}>
-        <div style={{ padding: '2px 0' }}>
-          <dt>SCARCITY</dt>
-          <dd>{scarcity.value}/100 ({scarcity.tier?.toUpperCase() || 'COMMON'})</dd>
-        </div>
-        <div style={{ padding: '2px 0' }}>
-          <dt>COLLECT</dt>
-          <dd>{collectibility.value}/100</dd>
-        </div>
-      </div>
+      <dl className="rc-data">
+        <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
+        <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
+          {delta != null ? pct(delta) : dash}</dd></div>
+        <div><dt>Scarcity</dt><dd>{scarcity.value}<span className="dim">/100</span></dd></div>
+        <div><dt>Collect</dt><dd>{collectibility.value}<span className="dim">/100</span></dd></div>
+      </dl>
     </Link>
   )
 }

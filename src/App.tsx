@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import { loadDataset, type Dataset } from './lib/data.ts'
 import { DataContext } from './lib/dataset-context.ts'
+import { CompareProvider } from './lib/compare-context.tsx'
+import CompareDock from './components/CompareDock.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
@@ -9,6 +11,7 @@ const NAV = [
   { to: '/screen', label: 'On screen' },
   { to: '/economy', label: 'Economy' },
   { to: '/rehome', label: 'Rehome' },
+  { to: '/compare', label: 'Compare' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
@@ -40,6 +43,7 @@ export default function App() {
 
   return (
     <DataContext.Provider value={data}>
+      <CompareProvider>
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark">
@@ -85,6 +89,8 @@ export default function App() {
           </p>
         </div>
       </footer>
+      <CompareDock />
+      </CompareProvider>
     </DataContext.Provider>
   )
 }
