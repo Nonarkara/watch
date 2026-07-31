@@ -1,202 +1,3423 @@
 [
   {
-    "id": "photo-rolex-daytona-116500ln-1",
-    "brand": "Rolex",
-    "reference": "116500LN",
-    "name": "Cosmograph Daytona Panda",
-    "tier": "crown",
-    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License (Free for commercial and non-commercial use)",
-    "tags": ["rolex", "daytona", "chronograph", "steel", "panda", "crown", "hype", "white-dial", "cerachrom"]
-  },
-  {
-    "id": "photo-rolex-submariner-124060-1",
-    "brand": "Rolex",
-    "reference": "124060",
-    "name": "Submariner No-Date",
-    "tier": "crown",
-    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["rolex", "submariner", "diver", "steel", "no-date", "black-dial", "crown", "tool-watch", "icon"]
-  },
-  {
-    "id": "photo-rolex-gmt-master-126710blro-1",
-    "brand": "Rolex",
-    "reference": "126710BLRO",
-    "name": "GMT-Master II Pepsi",
-    "tier": "crown",
-    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["rolex", "gmt-master", "pepsi", "jubilee", "steel", "gmt", "crown", "travel"]
-  },
-  {
-    "id": "photo-patek-philippe-nautilus-5711-1",
-    "brand": "Patek Philippe",
-    "reference": "5711/1A",
-    "name": "Nautilus Steel Blue Dial",
+    "id": "photo-ap-15202st",
+    "card_id": "ap-15202st",
+    "brand": "Audemars Piguet",
+    "reference": "15202ST",
+    "name": "Audemars Piguet Royal Oak Jumbo Extra-Thin 15202ST",
     "tier": "trinity",
-    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["patek-philippe", "nautilus", "trinity", "integrated-bracelet", "blue-dial", "gerald-genta", "steel", "grail"]
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "jumbo",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-audemars-piguet-royal-oak-15500st-1",
+    "id": "photo-ap-15400st",
+    "card_id": "ap-15400st",
+    "brand": "Audemars Piguet",
+    "reference": "15400ST",
+    "name": "Audemars Piguet Royal Oak Selfwinding 41 15400ST",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-ap-15450st",
+    "card_id": "ap-15450st",
+    "brand": "Audemars Piguet",
+    "reference": "15450ST",
+    "name": "Audemars Piguet Royal Oak Selfwinding 37 15450ST",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-ap-15500st",
+    "card_id": "ap-15500st",
     "brand": "Audemars Piguet",
     "reference": "15500ST",
-    "name": "Royal Oak Selfwinding",
+    "name": "Audemars Piguet Royal Oak Selfwinding 41 15500ST",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-ap-16202st",
+    "card_id": "ap-16202st",
+    "brand": "Audemars Piguet",
+    "reference": "16202ST",
+    "name": "Audemars Piguet Royal Oak Jumbo Extra-Thin 16202ST",
     "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["audemars-piguet", "royal-oak", "trinity", "tapisserie", "integrated-bracelet", "gerald-genta", "steel"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "jumbo",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-omega-speedmaster-moonwatch-3861-1",
-    "brand": "Omega",
-    "reference": "310.30.42.50.01.001",
-    "name": "Speedmaster Professional Moonwatch",
-    "tier": "core",
+    "id": "photo-ap-25721st",
+    "card_id": "ap-25721st",
+    "brand": "Audemars Piguet",
+    "reference": "25721ST",
+    "name": "Audemars Piguet Royal Oak Offshore 25721ST",
+    "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["omega", "speedmaster", "moonwatch", "chronograph", "space", "manual-wind", "core", "tool-watch"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "royal-oak-offshore",
+      "the-beast",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-cartier-santos-wssa0018-1",
-    "brand": "Cartier",
-    "reference": "WSSA0018",
-    "name": "Santos de Cartier Large",
-    "tier": "core",
+    "id": "photo-ap-26331st",
+    "card_id": "ap-26331st",
+    "brand": "Audemars Piguet",
+    "reference": "26331ST",
+    "name": "Audemars Piguet Royal Oak Chronograph 41 26331ST",
+    "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["cartier", "santos", "square", "roman-numerals", "dress", "aviator", "core", "steel"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "royal-oak",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-cartier-tank-must-1",
-    "brand": "Cartier",
-    "reference": "WSTA0041",
-    "name": "Tank Must Large",
-    "tier": "core",
+    "id": "photo-ap-26393",
+    "card_id": "ap-26393",
+    "brand": "Audemars Piguet",
+    "reference": "26393",
+    "name": "Audemars Piguet Code 11.59 Selfwinding Chronograph 26393",
+    "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["cartier", "tank", "rectangular", "dress", "classic", "core", "leather-strap"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "white-gold---pink-gold--later-steel-and-two-tone-",
+      "automatic-chronograph",
+      "code-11-59",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-vacheron-constantin-overseas-4500v-1",
-    "brand": "Vacheron Constantin",
-    "reference": "4500V/110A-B128",
-    "name": "Overseas Selfwinding Blue",
+    "id": "photo-ap-26470st",
+    "card_id": "ap-26470st",
+    "brand": "Audemars Piguet",
+    "reference": "26470ST",
+    "name": "Audemars Piguet Royal Oak Offshore Chronograph 42 26470ST",
     "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["vacheron-constantin", "overseas", "trinity", "blue-dial", "integrated-bracelet", "quick-change"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "royal-oak-offshore",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-alange-sohne-lange-1-1",
-    "brand": "A. Lange & Söhne",
-    "reference": "191.032",
-    "name": "Lange 1 Pink Gold",
-    "tier": "haute",
+    "id": "photo-ap-5402st",
+    "card_id": "ap-5402st",
+    "brand": "Audemars Piguet",
+    "reference": "5402ST",
+    "name": "Audemars Piguet Royal Oak 5402ST",
+    "tier": "trinity",
     "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["alange-sohne", "lange-1", "haute", "german-watchmaking", "outsize-date", "rose-gold", "dress"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "audemars-piguet",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "royal-oak",
+      "jumbo",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-fpjourne-chronometre-bleu-1",
-    "brand": "F.P. Journe",
-    "reference": "Chronomètre Bleu",
-    "name": "Chronomètre Bleu Tantalum",
-    "tier": "haute",
+    "id": "photo-breitling-chronomat-b01-42",
+    "card_id": "breitling-chronomat-b01-42",
+    "brand": "Breitling",
+    "reference": "AB0134",
+    "name": "Breitling Chronomat B01 42 AB0134",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["fp-journe", "independent", "haute", "tantalum", "chrome-blue", "invenit-et-fecit", "grail"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "chronomat",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-tudor-black-bay-58-1",
-    "brand": "Tudor",
-    "reference": "79030N",
-    "name": "Black Bay 58 Black",
-    "tier": "attainable",
+    "id": "photo-breitling-navitimer-b01-43",
+    "card_id": "breitling-navitimer-b01-43",
+    "brand": "Breitling",
+    "reference": "AB0138",
+    "name": "Breitling Navitimer B01 Chronograph 43 AB0138",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["tudor", "black-bay", "diver", "gilt", "attainable", "steel", "retro", "tool-watch"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "navitimer",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-grand-seiko-snowflake-sbga211-1",
-    "brand": "Grand Seiko",
-    "reference": "SBGA211",
-    "name": "Snowflake Spring Drive",
+    "id": "photo-breitling-premier-b01-42",
+    "card_id": "breitling-premier-b01-42",
+    "brand": "Breitling",
+    "reference": "AB0118",
+    "name": "Breitling Premier B01 Chronograph 42 AB0118",
     "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["grand-seiko", "snowflake", "spring-drive", "titanium", "white-dial", "japanese", "core"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "premier",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-tissot-prx-powermatic-1",
-    "brand": "Tissot",
-    "reference": "T137.407.11.041.00",
-    "name": "PRX Powermatic 80 Blue",
-    "tier": "attainable",
+    "id": "photo-breitling-superocean-42",
+    "card_id": "breitling-superocean-42",
+    "brand": "Breitling",
+    "reference": "A17375",
+    "name": "Breitling Superocean Automatic 42 A17375",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["tissot", "prx", "attainable", "integrated-bracelet", "waffle-dial", "blue-dial", "everyday"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "superocean",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-casio-f91w-1",
-    "brand": "Casio",
-    "reference": "F-91W-1YEF",
-    "name": "Casio Digital Classic",
-    "tier": "attainable",
+    "id": "photo-breitling-superocean-heritage-57",
+    "card_id": "breitling-superocean-heritage-57",
+    "brand": "Breitling",
+    "reference": "A10370",
+    "name": "Breitling Superocean Heritage '57 A10370",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["casio", "digital", "resin", "god-tier", "attainable", "retro", "pop-culture"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "superocean-heritage",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-casio-g-shock-dw5600-1",
-    "brand": "Casio G-Shock",
-    "reference": "DW-5600E-1V",
-    "name": "G-Shock Square",
-    "tier": "attainable",
+    "id": "photo-breitling-top-time",
+    "card_id": "breitling-top-time",
+    "brand": "Breitling",
+    "reference": "A23310",
+    "name": "Breitling Top Time Limited Edition A23310",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["casio", "g-shock", "square", "indestructible", "attainable", "tool-watch", "digital"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "breitling",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "top-time",
+      "zorro",
+      "discontinued"
+    ]
   },
   {
-    "id": "photo-seiko-skx007-1",
-    "brand": "Seiko",
-    "reference": "SKX007K2",
-    "name": "Seiko Automatic Diver",
-    "tier": "attainable",
+    "id": "photo-cartier-ballon-bleu-42",
+    "card_id": "cartier-ballon-bleu-42",
+    "brand": "Cartier",
+    "reference": "WSBB0049",
+    "name": "Cartier Ballon Bleu de Cartier WSBB0049",
+    "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["seiko", "skx007", "diver", "iso-certified", "attainable", "discontinued", "cult-classic"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "automatic",
+      "ballon-bleu",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-jlc-reverso-classic-1",
-    "brand": "Jaeger-LeCoultre",
-    "reference": "Q3858520",
-    "name": "Reverso Classic Large",
+    "id": "photo-cartier-crash",
+    "card_id": "cartier-crash",
+    "brand": "Cartier",
+    "reference": "Cartier London Crash",
+    "name": "Cartier Crash Cartier London Crash",
     "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["jaeger-lecoultre", "reverso", "art-deco", "swivel-case", "polo", "dress", "core", "silver-dial"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "18k-yellow-gold",
+      "manual",
+      "crash",
+      "the-melted-watch",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-iwc-pilots-mark-xx-1",
-    "brand": "IWC Schaffhausen",
-    "reference": "IW328201",
-    "name": "Pilot's Watch Mark XX",
+    "id": "photo-cartier-panthere-medium",
+    "card_id": "cartier-panthere-medium",
+    "brand": "Cartier",
+    "reference": "WSPN0015",
+    "name": "Cartier Panthère de Cartier WSPN0015",
     "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["iwc", "mark-xx", "pilot", "flieger", "steel", "black-dial", "core", "tool-watch"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "quartz",
+      "panth-re",
+      "current-production"
+    ]
   },
   {
-    "id": "photo-breitling-navitimer-b01-1",
-    "brand": "Breitling",
-    "reference": "AB0138241G1P1",
-    "name": "Navitimer B01 Chronograph 43",
+    "id": "photo-cartier-pasha-41",
+    "card_id": "cartier-pasha-41",
+    "brand": "Cartier",
+    "reference": "WHPA0018",
+    "name": "Cartier Pasha de Cartier WHPA0018",
     "tier": "core",
     "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
-    "license": "Unsplash License",
-    "tags": ["breitling", "navitimer", "slide-rule", "chronograph", "aviation", "core", "silver-dial"]
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "18k-rose-gold",
+      "automatic",
+      "pasha",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-cartier-santos-dumont",
+    "card_id": "cartier-santos-dumont",
+    "brand": "Cartier",
+    "reference": "WSSA0085",
+    "name": "Cartier Santos-Dumont WSSA0085",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "quartz",
+      "santos",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-cartier-santos-wssa0018",
+    "card_id": "cartier-santos-wssa0018",
+    "brand": "Cartier",
+    "reference": "WSSA0018",
+    "name": "Cartier Santos de Cartier WSSA0018",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "automatic",
+      "santos",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-cartier-santos-wssa0029",
+    "card_id": "cartier-santos-wssa0029",
+    "brand": "Cartier",
+    "reference": "WSSA0029",
+    "name": "Cartier Santos de Cartier WSSA0029",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "automatic",
+      "santos",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-cartier-tank-cintree",
+    "card_id": "cartier-tank-cintree",
+    "brand": "Cartier",
+    "reference": "Tank Cintrée",
+    "name": "Cartier Tank Cintrée Tank Cintrée",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "18k-gold-or-platinum",
+      "manual",
+      "tank",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-cartier-tank-louis",
+    "card_id": "cartier-tank-louis",
+    "brand": "Cartier",
+    "reference": "WGTA0211",
+    "name": "Cartier Tank Louis Cartier WGTA0211",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "18k-yellow-gold",
+      "manual",
+      "tank",
+      "tlc",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-cartier-tank-must-wsta0041",
+    "card_id": "cartier-tank-must-wsta0041",
+    "brand": "Cartier",
+    "reference": "WSTA0041",
+    "name": "Cartier Tank Must de Cartier WSTA0041",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "cartier",
+      "core",
+      "steel",
+      "quartz",
+      "tank",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-casio-dw-5600",
+    "card_id": "casio-dw-5600",
+    "brand": "Casio",
+    "reference": "DW-5600E-1V",
+    "name": "Casio G-Shock DW-5600 DW-5600E-1V",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "resin",
+      "quartz",
+      "5000-5600-origin-series",
+      "the-square",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-casio-f91w",
+    "card_id": "casio-f91w",
+    "brand": "Casio",
+    "reference": "F-91W-1",
+    "name": "Casio F-91W F-91W-1",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "resin",
+      "quartz",
+      "casio-classic",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-casio-ga-2100",
+    "card_id": "casio-ga-2100",
+    "brand": "Casio",
+    "reference": "GA-2100-1A1",
+    "name": "Casio G-Shock GA-2100 GA-2100-1A1",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "carbon-core-guard-resin--carbon-fiber-reinforced-center-",
+      "quartz",
+      "ga-2100-series",
+      "casioak",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-casio-gmw-b5000",
+    "card_id": "casio-gmw-b5000",
+    "brand": "Casio",
+    "reference": "GMW-B5000D-1",
+    "name": "Casio G-Shock Full Metal 5000 GMW-B5000D-1",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "stainless-steel",
+      "solar-quartz",
+      "5000-5600-origin-series",
+      "full-metal-square",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-casio-gw-5000u",
+    "card_id": "casio-gw-5000u",
+    "brand": "Casio",
+    "reference": "GW-5000U-1",
+    "name": "Casio G-Shock GW-5000U GW-5000U-1",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "stainless-steel",
+      "solar-quartz",
+      "5000-5600-origin-series",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-casio-mrg-b5000",
+    "card_id": "casio-mrg-b5000",
+    "brand": "Casio",
+    "reference": "MRG-B5000D-1",
+    "name": "Casio MR-G MRG-B5000 MRG-B5000D-1",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "casio",
+      "attainable",
+      "ti64-titanium-case--dat55g-titanium-bracelet",
+      "solar-quartz",
+      "mr-g",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-debethune-db28",
+    "card_id": "debethune-db28",
+    "brand": "De Bethune",
+    "reference": "DB28",
+    "name": "De Bethune DB28 DB28",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "de-bethune",
+      "haute",
+      "titanium",
+      "manual",
+      "db28",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-dufour-simplicity",
+    "card_id": "dufour-simplicity",
+    "brand": "Philippe Dufour",
+    "reference": "Simplicity",
+    "name": "Philippe Dufour Simplicity Simplicity",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "philippe-dufour",
+      "haute",
+      "platinum--yellow-gold--pink-gold--or-white-gold",
+      "manual",
+      "simplicity",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbga211-snowflake",
+    "card_id": "grandseiko-sbga211-snowflake",
+    "brand": "Grand Seiko",
+    "reference": "SBGA211",
+    "name": "Grand Seiko Heritage Collection Spring Drive SBGA211",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "high-intensity-titanium",
+      "spring-drive",
+      "heritage-collection",
+      "snowflake",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbga413-shunbun",
+    "card_id": "grandseiko-sbga413-shunbun",
+    "brand": "Grand Seiko",
+    "reference": "SBGA413",
+    "name": "Grand Seiko Heritage Collection Spring Drive SBGA413",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "high-intensity-titanium",
+      "spring-drive",
+      "heritage-collection---seasons",
+      "shunbun",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbgh271",
+    "card_id": "grandseiko-sbgh271",
+    "brand": "Grand Seiko",
+    "reference": "SBGH271",
+    "name": "Grand Seiko Heritage Collection Hi-Beat SBGH271",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "heritage-collection---62gs-sekki",
+      "rikka",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbgj263",
+    "card_id": "grandseiko-sbgj263",
+    "brand": "Grand Seiko",
+    "reference": "SBGJ263",
+    "name": "Grand Seiko Heritage Collection Hi-Beat GMT SBGJ263",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "ever-brilliant-steel",
+      "automatic",
+      "heritage-collection",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbgw231",
+    "card_id": "grandseiko-sbgw231",
+    "brand": "Grand Seiko",
+    "reference": "SBGW231",
+    "name": "Grand Seiko Elegance Collection SBGW231",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "stainless-steel",
+      "manual",
+      "elegance-collection",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-sbgy007-omiwatari",
+    "card_id": "grandseiko-sbgy007-omiwatari",
+    "brand": "Grand Seiko",
+    "reference": "SBGY007",
+    "name": "Grand Seiko Elegance Collection Spring Drive SBGY007",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "stainless-steel",
+      "spring-drive",
+      "elegance-collection---seasons",
+      "omiwatari",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-grandseiko-slgh005-white-birch",
+    "card_id": "grandseiko-slgh005-white-birch",
+    "brand": "Grand Seiko",
+    "reference": "SLGH005",
+    "name": "Grand Seiko Evolution 9 Collection Hi-Beat SLGH005",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "grand-seiko",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "evolution-9-collection",
+      "white-birch",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-hamilton-khaki-field-h69439931",
+    "card_id": "hamilton-khaki-field-h69439931",
+    "brand": "Hamilton",
+    "reference": "H69439931",
+    "name": "Hamilton Khaki Field Mechanical H69439931",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "hamilton",
+      "attainable",
+      "stainless-steel",
+      "manual",
+      "khaki-field",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-aquatimer-iw3290",
+    "card_id": "iwc-aquatimer-iw3290",
+    "brand": "IWC",
+    "reference": "IW329001",
+    "name": "IWC Aquatimer Automatic 2000 IW329001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "aquatimer",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-big-pilot-iw501001",
+    "card_id": "iwc-big-pilot-iw501001",
+    "brand": "IWC",
+    "reference": "IW501001",
+    "name": "IWC Big Pilot's Watch IW501001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "pilot-s-watch-big-pilot",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-ingenieur-iw3289",
+    "card_id": "iwc-ingenieur-iw3289",
+    "brand": "IWC",
+    "reference": "IW328901",
+    "name": "IWC Ingenieur Automatic 40 IW328901",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "ingenieur",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-mark-xviii",
+    "card_id": "iwc-mark-xviii",
+    "brand": "IWC",
+    "reference": "IW327001",
+    "name": "IWC Pilot's Watch Mark XVIII IW327001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "pilot-s-watch-mark",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-iwc-mark-xx",
+    "card_id": "iwc-mark-xx",
+    "brand": "IWC",
+    "reference": "IW328201",
+    "name": "IWC Pilot's Watch Mark XX IW328201",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "pilot-s-watch-mark",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-pilot-chrono-iw3777",
+    "card_id": "iwc-pilot-chrono-iw3777",
+    "brand": "IWC",
+    "reference": "IW377709",
+    "name": "IWC Pilot's Watch Chronograph IW377709",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "pilot-s-watch",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-portugieser-7day-iw5007",
+    "card_id": "iwc-portugieser-7day-iw5007",
+    "brand": "IWC",
+    "reference": "IW500107",
+    "name": "IWC Portugieser Automatic 7 Days IW500107",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "portugieser",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-iwc-portugieser-chrono-iw3716",
+    "card_id": "iwc-portugieser-chrono-iw3716",
+    "brand": "IWC",
+    "reference": "IW371604",
+    "name": "IWC Portugieser Chronograph IW371604",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "iwc",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "portugieser",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-master-control-date",
+    "card_id": "jlc-master-control-date",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q4018420",
+    "name": "Jaeger-LeCoultre Master Control Date Q4018420",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "master-control",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-master-ultra-thin-moon",
+    "card_id": "jlc-master-ultra-thin-moon",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q1368430",
+    "name": "Jaeger-LeCoultre Master Ultra Thin Moon Q1368430",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "master-ultra-thin",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-memovox",
+    "card_id": "jlc-memovox",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q2028420",
+    "name": "Jaeger-LeCoultre Memovox Q2028420",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "memovox",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-polaris-date",
+    "card_id": "jlc-polaris-date",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q9068180",
+    "name": "Jaeger-LeCoultre Polaris Date Q9068180",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "polaris",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-reverso-classic-q3858520",
+    "card_id": "jlc-reverso-classic-q3858520",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q3858520",
+    "name": "Jaeger-LeCoultre Reverso Classic Medium Small Seconds Q3858520",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "manual",
+      "reverso",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-jlc-reverso-tribute-duoface",
+    "card_id": "jlc-reverso-tribute-duoface",
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q3958420",
+    "name": "Jaeger-LeCoultre Reverso Tribute Duoface Q3958420",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "jaeger-lecoultre",
+      "haute",
+      "stainless-steel",
+      "manual",
+      "reverso",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-journe-chronometre-bleu",
+    "card_id": "journe-chronometre-bleu",
+    "brand": "F.P. Journe",
+    "reference": "CB",
+    "name": "F.P. Journe Chronomètre Bleu CB",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "f-p--journe",
+      "haute",
+      "tantalum",
+      "manual",
+      "classique",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-journe-chronometre-souverain",
+    "card_id": "journe-chronometre-souverain",
+    "brand": "F.P. Journe",
+    "reference": "CS",
+    "name": "F.P. Journe Chronomètre Souverain CS",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "f-p--journe",
+      "haute",
+      "18k-rose-gold-or-platinum",
+      "manual",
+      "classique",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-journe-elegante-48",
+    "card_id": "journe-elegante-48",
+    "brand": "F.P. Journe",
+    "reference": "Élégante 48mm",
+    "name": "F.P. Journe Élégante Élégante 48mm",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "f-p--journe",
+      "haute",
+      "titanium",
+      "electromechanical",
+      "-l-gante",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-journe-resonance",
+    "card_id": "journe-resonance",
+    "brand": "F.P. Journe",
+    "reference": "RS",
+    "name": "F.P. Journe Chronomètre à Résonance RS",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "f-p--journe",
+      "haute",
+      "18k-rose-gold-or-platinum",
+      "manual",
+      "classique",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-journe-tourbillon-souverain",
+    "card_id": "journe-tourbillon-souverain",
+    "brand": "F.P. Journe",
+    "reference": "TN",
+    "name": "F.P. Journe Tourbillon Souverain TN",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "f-p--journe",
+      "haute",
+      "platinum",
+      "manual",
+      "classique",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-lange-1815-chronograph-414-028",
+    "card_id": "lange-1815-chronograph-414-028",
+    "brand": "A. Lange & Söhne",
+    "reference": "414.028",
+    "name": "A. Lange & Söhne 1815 Chronograph 414.028",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "18k-white-gold",
+      "manual-chronograph",
+      "1815",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-lange-datograph-405-035",
+    "card_id": "lange-datograph-405-035",
+    "brand": "A. Lange & Söhne",
+    "reference": "405.035",
+    "name": "A. Lange & Söhne Datograph Up/Down 405.035",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "950-platinum",
+      "manual-chronograph",
+      "datograph",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-lange-lange1-191-032",
+    "card_id": "lange-lange1-191-032",
+    "brand": "A. Lange & Söhne",
+    "reference": "191.032",
+    "name": "A. Lange & Söhne Lange 1 191.032",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "18k-pink-gold",
+      "manual",
+      "lange-1",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-lange-odysseus-363-179",
+    "card_id": "lange-odysseus-363-179",
+    "brand": "A. Lange & Söhne",
+    "reference": "363.179",
+    "name": "A. Lange & Söhne Odysseus 363.179",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "odysseus",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-lange-saxonia-thin-205-086",
+    "card_id": "lange-saxonia-thin-205-086",
+    "brand": "A. Lange & Söhne",
+    "reference": "205.086",
+    "name": "A. Lange & Söhne Saxonia Thin 205.086",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "18k-white-gold",
+      "manual",
+      "saxonia",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-lange-zeitwerk-140-029",
+    "card_id": "lange-zeitwerk-140-029",
+    "brand": "A. Lange & Söhne",
+    "reference": "140.029",
+    "name": "A. Lange & Söhne Zeitwerk 140.029",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "a--lange---s-hne",
+      "haute",
+      "18k-white-gold",
+      "manual",
+      "zeitwerk",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-longines-spirit-zulu-time",
+    "card_id": "longines-spirit-zulu-time",
+    "brand": "Longines",
+    "reference": "L3.812.4.53.2",
+    "name": "Longines Spirit Zulu Time L3.812.4.53.2",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "longines",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "spirit",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-mbf-lm101",
+    "card_id": "mbf-lm101",
+    "brand": "MB&F",
+    "reference": "LM101",
+    "name": "MB&F Legacy Machine 101 LM101",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "mb-f",
+      "haute",
+      "18k-red-gold-or-white-gold",
+      "manual",
+      "legacy-machine",
+      "lm101",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-mbf-lmx",
+    "card_id": "mbf-lmx",
+    "brand": "MB&F",
+    "reference": "LMX",
+    "name": "MB&F Legacy Machine X LMX",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "mb-f",
+      "haute",
+      "grade-5-titanium-or-18k-red-gold",
+      "manual",
+      "legacy-machine",
+      "lmx",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-moser-endeavour-centre-seconds",
+    "card_id": "moser-endeavour-centre-seconds",
+    "brand": "H. Moser & Cie",
+    "reference": "1200-1240",
+    "name": "H. Moser & Cie Endeavour Centre Seconds Concept 1200-1240",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "h--moser---cie",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "endeavour",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-moser-pioneer-centre-seconds",
+    "card_id": "moser-pioneer-centre-seconds",
+    "brand": "H. Moser & Cie",
+    "reference": "3200-1200",
+    "name": "H. Moser & Cie Pioneer Centre Seconds 3200-1200",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "h--moser---cie",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "pioneer",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-105-012",
+    "card_id": "omega-105-012",
+    "brand": "Omega",
+    "reference": "105.012",
+    "name": "Omega Speedmaster Professional 105.012",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster",
+      "pre-moon",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-2531-80",
+    "card_id": "omega-2531-80",
+    "brand": "Omega",
+    "reference": "2531.80",
+    "name": "Omega Seamaster 300M Chronometer 2531.80",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "seamaster-300m",
+      "the-bond-watch",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-aqua-terra-150m",
+    "card_id": "omega-aqua-terra-150m",
+    "brand": "Omega",
+    "reference": "220.10.41.21.03.004",
+    "name": "Omega Seamaster Aqua Terra 150M 220.10.41.21.03.004",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "aqua-terra-150m",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-ck2915",
+    "card_id": "omega-ck2915",
+    "brand": "Omega",
+    "reference": "CK2915",
+    "name": "Omega Speedmaster CK2915",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster",
+      "broad-arrow",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-fois",
+    "card_id": "omega-fois",
+    "brand": "Omega",
+    "reference": "311.32.40.30.01.001",
+    "name": "Omega Speedmaster First Omega in Space 311.32.40.30.01.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster-professional",
+      "fois",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-globemaster",
+    "card_id": "omega-globemaster",
+    "brand": "Omega",
+    "reference": "130.33.39.21.03.001",
+    "name": "Omega Constellation Globemaster 130.33.39.21.03.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "globemaster",
+      "pie-pan",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-railmaster",
+    "card_id": "omega-railmaster",
+    "brand": "Omega",
+    "reference": "220.10.40.20.01.001",
+    "name": "Omega Railmaster 220.10.40.20.01.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "railmaster",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-seamaster-300-heritage",
+    "card_id": "omega-seamaster-300-heritage",
+    "brand": "Omega",
+    "reference": "234.30.41.21.01.001",
+    "name": "Omega Seamaster 300 234.30.41.21.01.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "seamaster-300",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-seamaster-300m",
+    "card_id": "omega-seamaster-300m",
+    "brand": "Omega",
+    "reference": "210.30.42.20.01.001",
+    "name": "Omega Seamaster Diver 300M 210.30.42.20.01.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "diver-300m",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-snoopy-50th",
+    "card_id": "omega-snoopy-50th",
+    "brand": "Omega",
+    "reference": "310.32.42.50.02.001",
+    "name": "Omega Speedmaster Silver Snoopy Award 50th Anniversary 310.32.42.50.02.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster-professional",
+      "snoopy",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-omega-speedmaster-1861",
+    "card_id": "omega-speedmaster-1861",
+    "brand": "Omega",
+    "reference": "311.30.42.30.01.005",
+    "name": "Omega Speedmaster Professional Moonwatch 311.30.42.30.01.005",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-omega-speedmaster-3861",
+    "card_id": "omega-speedmaster-3861",
+    "brand": "Omega",
+    "reference": "310.30.42.50.01.001",
+    "name": "Omega Speedmaster Moonwatch Professional 310.30.42.50.01.001",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "omega",
+      "core",
+      "stainless-steel",
+      "manual-chronograph",
+      "speedmaster",
+      "moonwatch",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-panerai-luminor-base-logo-pam01000",
+    "card_id": "panerai-luminor-base-logo-pam01000",
+    "brand": "Panerai",
+    "reference": "PAM01000",
+    "name": "Panerai Luminor Base Logo PAM01000",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "panerai",
+      "core",
+      "stainless-steel",
+      "manual",
+      "luminor-base",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-panerai-luminor-due-pam00927",
+    "card_id": "panerai-luminor-due-pam00927",
+    "brand": "Panerai",
+    "reference": "PAM00927",
+    "name": "Panerai Luminor Due 42mm Automatic PAM00927",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "panerai",
+      "core",
+      "titanium",
+      "automatic",
+      "luminor-due",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-panerai-luminor-marina-pam01312",
+    "card_id": "panerai-luminor-marina-pam01312",
+    "brand": "Panerai",
+    "reference": "PAM01312",
+    "name": "Panerai Luminor Marina 1950 3 Days Automatic PAM01312",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "panerai",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "luminor-marina",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-panerai-radiomir-pam00992",
+    "card_id": "panerai-radiomir-pam00992",
+    "brand": "Panerai",
+    "reference": "PAM00992",
+    "name": "Panerai Radiomir 8 Days PAM00992",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "panerai",
+      "core",
+      "stainless-steel--aged-finish-",
+      "manual",
+      "radiomir",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-panerai-submersible-pam00973",
+    "card_id": "panerai-submersible-pam00973",
+    "brand": "Panerai",
+    "reference": "PAM00973",
+    "name": "Panerai Luminor Submersible 42mm 3 Days Automatic PAM00973",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "panerai",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "submersible",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-3700-1a",
+    "card_id": "patek-3700-1a",
+    "brand": "Patek Philippe",
+    "reference": "3700/1A",
+    "name": "Patek Philippe Nautilus 3700/1A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "nautilus",
+      "jumbo",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5167a",
+    "card_id": "patek-5167a",
+    "brand": "Patek Philippe",
+    "reference": "5167A-001",
+    "name": "Patek Philippe Aquanaut 5167A-001",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "aquanaut",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-patek-5168g",
+    "card_id": "patek-5168g",
+    "brand": "Patek Philippe",
+    "reference": "5168G",
+    "name": "Patek Philippe Aquanaut 5168G",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "white-gold",
+      "automatic",
+      "aquanaut",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-patek-5170p",
+    "card_id": "patek-5170p",
+    "brand": "Patek Philippe",
+    "reference": "5170P-001",
+    "name": "Patek Philippe Chronograph 5170P-001",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "platinum",
+      "manual",
+      "complications",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5227g",
+    "card_id": "patek-5227g",
+    "brand": "Patek Philippe",
+    "reference": "5227G",
+    "name": "Patek Philippe Calatrava 5227G",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "white-gold",
+      "automatic",
+      "calatrava",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-patek-5320g",
+    "card_id": "patek-5320g",
+    "brand": "Patek Philippe",
+    "reference": "5320G",
+    "name": "Patek Philippe Perpetual Calendar 5320G",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "white-gold",
+      "automatic",
+      "grand-complications",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-patek-5396g",
+    "card_id": "patek-5396g",
+    "brand": "Patek Philippe",
+    "reference": "5396G",
+    "name": "Patek Philippe Annual Calendar 5396G",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "white-gold",
+      "automatic",
+      "complications",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5711-1a-018-tiffany",
+    "card_id": "patek-5711-1a-018-tiffany",
+    "brand": "Patek Philippe",
+    "reference": "5711/1A-018",
+    "name": "Patek Philippe Nautilus 5711/1A-018",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "nautilus",
+      "tiffany-blue-nautilus",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5711-1a",
+    "card_id": "patek-5711-1a",
+    "brand": "Patek Philippe",
+    "reference": "5711/1A-010",
+    "name": "Patek Philippe Nautilus 5711/1A-010",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "nautilus",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5712-1a",
+    "card_id": "patek-5712-1a",
+    "brand": "Patek Philippe",
+    "reference": "5712/1A-001",
+    "name": "Patek Philippe Nautilus Moon Phases 5712/1A-001",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "nautilus",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5811-1g",
+    "card_id": "patek-5811-1g",
+    "brand": "Patek Philippe",
+    "reference": "5811/1G-001",
+    "name": "Patek Philippe Nautilus 5811/1G-001",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "white-gold",
+      "automatic",
+      "nautilus",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-patek-5980-1a",
+    "card_id": "patek-5980-1a",
+    "brand": "Patek Philippe",
+    "reference": "5980/1A",
+    "name": "Patek Philippe Nautilus Chronograph 5980/1A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "nautilus",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-patek-5990-1a",
+    "card_id": "patek-5990-1a",
+    "brand": "Patek Philippe",
+    "reference": "5990/1A",
+    "name": "Patek Philippe Nautilus Travel Time Chronograph 5990/1A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "nautilus",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-patek-6119r",
+    "card_id": "patek-6119r",
+    "brand": "Patek Philippe",
+    "reference": "6119R-001",
+    "name": "Patek Philippe Calatrava 6119R-001",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "patek-philippe",
+      "trinity",
+      "rose-gold",
+      "manual",
+      "calatrava",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rexhepi-chronometre-contemporain",
+    "card_id": "rexhepi-chronometre-contemporain",
+    "brand": "Rexhep Rexhepi",
+    "reference": "RRCC",
+    "name": "Rexhep Rexhepi Chronomètre Contemporain RRCC",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rexhep-rexhepi",
+      "haute",
+      "18k-pink-gold--also-produced-in-platinum-and-stainless-steel-",
+      "manual",
+      "chronom-tre-contemporain",
+      "rrcc",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-richardmille-rm011",
+    "card_id": "richardmille-rm011",
+    "brand": "Richard Mille",
+    "reference": "RM 011",
+    "name": "Richard Mille RM 011 Automatic Flyback Chronograph Felipe Massa RM 011",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "richard-mille",
+      "haute",
+      "titanium--also-produced-in-gold--ceramic--and-carbon-composites-",
+      "automatic-chronograph",
+      "rm-011",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-richardmille-rm035",
+    "card_id": "richardmille-rm035",
+    "brand": "Richard Mille",
+    "reference": "RM 035",
+    "name": "Richard Mille RM 035 Rafael Nadal RM 035",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "richard-mille",
+      "haute",
+      "aluminum-magnesium-copper-alloy-or-titanium",
+      "manual",
+      "rm-035",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-richardmille-rm055",
+    "card_id": "richardmille-rm055",
+    "brand": "Richard Mille",
+    "reference": "RM 055",
+    "name": "Richard Mille RM 055 Bubba Watson RM 055",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "richard-mille",
+      "haute",
+      "grade-5-titanium",
+      "manual",
+      "rm-055",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-richardmille-rm067-02",
+    "card_id": "richardmille-rm067-02",
+    "brand": "Richard Mille",
+    "reference": "RM 67-02",
+    "name": "Richard Mille RM 67-02 Automatic Extra Flat RM 67-02",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "richard-mille",
+      "haute",
+      "carbon-tpt-or-quartz-tpt-composite",
+      "automatic",
+      "rm-67",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-1016",
+    "card_id": "rolex-1016",
+    "brand": "Rolex",
+    "reference": "1016",
+    "name": "Rolex Explorer 1016",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "explorer",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-114060",
+    "card_id": "rolex-114060",
+    "brand": "Rolex",
+    "reference": "114060",
+    "name": "Rolex Submariner 114060",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-114300",
+    "card_id": "rolex-114300",
+    "brand": "Rolex",
+    "reference": "114300",
+    "name": "Rolex Oyster Perpetual 39 114300",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "oyster-perpetual",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116400gv",
+    "card_id": "rolex-116400gv",
+    "brand": "Rolex",
+    "reference": "116400GV",
+    "name": "Rolex Milgauss 116400GV",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "milgauss",
+      "gv",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116500ln",
+    "card_id": "rolex-116500ln",
+    "brand": "Rolex",
+    "reference": "116500LN",
+    "name": "Rolex Cosmograph Daytona 116500LN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic-chronograph",
+      "daytona",
+      "ceramic-daytona",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116520",
+    "card_id": "rolex-116520",
+    "brand": "Rolex",
+    "reference": "116520",
+    "name": "Rolex Cosmograph Daytona 116520",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic-chronograph",
+      "daytona",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116610ln",
+    "card_id": "rolex-116610ln",
+    "brand": "Rolex",
+    "reference": "116610LN",
+    "name": "Rolex Submariner Date 116610LN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116610lv-hulk",
+    "card_id": "rolex-116610lv-hulk",
+    "brand": "Rolex",
+    "reference": "116610LV",
+    "name": "Rolex Submariner Date 116610LV",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "hulk",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116710blnr-batman",
+    "card_id": "rolex-116710blnr-batman",
+    "brand": "Rolex",
+    "reference": "116710BLNR",
+    "name": "Rolex GMT-Master II 116710BLNR",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "gmt-master-ii",
+      "batman",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-116710ln",
+    "card_id": "rolex-116710ln",
+    "brand": "Rolex",
+    "reference": "116710LN",
+    "name": "Rolex GMT-Master II 116710LN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "gmt-master-ii",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-118238",
+    "card_id": "rolex-118238",
+    "brand": "Rolex",
+    "reference": "118238",
+    "name": "Rolex Day-Date 36 118238",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "18k-yellow-gold",
+      "automatic",
+      "day-date",
+      "president",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-124060",
+    "card_id": "rolex-124060",
+    "brand": "Rolex",
+    "reference": "124060",
+    "name": "Rolex Submariner 124060",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "submariner",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-124270",
+    "card_id": "rolex-124270",
+    "brand": "Rolex",
+    "reference": "124270",
+    "name": "Rolex Explorer 124270",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "explorer",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-124300",
+    "card_id": "rolex-124300",
+    "brand": "Rolex",
+    "reference": "124300",
+    "name": "Rolex Oyster Perpetual 41 124300",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "oyster-perpetual",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126000-celebration",
+    "card_id": "rolex-126000-celebration",
+    "brand": "Rolex",
+    "reference": "126000",
+    "name": "Rolex Oyster Perpetual 36 126000",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "oyster-perpetual",
+      "celebration",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126234",
+    "card_id": "rolex-126234",
+    "brand": "Rolex",
+    "reference": "126234",
+    "name": "Rolex Datejust 36 126234",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel-and-white-gold",
+      "automatic",
+      "datejust",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126500ln",
+    "card_id": "rolex-126500ln",
+    "brand": "Rolex",
+    "reference": "126500LN",
+    "name": "Rolex Cosmograph Daytona 126500LN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic-chronograph",
+      "daytona",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126600",
+    "card_id": "rolex-126600",
+    "brand": "Rolex",
+    "reference": "126600",
+    "name": "Rolex Sea-Dweller 126600",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "sea-dweller",
+      "single-red",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126610ln",
+    "card_id": "rolex-126610ln",
+    "brand": "Rolex",
+    "reference": "126610LN",
+    "name": "Rolex Submariner Date 126610LN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "submariner",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126610lv",
+    "card_id": "rolex-126610lv",
+    "brand": "Rolex",
+    "reference": "126610LV",
+    "name": "Rolex Submariner Date 126610LV",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "submariner",
+      "starbucks",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126710blnr",
+    "card_id": "rolex-126710blnr",
+    "brand": "Rolex",
+    "reference": "126710BLNR",
+    "name": "Rolex GMT-Master II 126710BLNR",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "gmt-master-ii",
+      "batgirl",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126710blro-pepsi",
+    "card_id": "rolex-126710blro-pepsi",
+    "brand": "Rolex",
+    "reference": "126710BLRO",
+    "name": "Rolex GMT-Master II 126710BLRO",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "gmt-master-ii",
+      "pepsi",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-126900",
+    "card_id": "rolex-126900",
+    "brand": "Rolex",
+    "reference": "126900",
+    "name": "Rolex Air-King 126900",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "air-king",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-1601",
+    "card_id": "rolex-1601",
+    "brand": "Rolex",
+    "reference": "1601",
+    "name": "Rolex Datejust 1601",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel-and-white-gold",
+      "automatic",
+      "datejust",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16234",
+    "card_id": "rolex-16234",
+    "brand": "Rolex",
+    "reference": "16234",
+    "name": "Rolex Datejust 16234",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel-and-white-gold",
+      "automatic",
+      "datejust",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16520",
+    "card_id": "rolex-16520",
+    "brand": "Rolex",
+    "reference": "16520",
+    "name": "Rolex Cosmograph Daytona 16520",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic-chronograph",
+      "daytona",
+      "zenith-daytona",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16570",
+    "card_id": "rolex-16570",
+    "brand": "Rolex",
+    "reference": "16570",
+    "name": "Rolex Explorer II 16570",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "explorer-ii",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16600",
+    "card_id": "rolex-16600",
+    "brand": "Rolex",
+    "reference": "16600",
+    "name": "Rolex Sea-Dweller 16600",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "sea-dweller",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16610",
+    "card_id": "rolex-16610",
+    "brand": "Rolex",
+    "reference": "16610",
+    "name": "Rolex Submariner Date 16610",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-16710",
+    "card_id": "rolex-16710",
+    "brand": "Rolex",
+    "reference": "16710",
+    "name": "Rolex GMT-Master II 16710",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "gmt-master-ii",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-1675",
+    "card_id": "rolex-1675",
+    "brand": "Rolex",
+    "reference": "1675",
+    "name": "Rolex GMT-Master 1675",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "gmt-master",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-1680-red",
+    "card_id": "rolex-1680-red",
+    "brand": "Rolex",
+    "reference": "1680",
+    "name": "Rolex Submariner Date 1680",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "red-sub",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-1803",
+    "card_id": "rolex-1803",
+    "brand": "Rolex",
+    "reference": "1803",
+    "name": "Rolex Day-Date 1803",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "18k-yellow-gold--also-white-and-rose-gold-",
+      "automatic",
+      "day-date",
+      "president",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-214270",
+    "card_id": "rolex-214270",
+    "brand": "Rolex",
+    "reference": "214270",
+    "name": "Rolex Explorer 214270",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "explorer",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-216570",
+    "card_id": "rolex-216570",
+    "brand": "Rolex",
+    "reference": "216570",
+    "name": "Rolex Explorer II 216570",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "explorer-ii",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-226570",
+    "card_id": "rolex-226570",
+    "brand": "Rolex",
+    "reference": "226570",
+    "name": "Rolex Explorer II 226570",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "oystersteel",
+      "automatic",
+      "explorer-ii",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-228238",
+    "card_id": "rolex-228238",
+    "brand": "Rolex",
+    "reference": "228238",
+    "name": "Rolex Day-Date 40 228238",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "18k-yellow-gold",
+      "automatic",
+      "day-date",
+      "president",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-rolex-5513",
+    "card_id": "rolex-5513",
+    "brand": "Rolex",
+    "reference": "5513",
+    "name": "Rolex Submariner 5513",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "submariner",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-rolex-6239-paul-newman",
+    "card_id": "rolex-6239-paul-newman",
+    "brand": "Rolex",
+    "reference": "6239",
+    "name": "Rolex Cosmograph Daytona 6239",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "rolex",
+      "crown",
+      "stainless-steel",
+      "manual-chronograph",
+      "daytona",
+      "paul-newman",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-seiko-sarb017-alpinist",
+    "card_id": "seiko-sarb017-alpinist",
+    "brand": "Seiko",
+    "reference": "SARB017",
+    "name": "Seiko Alpinist SARB017",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "spirit---alpinist",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-seiko-sarb033",
+    "card_id": "seiko-sarb033",
+    "brand": "Seiko",
+    "reference": "SARB033",
+    "name": "Seiko Spirit SARB033",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "spirit",
+      "baby-grand-seiko",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-seiko-sje083-kingseiko",
+    "card_id": "seiko-sje083-kingseiko",
+    "brand": "Seiko",
+    "reference": "SJE083",
+    "name": "Seiko King Seiko KSK SJE083",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel-with-super-hard-coating",
+      "automatic",
+      "king-seiko",
+      "ksk",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-seiko-skx007",
+    "card_id": "seiko-skx007",
+    "brand": "Seiko",
+    "reference": "SKX007",
+    "name": "Seiko Diver's 200m SKX007",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "diver-s--skx-series-",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-seiko-sla023-mm300",
+    "card_id": "seiko-sla023-mm300",
+    "brand": "Seiko",
+    "reference": "SLA023",
+    "name": "Seiko Prospex Marine Master 300 — 1968 Reinterpretation SLA023",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel--monobloc-case",
+      "automatic",
+      "prospex---marinemaster",
+      "mm300",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-seiko-spb143",
+    "card_id": "seiko-spb143",
+    "brand": "Seiko",
+    "reference": "SPB143",
+    "name": "Seiko Prospex Diver 62MAS SPB143",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "prospex",
+      "62mas",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-seiko-srp777-turtle",
+    "card_id": "seiko-srp777-turtle",
+    "brand": "Seiko",
+    "reference": "SRP777",
+    "name": "Seiko Prospex Turtle SRP777",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "prospex",
+      "turtle",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-seiko-srpb43-cocktail-time",
+    "card_id": "seiko-srpb43-cocktail-time",
+    "brand": "Seiko",
+    "reference": "SRPB43",
+    "name": "Seiko Presage Cocktail Time SRPB43",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "presage",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-seiko-srpd-5-sports",
+    "card_id": "seiko-srpd-5-sports",
+    "brand": "Seiko",
+    "reference": "SRPD79",
+    "name": "Seiko 5 Sports Street SRPD79",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "seiko",
+      "attainable",
+      "black-hard-coated-stainless-steel",
+      "automatic",
+      "5-sports",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-tagheuer-aquaracer-pro-300",
+    "card_id": "tagheuer-aquaracer-pro-300",
+    "brand": "TAG Heuer",
+    "reference": "WBP201",
+    "name": "TAG Heuer Aquaracer Professional 300 Date WBP201",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tag-heuer",
+      "core",
+      "stainless-steel",
+      "automatic",
+      "aquaracer",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tagheuer-autavia-heritage",
+    "card_id": "tagheuer-autavia-heritage",
+    "brand": "TAG Heuer",
+    "reference": "CBE2110",
+    "name": "TAG Heuer Heritage Autavia CBE2110",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tag-heuer",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "autavia",
+      "rindt",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-tagheuer-carrera-glassbox-cbs2210",
+    "card_id": "tagheuer-carrera-glassbox-cbs2210",
+    "brand": "TAG Heuer",
+    "reference": "CBS2210",
+    "name": "TAG Heuer Carrera Chronograph CBS2210",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tag-heuer",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "carrera",
+      "glassbox",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tagheuer-f1-kith",
+    "card_id": "tagheuer-f1-kith",
+    "brand": "TAG Heuer",
+    "reference": "WA121F.BA0023",
+    "name": "TAG Heuer Formula 1 x Kith WA121F.BA0023",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tag-heuer",
+      "core",
+      "stainless-steel--also-released-in-black-pvd-steel-and-arnite-plastic-across-the-collection-",
+      "quartz",
+      "formula-1",
+      "kith-heuer",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-tagheuer-monaco-caw211p",
+    "card_id": "tagheuer-monaco-caw211p",
+    "brand": "TAG Heuer",
+    "reference": "CAW211P",
+    "name": "TAG Heuer Monaco Chronograph Calibre 11 CAW211P",
+    "tier": "core",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tag-heuer",
+      "core",
+      "stainless-steel",
+      "automatic-chronograph",
+      "monaco",
+      "mcqueen-monaco",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-tissot-prx-t137-407",
+    "card_id": "tissot-prx-t137-407",
+    "brand": "Tissot",
+    "reference": "T137.407.11.041.00",
+    "name": "Tissot PRX Powermatic 80 T137.407.11.041.00",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tissot",
+      "attainable",
+      "stainless-steel",
+      "automatic",
+      "prx",
+      "current-production",
+      "entry-level"
+    ]
+  },
+  {
+    "id": "photo-tissot-prx-t137-410",
+    "card_id": "tissot-prx-t137-410",
+    "brand": "Tissot",
+    "reference": "T137.410",
+    "name": "Tissot PRX 40 205 T137.410",
+    "tier": "attainable",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tissot",
+      "attainable",
+      "stainless-steel",
+      "quartz",
+      "prx",
+      "prx-quartz",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-7924",
+    "card_id": "tudor-7924",
+    "brand": "Tudor",
+    "reference": "7924",
+    "name": "Tudor Oyster Prince Submariner 7924",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "manual",
+      "submariner",
+      "big-crown",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-tudor-bb-79230n",
+    "card_id": "tudor-bb-79230n",
+    "brand": "Tudor",
+    "reference": "79230N",
+    "name": "Tudor Black Bay 79230N",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-bb-pro-79470",
+    "card_id": "tudor-bb-pro-79470",
+    "brand": "Tudor",
+    "reference": "79470",
+    "name": "Tudor Black Bay Pro 79470",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-bb54-79000n",
+    "card_id": "tudor-bb54-79000n",
+    "brand": "Tudor",
+    "reference": "79000N",
+    "name": "Tudor Black Bay 54 79000N",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "bb54",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-bb58-79030b",
+    "card_id": "tudor-bb58-79030b",
+    "brand": "Tudor",
+    "reference": "79030B",
+    "name": "Tudor Black Bay Fifty-Eight 79030B",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "bb58-blue",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-bb58-79030n",
+    "card_id": "tudor-bb58-79030n",
+    "brand": "Tudor",
+    "reference": "79030N",
+    "name": "Tudor Black Bay Fifty-Eight 79030N",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "bb58",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-bbgmt-79830rb",
+    "card_id": "tudor-bbgmt-79830rb",
+    "brand": "Tudor",
+    "reference": "79830RB",
+    "name": "Tudor Black Bay GMT 79830RB",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "black-bay",
+      "pepsi",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-chrono-79360n",
+    "card_id": "tudor-chrono-79360n",
+    "brand": "Tudor",
+    "reference": "79360N",
+    "name": "Tudor Black Bay Chrono 79360N",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic-chronograph",
+      "black-bay",
+      "panda",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-pelagos-25600tn",
+    "card_id": "tudor-pelagos-25600tn",
+    "brand": "Tudor",
+    "reference": "25600TN",
+    "name": "Tudor Pelagos 25600TN",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "titanium",
+      "automatic",
+      "pelagos",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-pelagos-39",
+    "card_id": "tudor-pelagos-39",
+    "brand": "Tudor",
+    "reference": "M25407N-0001",
+    "name": "Tudor Pelagos 39 M25407N-0001",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "titanium",
+      "automatic",
+      "pelagos",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-tudor-ranger-79950",
+    "card_id": "tudor-ranger-79950",
+    "brand": "Tudor",
+    "reference": "79950",
+    "name": "Tudor Ranger 79950",
+    "tier": "crown",
+    "image_url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "tudor",
+      "crown",
+      "stainless-steel",
+      "automatic",
+      "ranger",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-vacheron-222-4200h",
+    "card_id": "vacheron-222-4200h",
+    "brand": "Vacheron Constantin",
+    "reference": "4200H/222",
+    "name": "Vacheron Constantin Historiques 222 4200H/222",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "yellow-gold--2022----stainless-steel--2025-",
+      "automatic",
+      "historiques",
+      "current-production",
+      "ultra-luxury"
+    ]
+  },
+  {
+    "id": "photo-vacheron-4500v",
+    "card_id": "vacheron-4500v",
+    "brand": "Vacheron Constantin",
+    "reference": "4500V/110A",
+    "name": "Vacheron Constantin Overseas Self-Winding 4500V/110A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1594576722512-582bcd46fba3?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "overseas",
+      "discontinued"
+    ]
+  },
+  {
+    "id": "photo-vacheron-4520v",
+    "card_id": "vacheron-4520v",
+    "brand": "Vacheron Constantin",
+    "reference": "4520V/210A",
+    "name": "Vacheron Constantin Overseas Self-Winding 4520V/210A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1517463668877-a1288f344bf1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "overseas",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-vacheron-4600e",
+    "card_id": "vacheron-4600e",
+    "brand": "Vacheron Constantin",
+    "reference": "4600E/000A",
+    "name": "Vacheron Constantin FiftySix Self-Winding 4600E/000A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "stainless-steel",
+      "automatic",
+      "fiftysix",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-vacheron-5500v",
+    "card_id": "vacheron-5500v",
+    "brand": "Vacheron Constantin",
+    "reference": "5500V/110A",
+    "name": "Vacheron Constantin Overseas Chronograph 5500V/110A",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "stainless-steel",
+      "automatic-chronograph",
+      "overseas",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-vacheron-81180",
+    "card_id": "vacheron-81180",
+    "brand": "Vacheron Constantin",
+    "reference": "81180",
+    "name": "Vacheron Constantin Patrimony Manual-Winding 81180",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "rose-gold---white-gold",
+      "manual",
+      "patrimony",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-vacheron-82035",
+    "card_id": "vacheron-82035",
+    "brand": "Vacheron Constantin",
+    "reference": "82035/000R",
+    "name": "Vacheron Constantin Historiques American 1921 82035/000R",
+    "tier": "trinity",
+    "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "vacheron-constantin",
+      "trinity",
+      "rose-gold",
+      "manual",
+      "historiques",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-zenith-a386-revival",
+    "card_id": "zenith-a386-revival",
+    "brand": "Zenith",
+    "reference": "03.2087.400/69.C777",
+    "name": "Zenith El Primero A386 Revival 03.2087.400/69.C777",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "zenith",
+      "haute",
+      "stainless-steel",
+      "automatic-chronograph",
+      "el-primero-a386",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-zenith-chronomaster-original",
+    "card_id": "zenith-chronomaster-original",
+    "brand": "Zenith",
+    "reference": "03.3200.3600",
+    "name": "Zenith Chronomaster Original 03.3200.3600",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "zenith",
+      "haute",
+      "stainless-steel",
+      "automatic-chronograph",
+      "chronomaster",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-zenith-chronomaster-sport",
+    "card_id": "zenith-chronomaster-sport",
+    "brand": "Zenith",
+    "reference": "03.3100.3600/21.M3100",
+    "name": "Zenith Chronomaster Sport 03.3100.3600/21.M3100",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "zenith",
+      "haute",
+      "stainless-steel",
+      "automatic-chronograph",
+      "chronomaster",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-zenith-defy-skyline",
+    "card_id": "zenith-defy-skyline",
+    "brand": "Zenith",
+    "reference": "03.9300.3620/01.I001",
+    "name": "Zenith Defy Skyline 03.9300.3620/01.I001",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "zenith",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "defy",
+      "current-production"
+    ]
+  },
+  {
+    "id": "photo-zenith-pilot-type-20",
+    "card_id": "zenith-pilot-type-20",
+    "brand": "Zenith",
+    "reference": "03.2430.679/21.C902",
+    "name": "Zenith Pilot Type 20 03.2430.679/21.C902",
+    "tier": "haute",
+    "image_url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop",
+    "license": "Unsplash License (Free commercial & non-commercial use)",
+    "tags": [
+      "zenith",
+      "haute",
+      "stainless-steel",
+      "automatic",
+      "pilot",
+      "current-production"
+    ]
   }
 ]

@@ -1,0 +1,15 @@
+# The dataset changes with every data build while index.html keeps the same name,
+# so the edge must revalidate it — a cached data.json paired with fresh JS shows
+# stale numbers, which this project treats as a correctness bug, not a cache miss.
+/data.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/paper.md
+  Cache-Control: public, max-age=0, must-revalidate
+
+/paper.pdf
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Hashed build assets are immutable by construction.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

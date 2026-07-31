@@ -22,7 +22,9 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2019-06-25", "price_usd": 30000, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994", "condition": null, "box_papers": "full_set" }
+      { "date": "2019-06-25", "price_usd": 30000, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994", "condition": null, "box_papers": "full_set" },
+      { "date": "2024-12-13", "price_usd": 17920, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/103/", "condition": null, "box_papers": null },
+      { "date": "2024-12-13", "price_usd": 25600, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/104/", "condition": null, "box_papers": null }
     ],
     "listing_observations": []
   },
