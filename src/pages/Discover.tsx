@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
@@ -7,27 +7,96 @@ export default function Discover() {
   const data = useDataset()
   const cards = useMemo(() => data?.cards.filter((c) => c.narrative.story) ?? [], [data])
   const [index, setIndex] = useState(() => Math.floor(Date.now() / 86_400_000))
+  const [filterVibe, setFilterVibe] = useState<'all' | 'grail' | 'understated' | 'chronograph' | 'diver'>('all')
+  const [photosMap, setPhotosMap] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    fetch('/data/watch_photos.json')
+      .then((r) => r.json())
+      .then((photosList: Array<{ card_id: string; image_url: string }>) => {
+        const map: Record<string, string> = {}
+        for (const p of photosList) {
+          map[p.card_id] = p.image_url
+        }
+        setPhotosMap(map)
+      })
+      .catch(() => {})
+  }, [])
+
+  const filteredCards = useMemo(() => {
+    if (filterVibe === 'all') return cards
+    if (filterVibe === 'grail') return cards.filter((c) => c.computed.scarcity.value >= 75)
+    if (filterVibe === 'understated') return cards.filter((c) => c.identity.tier === 'attainable' || c.identity.tier === 'core')
+    if (filterVibe === 'chronograph') return cards.filter((c) => c.identity.movement.type.includes('chronograph'))
+    if (filterVibe === 'diver') return cards.filter((c) => c.identity.name.toLowerCase().includes('submariner') || c.identity.name.toLowerCase().includes('diver') || c.identity.name.toLowerCase().includes('seamaster'))
+    return cards
+  }, [cards, filterVibe])
+
   if (!data || cards.length === 0) return null
 
-  const card = cards[index % cards.length]
+  const activeCards = filteredCards.length > 0 ? filteredCards : cards
+  const card = activeCards[index % activeCards.length]
   const signals = scarcitySignals(card)
-  const next = () => setIndex((current) => {
-    if (cards.length < 2) return current
-    return current + 1 + Math.floor(Math.random() * (cards.length - 1))
-  })
+
+  const spinRoulette = () => {
+    setIndex((current) => current + 1 + Math.floor(Math.random() * 5))
+  }
 
   return (
     <>
       <div className="discover-head">
         <div>
-          <p className="eyebrow">Discovery</p>
-          <h1 className="pagetitle">One watch. Three ways to see it.</h1>
-          <p className="lede">No quiz, no expertise required. Keep the fact that interests you and leave the rest.</p>
+          <p className="eyebrow">Interactive Discovery Mode</p>
+          <h1 className="pagetitle">Watch Roulette & Vibe Matcher</h1>
+          <p className="lede">Spin through reference dossiers, explore scarcity mechanics, and discover horological objects without financial noise.</p>
         </div>
-        <button type="button" className="btn" onClick={next}>SHOW ME ANOTHER →</button>
+        <button type="button" className="btn" onClick={spinRoulette}>
+          🎲 SPIN ROULETTE →
+        </button>
+      </div>
+
+      {/* Vibe Selector Chips */}
+      <div className="chips" style={{ marginBottom: '24px' }}>
+        <button
+          className={`chip ${filterVibe === 'all' ? 'on' : ''}`}
+          onClick={() => setFilterVibe('all')}
+        >
+          ANY VIBE ({cards.length})
+        </button>
+        <button
+          className={`chip ${filterVibe === 'grail' ? 'on' : ''}`}
+          onClick={() => setFilterVibe('grail')}
+        >
+          🏆 GRAILS ONLY (SCARCITY ≥ 75)
+        </button>
+        <button
+          className={`chip ${filterVibe === 'understated' ? 'on' : ''}`}
+          onClick={() => setFilterVibe('understated')}
+        >
+          🌿 UNDERSTATED DAILY
+        </button>
+        <button
+          className={`chip ${filterVibe === 'chronograph' ? 'on' : ''}`}
+          onClick={() => setFilterVibe('chronograph')}
+        >
+          ⏱️ CHRONOGRAPHS
+        </button>
+        <button
+          className={`chip ${filterVibe === 'diver' ? 'on' : ''}`}
+          onClick={() => setFilterVibe('diver')}
+        >
+          🌊 DIVERS
+        </button>
       </div>
 
       <article className="discovery-card">
+        {photosMap[card.id] && (
+          <div className="photo-thumb-wrap" style={{ height: '300px' }}>
+            <img src={photosMap[card.id]} alt={card.identity.name} className="photo-img" />
+            <span className="tier-badge mono">{card.identity.tier.toUpperCase()}</span>
+          </div>
+        )}
+
         <header className="discovery-mast">
           <p className="eyebrow">{card.identity.brand} · {card.identity.collection}</p>
           <h2>{card.identity.name} <span className="mono">{card.identity.reference}</span></h2>
@@ -71,7 +140,10 @@ export default function Discover() {
 
         <footer className="discovery-foot">
           <span className="mono micro dim">{card.meta.sources.length} SOURCES · {card.provenance_events.length} SOURCED EVENTS</span>
-          <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button type="button" className="btn" onClick={spinRoulette}>SPIN AGAIN 🎲</button>
+            <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>
+          </div>
         </footer>
       </article>
     </>

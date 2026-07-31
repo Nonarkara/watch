@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
@@ -10,10 +10,24 @@ export default function Dossier() {
   const { id } = useParams()
   const data = useDataset()
   const c = data?.cards.find((x) => x.id === id)
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null)
+
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
     return () => { document.title = 'The Watch Register — Objects, Stories & Scarcity' }
   }, [c])
+
+  useEffect(() => {
+    if (!c) return
+    fetch('/data/watch_photos.json')
+      .then((r) => r.json())
+      .then((photos: Array<{ card_id: string; image_url: string }>) => {
+        const found = photos.find((p) => p.card_id === c.id)
+        if (found) setPhotoUrl(found.image_url)
+      })
+      .catch(() => {})
+  }, [c])
+
   if (!data) return null
   if (!c) {
     return (
@@ -32,11 +46,25 @@ export default function Dossier() {
   return (
     <>
       <Link to="/register" className="crumb">← REGISTER</Link>
+      
+      {photoUrl && (
+        <div className="photo-thumb-wrap" style={{ height: '280px', marginTop: '12px', marginBottom: '20px', borderRadius: '4px' }}>
+          <img src={photoUrl} alt={c.identity.name} className="photo-img" />
+          <span className="tier-badge mono">{c.identity.tier.toUpperCase()}</span>
+        </div>
+      )}
+
       <div className="masthead">
         <p className="eyebrow">{c.identity.brand} · {c.identity.collection} · {TIER_LABEL[c.identity.tier]}</p>
         <h1 className="pagetitle">{c.identity.name} <span className="mono">{c.identity.reference}</span></h1>
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
+        
+        <div style={{ marginTop: '12px' }}>
+          <Link to="/economy" className="micro mono amber">
+            📊 COLLECTIBLE ECONOMY: SAFE STORAGE, LIQUIDITY HAIRCUT & CPI ANALYSIS →
+          </Link>
+        </div>
       </div>
 
       <div className="metric-strip">

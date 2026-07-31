@@ -14,6 +14,8 @@ import Patterns from './pages/Patterns.tsx'
 import Starter from './pages/Starter.tsx'
 import Methodology from './pages/Methodology.tsx'
 import Paper from './pages/Paper.tsx'
+import Economy from './pages/Economy.tsx'
+import Photos from './pages/Photos.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,6 +24,8 @@ createRoot(document.getElementById('root')!).render(
         <Route element={<App />}>
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
+          <Route path="photos" element={<Photos />} />
+          <Route path="economy" element={<Economy />} />
           <Route path="w/:id" element={<Dossier />} />
           <Route path="compare" element={<Compare />} />
           <Route path="discover" element={<Discover />} />

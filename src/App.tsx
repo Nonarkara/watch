@@ -6,6 +6,8 @@ import { DataContext } from './lib/dataset-context.ts'
 const NAV = [
   { to: '/', label: 'Home' },
   { to: '/register', label: 'Register' },
+  { to: '/photos', label: 'Photos' },
+  { to: '/economy', label: 'Economy' },
   { to: '/discover', label: 'Discover' },
   { to: '/rehome', label: 'Rehome' },
   { to: '/compare', label: 'Compare' },
@@ -16,6 +18,8 @@ const NAV = [
 const PAGE_TITLES: Record<string, string> = {
   '/': 'The Watch Register — Objects, Stories & Scarcity',
   '/register': 'Watch Reference Register — The Watch Register',
+  '/photos': 'Taggable Watch Photos — The Watch Register',
+  '/economy': 'The Collectible Economy — The Watch Register',
   '/discover': 'Discover a Watch — The Watch Register',
   '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
   '/compare': 'Compare Watch References — The Watch Register',

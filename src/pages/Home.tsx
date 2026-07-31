@@ -34,6 +34,22 @@ const DOORS = [
     to: '/discover#conversation',
     action: 'DRAW A CONVERSATION',
   },
+  {
+    n: '05',
+    label: 'Visual Archives',
+    title: '180+ Taggable Watch Photos',
+    body: 'Browse high-definition, license-free watch photography cataloged and tagged by specifications.',
+    to: '/photos',
+    action: 'BROWSE PHOTO ARCHIVES',
+  },
+  {
+    n: '06',
+    label: 'Deep Economics',
+    title: 'The Collectible Economy',
+    body: 'Calculate safe storage costs, illiquidity haircuts, and inflation-adjusted returns.',
+    to: '/economy',
+    action: 'RUN ECONOMY SIMULATOR',
+  },
 ]
 
 export default function Home() {

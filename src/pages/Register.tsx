@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
@@ -20,7 +20,23 @@ export default function Register() {
   const [tier, setTier] = useState<'all' | Card['identity']['tier']>('all')
   const [brand, setBrand] = useState('all')
   const [sort, setSort] = useState<SortKey>('collectibility')
+  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
+  const [photosMap, setPhotosMap] = useState<Record<string, string>>({})
+
   const cards = useMemo(() => data?.cards ?? [], [data])
+
+  useEffect(() => {
+    fetch('/data/watch_photos.json')
+      .then((r) => r.json())
+      .then((photosList: Array<{ card_id: string; image_url: string }>) => {
+        const map: Record<string, string> = {}
+        for (const p of photosList) {
+          map[p.card_id] = p.image_url
+        }
+        setPhotosMap(map)
+      })
+      .catch(() => {})
+  }, [])
 
   const brands = useMemo(
     () => [...new Set(cards.map((c) => c.identity.brand))].sort(),
@@ -69,7 +85,23 @@ export default function Register() {
           <select className="sel" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
             {SORTS.map((s) => <option key={s.k} value={s.k}>SORT · {s.label}</option>)}
           </select>
+
+          <div className="register-view-toggle">
+            <button
+              className={`chip ${viewMode === 'grid' ? 'on' : ''}`}
+              onClick={() => setViewMode('grid')}
+            >
+              VISUAL CARDS
+            </button>
+            <button
+              className={`chip ${viewMode === 'table' ? 'on' : ''}`}
+              onClick={() => setViewMode('table')}
+            >
+              LEDGER TABLE
+            </button>
+          </div>
         </div>
+
         <div className="chips" role="group" aria-label="Filter by tier">
           <button className={'chip' + (tier === 'all' ? ' on' : '')} onClick={() => setTier('all')}>All</button>
           {TIER_ORDER.map((t) => (
@@ -81,12 +113,70 @@ export default function Register() {
         <p className="count-line mono">{rows.length} OF {cards.length} REFERENCES</p>
       </div>
 
-      <div className="lhead" aria-hidden="true">
-        <span>Model</span><span>Market USD</span><span>Vs retail</span><span>Scarcity</span><span>Collect</span><span>Conf</span>
-      </div>
-      {rows.map((c) => <Row key={c.id} c={c} />)}
+      {viewMode === 'grid' ? (
+        <div className="card-grid-view">
+          {rows.map((c) => (
+            <VisualCard key={c.id} c={c} imgUrl={photosMap[c.id]} />
+          ))}
+        </div>
+      ) : (
+        <>
+          <div className="lhead" aria-hidden="true">
+            <span>Model</span><span>Market USD</span><span>Vs retail</span><span>Scarcity</span><span>Collect</span><span>Conf</span>
+          </div>
+          {rows.map((c) => <Row key={c.id} c={c} />)}
+        </>
+      )}
+
       {rows.length === 0 && <p className="boot mono">NO REFERENCES MATCH.</p>}
     </>
+  )
+}
+
+function VisualCard({ c, imgUrl }: { c: Card; imgUrl?: string }) {
+  const { estimate, premium, scarcity, collectibility, confidence } = c.computed
+  const delta = premium.value
+  return (
+    <Link to={`/w/${c.id}`} className="reg-card">
+      {imgUrl && (
+        <div className="photo-thumb-wrap" style={{ height: '140px', marginBottom: '8px' }}>
+          <img src={imgUrl} alt={c.identity.name} loading="lazy" className="photo-img" />
+          <span className="tier-badge mono">{c.identity.tier.toUpperCase()}</span>
+        </div>
+      )}
+      <div className="reg-card-head">
+        <span className="reg-card-brand">{c.identity.brand}</span>
+        {confidence.tier && <span className={'badge' + (confidence.tier === 'A' ? ' a' : '')}>{confidence.tier}</span>}
+      </div>
+      <div className="reg-card-title">
+        {c.identity.name} <span className="mono dim" style={{ fontSize: '13px' }}>{c.identity.reference}</span>
+      </div>
+      {c.identity.nickname && <div className="l-nick micro">“{c.identity.nickname}”</div>}
+      
+      <div className="reg-card-metrics">
+        <div>
+          <span className="micro dim block">MARKET</span>
+          <span className="reg-card-price">{estimate.value != null ? usd(estimate.value) : dash}</span>
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <span className="micro dim block">VS RETAIL</span>
+          <span className={`mono bold ${delta && delta < 0 ? 'neg' : 'amber'}`}>
+            {delta != null ? pct(delta) : dash}
+          </span>
+        </div>
+      </div>
+
+      <div className="mini-specs" style={{ marginTop: '8px', paddingTop: '4px' }}>
+        <div style={{ padding: '2px 0' }}>
+          <dt>SCARCITY</dt>
+          <dd>{scarcity.value}/100 ({scarcity.tier?.toUpperCase() || 'COMMON'})</dd>
+        </div>
+        <div style={{ padding: '2px 0' }}>
+          <dt>COLLECT</dt>
+          <dd>{collectibility.value}/100</dd>
+        </div>
+      </div>
+    </Link>
   )
 }
 
