@@ -17,6 +17,7 @@ import Paper from './pages/Paper.tsx'
 import Economy from './pages/Economy.tsx'
 import Photos from './pages/Photos.tsx'
 import Screen from './pages/Screen.tsx'
+import About from './pages/About.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -37,6 +38,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="starter" element={<Starter />} />
           <Route path="methodology" element={<Methodology />} />
           <Route path="paper" element={<Paper />} />
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>

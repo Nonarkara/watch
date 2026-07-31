@@ -4,6 +4,7 @@ import { useDataset } from '../lib/dataset-context.ts'
 import { useCompare } from '../lib/compare-context.tsx'
 import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
+import TrendSpark from '../components/TrendSpark.tsx'
 
 type SortKey = 'collectibility' | 'scarcity' | 'market_desc' | 'market_asc' | 'delta' | 'az'
 const SORTS: { k: SortKey; label: string }[] = [
@@ -155,6 +156,7 @@ function VisualCard({ c }: { c: Card }) {
       <div className="rc-sub mono">
         {c.identity.reference}{c.identity.nickname ? ` · ${c.identity.nickname}` : ''}
       </div>
+      <TrendSpark sales={c.notable_sales ?? []} />
       <dl className="rc-data">
         <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
         <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
