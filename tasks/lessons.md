@@ -72,3 +72,37 @@
 - Cloudflare Pages alias domains serve the previous deployment for roughly a minute after
   `wrangler pages deploy` reports success. Verify against the deployment-specific URL first,
   then poll the alias — a stale alias read is not a failed deploy.
+
+## 2026-08-01 · The cliché was a banned typeface, not a vague vibe
+
+- **What went wrong:** A design pass moved the register to Bodoni Moda on a cream wash with
+  the accent token redefined to blue, plus blob-radius speech bubbles, hard offset shadows,
+  rotated stickers and five pastel fills. Dr Non read the result as "Louis Vuitton", not
+  a reference work. Fat display serifs, radii, shadows and pastel palettes are each named
+  bans in house law (§11.6, §14) — the regression was checkable, not a matter of taste.
+- **Correct behaviour:** overhaul the *facade* and keep the composition. Every grid, span and
+  rhythm was preserved; only the surface changed — one neutral grotesque carrying hierarchy
+  by weight and scale, near-white paper, ink, and a single accent spent on interaction.
+- **How to recognise:** grep the stylesheet for `border-radius` on non-circles, `box-shadow`
+  without `inset`, `rotate(`, more than one accent hex, and any serif in `--font-display`.
+
+## 2026-08-01 · Cards that grow with their titles make a grid look accidental
+
+- Register cards were a flex column, so a two-line name pushed that card's metric rows below
+  its neighbours' and the row lost its baseline. Fixed rows plus a two-line clamp on the name
+  and a permanent one-line sub-row put every "Market" figure on one line across the grid.
+- The general rule: in a grid of records, the *record* must have a fixed rhythm. Alignment
+  between cards is not a property of the container.
+
+## 2026-08-01 · Verify image rights before display, not just image quality
+
+- **What went wrong:** the shared Rolex catalogue supplied card images by hotlinking
+  `cdn.thewatchpages.com`, with its own rights field reading "reuse license not asserted" —
+  80 unlicensed third-party images on a site whose entire argument is that provenance is
+  checkable.
+- **Correct behaviour:** catalogue images are gated behind an explicit
+  `image_license_asserted === true`; the catalogue still supplies reference data. Displayed
+  photography must carry a named author, a stated licence and a source URL.
+- **Also:** Wikimedia Commons hosts replica watches with self-applied CC0 tags and brand press
+  photos CC-tagged by non-holders. Read the file description, not just the licence box — two
+  candidates for this build were counterfeits that described themselves as such.
