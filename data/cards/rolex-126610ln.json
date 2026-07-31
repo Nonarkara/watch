@@ -21,7 +21,9 @@
     "current_msrp_usd": 10650
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      { "date": "2025-04-08", "price_usd": 10795, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080325/43", "condition": null, "box_papers": "full_set" }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

@@ -21,6 +21,8 @@
   },
   "market_evidence": {
     "comps": [
+      { "date": "2024-12-13", "price_usd": 17920, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/99/", "condition": null, "box_papers": "full_set" },
+      { "date": "2026-04-08", "price_usd": 27940, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080326/65", "condition": null, "box_papers": "full_set" },
       { "date": "2026-06-12", "price_usd": 25400, "venue": "christies", "url": "https://www.christies.com/en/lot/lot-6590231", "condition": null, "box_papers": "full_set" }
     ],
     "listing_observations": []
