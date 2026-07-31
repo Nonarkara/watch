@@ -1,7 +1,17 @@
 # The dataset changes with every data build while index.html keeps the same name,
-# so the edge must revalidate it — a cached data.json paired with fresh JS shows
-# stale numbers, which this project treats as a correctness bug, not a cache miss.
+# so the edge must revalidate it — a cached index.html or data.json paired with fresh JS shows
+# stale numbers, which this project treats as a correctness bug.
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /data.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/data/*
   Cache-Control: public, max-age=0, must-revalidate
 
 /paper.md
