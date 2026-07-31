@@ -16,6 +16,7 @@ import Methodology from './pages/Methodology.tsx'
 import Paper from './pages/Paper.tsx'
 import Economy from './pages/Economy.tsx'
 import Photos from './pages/Photos.tsx'
+import Screen from './pages/Screen.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
           <Route path="photos" element={<Photos />} />
+          <Route path="screen" element={<Screen />} />
           <Route path="economy" element={<Economy />} />
           <Route path="w/:id" element={<Dossier />} />
           <Route path="compare" element={<Compare />} />

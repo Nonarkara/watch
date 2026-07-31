@@ -29,9 +29,28 @@ scripts/test-invariants.mjs assert-based self-check incl. idempotence — run be
 - Frontend: Vite + React 19 + TS + Tailwind v4, react-router. Design tokens imported from `_shared/design-tokens/dr-non-brand.css`.
 - Card schema contract: `data/SCHEMA.md` — read it before touching any card.
 
+## Product and design law — Civic/Editorial + “Doraemon on LV”
+
+The register is a civic research instrument wearing a playful maison lookbook. “Doraemon on Louis
+Vuitton” is the named folly: full editorial play, not a console with a novelty sticker. Use cream
+paper, ink, quiet catalog typography, generous object photography, and hairline rules. Let one
+comic device interrupt each surface—a speech bubble, doodled orbit, bright label, or deliberately
+crooked card. The result should feel classy, generous, and curious.
+
+Incomplete research is visible material. An absent image becomes an empty sourced-media frame;
+thin comps become an unfinished ledger line; an uncomputable claim stays crossed out. Never rotate
+generic stock images through references. Source-linked catalog media may be shown with credit and a
+clear rights status, but a reuse licence must never be invented.
+
+Screen exposure is demand-side attention, never physical scarcity. Only exact-reference film and TV
+matches enter the attention heuristic; family-level and tentative identifications remain visibly
+qualified. Brand tiers are editorial peer context only and never multiply price, scarcity, or
+collectibility.
+
 ## Anti-Regression
 
 - The **honesty ladder is the product**: no market price without ≥3 sourced comps; missing data renders "—" + reason, never 0, never a guess. Do not "fix" empty metrics by filling them.
 - The **masked publish** is deliberate (Sabai Sabai pattern): full comps never ship to the client. Do not "helpfully" publish the raw comps array.
-- Zero border-radius, one amber, 3 text sizes, hairline borders, mobile-first — house law (§11/§14).
+- Paper, ink, primary-color play, editorial type, hairline borders, mobile-first. Curves belong to the
+  named playful interrupt (speech bubbles, circles), not every container.
 - Every metric shows source, n, window, limitation. Removing a limitation string is a regression.

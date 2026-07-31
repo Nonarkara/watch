@@ -1,0 +1,430 @@
+{
+  "collected": "2026-07-31",
+  "source_url": "https://www.watch-id.com/brands/rolex",
+  "count": 31,
+  "screen_count": 25,
+  "limitation": "Watch-ID is a specialist identification source. Family-only and tentative identifications are displayed as such and never scored at reference level.",
+  "sightings": [
+    {
+      "id": "rolex-day-date-jason-isaacs-the-white-lotus",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Jason Isaacs - The White Lotus",
+      "description": "Jason Isaacs wears a gold Rolex Day-Date in The White Lotus Season 3 (2025).",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/rolex-day-date-jason-isaacs-the-white-lotus"
+    },
+    {
+      "id": "rolex-milgauss-patrick-schwarzenegger-the-white-lotus-season-3",
+      "brand": "Rolex",
+      "watch": "Milgauss",
+      "title": "Rolex Milgauss - Patrick Schwarzenegger - The White Lotus Season 3",
+      "description": "Patrick Schwarzenegger wears a Rolex Milgauss watch in Episode 1 of The White Lotus Season 3 (2025).",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116400gv"
+      ],
+      "source_url": "https://www.watch-id.com/rolex-milgauss-patrick-schwarzenegger-the-white-lotus-season-3"
+    },
+    {
+      "id": "rolex-gmt-master-ii-sterling-k-brown-paradise",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Sterling K. Brown - Paradise",
+      "description": "Sterling K. Brown wears a Rolex GMT-Master II watch in the first episode of the Hulu series Paradise (2025).",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-126710blro-pepsi"
+      ],
+      "source_url": "https://www.watch-id.com/rolex-gmt-master-ii-sterling-k-brown-paradise"
+    },
+    {
+      "id": "rolex-oyster-perpetual-milgauss-jeff-daniels-man-full",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Milgauss",
+      "title": "Rolex Oyster Perpetual Milgauss - Jeff Daniels - A Man In Full",
+      "description": "Jeff Daniels wears a Rolex Oyster Perpetual Milgauss watch in the Netflix series A Man In Full (2024).",
+      "media_type": "television",
+      "release_year": 2024,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116400gv"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-milgauss-jeff-daniels-man-full"
+    },
+    {
+      "id": "rolex-submariner-titus-welliver-bosch",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Titus Welliver - Bosch",
+      "description": "Titus Welliver as Bosch wears a Rolex Submariner watch in the series Bosch and Bosch: Legacy.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116610ln"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-titus-welliver-bosch"
+    },
+    {
+      "id": "rolex-day-date-chris-evans-pain-hustlers",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Chris Evans - Pain Hustlers",
+      "description": "Chris Evans wears a gold Rolex Day-Date in the Netflix movie Pain Hustlers (2023).",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-chris-evans-pain-hustlers"
+    },
+    {
+      "id": "rolex-submariner-date-two-tone-josh-lucas-black-demon",
+      "brand": "Rolex",
+      "watch": "Submariner Date Two-Tone",
+      "title": "Rolex Submariner Date Two-Tone - Josh Lucas - The Black Demon",
+      "description": "Josh Lucas wears a Rolex Submariner Date Two-Tone in the 2023 movie The Black Demon.",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-two-tone-josh-lucas-black-demon"
+    },
+    {
+      "id": "rolex-submariner-florence-pugh-good-person",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Florence Pugh - A Good Person",
+      "description": "It looks like Florence Pugh wears a Rolex Submariner in the movie A Good Person (2023).",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-florence-pugh-good-person"
+    },
+    {
+      "id": "rolex-explorer-1016-jennifer-connelly-top-gun-maverick",
+      "brand": "Rolex",
+      "watch": "Explorer 1016",
+      "title": "Rolex Explorer 1016 - Jennifer Connelly - Top Gun: Maverick",
+      "description": "Jennifer Connelly wears a Rolex Explorer 1016 watch in Top Gun: Maverick (2022).",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-1016"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-1016-jennifer-connelly-top-gun-maverick"
+    },
+    {
+      "id": "rolex-submariner-jon-hamm-confess-fletch",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Jon Hamm - Confess, Fletch",
+      "description": "Jon Hamm wears a Rolex Submariner in Confess, Fletch (2022).",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-jon-hamm-confess-fletch"
+    },
+    {
+      "id": "rolex-day-date-jerrod-carmichael-rothaniel",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Jerrod Carmichael - Rothaniel",
+      "description": "Jerrod Carmichael wears a gold Rolex Day-Date watch in Rothaniel (2022).",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-jerrod-carmichael-rothaniel"
+    },
+    {
+      "id": "rolex-gmt-master-james-spader-blacklist",
+      "brand": "Rolex",
+      "watch": "GMT-Master",
+      "title": "Rolex GMT-Master - James Spader - The Blacklist",
+      "description": "James Spader’s character Raymond “Red” Reddington wears a Rolex GMT-Master on a Jubilee bracelet in NBC’s show The Blacklist.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-16710"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-james-spader-blacklist"
+    },
+    {
+      "id": "rolex-oyster-perpetual-datejust-pedro-pascal-wonder-woman-1984",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual DateJust",
+      "title": "Rolex Oyster Perpetual DateJust - Pedro Pascal - Wonder Woman 1984",
+      "description": "Pedro Pascal wears an all gold Rolex Oyster Perpetual DateJust in Wonder Woman 1984.",
+      "media_type": "film",
+      "release_year": 1984,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-datejust-pedro-pascal-wonder-woman-1984"
+    },
+    {
+      "id": "rolex-day-date-adam-sandler-uncut-gems",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Adam Sandler - Uncut Gems",
+      "description": "Adam Sandler wears a gold Rolex Oyster Perpetual Day-Date with diamonds in the 2019 movie Uncut Gems.",
+      "media_type": "film",
+      "release_year": 2019,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-adam-sandler-uncut-gems"
+    },
+    {
+      "id": "rolex-oyster-perpetual-39-adam-driver-marriage-story",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual 39",
+      "title": "Rolex Oyster Perpetual 39 - Adam Driver - Marriage Story",
+      "description": "It looks like Adam Driver wears a Rolex Oyster Perpetual 39 ref 114300 in the Netflix film Marriage Story.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-114300"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-39-adam-driver-marriage-story"
+    },
+    {
+      "id": "rolex-gmt-master-ii-rob-delaney-catastrophe",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Rob Delaney - Catastrophe",
+      "description": "Rob Delaney wears a Rolex GMT-Master II watch in the series Catastrophe.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-rob-delaney-catastrophe"
+    },
+    {
+      "id": "rolex-oyster-perpetual-day-date-john-travolta-speed-kills",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Day-Date",
+      "title": "Rolex Oyster Perpetual Day-Date - John Travolta - Speed Kills",
+      "description": "John Travolta, as Ben Aronoff in the movie Speed Kills (2018), receives a gold Rolex Oyster Perpetual Day-Date watch.",
+      "media_type": "film",
+      "release_year": 2018,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-228238"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-day-date-john-travolta-speed-kills"
+    },
+    {
+      "id": "rolex-gmt-master-ii-jay-hernandez-magnum-pi",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Jay Hernandez - Magnum P.I.",
+      "description": "Actor Jay Hernandez wears a Rolex GMT-Master II in the new 2018 Magnum P.I. tv series.",
+      "media_type": "television",
+      "release_year": 2018,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-jay-hernandez-magnum-pi"
+    },
+    {
+      "id": "rolex-day-date-40-platinum-conor-mcgregor",
+      "brand": "Rolex",
+      "watch": "Day-Date 40 Platinum",
+      "title": "Rolex Day-Date 40 Platinum - Conor McGregor",
+      "description": "One of the many Rolex watches owned by Conor McGregor is this Rolex Day-Date Platinum with Ice-Blue dial.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-40-platinum-conor-mcgregor"
+    },
+    {
+      "id": "rolex-day-date-40-gold-conor-mcgregor",
+      "brand": "Rolex",
+      "watch": "Day-Date 40 Gold",
+      "title": "Rolex Day-Date 40 Gold - Conor McGregor",
+      "description": "Conor McGregor wears a gold Rolex Day-Date 40 during the press conference in London in July 2017.",
+      "media_type": "other",
+      "release_year": 2017,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-40-gold-conor-mcgregor"
+    },
+    {
+      "id": "rolex-sea-dweller-dwayne-johnson-baywatch",
+      "brand": "Rolex",
+      "watch": "Sea-Dweller (?)",
+      "title": "Rolex Sea-Dweller (?) - Dwayne Johnson - Baywatch",
+      "description": "It looks like Dwayne Johnson is wearing a black Rolex Sea-Dweller Deep See (or similar) wristwatch in Baywatch (2017).",
+      "media_type": "film",
+      "release_year": 2017,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sea-dweller-dwayne-johnson-baywatch"
+    },
+    {
+      "id": "rolex-sky-dweller-lil-wayne-brown-suger-ray-j",
+      "brand": "Rolex",
+      "watch": "Sky-Dweller",
+      "title": "Rolex Sky-Dweller - Lil Wayne - Brown Suger (Ray J)",
+      "description": "Lil Wayne wears a gold Rolex Sky-Dweller in the music video Brown Sugar from Ray J.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sky-dweller-lil-wayne-brown-suger-ray-j"
+    },
+    {
+      "id": "rolex-sky-dweller-trey-songz-touchin-lovin-featuring-nicki-minaj",
+      "brand": "Rolex",
+      "watch": "Sky-Dweller",
+      "title": "Rolex Sky-Dweller - Trey Songz - Touchin, Lovin featuring Nicki Minaj",
+      "description": "Trey Songz wears a Rolex Sky-Dweller in the music video for his song Touchin, Lovin featuring Nicki Minaj.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sky-dweller-trey-songz-touchin-lovin-featuring-nicki-minaj"
+    },
+    {
+      "id": "rolex-explorer-ii-prince-harry-wales",
+      "brand": "Rolex",
+      "watch": "Explorer II",
+      "title": "Rolex Explorer II - Prince Harry of Wales",
+      "description": "Prince Harry of Wales has been spotted several times with a Rolex Oyster Perpetual Explorer II.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-ii-prince-harry-wales"
+    },
+    {
+      "id": "rolex-submariner-date-jeremy-renner-mission-impossible-ghost-protocol",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Jeremy Renner - Mission: Impossible - Ghost Protocol",
+      "description": "In the movie Mission: Impossible - Ghost Protocol, actor Jeremy Renner (best know for his part in The Hurt Locker) wears a Rolex Submariner Date.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-jeremy-renner-mission-impossible-ghost-protocol"
+    },
+    {
+      "id": "rolex-daytona-daniel-day-kim-lost",
+      "brand": "Rolex",
+      "watch": "Daytona",
+      "title": "Rolex Daytona - Daniel Day Kim - Lost",
+      "description": "Daniel Dae Kim, as Jin-Soo Kwon, wears a Rolex Oyster Perpetual Cosmograph Daytona in the television Lost.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-daytona-daniel-day-kim-lost"
+    },
+    {
+      "id": "rolex-submariner-date-luke-wilson-middle-men",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Luke Wilson - Middle Men",
+      "description": "Luke Wilson wears a yellow gold Rolex Submariner (reference number 116618LN) with black dial in the movie Middle Men.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-luke-wilson-middle-men"
+    },
+    {
+      "id": "rolex-submariner-date-kiefer-sutherland-24",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Kiefer Sutherland - 24",
+      "description": "Jack Bauer (played by Kiefer Sutherland), the CTU agent in the tv series 24, wears a Rolex Submariner Date 16610 (black face and black dial) in the first season.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-16610"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-kiefer-sutherland-24"
+    },
+    {
+      "id": "rolex-gmt-master-ii-jason-bateman-switch",
+      "brand": "Rolex",
+      "watch": "GMT Master II",
+      "title": "Rolex GMT Master II - Jason Bateman - The Switch",
+      "description": "Jason Bateman wears a stainless steel Rolex GMT Master II with black dial and blue (or black) and red bezel in the 2010 movie The Switch.",
+      "media_type": "film",
+      "release_year": 2010,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-jason-bateman-switch"
+    },
+    {
+      "id": "rolex-submariner-5512-steve-mcqueen",
+      "brand": "Rolex",
+      "watch": "Submariner 5512",
+      "title": "Rolex Submariner 5512 - Steve McQueen",
+      "description": "Steve McQueen sported a Rolex Submariner 5512 in the 1970s.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-5512-steve-mcqueen"
+    },
+    {
+      "id": "rolex-oyster-perpetual-day-date-he-got-game",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Day-Date",
+      "title": "Rolex Oyster Perpetual Day-Date - He Got Game",
+      "description": "Upcoming basketball star Jesus Shuttlesworth is offered a Rolex Oyster Perpetual Day-Date watch by sports agent Dom Pagnotti in Spike Lee's 1998 movie He Got Game, but Jesus refuses to take the Rolex.",
+      "media_type": "film",
+      "release_year": 1998,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-day-date-he-got-game"
+    }
+  ]
+}

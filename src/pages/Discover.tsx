@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
@@ -8,20 +8,6 @@ export default function Discover() {
   const cards = useMemo(() => data?.cards.filter((c) => c.narrative.story) ?? [], [data])
   const [index, setIndex] = useState(() => Math.floor(Date.now() / 86_400_000))
   const [filterVibe, setFilterVibe] = useState<'all' | 'grail' | 'understated' | 'chronograph' | 'diver'>('all')
-  const [photosMap, setPhotosMap] = useState<Record<string, string>>({})
-
-  useEffect(() => {
-    fetch('/data/watch_photos.json')
-      .then((r) => r.json())
-      .then((photosList: Array<{ card_id: string; image_url: string }>) => {
-        const map: Record<string, string> = {}
-        for (const p of photosList) {
-          map[p.card_id] = p.image_url
-        }
-        setPhotosMap(map)
-      })
-      .catch(() => {})
-  }, [])
 
   const filteredCards = useMemo(() => {
     if (filterVibe === 'all') return cards
@@ -90,12 +76,12 @@ export default function Discover() {
       </div>
 
       <article className="discovery-card">
-        {photosMap[card.id] && (
+        {card.media[0] ? (
           <div className="photo-thumb-wrap" style={{ height: '300px' }}>
-            <img src={photosMap[card.id]} alt={card.identity.name} className="photo-img" />
-            <span className="tier-badge mono">{card.identity.tier.toUpperCase()}</span>
+            <img src={card.media[0].url} alt={card.identity.name} className="photo-img" />
+            <span className="tier-badge mono">SOURCE-LINKED</span>
           </div>
-        )}
+        ) : <div className="empty-photo"><strong>IMAGE NOT YET SOURCED</strong><span>The dossier stays honest instead.</span></div>}
 
         <header className="discovery-mast">
           <p className="eyebrow">{card.identity.brand} · {card.identity.collection}</p>

@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
@@ -21,22 +21,8 @@ export default function Register() {
   const [brand, setBrand] = useState('all')
   const [sort, setSort] = useState<SortKey>('collectibility')
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
-  const [photosMap, setPhotosMap] = useState<Record<string, string>>({})
 
   const cards = useMemo(() => data?.cards ?? [], [data])
-
-  useEffect(() => {
-    fetch('/data/watch_photos.json')
-      .then((r) => r.json())
-      .then((photosList: Array<{ card_id: string; image_url: string }>) => {
-        const map: Record<string, string> = {}
-        for (const p of photosList) {
-          map[p.card_id] = p.image_url
-        }
-        setPhotosMap(map)
-      })
-      .catch(() => {})
-  }, [])
 
   const brands = useMemo(
     () => [...new Set(cards.map((c) => c.identity.brand))].sort(),
@@ -116,7 +102,7 @@ export default function Register() {
       {viewMode === 'grid' ? (
         <div className="card-grid-view">
           {rows.map((c) => (
-            <VisualCard key={c.id} c={c} imgUrl={photosMap[c.id]} />
+            <VisualCard key={c.id} c={c} />
           ))}
         </div>
       ) : (
@@ -133,17 +119,17 @@ export default function Register() {
   )
 }
 
-function VisualCard({ c, imgUrl }: { c: Card; imgUrl?: string }) {
+function VisualCard({ c }: { c: Card }) {
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
   return (
     <Link to={`/w/${c.id}`} className="reg-card">
-      {imgUrl && (
+      {c.media[0] ? (
         <div className="photo-thumb-wrap" style={{ height: '140px', marginBottom: '8px' }}>
-          <img src={imgUrl} alt={c.identity.name} loading="lazy" className="photo-img" />
-          <span className="tier-badge mono">{c.identity.tier.toUpperCase()}</span>
+          <img src={c.media[0].url} alt={c.identity.name} loading="lazy" className="photo-img" />
+          <span className="tier-badge mono">SOURCE-LINKED</span>
         </div>
-      )}
+      ) : <div className="empty-photo compact">IMAGE<br />NOT YET SOURCED</div>}
       <div className="reg-card-head">
         <span className="reg-card-brand">{c.identity.brand}</span>
         {confidence.tier && <span className={'badge' + (confidence.tier === 'A' ? ' a' : '')}>{confidence.tier}</span>}

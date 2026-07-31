@@ -1,0 +1,54 @@
+import type { ScreenEvent } from './data.ts'
+
+export interface RolexCatalogRecord {
+  id: string
+  brand: string
+  reference: string
+  configuration_reference: string
+  name: string
+  collection: string
+  listed_price_usd: number
+  image_url: string
+  source_url: string
+  image_credit: string
+  rights_status: string
+  price_status: string
+  observed_at: string
+}
+
+export interface RolexCatalog {
+  built: string
+  count: number
+  brand: string
+  source: string
+  limitation: string
+  records: RolexCatalogRecord[]
+}
+
+export interface ScreenSnapshot {
+  collected: string
+  source_url: string
+  count: number
+  screen_count: number
+  limitation: string
+  sightings: ScreenEvent[]
+}
+
+let catalogCache: Promise<RolexCatalog> | null = null
+let screenCache: Promise<ScreenSnapshot> | null = null
+
+export function loadRolexCatalog(): Promise<RolexCatalog> {
+  catalogCache ??= fetch('/data/rolex_catalog.json').then((response) => {
+    if (!response.ok) throw new Error(`rolex_catalog.json ${response.status}`)
+    return response.json()
+  })
+  return catalogCache
+}
+
+export function loadScreenSightings(): Promise<ScreenSnapshot> {
+  screenCache ??= fetch('/data/watch_id_rolex.json').then((response) => {
+    if (!response.ok) throw new Error(`watch_id_rolex.json ${response.status}`)
+    return response.json()
+  })
+  return screenCache
+}

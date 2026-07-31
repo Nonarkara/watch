@@ -24,11 +24,27 @@ export interface Change { nominal_pct: number | null; real_pct: number | null; n
 export interface IndexMetric { value: number; tier?: string; k_of: [number, number]; reason: string | null; limitation: string }
 export interface Liquidity { sales_per_year: number; tier: string; reason: string | null; limitation: string }
 export interface Confidence { tier: string | null; n: number; venues: number; newest: string | null; reason: string | null }
+export interface PriceResponse { value: number | null; reason: string; n_before: number; n_after: number; limitation: string }
+export interface Attention {
+  value: number | null; screen_count: number; pressure: number | null; reason: string | null;
+  limitation: string; price_response: PriceResponse;
+}
+export interface BrandContext { tier: number | null; label: string | null; source_url: string; limitation: string }
+export interface MediaAttachment {
+  type: 'image'; url: string; source_url: string; credit: string; rights_status: string;
+  configuration_reference: string; match: 'reference_family';
+}
+export interface ScreenEvent {
+  id: string; brand: string; watch: string; title: string; description: string;
+  media_type: 'film' | 'television' | 'other'; release_year: number | null;
+  identification: 'reported' | 'tentative'; match_level: 'exact_reference' | 'family_only';
+  matched_card_ids: string[]; source_url: string;
+}
 
 export interface Computed {
   estimate: Estimate; premium: Premium; change_1y: Change; change_5y: Change;
   scarcity: IndexMetric; collectibility: IndexMetric; liquidity: Liquidity;
-  confidence: Confidence; as_of_build: string;
+  confidence: Confidence; attention: Attention; as_of_build: string;
 }
 
 export interface Card {
@@ -41,12 +57,15 @@ export interface Card {
     case: { diameter_mm: number; material: string; bezel: string };
     one_liner: string;
   };
+  brand_context: BrandContext;
+  media: MediaAttachment[];
   retail: { msrp_history: MsrpEntry[]; current_msrp_usd: number | null };
   scarcity_public: {
     limited_edition: { is_limited: boolean; stated_size: number | null; source_url: string | null };
     discontinued: boolean; waitlist_evidence_n: number;
   };
   provenance_events: ProvenanceEvent[];
+  screen_events: ScreenEvent[];
   narrative: { story: string; collector_notes: string | null; starter_alternative: string | null };
   comp_summary: { n: number; venues: string[]; date_range: [string, string] } | null;
   notable_sales: Sale[];

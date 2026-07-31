@@ -1,117 +1,65 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
 
-const DOORS = [
-  {
-    n: '01',
-    label: 'Pass it on',
-    title: 'Find the next custodian',
-    body: 'Build an honest handover brief around condition, history, and care — not sales theatre.',
-    to: '/rehome',
-    action: 'MAKE A REHOMING BRIEF',
-  },
-  {
-    n: '02',
-    label: 'Follow curiosity',
-    title: 'Meet a watch you did not search for',
-    body: 'Draw one reference and learn its object, its story, and the small detail worth remembering.',
-    to: '/discover',
-    action: 'SURPRISE ME',
-  },
-  {
-    n: '03',
-    label: 'Read the market',
-    title: 'See scarcity without the hype',
-    body: 'Separate limited supply, social demand, and thin evidence. Every score shows what is known.',
-    to: '/register',
-    action: 'OPEN THE REGISTER',
-  },
-  {
-    n: '04',
-    label: 'Bring a story',
-    title: 'Take one good question to dinner',
-    body: 'Use watches to talk about taste, technology, status, inheritance, and what makes an object matter.',
-    to: '/discover#conversation',
-    action: 'DRAW A CONVERSATION',
-  },
-  {
-    n: '05',
-    label: 'Visual Archives',
-    title: '180+ Taggable Watch Photos',
-    body: 'Browse high-definition, license-free watch photography cataloged and tagged by specifications.',
-    to: '/photos',
-    action: 'BROWSE PHOTO ARCHIVES',
-  },
-  {
-    n: '06',
-    label: 'Deep Economics',
-    title: 'The Collectible Economy',
-    body: 'Calculate safe storage costs, illiquidity haircuts, and inflation-adjusted returns.',
-    to: '/economy',
-    action: 'RUN ECONOMY SIMULATOR',
-  },
+const PATHS = [
+  { label: 'Look closely', title: 'The Rolex object atlas', body: 'Eighty source-linked configurations. Study the dial, bezel, bracelet, and the price the catalog actually showed.', to: '/photos', action: 'OPEN THE ATLAS' },
+  { label: 'Spot the co-star', title: 'Rolex on screen', body: 'From Top Gun: Maverick to The White Lotus—reported sightings, exact matches, and uncertainty left visible.', to: '/screen', action: 'SEE THE SIGHTINGS' },
+  { label: 'Ask the awkward question', title: 'Scarcity or attention?', body: 'Separate fixed supply from cultural exposure. Explore the signal without turning it into a price promise.', to: '/economy', action: 'OPEN THE LAB' },
+  { label: 'Pass it on well', title: 'Find the next custodian', body: 'Build an honest handover brief around condition, care, and history—not sales theatre.', to: '/rehome', action: 'MAKE A BRIEF' },
 ]
 
 export default function Home() {
   const data = useDataset()
+  const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
+  const [screen, setScreen] = useState<ScreenSnapshot | null>(null)
+  useEffect(() => { Promise.all([loadRolexCatalog(), loadScreenSightings()]).then(([c, s]) => { setCatalog(c); setScreen(s) }) }, [])
   if (!data) return null
 
-  const sourceLinks = data.cards.reduce((sum, c) => sum + c.meta.sources.length, 0)
-  const reference = data.cards.find((c) => c.provenance_events.length > 0) ?? data.cards[0]
+  const hero = catalog?.records.find((item) => item.reference === '126000') ?? catalog?.records[0]
+  const fact = screen?.sightings.find((item) => item.id.includes('jennifer-connelly')) ?? screen?.sightings[0]
+  const withComps = data.cards.filter((card) => card.comp_summary).length
+  const withMedia = data.cards.filter((card) => card.media.length).length
 
   return (
     <>
-      <section className="home-hero">
-        <p className="eyebrow">A cultural register for watches</p>
-        <h1 className="home-title">Watches are more than prices.</h1>
-        <p className="home-lede">
-          Understand the object, the story, and the forces around it — whether you are caring for one,
-          passing one on, learning for fun, or simply looking for something good to talk about.
-        </p>
-        <div className="home-proof mono" aria-label="Register coverage">
-          <span><strong>{data.count}</strong> references</span>
-          <span><strong>{sourceLinks}</strong> source links</span>
-          <span><strong>0</strong> invented prices</span>
+      <section className="atelier-hero">
+        <div className="atelier-copy">
+          <p className="eyebrow">THE WATCH REGISTER · AN OPEN ATELIER</p>
+          <h1>Serious objects.<br /><em>Curious company.</em></h1>
+          <p className="home-lede">Learn a watch for the fun of it. Understand scarcity without swallowing the hype. Find a loving object its next home. Leave dinner with a better story.</p>
+          <div className="hero-actions"><Link className="btn" to="/photos">ENTER THE ROLEX ATLAS →</Link><Link className="text-link mono" to="/register">ALL 186 DOSSIERS</Link></div>
+        </div>
+        <div className="hero-object-card">
+          {hero ? <><a href={hero.source_url} target="_blank" rel="noreferrer"><img src={hero.image_url} alt={hero.name} /></a><p className="mono micro">{hero.configuration_reference} · SOURCE-LINKED CATALOG IMAGE</p></> : <div className="empty-photo">OBJECT IMAGE<br />LOADING</div>}
+          {fact && <div className="fact-bubble hero-bubble"><span className="bubble-kicker mono">DID YOU KNOW?</span><strong>{fact.watch}</strong><span>{fact.description}</span><Link to="/screen">ROLL CREDITS →</Link></div>}
         </div>
       </section>
 
-      <section className="purpose-section" aria-labelledby="choose-path">
-        <div className="section-rule">
-          <h2 id="choose-path">What brings you here?</h2>
-          <span className="mono micro dim">CHOOSE A WAY IN</span>
-        </div>
-        <div className="purpose-grid">
-          {DOORS.map((door) => (
-            <Link to={door.to} className="purpose-card" key={door.n}>
-              <span className="eyebrow">{door.label}</span>
-              <h3>{door.title}</h3>
-              <p>{door.body}</p>
-              <span className="purpose-action mono">{door.action} →</span>
-            </Link>
-          ))}
+      <section className="proof-ribbon" aria-label="Research coverage">
+        <div><strong>{data.count}</strong><span>object dossiers</span></div>
+        <div><strong>{catalog?.count ?? '—'}</strong><span>sourced Rolex catalog records</span></div>
+        <div><strong>{screen?.screen_count ?? '—'}</strong><span>film &amp; TV sightings</span></div>
+        <div><strong>{withComps}</strong><span>references with sale evidence</span></div>
+      </section>
+
+      <section className="lookbook-paths">
+        <div className="section-rule"><h2>Choose a curiosity.</h2><span className="sticker-inline mono">PLAY FIRST · NUMBERS SECOND</span></div>
+        <div className="lookbook-grid">
+          {PATHS.map((path, index) => <Link className={`lookbook-card tone-${index + 1}`} to={path.to} key={path.to}><span className="eyebrow">{path.label}</span><h3>{path.title}</h3><p>{path.body}</p><span className="mono micro">{path.action} →</span></Link>)}
         </div>
       </section>
 
-      {reference && (
-        <section className="home-feature" aria-labelledby="today-title">
-          <div>
-            <p className="eyebrow">One object, many readings</p>
-            <h2 id="today-title">Start with the {reference.identity.name}</h2>
-            <p className="dim">{reference.identity.one_liner}</p>
-          </div>
-          <div className="feature-readings">
-            <div><span className="mono micro dim">AS AN OBJECT</span><p>{reference.identity.case.diameter_mm}mm {reference.identity.case.material.toLowerCase()} case, caliber {reference.identity.movement.caliber}.</p></div>
-            <div><span className="mono micro dim">AS AN ECONOMY</span><p>Scarcity {reference.computed.scarcity.value}/100, based on {reference.computed.scarcity.k_of[0]} of {reference.computed.scarcity.k_of[1]} public signals.</p></div>
-            <div><span className="mono micro dim">AS A STORY</span><p>{reference.provenance_events[0]?.person_or_event ?? firstSentence(reference.narrative.story)}</p></div>
-          </div>
-          <Link className="btn" to={`/w/${reference.id}`}>READ THE DOSSIER →</Link>
-        </section>
-      )}
+      <section className="research-ledger">
+        <div><p className="eyebrow">THE UNFINISHED LEDGER</p><h2>Polish is not proof.</h2><p className="dim">The gaps are part of the interface. They show exactly where the research must deepen.</p></div>
+        <div className="ledger-lines mono">
+          <p><span>Verified comp coverage</span><strong>{withComps} / {data.count}</strong></p>
+          <p><span>Reference-matched catalog media</span><strong>{withMedia} / {data.count}</strong></p>
+          <p><span>Exact Rolex screen mappings</span><strong>{screen?.sightings.filter((item) => item.match_level === 'exact_reference').length ?? '—'} / {screen?.count ?? '—'}</strong></p>
+          <p className="crossed"><span>Hype premium</span><strong>AWAITING A VALID COHORT</strong></p>
+        </div>
+      </section>
     </>
   )
-}
-
-function firstSentence(text: string): string {
-  const sentence = text.match(/^.*?[.!?](?:\s|$)/)?.[0]
-  return sentence?.trim() ?? text
 }

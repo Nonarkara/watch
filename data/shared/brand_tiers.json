@@ -1,0 +1,24 @@
+{
+  "as_of": "2026-07-31",
+  "source_url": "https://www.thewatchscanner.com/blogs/news/luxury-watch-brands",
+  "framework": "The Watch Scanner editorial brand tiers",
+  "limitation": "A subjective editorial map of craft, heritage, recognition, and demand. It is context only and never enters price, scarcity, or collectibility calculations.",
+  "tiers": {
+    "1": {
+      "label": "Haute horlogerie",
+      "brands": ["Patek Philippe", "Audemars Piguet", "Vacheron Constantin", "A. Lange & Söhne"]
+    },
+    "2": {
+      "label": "Iconic mainstream leaders",
+      "brands": ["Rolex", "Omega", "Cartier", "Jaeger-LeCoultre", "IWC", "Blancpain"]
+    },
+    "3": {
+      "label": "Independent & enthusiast",
+      "brands": ["F.P. Journe", "De Bethune", "H. Moser & Cie.", "MB&F", "Grand Seiko", "Breguet"]
+    },
+    "4": {
+      "label": "Accessible luxury",
+      "brands": ["Tudor", "Longines", "TAG Heuer", "Oris", "Breitling"]
+    }
+  }
+}

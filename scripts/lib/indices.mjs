@@ -205,6 +205,32 @@ export function confidenceTier(comps, buildDate) {
   return { tier, n: comps.length, venues: venuesAll, newest, reason: null };
 }
 
+// (h) Screen attention is a demand-side observation, never a scarcity input.
+// Each exact-reference film/TV sighting contributes 20 transparent heuristic points,
+// capped at five sightings. Pressure is the geometric mean of attention and scarcity:
+// it is high only when both observed attention and constrained supply are high.
+export function screenAttention(card, scarcity, screenSnapshot) {
+  const events = (screenSnapshot?.sightings || []).filter((event) =>
+    event.media_type !== "other" &&
+    event.match_level === "exact_reference" &&
+    event.matched_card_ids?.includes(card.id));
+  if (!events.length) return {
+    value: null, screen_count: 0, pressure: null, reason: "no_reference_level_screen_evidence",
+    limitation: "No exact-reference film or television identification is on record. Family-level sightings are not scored.",
+    price_response: { value: null, reason: "no_screen_event", n_before: 0, n_after: 0,
+      limitation: "A price-response estimate needs a dated screen event and at least 3 comparable sales in both the 12 months before and after it." },
+  };
+  const value = Math.min(100, events.length * 20);
+  return {
+    value, screen_count: events.length,
+    pressure: Math.round(Math.sqrt(scarcity.value * value)),
+    reason: null,
+    limitation: "Heuristic attention signal: 20 points per exact-reference film/TV sighting, capped at 100. It measures documented exposure, not audience size or causation.",
+    price_response: { value: null, reason: "insufficient_event_window", n_before: 0, n_after: 0,
+      limitation: "No causal price claim: this cohort lacks an exact release date plus at least 3 comparable sales in both the 12 months before and after exposure." },
+  };
+}
+
 export function computeAll(card, shared, buildDate) {
   const comps = card.market_evidence.comps.filter(isComparable);
   const estimate = marketEstimate(comps, buildDate);
@@ -215,7 +241,8 @@ export function computeAll(card, shared, buildDate) {
   const collectibility = collectibilityIndex(card, premium, scarcity, change_5y);
   const liquidity = liquiditySignal(comps, buildDate);
   const confidence = confidenceTier(comps, buildDate);
+  const attention = screenAttention(card, scarcity, shared.screen_sightings);
   const stale = estimate.value != null && daysBetween(buildDate, estimate.as_of) > 365;
   return { estimate: { ...estimate, stale }, premium, change_1y, change_5y,
-    scarcity, collectibility, liquidity, confidence, as_of_build: buildDate };
+    scarcity, collectibility, liquidity, confidence, attention, as_of_build: buildDate };
 }

@@ -80,6 +80,33 @@ export default function Methodology() {
           without a citation don't exist here, whatever the forums say.
         </p>
 
+        <h2>Screen attention, not screen scarcity</h2>
+        <p>
+          The Rolex screen layer records public identifications from Watch-ID. Family-only matches
+          remain useful “did you know?” facts but are not assigned to a reference. Exact-reference
+          film and television matches receive 20 attention points each, capped at 100. The
+          supply-attention pressure signal is the rounded geometric mean of that attention score and
+          the existing scarcity score. It ranks questions worth researching; it is not a valuation.
+          Screen exposure never changes scarcity.
+        </p>
+
+        <h2>When price response is allowed</h2>
+        <p>
+          A screen appearance does not prove a price move. A price-response estimate needs an exact
+          release date and at least three comparable sales in both the twelve months before and the
+          twelve months after the event. The current cohort does not meet that threshold, so every
+          price-response field is null with a reason. Catalog prices from the Rolex object atlas are
+          not sold prices and never enter this calculation.
+        </p>
+
+        <h2>Brand tiers are labels, not coefficients</h2>
+        <p>
+          The WatchScanner hierarchy is a subjective editorial map of craft, heritage, recognition,
+          and demand. It places Rolex in Tier 2. The register publishes that as peer-group context
+          only. It is not an official industry standard and never changes price, scarcity, or
+          collectibility.
+        </p>
+
         <h2>What stays internal</h2>
         <p>
           The full comparable-sales set stays in the internal dataset; public cards carry the summary

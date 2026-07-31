@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
@@ -10,22 +10,10 @@ export default function Dossier() {
   const { id } = useParams()
   const data = useDataset()
   const c = data?.cards.find((x) => x.id === id)
-  const [photoUrl, setPhotoUrl] = useState<string | null>(null)
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
     return () => { document.title = 'The Watch Register — Objects, Stories & Scarcity' }
-  }, [c])
-
-  useEffect(() => {
-    if (!c) return
-    fetch('/data/watch_photos.json')
-      .then((r) => r.json())
-      .then((photos: Array<{ card_id: string; image_url: string }>) => {
-        const found = photos.find((p) => p.card_id === c.id)
-        if (found) setPhotoUrl(found.image_url)
-      })
-      .catch(() => {})
   }, [c])
 
   if (!data) return null
@@ -47,12 +35,12 @@ export default function Dossier() {
     <>
       <Link to="/register" className="crumb">← REGISTER</Link>
       
-      {photoUrl && (
-        <div className="photo-thumb-wrap" style={{ height: '280px', marginTop: '12px', marginBottom: '20px', borderRadius: '4px' }}>
-          <img src={photoUrl} alt={c.identity.name} className="photo-img" />
-          <span className="tier-badge mono">{c.identity.tier.toUpperCase()}</span>
-        </div>
-      )}
+      {c.media[0] ? (
+        <figure className="dossier-object">
+          <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={c.identity.name} /></a>
+          <figcaption className="mono micro">{c.media[0].configuration_reference} · REFERENCE-FAMILY MATCH · SOURCE ↗<br />{c.media[0].rights_status}</figcaption>
+        </figure>
+      ) : <div className="empty-photo dossier-empty"><strong>IMAGE FRAME</strong><span>This reference has no verified media attachment yet.</span><small className="mono">AWAITING A SOURCE + RIGHTS PATH</small></div>}
 
       <div className="masthead">
         <p className="eyebrow">{c.identity.brand} · {c.identity.collection} · {TIER_LABEL[c.identity.tier]}</p>
@@ -60,11 +48,7 @@ export default function Dossier() {
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
         
-        <div style={{ marginTop: '12px' }}>
-          <Link to="/economy" className="micro mono amber">
-            📊 COLLECTIBLE ECONOMY: SAFE STORAGE, LIQUIDITY HAIRCUT & CPI ANALYSIS →
-          </Link>
-        </div>
+        {c.brand_context.tier && <p className="brand-context mono micro">EDITORIAL TIER {c.brand_context.tier} · {c.brand_context.label?.toUpperCase()} · <a href={c.brand_context.source_url} target="_blank" rel="noreferrer">SOURCE ↗</a><br /><span>{c.brand_context.limitation}</span></p>}
       </div>
 
       <div className="metric-strip">
@@ -130,7 +114,31 @@ export default function Dossier() {
           </span>
           <Why text="A: ≥10 sales/24mo, ≥3 venues, ≤90 days fresh. B: ≥4 sales, ≥2 venues, ≤1yr. C: ≥1 verified sale." />
         </div>
+        <div className="mcell attention-cell">
+          <span className="lab">Screen attention</span>
+          <span className={'val big' + (c.computed.attention.value == null ? ' dim' : '')}>{c.computed.attention.value ?? dash}</span>
+          <span className="note mono">{c.computed.attention.value == null ? reasonText(c.computed.attention.reason) : `${c.computed.attention.screen_count} EXACT FILM/TV SIGHTING${c.computed.attention.screen_count === 1 ? '' : 'S'}`}</span>
+          <Why text={c.computed.attention.limitation} />
+        </div>
+        <div className="mcell pressure-cell">
+          <span className="lab">Supply × attention</span>
+          <span className={'val big' + (c.computed.attention.pressure == null ? ' dim' : '')}>{c.computed.attention.pressure ?? dash}</span>
+          <span className="note mono">RESEARCH PRESSURE · NOT PRICE</span>
+          <Why text={c.computed.attention.price_response.limitation} />
+        </div>
       </div>
+
+      {c.screen_events.length > 0 && (
+        <section className="sect dossier-screen">
+          <div className="fact-bubble fact-bubble-yellow">
+            <span className="bubble-kicker mono">DID YOU KNOW?</span>
+            <strong>{c.screen_events[0].watch} went on screen.</strong>
+            <span>{c.screen_events[0].description}</span>
+            <a href={c.screen_events[0].source_url} target="_blank" rel="noreferrer">WATCH-ID SOURCE ↗</a>
+          </div>
+          <div><p className="eyebrow">ATTENTION IS NOT SCARCITY</p><p>This exact-reference match adds to the documented screen-attention signal. It does not change the scarcity score. Price response remains {c.computed.attention.price_response.value == null ? 'not computable' : `${c.computed.attention.price_response.value}%`} because the required before-and-after sales cohort is absent.</p>{c.screen_events.length > 1 && <p className="micro dim">Plus {c.screen_events.length - 1} more exact-reference sighting{c.screen_events.length === 2 ? '' : 's'}.</p>}<Link to="/screen" className="text-link mono">EXPLORE ROLEX ON SCREEN →</Link></div>
+        </section>
+      )}
 
       {(c.retail.msrp_history.length > 0 || c.notable_sales.length > 0) && (
         <section className="sect">

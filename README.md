@@ -13,6 +13,9 @@ least three verified sales in a 36-month window. Missing evidence renders as a r
 - Deterministic scarcity, collectibility, liquidity, price-change, and confidence metrics
 - A searchable register, comparison table, starter paths, and playful discovery mode
 - A scarcity-economics explainer grounded in the published dataset
+- An 80-record, source-linked Rolex object atlas with catalog prices kept out of market estimates
+- A 31-sighting Rolex screen register with exact/family and reported/tentative evidence labels
+- A demand-side screen-attention signal that cannot alter the scarcity score
 - A responsible rehoming-brief builder; the site does not broker transactions
 - Public methodology and a 6,464-word working paper
 
@@ -30,6 +33,8 @@ editing cards.
 
 ```bash
 npm install
+npm run data:catalog # rebuild the user-supplied Rolex catalog snapshot
+npm run data:screen  # refresh the public Watch-ID Rolex snapshot (network)
 npm run data:build  # validate cards and rebuild public/data.json
 npm test            # deterministic index invariants
 npm run lint

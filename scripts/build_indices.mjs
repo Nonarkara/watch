@@ -12,7 +12,33 @@ const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10
 const shared = {
   cpi: JSON.parse(readFileSync(join(ROOT, "data/shared/cpi_snapshot.json"), "utf8")),
   brand_production: JSON.parse(readFileSync(join(ROOT, "data/shared/brand_production.json"), "utf8")),
+  brand_tiers: JSON.parse(readFileSync(join(ROOT, "data/shared/brand_tiers.json"), "utf8")),
+  rolex_catalog: JSON.parse(readFileSync(join(ROOT, "data/shared/rolex_catalog.json"), "utf8")),
+  screen_sightings: JSON.parse(readFileSync(join(ROOT, "data/shared/watch_id_rolex.json"), "utf8")),
 };
+
+function brandContext(brand) {
+  for (const [tier, data] of Object.entries(shared.brand_tiers.tiers)) {
+    if (data.brands.includes(brand)) return {
+      tier: Number(tier), label: data.label, source_url: shared.brand_tiers.source_url,
+      limitation: shared.brand_tiers.limitation,
+    };
+  }
+  return { tier: null, label: null, source_url: shared.brand_tiers.source_url,
+    limitation: "This brand is not classified in the cited editorial tier framework." };
+}
+
+function mediaFor(card) {
+  return shared.rolex_catalog.records
+    .filter((record) => record.brand === card.identity.brand && record.reference === card.identity.reference.toUpperCase())
+    .slice(0, 3)
+    .map((record) => ({
+      type: "image", url: record.image_url, source_url: record.source_url,
+      credit: record.image_credit, rights_status: record.rights_status,
+      configuration_reference: record.configuration_reference,
+      match: "reference_family",
+    }));
+}
 
 const cardDir = join(ROOT, "data/cards");
 const files = readdirSync(cardDir).filter((f) => f.endsWith(".json")).sort();
@@ -36,6 +62,8 @@ for (const f of files) {
   published.push({
     id: card.id,
     identity: card.identity,
+    brand_context: brandContext(card.identity.brand),
+    media: mediaFor(card),
     retail: card.retail,
     scarcity_public: {
       limited_edition: card.scarcity_inputs.limited_edition,
@@ -43,6 +71,8 @@ for (const f of files) {
       waitlist_evidence_n: (card.scarcity_inputs.waitlist_evidence || []).length,
     },
     provenance_events: card.provenance_events,
+    screen_events: shared.screen_sightings.sightings.filter((event) =>
+      event.match_level === "exact_reference" && event.matched_card_ids.includes(card.id)),
     narrative: card.narrative,
     comp_summary: comps.length ? {
       n: comps.length,
@@ -62,7 +92,7 @@ published.sort((a, b) => a.id.localeCompare(b.id));
 const out = {
   built: buildDate,
   count: published.length,
-  methodology_version: 1,
+  methodology_version: 2,
   cards: published,
 };
 writeFileSync(join(ROOT, "public/data.json"), JSON.stringify(out));

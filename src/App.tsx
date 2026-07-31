@@ -4,22 +4,19 @@ import { loadDataset, type Dataset } from './lib/data.ts'
 import { DataContext } from './lib/dataset-context.ts'
 
 const NAV = [
-  { to: '/', label: 'Home' },
-  { to: '/register', label: 'Register' },
-  { to: '/photos', label: 'Photos' },
+  { to: '/register', label: 'Objects' },
+  { to: '/photos', label: 'Rolex atlas' },
+  { to: '/screen', label: 'On screen' },
   { to: '/economy', label: 'Economy' },
-  { to: '/discover', label: 'Discover' },
   { to: '/rehome', label: 'Rehome' },
-  { to: '/compare', label: 'Compare' },
-  { to: '/signals', label: 'Scarcity' },
-  { to: '/patterns', label: 'Patterns' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
   '/': 'The Watch Register — Objects, Stories & Scarcity',
   '/register': 'Watch Reference Register — The Watch Register',
-  '/photos': 'Taggable Watch Photos — The Watch Register',
-  '/economy': 'The Collectible Economy — The Watch Register',
+  '/photos': 'Rolex Object Atlas — The Watch Register',
+  '/screen': 'Rolex On Screen — The Watch Register',
+  '/economy': 'Attention, Supply & Price — The Watch Register',
   '/discover': 'Discover a Watch — The Watch Register',
   '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
   '/compare': 'Compare Watch References — The Watch Register',
@@ -79,6 +76,9 @@ export default function App() {
             Prices are evidence, not financial advice. A Dr Non system.
           </p>
           <p className="micro mono ftr-links">
+            <NavLink to="/discover">DISCOVER</NavLink>
+            <NavLink to="/compare">COMPARE</NavLink>
+            <NavLink to="/signals">SCARCITY</NavLink>
             <NavLink to="/starter">STARTER PATHS</NavLink>
             <NavLink to="/methodology">METHODOLOGY</NavLink>
             <NavLink to="/paper">WORKING PAPER</NavLink>

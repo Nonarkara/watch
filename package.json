@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate_watch_photos.mjs && node scripts/build_indices.mjs && tsc -b && vite build",
+    "build": "node scripts/build_rolex_catalog.mjs && node scripts/build_indices.mjs && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
     "data:build": "node scripts/build_indices.mjs",
+    "data:catalog": "node scripts/build_rolex_catalog.mjs",
+    "data:screen": "node scripts/collect_watch_id.mjs",
     "test": "node scripts/test-invariants.mjs",
     "data:cpi": "node scripts/collect-cpi.mjs"
   },

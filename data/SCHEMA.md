@@ -67,6 +67,14 @@ Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.jso
 
 ## Field rules
 
+### Published context snapshots
+
+`data/shared/rolex_catalog.json` is a source-linked visual/catalog snapshot, not market evidence.
+Its prices never enter the estimator. `data/shared/watch_id_rolex.json` stores screen sightings with
+`reported|tentative` and `exact_reference|family_only` labels. Only exact-reference film/TV matches
+feed the attention heuristic. `data/shared/brand_tiers.json` supplies editorial peer context only.
+None of these snapshots may change the physical scarcity inputs on a card.
+
 - `comps`: sold prices with the URL of the page stating the sale. USD figures only — if a result is only in CHF/HKD/GBP, skip it (no conversions). Auction prices include buyer's premium when that's what the page reports.
 - **Comparability is the estimator's trust boundary.** A comp must be the same object the card describes. Before adding one, ask: would a collector consider this an ordinary example of this reference? A Tiffany-signed dial, a celebrity's own watch, a charity lot, or a different metal answers no — add it with `"comparable": false` and explain in `condition`. Getting this wrong is worse than having no comp: three special lots produced a fake +729% premium on a standard Nautilus before this rule existed. Also watch for the *same physical watch* appearing twice across sales (match the Certificate of Origin date) — that is one data point, not two.
 - `msrp_history`: launch MSRP is the single most valuable retail fact. US MSRP. Archived brand pages, period press coverage, or reputable price-guide articles are acceptable sources.

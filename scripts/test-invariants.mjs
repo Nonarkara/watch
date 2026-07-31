@@ -10,6 +10,7 @@ const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", imp
 const shared = {
   cpi: { series: "CPIAUCSL", observations: { "2021-07": 272.184, "2025-07": 322.132, "2026-07": 330.0, "2026-06": 329.5 } },
   brand_production: { testbrand: { annual_units: 50000, source_url: "https://example.com", year: 2025 } },
+  screen_sightings: { sightings: [] },
 };
 
 // fixture is a valid card
@@ -34,6 +35,7 @@ assert.equal(cBare.estimate.reason, "no_comps");
 assert.equal(cBare.premium.value, null);
 assert.equal(cBare.confidence.tier, null);
 assert.equal(cBare.liquidity.tier, "Unknown");
+assert.equal(cBare.attention.value, null);
 
 // 4. Indices in range with k-of disclosure
 for (const ix of [c1.scarcity, c1.collectibility]) {
@@ -90,5 +92,15 @@ assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).l
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
+
+// 11. Screen exposure changes attention pressure, never scarcity.
+const withScreen = { ...shared, screen_sightings: { sightings: [{
+  media_type: "film", match_level: "exact_reference", matched_card_ids: [fixture.id],
+}] } };
+const cScreen = computeAll(fixture, withScreen, BUILD);
+assert.equal(cScreen.attention.value, 20);
+assert.equal(cScreen.attention.screen_count, 1);
+assert.equal(cScreen.scarcity.value, c1.scarcity.value, "screen exposure must not alter scarcity");
+assert.equal(cScreen.attention.pressure, Math.round(Math.sqrt(c1.scarcity.value * 20)));
 
 console.log("✓ all invariants hold");
