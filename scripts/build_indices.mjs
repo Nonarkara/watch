@@ -45,8 +45,15 @@ function mediaFor(card) {
       match: curated.caption ? "reference_family" : "exact_reference",
     }];
   }
+  // The scraped catalogue's own rights field says "reuse license not asserted", and its
+  // images live on a third party's CDN. Publishing those would mean hotlinking pictures we
+  // hold no licence to — on a site whose whole argument is that provenance is checkable.
+  // The catalogue stays for its reference data; it is not an image source. Flip this gate
+  // only for records that carry a real, asserted licence.
   return shared.rolex_catalog.records
-    .filter((record) => record.brand === card.identity.brand && record.reference === card.identity.reference.toUpperCase())
+    .filter((record) => record.brand === card.identity.brand
+      && record.reference === card.identity.reference.toUpperCase()
+      && record.image_license_asserted === true)
     .slice(0, 3)
     .map((record) => ({
       type: "image", url: record.image_url, source_url: record.source_url,

@@ -40,7 +40,14 @@ export default function Dossier() {
       {c.media[0] ? (
         <figure className="dossier-object">
           <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={c.identity.name} /></a>
-          <figcaption className="mono micro">{c.media[0].configuration_reference} · REFERENCE-FAMILY MATCH · SOURCE ↗<br />{c.media[0].rights_status}</figcaption>
+          <figcaption className="mono micro">
+            {c.media[0].match === 'exact_reference' ? 'THIS REFERENCE' : 'RELATED CONFIGURATION'}
+            {c.media[0].configuration_reference ? ` · ${c.media[0].configuration_reference}` : ''}
+            {c.media[0].caption && <><br /><span>{c.media[0].caption}</span></>}
+            <br />
+            {c.media[0].credit ? `PHOTO: ${c.media[0].credit.toUpperCase()}` : c.media[0].rights_status}
+            {c.media[0].license ? ` · ${c.media[0].license.toUpperCase()}` : ''} · SOURCE ↗
+          </figcaption>
         </figure>
       ) : <div className="empty-photo dossier-empty"><strong>IMAGE FRAME</strong><span>This reference has no verified media attachment yet.</span><small className="mono">AWAITING A SOURCE + RIGHTS PATH</small></div>}
 

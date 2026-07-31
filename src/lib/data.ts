@@ -32,7 +32,13 @@ export interface Attention {
 export interface BrandContext { tier: number | null; label: string | null; source_url: string; limitation: string }
 export interface MediaAttachment {
   type: 'image'; url: string; source_url: string; credit: string; rights_status: string;
-  configuration_reference: string; match: 'reference_family';
+  /** Present on catalogue matches only. */
+  configuration_reference?: string;
+  /** Curated photography carries its licence and, when the photograph is of a related
+   *  configuration rather than this exact reference, says so in plain words. */
+  license?: string | null;
+  caption?: string | null;
+  match: 'reference_family' | 'exact_reference';
 }
 export interface ScreenEvent {
   id: string; brand: string; watch: string; title: string; description: string;
