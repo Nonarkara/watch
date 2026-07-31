@@ -18,5 +18,18 @@ export const REASON_TEXT: Record<string, string> = {
   no_msrp: 'No published retail price on record',
   no_cpi: 'CPI series unavailable for this window',
   stale_data: 'Most recent evidence is over a year old',
+  no_screen_event: 'No documented screen appearance',
+  no_reference_level_screen_evidence: 'Screen sightings name the model, not this reference',
+  insufficient_event_window: 'No sales cohort either side of the event',
 };
-export const reasonText = (r: string | null) => (r ? REASON_TEXT[r] ?? r : '');
+
+/** Reason codes are an internal enum. Anything reaching the UI without a human
+ *  sentence is a bug, so warn in dev rather than printing the raw key at a reader. */
+export const reasonText = (r: string | null): string => {
+  if (!r) return ''
+  const text = REASON_TEXT[r]
+  if (text) return text
+  if (import.meta.env?.DEV) console.warn(`[watch] reason code without human text: ${r}`)
+  // Never print a raw enum key at a reader: fall back to something true and readable.
+  return r.replace(/_/g, ' ').replace(/^\w/, (m) => m.toUpperCase())
+}

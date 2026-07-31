@@ -10,6 +10,9 @@ export default function Dossier() {
   const { id } = useParams()
   const data = useDataset()
   const c = data?.cards.find((x) => x.id === id)
+  // Must sit above the early returns: a conditional hook changes hook order when
+  // navigating from a found card to a missing one, and React throws.
+  const [view, setView] = useState<'evidence' | 'story'>('evidence')
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
@@ -26,7 +29,6 @@ export default function Dossier() {
       </>
     )
   }
-  const [view, setView] = useState<'evidence' | 'story'>('evidence')
   const starter = c.narrative.starter_alternative
     ? data.cards.find((x) => x.id === c.narrative.starter_alternative) : undefined
   const { estimate, premium, change_1y, change_5y, scarcity, collectibility, liquidity, confidence } = c.computed
@@ -56,6 +58,17 @@ export default function Dossier() {
         <h1 className="pagetitle">{c.identity.name} <span className="mono">{c.identity.reference}</span></h1>
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
+
+        <dl className="spec-grid mast-spec">
+          <div className="spec-row"><dt>Produced</dt><dd className="mono">{yearsLabel(c.identity.produced)}{c.identity.produced.discontinued ? ' · DISCONTINUED' : ' · IN PRODUCTION'}</dd></div>
+          <div className="spec-row"><dt>Caliber</dt><dd className="mono">{c.identity.movement.caliber} · {c.identity.movement.type}</dd></div>
+          <div className="spec-row"><dt>Case</dt><dd className="mono">{c.identity.case.diameter_mm}MM · {c.identity.case.material.toUpperCase()}</dd></div>
+          <div className="spec-row"><dt>Bezel</dt><dd className="mono">{c.identity.case.bezel.toUpperCase()}</dd></div>
+          {msrpNow != null && <div className="spec-row"><dt>{c.retail.current_msrp_usd != null ? 'Retail' : 'Final retail'}</dt>
+            <dd className="mono">{usd(msrpNow)}{c.retail.msrp_history[0] && c.retail.msrp_history[0].price_usd !== msrpNow ? ` · LAUNCH ${usd(c.retail.msrp_history[0].price_usd)} (${c.retail.msrp_history[0].effective_year})` : ''}</dd></div>}
+          {c.scarcity_public.limited_edition.is_limited && <div className="spec-row"><dt>Edition</dt>
+            <dd className="mono">{c.scarcity_public.limited_edition.stated_size ? `LIMITED · ${c.scarcity_public.limited_edition.stated_size.toLocaleString()} PIECES` : 'LIMITED · SIZE NOT STATED'}</dd></div>}
+        </dl>
         
       </div>
       </div>
@@ -250,19 +263,6 @@ export default function Dossier() {
       </>}
 
       {view === 'evidence' && <>
-      <section className="sect">
-        <h2 className="sect-h"><span>Specification</span></h2>
-        <dl className="spec-grid">
-          <div className="spec-row"><dt>Produced</dt><dd className="mono">{yearsLabel(c.identity.produced)}{c.identity.produced.discontinued ? ' · DISCONTINUED' : ' · IN PRODUCTION'}</dd></div>
-          <div className="spec-row"><dt>Caliber</dt><dd className="mono">{c.identity.movement.caliber} · {c.identity.movement.type}</dd></div>
-          <div className="spec-row"><dt>Case</dt><dd className="mono">{c.identity.case.diameter_mm}MM · {c.identity.case.material.toUpperCase()}</dd></div>
-          <div className="spec-row"><dt>Bezel</dt><dd className="mono">{c.identity.case.bezel.toUpperCase()}</dd></div>
-          {msrpNow != null && <div className="spec-row"><dt>{c.retail.current_msrp_usd != null ? 'Retail' : 'Final retail'}</dt>
-            <dd className="mono">{usd(msrpNow)}{c.retail.msrp_history[0] && c.retail.msrp_history[0].price_usd !== msrpNow ? ` · LAUNCH ${usd(c.retail.msrp_history[0].price_usd)} (${c.retail.msrp_history[0].effective_year})` : ''}</dd></div>}
-          {c.scarcity_public.limited_edition.is_limited && <div className="spec-row"><dt>Edition</dt>
-            <dd className="mono">{c.scarcity_public.limited_edition.stated_size ? `LIMITED · ${c.scarcity_public.limited_edition.stated_size.toLocaleString()} PIECES` : 'LIMITED · SIZE NOT STATED'}</dd></div>}
-        </dl>
-      </section>
 
       </>}
 

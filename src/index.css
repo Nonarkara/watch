@@ -730,3 +730,72 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .dossier-empty { min-height: 180px; }
   .dsr-top .dossier-object img { height: 220px; }
 }
+
+/* ── Density pass ─────────────────────────────────────────────────────────
+   Space was reading as loose rather than deliberate: a 548px image column
+   against a 228px masthead left 320px of dead air, and a four-column metric
+   grid holding ten cells shipped two empty boxes every time. Whitespace has
+   to be doing work — on a reference sheet for expensive objects, the work is
+   separating figures, not padding them. */
+
+/* The object sits beside the identity at a size that matches it. */
+@media (min-width: 880px) {
+  .dsr-top { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: var(--space-xl); align-items: start; }
+}
+.dsr-top .dossier-object { padding: 14px; }
+.dsr-top .dossier-object img { height: min(46vw, 300px); }
+.dsr-top .dossier-object figcaption { padding-top: 10px; line-height: 1.5; }
+.masthead .mast-line { margin-top: 10px; max-width: 56ch; }
+.pagetitle { margin: 6px 0 10px; }
+
+/* Ten cells, five columns: two complete rows and no empty boxes. */
+@media (min-width: 1100px) { .metric-strip { grid-template-columns: repeat(5, 1fr); } }
+.metric-strip { margin: var(--space-lg) 0; }
+.mcell { padding: 12px 14px 10px; }
+.mcell .lab { margin-bottom: 4px; }
+.mcell .val.big { letter-spacing: -.035em; }
+.mcell .note { margin-top: 5px; line-height: 1.45; }
+details.why { margin-top: 4px; }
+details.why summary { min-height: 20px; }
+
+/* Sections stop drifting apart. */
+main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-xl); }
+.sect { margin: var(--space-lg) 0; }
+.sect-h { padding-bottom: 6px; margin-bottom: 10px; }
+.dsr-tabs { margin-bottom: var(--space-md); }
+.honest { padding: 12px 14px; }
+.spec-row { padding: 6px 0; }
+.sales-table th { padding: 6px var(--space-md) 6px 0; }
+.sales-table td { padding: 6px var(--space-md) 6px 0; }
+.timeline { gap: var(--space-md); }
+
+/* Register: the controls block was three stacked rows of air. */
+.controls { gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-sm); }
+.card-grid-view { margin-top: var(--space-sm); }
+.reg-card { padding: 12px; }
+.rc-media { margin-bottom: 10px; }
+.rc-data { margin-top: 10px; }
+.count-line { margin-top: 2px; }
+
+/* Specification lives with the identity, filling the column beside the object
+   instead of leaving air there and repeating itself lower down the page. */
+.mast-spec { margin-top: var(--space-md); border-top: 1px solid var(--rule); }
+.mast-spec .spec-row { grid-template-columns: 92px 1fr; padding: 5px 0; }
+@media (min-width: 880px) { .mast-spec { grid-template-columns: 1fr 1fr; column-gap: var(--space-xl); } }
+
+/* Masthead reads across, not down: the title and its standfirst share one band so
+   the first row of data is near the top of the screen instead of a scroll away. */
+.page-head { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); align-items: end; margin-bottom: var(--space-lg); }
+.page-head .pagetitle { margin-bottom: 0; }
+.page-head .lede { max-width: 46ch; }
+@media (min-width: 900px) {
+  .page-head { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--space-xl); }
+  .page-head .lede { padding-bottom: 4px; }
+}
+/* Shorter wells fit another row of records on screen. */
+.rc-media { aspect-ratio: 3 / 2; }
+
+/* The compare chip stays visually small but keeps a 44px touch target (§11.8):
+   the hit area is extended past the painted box rather than padding the layout. */
+.rc-pick { position: relative; }
+.rc-pick::after { content: ''; position: absolute; inset: -10px -12px; }

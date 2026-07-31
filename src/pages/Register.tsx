@@ -53,13 +53,16 @@ export default function Register() {
 
   return (
     <>
-      <p className="eyebrow">The Register</p>
-      <h1 className="pagetitle">Every reference, with its evidence</h1>
-      <p className="lede">
-        A curated register of collectible watch references. Market figures come from verified public
-        sales; the indices are computed, sourced, and show their own limits. Where evidence is thin,
-        the register says so instead of guessing.
-      </p>
+      <div className="page-head">
+        <div>
+          <p className="eyebrow">The Register</p>
+          <h1 className="pagetitle">Every reference, with its evidence</h1>
+        </div>
+        <p className="lede">
+          Market figures come from verified public sales; the indices are computed, sourced, and
+          show their own limits. Where evidence is thin, the register says so instead of guessing.
+        </p>
+      </div>
 
       <div className="controls">
         <div className="controls-row">
