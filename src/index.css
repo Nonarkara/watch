@@ -194,11 +194,16 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-2xl); min
 .mast-nick { color: var(--amber); font-family: var(--font-mono); }
 .mast-line { color: var(--dim); max-width: 68ch; margin-top: var(--space-xs); }
 
-.metric-strip { display: grid; grid-template-columns: repeat(2, 1fr); border-top: var(--border); border-left: var(--border); margin: var(--space-lg) 0; }
+.metric-strip { display: grid; grid-template-columns: 1fr; border-top: var(--border); border-left: var(--border); margin: var(--space-lg) 0; }
+@media (min-width: 360px) { .metric-strip { grid-template-columns: repeat(2, 1fr); } }
 .mcell { border-right: var(--border); border-bottom: var(--border); padding: var(--space-md); min-width: 0; }
 .mcell .lab { display: block; color: var(--dim); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--space-xs); }
 .mcell .val { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-.mcell .val.big { font-size: var(--text-display); line-height: 1; }
+/* Display tier, capped to its column. An 8-character figure ($266,700) at the full 32px
+   overflows a half-width cell on a 375px phone; the cap only engages below ~420px, so this
+   is the same display token fitted to the container, not a fourth size. */
+.mcell .val.big { font-size: min(var(--text-display), 7.4vw); line-height: 1; }
+@media (min-width: 460px) { .mcell .val.big { font-size: var(--text-display); } }
 .mcell .neg { color: var(--fail); }
 .mcell .note { display: block; color: var(--dim); font-size: var(--text-micro); margin-top: var(--space-xs); letter-spacing: 0.02em; }
 @media (min-width: 880px) { .metric-strip { grid-template-columns: repeat(4, 1fr); } }

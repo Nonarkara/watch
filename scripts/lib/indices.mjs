@@ -72,19 +72,30 @@ export function marketEstimate(comps, buildDate) {
 }
 
 // (b) Premium to retail %
-export function premiumToRetail(estimate, retail) {
+// The baseline must describe itself honestly. Three cases, never conflated:
+//   current price on record            -> "current retail"
+//   discontinued, last price on record -> "final retail (YEAR)"
+//   still in production, only an old price on record -> "YEAR retail", and the limitation
+//     says the current list price is missing, because a premium measured against a stale
+//     baseline overstates the gap for any watch whose retail price has since risen.
+export function premiumToRetail(estimate, retail, discontinued) {
+  const last = retail.msrp_history.at(-1);
   const msrpEntry = retail.current_msrp_usd != null
-    ? { price: retail.current_msrp_usd, final: false, year: null }
-    : retail.msrp_history.length
-      ? { price: retail.msrp_history.at(-1).price_usd, final: true, year: retail.msrp_history.at(-1).effective_year }
+    ? { price: retail.current_msrp_usd, vs: "current retail", stale: false }
+    : last
+      ? { price: last.price_usd,
+          vs: discontinued ? `final retail (${last.effective_year})` : `${last.effective_year} retail`,
+          stale: !discontinued, year: last.effective_year }
       : null;
   if (!msrpEntry) return { value: null, reason: "no_msrp", limitation: "No published MSRP on record." };
   if (estimate.value == null) return { value: null, reason: estimate.reason, limitation: "No market estimate to compare." };
   return {
     value: round1(((estimate.value - msrpEntry.price) / msrpEntry.price) * 100),
-    vs: msrpEntry.final ? `final retail (${msrpEntry.year})` : "current retail",
-    msrp_usd: msrpEntry.price, reason: null,
-    limitation: "MSRP as published by brand; excludes taxes and dealer discounts.",
+    vs: msrpEntry.vs,
+    msrp_usd: msrpEntry.price, stale_baseline: msrpEntry.stale, reason: null,
+    limitation: msrpEntry.stale
+      ? `Measured against the ${msrpEntry.year} list price — this reference is still in production and its current list price is not on record, so the real premium is smaller.`
+      : "MSRP as published by brand; excludes taxes and dealer discounts.",
   };
 }
 
@@ -197,7 +208,7 @@ export function confidenceTier(comps, buildDate) {
 export function computeAll(card, shared, buildDate) {
   const comps = card.market_evidence.comps.filter(isComparable);
   const estimate = marketEstimate(comps, buildDate);
-  const premium = premiumToRetail(estimate, card.retail);
+  const premium = premiumToRetail(estimate, card.retail, card.identity.produced.discontinued);
   const change_1y = priceChange(comps, buildDate, 1, shared.cpi);
   const change_5y = priceChange(comps, buildDate, 5, shared.cpi);
   const scarcity = scarcityIndex(card, shared.brand_production, buildDate);

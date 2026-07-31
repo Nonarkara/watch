@@ -13,7 +13,13 @@ export interface Estimate {
   n: number; window_months: number | null; venues?: number; as_of: string | null;
   reason: string | null; limitation: string; stale?: boolean;
 }
-export interface Premium { value: number | null; vs?: string; msrp_usd?: number; reason: string | null; limitation: string }
+export interface Premium {
+  value: number | null; vs?: string; msrp_usd?: number;
+  /** True when the baseline is an old list price for a watch still in production —
+   *  the displayed premium overstates the real gap. Surfaced inline, not hidden. */
+  stale_baseline?: boolean;
+  reason: string | null; limitation: string;
+}
 export interface Change { nominal_pct: number | null; real_pct: number | null; n_now?: number; n_then?: number; reason: string | null; limitation: string }
 export interface IndexMetric { value: number; tier?: string; k_of: [number, number]; reason: string | null; limitation: string }
 export interface Liquidity { sales_per_year: number; tier: string; reason: string | null; limitation: string }

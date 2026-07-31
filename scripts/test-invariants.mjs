@@ -42,6 +42,18 @@ for (const ix of [c1.scarcity, c1.collectibility]) {
   assert.ok(ix.limitation.length > 10, "limitation string present");
 }
 
+// 5a. A still-in-production card priced off an old MSRP must flag the stale baseline
+const inProd = structuredClone(fixture);
+inProd.identity.produced = { start_year: 2016, end_year: null, discontinued: false };
+inProd.retail.current_msrp_usd = null;
+const cInProd = computeAll(inProd, shared, BUILD);
+assert.equal(cInProd.premium.stale_baseline, true, "in-production + old MSRP must mark a stale baseline");
+assert.match(cInProd.premium.vs, /^\d{4} retail$/, "stale baseline must not claim 'final retail'");
+assert.match(cInProd.premium.limitation, /still in production/, "stale baseline must say so");
+// while the discontinued fixture calls the same number final retail
+assert.match(c1.premium.vs, /^final retail \(\d{4}\)$/);
+assert.notEqual(c1.premium.stale_baseline, true);
+
 // 5. Premium math traces to inputs
 const msrp = fixture.retail.msrp_history.at(-1).price_usd;
 assert.equal(c1.premium.msrp_usd, msrp);

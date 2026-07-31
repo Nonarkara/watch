@@ -61,6 +61,9 @@ export default function Dossier() {
             <>
               <span className={'val big' + (premium.value < 0 ? ' neg' : '')}>{pct(premium.value)}</span>
               <span className="note mono">{premium.vs?.toUpperCase()} · {usd(premium.msrp_usd!)}</span>
+              {premium.stale_baseline && (
+                <span className="note amber">Still in production — current list price not on record, so the real premium is smaller.</span>
+              )}
             </>
           ) : (
             <><span className="val dim">{dash}</span><span className="note">{reasonText(premium.reason)}</span></>
