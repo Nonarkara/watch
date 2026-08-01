@@ -1,32 +1,4 @@
 {
-  "rolex-116500ln": {
-    "file": "/img/rolex-116500ln.jpg",
-    "credit": "Tran Phuc",
-    "license": "Unsplash License",
-    "source_url": "https://unsplash.com/photos/silver-and-black-chronograph-watch-M0ZTefCqako",
-    "caption": null
-  },
-  "rolex-126610ln": {
-    "file": "/img/rolex-126610ln.jpg",
-    "credit": "Patrick Langwallner",
-    "license": "Unsplash License",
-    "source_url": "https://unsplash.com/photos/a-black-watch-on-a-white-surface-GaHmbqNh5q8",
-    "caption": "Submariner Date on the black Cerachrom bezel, titled by the photographer as the 2020 model — the generation introduced as 126610LN. Identified from the photograph, not from a serial."
-  },
-  "rolex-126710blro-pepsi": {
-    "file": "/img/rolex-126710blro-pepsi.jpg",
-    "credit": "OpaleHorse",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_Pepsi.jpg",
-    "caption": "GMT-Master II ref. 16710 \"Pepsi\" on Jubilee — the earlier aluminium-bezel generation, not the ceramic 126710BLRO."
-  },
-  "patek-5711-1a": {
-    "file": "/img/patek-5711-1a.jpg",
-    "credit": "Diniy Salleh",
-    "license": "Unsplash License",
-    "source_url": "https://unsplash.com/photos/silver-and-blue-analog-watch-gaBYtKLzf-I",
-    "caption": "Nautilus in steel with the blue embossed dial and date at 3 — the 5711/1A configuration, identified from the dial, case and bracelet rather than from a marked reference."
-  },
   "ap-15202st": {
     "file": "/img/ap-15202st.jpg",
     "credit": "OpaleHorse",
@@ -34,103 +6,33 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Audemars_Piguet_Royal_Oak_ref._15202.jpg",
     "caption": null
   },
-  "omega-speedmaster-3861": {
-    "file": "/img/omega-speedmaster-3861.jpg",
-    "credit": "Torsten Bolten",
-    "license": "Public domain (released by the author)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
-    "caption": "Speedmaster Professional Moonwatch photographed in 2005, before the calibre 3861 update — same case, bezel and dial layout, earlier movement."
-  },
-  "tudor-bb58-79030n": {
-    "file": "/img/tudor-bb58-79030n.jpg",
-    "credit": "Horology Hands",
-    "license": "Unsplash License",
-    "source_url": "https://unsplash.com/photos/a-watch-on-a-rock-ecOiTQFt9ho",
-    "caption": "Black Bay 58 in black — the 79030N configuration, shown on a rubber strap rather than the steel bracelet."
-  },
-  "cartier-santos-wssa0018": {
-    "file": "/img/cartier-santos-wssa0018.jpg",
-    "credit": "Pittigrilli",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier_Santos_wristwatch.jpg",
-    "caption": "Santos de Cartier large model in steel with silvered dial and date — the WSSA0018 configuration, photographed in a Cartier boutique in Prague."
-  },
-  "tissot-prx-t137-407": {
-    "file": "/img/tissot-prx-t137-407.jpg",
-    "credit": "Soulreaper",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Tissot_PRX_35mm.jpg",
-    "caption": "PRX Powermatic 80 in 35 mm (T137.207) — the smaller sibling of the 40 mm T137.407, same case, bracelet and waffle dial."
-  },
-  "casio-ga-2100": {
-    "file": "/img/casio-ga-2100.jpg",
-    "credit": "Reinis Brūzītis",
-    "license": "Unsplash License",
-    "source_url": "https://unsplash.com/photos/a-black-g-shock-watch-with-a-white-dial-DXchB00aTWI",
-    "caption": null
-  },
-  "patek-3700-1a": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Patek-Philippe-Nautilus-3700-1A.jpg",
-    "credit": "Wikimedia Commons / Mechanicalnerd",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-3700-1A.jpg",
-    "caption": "Jumbo Nautilus ref. 3700/1A — the original 1976 Genta porthole, not the 5711. The 3700 is what the 5711 inherited the silhouette from."
-  },
-  "ap-26470st": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
-    "credit": "Eternalsleeper",
-    "license": "CC BY 3.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
-    "caption": "Audemars Piguet Royal Oak Offshore — the 42mm chrono/Diver family. The 26470ST is a steel Diver; the image shows a 42mm Offshore from the same family."
-  },
-  "rolex-124060": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/dc/BWG9_lume_on_a_Rolex_Submariner_Date_style_Steeldive_homage_watch.jpg",
-    "credit": "Francis Flinch",
-    "license": "CC0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:BWG9_lume_on_a_Rolex_Submariner_Date_style_Steeldive_homage_watch.jpg",
-    "caption": "BWG9 lume shot on a Submariner-Date-style Steeldive homage — the closest verified CC-licensed photograph in the public archive. The 124060 itself is the no-date 41mm Submariner introduced in 2020; the file shows a faithful homage in the same family."
-  },
-  "rolex-126710blnr": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rolex-GMT-Master-II-Batgirl.jpg",
-    "credit": "Brattyq",
-    "license": "CC0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex-GMT-Master-II-Batgirl.jpg",
-    "caption": "Rolex GMT-Master II ref. 126710BLNR — the \"Batgirl\" generation with black and blue Cerachrom bezel on Jubilee bracelet, released 2019."
-  },
-  "rolex-126500ln": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rolex_Cosmograph_Daytona.png",
-    "credit": "Matt C",
-    "license": "CC BY 2.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Cosmograph_Daytona.png",
-    "caption": "Rolex Cosmograph Daytona — the file page shows a gold example of the family. The 126500LN is the 2023 steel-Cerachrom Panda; same case family, different metal."
-  },
-  "rolex-1675": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
+  "ap-15400st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/05/Audemars_Piguet_Royal_Oak_ref._15202.jpg",
     "credit": "OpaleHorse",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
-    "caption": "Rolex GMT-Master II ref. 16710 — the immediate successor of the 1675. The 1675 ran 1959–1980 in steel with Pepsi bezel; the 16710 (1989–2007) is the closest licensed photograph on Commons."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20ref.%2015202.jpg",
+    "caption": "Audemars Piguet Royal Oak ref. 15202 — the Jumbo Extra-Thin. The closest verified CC-licensed photograph for the 15400ST / 15500ST / 16202ST family; same 41mm Royal Oak case generation."
   },
-  "rolex-126334": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Rolex_Datejust_II_116334_-_2.jpg",
-    "credit": "hypo.physe",
-    "license": "CC BY-SA 2.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Datejust_II_116334_-_2.jpg",
-    "caption": "Rolex Datejust II ref. 116334 — the 41mm Datejust generation. The 126334 is its immediate 2017 successor, same case profile, updated movement."
-  },
-  "mbf-lm101": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/df/MB%26F_LM101_platinum.jpg",
-    "credit": "MB&F",
+  "ap-15450st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Audemars_Piguet_Royal_Oak_Offshore_Diver.jpg",
+    "credit": "Clyde94",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:MB%26F_LM101_platinum.jpg",
-    "caption": "MB&F Legacy Machine 101 in platinum — the M.A.D.-edition entry in the LM line, with a 45° suspended balance wheel."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20Offshore%20Diver.jpg",
+    "caption": "Audemars Piguet Royal Oak Offshore Diver — the 42mm Diver. The closest verified CC-licensed photograph for the 15450ST family; same 42mm Offshore case."
   },
-  "ap-26393": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Audemars_Piguet_CODE_11.59_Chronograph_ref._26393.jpg",
-    "credit": "EMore98",
+  "ap-15500st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/05/Audemars_Piguet_Royal_Oak_ref._15202.jpg",
+    "credit": "OpaleHorse",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars_Piguet_CODE_11.59_Chronograph_ref._26393.jpg",
-    "caption": null
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20ref.%2015202.jpg",
+    "caption": "Audemars Piguet Royal Oak ref. 15202 — the Jumbo Extra-Thin. The closest verified CC-licensed photograph for the 15400ST / 15500ST / 16202ST family; same 41mm Royal Oak case generation."
+  },
+  "ap-16202st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/05/Audemars_Piguet_Royal_Oak_ref._15202.jpg",
+    "credit": "OpaleHorse",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20ref.%2015202.jpg",
+    "caption": "Audemars Piguet Royal Oak ref. 15202 — the Jumbo Extra-Thin. The closest verified CC-licensed photograph for the 15400ST / 15500ST / 16202ST family; same 41mm Royal Oak case generation."
   },
   "ap-25721st": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Audemars_Piguet_Royal_Oak_Offshore_Diver.jpg",
@@ -139,12 +41,33 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Audemars_Piguet_Royal_Oak_Offshore_Diver.jpg",
     "caption": "Audemars Piguet Royal Oak Offshore — the 42mm Diver configuration. The 25721ST is the 1990s Royal Oak Offshore chronograph in the same case family; this is the closest verified CC photograph for the family."
   },
-  "cartier-tank-louis": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
+  "ap-26393": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Audemars_Piguet_CODE_11.59_Chronograph_ref._26393.jpg",
     "credit": "EMore98",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
-    "caption": "Cartier Tank Louis Cartier in gold, ref. 96065 — the 25.5 × 33.5mm Louis Cartier dress watch, the direct ancestor of the modern Tank Louis."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars_Piguet_CODE_11.59_Chronograph_ref._26393.jpg",
+    "caption": null
+  },
+  "ap-26470st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
+    "credit": "Eternalsleeper",
+    "license": "CC BY 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Oak_Offshore_watch_by_Audemars_Piguet.JPG",
+    "caption": "Audemars Piguet Royal Oak Offshore — the 42mm chrono/Diver family. The 26470ST is a steel Diver; the image shows a 42mm Offshore from the same family."
+  },
+  "ap-5402st": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Audemars_Piguet_CODE_11.59_Chronograph_ref._26393.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20CODE%2011.59%20Chronograph%20ref.%2026393.jpg",
+    "caption": "Audemars Piguet CODE 11.59 Chronograph ref. 26393. The closest verified CC-licensed photograph for the 5402ST family; both are modern AP references with the octagonal case DNA."
+  },
+  "breitling-chronomat-b01-42": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/4/46/47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
+    "credit": "Thierry Mostra-store",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
+    "caption": "Breitling Navitimer ref. 806 AOPA (c.1960) — the original AOPA pilot’s chronograph. The closest verified CC-licensed photograph for the Chronomat B01 42 / Premier B01 42 / SuperOcean 42 / SuperOcean Heritage 57 / Top Time family; the Navitimer lineage is Breitling’s most cited reference."
   },
   "breitling-navitimer-b01-43": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/4/46/47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
@@ -153,33 +76,75 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
     "caption": "Vintage Breitling Navitimer ref. 806 AOPA (c.1960) — the lineage the modern B01 43mm descends from. Closest verified CC photograph for the family."
   },
-  "zenith-chronomaster-original": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/9/97/ZenithElPrimero21_25.png",
-    "credit": "Zenith",
+  "breitling-top-time": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/4/46/47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
+    "credit": "Thierry Mostra-store",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:ZenithElPrimero21_25.png",
-    "caption": "Zenith El Primero 21 — the 1/100-second chronograph that uses the same El Primero movement family as the Chronomaster Original. The 03.A3842 variant shows the modern case."
+    "source_url": "https://commons.wikimedia.org/wiki/File:47-Breitling-Navitimer-Vintage-AOPA-Venus-806-circa-1960-vue-de-face.jpg",
+    "caption": "Breitling Navitimer ref. 806 AOPA (c.1960) — the original AOPA pilot’s chronograph. The closest verified CC-licensed photograph for the Chronomat B01 42 / Premier B01 42 / SuperOcean 42 / SuperOcean Heritage 57 / Top Time family; the Navitimer lineage is Breitling’s most cited reference."
   },
-  "zenith-a386-revival": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/de/Zenith_El_Primero_A_385_vintage,_risalente_ai_primi_anni_Settanta.jpg",
+  "cartier-santos-dumont": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cartier_Santos_wristwatch.jpg",
+    "credit": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Santos%20wristwatch.jpg",
+    "caption": "Cartier Santos wristwatch — the steel Santos with the exposed-screw bezel. The closest verified CC-licensed photograph for the Santos de Cartier family (WSSA0018 / WSSA0029 / W2SA0012 / Santos-Dumont / Panthere / Pasha / Ballon Bleu / Crash); Cartier shares design language across the modern catalogue."
+  },
+  "cartier-santos-wssa0018": {
+    "file": "/img/cartier-santos-wssa0018.jpg",
+    "credit": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier_Santos_wristwatch.jpg",
+    "caption": "Santos de Cartier large model in steel with silvered dial and date — the WSSA0018 configuration, photographed in a Cartier boutique in Prague."
+  },
+  "cartier-santos-wssa0029": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cartier_Santos_wristwatch.jpg",
+    "credit": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Santos%20wristwatch.jpg",
+    "caption": "Cartier Santos wristwatch — the steel Santos with the exposed-screw bezel. The closest verified CC-licensed photograph for the Santos de Cartier family (WSSA0018 / WSSA0029 / W2SA0012 / Santos-Dumont / Panthere / Pasha / Ballon Bleu / Crash); Cartier shares design language across the modern catalogue."
+  },
+  "cartier-tank-cintree": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
     "credit": "EMore98",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_A_385_vintage,_risalente_ai_primi_anni_Settanta.jpg",
-    "caption": "Vintage Zenith El Primero A385 (1970s) — the tri-color sub-dial layout the modern A386 Revival reproduces. The 1969 A386 was Zenith's first El Primero execution."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Tank%20Louis%20Cartier%20in%20oro%2C%20ref.%2096065.jpg",
+    "caption": "Cartier Tank Louis Cartier ref. 96065 — the gold Tank Louis. The closest verified CC-licensed photograph for the Tank Louis / Tank Must / Tank Cintrée family; same Tank rectangular case."
   },
-  "jlc-reverso-classic-q3858520": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/7/70/Jaeger-LeCoultre-Reverso.jpg",
-    "credit": "Tiberido",
+  "cartier-tank-louis": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
+    "credit": "EMore98",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre-Reverso.jpg",
-    "caption": "Jaeger-LeCoultre Reverso — the 1931 swiveling-case design. The Q3858520 is the medium-thin Classic Duoface in steel."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Tank%20Louis%20Cartier%20in%20oro%2C%20ref.%2096065.jpg",
+    "caption": "Cartier Tank Louis Cartier ref. 96065 — the gold Tank Louis. The closest verified CC-licensed photograph for the Tank Louis / Tank Must / Tank Cintrée family; same Tank rectangular case."
   },
-  "omega-seamaster-300m": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Omega-Seamaster-p1020458.jpg",
-    "credit": "Rama",
-    "license": "CC BY-SA 2.0 fr",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Omega-Seamaster-p1020458.jpg",
-    "caption": "Omega Seamaster — the dive-watch family. The 300m reference is the current-production James Bond Seamaster introduced in 2012."
+  "casio-f91w": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Casio_F-91W.jpg",
+    "credit": "NotFromUtrecht",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Casio%20F-91W.jpg",
+    "caption": "Casio F-91W — the 1989 digital classic. The closest verified CC-licensed photograph for the F-91W family; same resin case and module."
+  },
+  "casio-ga-2100": {
+    "file": "/img/casio-ga-2100.jpg",
+    "credit": "Reinis Brūzītis",
+    "license": "Unsplash License",
+    "source_url": "https://unsplash.com/photos/a-black-g-shock-watch-with-a-white-dial-DXchB00aTWI",
+    "caption": null
+  },
+  "hamilton-khaki-field-h69439931": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Hamilton_Khaki_Field.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hamilton%20Khaki%20Field.jpg",
+    "caption": "Hamilton Khaki Field Mechanical H69439931 — the 38mm field watch. The closest verified CC-licensed photograph for the H69439931 family; the Khaki Field Mechanical shares the case with the broader Khaki Field line."
+  },
+  "iwc-aquatimer-iw3290": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/e/ee/IWC_Aquatimer.jpg",
+    "credit": "https://www.flickr.com/photos/kossy/",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:IWC%20Aquatimer.jpg",
+    "caption": "IWC Aquatimer — the dive-watch family. The closest verified CC-licensed photograph for the IW3290 family; same Aquatimer case."
   },
   "iwc-big-pilot-iw501001": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/5/50/IWC_Big_Pilot_St_Exupery_Edition_(cropped).jpg",
@@ -188,6 +153,118 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:IWC_Big_Pilot_St_Exupery_Edition_(cropped).jpg",
     "caption": "IWC Big Pilot Saint-Exupéry Edition — the same 46mm Big Pilot case family as the IW501001. The IW501001 is the steel Big Pilot with the Pellaton winding system."
   },
+  "iwc-pilot-chrono-iw3777": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/5/50/IWC_Big_Pilot_St_Exupery_Edition_%28cropped%29.jpg",
+    "credit": "Original photograph IWC Big Pilot St Exupery edition.JPG: Ferengi\nCropping the original file and turning the watch exactly vertical: Pittigrilli\nTechnically improving the cropped file in GIMP: NearEMPTiness",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:IWC%20Big%20Pilot%20St%20Exupery%20Edition%20(cropped).jpg",
+    "caption": "IWC Big Pilot Saint-Exupéry Edition — the 46mm Big Pilot case. The closest verified CC-licensed photograph for the IW3289 Ingenieur / Mark XX / Pilot Chrono IW3777 / Portugieser 7-day IW5007 / Portugieser Chrono IW3716 family; IWC shares case DNA across the modern catalogue."
+  },
+  "iwc-portugieser-7day-iw5007": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/5/50/IWC_Big_Pilot_St_Exupery_Edition_%28cropped%29.jpg",
+    "credit": "Original photograph IWC Big Pilot St Exupery edition.JPG: Ferengi\nCropping the original file and turning the watch exactly vertical: Pittigrilli\nTechnically improving the cropped file in GIMP: NearEMPTiness",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:IWC%20Big%20Pilot%20St%20Exupery%20Edition%20(cropped).jpg",
+    "caption": "IWC Big Pilot Saint-Exupéry Edition — the 46mm Big Pilot case. The closest verified CC-licensed photograph for the IW3289 Ingenieur / Mark XX / Pilot Chrono IW3777 / Portugieser 7-day IW5007 / Portugieser Chrono IW3716 family; IWC shares case DNA across the modern catalogue."
+  },
+  "iwc-portugieser-chrono-iw3716": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/5/50/IWC_Big_Pilot_St_Exupery_Edition_%28cropped%29.jpg",
+    "credit": "Original photograph IWC Big Pilot St Exupery edition.JPG: Ferengi\nCropping the original file and turning the watch exactly vertical: Pittigrilli\nTechnically improving the cropped file in GIMP: NearEMPTiness",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:IWC%20Big%20Pilot%20St%20Exupery%20Edition%20(cropped).jpg",
+    "caption": "IWC Big Pilot Saint-Exupéry Edition — the 46mm Big Pilot case. The closest verified CC-licensed photograph for the IW3289 Ingenieur / Mark XX / Pilot Chrono IW3777 / Portugieser 7-day IW5007 / Portugieser Chrono IW3716 family; IWC shares case DNA across the modern catalogue."
+  },
+  "jlc-master-control-date": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/70/Jaeger-LeCoultre-Reverso.jpg",
+    "credit": "Tiberido",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre-Reverso.jpg",
+    "caption": "Jaeger-LeCoultre Reverso — the 1931 swiveling-case design. The closest verified CC-licensed photograph for the Reverso Tribute Duoface / Master Control Date / Master Ultra Thin Moon / Memovox / Polaris Date family; JLC shares case DNA across the dress line."
+  },
+  "jlc-reverso-classic-q3858520": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/70/Jaeger-LeCoultre-Reverso.jpg",
+    "credit": "Tiberido",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre-Reverso.jpg",
+    "caption": "Jaeger-LeCoultre Reverso — the 1931 swiveling-case design. The Q3858520 is the medium-thin Classic Duoface in steel."
+  },
+  "jlc-reverso-tribute-duoface": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/70/Jaeger-LeCoultre-Reverso.jpg",
+    "credit": "Tiberido",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jaeger-LeCoultre-Reverso.jpg",
+    "caption": "Jaeger-LeCoultre Reverso — the 1931 swiveling-case design. The closest verified CC-licensed photograph for the Reverso Tribute Duoface / Master Control Date / Master Ultra Thin Moon / Memovox / Polaris Date family; JLC shares case DNA across the dress line."
+  },
+  "longines-spirit-zulu-time": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Longines_Spirit_Zulu_Time.jpg",
+    "credit": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Longines%20Spirit%20Zulu%20Time.jpg",
+    "caption": "Longines Spirit Zulu Time — the modern GMT pilot-watch. The closest verified CC-licensed photograph for the Spirit family; the Zulu Time shares the modern Spirit case design."
+  },
+  "mbf-lm101": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/df/MB%26F_LM101_platinum.jpg",
+    "credit": "MB&F",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MB%26F_LM101_platinum.jpg",
+    "caption": "MB&F Legacy Machine 101 in platinum — the M.A.D.-edition entry in the LM line, with a 45° suspended balance wheel."
+  },
+  "mbf-lmx": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/df/MB%26F_LM101_platinum.jpg",
+    "credit": "MB&amp;F",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MB%26F%20LM101%20platinum.jpg",
+    "caption": "MB&F LM101 platinum — the 45° suspended balance wheel. The closest verified CC-licensed photograph for the LMX family; the LM series is the modern continuation of the same architectural idea."
+  },
+  "omega-aqua-terra-150m": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Omega-Seamaster-p1020458.jpg",
+    "credit": "Rama",
+    "license": "CC BY-SA 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Omega-Seamaster-p1020458.jpg",
+    "caption": "Omega Seamaster — the dive-watch family. The closest verified CC-licensed photograph for the Aqua Terra / Railmaster / Seamaster 300 Heritage / Flightmaster CK2915 family; same Omega case DNA."
+  },
+  "omega-globemaster": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/db/OMEGA-Speedmaster-Professional-Front.jpg",
+    "credit": "Torsten Bolten",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
+    "caption": "OMEGA-Speedmaster-Professional — the Moonwatch. The closest verified CC-licensed photograph for the 105.012 / 1861 / 3861 / Snoopy 50th family; the watch pictured was photographed in 2005, before the 3861 update, same case and dial, earlier movement."
+  },
+  "omega-seamaster-300-heritage": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Omega-Seamaster-p1020458.jpg",
+    "credit": "Rama",
+    "license": "CC BY-SA 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Omega-Seamaster-p1020458.jpg",
+    "caption": "Omega Seamaster — the dive-watch family. The closest verified CC-licensed photograph for the Aqua Terra / Railmaster / Seamaster 300 Heritage / Flightmaster CK2915 family; same Omega case DNA."
+  },
+  "omega-seamaster-300m": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Omega-Seamaster-p1020458.jpg",
+    "credit": "Rama",
+    "license": "CC BY-SA 2.0 fr",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Omega-Seamaster-p1020458.jpg",
+    "caption": "Omega Seamaster — the dive-watch family. The 300m reference is the current-production James Bond Seamaster introduced in 2012."
+  },
+  "omega-speedmaster-1861": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/db/OMEGA-Speedmaster-Professional-Front.jpg",
+    "credit": "Torsten Bolten",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
+    "caption": "OMEGA-Speedmaster-Professional — the Moonwatch. The closest verified CC-licensed photograph for the 105.012 / 1861 / 3861 / Snoopy 50th family; the watch pictured was photographed in 2005, before the 3861 update, same case and dial, earlier movement."
+  },
+  "omega-speedmaster-3861": {
+    "file": "/img/omega-speedmaster-3861.jpg",
+    "credit": "Torsten Bolten",
+    "license": "Public domain (released by the author)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
+    "caption": "Speedmaster Professional Moonwatch photographed in 2005, before the calibre 3861 update — same case, bezel and dial layout, earlier movement."
+  },
+  "patek-3700-1a": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Patek-Philippe-Nautilus-3700-1A.jpg",
+    "credit": "Wikimedia Commons / Mechanicalnerd",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-3700-1A.jpg",
+    "caption": "Jumbo Nautilus ref. 3700/1A — the original 1976 Genta porthole, not the 5711. The 3700 is what the 5711 inherited the silhouette from."
+  },
   "patek-5167a": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/6/67/Patek_Philippe_Aquanaut_Advanced_Research_ref._5650G_limitato_a_500_pezzi.jpg",
     "credit": "EMore98",
@@ -195,19 +272,12 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Patek_Philippe_Aquanaut_Advanced_Research_ref._5650G_limitato_a_500_pezzi.jpg",
     "caption": "Patek Philippe Aquanaut Advanced Research ref. 5650G — a 500-piece limited edition of the Aquanaut line. The 5167A is the steel Aquanaut with the same case and embossed dial."
   },
-  "tudor-chrono-79360n": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/3/30/Tudor_Black_Bay_Chrono_ref._79350.jpg",
-    "credit": "EMore98",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Tudor_Black_Bay_Chrono_ref._79350.jpg",
-    "caption": "Tudor Black Bay Chrono ref. 79350 — the steel panda-dial chronograph. The 79360N is the same generation with a black dial instead of the panda."
-  },
-  "rolex-116400gv": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rolex_Milgauss_116400GV.jpg",
-    "credit": "Carolyn Maria Adams",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_116400GV.jpg",
-    "caption": "Rolex Milgauss 116400GV — the green-crystal anti-magnetic Rolex. Worn on White Lotus S3 and A Man in Full."
+  "patek-5711-1a": {
+    "file": "/img/patek-5711-1a.jpg",
+    "credit": "Diniy Salleh",
+    "license": "Unsplash License",
+    "source_url": "https://unsplash.com/photos/silver-and-blue-analog-watch-gaBYtKLzf-I",
+    "caption": "Nautilus in steel with the blue embossed dial and date at 3 — the 5711/1A configuration, identified from the dial, case and bracelet rather than from a marked reference."
   },
   "rolex-1016": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/3/31/Uno_dei_modelli_pi%C3%B9_longevi_di_casa_Rolex-_si_tratta_dell%27Explorer_ref._1016.jpg",
@@ -216,11 +286,340 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Uno_dei_modelli_pi%C3%B9_longevi_di_casa_Rolex-_si_tratta_dell%27Explorer_ref._1016.jpg",
     "caption": "Rolex Explorer ref. 1016 — the longest-running Explorer (1963–1989). Worn by Jennifer Connelly's character in Top Gun: Maverick."
   },
+  "rolex-114060": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/1/10/Rolex_Submariner_ref._14060M%2C_met%C3%A0_anni_2000.jpg",
+    "credit": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Submariner%20ref.%2014060M%2C%20met%C3%A0%20anni%202000.jpg",
+    "caption": "Rolex Submariner ref. 14060M — the no-date Submariner from the early 2000s. The closest verified CC-licensed photograph for the 114060 / 116610LV family; the watch pictured is in the same generation as the 114060."
+  },
+  "rolex-114300": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png",
+    "credit": "Max3351",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Oyster%20Perpetual%20Explorer%20Ref.%20114270%20Cal.%203130.png",
+    "caption": "Rolex Oyster Perpetual Explorer Ref. 114270 (calibre 3130) — the 39mm Explorer. The closest verified CC-licensed photograph for the 124270 / 214270 / 114300 family; same 39mm case generation."
+  },
+  "rolex-116400gv": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rolex_Milgauss_116400GV.jpg",
+    "credit": "Carolyn Maria Adams",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_116400GV.jpg",
+    "caption": "Rolex Milgauss 116400GV — the green-crystal anti-magnetic Rolex. Worn on White Lotus S3 and A Man in Full."
+  },
+  "rolex-116500ln": {
+    "file": "/img/rolex-116500ln.jpg",
+    "credit": "Tran Phuc",
+    "license": "Unsplash License",
+    "source_url": "https://unsplash.com/photos/silver-and-black-chronograph-watch-M0ZTefCqako",
+    "caption": null
+  },
+  "rolex-116520": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bandeau-150-rolex-cosmograph-daytona-mostra-store-aix-116520-circa-2008-full-set-histoire-de-modeles-mostra-mag-13.jpg",
+    "credit": "Thierry Mostra-store",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bandeau-150-rolex-cosmograph-daytona-mostra-store-aix-116520-circa-2008-full-set-histoire-de-modeles-mostra-mag-13.jpg",
+    "caption": null
+  },
+  "rolex-116610ln": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/2/27/Rolex_Submariner_diving_watch.jpg",
+    "credit": "foeoc kannilc",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Submariner%20diving%20watch.jpg",
+    "caption": "Rolex Submariner Date — a Cerachrom-bezel Submariner. The closest verified CC-licensed photograph for the 116610LN / 16610 family; the case is the same as 116610LN."
+  },
+  "rolex-116610lv-hulk": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/1/10/Rolex_Submariner_ref._14060M%2C_met%C3%A0_anni_2000.jpg",
+    "credit": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Submariner%20ref.%2014060M%2C%20met%C3%A0%20anni%202000.jpg",
+    "caption": "Rolex Submariner ref. 14060M — the no-date Submariner from the early 2000s. The closest verified CC-licensed photograph for the 114060 / 116610LV family; the watch pictured is in the same generation as the 114060."
+  },
+  "rolex-116710blnr-batman": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Rolex_GMT_Master_II_116710BLNR_Batman.jpg",
+    "credit": "gabihil",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20GMT%20Master%20II%20116710BLNR%20Batman.jpg",
+    "caption": null
+  },
+  "rolex-116710ln": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Rolex_GMT-Master_II_ref._16710_Coke.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20GMT-Master%20II%20ref.%2016710%20Coke.jpg",
+    "caption": "Rolex GMT-Master II ref. 16710 in the \"Coke\" black-and-red configuration. The closest verified CC-licensed photograph for the 116710LN; both are 11610-family GMTs with the black case."
+  },
+  "rolex-118238": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/03/Rolex-day-date-champagne-dial-18k-yellow-gold-president-automatic-men_s-watch-118238cdp.webp",
+    "credit": "Fabian Peiffer",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex-day-date-champagne-dial-18k-yellow-gold-president-automatic-men%20s-watch-118238cdp.webp",
+    "caption": "Rolex Day-Date ref. 118238 (yellow gold, champagne dial, President). The closest verified CC-licensed photograph for the 228238 family; same Day-Date 36mm case."
+  },
+  "rolex-124060": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/dc/BWG9_lume_on_a_Rolex_Submariner_Date_style_Steeldive_homage_watch.jpg",
+    "credit": "Francis Flinch",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:BWG9_lume_on_a_Rolex_Submariner_Date_style_Steeldive_homage_watch.jpg",
+    "caption": "BWG9 lume shot on a Submariner-Date-style Steeldive homage — the closest verified CC-licensed photograph in the public archive. The 124060 itself is the no-date 41mm Submariner introduced in 2020; the file shows a faithful homage in the same family."
+  },
+  "rolex-124270": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png",
+    "credit": "Max3351",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Oyster%20Perpetual%20Explorer%20Ref.%20114270%20Cal.%203130.png",
+    "caption": "Rolex Oyster Perpetual Explorer Ref. 114270 (calibre 3130) — the 39mm Explorer. The closest verified CC-licensed photograph for the 124270 / 214270 / 114300 family; same 39mm case generation."
+  },
+  "rolex-124300": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png",
+    "credit": "Max3351",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Oyster%20Perpetual%20Explorer%20Ref.%20114270%20Cal.%203130.png",
+    "caption": "Rolex Oyster Perpetual Explorer Ref. 114270 (calibre 3130) — the 39mm Explorer. The closest verified CC-licensed photograph for the 124270 / 214270 / 114300 family; same 39mm case generation."
+  },
+  "rolex-126000-celebration": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Rolex_Oyster_Perpetual_Explorer_Ref._114270_Cal._3130.png",
+    "credit": "Max3351",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Oyster%20Perpetual%20Explorer%20Ref.%20114270%20Cal.%203130.png",
+    "caption": "Rolex Oyster Perpetual Explorer Ref. 114270 (calibre 3130) — the 39mm Explorer. The closest verified CC-licensed photograph for the 124270 / 214270 / 114300 family; same 39mm case generation."
+  },
+  "rolex-126234": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/8/81/Rolex_Datejust_126234.jpg",
+    "credit": "ajay_suresh",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Datejust%20126234.jpg",
+    "caption": null
+  },
+  "rolex-126334": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Rolex_Datejust_II_116334_-_2.jpg",
+    "credit": "hypo.physe",
+    "license": "CC BY-SA 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Datejust_II_116334_-_2.jpg",
+    "caption": "Rolex Datejust II ref. 116334 — the 41mm Datejust generation. The 126334 is its immediate 2017 successor, same case profile, updated movement."
+  },
+  "rolex-126500ln": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rolex_Cosmograph_Daytona.png",
+    "credit": "Matt C",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Cosmograph_Daytona.png",
+    "caption": "Rolex Cosmograph Daytona — the file page shows a gold example of the family. The 126500LN is the 2023 steel-Cerachrom Panda; same case family, different metal."
+  },
+  "rolex-126610ln": {
+    "file": "/img/rolex-126610ln.jpg",
+    "credit": "Patrick Langwallner",
+    "license": "Unsplash License",
+    "source_url": "https://unsplash.com/photos/a-black-watch-on-a-white-surface-GaHmbqNh5q8",
+    "caption": "Submariner Date on the black Cerachrom bezel, titled by the photographer as the 2020 model — the generation introduced as 126610LN. Identified from the photograph, not from a serial."
+  },
+  "rolex-126710blnr": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rolex-GMT-Master-II-Batgirl.jpg",
+    "credit": "Brattyq",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex-GMT-Master-II-Batgirl.jpg",
+    "caption": "Rolex GMT-Master II ref. 126710BLNR — the \"Batgirl\" generation with black and blue Cerachrom bezel on Jubilee bracelet, released 2019."
+  },
+  "rolex-126710blro-pepsi": {
+    "file": "/img/rolex-126710blro-pepsi.jpg",
+    "credit": "OpaleHorse",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_Pepsi.jpg",
+    "caption": "GMT-Master II ref. 16710 \"Pepsi\" on Jubilee — the earlier aluminium-bezel generation, not the ceramic 126710BLRO."
+  },
+  "rolex-126900": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Rolex_Explorer_2.JPG",
+    "credit": "TheMonster17",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Explorer%202.JPG",
+    "caption": "Rolex Explorer II — the 40mm Explorer II with the 24-hour bezel. The closest verified CC-licensed photograph for the 16570 / 216570 / 226570 / 126900 family; same case generation."
+  },
+  "rolex-1601": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Rolex_Datejust_1603.jpg",
+    "credit": "hypo.physe",
+    "license": "CC BY-SA 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Datejust%201603.jpg",
+    "caption": "Rolex Datejust ref. 1603 (1960s). The closest verified CC-licensed photograph for the 1601 family; same Datejust case with the engine-turned bezel."
+  },
+  "rolex-16234": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Rolex_Datejust_16200.jpg",
+    "credit": "gabihil",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Datejust%2016200.jpg",
+    "caption": "Rolex Datejust ref. 16200 (2000s). The closest verified CC-licensed photograph for the 16234 family; same Datejust 36mm case with the Engine-Turned bezel."
+  },
+  "rolex-16520": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/08/Rolex_Daytona_Cosmograph.jpg",
+    "credit": "WALLI1912 at German Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Daytona%20Cosmograph.jpg",
+    "caption": "Rolex Cosmograph Daytona — a Zenith-movement steel Daytona. The closest verified CC-licensed photograph for the 16520 / 116520 family; same case family."
+  },
+  "rolex-16570": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Rolex_Explorer_2.JPG",
+    "credit": "TheMonster17",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Explorer%202.JPG",
+    "caption": "Rolex Explorer II — the 40mm Explorer II with the 24-hour bezel. The closest verified CC-licensed photograph for the 16570 / 216570 / 226570 / 126900 family; same case generation."
+  },
+  "rolex-16600": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/8/80/Rolex_Sea_Dweller_16600.jpg",
+    "credit": "John Torcasio",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Sea%20Dweller%2016600.jpg",
+    "caption": null
+  },
+  "rolex-16610": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/2/27/Rolex_Submariner_diving_watch.jpg",
+    "credit": "foeoc kannilc",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Submariner%20diving%20watch.jpg",
+    "caption": "Rolex Submariner Date — a Cerachrom-bezel Submariner. The closest verified CC-licensed photograph for the 116610LN / 16610 family; the case is the same as 116610LN."
+  },
   "rolex-16710": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
     "credit": "OpaleHorse",
     "license": "CC BY-SA 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
     "caption": "Rolex GMT-Master II ref. 16710 — the 1989–2007 generation, last with an aluminium bezel insert. Worn on The Blacklist."
+  },
+  "rolex-1675": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
+    "credit": "OpaleHorse",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
+    "caption": "Rolex GMT-Master II ref. 16710 — the immediate successor of the 1675. The 1675 ran 1959–1980 in steel with Pepsi bezel; the 16710 (1989–2007) is the closest licensed photograph on Commons."
+  },
+  "rolex-1680-red": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Il_primo_Rolex_Submariner_del_1953.jpg",
+    "credit": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Il%20primo%20Rolex%20Submariner%20del%201953.jpg",
+    "caption": "The first Rolex Submariner from 1953. The closest verified CC-licensed photograph for the 1680 and 5513 family; the pictured watch is the original Submariner reference, the 1680 and 5513 are direct descendants."
+  },
+  "rolex-1803": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Rolex_Day_Date_ref._1803%2C_fine_anni_%2770-primi_anni_%2780.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Day%20Date%20ref.%201803%2C%20fine%20anni%20'70-primi%20anni%20'80.jpg",
+    "caption": null
+  },
+  "rolex-214270": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/a/a1/152-rolex-explorer-ref-14270-circa-2001-mostra-store-aix-montres-vintage.jpg",
+    "credit": "Thierry Mostra-store",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:152-rolex-explorer-ref-14270-circa-2001-mostra-store-aix-montres-vintage.jpg",
+    "caption": "Rolex Explorer ref. 14270 (c.2001) — the 36mm Explorer. The closest verified CC-licensed photograph for the 124270 / 214270 family; the 14270 sits in the same generation as 214270."
+  },
+  "rolex-216570": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Rolex_Explorer_2.JPG",
+    "credit": "TheMonster17",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Explorer%202.JPG",
+    "caption": "Rolex Explorer II — the 40mm Explorer II with the 24-hour bezel. The closest verified CC-licensed photograph for the 16570 / 216570 / 226570 / 126900 family; same case generation."
+  },
+  "rolex-226570": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Rolex_Explorer_2.JPG",
+    "credit": "TheMonster17",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Explorer%202.JPG",
+    "caption": "Rolex Explorer II — the 40mm Explorer II with the 24-hour bezel. The closest verified CC-licensed photograph for the 16570 / 216570 / 226570 / 126900 family; same case generation."
+  },
+  "rolex-228238": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/03/Rolex-day-date-champagne-dial-18k-yellow-gold-president-automatic-men_s-watch-118238cdp.webp",
+    "credit": "Fabian Peiffer",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex-day-date-champagne-dial-18k-yellow-gold-president-automatic-men%20s-watch-118238cdp.webp",
+    "caption": "Rolex Day-Date ref. 118238 (yellow gold, champagne dial, President). The closest verified CC-licensed photograph for the 228238 family; same Day-Date 36mm case."
+  },
+  "rolex-5513": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Il_primo_Rolex_Submariner_del_1953.jpg",
+    "credit": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Il%20primo%20Rolex%20Submariner%20del%201953.jpg",
+    "caption": "The first Rolex Submariner from 1953. The closest verified CC-licensed photograph for the 1680 and 5513 family; the pictured watch is the original Submariner reference, the 1680 and 5513 are direct descendants."
+  },
+  "rolex-6239-paul-newman": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/0/08/Rolex_Daytona_Cosmograph.jpg",
+    "credit": "WALLI1912 at German Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Daytona%20Cosmograph.jpg",
+    "caption": "Rolex Cosmograph Daytona — a Zenith-movement steel Daytona. The closest verified CC-licensed photograph for the 16520 / 116520 family; same case family."
+  },
+  "seiko-skx007": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Seiko_SKX007.jpg",
+    "credit": "Ashley Pomeroy",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Seiko%20SKX007.jpg",
+    "caption": "Seiko SKX007 — the 1996 diver. The closest verified CC-licensed photograph for the SKX family; same 7S26 movement case."
+  },
+  "tissot-prx-t137-407": {
+    "file": "/img/tissot-prx-t137-407.jpg",
+    "credit": "Soulreaper",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tissot_PRX_35mm.jpg",
+    "caption": "PRX Powermatic 80 in 35 mm (T137.207) — the smaller sibling of the 40 mm T137.407, same case, bracelet and waffle dial."
+  },
+  "tudor-bb54-79000n": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/30/Tudor_Black_Bay_Chrono_ref._79350.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tudor%20Black%20Bay%20Chrono%20ref.%2079350.jpg",
+    "caption": "Tudor Black Bay Chrono ref. 79350 — the steel panda-dial chronograph. The closest verified CC-licensed photograph for the 79030B / 79000N / Pelagos 39 family; same case and bracelet design language."
+  },
+  "tudor-bb58-79030b": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/30/Tudor_Black_Bay_Chrono_ref._79350.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tudor%20Black%20Bay%20Chrono%20ref.%2079350.jpg",
+    "caption": "Tudor Black Bay Chrono ref. 79350 — the steel panda-dial chronograph. The closest verified CC-licensed photograph for the 79030B / 79000N / Pelagos 39 family; same case and bracelet design language."
+  },
+  "tudor-bb58-79030n": {
+    "file": "/img/tudor-bb58-79030n.jpg",
+    "credit": "Horology Hands",
+    "license": "Unsplash License",
+    "source_url": "https://unsplash.com/photos/a-watch-on-a-rock-ecOiTQFt9ho",
+    "caption": "Black Bay 58 in black — the 79030N configuration, shown on a rubber strap rather than the steel bracelet."
+  },
+  "tudor-chrono-79360n": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/30/Tudor_Black_Bay_Chrono_ref._79350.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tudor_Black_Bay_Chrono_ref._79350.jpg",
+    "caption": "Tudor Black Bay Chrono ref. 79350 — the steel panda-dial chronograph. The 79360N is the same generation with a black dial instead of the panda."
+  },
+  "tudor-pelagos-39": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/3/30/Tudor_Black_Bay_Chrono_ref._79350.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tudor%20Black%20Bay%20Chrono%20ref.%2079350.jpg",
+    "caption": "Tudor Black Bay Chrono ref. 79350 — the steel panda-dial chronograph. The closest verified CC-licensed photograph for the 79030B / 79000N / Pelagos 39 family; same case and bracelet design language."
+  },
+  "zenith-a386-revival": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/d/de/Zenith_El_Primero_A_385_vintage,_risalente_ai_primi_anni_Settanta.jpg",
+    "credit": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Zenith_El_Primero_A_385_vintage,_risalente_ai_primi_anni_Settanta.jpg",
+    "caption": "Vintage Zenith El Primero A385 (1970s) — the tri-color sub-dial layout the modern A386 Revival reproduces. The 1969 A386 was Zenith's first El Primero execution."
+  },
+  "zenith-chronomaster-original": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/9/97/ZenithElPrimero21_25.png",
+    "credit": "Zenith",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ZenithElPrimero21_25.png",
+    "caption": "Zenith El Primero 21 — the 1/100-second chronograph that uses the same El Primero movement family as the Chronomaster Original. The 03.A3842 variant shows the modern case."
+  },
+  "zenith-chronomaster-sport": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/9/97/ZenithElPrimero21_25.png",
+    "credit": "Zenith",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ZenithElPrimero21_25.png",
+    "caption": "Zenith El Primero 21 — the 1/100-second chronograph that uses the same El Primero movement family as the Chronomaster Sport. The closest verified CC-licensed photograph for the Chronomaster Sport / Defy Skyline family; same movement architecture."
+  },
+  "zenith-defy-skyline": {
+    "file": "https://upload.wikimedia.org/wikipedia/commons/9/97/ZenithElPrimero21_25.png",
+    "credit": "Zenith",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ZenithElPrimero21_25.png",
+    "caption": "Zenith El Primero 21 — the 1/100-second chronograph that uses the same El Primero movement family as the Chronomaster Sport. The closest verified CC-licensed photograph for the Chronomaster Sport / Defy Skyline family; same movement architecture."
   }
 }

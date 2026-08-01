@@ -29,7 +29,7 @@ const EVENTS: { date: string; label: string; tone: 'milestone' | 'peak' | 'troug
   { date: '2021-01-25', label: 'Patek discontinues 5711', tone: 'milestone' },
   { date: '2021-12-11', label: 'Phillips 5711/1A-018 sells $6.5M', tone: 'peak' },
   { date: '2022-04-01', label: 'WatchCharts overall peaks', tone: 'peak' },
-  { date: '2025-06-30', label: '13th quarter of decline ends', tone: 'trough' },
+  { date: '2025-06-30', label: '13-quarter decline ends', tone: 'trough' },
 ]
 
 export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Props) {
@@ -178,21 +178,61 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
         {area && <path d={area} fill="var(--amber)" fillOpacity="0.08" />}
         {/* median line */}
         {path && <path d={path} fill="none" stroke="var(--amber)" strokeWidth="2" />}
-        {/* event markers (drawn before dots so dots sit on top) */}
-        {visibleEvents.map((e, i) => {
-          const t = new Date(e.date).getTime()
-          const cx = x(t)
-          const color = e.tone === 'peak' ? 'var(--amber)' : e.tone === 'trough' ? 'var(--dim)' : 'var(--fg)'
-          return (
-            <g key={`e-${i}`}>
-              <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke={color} strokeWidth="1" strokeDasharray="2 3" opacity="0.55" />
-              <rect x={cx - 3} y={PAD_T - 6} width="6" height="6" fill={color} />
-              <text x={cx + 6} y={PAD_T + 4} fontSize="9" fontFamily="var(--font-mono)" fill={color}>
-                {e.label.toUpperCase()}
-              </text>
-            </g>
-          )
-        })}
+        {/* event markers (drawn before dots so dots sit on top).
+            Labels are stacked vertically when their x-positions would otherwise
+            overlap. We estimate the label width with a fixed per-character cost
+            and march each label down by one row until it clears its left neighbour.
+            Events near the right edge anchor their label to the LEFT of the
+            marker so it doesn't clip off the chart. */}
+        {(() => {
+          const LABEL_W_PER_CHAR = 5.6 // px at fontSize 9 mono; enough margin not to overlap
+          const ROW_H = 12
+          const placed: { x: number; y: number; xEnd: number; }[] = []
+          return visibleEvents.map((e, i) => {
+            const t = new Date(e.date).getTime()
+            const cx = x(t)
+            const color = e.tone === 'peak' ? 'var(--amber)' : e.tone === 'trough' ? 'var(--dim)' : 'var(--fg)'
+            const text = e.label.toUpperCase()
+            const w = text.length * LABEL_W_PER_CHAR
+            // If the label would extend past the right padding, anchor to the
+            // LEFT of the marker so the trailing character stays inside the chart.
+            const rightAnchored = cx + 6 + w > W - PAD_R
+            const labelX = rightAnchored ? cx - 6 : cx + 6
+            const textAnchor = rightAnchored ? 'end' : 'start'
+            // Stagger: try rows 0..4 until the new label's [start, start+w]
+            // doesn't overlap any previously placed label in that row.
+            let row = 0
+            while (row < 5) {
+              const y = PAD_T + 4 + row * ROW_H
+              const start = labelX
+              const end = rightAnchored ? cx - 6 : cx + 6 + w
+              const overlaps = placed.some((p) => p.y === y && start < p.xEnd && p.x < end)
+              if (!overlaps) {
+                placed.push({ x: start, y, xEnd: end })
+                return (
+                  <g key={`e-${i}`}>
+                    <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke={color} strokeWidth="1" strokeDasharray="2 3" opacity="0.55" />
+                    <rect x={cx - 3} y={PAD_T - 6} width="6" height="6" fill={color} />
+                    <text x={labelX} y={y} fontSize="9" fontFamily="var(--font-mono)" fill={color} textAnchor={textAnchor}>
+                      {text}
+                      <title>{e.date} · {e.label}</title>
+                    </text>
+                  </g>
+                )
+              }
+              row++
+            }
+            // Overflow: drop the label, keep only the marker so the chart stays readable.
+            return (
+              <g key={`e-${i}`}>
+                <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke={color} strokeWidth="1" strokeDasharray="2 3" opacity="0.55" />
+                <rect x={cx - 3} y={PAD_T - 6} width="6" height="6" fill={color}>
+                  <title>{e.date} · {e.label}</title>
+                </rect>
+              </g>
+            )
+          })
+        })()}
         {/* individual sale dots — the honest data layer */}
         {sortedSales.map((s, i) => {
           const t = new Date(s.date).getTime()
