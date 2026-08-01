@@ -130,7 +130,15 @@
       "matched_card_ids": [
         "rolex-1016"
       ],
-      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-1016-jennifer-connelly-top-gun-maverick"
+      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-1016-jennifer-connelly-top-gun-maverick",
+      "media": {
+        "type": "image",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Jennifer_Connelly_at_Top_Gun-_Maverick_premiere.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jennifer_Connelly_at_Top_Gun-_Maverick_premiere.jpg",
+        "credit": "Gabriel Hutchinson",
+        "license": "CC BY-SA 4.0",
+        "caption": "Jennifer Connelly at the Top Gun: Maverick premiere, San Diego, May 2022 — the closest verified CC-licensed photograph of the actress in a public film context. The actual in-film watch-in-scene image is copyrighted by Paramount and is not available for free reuse."
+      }
     },
     {
       "id": "rolex-submariner-jon-hamm-confess-fletch",
