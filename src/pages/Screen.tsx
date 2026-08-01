@@ -19,6 +19,7 @@ function imageForSighting(sighting: ScreenEvent, mediaById: Map<string, MediaAtt
       source_url: sighting.media.source_url,
       credit: sighting.media.credit,
       license: sighting.media.license,
+      rights_status: 'licensed',
       caption: sighting.media.caption,
       match: 'exact_reference',
     }

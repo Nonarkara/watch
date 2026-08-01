@@ -4,5 +4,9 @@ logs
 *.log
 .DS_Store
 
+# local worktrees and design-token symlink
+.worktrees/
+_shared
+
 # local symlink to /Users/nonarkara/Projects/_shared (design tokens)
 _shared
