@@ -3,3 +3,6 @@ dist
 logs
 *.log
 .DS_Store
+
+# local symlink to /Users/nonarkara/Projects/_shared (design tokens)
+_shared

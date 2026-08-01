@@ -40,11 +40,20 @@ export interface MediaAttachment {
   caption?: string | null;
   match: 'reference_family' | 'exact_reference';
 }
+/** Optional in-scene / premiere / press still for a specific sighting. When present,
+ *  takes precedence over the watch-portrait image lookup. */
+export interface SightingMedia {
+  type: 'image'; url: string; source_url: string; credit: string;
+  license: string; caption: string | null;
+}
 export interface ScreenEvent {
   id: string; brand: string; watch: string; title: string; description: string;
   media_type: 'film' | 'television' | 'other'; release_year: number | null;
   identification: 'reported' | 'tentative'; match_level: 'exact_reference' | 'family_only';
   matched_card_ids: string[]; source_url: string;
+  /** Optional per-sighting in-film / premiere / press still. When present, the
+   *  Screen page prefers this image over the watch-portrait fallback. */
+  media?: SightingMedia;
 }
 
 export interface Computed {
