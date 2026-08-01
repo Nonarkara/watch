@@ -97,7 +97,7 @@ export default function Discover() {
             <p>{card.narrative.story}</p>
             <dl className="mini-specs">
               <div><dt>Case</dt><dd>{card.identity.case.diameter_mm}mm · {card.identity.case.material}</dd></div>
-              <div><dt>Movement</dt><dd>{card.identity.movement.caliber} · {card.identity.movement.type}</dd></div>
+              <div><dt>Movement</dt><dd>{movementLabel(card)}</dd></div>
               <div><dt>Production</dt><dd>{card.identity.produced.start_year}–{card.identity.produced.end_year ?? 'present'}</dd></div>
             </dl>
           </section>
@@ -134,6 +134,24 @@ export default function Discover() {
       </article>
     </>
   )
+}
+
+// Don't render `caliber · type` when the caliber name already says the type.
+// "high-autonomy quartz" + "quartz" is the same word twice. "quartz" + "quartz"
+// is the same word twice. "Tough Solar quartz module" + "solar quartz" is
+// close enough to redundant. Default is to show both.
+function movementLabel(card: Card): string {
+  const c = (card.identity.movement.caliber ?? '').trim()
+  const t = (card.identity.movement.type ?? '').trim()
+  if (!c) return t || '—'
+  if (!t) return c
+  const cLow = c.toLowerCase()
+  const tLow = t.toLowerCase()
+  if (cLow === tLow) return c
+  // If the type is a substring of the caliber (e.g. "quartz" inside
+  // "high-autonomy quartz"), the caliber already carries the type.
+  if (cLow.includes(tLow)) return c
+  return `${c} · ${t}`
 }
 
 function scarcitySignals(card: Card): string[] {

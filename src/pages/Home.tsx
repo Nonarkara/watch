@@ -2,6 +2,40 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
+import type { Card } from '../lib/data.ts'
+
+// Taste of the Register: round-robin from each brand so the strip reads as
+// a horizontal cross-section of the whole collection, not the first N cards of
+// whichever brand happens to sort first. The brand order is stable (alphabetical
+// inside the cards array); we just don't let one brand dominate.
+function tasteOfRegister(cards: Card[]): Card[] {
+  const byBrand = new Map<string, Card[]>()
+  for (const c of cards) {
+    const list = byBrand.get(c.identity.brand) ?? []
+    list.push(c)
+    byBrand.set(c.identity.brand, list)
+  }
+  const sortedBrands = [...byBrand.keys()].sort((a, b) => {
+    if (a === 'Rolex') return -1
+    if (b === 'Rolex') return 1
+    return a.localeCompare(b)
+  })
+  const out: Card[] = []
+  let added = true
+  while (added && out.length < 24) {
+    added = false
+    for (const brand of sortedBrands) {
+      const list = byBrand.get(brand)!
+      if (out.length >= 24) break
+      const next = list.shift()
+      if (next) {
+        out.push(next)
+        added = true
+      }
+    }
+  }
+  return out
+}
 
 const PATHS = [
   { label: 'Read the theories', title: 'About the Register', body: 'The four theories, the honesty ladder, the horology timeline, and the code for what to buy.', to: '/about', action: 'OPEN THE ABOUT' },
@@ -51,7 +85,7 @@ export default function Home() {
       <section className="reference-ticker" aria-label="A taste of the register">
         <p className="eyebrow">A TASTE OF THE REGISTER</p>
         <div className="ticker-strip mono">
-          {[...data.cards].slice(0, 24).map((c) => (
+          {tasteOfRegister(data.cards).map((c) => (
             <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
               <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
               <span className="ticker-ref">{c.identity.reference}</span>
