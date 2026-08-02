@@ -22,6 +22,9 @@ const shared = {
   images: existsSync(join(ROOT, "data/shared/images.json"))
     ? JSON.parse(readFileSync(join(ROOT, "data/shared/images.json"), "utf8"))
     : {},
+  // Named third-party index figures and structural facts. Context layer only —
+  // published verbatim with attribution, never fed to the estimator.
+  market_context: JSON.parse(readFileSync(join(ROOT, "data/shared/market_context.json"), "utf8")),
 };
 
 function brandContext(brand) {
@@ -117,6 +120,7 @@ published.sort((a, b) => a.id.localeCompare(b.id));
 const out = {
   built: buildDate,
   count: published.length,
+  market_context: shared.market_context,
   methodology_version: 2,
   cards: published,
 };

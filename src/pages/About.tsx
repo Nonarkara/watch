@@ -138,10 +138,12 @@ function HorologyTimeline() {
     { year: 2017, label: 'Paul Newman Daytona sells $17.75M', detail: 'Phillips New York; the provenance premium gets its first data point' },
     { year: 2021, label: 'Patek 5711 discontinued', detail: 'the steel Nautilus goes out of production at peak demand' },
     { year: 2021, label: 'Phillips 5711/1A-018 sells $6.5M', detail: '170-piece farewell; the new ceiling for a single modern watch' },
+    { year: 2022, label: 'Rolex launches Certified Pre-Owned', detail: 'the brand enters its own secondary market; trust becomes a product' },
     { year: 2025, label: 'Morgan Stanley report: 13 quarters of decline', detail: 'secondary market finds a floor' },
+    { year: 2026, label: 'Recovery takes hold', detail: 'broad index +5–8% on the year; auction lots double; 70% of brands positive' },
   ]
   const startY = 1953
-  const endY = 2025
+  const endY = 2026
   return (
     <div className="horology-timeline">
       <div className="htl-rail">
@@ -265,6 +267,88 @@ export default function About() {
             party. You should be able to read it without a finance background. You should never have to
             take a number on faith.
           </p>
+        </div>
+      </section>
+
+      <section className="sect" id="market-history">
+        <div className="section-rule"><h2>How collecting became a market</h2><span className="sticker-inline">A SHORT HISTORY</span></div>
+        <div className="prose">
+          <p>
+            Wristwatches started as jewelry for women. Breguet built one for Caroline Murat,
+            Napoleon's sister, around 1810–1812; for the next century men kept their watches in
+            their pockets and considered the wrist version a novelty. The First World War ended
+            that. Soldiers needed the time without letting go of anything, strapped watches to
+            their wrists, and came home still wearing them.
+          </p>
+          <p>
+            Quartz nearly closed the story. From 1969, cheap and more accurate Japanese quartz
+            movements gutted the Swiss industry — the "quartz crisis" that erased two-thirds of its
+            jobs. Mechanical watchmaking survived by changing what it was selling: not the time,
+            but the craft. That reinvention is why a hand-finished movement means something today.
+          </p>
+          <p>
+            Collecting itself has a birthday. In 1974 Osvaldo Patrizzi founded what became
+            Antiquorum in Geneva and ran the first auctions built around wristwatches — thematic
+            sales, serious catalogs, real scholarship. Until then collectors chased pocket watches;
+            wristwatches were just used goods. By 2002 a Patek Philippe 1415 world timer brought
+            CHF 6.6 million. In 2017 Paul Newman's own Daytona brought $17.75 million and the
+            provenance premium became front-page news.
+          </p>
+          <p>
+            Then came the platforms, and with them the cycle this register was built inside.
+            Online marketplaces made prices visible; visible prices invited money; between 2018 and
+            early 2022 top steel references roughly doubled, and the icons tripled. The peak coincided with the crypto
+            wealth surge in March 2022, and what followed was thirteen straight quarters of
+            decline. Rolex answered the trust problem directly, launching Certified Pre-Owned in
+            December 2022 — an admission that the secondhand market had become too big to leave
+            unverified. By 2026 the correction had run its course: the broad index is up 5–8% on
+            the year, auction volumes have doubled, and more than 70% of tracked brands are
+            positive again. The numbers live on the <Link className="src-a" to="/economy">Economy
+            page</Link>, with their sources.
+          </p>
+          <p>
+            The point of the history is a warning and an invitation at once. This market is
+            younger than most of the watches in it — and its information infrastructure is younger
+            still. That gap, between beautiful objects and thin public data, is exactly where Time
+            Pop works.
+          </p>
+        </div>
+      </section>
+
+      <section className="sect" id="framework">
+        <div className="section-rule"><h2>The collector's framework</h2><span className="sticker-inline">TEN FACTORS, TWO KINDS</span></div>
+        <div className="prose">
+          <p>
+            Collector research keeps converging on the same ten factors: brand strength, rarity,
+            condition, originality, documentation, provenance, cultural iconicity, complications,
+            material, and timing. The register's honest contribution is to split them into two
+            kinds — because only one kind can be scored from public data.
+          </p>
+        </div>
+        <div className="fw-split">
+          <div className="fw-col">
+            <h3 className="mono">SCORED ON EVERY CARD</h3>
+            <ul>
+              <li><strong>Brand strength</strong> — tier context on each dossier, production volumes behind the Scarcity Index.</li>
+              <li><strong>Rarity</strong> — the five-signal Scarcity Index, with its k-of-5 disclosure.</li>
+              <li><strong>Provenance</strong> — dated, sourced event timelines; the premium made measurable.</li>
+              <li><strong>Iconicity & liquidity</strong> — Collectibility, tracked sales per year, screen attention.</li>
+              <li><strong>Timing</strong> — CPI-real price change, plus the industry indices on the Economy page.</li>
+            </ul>
+          </div>
+          <div className="fw-col">
+            <h3 className="mono">ONLY THE EXAMPLE CAN TELL YOU</h3>
+            <ul>
+              <li><strong>Condition</strong> — over-polishing or damage can cut value 30–50%. Invisible in public data.</li>
+              <li><strong>Originality</strong> — swapped dials, hands, or bezels reprice the watch entirely.</li>
+              <li><strong>Documentation</strong> — a full set typically adds 10–25%; archives extracts more for rare pieces.</li>
+              <li><strong>Service history</strong> — who opened it, when, with what parts.</li>
+            </ul>
+            <p className="dim micro">
+              The register scores references. The watch in front of you is an example — judge it
+              with your eyes, a loupe, and a qualified watchmaker.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -144,3 +144,29 @@ for (const key of ["synthetic_exact", "synthetic_family", "synthetic_iconic", "s
 }
 
 console.log("✓ all invariants hold");
+
+// 12. Price band shelves on the best-available price and says which price it used.
+import { marketBand } from "./lib/indices.mjs";
+const BANDS = { bands: [
+  { band: "Trophy", min_usd: 1000000 }, { band: "Blue chip", min_usd: 10000 },
+  { band: "Accessible", min_usd: 2000 }, { band: "Entry", min_usd: 300 }, { band: "Everyday", min_usd: 0 },
+]};
+{
+  const b = marketBand(fixture, c1.estimate, BANDS);
+  assert.equal(b.band, "Blue chip", "fixture estimate ~$20k must land Blue chip");
+  assert.equal(b.basis, "market estimate");
+  // no comps + no msrp → no band, honest reason
+  const noPrices = structuredClone(fixture);
+  noPrices.market_evidence.comps = [];
+  noPrices.retail = { msrp_history: [], current_msrp_usd: null };
+  const cNo = computeAll(noPrices, shared, BUILD);
+  assert.equal(cNo.market_band.band, null);
+  assert.equal(cNo.market_band.reason, "no_price_basis");
+  // retail-only card names the retail basis, never claims a market estimate
+  const retailOnly = structuredClone(fixture);
+  retailOnly.market_evidence.comps = [];
+  const bR = marketBand(retailOnly, { value: null }, BANDS);
+  assert.equal(bR.band, "Blue chip");
+  assert.match(bR.basis, /retail/);
+}
+console.log("✓ price-band invariants hold");

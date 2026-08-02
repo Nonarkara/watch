@@ -11,6 +11,7 @@ const NAV = [
   { to: '/photos', label: 'Rolex atlas' },
   { to: '/economy', label: 'Economy' },
   { to: '/about', label: 'About' },
+  { to: '/resources', label: 'Resources' },
   { to: '/compare', label: 'Compare' },
 ]
 
@@ -28,6 +29,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/patterns': 'Pattern Screen — Time Pop',
   '/starter': 'Starter Paths — Time Pop',
   '/methodology': 'Methodology — Time Pop',
+  '/resources': 'Resources — The Reference Shelf — Time Pop',
+  '/legal': 'Fine Print — Time Pop',
   '/paper': 'Working Paper — Time Pop',
 }
 
@@ -88,6 +91,8 @@ export default function App() {
             <NavLink to="/starter">STARTER PATHS</NavLink>
             <NavLink to="/methodology">METHODOLOGY</NavLink>
             <NavLink to="/paper">WORKING PAPER</NavLink>
+            <NavLink to="/resources">RESOURCES</NavLink>
+            <NavLink to="/legal">FINE PRINT</NavLink>
           </p>
         </div>
       </footer>

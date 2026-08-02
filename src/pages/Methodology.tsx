@@ -12,6 +12,42 @@ export default function Methodology() {
           and you get byte-identical numbers.
         </p>
 
+        <h2>The pipeline, in four steps</h2>
+        <p>
+          <strong>Collect.</strong> Sold prices from auction results pages. Retail prices from brands
+          and dated press coverage. Provenance events from the public record. Every fact keeps its URL.<br />
+          <strong>Verify.</strong> A validator rejects any card with an unsourced number, a future
+          date, or a sale marked non-comparable without a written reason. A failing card blocks the
+          whole build.<br />
+          <strong>Compute.</strong> Deterministic scripts turn the evidence into the metrics below.
+          Same evidence in, same numbers out — to the byte.<br />
+          <strong>Publish or refuse.</strong> Enough evidence produces a number with its sample size,
+          window, and stated limit attached. Not enough produces a visible refusal with the reason.
+          There is no third option.
+        </p>
+
+        <h2>How to read a card in thirty seconds</h2>
+        <p>
+          Look at the confidence grade first — A, B, or C tells you how much sale evidence stands
+          behind the card. Then the market estimate and its <em>n</em>: the number of sales it rests
+          on. Then the price band, which names the market segment. Then check "k of 5" on the two
+          indices — a score built from five signals beats the same score built from two. Everything
+          else is depth. A dash is never a zero; it is the register telling you the evidence is not
+          there.
+        </p>
+
+        <h2>The register scores references. You must judge the example.</h2>
+        <p>
+          This is the sharpest limit of the whole system, so it comes early. A card describes a
+          <em> reference</em> — every Daytona 116500LN as a class. The watch in front of you is an
+          <em> example</em>, and collector research is blunt about what decides an example's value:
+          condition and originality first, documentation second. An over-polished case or swapped
+          parts can cut a price by 30–50%. A full set — original box, papers, service records —
+          typically adds 10–25%, sometimes far more. None of that is visible from public sales data,
+          so the register does not score it. Use the card to understand the market; use your eyes, a
+          loupe, and a qualified watchmaker to judge the watch.
+        </p>
+
         <h2>What we refuse to do</h2>
         <p>
           Most watch price guides fail by pretending to know more than they do. The register encodes
@@ -105,6 +141,25 @@ export default function Methodology() {
           and demand. It places Rolex in Tier 2. The register publishes that as peer-group context
           only. It is not an official industry standard and never changes price, scarcity, or
           collectibility.
+        </p>
+
+        <h2>Price bands</h2>
+        <p>
+          Each card is shelved into a market segment — Trophy, Blue chip, Accessible, Entry, or
+          Everyday — following the tiered classification in the compiled 2026 collector research.
+          The band is placed on the best price the card has: the market estimate when one exists,
+          otherwise the retail price, and the card says which. A band names the market a reference
+          trades in. It is not a valuation and carries no score.
+        </p>
+
+        <h2>Market context is a separate layer</h2>
+        <p>
+          The Economy page shows industry figures — the WatchCharts, Rolex, and Patek Philippe index
+          ranges, auction volumes, market size. These come from named third-party reports and are
+          republished with attribution as context. They are a different kind of number from the
+          register's own: we compile them, we do not verify them, and they never touch the
+          register's computations. Where sources disagree, the chart draws the disagreement as a
+          range instead of averaging it away.
         </p>
 
         <h2>What stays internal</h2>

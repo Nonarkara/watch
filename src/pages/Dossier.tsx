@@ -60,6 +60,10 @@ export default function Dossier() {
         <p className="mast-line">{c.identity.one_liner}</p>
 
         <dl className="spec-grid mast-spec">
+          {c.computed.market_band.band && (
+            <div className="spec-row"><dt>Price band</dt>
+              <dd className="mono">{c.computed.market_band.band.toUpperCase()} · ON {c.computed.market_band.basis?.toUpperCase()}</dd></div>
+          )}
           <div className="spec-row"><dt>Produced</dt><dd className="mono">{yearsLabel(c.identity.produced)}{c.identity.produced.discontinued ? ' · DISCONTINUED' : ' · IN PRODUCTION'}</dd></div>
           <div className="spec-row"><dt>Caliber</dt><dd className="mono">{c.identity.movement.caliber} · {c.identity.movement.type}</dd></div>
           <div className="spec-row"><dt>Case</dt><dd className="mono">{c.identity.case.diameter_mm}MM · {c.identity.case.material.toUpperCase()}</dd></div>

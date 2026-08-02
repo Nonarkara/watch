@@ -231,6 +231,25 @@ export function screenAttention(card, scarcity, screenSnapshot) {
   };
 }
 
+// (i) Price band — the tiered classification from the compiled 2026 collector research,
+// applied to the card's best-available price. Descriptive shelving, not a valuation:
+// the band names which market a reference trades in, and states which price it used.
+export function marketBand(card, estimate, bandFramework) {
+  const basis = estimate.value != null
+    ? { value: estimate.value, from: "market estimate" }
+    : card.retail.current_msrp_usd != null
+      ? { value: card.retail.current_msrp_usd, from: "current retail" }
+      : card.retail.msrp_history.length
+        ? { value: card.retail.msrp_history.at(-1).price_usd, from: `${card.retail.msrp_history.at(-1).effective_year} retail` }
+        : null;
+  if (!basis) return { band: null, reason: "no_price_basis", limitation: "No price on record to place this reference in a band." };
+  const bands = bandFramework?.bands ?? [];
+  const hit = bands.find((b) => basis.value >= b.min_usd);
+  if (!hit) return { band: null, reason: "no_price_basis", limitation: "No matching band in the framework." };
+  return { band: hit.band, basis_usd: basis.value, basis: basis.from, note: hit.note, reason: null,
+    limitation: `Band placed on ${basis.from}; it names a market segment, not a valuation.` };
+}
+
 export function computeAll(card, shared, buildDate) {
   const comps = card.market_evidence.comps.filter(isComparable);
   const estimate = marketEstimate(comps, buildDate);
@@ -243,6 +262,7 @@ export function computeAll(card, shared, buildDate) {
   const confidence = confidenceTier(comps, buildDate);
   const attention = screenAttention(card, scarcity, shared.screen_sightings);
   const stale = estimate.value != null && daysBetween(buildDate, estimate.as_of) > 365;
+  const market_band = marketBand(card, estimate, shared.market_context?.band_framework);
   return { estimate: { ...estimate, stale }, premium, change_1y, change_5y,
-    scarcity, collectibility, liquidity, confidence, attention, as_of_build: buildDate };
+    scarcity, collectibility, liquidity, confidence, attention, market_band, as_of_build: buildDate };
 }

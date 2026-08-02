@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import MarketChart from '../components/MarketChart.tsx'
+import IndexRangeChart from '../components/IndexRangeChart.tsx'
 
 export default function Economy() {
   const data = useDataset()
@@ -21,9 +22,36 @@ export default function Economy() {
         <div className="sticker">NO FORECASTS<br />NO FAKE RETURNS</div>
       </div>
 
+      <section className="sect" id="the-numbers">
+        <div className="section-rule">
+          <h2>The market in numbers</h2>
+          <span className="mono micro dim">{data?.market_context ? `COMPILED ${data.market_context.compiled} · AS OF ${data.market_context.as_of.toUpperCase()}` : ''}</span>
+        </div>
+        {data?.market_context && (
+          <>
+            <IndexRangeChart indices={data.market_context.indices} />
+            <div className="fact-grid">
+              {data.market_context.facts.map((f) => (
+                <div className="fact-cell" key={f.id}>
+                  <span className="lab mono">{f.label.toUpperCase()}</span>
+                  <span className="val mono">{f.value}</span>
+                  <span className="note dim">{f.detail}</span>
+                  <span className="src mono dim">{f.sources.map((s, i) => s.url
+                    ? <a key={i} className="src-a" href={s.url} target="_blank" rel="noreferrer">{s.name}</a>
+                    : <span key={i}>{s.name}</span>)}</span>
+                </div>
+              ))}
+            </div>
+            <p className="honest" style={{ marginTop: 'var(--space-md)' }}>
+              {data.market_context.limitation}
+            </p>
+          </>
+        )}
+      </section>
+
       <section className="sect">
         <div className="section-rule">
-          <h2>What the secondary market is doing, by quarter</h2>
+          <h2>What our own evidence shows, by quarter</h2>
           <span className="mono micro dim">MEDIAN PRICE OF VERIFIED SALES</span>
         </div>
         <MarketChart cards={data?.cards ?? []} brand="Rolex" height={300} />

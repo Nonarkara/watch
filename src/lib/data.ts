@@ -62,10 +62,15 @@ export interface ScreenEvent {
   shared_with?: string;
 }
 
+export interface MarketBand {
+  band: string | null; basis_usd?: number; basis?: string; note?: string;
+  reason: string | null; limitation: string;
+}
+
 export interface Computed {
   estimate: Estimate; premium: Premium; change_1y: Change; change_5y: Change;
   scarcity: IndexMetric; collectibility: IndexMetric; liquidity: Liquidity;
-  confidence: Confidence; attention: Attention; as_of_build: string;
+  confidence: Confidence; attention: Attention; market_band: MarketBand; as_of_build: string;
 }
 
 export interface Card {
@@ -95,7 +100,18 @@ export interface Card {
   meta: { curated_by: string; curated_date: string; sources: string[]; build_date: string };
 }
 
-export interface Dataset { built: string; count: number; methodology_version: number; cards: Card[] }
+export interface ContextSource { name: string; url?: string }
+export interface ContextIndex { id: string; label: string; low_pct: number; high_pct: number; window: string; sources: ContextSource[] }
+export interface ContextFact { id: string; label: string; value: string; detail: string; sources: ContextSource[] }
+/** Named third-party figures republished as context with attribution. This layer is
+ *  compiled reporting — it never feeds the register's own computed metrics. */
+export interface MarketContext {
+  as_of: string; compiled: string; limitation: string;
+  indices: ContextIndex[]; facts: ContextFact[];
+  band_framework: { label: string; source: string; bands: { band: string; min_usd: number; note: string }[] };
+}
+
+export interface Dataset { built: string; count: number; methodology_version: number; market_context: MarketContext; cards: Card[] }
 
 export const TIER_LABEL: Record<Card['identity']['tier'], string> = {
   trinity: 'Holy Trinity', crown: 'Crown & Court', haute: 'Haute & Independent',

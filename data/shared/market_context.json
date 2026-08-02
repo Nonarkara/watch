@@ -1,0 +1,114 @@
+{
+  "as_of": "Q2 2026",
+  "compiled": "2026-08-02",
+  "limitation": "Compiled from named third-party industry reporting. Ranges are shown where sources disagree. Time Pop republishes these figures as market context and does not verify them independently — they never enter the register's own computed metrics.",
+  "indices": [
+    {
+      "id": "watchcharts_overall",
+      "label": "WatchCharts Overall Market Index",
+      "low_pct": 5.1,
+      "high_pct": 8.2,
+      "window": "12 months",
+      "sources": [
+        { "name": "WatchCharts market reporting" },
+        { "name": "Knight Frank, The Wealth Report 2026 (Luxury Investment Index)", "url": "https://www.knightfrank.com/wealthreport" }
+      ]
+    },
+    {
+      "id": "patek_index",
+      "label": "Patek Philippe Market Index",
+      "low_pct": 12.1,
+      "high_pct": 16.2,
+      "window": "12 months",
+      "sources": [
+        { "name": "WatchCharts brand index, as covered in Q1–Q2 2026 market reports" }
+      ]
+    },
+    {
+      "id": "rolex_index",
+      "label": "Rolex Market Index",
+      "low_pct": 4.6,
+      "high_pct": 6.7,
+      "window": "12 months",
+      "sources": [
+        { "name": "WatchCharts brand index; secondary-market reporting on Rolex, 2026" }
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "secondary_size",
+      "label": "Secondary market, annual",
+      "value": "$16.7–18B",
+      "detail": "Dealer-led pre-owned sales plus auctions, per 2025–2026 estimates.",
+      "sources": [{ "name": "Industry estimates compiled in 2026 market reports" }]
+    },
+    {
+      "id": "auction_lots",
+      "label": "Auction lots sold, YoY",
+      "value": "+99%",
+      "detail": "Spring 2026 season volume against spring 2025.",
+      "sources": [{ "name": "Hodinkee auction coverage, spring 2026; Phillips Geneva XXIII results" }]
+    },
+    {
+      "id": "auction_value",
+      "label": "Auction sales value, YoY",
+      "value": "+53%",
+      "detail": "Realized value growth across the same comparison.",
+      "sources": [{ "name": "Hodinkee auction coverage, spring 2026" }]
+    },
+    {
+      "id": "polarization",
+      "label": "Top-end concentration",
+      "value": "1.4% → 37%",
+      "detail": "Watches priced above CHF 50,000 are ~1.4% of production volume but ~37% of value and ~89% of market growth.",
+      "sources": [{ "name": "Morgan Stanley × LuxeConsult industry analysis, 2026" }]
+    },
+    {
+      "id": "rolex_growth",
+      "label": "Rolex secondary prices, 2010–2025",
+      "value": "+555%",
+      "detail": "Cumulative growth over fifteen years; the brand is the market's liquidity benchmark.",
+      "sources": [{ "name": "Secondary-market reporting on Rolex, 2026" }]
+    },
+    {
+      "id": "breadth",
+      "label": "Brands trending positive",
+      "value": ">70%",
+      "detail": "Share of tracked brands with positive 12-month secondary performance as of April 2026.",
+      "sources": [{ "name": "WatchCharts coverage, April 2026" }]
+    },
+    {
+      "id": "cpo_share",
+      "label": "Rolex CPO share of secondhand Rolex",
+      "value": "~10%",
+      "detail": "Certified Pre-Owned, launched December 2022, now roughly a tenth of secondhand Rolex sales — at an average +25% price over independent dealers.",
+      "sources": [{ "name": "Glossy, on Rolex CPO and the secondhand market", "url": "https://www.glossy.co/fashion/watch-resellers-say-rolexs-certified-pre-owned-channel-is-increasing-the-overall-market-for-secondhand-watches/" }]
+    },
+    {
+      "id": "appreciators",
+      "label": "Watches that consistently appreciate",
+      "value": "~5%",
+      "detail": "Most watches depreciate. Appreciation is the exception, concentrated in a small set of references.",
+      "sources": [{ "name": "2026 collector-market analyses" }]
+    },
+    {
+      "id": "insurance",
+      "label": "Insurance, annual",
+      "value": "1–2%",
+      "detail": "Typical specialist premium as a share of appraised value; appraisals every 2–3 years. Ownership has a running cost.",
+      "sources": [{ "name": "Specialist watch-insurance guides, 2026 (incl. Chubb coverage notes)" }]
+    }
+  ],
+  "band_framework": {
+    "label": "Price bands",
+    "source": "Tiered market classification compiled from 2025–2026 secondary-market data and collector consensus",
+    "bands": [
+      { "band": "Trophy", "min_usd": 1000000, "note": "Museum-grade rarity; low liquidity, highest dispersion" },
+      { "band": "Blue chip", "min_usd": 10000, "note": "Steel sports icons and high-end classics; deepest liquidity" },
+      { "band": "Accessible", "min_usd": 2000, "note": "Strong heritage without extreme barriers; selective retention" },
+      { "band": "Entry", "min_usd": 300, "note": "Swiss and Japanese quality at everyday prices" },
+      { "band": "Everyday", "min_usd": 0, "note": "Icons by design and nostalgia; most units depreciate" }
+    ]
+  }
+}

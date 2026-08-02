@@ -13,6 +13,8 @@ import Signals from './pages/Signals.tsx'
 import Patterns from './pages/Patterns.tsx'
 import Starter from './pages/Starter.tsx'
 import Methodology from './pages/Methodology.tsx'
+import Resources from './pages/Resources.tsx'
+import Legal from './pages/Legal.tsx'
 import Paper from './pages/Paper.tsx'
 import Economy from './pages/Economy.tsx'
 import Photos from './pages/Photos.tsx'
@@ -37,6 +39,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="patterns" element={<Patterns />} />
           <Route path="starter" element={<Starter />} />
           <Route path="methodology" element={<Methodology />} />
+          <Route path="resources" element={<Resources />} />
+          <Route path="legal" element={<Legal />} />
           <Route path="paper" element={<Paper />} />
           <Route path="about" element={<About />} />
         </Route>

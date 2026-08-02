@@ -1,0 +1,528 @@
+{
+ "compiled": "2026-08-02",
+ "note": "58-source collector research catalog, compiled August 2026; 1-5 reliability ratings reflect long-term collector consensus.",
+ "sources": [
+  {
+   "name": "Alpha Hands",
+   "url": "https://alphahands.com/",
+   "type": "Technical Reference / Stolen Registry",
+   "brands": "Multi-brand (Rolex, Omega, Patek, AP, TAG Heuer, VC)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "EveryWatch",
+   "url": "https://everywatch.com/",
+   "type": "Auction Data / Market Database",
+   "brands": "Multi-brand (all major Swiss + Japanese)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Plus9Time",
+   "url": "https://www.plus9time.com/",
+   "type": "Technical Reference / Database",
+   "brands": "Seiko, Grand Seiko, Citizen",
+   "era": "Vintage & Modern",
+   "watch_types": "Dive, Chronograph, Dress, HAQ",
+   "rating": 5
+  },
+  {
+   "name": "Plus9Time Grand Seiko Database",
+   "url": "https://www.plus9time.com/gsdb",
+   "type": "Technical Reference / Database",
+   "brands": "Grand Seiko",
+   "era": "Vintage & Modern",
+   "watch_types": "All GS types",
+   "rating": 5
+  },
+  {
+   "name": "Plus9Time The Citizen Database",
+   "url": "https://www.plus9time.com/tcdb",
+   "type": "Technical Reference / Database",
+   "brands": "Citizen (The Citizen line)",
+   "era": "Modern (1995-present)",
+   "watch_types": "HAQ, Dress",
+   "rating": 5
+  },
+  {
+   "name": "Watch Reference Map",
+   "url": "https://www.watchreferencemap.com/",
+   "type": "Technical Reference / Database",
+   "brands": "Rolex (expanding to Omega, Tudor, Patek, AP, IWC, Breitling)",
+   "era": "Vintage & Modern",
+   "watch_types": "Dive, Chronograph, Dress, GMT",
+   "rating": 4
+  },
+  {
+   "name": "Watch Affinity Serial Number Guides",
+   "url": "https://www.watch-affinity.com/serial-number-guides",
+   "type": "Technical Reference / Serial Lookup",
+   "brands": "Rolex, Omega, Patek, Breitling, IWC, Longines, Heuer",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "WatchBase",
+   "url": "https://watchbase.com/",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Multi-brand (100+ brands)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "WatchDB.org",
+   "url": "https://watchdb.org/",
+   "type": "Technical Reference / Database",
+   "brands": "Multi-brand (Casio to Patek Philippe)",
+   "era": "Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "WatchTraderHub",
+   "url": "https://www.watchtraderhub.com/",
+   "type": "Technical Reference / Database",
+   "brands": "Multi-brand (432 brands)",
+   "era": "Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "WatchWired",
+   "url": "https://watchwired.com/",
+   "type": "Technical Reference / Database",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Seiko Almanac (Tiny Hour Tales)",
+   "url": "https://seiko.tinyhourtales.com/",
+   "type": "Technical Reference / Serial Decoder",
+   "brands": "Seiko",
+   "era": "Vintage & Modern",
+   "watch_types": "All Seiko types",
+   "rating": 4
+  },
+  {
+   "name": "WatchSleuth",
+   "url": "http://www.watchsleuth.com/",
+   "type": "Technical Reference / Database",
+   "brands": "Seiko",
+   "era": "Modern",
+   "watch_types": "Seiko 5, divers",
+   "rating": 3
+  },
+  {
+   "name": "WatchHunter Seiko Catalog PDF Library",
+   "url": "https://www.watchhunter.org/reference/seiko-watch-catalog-pdf-library",
+   "type": "Technical Reference / Catalog Archive",
+   "brands": "Seiko",
+   "era": "Vintage & Modern",
+   "watch_types": "All Seiko types",
+   "rating": 4
+  },
+  {
+   "name": "Rolex Serial Check",
+   "url": "https://www.rolexserialcheck.com/",
+   "type": "Technical Reference / Serial Lookup",
+   "brands": "Rolex",
+   "era": "Vintage & Modern (1926-present)",
+   "watch_types": "All Rolex types",
+   "rating": 4
+  },
+  {
+   "name": "Watch Space UK Serial Tables",
+   "url": "https://watchspace.co.uk/serial-numbers/",
+   "type": "Technical Reference / Serial Lookup",
+   "brands": "Longines, Omega, Patek, Rolex, Breitling, IWC, others",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Grail Watch Reference",
+   "url": "https://reference.grail-watch.com/",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "EmmyWatch Database",
+   "url": "https://www.emmywatch.com/db/",
+   "type": "Technical Reference / Database",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Watchuseek",
+   "url": "https://www.watchuseek.com/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand (all manufacturers)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Rolex Forums (TRF)",
+   "url": "https://www.rolexforums.com/",
+   "type": "Forum / Community",
+   "brands": "Rolex, Tudor, Patek Philippe",
+   "era": "Vintage & Modern",
+   "watch_types": "All Rolex/Tudor types",
+   "rating": 5
+  },
+  {
+   "name": "Omega Forums",
+   "url": "https://omegaforums.net/",
+   "type": "Forum / Community",
+   "brands": "Omega, Longines, Rolex, Zenith, Seiko, Universal Geneve",
+   "era": "Vintage & Modern",
+   "watch_types": "Speedmaster, Seamaster, Constellation",
+   "rating": 5
+  },
+  {
+   "name": "TimeZone",
+   "url": "https://forums.timezone.com/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand (higher-end focus)",
+   "era": "Vintage & Modern",
+   "watch_types": "Independent, vintage, handwound",
+   "rating": 4
+  },
+  {
+   "name": "Seiko & Citizen Watch Forum (SCWF)",
+   "url": "https://www.thescwf.com/",
+   "type": "Forum / Community",
+   "brands": "Seiko, Citizen, Orient",
+   "era": "Vintage & Modern",
+   "watch_types": "All Japanese watch types",
+   "rating": 4
+  },
+  {
+   "name": "TZ-UK",
+   "url": "https://www.tz-uk.com/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand (UK-focused)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "NAWCC Forum",
+   "url": "https://www.watchuseek.com/threads/welcome-to-the-nawcc-forum.941249/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand, pocket watches",
+   "era": "Vintage & Antique",
+   "watch_types": "All types including pocket watches",
+   "rating": 4
+  },
+  {
+   "name": "The Watch Forum (UK)",
+   "url": "https://www.thewatchforum.co.uk/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Reddit r/Watches",
+   "url": "https://www.reddit.com/r/Watches/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand",
+   "era": "Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Reddit r/WatchHorology",
+   "url": "https://www.reddit.com/r/WatchHorology/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Reddit r/VintageWatches",
+   "url": "https://www.reddit.com/r/VintageWatches/",
+   "type": "Forum / Community",
+   "brands": "Multi-brand",
+   "era": "Vintage",
+   "watch_types": "All vintage types",
+   "rating": 3
+  },
+  {
+   "name": "Wrist Sushi Forum",
+   "url": "https://wristsushi.proboards.com/",
+   "type": "Forum / Community",
+   "brands": "Seiko, Citizen, Orient, Japanese microbrands",
+   "era": "Vintage & Modern",
+   "watch_types": "Dive, Chronograph",
+   "rating": 3
+  },
+  {
+   "name": "The Watch Register",
+   "url": "https://www.thewatchregister.com/",
+   "type": "Stolen Registry",
+   "brands": "Multi-brand (all luxury brands)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Enquirus",
+   "url": "https://enquirus.com/en",
+   "type": "Stolen Registry",
+   "brands": "Multi-brand (watches and jewelry)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "MyStolenWatch",
+   "url": "https://www.mystolenwatch.com/",
+   "type": "Stolen Registry",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Watch CSA Stolen Registry",
+   "url": "https://watchcsa.com/stolen-watch-registry",
+   "type": "Stolen Registry / Authentication",
+   "brands": "Multi-brand (90+ brands)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "CheckMyWatch",
+   "url": "https://checkmywatch.com/",
+   "type": "Stolen Registry / Authentication",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Kronos",
+   "url": "https://www.kronosreal.com/",
+   "type": "Stolen Registry / Authentication",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Collector Square LuxPrice Index",
+   "url": "https://www.collectorsquare.com/en/luxprice-index-watch.html",
+   "type": "Auction Data / Price Index",
+   "brands": "Multi-brand (iconic models)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "MostExpensiveWatches Auction Comps",
+   "url": "https://mostexpensivewatches.net/auctions",
+   "type": "Auction Data",
+   "brands": "Multi-brand (34 brands)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Sotheby's Past Auction Results",
+   "url": "https://www.sothebys.com/en/results?searchterm=watches",
+   "type": "Auction Data",
+   "brands": "Multi-brand (high-end focus)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Christie's Watch Auction Archive",
+   "url": "https://www.christies.com/en/results?searchtext=watches",
+   "type": "Auction Data",
+   "brands": "Multi-brand (high-end focus)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Phillips Auction Results",
+   "url": "https://www.phillips.com/auctions/auction/results",
+   "type": "Auction Data",
+   "brands": "Multi-brand (curated, high-end)",
+   "era": "Vintage & Modern",
+   "watch_types": "Chronograph, Dive, Dress",
+   "rating": 5
+  },
+  {
+   "name": "Caliber Corner",
+   "url": "https://calibercorner.com/",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Multi-brand (all major)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Ranfft Movement Database",
+   "url": "https://www.ranfft.de/",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Multi-brand (1,600+ movements)",
+   "era": "Vintage",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "The Watchmakers App",
+   "url": "https://thewatchmakersapp.com/",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Multi-brand (12,000+ calibers)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 5
+  },
+  {
+   "name": "Mikrolisk",
+   "url": "https://www.mikrolisk.de/",
+   "type": "Technical Reference / Trademarks Database",
+   "brands": "Multi-brand",
+   "era": "Vintage & Antique",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Buying On Time Movement Gallery",
+   "url": "https://www.buyingontime.com/movement-gallery",
+   "type": "Technical Reference / Movement Database",
+   "brands": "Benrus, Bulova, Elgin, ETA, Hamilton, others",
+   "era": "Vintage (1940s-1980s)",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Hodinkee (Reference Points)",
+   "url": "https://www.hodinkee.com/packages/reference-points",
+   "type": "Editorial / Reference Guide",
+   "brands": "Rolex, Omega, Patek, AP, Cartier, Lange, Zenith, FP Journe",
+   "era": "Vintage & Modern",
+   "watch_types": "Dive, Chronograph, Dress, GMT",
+   "rating": 5
+  },
+  {
+   "name": "Fratello Watches",
+   "url": "https://www.fratellowatches.com/",
+   "type": "Editorial / Review / Reference",
+   "brands": "Multi-brand (Omega, Seiko, Rolex, Tudor, Speedmaster focus)",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Time+Tide Watches",
+   "url": "https://timeandtidewatches.com/",
+   "type": "Editorial / Review",
+   "brands": "Multi-brand",
+   "era": "Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Wind Vintage",
+   "url": "https://www.windvintage.com/",
+   "type": "Editorial / Reference / Dealer",
+   "brands": "Rolex, Patek Philippe, Cartier",
+   "era": "Vintage",
+   "watch_types": "Dive, Dress, Chronograph",
+   "rating": 5
+  },
+  {
+   "name": "Sweephand's Vintage Citizen Blog",
+   "url": "https://sweep-hand.org/",
+   "type": "Editorial / Reference Guide",
+   "brands": "Citizen",
+   "era": "Vintage (1931-1980)",
+   "watch_types": "Chronograph, Dive, Dress",
+   "rating": 4
+  },
+  {
+   "name": "Vintage Citizen Watches",
+   "url": "https://vintagecitizenwatches.com/",
+   "type": "Editorial / Reference / Dealer",
+   "brands": "Citizen",
+   "era": "Vintage (1918-1978)",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "Orient Place",
+   "url": "http://orientplace.blogspot.com/",
+   "type": "Editorial / Reference Guide",
+   "brands": "Orient",
+   "era": "Vintage & Modern",
+   "watch_types": "Dive, Dress",
+   "rating": 3
+  },
+  {
+   "name": "The 1916 Company (formerly WatchUWant)",
+   "url": "https://www.the1916company.com/",
+   "type": "Editorial / Dealer / Reference",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Internet Archive (Watch Repair Manuals)",
+   "url": "https://archive.org/details/watchrepairersma0000henr",
+   "type": "Repair / Restoration Manual",
+   "brands": "Multi-brand",
+   "era": "Vintage",
+   "watch_types": "All types",
+   "rating": 4
+  },
+  {
+   "name": "Horology Student Resources",
+   "url": "https://horology-student.org/resources/",
+   "type": "Educational / Repair Reference",
+   "brands": "Multi-brand",
+   "era": "Vintage & Modern",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "VintageWatchRestoration.com",
+   "url": "http://www.vintagewatchrestoration.com/",
+   "type": "Technical Reference / Serial Data",
+   "brands": "Breitling, Bulova, Elgin, Gruen, Hamilton, IWC, Omega, Longines, Patek, Rolex, Tissot, Waltham",
+   "era": "Vintage",
+   "watch_types": "All types",
+   "rating": 3
+  },
+  {
+   "name": "PocketWatchRepair.com Serial Lookup",
+   "url": "http://www.pocketwatchrepair.com/histories/sn-lookup.html",
+   "type": "Technical Reference / Serial Lookup",
+   "brands": "American pocket watch brands (Elgin, Hamilton, Illinois, Waltham)",
+   "era": "Antique & Vintage",
+   "watch_types": "Pocket watches",
+   "rating": 3
+  }
+ ]
+}
