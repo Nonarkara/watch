@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5196g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5196G",
+    "name": "Calatrava 5196G",
+    "nickname": null,
+    "collection": "Calatrava",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2004,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "215 PS",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "white gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The Patek Calatrava 5196G — the most-cited Asian Patek dress watch: 37mm white gold, hand-wound 215 PS, sub-dial seconds, manual-wind with a 44-hour reserve."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2004,
+        "price_usd": 23500,
+        "source_url": "https://www.patek.com/en/collection/calatrava/5196G-001"
+      }
+    ],
+    "current_msrp_usd": 23500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2004-01-01",
+      "person_or_event": "5196G release",
+      "description": "Patek Philippe releases the 5196G as a 37mm white-gold Calatrava with the hand-wound 215 PS calibre.",
+      "source_url": "https://www.patek.com/en/collection/calatrava/5196G-001"
+    }
+  ],
+  "narrative": {
+    "story": "The 5196G is the modern Patek Calatrava — 37mm white gold, hand-wound 215 PS, sub-dial seconds. The 215 PS is one of Patek's thinnest manual movements at 2.55mm thick, with a 44-hour reserve and Geneva Seal certification.",
+    "collector_notes": "The 5196G is the most-cited Asian Patek dress watch because of the 37mm case (a size that's becoming more popular as Asian collectors prefer smaller, slimmer watches).",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.patek.com/en/collection/calatrava/5196G-001"
+    ]
+  }
+}

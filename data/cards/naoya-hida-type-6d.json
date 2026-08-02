@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "naoya-hida-type-6d",
+  "identity": {
+    "brand": "Naoya Hida",
+    "reference": "Type 6D",
+    "name": "Type 6D Black Dial",
+    "nickname": null,
+    "collection": "Type 6",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "NH-1",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "fixed, smooth"
+    },
+    "one_liner": "Naoya Hida's 38mm dress watch with a hand-made movement, made in his small Tokyo atelier — 50 pieces a year, sold by word of mouth, the most-cited Asian independent."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 30000,
+        "source_url": "https://naoyahida.com/"
+      }
+    ],
+    "current_msrp_usd": 30000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "Type 6D release",
+      "description": "Naoya Hida (ex-Patek Philippe) releases the Type 6D in his Tokyo atelier — 38mm steel, hand-made NH-1 movement, 50 pieces a year, no dealer network.",
+      "source_url": "https://naoyahida.com/"
+    }
+  ],
+  "narrative": {
+    "story": "Naoya Hida worked at Patek Philippe and Philippe Dufour before starting his own atelier in Tokyo. The Type 6D is his most-photographed piece: 38mm steel dress watch with a hand-made NH-1 movement (a Patek-style architecture with a free-sprung balance, hand-bevelled bridges, and a hand-engraved balance cock).",
+    "collector_notes": "The NH-1 movement is hand-finished in the traditional Patek way — black polished steel, hand-bevelled bridges, hand-engraved balance cock.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://naoyahida.com/"
+    ]
+  }
+}

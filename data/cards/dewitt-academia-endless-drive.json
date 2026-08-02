@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "dewitt-academia-endless-drive",
+  "identity": {
+    "brand": "DeWitt",
+    "reference": "Academia Endless Drive",
+    "name": "Academia Endless Drive",
+    "nickname": null,
+    "collection": "Academia",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "DW704",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "fixed, faceted"
+    },
+    "one_liner": "The DeWitt Academia Endless Drive — a 42mm steel case with an off-centre \"perpetual\" sub-second hand that traces a 1/1000th-of-an-hour reading, the brand's most-photographed Asian-flavored piece."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 19500,
+        "source_url": "https://www.dewitt.ch/en/academia-endless-drive"
+      }
+    ],
+    "current_msrp_usd": 19500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2018-01-01",
+      "person_or_event": "Endless Drive release",
+      "description": "DeWitt releases the Academia Endless Drive — a 42mm steel case with the in-house DW704 automatic movement.",
+      "source_url": "https://www.dewitt.ch/en/academia-endless-drive"
+    }
+  ],
+  "narrative": {
+    "story": "The DeWitt Academia Endless Drive is the brand's most-photographed piece — a 42mm steel case with the in-house DW704 automatic movement, off-centre dial layout, and the \"Endless Drive\" sub-second hand.",
+    "collector_notes": "The Endless Drive is one of the most-photographed Asian haute pieces of the 2010s. The sub-second hand rotates continuously, tracing the \"endless drive\" of time.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.dewitt.ch/en/academia-endless-drive"
+    ]
+  }
+}

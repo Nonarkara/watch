@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "citizen-attesa-at8185-71e",
+  "identity": {
+    "brand": "Citizen",
+    "reference": "Attesa AT8185-71E",
+    "name": "Attesa Chrono Satellite Wave GPS",
+    "nickname": null,
+    "collection": "Attesa",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "H145",
+      "type": "eco-drive GPS solar"
+    },
+    "case": {
+      "diameter_mm": 43.5,
+      "material": "titanium",
+      "bezel": "fixed, faceted"
+    },
+    "one_liner": "The Citizen Attesa Chrono Satellite Wave — 43.5mm titanium, GPS satellite time sync, eco-drive solar, perpetual calendar, chronograph."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 1800,
+        "source_url": "https://www.citizenwatch-global.com/watches/attesa/at8185-71e/"
+      }
+    ],
+    "current_msrp_usd": 1800
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-04-15",
+      "person_or_event": "AT8185 release",
+      "description": "Citizen releases the Attesa Chrono Satellite Wave GPS as a 43.5mm titanium chronograph with GPS satellite time sync.",
+      "source_url": "https://www.citizenwatch-global.com/watches/attesa/at8185-71e/"
+    }
+  ],
+  "narrative": {
+    "story": "The Attesa is Citizen's high-end sport-luxury line — titanium, GPS satellite time sync, eco-drive (no battery changes), perpetual calendar, chronograph.",
+    "collector_notes": "The H145 movement is one of the most tech-loaded in any watch at this price: GPS satellite time sync, eco-drive, perpetual calendar, 24-hour chronograph.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.citizenwatch-global.com/watches/attesa/at8185-71e/"
+    ]
+  }
+}

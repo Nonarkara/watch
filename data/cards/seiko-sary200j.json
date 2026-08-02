@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sary200j",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SARY200J",
+    "name": "Presage Sharp Edged Series GMT",
+    "nickname": null,
+    "collection": "Presage",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6R64",
+      "type": "automatic GMT"
+    },
+    "case": {
+      "diameter_mm": 42.2,
+      "material": "stainless steel",
+      "bezel": "fixed, sharp-edged"
+    },
+    "one_liner": "The Presage Sharp Edged GMT — angular case lines, asymmetric dial pattern, 6R64 flyable GMT movement."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1500,
+        "source_url": "https://www.seikowatches.com/us-en/products/presage/sary200j"
+      }
+    ],
+    "current_msrp_usd": 1500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-04-15",
+      "person_or_event": "SARY200 release",
+      "description": "Seiko adds a GMT to the Presage Sharp Edged family — a 42.2mm steel case, asymmetric dial, 6R64 flyable GMT movement.",
+      "source_url": "https://www.seikowatches.com/us-en/products/presage/sary200j"
+    }
+  ],
+  "narrative": {
+    "story": "The Presage Sharp Edged line is Seiko's more angular dress line — narrower lugs, more aggressive case bevels, and a dial pattern inspired by traditional Japanese textile. The SARY200 adds a true GMT on the 6R64 movement.",
+    "collector_notes": "The sapphire bezel insert is a step up from the standard Presage aluminium insert. The 6R64 is a 70-hour reserve movement with a flyable GMT.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/presage/sary200j"
+    ]
+  }
+}

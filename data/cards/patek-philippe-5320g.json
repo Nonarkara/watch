@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5320g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5320G",
+    "name": "Perpetual Calendar",
+    "nickname": null,
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "324 SQ",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "white gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The 2017 white-gold perpetual calendar with the in-house 324 SQ calibre, day/date/month/moon phase/24-hour/leap-year on the dial — the most-cited Patek perpetual of the late 2010s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 78000,
+        "source_url": "https://www.patek.com/en/collection/grand-complications/5320G-001"
+      }
+    ],
+    "current_msrp_usd": 78000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2017-01-01",
+      "person_or_event": "5320G release",
+      "description": "Patek Philippe releases the 5320G with the in-house 324 SQ automatic perpetual calendar calibre, in a 40mm white-gold case.",
+      "source_url": "https://www.patek.com/en/collection/grand-complications/5320G-001"
+    }
+  ],
+  "narrative": {
+    "story": "The 5320G is the modern Patek perpetual calendar: 40mm white gold, automatic 324 SQ movement, day/date/month/moon phase/24-hour/leap-year in a clean sub-dial layout. The dial is a 12-hour counter concentric with the moon phase.",
+    "collector_notes": "The 324 SQ is the same family as the 324 S Q in the 5320J (yellow gold) and 5320R (rose gold).",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.patek.com/en/collection/grand-complications/5320G-001"
+    ]
+  }
+}

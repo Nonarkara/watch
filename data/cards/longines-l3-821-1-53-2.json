@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "longines-l3-821-1-53-2",
+  "identity": {
+    "brand": "Longines",
+    "reference": "L3.821.1.53.2",
+    "name": "Spirit Zulu Time GMT 39mm",
+    "nickname": null,
+    "collection": "Spirit",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L844.4",
+      "type": "automatic GMT"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "24-hour bidirectional"
+    },
+    "one_liner": "The Longines Spirit Zulu Time — 39mm, GMT, bi-directional ceramic bezel, 72-hour reserve, COSC-certified. The most-cited Asian entry-luxury GMT of the early 2020s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 2150,
+        "source_url": "https://www.longines.com/en-us/watch-spirit-zulu-time-l3-821-1-53-2"
+      }
+    ],
+    "current_msrp_usd": 2150
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-01-01",
+      "person_or_event": "Spirit Zulu Time release",
+      "description": "Longines releases the Spirit Zulu Time as a 39mm GMT with a 24-hour ceramic bezel, L844.4 calibre.",
+      "source_url": "https://www.longines.com/en-us/watch-spirit-zulu-time-l3-821-1-53-2"
+    }
+  ],
+  "narrative": {
+    "story": "The Spirit Zulu Time is Longines's modern GMT — a 39mm steel case, a 24-hour ceramic bezel, a black or blue dial, the in-house L844.4 automatic with 72 hours of reserve and COSC certification.",
+    "collector_notes": "The L844.4 is one of the most-cited entry-luxury GMT movements: COSC-certified, 72-hour reserve, flyable.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.longines.com/en-us/watch-spirit-zulu-time-l3-821-1-53-2"
+    ]
+  }
+}

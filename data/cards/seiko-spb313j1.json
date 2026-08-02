@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "seiko-spb313j1",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SPB313J1",
+    "name": "Prospex 1965 Heritage Diver 39mm Hi-Beat",
+    "nickname": "63MAS Modern",
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6L37",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional dive"
+    },
+    "one_liner": "The 39mm modern Prospex diver with the 36,000 vph hi-beat movement, 200m water resistance, and a 70-hour power reserve at $1,900."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1900,
+        "source_url": "https://www.seikowatches.com/us-en/products/prospex/spb313j1"
+      }
+    ],
+    "current_msrp_usd": 1900
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-01-01",
+      "person_or_event": "SPB313 launch",
+      "description": "Seiko splits the 1965 62MAS family into 39mm (SPB313) and 40.5mm (SPB453) versions with the 6L37 hi-beat movement.",
+      "source_url": "https://www.seikowatches.com/us-en/products/prospex/spb313j1"
+    }
+  ],
+  "narrative": {
+    "story": "The Prospex 1965 Heritage SPB313 is the most-cited modern Seiko diver: 39mm steel, 200m, ceramic bezel, sapphire crystal, hi-beat 36,000 vph, 70 hours of power reserve.",
+    "collector_notes": "The dial is matte black with applied indices; hands are polished. Lume is Seiko's proprietary Lumibrite.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/prospex/spb313j1"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-constantin-4520v",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "4520V",
+    "name": "Overseas Self-Winding",
+    "nickname": null,
+    "collection": "Overseas",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "5100",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "fixed, faceted"
+    },
+    "one_liner": "The 2016 Overseas — Vacheron's 41mm steel sport-luxury answer to the Royal Oak and Nautilus, with the in-house 5100 calibre, the Maltese cross-inspired bezel, and the quick-change strap system."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 28000,
+        "source_url": "https://www.vacheron-constantin.com/en/collections/overseas/4520V-110A-B128"
+      }
+    ],
+    "current_msrp_usd": 28000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2016-01-01",
+      "person_or_event": "4520V release",
+      "description": "Vacheron Constantin releases the 4520V as the brand's third-generation Overseas — a 41mm steel sport-luxury watch with the in-house 5100 automatic movement.",
+      "source_url": "https://www.vacheron-constantin.com/en/collections/overseas/4520V-110A-B128"
+    }
+  ],
+  "narrative": {
+    "story": "The 4520V is the 2016 refresh of the Overseas — Vacheron's third attempt at a steel sport-luxury watch after the 222 (1977) and the first Overseas (1996). The case is 41mm, the movement is the in-house 5100 (a 22K gold rotor automatic), the bezel is Maltese cross-inspired.",
+    "collector_notes": "The 5100 movement is one of the most-efficient Vacheron movements: 60-hour reserve, 22K gold rotor, -2/+2 seconds/day accuracy.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.vacheron-constantin.com/en/collections/overseas/4520V-110A-B128"
+    ]
+  }
+}

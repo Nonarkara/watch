@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "h-moser--cie-streamliner-centre-seconds",
+  "identity": {
+    "brand": "H. Moser & Cie",
+    "reference": "Streamliner Centre Seconds",
+    "name": "Streamliner Centre Seconds Smoked Salmon",
+    "nickname": null,
+    "collection": "Streamliner",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "HMC 200",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "integrated, polished"
+    },
+    "one_liner": "The H. Moser Streamliner — 40mm steel integrated bracelet, smoked salmon dial, in-house automatic — the most-cited Asian-friendly independent haute piece of the early 2020s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 35000,
+        "source_url": "https://www.h-moser.com/en/collection/streamliner"
+      }
+    ],
+    "current_msrp_usd": 35000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-04-01",
+      "person_or_event": "Streamliner Centre Seconds release",
+      "description": "H. Moser & Cie releases the Streamliner Centre Seconds — a 40mm steel integrated bracelet watch with the in-house HMC 200 automatic movement and a fumé smoked salmon dial.",
+      "source_url": "https://www.h-moser.com/en/collection/streamliner"
+    }
+  ],
+  "narrative": {
+    "story": "The Streamliner is H. Moser's integrated-bracelet steel watch — the brand's answer to the Royal Oak and Nautilus, at a more accessible price. The HMC 200 is a 3-day automatic with a free-sprung balance, hand-finished to haute horlogerie standards.",
+    "collector_notes": "The Streamliner is one of the most-cited Asian haute pieces of the 2020s. The fumé dial is a Moser signature: each colour (Salmon, Cosmic Green, Purity) is a one-off recipe.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.h-moser.com/en/collection/streamliner"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "casio-ocw-t4000a-1jf",
+  "identity": {
+    "brand": "Casio",
+    "reference": "OCW-T4000A-1JF",
+    "name": "Oceanus Manta Bluetooth Solar",
+    "nickname": "Casioak-adjacent",
+    "collection": "Oceanus",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "5663",
+      "type": "tough solar radio-controlled bluetooth"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "titanium",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "Casio's Oceanus line — the high-end titanium G-Shock sister — with a 40mm titanium case, sapphire crystal, Tough Solar radio-controlled accuracy, and Bluetooth for the Japan-only flagship \"Manta\"."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1200,
+        "source_url": "https://www.casio.com/jp/watches/oceanus/ocw-t4000a-1jf"
+      }
+    ],
+    "current_msrp_usd": 1200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-04-15",
+      "person_or_event": "OCW-T4000 release",
+      "description": "Casio releases the Oceanus Manta OCW-T4000A as a 40mm titanium case, sapphire crystal, Tough Solar radio-controlled, Bluetooth, 100m water resistance.",
+      "source_url": "https://www.casio.com/jp/watches/oceanus/ocw-t4000a-1jf"
+    }
+  ],
+  "narrative": {
+    "story": "Oceanus is Casio's most-exclusive line — sold only in Japan, in titanium, with sapphire crystals and radio-controlled accuracy. The Manta OCW-T4000 is the modern flagship: 40mm titanium case, sapphire crystal, Tough Solar radio-controlled, Bluetooth for time-setting.",
+    "collector_notes": "The case is 40mm titanium with a polished finish, which wears lighter than the steel equivalent. The dial is a sun-ray blue with applied indices.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.casio.com/jp/watches/oceanus/ocw-t4000a-1jf"
+    ]
+  }
+}

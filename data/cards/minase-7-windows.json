@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "minase-7-windows",
+  "identity": {
+    "brand": "Minase",
+    "reference": "7 Windows",
+    "name": "7 Windows GMT",
+    "nickname": null,
+    "collection": null,
+    "tier": "haute",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "M-7W",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "fixed, faceted"
+    },
+    "one_liner": "Minase's hand-made 41mm case with seven sapphire windows in the side that show the movement — a small atelier in Akita, Japan, with a five-axis CNC case and a hand-finished movement."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 5500,
+        "source_url": "https://minase-watches.com/"
+      }
+    ],
+    "current_msrp_usd": 5500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-06-01",
+      "person_or_event": "7 Windows release",
+      "description": "Minase releases the 7 Windows in Akita, Japan — a 41mm steel case with seven sapphire windows in the sides that show the hand-finished movement.",
+      "source_url": "https://minase-watches.com/"
+    }
+  ],
+  "narrative": {
+    "story": "Minase is a small atelier in Akita, Japan, run by Yoshihiro Satoh. The 7 Windows is their most-photographed piece: a 41mm steel case with seven sapphire windows in the sides that show the hand-finished movement.",
+    "collector_notes": "The case is milled from a single block of steel using a five-axis CNC — the angular cuts at the lugs are not stamped or moulded but milled.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://minase-watches.com/"
+    ]
+  }
+}

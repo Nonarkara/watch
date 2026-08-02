@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "king-seiko-sje109j1",
+  "identity": {
+    "brand": "King Seiko",
+    "reference": "SJE109J1",
+    "name": "King Seiko KS1969 Automatic",
+    "nickname": null,
+    "collection": "King Seiko",
+    "tier": "core",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6L35",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39.4,
+      "material": "stainless steel",
+      "bezel": "fixed, faceted"
+    },
+    "one_liner": "The 2022 revival of the King Seiko 44KS line, 39.4mm, 100m water resistance, 6L35 hi-beat movement — Grand Seiko's mid-tier dress line with its own independent design language."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1900,
+        "source_url": "https://www.seikowatches.com/us-en/products/kingseiko/sje109j1"
+      }
+    ],
+    "current_msrp_usd": 1900
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-05-15",
+      "person_or_event": "SJE109 release",
+      "description": "Seiko launches the King Seiko KS1969 line as a 39.4mm dress watch with the 6L35 movement, faceted case, and a dial that updates the 1969 44KS design language.",
+      "source_url": "https://www.seikowatches.com/us-en/products/kingseiko/sje109j1"
+    }
+  ],
+  "narrative": {
+    "story": "King Seiko is Seiko's mid-tier dress line, with a separate design language from Grand Seiko. The 2022 revival uses the SJE109 case — 39.4mm, 100m water resistance, faceted bezel and lugs — paired with the 6L35 hi-beat movement.",
+    "collector_notes": "The SJE109 wears slightly larger than its size suggests because of the faceted lugs. The 6L35 is the same family as the 6L37 (hi-beat 36,000 vph) — 45-hour reserve, -10/+15 seconds/day accuracy.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/kingseiko/sje109j1"
+    ]
+  }
+}

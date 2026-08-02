@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5205g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5205G",
+    "name": "Annual Calendar Moon Phase",
+    "nickname": null,
+    "collection": "Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2013,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "324 S QA LU 24H",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "white gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The 2013 annual calendar with the in-house 324 S QA LU 24H, the day/date/month/moon phase/24-hour in a concentric sub-dial, the most popular Patek complications piece in Asia."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2013,
+        "price_usd": 44000,
+        "source_url": "https://www.patek.com/en/collection/complications/5205G-013"
+      }
+    ],
+    "current_msrp_usd": 44000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2013-04-15",
+      "person_or_event": "5205G release",
+      "description": "Patek Philippe releases the 5205G with the 324 S QA LU 24H annual calendar calibre, in a 40.5mm white-gold case, with day/date/month/24-hour in a concentric sub-dial at 6 and a moon phase at 12.",
+      "source_url": "https://www.patek.com/en/collection/complications/5205G-013"
+    }
+  ],
+  "narrative": {
+    "story": "The 5205G is the modern Patek annual calendar with moon phase — the most-cited Asian Patek complications piece. The 324 S QA LU 24H movement is automatic with a 35-45 hour reserve.",
+    "collector_notes": "The 5205G is one of the most-cited Asian Pateks because of the 24-hour indicator (a sub-dial at 6) and the moon phase at 12.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.patek.com/en/collection/complications/5205G-013"
+    ]
+  }
+}

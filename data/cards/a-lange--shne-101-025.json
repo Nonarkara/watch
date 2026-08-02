@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "a-lange--shne-101-025",
+  "identity": {
+    "brand": "A. Lange & Söhne",
+    "reference": "101.025",
+    "name": "Lange 1",
+    "nickname": "The Lange 1",
+    "collection": "Lange 1",
+    "tier": "haute",
+    "produced": {
+      "start_year": 1994,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L901.0",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 38.5,
+      "material": "18k yellow gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The Lange 1 — the watch that announced A. Lange & Söhne's return to the world in 1994, the 38.5mm yellow-gold case, the off-centre dial layout, the outsize date."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1994,
+        "price_usd": 38000,
+        "source_url": "https://www.alange-soehne.com/en/collection/lange-1"
+      }
+    ],
+    "current_msrp_usd": 38000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "1994-10-24",
+      "person_or_event": "Lange 1 launch",
+      "description": "Walter Lange presents the Lange 1 in Dresden on 24 October 1994, four years after German reunification.",
+      "source_url": "https://www.alange-soehne.com/en/collection/lange-1"
+    }
+  ],
+  "narrative": {
+    "story": "The Lange 1 is the watch that announced A. Lange & Söhne's return to the world after the fall of the Berlin Wall. The off-centre dial layout (with the main dial at 9, a small seconds subdial at 5, and a power-reserve indicator at 3) is the most-cited watchmaking layout of the post-1994 era.",
+    "collector_notes": "The 101.025 is the original Lange 1 in 18k yellow gold with the silver dial.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.alange-soehne.com/en/collection/lange-1"
+    ]
+  }
+}

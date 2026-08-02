@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "casio-gw-5000u-1jf",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GW-5000U-1JF",
+    "name": "G-Shock 5000 Series GW-M5610U JDM",
+    "nickname": "Tough Solar Square",
+    "collection": "G-Shock",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3495",
+      "type": "tough solar radio-controlled"
+    },
+    "case": {
+      "diameter_mm": 42.8,
+      "material": "stainless steel + resin",
+      "bezel": "stainless steel"
+    },
+    "one_liner": "The Japan-only GW-5000U — the square 5000-series case in a stainless steel bezel and Tough Solar — at sub-$300, the cleanest G-Shock ever made."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 270,
+        "source_url": "https://www.casio.com/jp/watches/g-shock/gw-5000u-1jf"
+      }
+    ],
+    "current_msrp_usd": 270
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "GW-5000U release",
+      "description": "Casio Japan releases the GW-5000U as a Japan-only square G-Shock with a stainless steel bezel, Tough Solar radio-controlled, 200m water resistance.",
+      "source_url": "https://www.casio.com/jp/watches/g-shock/gw-5000u-1jf"
+    }
+  ],
+  "narrative": {
+    "story": "The GW-5000U is the modern interpretation of the 1983 DW-5000C — the original G-Shock. Stainless steel bezel, Tough Solar (no battery changes), radio-controlled from 6 stations worldwide. The dial is the classic 5000-series black-on-white.",
+    "collector_notes": "The case is 42.8mm but wears smaller because of the squareness. The bezel is the same brushed steel as the GW-5000G (the $750 full-metal version), but on a resin case.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.casio.com/jp/watches/g-shock/gw-5000u-1jf"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "audemars-piguet-15500st",
+  "identity": {
+    "brand": "Audemars Piguet",
+    "reference": "15500ST",
+    "name": "Royal Oak Selfwinding 41",
+    "nickname": null,
+    "collection": "Royal Oak",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2019,
+      "end_year": 2022,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "4302",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "octagonal, screwed"
+    },
+    "one_liner": "The 2019-2022 Royal Oak 41mm with the new in-house 4302 movement — the most-cited modern Royal Oak, the one that ran 2019-2022 before the 15500ST was itself replaced by the 16202ST."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 28500,
+        "source_url": "https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2019-01-01",
+      "person_or_event": "15500ST release",
+      "description": "Audemars Piguet releases the 15500ST as the modern 41mm Royal Oak with the new in-house 4302 automatic movement, replacing the 15400ST.",
+      "source_url": "https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st"
+    }
+  ],
+  "narrative": {
+    "story": "The 15500ST was the most-cited modern Royal Oak from 2019 to 2022: 41mm, 10.4mm thick, in-house 4302 movement with a 70-hour reserve, a \"Petite Tapisserie\" dial. It replaced the 15400ST and was itself replaced by the 16202ST in 2022.",
+    "collector_notes": "The 4302 is the same architecture as the 4300 in the Code 11.59 but with a different module layout.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st"
+    ]
+  }
+}

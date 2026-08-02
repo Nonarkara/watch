@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "hajime-asaoka-tsunami",
+  "identity": {
+    "brand": "Hajime Asaoka",
+    "reference": "Tsunami",
+    "name": "Tsunami Hand-Wound Tourbillon",
+    "nickname": null,
+    "collection": null,
+    "tier": "haute",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "HA-CAL-1",
+      "type": "manual tourbillon"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "titanium",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "Hajime Asaoka's hand-made tourbillon in a 38mm titanium case — a single watchmaker in Yamanashi, Japan, with a movement that takes 200 hours to finish and an annual production under 12 pieces."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 110000,
+        "source_url": "https://asaokawatch.com/"
+      }
+    ],
+    "current_msrp_usd": 110000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-04-01",
+      "person_or_event": "Tsunami launch",
+      "description": "Hajime Asaoka releases the Tsunami, his first tourbillon — 38mm titanium case, hand-made movement with 200-hour finishing, 12 pieces a year.",
+      "source_url": "https://asaokawatch.com/"
+    }
+  ],
+  "narrative": {
+    "story": "Hajime Asaoka is a former boatbuilder who started making watches in 2009. The Tsunami is his most-photographed piece: a 38mm titanium case, a hand-made tourbillon movement with 200 hours of hand-finishing, a balance-wheel assembly that he builds from raw parts.",
+    "collector_notes": "The Tsunami is unusual in that the tourbillon is on the dial side, not the back — you can see the tourbillon rotating through the dial.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://asaokawatch.com/"
+    ]
+  }
+}
