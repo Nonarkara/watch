@@ -1254,3 +1254,211 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-xl); }
 .fw-col li:last-child { border-bottom: 0; }
 .fw-col .micro { margin-top: var(--space-sm); }
 @media (min-width: 880px) { .fw-split { grid-template-columns: 1fr 1fr; } }
+
+/* ── Transaction Intelligence Graphic & Clearing Range Matrix ── */
+.txn-graphic-card {
+  border: var(--border);
+  background: var(--bg);
+  padding: var(--space-xl);
+  margin: var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+.txn-graphic-card.empty {
+  border-left: 2px solid var(--amber);
+  background: var(--paper-2);
+}
+.txn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--space-sm);
+}
+.txn-header h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+.txn-liquidity-badge {
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  padding: 3px 8px;
+  font-size: var(--text-micro);
+}
+
+.spectrum-wrap {
+  position: relative;
+  margin: var(--space-lg) 0 var(--space-md);
+  padding-top: 28px;
+  padding-bottom: 24px;
+}
+.spectrum-axis {
+  position: relative;
+  height: 36px;
+  background: var(--paper-2);
+  border: var(--border);
+  border-radius: 2px;
+  overflow: visible;
+}
+.spectrum-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.dealer-zone {
+  background: rgba(239, 68, 68, 0.15);
+  border-inline: 1px dashed rgba(239, 68, 68, 0.5);
+}
+.fair-zone {
+  background: rgba(217, 119, 6, 0.25);
+  border-inline: 2px solid var(--amber);
+}
+.zone-label {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.spectrum-pin {
+  position: absolute;
+  top: -26px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+.pin-head {
+  width: 12px;
+  height: 12px;
+  background: var(--amber);
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+}
+.pin-val {
+  font-size: var(--text-micro);
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--bg);
+  padding: 1px 4px;
+  border: 1px solid var(--amber);
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+.spectrum-msrp-pin {
+  position: absolute;
+  bottom: -24px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+}
+.msrp-line {
+  width: 2px;
+  height: 14px;
+  background: var(--dim);
+}
+.msrp-val {
+  font-size: 9px;
+  color: var(--dim);
+  background: var(--bg);
+  padding: 1px 3px;
+  border: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.spectrum-legend {
+  display: flex;
+  justify-content: space-between;
+  color: var(--dim);
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  border-top: var(--border);
+  padding-top: var(--space-lg);
+}
+@media (min-width: 768px) {
+  .matrix-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.matrix-col {
+  border: var(--border);
+  padding: var(--space-md);
+  background: var(--paper-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.matrix-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--space-xs);
+}
+.role-icon {
+  font-size: 18px;
+}
+.matrix-title h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.matrix-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  padding-bottom: var(--space-xs);
+}
+.matrix-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.row-label {
+  font-size: var(--text-micro);
+  font-weight: 600;
+  color: var(--fg);
+}
+.row-val {
+  font-size: var(--text-body);
+  font-weight: 700;
+}
+.row-val.good-val {
+  color: #16a34a;
+}
+.row-val.warn-val {
+  color: #dc2626;
+}
+.row-sub {
+  font-size: var(--text-micro);
+  color: var(--dim);
+  line-height: 1.4;
+}
+

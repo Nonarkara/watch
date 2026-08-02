@@ -5,6 +5,7 @@ import { TIER_LABEL, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
 import Meter from '../components/Meter.tsx'
 import Sparkline from '../components/Sparkline.tsx'
+import TransactionGraphic from '../components/TransactionGraphic.tsx'
 
 export default function Dossier() {
   const { id } = useParams()
@@ -165,6 +166,8 @@ export default function Dossier() {
           <Why text={c.computed.attention.price_response.limitation} />
         </div>
       </div>
+
+      <TransactionGraphic card={c} />
 
       </>}
 

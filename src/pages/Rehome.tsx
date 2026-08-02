@@ -4,6 +4,8 @@ import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
 import { dash, usd } from '../lib/format.ts'
 
+import TransactionGraphic from '../components/TransactionGraphic.tsx'
+
 export default function Rehome() {
   const data = useDataset()
   const [selectedId, setSelectedId] = useState('')
@@ -90,6 +92,7 @@ export default function Rehome() {
                 <BriefFact label="Preferred handover" value={transfer} />
                 <BriefFact label="Register context" value={marketContext(card)} />
               </dl>
+              <TransactionGraphic card={card} />
               <button type="button" className="btn" onClick={copyBrief}>{copied ? 'COPIED ✓' : 'COPY BRIEF'}</button>
               <Link className="brief-dossier src-a" to={`/w/${card.id}`}>Open the sourced dossier →</Link>
             </>
