@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-f-91w",
+  "identity": {
+    "brand": "Casio",
+    "reference": "F-91W",
+    "name": "F-91W Digital",
+    "nickname": "the F-91W",
+    "collection": "Casio Classic",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 1989,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 593",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 33.2,
+      "material": "resin case and strap",
+      "bezel": "fixed resin"
+    },
+    "one_liner": "The 1989 Casio F-91W — the most-produced digital watch in history, the watch on the wrist of every kid who went through a school in the 1990s, and the watch that defined \"the affordable digital\" for forty years."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1989,
+        "price_usd": 20,
+        "source_url": "https://www.casio.com/products/watches/classic/f-91w-1"
+      }
+    ],
+    "current_msrp_usd": 20
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The F-91W was introduced in 1989 and has been in continuous production since. The watch is the most-cited affordable digital watch in the world, and the most-photographed — Presidents, soldiers, musicians, and schoolchildren have all worn it. The story: Casio released the F-91W as a $20 watch with a 7-year battery, an LED backlight, a daily alarm, an hourly chime, a stopwatch, and a calendar. The result is the watch that \"anyone can afford\" has meant for four decades. The 593 quartz module is the same one in the A158WA, A159W, and the W-59.",
+    "collector_notes": "The F-91W has been on the wrists of Presidents (Obama wore one), soldiers (US military issued F-91W variants in the 2000s), and a former British PM. It is the most-cited watch in the \"any watch is better than no watch\" debate.",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.casio.com/products/watches/classic/f-91w-1"
+    ]
+  }
+}

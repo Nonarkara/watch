@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126334",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126334",
+    "name": "Datejust 41",
+    "nickname": null,
+    "collection": "Datejust",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3235",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel + white gold fluted bezel",
+      "bezel": "fluted 18k white gold"
+    },
+    "one_liner": "The 41mm Datejust with the fluted white-gold bezel and the calibre 3235 — the most-cited modern Datejust, and the one that made the 41mm case the standard Datejust size."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 9450,
+        "source_url": "https://www.rolex.com/watches/datejust/m126334-0026"
+      }
+    ],
+    "current_msrp_usd": 9450
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 126334 replaced the 116334 in 2016. The change was the case size (41mm instead of 36/40) and the movement (calibre 3235 with 70-hour reserve). The fluted bezel in 18k white gold is the Datejust signature; the smooth and engine-turned are also available. The 126334 is the most-cited Datejust on the secondary market because it sits in the price band where most buyers land, and the fluted bezel catches light in a way the smooth bezel does not.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/datejust/m126334-0026"
+    ]
+  }
+}

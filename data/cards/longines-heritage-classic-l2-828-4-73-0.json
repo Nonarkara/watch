@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "longines-heritage-classic-l2-828-4-73-0",
+  "identity": {
+    "brand": "Longines",
+    "reference": "L2.828.4.73.0",
+    "name": "Heritage Classic Sector",
+    "nickname": "Sector Dial",
+    "collection": "Heritage Classic",
+    "tier": "core",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L893",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38.5,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 38.5mm Heritage Classic Sector — the 1930s Longines sector-dial reissue with the L893 caliber. The most-cited modern Longines dress watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 2300,
+        "source_url": "https://www.longines.com/en-us/watch-heritage-classic-l2-828-4-73-0"
+      }
+    ],
+    "current_msrp_usd": 2300
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Heritage Classic Sector is the 2019 reissue of a 1930s Longines with a sector-dial layout. The 38.5mm stainless steel case, the silvered dial with the sector pattern, and the L893 caliber (ETA-based with a 72-hour reserve) are the 2019 specification. The Heritage Classic Sector is the most-cited modern Longines dress watch and the watch a collector cites when they want a 1930s sector-dial design with a modern manufacture caliber.",
+    "collector_notes": "The sector dial divides the dial into sectors (the minute track, the hour numerals, the sub-seconds) — a 1930s design language that is most associated with Patek (the 1938 Calatrava sector dial) and Longines.",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.longines.com/en-us/watch-heritage-classic-l2-828-4-73-0"
+    ]
+  }
+}

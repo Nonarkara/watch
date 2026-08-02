@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "iwc-pilot-mark-xx-iw328202",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW328202",
+    "name": "Pilot's Watch Mark XX",
+    "nickname": "Mark XX",
+    "collection": "Pilot's Watches",
+    "tier": "core",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "32111",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 2022 Mark XX — the modern Mark 11 reissue, 40mm, anti-magnetic, 100m water resistance. The IWC pilot watch that replaced the 2016 Mark XVIII."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 4900,
+        "source_url": "https://www.iwc.com/us/en/watch-collections/pilot-watches/iw328202-pilot-s-watch-mark-xx.html"
+      }
+    ],
+    "current_msrp_usd": 4900
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Mark XX (2022) replaced the 2016 Mark XVIII, returning to a 40mm case (the Mark XVIII was 39mm and the Mark XVII was 41mm). The 32111 caliber is a Sellita-based automatic with a 5-day reserve. The dial is the classic IWC pilot design — large Arabic numerals, a triangle at 12, and a soft-iron inner case for anti-magnetic resistance up to 80,000 A/m. The Mark XX is the most-cited modern IWC pilot watch and the watch a collector cites when they want an IWC pilot at the under-$5,000 price point.",
+    "collector_notes": "The Mark XX has a 100m water resistance, the most of any Mark-series pilot watch. The IWC pilot lineage runs back to the 1948 Mark 11, designed for the British Royal Air Force.",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.iwc.com/us/en/watch-collections/pilot-watches/iw328202-pilot-s-watch-mark-xx.html"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "zenith-chronomaster-original-03-3200-3600",
+  "identity": {
+    "brand": "Zenith",
+    "reference": "03.3200.3600/52.C903",
+    "name": "Chronomaster Original",
+    "nickname": null,
+    "collection": "Chronomaster",
+    "tier": "core",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "El Primero 3600",
+      "type": "automatic hi-beat chronograph"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "smooth polished (pumpkin)"
+    },
+    "one_liner": "The 38mm Chronomaster Original — the 2021 reissue of the 1969 A386 with the El Primero 3600 caliber. The hi-beat chronograph that defined the 1969 automatic chronograph race."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 8400,
+        "source_url": "https://www.zenith-watches.com/en/chronomaster/03-3200-3600-52-c903"
+      }
+    ],
+    "current_msrp_usd": 8400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Chronomaster Original is the 2021 reissue of the 1969 Zenith A386, one of the three automatic chronographs launched in 1969 (the others being the Heuer Monaco and the Seiko Speedtimer). The El Primero caliber was the world's first hi-beat automatic chronograph (36,000 vph, 1/10th second accuracy). The A386 tri-color sub-dial layout is the Zenith design signature. The Chronomaster Original is the most-cited vintage-modern Zenith and the watch a collector cites when they want a 1969 chronograph with a modern manufacture caliber.",
+    "collector_notes": "The El Primero 3600 is the 5th generation of the El Primero, in production since 1969. The \"El Primero\" name means \"the first\" in Spanish, a reference to the 1969 release as the first hi-beat automatic chronograph.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.zenith-watches.com/en/chronomaster/03-3200-3600-52-c903"
+    ]
+  }
+}

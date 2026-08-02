@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "vacheron-constantin-222-4200h",
+  "identity": {
+    "brand": "Vacheron Constantin",
+    "reference": "44018/411",
+    "name": "Overseas",
+    "nickname": null,
+    "collection": "Overseas",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "5100",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "polished round"
+    },
+    "one_liner": "The first-generation Overseas (1996) brought back as the Overseas II in 2016 with the in-house 5100 caliber. The third member of the steel-sport-trinity that the 5711 made collectible."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 24500,
+        "source_url": "https://www.vacheron-constantin.com/en/collections/overseas-44018-411"
+      }
+    ],
+    "current_msrp_usd": 24500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Overseas is the oldest of the three \"trinity\" steel sport watches, predating the Royal Oak (1972) by 4 years and the Nautilus (1976) by 4. The first Overseas (1996) was designed by Jörg Hysek; the second-generation (2016) was redesigned by Vincent Kaufmann and is built on the in-house 5100 caliber. The 4500V (blue dial) and 4600E (rose-gold) and 44018 (steel three-hand) round out the family. The Overseas is the underdog of the steel-sport-trinity: less hype than the Nautilus, less marketing than the Royal Oak, and on a value basis the strongest of the three.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.vacheron-constantin.com/en/collections/overseas-44018-411"
+    ]
+  }
+}

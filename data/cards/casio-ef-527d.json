@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-ef-527d",
+  "identity": {
+    "brand": "Casio",
+    "reference": "EF-527D-1AV",
+    "name": "Edifice Chronograph",
+    "nickname": "Edifice",
+    "collection": "Edifice",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2006,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 4344",
+      "type": "quartz chronograph"
+    },
+    "case": {
+      "diameter_mm": 43,
+      "material": "stainless steel",
+      "bezel": "fixed steel"
+    },
+    "one_liner": "The 2006 Edifice chronograph with the 4344 quartz caliber — the affordable Casio chronograph that defined \"a steel sport chronograph under $300\"."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2006,
+        "price_usd": 200,
+        "source_url": "https://www.casio.com/products/watches/edifice/ef-527d-1av"
+      }
+    ],
+    "current_msrp_usd": 200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The EF-527D was introduced in 2006 as the entry Edifice chronograph. The 4344 quartz caliber is a standard Casio analog-digital chronograph with a 1/100th second stopwatch, a daily alarm, a 100m water resistance, and a 3-year battery. The 43mm stainless steel case, the tachymeter bezel, and the mineral crystal are the 2006 specification. The Edifice is the most-cited affordable Casio chronograph and the watch a collector buys as their \"first chronograph\" before they know anything about watches.",
+    "collector_notes": "The Edifice line was launched in 2000 to compete with the Tissot PRC 200 at the entry chronograph price point. The line now includes over 200 references.",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.casio.com/products/watches/edifice/ef-527d-1av"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "tissot-le-locle-t006-407",
+  "identity": {
+    "brand": "Tissot",
+    "reference": "T006.407.11.053.00",
+    "name": "Le Locle Automatic",
+    "nickname": null,
+    "collection": "Le Locle",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2003,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "ETA 2824-2",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39.3,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 2003 Tissot Le Locle — the 39.3mm dress watch with the ETA 2824-2 caliber, named after the Tissot home town in Switzerland. The most-cited Tissot dress watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 750,
+        "source_url": "https://www.tissot.com/en-us/watches/t-classic/t006-407-11-053-00"
+      }
+    ],
+    "current_msrp_usd": 750
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Le Locle is the 2003 Tissot dress watch named after the town where Tissot has been based since 1853. The 39.3mm stainless steel case, the 2824-2 automatic caliber, the 50m water resistance, and the sapphire crystal are the 2018 specification. The Le Locle is the most-cited Tissot dress watch and the watch a collector cites when they want a Swiss automatic dress watch at the under-$1,000 price point.",
+    "collector_notes": "The Le Locle line includes the T006.407 (date), T006.408 (day-date), T006.414 (chronograph), and T006.428 (small seconds). The 2824-2 caliber is the standard Swiss automatic workhorse.",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.tissot.com/en-us/watches/t-classic/t006-407-11-053-00"
+    ]
+  }
+}

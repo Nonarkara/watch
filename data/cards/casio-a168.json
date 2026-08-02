@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-a168",
+  "identity": {
+    "brand": "Casio",
+    "reference": "A168WA-1",
+    "name": "Casio Vintage A168",
+    "nickname": "the A168",
+    "collection": "Casio Vintage",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 1989,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 593",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 36.6,
+      "material": "chrome-plated resin and stainless back",
+      "bezel": "fixed chrome"
+    },
+    "one_liner": "The 1989 A168 — the chrome-and-resin round watch that defined the 1990s schoolkid digital. The watch that defined \"wearing a watch\" for a generation."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1989,
+        "price_usd": 40,
+        "source_url": "https://www.casio.com/products/watches/vintage/a168wa-1"
+      }
+    ],
+    "current_msrp_usd": 40
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The A168WA was introduced in 1989 as the round-case companion to the square F-91W and A158. The chrome bezel and bracelet-style resin strap made the watch the most-dressed-up of the entry Casio digital lineup. The 593 quartz module is the same as the F-91W, with the 7-year battery, daily alarm, hourly chime, stopwatch, and calendar. The A168 is the most-cited affordable round digital watch and the watch a watch collector buys as their \"I want a watch but I do not want to think about it\" piece.",
+    "collector_notes": "The A168WA has a round case, distinguishing it from the square F-91W and A158. The matching A169W (silver dial) and A178W (black dial) round out the A168 line.",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.casio.com/products/watches/vintage/a168wa-1"
+    ]
+  }
+}

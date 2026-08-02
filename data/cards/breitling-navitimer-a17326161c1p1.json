@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "breitling-navitimer-a17326161c1p1",
+  "identity": {
+    "brand": "Breitling",
+    "reference": "A17326161C1P1",
+    "name": "Navitimer B01 Chronograph 43",
+    "nickname": null,
+    "collection": "Navitimer",
+    "tier": "core",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "B01",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 43,
+      "material": "stainless steel",
+      "bezel": "bidirectional slide-rule"
+    },
+    "one_liner": "The 43mm Navitimer B01 Chronograph — the 1952 slide-rule bezel chronograph with the in-house B01 caliber. The most-cited modern Breitling pilot chronograph."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 8800,
+        "source_url": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph/a17326161c1p1"
+      }
+    ],
+    "current_msrp_usd": 8800
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Navitimer is the 1952 Breitling designed for the Aircraft Owners and Pilots Association. The slide-rule bezel (the circular scale that allows pilots to do fuel, distance, and time calculations) is the Navitimer's signature. The B01 caliber is the first Breitling in-house chronograph (2009) with a 70-hour reserve. The Navitimer B01 43 is the most-cited modern Breitling pilot chronograph and the watch a collector cites when they want a slide-rule chronograph with a modern manufacture caliber.",
+    "collector_notes": "The B01 caliber has a column wheel and a vertical clutch, the modern chronograph standard. The 70-hour reserve is the longest in any modern chronograph.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph/a17326161c1p1"
+    ]
+  }
+}

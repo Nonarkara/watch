@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "omega-constellation-131-10-39-20-06-001",
+  "identity": {
+    "brand": "Omega",
+    "reference": "131.10.39.20.06.001",
+    "name": "Constellation",
+    "nickname": null,
+    "collection": "Constellation",
+    "tier": "core",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "8800",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "roman numerals engraved"
+    },
+    "one_liner": "The 39mm Globemaster with the fluted bezel and the Master Chronometer caliber 8800 — the first Master Chronometer in the Omega catalogue, the watch that defined Omega's 2015+ certification standard."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 5400,
+        "source_url": "https://www.omegawatches.com/watches/constellation/globemaster/131-10-39-20-06-001"
+      }
+    ],
+    "current_msrp_usd": 5400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Globemaster (131.10.39.20.06.001) is the 2015 reference that introduced the Master Chronometer certification to the Omega catalogue. The Master Chronometer is a METAS certification that tests the watch to 15,000 gauss of magnetic resistance (most watches tolerate 60-100 gauss), accuracy of 0/+5 seconds per day, and water resistance. The 8800 caliber is a co-axial automatic. The fluted bezel is the Constellation family's signature. The Globemaster is the most-cited modern Omega in the $5,000-7,000 price band and the watch a collector cites when arguing Omega's in-house calibers are now competitive with the Swiss haute horlogerie standard.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.omegawatches.com/watches/constellation/globemaster/131-10-39-20-06-001"
+    ]
+  }
+}

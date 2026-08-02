@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "omega-seamaster-300-2254-00",
+  "identity": {
+    "brand": "Omega",
+    "reference": "2254.00",
+    "name": "Seamaster 300",
+    "nickname": null,
+    "collection": "Seamaster",
+    "tier": "core",
+    "produced": {
+      "start_year": 1999,
+      "end_year": 2011,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1120",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional 60-min"
+    },
+    "one_liner": "The 1999-2011 Seamaster 300 in 41mm — the reference that introduced the coaxial escapement to a production dive watch, and the most-cited modern Seamaster 300 of the 2000s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2002,
+        "price_usd": 3800,
+        "source_url": "https://www.omegawatches.com/watches/seamaster/diver-300-m/2254-00"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2254.00 was the Seamaster 300 reference from 1999 to 2011, when it was replaced by the 233.90.41.21.03.001 (the current reference with the Master Chronometer caliber 8800). The 2254.00 was the first Seamaster to use the George Daniels-designed coaxial escapement (caliber 1120 modified). The dial is blue or black, the bezel is the unidirectional dive scale, and the case is the 41mm mid-size that became the modern Seamaster standard. The 2254.00 is the most-cited Seamaster 300 on the secondary market because it was the first Seamaster with the coaxial escapement and the only one produced for over a decade before the 2012 redesign.",
+    "collector_notes": "",
+    "starter_alternative": "tudor-bb54-79000n"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.omegawatches.com/watches/seamaster/diver-300-m/2254-00"
+    ]
+  }
+}

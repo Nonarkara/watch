@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5168g-001",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5168G-001",
+    "name": "Nautilus",
+    "nickname": "Jumbo",
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "324 SC",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42.2,
+      "material": "18k white gold",
+      "bezel": "octagonal polished"
+    },
+    "one_liner": "The 42mm white-gold Jumbo Nautilus — the watch that became the alternative to a steel 5711 when the steel allocation closed, with a 1.7x price tag and a longer waitlist."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 71600,
+        "source_url": "https://www.patek.com/en/collection/nautilus-5168g-001"
+      }
+    ],
+    "current_msrp_usd": 71600
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "When the 5711 became a five-year waitlist in 2018, collectors who would not pay grey-market premiums turned to the 5168G: same Gerald Genta case, 2.2mm larger, in 18k white gold instead of steel, with a khaki-green dial. The result: a watch that holds its value because the entry Nautilus is no longer available. The 5168G is the closest the brand came to a publicly-purchasable Jumbo after the original 3700/1A was retired.",
+    "collector_notes": "The 5168G wears smaller than the 42.2mm suggests because of the bezel proportions. Check the lume application on the hands — Patek is conservative, so the lume is functional, not theatrical.",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/nautilus-5168g-001"
+    ]
+  }
+}

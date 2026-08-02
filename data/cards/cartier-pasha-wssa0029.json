@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "cartier-pasha-wssa0029",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WSSA0029",
+    "name": "Pasha de Cartier",
+    "nickname": null,
+    "collection": "Pasha",
+    "tier": "core",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1847 MC",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "screw-down crown guard"
+    },
+    "one_liner": "The 2020 Pasha de Cartier in stainless steel with the screw-down crown guard and the QuickSwitch strap system — the modern reissue of the 1985 Pasha that defined Cartier's 1980s sport watch identity."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 7700,
+        "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/pasha/wssa0029-pasha-de-cartier-watch"
+      }
+    ],
+    "current_msrp_usd": 7700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2020 Pasha de Cartier is the modern reissue of the 1985 Pasha (the watch Cartier designed for the \"Pasha of Marrakech\"). The 41mm stainless steel case, the screw-down crown guard with the chain attachment, and the QuickSwitch strap system are the 2020 redesign. The 1847 MC caliber is the same in-house automatic used in the Santos. The Pasha is the most-cited Cartier round sport watch of the 2020s and the watch a collector cites when they want a Cartier with a sport identity different from the Tank's rectangular case.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.cartier.com/en-us/collections/watches/men-s-watches/pasha/wssa0029-pasha-de-cartier-watch"
+    ]
+  }
+}

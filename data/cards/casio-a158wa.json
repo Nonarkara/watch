@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-a158wa",
+  "identity": {
+    "brand": "Casio",
+    "reference": "A158WA-1",
+    "name": "Casio Classic A158",
+    "nickname": "the A158",
+    "collection": "Casio Classic",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 1987,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 593",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 36.8,
+      "material": "chrome-plated resin and stainless back",
+      "bezel": "fixed chrome"
+    },
+    "one_liner": "The 1987 A158 — the chrome-and-resin square watch that defined the affordable digital category. The F-91W's slightly fancier sibling."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1987,
+        "price_usd": 25,
+        "source_url": "https://www.casio.com/products/watches/classic/a158wa-1"
+      }
+    ],
+    "current_msrp_usd": 25
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The A158WA was introduced in 1987 as the chrome-and-resin variant of the F-91W. The chrome bezel and bracelet-style resin strap made the watch a slightly more dressed-up alternative to the all-resin F-91W. The 593 quartz module is the same as the F-91W, with the 7-year battery, daily alarm, hourly chime, stopwatch, and calendar. The A158 is the most-cited affordable \"dress digital\" watch and the watch a watch collector buys as their second watch for the office.",
+    "collector_notes": "The A158WA and F-91W share the 593 module. The differences are the chrome bezel and the case dimensions (A158 is 36.8mm wide, F-91W is 33.2mm wide).",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.casio.com/products/watches/classic/a158wa-1"
+    ]
+  }
+}

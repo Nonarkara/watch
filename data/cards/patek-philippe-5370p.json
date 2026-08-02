@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5370p",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5370P-001",
+    "name": "Split-Seconds Chronograph",
+    "nickname": "5370P",
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "CHR 29-535 PS",
+      "type": "manual split-seconds chronograph"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Platinum 950",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 41mm platinum split-seconds chronograph with a blue enamel dial — the first Patek in-house column-wheel split-seconds (CHR 29-535 PS, 2010 caliber) and the most-cited modern Patek chronograph at the $200,000 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 215000,
+        "source_url": "https://www.patek.com/en/collection/grand-complications-5370p-001"
+      }
+    ],
+    "current_msrp_usd": 215000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5370P is the modern replacement for the 5004P. The CHR 29-535 PS caliber is the first Patek in-house column-wheel chronograph with a split-seconds mechanism; the column wheel is visible through the case back. The 41mm platinum case, the blue enamel dial, and the two-level sub-dial layout are the visual signature. The 5370P is the most-cited modern Patek grand complication chronograph and the watch a collector cites when arguing Patek's chronograph engineering is at the top of the Swiss industry.",
+    "collector_notes": "The 5370P is the first Patek chronograph with a blue enamel dial; enamel is one of the most fragile dial-making processes and is hand-fired at 800°C.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/grand-complications-5370p-001"
+    ]
+  }
+}

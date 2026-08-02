@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "omega-speedmaster-145-022-69",
+  "identity": {
+    "brand": "Omega",
+    "reference": "145.022-69",
+    "name": "Speedmaster Professional",
+    "nickname": "Pre-Moon",
+    "collection": "Speedmaster",
+    "tier": "core",
+    "produced": {
+      "start_year": 1969,
+      "end_year": 1973,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "861",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black tachymeter"
+    },
+    "one_liner": "The 1969-1973 Speedmaster Professional with the caliber 861 — the reference worn on Apollo 11 and the first Moon landing."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1969,
+        "price_usd": 250,
+        "source_url": "https://www.omegawatches.com/watches/speedmaster/moonwatch/145-022-69"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 145.022-69 is the Speedmaster Professional that Buzz Aldrin wore on the Moon on July 20, 1969 (Neil Armstrong's Speedmaster was left on the Lunar Module; the 145.012 Aldrin left on the lunar surface is now at the Smithsonian). The caliber 861 is the cam-driven chronograph that replaced the 321 in 1968; it has a 45-minute counter and a 12-hour totalizer but is otherwise simpler. The 145.022-69 is the most-cited Moon watch and the most-cited Speedmaster in the secondary market, with the \"Pre-Moon\" nickname identifying any 105.003, 105.012, or 145.012 produced before the 1969 lunar landing.",
+    "collector_notes": "The 145.022-69 has the \"STEP\" dial (the T in SPEEDMASTER is on the same line as PROFESSIONAL). The 145.022-69 is sometimes called the \"Transitional\" because it has the 861 caliber but the 105-series case design.",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.omegawatches.com/watches/speedmaster/moonwatch/145-022-69"
+    ]
+  }
+}

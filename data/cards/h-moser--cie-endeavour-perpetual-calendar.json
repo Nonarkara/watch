@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "h-moser--cie-endeavour-perpetual-calendar",
+  "identity": {
+    "brand": "H. Moser & Cie",
+    "reference": "1801-1200",
+    "name": "Endeavour Perpetual Calendar",
+    "nickname": null,
+    "collection": "Endeavour",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "HMC 341",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40.8,
+      "material": "18k rose gold or steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The Moser Perpetual Calendar — the watch that proved H. Moser could compete at the haute horlogerie price point, with a fumé dial, an HMC 341 caliber, and a no-logo design philosophy."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 48000,
+        "source_url": "https://www.h-moser.com/en/collection/endeavour/endeavour-perpetual-calendar"
+      }
+    ],
+    "current_msrp_usd": 48000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Endeavour Perpetual Calendar is the 2015 reference that established H. Moser as a haute horlogerie brand. The HMC 341 caliber is a manual-wind perpetual calendar with a 7-day reserve, an interchangeable escapement module, and a small seconds. The dial is a fumé smoked salmon or green, with no logo — Moser's deliberate \"no logo\" statement. The Perpetual Calendar is the most-cited Moser of the 2010s, and the watch that has been compared to the Patek 5140 in the value-per-dollar argument.",
+    "collector_notes": "The 2018 Endeavour Perpetual Calendar in steel was the first Moser in steel at the haute horlogerie price point, a deliberate move to make the brand accessible to the Royal Oak / Nautilus buyer who wanted a different design language.",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.h-moser.com/en/collection/endeavour/endeavour-perpetual-calendar"
+    ]
+  }
+}

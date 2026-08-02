@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5170j-001",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5170J-001",
+    "name": "Grand Complications Chronograph",
+    "nickname": null,
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2010,
+      "end_year": 2018,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "CH 29-535 PS",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "18k yellow gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The first Patek chronograph with the in-house CH 29-535 PS caliber (2010), in yellow gold. The textbook manual-wind dress chronograph of the 2010s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2010,
+        "price_usd": 78000,
+        "source_url": "https://www.patek.com/en/collection/5170j-001"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5170J is the reference that retired the Lemania-derived caliber that Patek had used for fifty years. The CH 29-535 PS is the first chronograph caliber fully designed in-house, and it is also the first with a column wheel visible through the case back. The 5170 family (J yellow, R rose, G white) ran 2010-2018 before the 5172 replaced it. The 5170 is the last of the manually-wound Patek dress chronographs; the 5172 added a pulsometer scale.",
+    "collector_notes": "The CH 29-535 PS has six patents on the chronograph mechanism alone, including the tooth profile of the column wheel. The 5170 is the reference a collector cites when they want to argue Patek's chronograph chronograph engineering is real, not decorative.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/5170j-001"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-326934",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "326934",
+    "name": "Sky-Dweller",
+    "nickname": null,
+    "collection": "Sky-Dweller",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9001",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "Oystersteel + white gold fluted bezel",
+      "bezel": "fluted 18k white gold (rotating Ring Command)"
+    },
+    "one_liner": "The Sky-Dweller is Rolex's most complicated wristwatch: a dual time-zone annual calendar with the Ring Command bezel. The 326934 in steel and white gold made the complication accessible in 2017."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 15100,
+        "source_url": "https://www.rolex.com/watches/sky-dweller/m326934-0005"
+      }
+    ],
+    "current_msrp_usd": 15100
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Sky-Dweller launched in 2012 as a 40mm or 42mm watch in 18k gold or platinum only, with a 32,000 CHF retail. The 2017 release of the 326934 (Oystersteel and white gold fluted bezel) brought the entry Sky-Dweller to $15,100 — a 50% reduction. The complication is a true annual calendar: it \"remembers\" the 30/31 day month, and the off-centre 24-hour disc reads a second time zone. The Ring Command bezel (rotates both ways, four positions) is the only Rolex bezel with active mechanical function — each position selects a different ring in the movement.",
+    "collector_notes": "The 326934 in the white-gold fluted bezel is the most-cited 2017-on Sky-Dweller. The 326935 (Everose gold) and 326938 (yellow gold) and 326939 (white gold) round out the family.",
+    "starter_alternative": "rolex-126710blro-pepsi"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/sky-dweller/m326934-0005"
+    ]
+  }
+}

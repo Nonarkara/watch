@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "iwc-portugieser-iw500710",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW500710",
+    "name": "Portugieser Automatic",
+    "nickname": null,
+    "collection": "Portugieser",
+    "tier": "core",
+    "produced": {
+      "start_year": 2000,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "51011",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42.3,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 42.3mm Portugieser Automatic with the 7-day power reserve — the most-cited IWC dress/sport watch, a watch with a railway-track dial and a Pellaton winding system."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 8000,
+        "source_url": "https://www.iwc.com/us/en/watch-collections/portugieser/iw500710-portugieser-automatic.html"
+      }
+    ],
+    "current_msrp_usd": 8000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The IW500710 is the modern Portugieser Automatic, in production since 2000. The 51011 caliber is a Pellaton-winding automatic with a 7-day reserve, the longest in the modern IWC catalogue. The 42.3mm stainless steel case has the railway-track dial, the Arabic numerals, and the small seconds at 6 that are the Portugieser's signature. The IW500710 is the most-cited IWC dress/sport watch because the 7-day reserve and the readable dial are the two IWC features a watch collector cites when arguing IWC belongs in the haute horlogerie conversation.",
+    "collector_notes": "The Pellaton winding system is a bidirectional pawl-and-ratchet system that winds the mainspring with both directions of rotor rotation. The 7-day reserve is achieved with two barrels.",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.iwc.com/us/en/watch-collections/portugieser/iw500710-portugieser-automatic.html"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "omega-de-ville-511-13-39-21-06-001",
+  "identity": {
+    "brand": "Omega",
+    "reference": "511.13.39.21.06.001",
+    "name": "De Ville Trésor",
+    "nickname": null,
+    "collection": "De Ville",
+    "tier": "core",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "8927",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "18k yellow gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 40mm De Ville Trésor in 18k yellow gold with the 8927 caliber — Omega's dress watch reference, the watch that competes with the JLC Master Ultra Thin in the $10,000-15,000 dress segment."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2014,
+        "price_usd": 11200,
+        "source_url": "https://www.omegawatches.com/watches/de-ville/tresor/511-13-39-21-06-001"
+      }
+    ],
+    "current_msrp_usd": 11200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The De Ville Trésor is the 2014 dress watch that defined Omega's haute horlogerie direction. The 8927 caliber is a co-axial manual-wind movement with a 72-hour reserve and a Master Chronometer certification. The 40mm 18k yellow gold case is the classic De Ville proportion. The dial is sandwich-style with a small seconds at 6. The De Ville Trésor is the most-cited modern Omega dress watch and the watch a collector cites when arguing Omega has a haute horlogerie offering beyond the Constellation.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.omegawatches.com/watches/de-ville/tresor/511-13-39-21-06-001"
+    ]
+  }
+}

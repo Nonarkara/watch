@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5035j-001",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5035J-001",
+    "name": "Annual Calendar",
+    "nickname": null,
+    "collection": "Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 1996,
+      "end_year": 2003,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "315 S QA",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "18k yellow gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 1996 Annual Calendar — Patek invented the complication in 1996, and the 5035J is the watch that made it accessible. The reference that started the entire annual-calendar category."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1996,
+        "price_usd": 21500,
+        "source_url": "https://www.patek.com/en/collection/complications-5035j-001"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Patek launched the annual calendar in 1996 with the 5035. The mechanism \"remembers\" the length of every month except February in leap year — it needs a single correction once a year, on March 1. The 5035 was the first annual calendar in series production, and the complication has since been adopted by Rolex (Sky-Dweller 2012, via the Saros system) and Vacheron. The 5035J ran 1996-2003 before the 5146 replaced it. The annual calendar is the rare Patek complication that is both a watchmaking milestone and an everyday-wearable watch.",
+    "collector_notes": "",
+    "starter_alternative": "rolex-326934"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/complications-5035j-001"
+    ]
+  }
+}

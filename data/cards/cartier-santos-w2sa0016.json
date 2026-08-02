@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "cartier-santos-w2sa0016",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "W2SA0016",
+    "name": "Santos de Cartier",
+    "nickname": null,
+    "collection": "Santos",
+    "tier": "core",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1847 MC",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39.8,
+      "material": "stainless steel",
+      "bezel": "eight-screw polished"
+    },
+    "one_liner": "The 2018 Santos de Cartier in stainless steel with the QuickSwitch bracelet — the first Cartier sport watch with the bracelet-and-strap interchange system."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 7250,
+        "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/santos-de-cartier/w2sa0016-santos-de-cartier-watch"
+      }
+    ],
+    "current_msrp_usd": 7250
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 2018 Santos de Cartier is the modern reissue of the 1904 Santos (the first men's wristwatch, designed by Louis Cartier for his friend Alberto Santos-Dumont). The 39.8mm case, the 1847 MC caliber, and the QuickSwitch bracelet (allows swapping the bracelet for a strap without tools) are the 2018 redesign. The Santos is the most-cited Cartier sport watch of the 2020s and the watch a collector cites when they want a steel sport watch that is not a Royal Oak or a Nautilus.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.cartier.com/en-us/collections/watches/men-s-watches/santos-de-cartier/w2sa0016-santos-de-cartier-watch"
+    ]
+  }
+}

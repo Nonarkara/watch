@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "longines-spirit-l3-813-4-66-6",
+  "identity": {
+    "brand": "Longines",
+    "reference": "L3.813.4.66.6",
+    "name": "Spirit Automatic",
+    "nickname": null,
+    "collection": "Spirit",
+    "tier": "core",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L888.4",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "bidirectional internal (twin-flag bezel)"
+    },
+    "one_liner": "The 42mm Spirit Automatic with the 100m water resistance and the L888.4 caliber — Longines' 2020 dress/sport watch that competes with the Tudor Black Bay at the under-$2,500 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 2300,
+        "source_url": "https://www.longines.com/en-us/watch-spirit-l3-813-4-66-6"
+      }
+    ],
+    "current_msrp_usd": 2300
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Spirit Automatic is the 2020 reference that positioned Longines in the entry-luxury dress/sport segment. The 42mm stainless steel case, the 100m water resistance, the bidirectional internal bezel with the twin-flag design, and the L888.4 caliber (an ETA-based automatic with a 72-hour reserve, COSC-certified) are the 2020 specification. The Spirit is the most-cited modern Longines and the watch a collector cites when they want a Tudor Black Bay competitor at the under-$2,500 price point.",
+    "collector_notes": "The L888.4 is an ETA-based movement with a silicon balance spring. The 72-hour reserve and the COSC certification make it one of the strongest caliber specifications in the entry-luxury segment.",
+    "starter_alternative": "tudor-bb54-79000n"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.longines.com/en-us/watch-spirit-l3-813-4-66-6"
+    ]
+  }
+}
