@@ -51,7 +51,14 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2016-01-01",
+      "person_or_event": "Black Bay 41 release",
+      "description": "Tudor releases the 79230N Black Bay 41mm as the standard 41mm Black Bay. The reference is a particular favourite of the Asian ADs, with Hong Kong, Singapore, and Tokyo boutiques running steady demand through the late 2010s.",
+      "source_url": "https://www.tudorwatch.com/en/black-bay"
+    }
+  ],
   "narrative": {
     "story": "The original 2012 Black Bay ran a modified ETA 2824 movement under reference 79220. In 2016 Tudor replaced it with the in-house MT5602 and renumbered the black-dial version 79230N, keeping the same case, bezel, and oversized winding crown that made the original Black Bay a breakout success.",
     "collector_notes": "Buyers should confirm whether a listing is the earlier ETA-based 79220 or the in-house 79230N before comparing price, since the two look nearly identical from the dial side but differ in movement, power reserve, and caseback.",
