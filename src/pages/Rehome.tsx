@@ -110,7 +110,7 @@ export default function Rehome() {
           <li><span className="mono">03</span><p><strong>Disclose interventions.</strong><br />State polishing, replaced parts, aftermarket components, water damage, and known accuracy issues.</p></li>
           <li><span className="mono">04</span><p><strong>Protect both people.</strong><br />Use authentication, written terms, insured delivery, and a payment method appropriate to the value and jurisdiction.</p></li>
         </ol>
-        <p className="micro dim">The Watch Register does not broker transactions, hold funds, authenticate watches, or endorse counterparties.</p>
+        <p className="micro dim">Time Pop does not broker transactions, hold funds, authenticate watches, or endorse counterparties.</p>
       </section>
     </>
   )

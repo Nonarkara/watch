@@ -2,6 +2,18 @@
 
 (§13 Rule 3/10 — every correction lands here. Read at session start.)
 
+## 2026-08-03 · AIX: starter IDs must match card `id`, not filename stem
+
+- **What went wrong:** An audit counted broken `starter_alternative` refs by comparing against JSON filenames. Several cards use `grand-seiko-…` / `hamilton-khaki-field-…` as `id` while older refs still said `grandseiko-…` / `hamilton-intra-matic-68`. Filename-stem matching both missed real breaks and invented false ones.
+- **Correct behaviour:** resolve starters against `card.id` only (same path as `Dossier.tsx` / `Starter.tsx`). After a rename pass, rebuild `public/data.json` and assert zero unresolved refs before ship.
+- **How to recognise:** dossier “starter alternative” link 404s, or Starter paths skip a row; grepping filenames alone looks “fine.”
+
+## 2026-08-03 · AIX: three-size collapse keeps weight/family, not a fourth clamp
+
+- **What went wrong:** Ad-hoc `font-size` values (18/22/24px, tight tracking past −0.04em) and image hover scale re-entered after the Time Pop surface work. Pointing OG at the deleted AI hero banner would have revived an unlicensed asset (`c8f0d53` removed it on purpose).
+- **Correct behaviour:** only `--text-display|body|micro`; tracking floor −0.03em; hierarchy via weight/family; no decorative image scale on card hover; OG stays on `og-image.png` until a sourced share image exists.
+- **How to recognise:** more than three distinct `font-size` values in `src/index.css`, or OG/twitter image URLs under `/img/hero/`.
+
 ## 2026-07-31 · Dashboard-token overflow kills document scroll
 
 - **What went wrong:** `_shared/design-tokens/dr-non-brand.css` sets `html, body { height: 100dvh; overflow: hidden }` for app shells. The Register overrode with `overflow: visible` then `overflow-x: hidden`. Lightning CSS merged that to `overflow: hidden visible`. The root kept failing to scroll, so Codex’s tall atelier home looked like a frozen demo.
