@@ -12,10 +12,11 @@
     "data:catalog": "node scripts/build_rolex_catalog.mjs",
     "data:screen": "node scripts/build_screen_sightings.mjs",
     "data:screen:harvest": "node scripts/collect_watch_id.mjs",
-    "test": "node scripts/test-invariants.mjs",
+    "test": "node scripts/test-invariants.mjs && WATCH_TEST_NETWORK=1 node scripts/test-fetch.mjs",
     "data:audit": "node scripts/audit.mjs",
     "data:sightings:validate": "node scripts/validate_sightings.mjs",
-    "data:cpi": "node scripts/collect-cpi.mjs"
+    "data:cpi": "node scripts/collect-cpi.mjs",
+    "data:status": "node scripts/data-status.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
