@@ -14,7 +14,9 @@ const shared = {
   brand_production: JSON.parse(readFileSync(join(ROOT, "data/shared/brand_production.json"), "utf8")),
   brand_tiers: JSON.parse(readFileSync(join(ROOT, "data/shared/brand_tiers.json"), "utf8")),
   rolex_catalog: JSON.parse(readFileSync(join(ROOT, "data/shared/rolex_catalog.json"), "utf8")),
-  screen_sightings: JSON.parse(readFileSync(join(ROOT, "data/shared/watch_id_rolex.json"), "utf8")),
+  // Canonical screen-data source — single file, single source of truth.
+  // Contains Rolex Watch-ID sightings (31) + iconic film stills (14), 45 total.
+  screen_sightings: JSON.parse(readFileSync(join(ROOT, "data/shared/screen_sightings.json"), "utf8")),
   // Hand-curated, licence-checked photography. Optional: absent means every card
   // falls back to the catalogue, and a card with neither simply shows no image.
   images: existsSync(join(ROOT, "data/shared/images.json"))

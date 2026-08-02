@@ -431,8 +431,6 @@ const outShared = join(ROOT, 'data/shared/screen_sightings.json')
 const outPublic = join(ROOT, 'public/data/screen_sightings.json')
 writeFileSync(outShared, JSON.stringify(snapshot, null, 2) + '\n')
 writeFileSync(outPublic, JSON.stringify(snapshot, null, 2) + '\n')
-// Keep legacy path working during transition
-copyFileSync(outPublic, join(ROOT, 'public/data/watch_id_rolex.json'))
 
 console.log(
   `✓ ${snapshot.count} sightings (${ICONS.length} iconic stills + ${enrichedRolex.length} Rolex) → public/data/screen_sightings.json`,

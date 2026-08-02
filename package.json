@@ -13,6 +13,8 @@
     "data:screen": "node scripts/build_screen_sightings.mjs",
     "data:screen:harvest": "node scripts/collect_watch_id.mjs",
     "test": "node scripts/test-invariants.mjs",
+    "data:audit": "node scripts/audit.mjs",
+    "data:sightings:validate": "node scripts/validate_sightings.mjs",
     "data:cpi": "node scripts/collect-cpi.mjs"
   },
   "dependencies": {
