@@ -37,6 +37,9 @@ export default function Screen() {
   const [snapshot, setSnapshot] = useState<ScreenSnapshot | null>(null)
   const [filter, setFilter] = useState<Filter>('all')
   const [exactOnly, setExactOnly] = useState(false)
+  // Year-range filter. Default = all years. Decade buttons set min/max.
+  const [yearMin, setYearMin] = useState<number | null>(null)
+  const [yearMax, setYearMax] = useState<number | null>(null)
   useEffect(() => { loadScreenSightings().then(setSnapshot) }, [])
 
   const mediaById = useMemo(() => {
@@ -48,9 +51,32 @@ export default function Screen() {
     return map
   }, [data])
 
-  const sightings = useMemo(() => (snapshot?.sightings ?? []).filter((item) =>
-    (filter === 'all' || item.media_type === filter) && (!exactOnly || item.match_level === 'exact_reference')),
-  [snapshot, filter, exactOnly])
+  // Decade boundaries present in the dataset, used to drive the decade chips.
+  const yearRange = useMemo(() => {
+    const ys = (snapshot?.sightings ?? []).map((s) => s.release_year).filter((y): y is number => y != null)
+    if (!ys.length) return { min: null, max: null }
+    return { min: Math.min(...ys), max: Math.max(...ys) }
+  }, [snapshot])
+
+  // Decade chips. We bucket by 10-year spans starting from yearRange.min.
+  const decadeChips = useMemo(() => {
+    if (yearRange.min == null) return [] as { label: string; from: number; to: number }[]
+    const start = Math.floor(yearRange.min / 10) * 10
+    const end = Math.floor(yearRange.max / 10) * 10
+    const chips: { label: string; from: number; to: number }[] = []
+    for (let y = start; y <= end; y += 10) {
+      chips.push({ label: `${y}s`, from: y, to: y + 9 })
+    }
+    return chips
+  }, [yearRange])
+
+  const sightings = useMemo(() => (snapshot?.sightings ?? []).filter((item) => {
+    if (filter !== 'all' && item.media_type !== filter) return false
+    if (exactOnly && item.match_level !== 'exact_reference') return false
+    if (yearMin != null && (item.release_year == null || item.release_year < yearMin)) return false
+    if (yearMax != null && (item.release_year == null || item.release_year > yearMax)) return false
+    return true
+  }), [snapshot, filter, exactOnly, yearMin, yearMax])
   const exact = snapshot?.sightings.filter((item) => item.match_level === 'exact_reference').length ?? 0
   const withStills = snapshot?.sightings.filter((item) => item.media).length ?? 0
 
@@ -88,6 +114,26 @@ export default function Screen() {
         <button className={`chip ${exactOnly ? 'on' : ''}`} onClick={() => setExactOnly(!exactOnly)}>EXACT REFERENCE ONLY</button>
         <span className="mono micro dim">{sightings.length} SHOWN</span>
       </div>
+
+      {decadeChips.length > 1 && (
+        <div className="screen-controls screen-year-controls" role="group" aria-label="Filter by decade">
+          <button
+            className={`chip ${yearMin == null && yearMax == null ? 'on' : ''}`}
+            onClick={() => { setYearMin(null); setYearMax(null) }}
+          >ALL YEARS</button>
+          {decadeChips.map((d) => {
+            const active = yearMin === d.from && yearMax === d.to
+            return (
+              <button
+                key={d.label}
+                className={`chip ${active ? 'on' : ''}`}
+                onClick={() => { setYearMin(d.from); setYearMax(d.to) }}
+                title={`Sightings from ${d.from} to ${d.to}`}
+              >{d.label.toUpperCase()}</button>
+            )
+          })}
+        </div>
+      )}
 
       <div className="screen-grid">
         {sightings.map((item, index) => {

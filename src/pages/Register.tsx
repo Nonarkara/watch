@@ -6,13 +6,14 @@ import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
 
-type SortKey = 'collectibility' | 'scarcity' | 'market_desc' | 'market_asc' | 'delta' | 'az'
+type SortKey = 'collectibility' | 'scarcity' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
 const SORTS: { k: SortKey; label: string }[] = [
   { k: 'collectibility', label: 'COLLECTIBILITY' },
   { k: 'scarcity', label: 'SCARCITY' },
   { k: 'market_desc', label: 'MARKET ↓' },
   { k: 'market_asc', label: 'MARKET ↑' },
   { k: 'delta', label: 'VS RETAIL' },
+  { k: 'newest', label: 'NEWEST' },
   { k: 'az', label: 'A–Z' },
 ]
 
@@ -31,6 +32,18 @@ export default function Register() {
     [cards],
   )
 
+  // Brand directory with tier + count, so the dropdown shows the depth of each
+  // brand — e.g. "ROLEX · CROWN · 39" instead of just "Rolex". Tier comes from
+  // brand_tiers.json; the count is the number of cards we have on file.
+  const brandDirectory = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const c of cards) counts.set(c.identity.brand, (counts.get(c.identity.brand) ?? 0) + 1)
+    return brands.map((b) => {
+      const tier = cards.find((c) => c.identity.brand === b)?.identity.tier
+      return { brand: b, count: counts.get(b) ?? 0, tier }
+    })
+  }, [brands, cards])
+
   const rows = useMemo(() => {
     const needle = q.trim().toLowerCase()
     const f = cards.filter((c) => {
@@ -41,12 +54,14 @@ export default function Register() {
         .filter(Boolean).join(' ').toLowerCase().includes(needle)
     })
     const est = (c: Card) => c.computed.estimate.value
+    const startYear = (c: Card) => c.identity.produced?.start_year ?? 0
     const cmp: Record<SortKey, (a: Card, b: Card) => number> = {
       collectibility: (a, b) => b.computed.collectibility.value - a.computed.collectibility.value,
       scarcity: (a, b) => b.computed.scarcity.value - a.computed.scarcity.value,
       market_desc: (a, b) => (est(b) ?? -1) - (est(a) ?? -1),
       market_asc: (a, b) => (est(a) ?? Infinity) - (est(b) ?? Infinity),
       delta: (a, b) => (b.computed.premium.value ?? -Infinity) - (a.computed.premium.value ?? -Infinity),
+      newest: (a, b) => startYear(b) - startYear(a),
       az: (a, b) => a.id.localeCompare(b.id),
     }
     return [...f].sort(cmp[sort])
@@ -71,7 +86,11 @@ export default function Register() {
             value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search the register" />
           <select className="sel" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Filter by brand">
             <option value="all">ALL BRANDS</option>
-            {brands.map((b) => <option key={b} value={b}>{b.toUpperCase()}</option>)}
+            {brandDirectory.map((b) => (
+              <option key={b.brand} value={b.brand}>
+                {b.brand.toUpperCase()} · {b.count} {b.count === 1 ? 'card' : 'cards'}
+              </option>
+            ))}
           </select>
           <select className="sel" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
             {SORTS.map((s) => <option key={s.k} value={s.k}>SORT · {s.label}</option>)}
