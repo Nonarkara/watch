@@ -44,31 +44,38 @@ const percentile = (xs, p) => {
   return s[lo] + (s[lo + 1] !== undefined ? (s[lo + 1] - s[lo]) * (i - lo) : 0);
 };
 
-// (a) Market price estimate — widening windows 12→24→36mo; refuses below n=3.
+// (a) Market price estimate — widening windows 12→24→36→60→120mo→all-time;
+// refuses below n=3. Older windows degrade honestly in the limitation string
+// so a card with comps spread over years still gets a number, not a refusal.
 export function marketEstimate(comps, buildDate) {
-  for (const months of [12, 24, 36]) {
+  const windows = [12, 24, 36, 60, 120, 1200];  // 1200mo = "all time on file"
+  for (const months of windows) {
     const w = compsInWindow(comps, buildDate, months);
     if (w.length < 3) continue;
     const prices = w.map((c) => c.price_usd);
     const venues = new Set(w.map((c) => c.venue)).size;
     const newest = w.map((c) => c.date).sort().at(-1);
+    const oldest = w.map((c) => c.date).sort()[0];
     const base = { n: w.length, window_months: months, venues, as_of: newest, reason: null };
+    const windowLabel = months === 1200 ? "all time on file" : months === 120 ? "10 years" : months === 60 ? "5 years" : `${months} months`;
     if (w.length >= 8) {
       return { ...base,
         value: Math.round(trimmedMean(prices, 0.2)),
         band: [Math.round(percentile(prices, 0.25)), Math.round(percentile(prices, 0.75))],
         method: "trimmed_mean_20",
-        limitation: `From ${w.length} sales over ${months} months across ${venues} venue(s); condition varies.` };
+        limitation: `From ${w.length} sales over ${windowLabel} (oldest ${oldest}, newest ${newest}) across ${venues} venue(s); condition varies.` };
     }
     return { ...base,
       value: Math.round(median(prices)),
       band: [Math.min(...prices), Math.max(...prices)],
       method: "median",
-      limitation: `Only ${w.length} sales over ${months} months; small-sample median.` };
+      limitation: `Only ${w.length} sales over ${windowLabel} (oldest ${oldest}, newest ${newest}); small-sample median — single-condition comps dominate.` };
   }
   return { value: null, n: comps.length, window_months: null, as_of: null, method: null,
     reason: comps.length === 0 ? "no_comps" : "insufficient_comps",
-    limitation: "Fewer than 3 verified sales in any 36-month window." };
+    limitation: comps.length < 3
+      ? `Only ${comps.length} verified sale${comps.length === 1 ? '' : 's'} on file. Add at least ${3 - comps.length} more comp (Phillips, Christie's, Sotheby's, Bonhams) for an estimate.`
+      : `Sales exist but none of the 3-, 5-, or 10-year windows from the build date contain 3 sales; refusing to estimate.` };
 }
 
 // (b) Premium to retail %
@@ -101,12 +108,25 @@ export function premiumToRetail(estimate, retail, discontinued) {
 
 // (c) Price change over `years`, nominal + CPI-real
 export function priceChange(comps, buildDate, years, cpi) {
-  const now = compsInWindow(comps, buildDate, 12);
-  const then = compsInWindow(comps, buildDate, 12, years * 12);
+  // We compare the most-recent window with the window `years` ago. For
+  // thin markets (older cards, niche references) the strict 12-month
+  // window never has 3 sales; we widen each side progressively.
+  const nowWindows = [12, 24, 36, 60];
+  const thenOffset = years * 12;
+  let now = [], then = [], nowMonths = 0, thenMonths = 0;
+  for (const m of nowWindows) {
+    now = compsInWindow(comps, buildDate, m);
+    if (now.length >= 3) { nowMonths = m; break; }
+  }
+  // The "then" window is `years` ago, but we widen if needed.
+  for (const m of nowWindows) {
+    then = compsInWindow(comps, buildDate, m, thenOffset);
+    if (then.length >= 3) { thenMonths = m; break; }
+  }
   if (now.length < 3 || then.length < 3) {
     return { nominal_pct: null, real_pct: null,
       reason: "insufficient_comps_in_period", n_now: now.length, n_then: then.length,
-      limitation: `Needs ≥3 sales in both the current and the ${years}-years-ago window.` };
+      limitation: `Needs ≥3 sales in both the current and the ${years}-years-ago window — only ${now.length} recent, ${then.length} from ${years} years ago.` };
   }
   const mNow = median(now.map((c) => c.price_usd));
   const mThen = median(then.map((c) => c.price_usd));
@@ -116,9 +136,10 @@ export function priceChange(comps, buildDate, years, cpi) {
   const cNow = cpiAt(cpi, monthKey(end.toISOString()));
   const cThen = cpiAt(cpi, monthKey(past.toISOString()));
   const real = cNow && cThen ? round1(((mNow / mThen) * (cThen / cNow) - 1) * 100) : null;
-  return { nominal_pct: nominal, real_pct: real, n_now: now.length, n_then: then.length,
+  return { nominal_pct: nominal, real_pct: real,
+    n_now: now.length, n_then: then.length, window_now: nowMonths, window_then: thenMonths,
     reason: real == null ? "no_cpi" : null,
-    limitation: "Windowed medians, not like-for-like condition pairs." };
+    limitation: `Windowed medians over ${nowMonths}-mo and ${thenMonths}-mo; not like-for-like condition pairs.` };
 }
 
 function cpiAt(cpi, ym) {
@@ -184,12 +205,21 @@ export function collectibilityIndex(card, premium, scarcity, change5y) {
       (parts.length < 5 ? `based on ${parts.length}/5 components.` : "all 5 components present.") };
 }
 
-// (f) Liquidity signal
+// (f) Liquidity signal — sold-price count per year, averaged over the available
+// window. Strict 12-month is too punishing for thin markets; we widen up to
+// 36 months and present the rate honestly.
 export function liquiditySignal(comps, buildDate) {
-  const salesYr = compsInWindow(comps, buildDate, 12).length;
-  const tier = salesYr >= 12 ? "High" : salesYr >= 4 ? "Medium" : salesYr >= 1 ? "Low" : "Unknown";
-  return { sales_per_year: salesYr, tier, reason: salesYr === 0 ? "no_comps" : null,
-    limitation: "Counts only venues we track; true market volume is higher." };
+  let rate = 0, windowMonths = 0, window = 12;
+  for (const m of [12, 24, 36]) {
+    const w = compsInWindow(comps, buildDate, m);
+    if (w.length > 0) { rate = w.length / (m / 12); window = m; windowMonths = m; break; }
+  }
+  const rateYr = Math.round(rate * 10) / 10;
+  const tier = rateYr >= 12 ? "High" : rateYr >= 4 ? "Medium" : rateYr >= 1 ? "Low" : "Unknown";
+  return {
+    sales_per_year: rateYr, window_months: windowMonths, tier,
+    reason: comps.length === 0 ? "no_comps" : null,
+    limitation: `Counted from ${window}-month window of tracked venue sales; private sales and dealer trades are not in scope.` };
 }
 
 // (g) Data confidence tier

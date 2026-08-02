@@ -126,3 +126,15 @@ const out = {
 };
 writeFileSync(join(ROOT, "public/data.json"), JSON.stringify(out));
 console.log(`✓ ${published.length} cards → public/data.json (build ${buildDate})`);
+
+// Mirror the collector fetch-state (if it exists) so the /data page can show
+// upstream source freshness. Collectors write to data/.state/fetch-state.json,
+// which is gitignored — we copy it into the public bundle so the page
+// actually has something to read at runtime.
+try {
+  const state = JSON.parse(readFileSync(join(ROOT, "data/.state/fetch-state.json"), "utf8"));
+  writeFileSync(join(ROOT, "public/data/fetch-state.json"), JSON.stringify(state, null, 2));
+} catch {
+  // No fetch state yet — write an empty object so the /data page doesn't 404.
+  writeFileSync(join(ROOT, "public/data/fetch-state.json"), "{}");
+}

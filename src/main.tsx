@@ -20,6 +20,9 @@ import Economy from './pages/Economy.tsx'
 import Photos from './pages/Photos.tsx'
 import Screen from './pages/Screen.tsx'
 import About from './pages/About.tsx'
+import Brands from './pages/Brands.tsx'
+import Data from './pages/Data.tsx'
+import Glossary from './pages/Glossary.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -43,6 +46,9 @@ createRoot(document.getElementById('root')!).render(
           <Route path="legal" element={<Legal />} />
           <Route path="paper" element={<Paper />} />
           <Route path="about" element={<About />} />
+          <Route path="brands" element={<Brands />} />
+          <Route path="data" element={<Data />} />
+          <Route path="glossary" element={<Glossary />} />
         </Route>
       </Routes>
     </BrowserRouter>
