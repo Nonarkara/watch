@@ -118,3 +118,29 @@
 - The tiered price-band framework became a computed, invariant-tested metric because it is
   a pure function of on-card prices; the index percentages stayed context because they are
   not derivable from our evidence. The dividing line: can the build recompute it?
+
+## 2026-08-02 · An unattributed hero contradicts the whole site
+
+- **What went wrong:** the home page led with a pop-art collage carrying no author, no
+  licence and no source — on a site whose every dossier argues that provenance is
+  checkable. It was 1024×576 (standard generation output) and depicted identifiable
+  living actors, which is a likeness exposure larger than the unlicensed catalogue images
+  gated the week before. House law bans AI imagery by default; the deeper problem was
+  that the front door broke the site's own rule.
+- **Correct behaviour:** the fold's right half now renders a ledger read from the live
+  build — references, brands, verified sales, sourced events, credited stills, and a zero
+  for invented prices. It cannot drift from the data because it is the data.
+- **How to recognise:** any displayed image with no entry in the image manifest; any
+  asset whose dimensions match a generator default; any hero that would fail the
+  attribution standard the rest of the site enforces.
+
+## 2026-08-02 · Dead internal links render as blank pages, silently
+
+- The home page's "Rolex object atlas" card pointed at `/rolex-atlas`, which had no route.
+  React Router matched nothing and rendered an empty shell — no error, no 404, just a
+  blank screen that reads as broken data on a reference site.
+- `scripts/test-routes.mjs` now parses every `to=` and `to:` target and asserts a matching
+  `<Route>`, wired into `npm test`. Found one dead link across 20 routes on first run.
+- Empty-space complaints are measurable: height ÷ character count per section exposed the
+  four loosest blocks immediately (1.0–1.4 px/char against 0.22 for a dense one). Measure
+  before cutting, so the fix lands on the real offender rather than the nearest padding.
