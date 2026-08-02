@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
-import { TIER_LABEL, type Card } from '../lib/data.ts'
+import { TIER_LABEL, BRAND_REGION, REGION_LABEL, type Card } from '../lib/data.ts'
 
 type BrandGroup = {
   brand: string
@@ -104,6 +104,9 @@ export default function Brands() {
                 </h2>
                 <span className="mono brand-row-count">
                   {g.cards.length} reference{g.cards.length === 1 ? '' : 's'}
+                  {BRAND_REGION[g.brand] && (
+                    <span className="brand-region-tag mono">· {REGION_LABEL[BRAND_REGION[g.brand]].toUpperCase()}</span>
+                  )}
                 </span>
               </header>
               <div className="brand-tier-breakdown mono">

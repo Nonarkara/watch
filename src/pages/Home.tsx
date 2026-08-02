@@ -117,6 +117,11 @@ export default function Home() {
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const spotlight = useMemo(() => spotlightDossiers(data.cards), [data])
   const ticker = useMemo(() => tasteOfRegister(data.cards), [data])
+  const asiaPicks = useMemo(() => data.cards.filter((c) => {
+    const asianBrands = new Set(['Casio', 'Citizen', 'Credor', 'Grand Seiko', 'Hajime Asaoka',
+      'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Seiko'])
+    return asianBrands.has(c.identity.brand) && c.media.length > 0
+  }).slice(0, 4), [data])
   const brassTacks = useMemo(() => {
     // For buyers: a couple of fully-stocked dossiers worth starting with.
     const withProvenanceAndComps = data.cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
@@ -159,7 +164,7 @@ export default function Home() {
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
-          <p className="ticker-meta mono">24 references · 27 brands · last build {data.built}</p>
+          <p className="ticker-meta mono">24 references · {new Set(data.cards.map((c) => c.identity.brand)).size} brands · last build {data.built}</p>
         </div>
         <div className="ticker-strip">
           {ticker.map((c) => {
@@ -213,6 +218,38 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {asiaPicks.length > 0 && (
+        <section className="asia-spotlight" aria-label="Asian-market references">
+          <div className="section-rule">
+            <h2>Asia on Time Pop.</h2>
+            <span className="sticker-inline mono">JDM · HK AD QUEUES · TOKYO INDEPENDENTS</span>
+          </div>
+          <div className="asia-spotlight-grid">
+            {asiaPicks.map((c) => (
+              <Link key={c.id} to={`/w/${c.id}`} className="asia-spotlight-card">
+                <span className="asia-spotlight-media">
+                  {c.media[0]
+                    ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                    : <span className="dim">NO PHOTO YET</span>}
+                </span>
+                <span className="asia-spotlight-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                <span className="asia-spotlight-name">{c.identity.name}</span>
+                {c.identity.nickname && <span className="asia-spotlight-nick">“{c.identity.nickname}”</span>}
+                <span className="asia-spotlight-tier mono">{c.identity.tier.toUpperCase()}</span>
+              </Link>
+            ))}
+            <Link to="/register?region=asia" className="asia-spotlight-card asia-spotlight-all">
+              <span className="asia-spotlight-all-eyebrow mono">FILTER</span>
+              <span className="asia-spotlight-all-title">SEE ALL ASIA</span>
+              <span className="asia-spotlight-all-body">
+                Casio, Citizen, Credor, Grand Seiko, Seiko, King Seiko, Kurono, Minase, Naoya Hida, Hajime Asaoka.
+              </span>
+              <span className="asia-spotlight-all-link mono">→ REGISTER (REGION: ASIA)</span>
+            </Link>
+          </div>
+        </section>
+      )}
 
       <section className="lookbook-paths">
         <div className="section-rule">

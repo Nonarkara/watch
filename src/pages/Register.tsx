@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { useCompare } from '../lib/compare-context.tsx'
-import { TIER_LABEL, TIER_ORDER, type Card } from '../lib/data.ts'
+import { TIER_LABEL, TIER_ORDER, BRAND_REGION, REGION_ORDER, REGION_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
 
@@ -19,17 +19,31 @@ const SORTS: { k: SortKey; label: string }[] = [
 
 export default function Register() {
   const data = useDataset()
+  const [params, setParams] = useSearchParams()
   const [q, setQ] = useState('')
   const [tier, setTier] = useState<'all' | Card['identity']['tier']>('all')
-  const [brand, setBrand] = useState('all')
+  const [brand, setBrand] = useState(params.get('brand') ?? 'all')
+  const [region, setRegion] = useState<'all' | 'asia' | 'europe' | 'americas'>(
+    (params.get('region') as 'asia' | 'europe' | 'americas') ?? 'all'
+  )
   const [sort, setSort] = useState<SortKey>('collectibility')
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
+
+  // Keep the URL in sync with active filters so a back-link or a "see all asia" link survives reload.
+  useEffect(() => {
+    const next = new URLSearchParams()
+    if (brand !== 'all') next.set('brand', brand)
+    if (region !== 'all') next.set('region', region)
+    if (next.toString() !== params.toString()) setParams(next, { replace: true })
+  }, [brand, region, params, setParams])
 
   const cards = useMemo(() => data?.cards ?? [], [data])
 
   const brands = useMemo(
-    () => [...new Set(cards.map((c) => c.identity.brand))].sort(),
-    [cards],
+    () => [...new Set(cards
+      .filter((c) => region === 'all' || BRAND_REGION[c.identity.brand] === region)
+      .map((c) => c.identity.brand))].sort(),
+    [cards, region],
   )
 
   // Brand directory with tier + count, so the dropdown shows the depth of each
@@ -49,6 +63,7 @@ export default function Register() {
     const f = cards.filter((c) => {
       if (tier !== 'all' && c.identity.tier !== tier) return false
       if (brand !== 'all' && c.identity.brand !== brand) return false
+      if (region !== 'all' && BRAND_REGION[c.identity.brand] !== region) return false
       if (!needle) return true
       return [c.identity.brand, c.identity.reference, c.identity.name, c.identity.nickname, c.identity.collection]
         .filter(Boolean).join(' ').toLowerCase().includes(needle)
@@ -112,6 +127,20 @@ export default function Register() {
           </div>
         </div>
 
+        <div className="chips" role="group" aria-label="Filter by region">
+          <button className={'chip' + (region === 'all' ? ' on' : '')} onClick={() => { setRegion('all'); setBrand('all') }}>All regions</button>
+          {REGION_ORDER.map((r) => {
+            const n = cards.filter((c) => BRAND_REGION[c.identity.brand] === r).length
+            return (
+              <button
+                key={r}
+                className={'chip' + (region === r ? ' on' : '')}
+                onClick={() => { setRegion(r); setBrand('all') }}
+                title={`${n} references from ${REGION_LABEL[r]}-headquartered brands`}
+              >{REGION_LABEL[r].toUpperCase()} · {n}</button>
+            )
+          })}
+        </div>
         <div className="chips" role="group" aria-label="Filter by tier">
           <button className={'chip' + (tier === 'all' ? ' on' : '')} onClick={() => setTier('all')}>All</button>
           {TIER_ORDER.map((t) => (
