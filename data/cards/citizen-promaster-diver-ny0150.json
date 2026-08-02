@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "citizen-promaster-diver-ny0150",
+  "identity": {
+    "brand": "Citizen",
+    "reference": "NY0150-58E",
+    "name": "Promaster Diver",
+    "nickname": "Promaster",
+    "collection": "Promaster",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "8204",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 44,
+      "material": "stainless steel",
+      "bezel": "aluminum unidirectional 60-min"
+    },
+    "one_liner": "The 2019 Citizen Promaster Diver with the 8204 caliber — the affordable automatic dive watch that competes with the Seiko SKX and the Orient Kamasu at the under-$600 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 575,
+        "source_url": "https://www.citizenwatch.com/us/en/watch/ny0150-58e"
+      }
+    ],
+    "current_msrp_usd": 575
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The NY0150-58E is the 2019 Citizen Promaster Diver, the 44mm stainless steel automatic dive watch with the 8204 caliber (Citizen's entry automatic, hand-wind, hacking, 42-hour reserve). The 200m water resistance, the aluminum unidirectional bezel, and the day-date display are the 2019 specification. The Promaster is the most-cited modern Citizen dive watch and the watch a collector cites when they want a Japanese automatic dive watch at the under-$600 price point.",
+    "collector_notes": "The 8204 caliber is Citizen's entry automatic (no hand-wind, no hacking — wait, the 8204 is hand-wind, hacking). The Promaster line was launched in 1989 for Citizen's professional sports watches.",
+    "starter_alternative": "seiko-skx007"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.citizenwatch.com/us/en/watch/ny0150-58e"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "iwc-portofino-iw357404",
+  "identity": {
+    "brand": "IWC",
+    "reference": "IW357404",
+    "name": "Portofino Automatic",
+    "nickname": null,
+    "collection": "Portofino",
+    "tier": "core",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "35111",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 40mm Portofino Automatic — IWC's 1984 dress watch reissued in the modern size, the most-cited IWC entry-level dress watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 4700,
+        "source_url": "https://www.iwc.com/us/en/watch-collections/portofino/iw357404-portofino-automatic.html"
+      }
+    ],
+    "current_msrp_usd": 4700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Portofino is the 1984 IWC dress watch designed by Kurt Klaus, an entry-level three-hand in a 1980s Italian village aesthetic. The IW357404 is the 2020 reissue in 40mm (the original was 36mm). The 35111 caliber is a Sellita-based automatic with a 42-hour reserve. The Portofino is the most-cited IWC dress watch and the watch a collector cites when they want an IWC that is unambiguously a dress watch — no pilot, no Portugieser, no Ingenieur.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.iwc.com/us/en/watch-collections/portofino/iw357404-portofino-automatic.html"
+    ]
+  }
+}

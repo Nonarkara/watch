@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126613ln",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126613LN",
+    "name": "Submariner Date",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3235",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel + 18k yellow gold",
+      "bezel": "ceramic unidirectional 60-min (black)"
+    },
+    "one_liner": "The two-tone Submariner Date — Oystersteel and 18k yellow gold, black dial, black Cerachrom bezel. The accessible-luxury Submariner and the most-cited Rolex two-tone."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 17800,
+        "source_url": "https://www.rolex.com/watches/submariner/m126613ln-0002"
+      }
+    ],
+    "current_msrp_usd": 17800
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 126613LN replaced the 116613LN in 2020 with the 41mm case and the calibre 3235. The two-tone Submariner is the Rolex that opens the Submariner line to buyers who cannot justify the $10,900 all-steel (because of the AD waitlist) and who do not want an all-gold Rolex that reads as a status statement. The 126613LN holds its value well; the all-gold 116618LB (blue dial) and 116618 (black) and 116619LB (blue dial) round out the gold Submariner family.",
+    "collector_notes": "",
+    "starter_alternative": "tudor-bb58-79030b"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/submariner/m126613ln-0002"
+    ]
+  }
+}

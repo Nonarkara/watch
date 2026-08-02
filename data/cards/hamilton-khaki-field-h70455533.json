@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "hamilton-khaki-field-h70455533",
+  "identity": {
+    "brand": "Hamilton",
+    "reference": "H70455533",
+    "name": "Khaki Field Auto 38mm",
+    "nickname": null,
+    "collection": "Khaki Field",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "H-10",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 38mm Khaki Field Automatic with the H-10 caliber and 80-hour reserve — Hamilton's most-cited affordable field watch and the watch a collector cites when they want a field watch under $1,000."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 595,
+        "source_url": "https://www.hamiltonwatch.com/en-us/h70455533-khaki-field-auto-38mm"
+      }
+    ],
+    "current_msrp_usd": 595
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Khaki Field Auto 38mm is the 2018 reference that defined Hamilton's modern field watch identity. The 38mm stainless steel case, the matte black dial with the Arabic numerals, the 100m water resistance, and the H-10 caliber (an ETA-based automatic with an 80-hour reserve) are the 2018 specification. The Khaki Field is the most-cited modern Hamilton field watch and the watch a collector cites when they want a field watch that is not a Seiko 5 or a Marathon.",
+    "collector_notes": "The H-10 is a modified ETA C07.611 with a 80-hour reserve. The Khaki Field lineage runs back to the 1960s Hamilton MIL-W-46374, the watch the US military issued to soldiers in Vietnam.",
+    "starter_alternative": "seiko-srpd-5-sports"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.hamiltonwatch.com/en-us/h70455533-khaki-field-auto-38mm"
+    ]
+  }
+}

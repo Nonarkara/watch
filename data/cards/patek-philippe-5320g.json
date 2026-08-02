@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5320g",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5320G-001",
+    "name": "Perpetual Calendar",
+    "nickname": null,
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "324 S Q",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "18k white gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 2017 perpetual calendar in white gold with cream-lume dial and syringe hands — the most-cited modern Patek perpetual calendar in the $50,000 price band."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 56500,
+        "source_url": "https://www.patek.com/en/collection/grand-complications-5320g-001"
+      }
+    ],
+    "current_msrp_usd": 56500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5320G is the 2017 perpetual calendar that replaced the 5140. The cream-lume dial with blue accents and syringe hands is a deliberate reference to the 1940s Patek perpetual calendars. The 324 S Q caliber is the same as in the 5140. The 40mm case is the modern size. The 5320G is the most-cited modern Patek perpetual calendar because the dial layout reads as \"Patek 1940s\" without being a reissue, and the price is below the platinum 5370 and the perpetual chronograph 5270.",
+    "collector_notes": "",
+    "starter_alternative": "rolex-326934"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/grand-complications-5320g-001"
+    ]
+  }
+}

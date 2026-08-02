@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-126333",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "126333",
+    "name": "Datejust 41",
+    "nickname": null,
+    "collection": "Datejust",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3235",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel + 18k yellow gold",
+      "bezel": "fluted 18k yellow gold"
+    },
+    "one_liner": "The 41mm Datejust 41 in Rolesor (steel and yellow gold) with the fluted bezel — the most-cited two-tone Datejust of the modern catalogue."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 11300,
+        "source_url": "https://www.rolex.com/watches/datejust/m126333-0019"
+      }
+    ],
+    "current_msrp_usd": 11300
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 126333 is the two-tone Rolesor version of the Datejust 41. The Rolesor combination (Oystersteel case with 18k yellow gold bezel) is the Rolex signature. The 41mm stainless steel case with the 18k yellow gold fluted bezel, the calibre 3235 with 70-hour reserve, and the 100m water resistance are the 2016 specification. The 126333 is the most-cited two-tone Datejust and the watch a collector cites when they want a Datejust that is more dressed-up than the all-steel 126334.",
+    "collector_notes": "Rolesor is the Rolex term for the steel-and-gold combination. The 126333 in the champagne dial is the most-cited two-tone Datejust variant.",
+    "starter_alternative": "rolex-126334"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/datejust/m126333-0019"
+    ]
+  }
+}

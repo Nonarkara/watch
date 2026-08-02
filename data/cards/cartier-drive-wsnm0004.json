@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "cartier-drive-wsnm0004",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WSNM0004",
+    "name": "Drive de Cartier",
+    "nickname": null,
+    "collection": "Drive",
+    "tier": "core",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1904 MC",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished (cushion case)"
+    },
+    "one_liner": "The 2016 Drive de Cartier in stainless steel with the cushion case — Cartier's 2016 entry in the men's dress watch segment, designed to compete with the JLC Master Ultra Thin and the Patek Calatrava."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 7100,
+        "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/drive-de-cartier/wsnm0004-drive-de-cartier-watch"
+      }
+    ],
+    "current_msrp_usd": 7100
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Drive de Cartier is the 2016 men's dress watch that Cartier positioned as its \"modern American\" entry (the cushion case references the American car-seat-bolster design language Cartier had used in the 1920s Tank Cintrée). The 40mm stainless steel case, the 1904 MC caliber, and the small seconds at 6 are the modern specification. The Drive is the most-cited Cartier men's dress watch of the 2010s.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.cartier.com/en-us/collections/watches/men-s-watches/drive-de-cartier/wsnm0004-drive-de-cartier-watch"
+    ]
+  }
+}

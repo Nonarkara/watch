@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "zenith-chronomaster-sport-03-3100-3600",
+  "identity": {
+    "brand": "Zenith",
+    "reference": "03.3100.3600/69.M3100",
+    "name": "Chronomaster Sport",
+    "nickname": null,
+    "collection": "Chronomaster",
+    "tier": "core",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "El Primero 3600",
+      "type": "automatic hi-beat chronograph"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional 60-min"
+    },
+    "one_liner": "The 2021 Chronomaster Sport — the first Zenith chronograph with a ceramic bezel and the 36,000 vph El Primero 3600 caliber. The watch a collector cites when arguing Zenith belongs in the modern hi-beat conversation."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 9700,
+        "source_url": "https://www.zenith-watches.com/en/chronomaster/03-3100-3600-69-m3100"
+      }
+    ],
+    "current_msrp_usd": 9700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Chronomaster Sport is the 2021 release that positioned Zenith against the Rolex Daytona at the under-$10,000 price point. The 41mm stainless steel case, the ceramic unidirectional dive bezel (the first on a Zenith chronograph), the El Primero 3600 caliber (36,000 vph, 60-hour reserve, 1/10th second chronograph), and the tri-color sub-dial layout are the 2021 specification. The Chronomaster Sport is the most-cited modern Zenith and the watch a collector cites when they want a hi-beat automatic chronograph that is not a Daytona.",
+    "collector_notes": "The El Primero 3600 measures 1/10th second — the seconds hand makes one revolution per 10 seconds instead of the standard 60. The 36,000 vph rate allows the 1/10th second accuracy.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.zenith-watches.com/en/chronomaster/03-3100-3600-69-m3100"
+    ]
+  }
+}

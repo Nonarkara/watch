@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "m-b-f-lm101",
+  "identity": {
+    "brand": "MB&F",
+    "reference": "LM101",
+    "name": "Legacy Machine 101",
+    "nickname": null,
+    "collection": "Legacy Machine",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "LM101",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "18k white gold or platinum",
+      "bezel": "smooth polished with floating balance"
+    },
+    "one_liner": "The MB&F watch that hangs the balance wheel above the dial on a vertical arch — a 14mm balance with a 2.5Hz oscillation, visible from the front. The most-cited contemporary haute horlogerie design of the 2010s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2014,
+        "price_usd": 75000,
+        "source_url": "https://www.mbandf.com/en/legacy-machine/lm101"
+      }
+    ],
+    "current_msrp_usd": 75000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "LM101 launch",
+      "description": "MB&F's Legacy Machine 101 (LM101) debuts as the brand's most \"classical\" piece: a suspended balance wheel above a sub-dial, with a 45mm case and an in-house movement. MB&F positions it as a \"watchmaker's watch\" — the simplest, most personal piece in the Horological Machine catalogue.",
+      "source_url": "https://mbandf.com/en/machines/legacy-machines/lm-101"
+    }
+  ],
+  "narrative": {
+    "story": "The Legacy Machine 101 (LM101) is Max Büsser's tribute to 19th-century pocket-watch chronometer design, updated to a wristwatch format. The signature is the 14mm balance wheel suspended above the dial on a vertical arch — a hand-engraved bridge of polished steel. The result is a watch that looks like a small mechanical planet. The LM101 was followed by the LM101 MB&F × H. Moser in 2020 (a H. Moser × MB&F collaboration), and the LM101 EVO in 2022. The original LM101 ran 2014-2018 in white gold; the 2022 reissue is in steel, titanium, and limited platinum.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.mbandf.com/en/legacy-machine/lm101"
+    ]
+  }
+}

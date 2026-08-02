@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "tagheuer-carrera-cbs2210",
+  "identity": {
+    "brand": "TAG Heuer",
+    "reference": "CBS2210",
+    "name": "Carrera Glassbox",
+    "nickname": "Glassbox",
+    "collection": "Carrera",
+    "tier": "core",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Heuer 02 (TH20-00)",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "smooth polished (domed glassbox)"
+    },
+    "one_liner": "The 2023 Carrera Glassbox — the 1963 Heuer Carrera reissue with the domed sapphire crystal and the in-house Heuer 02 caliber. The most-cited modern TAG Heuer sport chronograph."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 7400,
+        "source_url": "https://www.tagheuer.com/us/en/timepieces/collection-carrera/cbs2210"
+      }
+    ],
+    "current_msrp_usd": 7400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "Carrera Glassbox",
+      "description": "TAG Heuer launches the Carrera Date Glassbox (CBS2210) at Watches and Wonders 2023 — a 39mm case with a domed sapphire \"glassbox\" crystal over the dial, reissuing a 1970s Carrera family design.",
+      "source_url": "https://www.tagheuer.com/us/en/collection-carrera"
+    }
+  ],
+  "narrative": {
+    "story": "The Carrera Glassbox is the 2023 release that reissued the 1963 Heuer Carrera with a domed sapphire crystal (the \"Glassbox\" name) and the modern in-house Heuer 02 caliber. The 39mm case, the glassbox crystal, and the column-wheel chronograph are the 2023 specification. The Carrera Glassbox is the most-cited modern TAG Heuer and the watch a collector cites when they want a vintage-modern chronograph with a domed crystal and an in-house caliber.",
+    "collector_notes": "The Heuer 02 caliber has a column wheel and a vertical clutch, with an 80-hour reserve. The glassbox crystal arches over the bezel-less dial opening, a design reference to the 1963 Heuer Carrera Dato 45.",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.tagheuer.com/us/en/timepieces/collection-carrera/cbs2210"
+    ]
+  }
+}

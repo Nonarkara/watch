@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sary195",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SARY195",
+    "name": "Presage Sharp Edged Series",
+    "nickname": "Sharp Edged",
+    "collection": "Presage",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6R64",
+      "type": "automatic GMT"
+    },
+    "case": {
+      "diameter_mm": 39.3,
+      "material": "stainless steel",
+      "bezel": "faceted 12-sided"
+    },
+    "one_liner": "The 2020 Presage Sharp Edged Series — the 39.3mm GMT with the 12-sided faceted bezel and the 6R64 caliber. The most-cited modern Seiko Presage."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 1100,
+        "source_url": "https://www.seikowatches.com/us-en/products/presage/sary195"
+      }
+    ],
+    "current_msrp_usd": 1100
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SARY195 is the 2020 Presage Sharp Edged Series, the 39.3mm GMT with the 12-sided faceted bezel. The 6R64 caliber is the hand-wind, hacking, 45-hour reserve GMT. The 100m water resistance, the sapphire crystal, and the 4R-style 6R64 movement are the 2020 specification. The Sharp Edged is the most-cited modern Seiko Presage and the watch a collector cites when they want a Seiko dress watch with a GMT complication at the $1,100 price point.",
+    "collector_notes": "The Sharp Edged Series has a 12-sided bezel that references the 1962 Seiko Crown Chronograph. The 6R64 is a hand-wind, hacking GMT with a 45-hour reserve.",
+    "starter_alternative": "grandseiko-sbga405"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/presage/sary195"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "omega-speedmaster-310-30-42-50-01-001",
+  "identity": {
+    "brand": "Omega",
+    "reference": "310.30.42.50.01.001",
+    "name": "Speedmaster Moonwatch Professional",
+    "nickname": "Moonwatch",
+    "collection": "Speedmaster",
+    "tier": "core",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3861",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "black tachymeter"
+    },
+    "one_liner": "The 2021 Speedmaster Moonwatch Professional with the caliber 3861 — the modern Moonwatch with the Master Chronometer certification, the most-cited modern Omega."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 7000,
+        "source_url": "https://www.omegawatches.com/watches/speedmaster/moonwatch/310-30-42-50-01-001"
+      }
+    ],
+    "current_msrp_usd": 7000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-01-01",
+      "person_or_event": "Speedmaster 3861 release",
+      "description": "The Speedmaster Moonwatch Professional with calibre 3861 — co-axial escapement, Master Chronometer, 50m water resistance — becomes the modern Moonwatch baseline, replacing the 1861 line that ran 1996-2021.",
+      "source_url": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-chronograph-42-mm-31030425001001"
+    }
+  ],
+  "narrative": {
+    "story": "The 310.30.42.50.01.001 is the 2021 Speedmaster Professional that replaced the 145.022 with the Master Chronometer caliber 3861. The 3861 is a hand-wind chronograph with a co-axial escapement, a silicon escape wheel, and a 50-hour reserve. The 42mm stainless steel case, the sapphire crystal (with hesalite option), the 50m water resistance, and the Master Chronometer certification are the 2021 specification. The new Moonwatch is the most-cited modern Omega and the watch a collector cites when they want the Speedmaster Professional with the modern Master Chronometer certification.",
+    "collector_notes": "The 3861 caliber is the first Speedmaster caliber with a co-axial escapement and a Master Chronometer certification. The 3861 replaced the 1861 (a derivative of the 863 used since 1996).",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.omegawatches.com/watches/speedmaster/moonwatch/310-30-42-50-01-001"
+    ]
+  }
+}

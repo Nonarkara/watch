@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "cartier-ballon-bleu-w2bb0034",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "W2BB0034",
+    "name": "Ballon Bleu de Cartier",
+    "nickname": null,
+    "collection": "Ballon Bleu",
+    "tier": "core",
+    "produced": {
+      "start_year": 2007,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1847 MC",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "smooth polished (crown guard integrated)"
+    },
+    "one_liner": "The 42mm Ballon Bleu in stainless steel — Cartier's 2007 reference for a round dress watch with the integrated crown guard. The most-cited modern Cartier round dress watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 7050,
+        "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/ballon-bleu/w2bb0034-ballon-bleu-de-cartier-watch"
+      }
+    ],
+    "current_msrp_usd": 7050
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Ballon Bleu is the 2007 reference that added a round dress watch to the Cartier family. The 42mm stainless steel case, the integrated crown guard with the blue cabochon, and the 1847 MC caliber are the modern specification. The Ballon Bleu is the most-cited Cartier round dress watch because the case design (a circle within a circle, with the crown integrated into the case middle) is the most-cited Cartier design of the 2010s-2020s.",
+    "collector_notes": "",
+    "starter_alternative": "tissot-prx-t137-410"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.cartier.com/en-us/collections/watches/men-s-watches/ballon-bleu/w2bb0034-ballon-bleu-de-cartier-watch"
+    ]
+  }
+}

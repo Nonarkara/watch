@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5968g-001",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5968G-001",
+    "name": "Nautilus Chronograph",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "CH 28-520 C",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "18k white gold",
+      "bezel": "octagonal polished"
+    },
+    "one_liner": "The first Nautilus chronograph since the 5980 was discontinued in 2012, re-released in 18k white gold with an orange-gradient dial — the sport watch collector's 2018 grail."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 95600,
+        "source_url": "https://www.patek.com/en/collection/nautilus-5968g-001"
+      }
+    ],
+    "current_msrp_usd": 95600
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 5968G is the first Nautilus chronograph Patek sold with an in-house movement; the 5980/1A-014 (steel, 2014) had used a modified Lemania base. The orange-gradient dial was a deliberate departure from the conservative 5712 palette, and it is the reason the 5968G is the most-photographed modern Patek chronograph. The 5968A (steel, 2023) is the current entry.",
+    "collector_notes": "",
+    "starter_alternative": "rolex-126500ln"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/nautilus-5968g-001"
+    ]
+  }
+}

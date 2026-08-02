@@ -8,9 +8,9 @@ import ErrorBoundary from './components/ErrorBoundary.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
+  { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/brands', label: 'Brands' },
   { to: '/screen', label: 'On screen' },
-  { to: '/photos', label: 'Rolex atlas' },
   { to: '/economy', label: 'Economy' },
   { to: '/data', label: 'Data' },
 ]
@@ -24,6 +24,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/economy': 'Attention, Supply & Price — Time Pop',
   '/data': 'Data Pipeline — Time Pop',
   '/glossary': 'Glossary — Time Pop',
+  '/watchmaking': 'Watchmaking — Time Pop',
   '/about': 'About — Time Pop',
   '/discover': 'Discover a Watch — Time Pop',
   '/rehome': 'Rehome a Watch — Time Pop',
@@ -91,6 +92,7 @@ export default function App() {
           <p className="micro mono ftr-links">
             <NavLink to="/about">ABOUT</NavLink>
             <NavLink to="/brands">BRANDS</NavLink>
+            <NavLink to="/watchmaking">WATCHMAKING</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>
             <NavLink to="/data">DATA</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>

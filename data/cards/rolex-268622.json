@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-268622",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "268622",
+    "name": "Sky-Dweller",
+    "nickname": null,
+    "collection": "Sky-Dweller",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9001",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "Platinum 950",
+      "bezel": "fluted Platinum 950 (rotating Ring Command)"
+    },
+    "one_liner": "The platinum Sky-Dweller — the only Rolex with a full-platinum case, an ice-blue dial, and a sandblasted platinum bezel. The top of the Sky-Dweller line."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 77500,
+        "source_url": "https://www.rolex.com/watches/sky-dweller/m268622-0002"
+      }
+    ],
+    "current_msrp_usd": 77500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 268622 is the platinum Sky-Dweller, sold since 2014 in the catalogue but rarely on the secondary market because of low production. The ice-blue dial is the Rolex signature for platinum: 18k gold is the only other material that gets the ice-blue. The sandblasted bezel is the only Rolex bezel with this finish. The 268622 is the most-cited modern Rolex complication at a price below the Daytona Platinum (116506) and the Day-Date Platinum (m228206).",
+    "collector_notes": "",
+    "starter_alternative": "rolex-326934"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/sky-dweller/m268622-0002"
+    ]
+  }
+}

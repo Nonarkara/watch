@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "cartier-tank-louis-wgta0211",
+  "identity": {
+    "brand": "Cartier",
+    "reference": "WGTA0211",
+    "name": "Tank Louis Cartier",
+    "nickname": null,
+    "collection": "Tank",
+    "tier": "core",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1917 MC",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 33,
+      "material": "18k yellow gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 2022 Tank Louis Cartier in 18k yellow gold with the new 1917 MC caliber — the dress watch reference for the Tank family and the watch a collector cites when arguing Cartier belongs in the haute horlogerie conversation."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 11000,
+        "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/tank/wgta0211-tank-louis-cartier-watch"
+      }
+    ],
+    "current_msrp_usd": 11000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "1922-01-01",
+      "person_or_event": "Tank Louis launch",
+      "description": "Louis Cartier designs the Tank Louis in 1917 (filed 1917, sold 1919), inspired by the Renault FT-17 tank seen in WWI. The Tank becomes Cartier's most-photographed watch — worn by Andy Warhol, Jackie Kennedy, Yves Saint Laurent, and a dozen U.S. presidents.",
+      "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/tank"
+    },
+    {
+      "date": "1922-01-01",
+      "person_or_event": "Tank Louis Cartier first commercial sale",
+      "description": "The Tank Louis Cartier first sells commercially in 1922 — the dress-Tank that becomes Cartier's most-photographed watch. The Tank Louis is a particular favourite of the Asian collector market, with Hong Kong, Tokyo, and Singapore ADs running steady demand through the 2020s.",
+      "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/tank"
+    }
+  ],
+  "narrative": {
+    "story": "The Tank Louis Cartier is the 2022 release of the 1922 Tank Louis (the Louis Cartier designed for his friend General Henri Louis). The 33mm 18k yellow gold case is the modern size; the 1917 MC manual-wind caliber is the new Cartier in-house movement that replaced the Piaget 430P. The Tank Louis is the most-cited Tank dress watch and the watch a collector cites when arguing Cartier's haute horlogerie positioning.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.cartier.com/en-us/collections/watches/men-s-watches/tank/wgta0211-tank-louis-cartier-watch"
+    ]
+  }
+}

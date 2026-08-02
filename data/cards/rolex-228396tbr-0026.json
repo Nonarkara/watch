@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-228396tbr-0026",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "228396TBR-0026",
+    "name": "Day-Date 40",
+    "nickname": null,
+    "collection": "Day-Date",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3255",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "Platinum 950 + baguette diamond bezel",
+      "bezel": "baguette diamond set in platinum"
+    },
+    "one_liner": "The Day-Date 40 in platinum with a baguette-diamond bezel and an ice-blue dial — the most-cited modern Day-Date and the watch that made \"President\" a Rolex-tier synonym."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 87500,
+        "source_url": "https://www.rolex.com/watches/day-date/m228396tbr-0026"
+      }
+    ],
+    "current_msrp_usd": 87500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Day-Date was introduced in 1956 and has been called the \"President\" since the introduction of the matching President bracelet in 1965. The 228396TBR is the platinum Day-Date 40 with a baguette-diamond bezel, sold since 2022. The 228206 (platinum smooth bezel) and 228239 (yellow gold fluted) and 228238 (yellow gold smooth) round out the Day-Date 40 family. The Day-Date 40 replaced the 41mm Day-Date II in 2015.",
+    "collector_notes": "",
+    "starter_alternative": "rolex-326934"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/day-date/m228396tbr-0026"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "rolex-116610",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "116610",
+    "name": "Submariner",
+    "nickname": null,
+    "collection": "Submariner",
+    "tier": "crown",
+    "produced": {
+      "start_year": 2010,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3135",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "Oystersteel",
+      "bezel": "ceramic unidirectional 60-min"
+    },
+    "one_liner": "The 116610 was the Cerachrom-bezel Submariner for ten years (2010-2020) before the 41mm 126610 replaced it. The reference that defined the 2010s Submariner."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2010,
+        "price_usd": 8250,
+        "source_url": "https://www.rolex.com/watches/submariner/m116610ln-0001"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 116610 ran for ten years and was sold as the Submariner Date (116610LN black, 116610LV \"Hulk\" green) and the no-date 114060. The Cerachrom bezel (introduced 2010) was a major upgrade from the earlier aluminum bezels — virtually scratchproof and color-stable. The 3135 caliber is the workhorse Rolex automatic of the 2000s-2010s. The 116610 was the last 40mm Submariner; the 2020 126610LN and 126610LV are 41mm with the calibre 3230. The 116610 holds value well on the secondary market because the 40mm case is now the vintage-size reference.",
+    "collector_notes": "",
+    "starter_alternative": "tudor-bb-79230n"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.rolex.com/watches/submariner/m116610ln-0001"
+    ]
+  }
+}

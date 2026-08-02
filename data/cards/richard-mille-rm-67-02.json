@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "richard-mille-rm-67-02",
+  "identity": {
+    "brand": "Richard Mille",
+    "reference": "RM 67-02",
+    "name": "Automatic Extra Flat",
+    "nickname": null,
+    "collection": "RM 067",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "CRMA7",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38.7,
+      "material": "Carbon TPT or Quartz TPT",
+      "bezel": "integrated tonneau"
+    },
+    "one_liner": "The 38.7mm extra-flat Richard Mille — the brand's most wearable entry, designed with sprinter Wayde van Niekerk. Carbon-TPT case, 7.8mm thin, the RM that does not look like an RM."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2018,
+        "price_usd": 145000,
+        "source_url": "https://www.richardmille.com/collections/rm-67-02"
+      }
+    ],
+    "current_msrp_usd": 145000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2017-01-01",
+      "person_or_event": "RM 67-02 release",
+      "description": "Richard Mille releases the 32-gram RM 67-02 sports watch with the automatic CRMA7 calibre.",
+      "source_url": "https://www.richardmille.com/collections/rm-67-02-automatic-extra-flat"
+    }
+  ],
+  "narrative": {
+    "story": "The RM 67-02 is the most restrained Richard Mille in production. The 38.7mm tonneau case is 7.8mm thin — the thinnest RM ever. The CRMA7 caliber is a skeletonized micro-rotor automatic with a 50-hour reserve. The \"Extra Flat\" name is misleading; the watch is only extra flat by Richard Mille standards (most RM cases are 12-16mm thick). The RM 67-02 was the watch worn by sprinter Wayde van Niekerk in his post-injury comeback and the watch worn on the wrist of actress Margot Robbie in Once Upon a Time in Hollywood. The RM 67-02 is the most-cited \"wearable\" Richard Mille and the only one a normal human can fit under a shirt cuff.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.richardmille.com/collections/rm-67-02"
+    ]
+  }
+}

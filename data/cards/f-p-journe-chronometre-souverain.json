@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "f-p-journe-chronometre-souverain",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "CS",
+    "name": "Chronomètre Souverain",
+    "nickname": null,
+    "collection": "Souveraine",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2005,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1304",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "platinum",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "F.P. Journe's first series-production watch (2005, in production since the brand's 1999 founding), in a 40mm platinum case with a brass movement. The reference that made independent watchmaking serious."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 32000,
+        "source_url": "https://www.fpjourne.com/en/collections/chronometre-souverain"
+      }
+    ],
+    "current_msrp_usd": 32000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2005-01-01",
+      "person_or_event": "Chronomètre Souverain",
+      "description": "The Chronomètre Souverain is the watch that establishes F.P. Journe's reputation in the secondary market: a 40mm case, ruthenium or silver dial, and the in-house calibre 1304 with twin barrels. The 2021 \"Holland & Holland\" Damascus-dial limited edition sold 28 pieces at Phillips for charity.",
+      "source_url": "https://www.fpjourne.com/en/collections/horizon/chronometre-souverain"
+    }
+  ],
+  "narrative": {
+    "story": "The Chronomètre Souverain is F.P. Journe's most-produced watch. The 1304 caliber is brass (a deliberate choice — brass is softer and more serviceable than steel) with twin barrels and a constant-force escapement. The dial is silvered brass with small seconds at 7:30. The 40mm platinum case is the only metal in regular production; rose gold and steel are limited. The Chronomètre Souverain is the textbook F.P. Journe: hand-finished movement, small-batch production, six-figure waiting list, secondary market 2-3x retail.",
+    "collector_notes": "",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.fpjourne.com/en/collections/chronometre-souverain"
+    ]
+  }
+}

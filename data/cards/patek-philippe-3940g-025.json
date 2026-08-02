@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-3940g-025",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "3940G-025",
+    "name": "Perpetual Calendar",
+    "nickname": null,
+    "collection": "Grand Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 1985,
+      "end_year": 2006,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "240 Q",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 36,
+      "material": "18k white gold",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 3940 is the perpetual calendar that introduced the micro-rotor automatic to Patek's complications line. Made 1985-2006, the longest-running Patek perpetual of the 20th century."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 1996,
+        "price_usd": 38000,
+        "source_url": "https://www.patek.com/en/collection/3940g-025"
+      }
+    ],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 3940 replaced the 3450 (a 1981 perpetual calendar) and was itself replaced by the 5140 in 2006. Across two decades and four metals (J yellow, R rose, G white, P platinum), the 3940 was the standard Patek perpetual — a 36mm dress watch with a micro-rotor automatic (Patek's first), a moon phase, a day/date, and a leap-year indicator. The 3940G with the silver dial (025) is the most-cited variant.",
+    "collector_notes": "",
+    "starter_alternative": "rolex-326934"
+  },
+  "meta": {
+    "curated_by": "agent-popular-100",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.patek.com/en/collection/3940g-025"
+    ]
+  }
+}
