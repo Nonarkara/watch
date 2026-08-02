@@ -1,4 +1,4 @@
-# The Watch Register
+# Time Pop
 
 An evidence-first cultural register for collectible watches. It helps people explore watches as
 objects, understand the economics of scarcity, compare references, learn through stories, and make
@@ -9,7 +9,7 @@ least three verified sales in a 36-month window. Missing evidence renders as a r
 
 ## What ships
 
-- 186 reference dossiers across five collecting tiers
+- 217 unique reference dossiers across five collecting tiers
 - Deterministic scarcity, collectibility, liquidity, price-change, and confidence metrics
 - A searchable register, comparison table, starter paths, and playful discovery mode
 - A scarcity-economics explainer grounded in the published dataset
@@ -34,13 +34,15 @@ editing cards.
 ```bash
 npm install
 npm run data:catalog # rebuild the user-supplied Rolex catalog snapshot
-npm run data:screen  # refresh the public Watch-ID Rolex snapshot (network)
+npm run data:screen  # rebuild the canonical screen snapshot from committed sources
+npm run data:screen:harvest # refresh the Watch-ID Rolex source snapshot (network)
 npm run data:build  # validate cards and rebuild public/data.json
 npm test            # deterministic index invariants
+npm run data:audit  # coverage report plus identity-integrity assertions
 npm run lint
 npm run build
 npm run dev
 ```
 
 The production site is deployed to Cloudflare Pages at
-[watch.nonarkara.org](https://watch.nonarkara.org/).
+[watch-1de.pages.dev](https://watch-1de.pages.dev/). The custom domain remains the intended canonical URL once its DNS record is active.

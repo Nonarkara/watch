@@ -25,7 +25,13 @@
     "one_liner": "The rounded-corner, curved-side reading of Louis Cartier's 1919 Tank, sold under its own name since the early 1920s and still the brand's reference mechanical dress watch."
   },
   "retail": {
-    "msrp_history": [],
+    "msrp_history": [
+      {
+        "effective_year": 2026,
+        "price_usd": 16000,
+        "source_url": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0211.html"
+      }
+    ],
     "current_msrp_usd": 16000
   },
   "market_evidence": {

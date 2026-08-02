@@ -15,7 +15,7 @@
 
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { fetchWithRetry, loadFetchState, lastFetched } from './lib/fetch.mjs';
+import { fetchWithRetry, lastFetched } from './lib/fetch.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 
@@ -171,7 +171,6 @@ try {
   const { readdirSync } = await import('node:fs');
   const files = readdirSync(join(ROOT, 'data/cards')).filter((f) => f.endsWith('.json'));
   let failed = 0;
-  let warned = 0;
   for (const f of files) {
     const c = JSON.parse(readFileSync(join(ROOT, 'data/cards/' + f), 'utf8'));
     const errs = validate(c, { id: f.replace('.json', ''), buildDate: new Date().toISOString().slice(0, 10) });

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
-import { useCompare, COMPARE_MAX } from '../lib/compare-context.tsx'
+import { useCompare } from '../lib/compare-store.ts'
+import { COMPARE_MAX } from '../lib/compare-config.ts'
 import { TIER_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 

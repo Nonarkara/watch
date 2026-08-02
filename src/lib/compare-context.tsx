@@ -1,24 +1,8 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { COMPARE_MAX } from './compare-config.ts'
+import { CompareContext, type CompareApi } from './compare-store.ts'
 
 const KEY = 'watch.compare'
-export const COMPARE_MAX = 4
-
-interface CompareApi {
-  ids: string[]
-  has: (id: string) => boolean
-  add: (id: string) => void
-  remove: (id: string) => void
-  toggle: (id: string) => void
-  clear: () => void
-  full: boolean
-}
-
-const Ctx = createContext<CompareApi | null>(null)
-export const useCompare = () => {
-  const v = useContext(Ctx)
-  if (!v) throw new Error('useCompare outside provider')
-  return v
-}
 
 export function CompareProvider({ children }: { children: React.ReactNode }) {
   const [ids, setIds] = useState<string[]>(() => {
@@ -39,5 +23,5 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     ids, has: (id) => ids.includes(id), add, remove, toggle, clear, full: ids.length >= COMPARE_MAX,
   }), [ids, add, remove, toggle, clear])
 
-  return <Ctx.Provider value={api}>{children}</Ctx.Provider>
+  return <CompareContext.Provider value={api}>{children}</CompareContext.Provider>
 }

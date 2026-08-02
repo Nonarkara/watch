@@ -11,11 +11,6 @@ const CARD_DIR = join(ROOT, 'data/cards')
 
 const events = {
   // ── Asian-relevant provenance: HK handover, JDM launches, Asian auctions
-  'rolex-126710blro-pepsi': [
-    { date: '2018-05-31', person_or_event: 'Pepsi re-release at Baselworld',
-      description: 'Rolex re-releases the GMT-Master II Pepsi (126710BLRO) on a Jubilee bracelet at Baselworld 2018 — the first Pepsi since the 116710BLRO was discontinued in 2018. The release drives a 12-month waitlist at ADs in Hong Kong, Singapore, and Tokyo.',
-      source_url: 'https://www.hodinkee.com/articles/rolex-gmt-master-ii-pepsi-126710blro-baselworld-2018' },
-  ],
   'rolex-116500ln': [
     { date: '2016-03-09', person_or_event: 'Ceramic Daytona launch at Baselworld',
       description: 'Rolex launches the 116500LN at Baselworld 2016 — the first steel Daytona with a ceramic bezel since the 116520. The release is a watershed for Asian collectors, with multi-year waitlists at ADs in Hong Kong, Singapore, and Tokyo by end of 2016.',

@@ -4,7 +4,7 @@
 // candidate, the image filename is set in the second pass; this pass
 // ships the dossiers so the directory coverage grows immediately.
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -318,7 +318,7 @@ const CARDS = [
 
   make('Audemars Piguet', '15500ST', 'Royal Oak Selfwinding 41', null, 'Royal Oak', 'trinity',
     2019, 2022, '4302', 'automatic', 41, 'stainless steel', 'octagonal, screwed',
-    28500, 'https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st',
+    19200, 'https://professionalwatches.com/introducing-the-audemars-piguet-royal-oak-15500/',
     'The 2019-2022 Royal Oak 41mm with the new in-house 4302 movement — the most-cited modern Royal Oak, the one that ran 2019-2022 before the 15500ST was itself replaced by the 16202ST.',
     'The 15500ST was the most-cited modern Royal Oak from 2019 to 2022: 41mm, 10.4mm thick, in-house 4302 movement with a 70-hour reserve, a "Petite Tapisserie" dial. It replaced the 15400ST and was itself replaced by the 16202ST in 2022.',
     'The 4302 is the same architecture as the 4300 in the Code 11.59 but with a different module layout.',
@@ -383,10 +383,10 @@ const CARDS = [
     ['https://www.citizenwatch-global.com/watches/attesa/at8185-71e/']),
 
   make('Cartier', 'WGTA0211', 'Tank Louis Cartier Large', null, 'Tank', 'core',
-    2018, null, '1847 MC', 'automatic', 33.7, '18k yellow gold', 'fixed, polished',
-    16500, 'https://www.cartier.com/en-us/collections/watches/men-s-watches/tank',
-    'The Tank Louis Cartier in 18k yellow gold with the automatic 1847 MC — the most-cited Asian Tank, the watch Roger Moore and YSL wore in 1972.',
-    'The Tank Louis Cartier is the dress-Tank — the rectangle case, the Roman numerals, the cabochon crown, the leather strap. The WGTA0211 is the 33.7mm Large size in 18k yellow gold with the automatic 1847 MC.',
+    2018, null, '1917 MC', 'manual', 33.7, '18k yellow gold', 'fixed, polished',
+    16000, 'https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0211.html',
+    'The medium yellow-gold Tank Louis Cartier with the manual-wind 1917 MC calibre.',
+    'The Tank Louis Cartier is the dress-Tank — the rectangle case, the Roman numerals, the cabochon crown, the leather strap. The WGTA0211 is the 33.7mm medium size in 18k yellow gold with the manual-wind 1917 MC.',
     'The 33.7mm is the Large size — it\'s the same case size that Cartier has used since 1922, when the Tank was first sold commercially.',
     [
       { date: '1917-01-01', person_or_event: 'Tank designed', description: 'Louis Cartier designs the Tank in 1917, inspired by the Renault FT-17 tank tracks he saw in WWI. The Tank becomes Cartier\'s most-photographed watch.', source_url: 'https://www.cartier.com/en-us/collections/watches/men-s-watches/tank' },
@@ -440,12 +440,19 @@ const CARDS = [
 
 let written = 0
 let skipped = 0
+const identityKey = (brand, reference) => `${brand}|${reference}`.toLowerCase().replace(/[^a-z0-9|]/g, '')
+const existingIdentities = new Set()
+for (const file of readdirSync(CARD_DIR).filter((name) => name.endsWith('.json'))) {
+  const existing = JSON.parse(readFileSync(join(CARD_DIR, file), 'utf8'))
+  existingIdentities.add(identityKey(existing.identity.brand, existing.identity.reference))
+}
 for (const card of CARDS) {
   const id = `${card.identity.brand.toLowerCase().replace(/[ .]+/g, '-').replace(/[^a-z0-9-]/g, '')}-${card.identity.reference.toLowerCase().replace(/[ .]+/g, '-').replace(/[^a-z0-9-]/g, '')}`
   const path = join(CARD_DIR, `${id}.json`)
-  if (existsSync(path)) { skipped++; continue }
+  if (existsSync(path) || existingIdentities.has(identityKey(card.identity.brand, card.identity.reference))) { skipped++; continue }
   const out = { schema_version: 1, id, ...card }
   writeFileSync(path, JSON.stringify(out, null, 2) + '\n')
+  existingIdentities.add(identityKey(card.identity.brand, card.identity.reference))
   written++
 }
 console.log(`✓ Wrote ${written} new cards; skipped ${skipped} (already exist)`)

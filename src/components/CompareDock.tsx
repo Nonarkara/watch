@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useCompare, COMPARE_MAX } from '../lib/compare-context.tsx'
+import { useCompare } from '../lib/compare-store.ts'
+import { COMPARE_MAX } from '../lib/compare-config.ts'
 import { useDataset } from '../lib/dataset-context.ts'
 
 /** Drop target for dragging a reference down out of the register, and the shelf that

@@ -40,7 +40,7 @@ async function getInfo(title) {
       const pages = data.query?.pages ?? {}
       for (const p of Object.values(pages)) if (p.imageinfo) return p.imageinfo[0]
       return null
-    } catch (e) {
+    } catch {
       if (attempt === 3) return null
       await sleep(3000 * (attempt + 1))
     }

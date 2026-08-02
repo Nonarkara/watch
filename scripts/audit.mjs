@@ -96,7 +96,6 @@ head('BY BRAND (sorted by total cards)')
 const sorted = [...byBrand.values()].sort((a, b) => b.total - a.total || a.brand.localeCompare(b.brand))
 row(['', 'BRAND', 'N', 'IMG', 'COMP', 'PROV', 'NARR'])
 for (const b of sorted) {
-  const imgPct = b.total ? Math.round(b.image / b.total * 100) + '%' : '—'
   row(['', b.brand, b.total, `${b.image}/${b.total}`, `${b.comp}/${b.total}`, `${b.provenance}/${b.total}`, `${b.narrative}/${b.total}`])
 }
 
@@ -147,12 +146,14 @@ assert(screen.iconic_stills === screen.sightings.filter((s) => s.media?.license?
 assert(catalog.count > 0, 'catalog has records')
 assert(Object.keys(images).length === rows.filter((r) => r.hasCuratedImage).length, 'images.json keys match curated card images')
 assert(rows.every((r) => r.id === r.id.toLowerCase()), 'all card ids are lowercase')
+const identityKeys = rows.map((r) => `${r.brand}|${r.ref}`.toLowerCase().replace(/[^a-z0-9|]/g, ''))
+assert(new Set(identityKeys).size === identityKeys.length, 'one dossier per brand + reference identity')
 
 // Refuse to fail the build on coverage gaps (those are research gaps, not bugs).
 // But fail on data-shape drift.
 console.log(lines.join('\n'))
 
 if (errors > 0) {
-  console.error(`\n✗ ${errors} hard-codec assert${errors === 1 ? '' : 's'} failed`)
+  console.error(`\n✗ ${errors} hard-coded assert${errors === 1 ? '' : 's'} failed`)
   process.exit(1)
 }

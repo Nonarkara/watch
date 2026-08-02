@@ -10,8 +10,8 @@
 // it here means one place to harden, one place to test, and one place to read
 // the retry policy.
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
 const STATE_DIR = join(ROOT, 'data/.state');

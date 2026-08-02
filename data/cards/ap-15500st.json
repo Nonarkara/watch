@@ -50,9 +50,9 @@
   },
   "provenance_events": [
     {
-      "date": "2017-01-01",
+      "date": "2019-01-01",
       "person_or_event": "15500ST launch",
-      "description": "The 15500ST replaces the 15400ST with a thinner bezel, broader indices, and a 22-jewel caliber 4302. The visual update is subtle; the 15500ST runs 2017-2022 as the modern 41mm Royal Oak workhorse.",
+      "description": "The 15500ST replaces the 15400ST with a thinner bezel, broader indices, and caliber 4302. The visual update is subtle; the 15500ST runs 2019–2022 as the modern 41mm Royal Oak workhorse.",
       "source_url": "https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st"
     }
   ],
@@ -65,7 +65,8 @@
     "curated_by": "agent-trinity",
     "curated_date": "2026-07-31",
     "sources": [
-      "https://professionalwatches.com/introducing-the-audemars-piguet-royal-oak-15500/"
+      "https://professionalwatches.com/introducing-the-audemars-piguet-royal-oak-15500/",
+      "https://www.audemarspiguet.com/com/en/collections/royal-oak-15500st"
     ]
   }
 }

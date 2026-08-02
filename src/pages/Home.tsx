@@ -109,26 +109,27 @@ export default function Home() {
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
   const [screen, setScreen] = useState<ScreenSnapshot | null>(null)
   useEffect(() => { Promise.all([loadRolexCatalog(), loadScreenSightings()]).then(([c, s]) => { setCatalog(c); setScreen(s) }) }, [])
-  if (!data) return null
-
-  const withComps = data.cards.filter((card) => card.comp_summary).length
-  const withMedia = data.cards.filter((card) => card.media.length).length
+  const cards = useMemo(() => data?.cards ?? [], [data])
+  const withComps = cards.filter((card) => card.comp_summary).length
+  const withMedia = cards.filter((card) => card.media.length).length
   const stills = screen?.sightings.filter((s) => s.media).length ?? 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
-  const spotlight = useMemo(() => spotlightDossiers(data.cards), [data])
-  const ticker = useMemo(() => tasteOfRegister(data.cards), [data])
-  const asiaPicks = useMemo(() => data.cards.filter((c) => {
+  const spotlight = useMemo(() => spotlightDossiers(cards), [cards])
+  const ticker = useMemo(() => tasteOfRegister(cards), [cards])
+  const asiaPicks = useMemo(() => cards.filter((c) => {
     const asianBrands = new Set(['Casio', 'Citizen', 'Credor', 'Grand Seiko', 'Hajime Asaoka',
       'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Seiko'])
     return asianBrands.has(c.identity.brand) && c.media.length > 0
-  }).slice(0, 4), [data])
+  }).slice(0, 4), [cards])
   const brassTacks = useMemo(() => {
     // For buyers: a couple of fully-stocked dossiers worth starting with.
-    const withProvenanceAndComps = data.cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
+    const withProvenanceAndComps = cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
     return withProvenanceAndComps
       .sort((a, b) => b.comp_summary!.n - a.comp_summary!.n)
       .slice(0, 5)
-  }, [data])
+  }, [cards])
+
+  if (!data) return null
 
   return (
     <>
@@ -193,8 +194,8 @@ export default function Home() {
 
       <section className="spotlight-row" aria-label="Spotlight dossiers">
         <div className="section-rule">
-          <h2>Start with a fully-stocked dossier.</h2>
-          <span className="sticker-inline mono">FIVE REFERENCES · ALL TIER · ALL WITH COMPS</span>
+          <h2>Start with an evidence-rich dossier.</h2>
+          <span className="sticker-inline mono">{spotlight.length} REFERENCES · IMAGE + COMPS</span>
         </div>
         <div className="spotlight-grid">
           {spotlight.map((c) => (

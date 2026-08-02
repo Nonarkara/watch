@@ -70,6 +70,16 @@ function mediaFor(card) {
 
 const cardDir = join(ROOT, "data/cards");
 const files = readdirSync(cardDir).filter((f) => f.endsWith(".json")).sort();
+const identityFiles = new Map();
+for (const f of files) {
+  const card = JSON.parse(readFileSync(join(cardDir, f), "utf8"));
+  const key = `${card.identity.brand}|${card.identity.reference}`.toLowerCase().replace(/[^a-z0-9|]/g, "");
+  if (identityFiles.has(key)) {
+    console.error(`✗ Duplicate watch identity: ${card.identity.brand} ${card.identity.reference}\n  - ${identityFiles.get(key)}\n  - ${f}`);
+    process.exit(1);
+  }
+  identityFiles.set(key, f);
+}
 let failed = 0;
 const published = [];
 

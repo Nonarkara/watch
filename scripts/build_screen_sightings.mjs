@@ -10,7 +10,7 @@
  *   - Teddy Baldassarre movie-watches roundup is the editorial cross-check URL
  *   - Shared card portraits are not silently reused as if they were distinct stills
  */
-import { readFileSync, writeFileSync, copyFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname

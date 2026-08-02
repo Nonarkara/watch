@@ -4,7 +4,7 @@
 
 ## What this is
 
-Free, highly detailed, AI-curated + human-verified living archive for luxury and collectible watches. ~300 reference cards with real market data: price vs retail (nominal + CPI-adjusted), Scarcity Index, Collectibility Index, provenance timelines (the "Federer effect" made visible), liquidity, credited film/TV stills, and an honest A/B/C data-confidence tier. v1.0 is read-only intelligence; the marketplace/matchmaker is a later phase.
+Free, highly detailed, AI-curated + human-verified living archive for luxury and collectible watches. The current build contains 217 unique reference cards with real market data: price vs retail (nominal + CPI-adjusted), Scarcity Index, Collectibility Index, provenance timelines (the "Federer effect" made visible), liquidity, credited film/TV stills, and an honest A/B/C data-confidence tier. v1.0 is read-only intelligence; the marketplace/matchmaker is a later phase.
 
 ## Decisions (2026-07-31 / 2026-08-02, Dr Non)
 
@@ -43,3 +43,4 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 - Masked publish: full comps never ship to the client.
 - Film stills always carry studio + editorial credit and a promotional/editorial rights line.
 - Every metric shows source, n, window, limitation.
+- A brand + reference identity may appear only once. The build refuses duplicate dossiers even when their slugs differ.
