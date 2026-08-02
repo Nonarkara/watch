@@ -8,9 +8,20 @@
     "nickname": "McQueen Monaco",
     "collection": "Monaco",
     "tier": "core",
-    "produced": { "start_year": 2015, "end_year": 2023, "discontinued": true },
-    "movement": { "caliber": "Calibre 11", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "none — square case, left-side crown" },
+    "produced": {
+      "start_year": 2015,
+      "end_year": 2023,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "Calibre 11",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "none — square case, left-side crown"
+    },
     "one_liner": "TAG Heuer's blue-dial automatic reissue of the square chronograph Steve McQueen wore in Le Mans (1971), since discontinued."
   },
   "retail": {
@@ -19,13 +30,24 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2020-12-12", "price_usd": 2208000, "venue": "phillips", "url": "http://www.onthedash.com/monaco-mcqueen-alltounian-result/", "condition": null, "box_papers": null }
+      {
+        "date": "2020-12-12",
+        "price_usd": 2208000,
+        "venue": "phillips",
+        "url": "http://www.onthedash.com/monaco-mcqueen-alltounian-result/",
+        "condition": null,
+        "box_papers": null
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
@@ -35,6 +57,12 @@
       "person_or_event": "Phillips 'Racing Pulse' auction",
       "description": "The Heuer Monaco Steve McQueen gave to his Le Mans mechanic Haig Alltounian, caseback engraved \"To Haig / Le Mans 1970,\" sells at Phillips New York for $2,208,000 including buyer's premium — a record for any Heuer or TAG Heuer chronograph at auction.",
       "source_url": "http://www.onthedash.com/monaco-mcqueen-alltounian-result/"
+    },
+    {
+      "date": "1969-01-01",
+      "person_or_event": "Monaco designed",
+      "description": "Jack Heuer designs the Monaco in 1969 — the first square-cased, water-resistant automatic chronograph. Steve McQueen wears it in Le Mans (1971), turning the Monaco into TAG Heuer's most-photographed vintage reference. Reissued 1998, 2003, 2009, 2015; the Calibre 11 reissue (CAW211P) runs 2015-2023.",
+      "source_url": "https://www.tagheuer.com/us/en/collection-monaco"
     }
   ],
   "narrative": {

@@ -8,14 +8,29 @@
     "nickname": "62MAS",
     "collection": "Prospex",
     "tier": "attainable",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "6R35", "type": "automatic" },
-    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6R35",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "stainless steel",
+      "bezel": "black unidirectional dive bezel"
+    },
     "one_liner": "A reissue of Seiko's 1965 62MAS, its first purpose-built dive watch, with a charcoal sunburst dial and a hacking, hand-windable 6R35 automatic."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 1200, "source_url": "https://teddybaldassarre.com/blogs/watches/seiko-prospex-spb143-review" }
+      {
+        "effective_year": 2026,
+        "price_usd": 1200,
+        "source_url": "https://teddybaldassarre.com/blogs/watches/seiko-prospex-spb143-review"
+      }
     ],
     "current_msrp_usd": 1200
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-09-01",
+      "person_or_event": "SPB143 62MAS reissue",
+      "description": "Seiko's SPB143 is the 2020 Prospex reissue of the 1965 62MAS diver — 40.5mm, caliber 6R35, 200m water resistance. The \"62MAS reissue\" is the most-cited modern Seiko Prospex reference and the watch most associated with the 2020 Seiko diver line.",
+      "source_url": "https://www.seikowatches.com/us-en/products/prospex/sbp143j1"
+    }
+  ],
   "narrative": {
     "story": "The SPB143 reissues Seiko's 1965 62MAS, the brand's first purpose-built dive watch, running caliber 6R35 — a hacking, hand-windable automatic with a 70-hour reserve — in a 40.5mm case with a charcoal-grey sunburst dial. Seiko released it in 2020 alongside siblings SPB147 (black dial) and SPB149 (blue dial), returning the modern Prospex line to the 62MAS's original proportions after decades of larger dive-watch cases.",
     "collector_notes": "A later black-dial reference, SPB453, covers similar ground in the current catalog; confirm which reference a listing describes, since the two are easy to conflate by description alone.",

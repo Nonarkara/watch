@@ -8,33 +8,98 @@
     "nickname": "Ceramic Daytona",
     "collection": "Daytona",
     "tier": "crown",
-    "produced": { "start_year": 2016, "end_year": 2023, "discontinued": true },
-    "movement": { "caliber": "4130", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "black Cerachrom with tachymeter" },
+    "produced": {
+      "start_year": 2016,
+      "end_year": 2023,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "4130",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "Oystersteel",
+      "bezel": "black Cerachrom with tachymeter"
+    },
     "one_liner": "The steel Daytona whose ceramic bezel and multi-year waitlists defined the 2016-2023 hype market."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2016, "price_usd": 12400, "source_url": "https://robbreport.com/style/watch-collector/gallery/rolex-watches-collectors-should-know-1235599021/" },
-      { "effective_year": 2020, "price_usd": 13150, "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-116500ln-review" }
+      {
+        "effective_year": 2016,
+        "price_usd": 12400,
+        "source_url": "https://robbreport.com/style/watch-collector/gallery/rolex-watches-collectors-should-know-1235599021/"
+      },
+      {
+        "effective_year": 2020,
+        "price_usd": 13150,
+        "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-116500ln-review"
+      }
     ],
     "current_msrp_usd": null
   },
   "market_evidence": {
     "comps": [
-      { "date": "2019-06-25", "price_usd": 30000, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994", "condition": null, "box_papers": "full_set" },
-      { "date": "2024-12-13", "price_usd": 17920, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/103/", "condition": null, "box_papers": null },
-      { "date": "2024-12-13", "price_usd": 25600, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/104/", "condition": null, "box_papers": null }
+      {
+        "date": "2019-06-25",
+        "price_usd": 30000,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2024-12-13",
+        "price_usd": 17920,
+        "venue": "bonhams",
+        "url": "https://www.bonhams.com/auction/30160/lot/103/",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2024-12-13",
+        "price_usd": 25600,
+        "venue": "bonhams",
+        "url": "https://www.bonhams.com/auction/30160/lot/104/",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 38100,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "116500LN, 2021, full set",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2016-01-01",
+      "person_or_event": "Ceramic Daytona 116500LN",
+      "description": "The 116500LN puts a black Cerachrom bezel on the steel Daytona, visually recalling the 6241 of the 1960s and immediately dating the outgoing 116520. The watch trades at a sustained premium for its entire 2016-2023 production run.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-116500ln-review"
+    },
+    {
+      "date": "2023-01-01",
+      "person_or_event": "116500LN discontinued",
+      "description": "Rolex replaces the 116500LN with the 126500LN in March 2023, moving to a new movement and a subtly redesigned case. The 116500LN becomes the reference collectors cite when talking about the 2016-2022 waitlist era.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-126500ln"
+    }
+  ],
   "narrative": {
     "story": "Rolex put a black Cerachrom bezel on the steel Daytona in 2016, visually recalling the black-bezel 6241 of the 1960s and immediately dating the outgoing 116520. Demand outran supply for its entire seven-year run: authorized dealers kept multi-year lists and the watch traded at a large premium over retail throughout, peaking in early 2022. Discontinued in 2023 for the 126500LN, it remains the shorthand example of the retail-versus-grey-market gap.",
     "collector_notes": "White 'panda' dials carry a consistent premium over black. Check the bezel edge for chips and the warranty-card date; 2023-dated full sets mark the final production year.",

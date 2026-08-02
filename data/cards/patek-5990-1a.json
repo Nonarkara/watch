@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Nautilus",
     "tier": "trinity",
-    "produced": { "start_year": 2014, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "CH 28-520 C FUS", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 40.5, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "CH 28-520 C FUS",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "stainless steel",
+      "bezel": "rounded octagonal, polished"
+    },
     "one_liner": "Dual-time-zone flyback chronograph in the Nautilus case, with local and home time on jumping hour hands."
   },
   "retail": {
@@ -18,16 +29,42 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2024-03-12",
+        "price_usd": 97560,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/CH080124/32",
+        "condition": "2019, full set, certificate of origin, presentation box",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "5990/1A launch",
+      "description": "Patek adds the Travel Time complication to the Nautilus chrono case — a dual time display with day/night indicators at 3 and 9, flyback chronograph, on the CH 28-520 C FUS caliber. The 5990/1A becomes the most-asked steel Nautilus of the late 2010s.",
+      "source_url": "https://www.patek.com/en/collection/nautilus/5990-1a"
+    },
+    {
+      "date": "2024-03-12",
+      "person_or_event": "Phillips Geneva Online sale",
+      "description": "A 2019 5990/1A-001 with certificate and full set sells at the Phillips Geneva Sessions Spring 2024 online auction for CHF 88,900 (with premium), inside the high estimate.",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/CH080124/32"
+    }
+  ],
   "narrative": {
     "story": "Introduced in 2014, the 5990/1A packed Patek's Travel Time module — skeletonized home-time hand, day/night windows, pushers in the left case flank — onto the flyback chronograph base of the 5980. It is the busiest steel Nautilus dial and the most functional one. The blue-dial 5990/1A-011 refresh arrived in late 2022 alongside the 5811.",
     "collector_notes": "The four case-flank pushers make polishing history easy to spot; check the analog date sub-register at 12 tracks local time after any service. The -001 and -011 dials are different markets.",

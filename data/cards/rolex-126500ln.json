@@ -8,31 +8,76 @@
     "nickname": null,
     "collection": "Daytona",
     "tier": "crown",
-    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "4131", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "black Cerachrom with polished steel edge" },
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "4131",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "Oystersteel",
+      "bezel": "black Cerachrom with polished steel edge"
+    },
     "one_liner": "The 2023 update of the steel Daytona for the model's 60th year, with caliber 4131 and a metal-edged ceramic bezel."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2023, "price_usd": 15100, "source_url": "https://professionalwatches.com/the-next-generation-rolex-daytona/" },
-      { "effective_year": 2025, "price_usd": 15500, "source_url": "https://atlasluxury.us/rolex-price-guide-2025/" }
+      {
+        "effective_year": 2023,
+        "price_usd": 15100,
+        "source_url": "https://professionalwatches.com/the-next-generation-rolex-daytona/"
+      },
+      {
+        "effective_year": 2025,
+        "price_usd": 15500,
+        "source_url": "https://atlasluxury.us/rolex-price-guide-2025/"
+      }
     ],
     "current_msrp_usd": 15500
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-12-07", "price_usd": 40640, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080424/106", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2024-12-07",
+        "price_usd": 40640,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080424/106",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 44450,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "126500LN, 2023, full set",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2023-03-27",
+      "person_or_event": "126500LN launch",
+      "description": "Rolex releases the 126500LN at Watches and Wonders 2023 — same 40mm case but a redesigned bezel, new indices, and the calibre 4131 (a 4130 derivative with a thinner chronometer escapement). The new model is the Daytona baseline from 2023 onward.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-daytona-ref-126500ln"
+    }
+  ],
   "narrative": {
     "story": "Introduced at Watches and Wonders 2023 for the Daytona's 60th anniversary, the 126500LN reworked the case lines and framed the Cerachrom bezel with a thin polished-steel edge. Inside, the 4131 replaced the long-serving 4130, adding the Chronergy escapement and a redesigned rotor. The white dial kept its predecessor's market pattern: it is the harder allocation and the stronger trader of the two dials.",
     "collector_notes": "Differences from the 116500LN are subtle at a glance — the steel bezel lip, slimmer lugs, and reworked subdial rings. White dials command the premium; grey-market spreads narrowed from the 2022 peak but stay above retail.",

@@ -8,14 +8,29 @@
     "nickname": null,
     "collection": "Aquanaut",
     "tier": "trinity",
-    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "324 S C", "type": "automatic" },
-    "case": { "diameter_mm": 42.2, "material": "white gold", "bezel": "rounded octagonal, embossed dial pattern" },
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "324 S C",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42.2,
+      "material": "white gold",
+      "bezel": "rounded octagonal, embossed dial pattern"
+    },
     "one_liner": "The jumbo 42.2mm Aquanaut in white gold, launched for the model's 20th anniversary."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2025, "price_usd": 63306, "source_url": "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/" }
+      {
+        "effective_year": 2025,
+        "price_usd": 63306,
+        "source_url": "https://www.luxurybazaar.com/grey-market/patek-philippe-aquanaut-price-guide-how-much-does-an-aquanaut-cost/"
+      }
     ],
     "current_msrp_usd": 63306
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2017-01-01",
+      "person_or_event": "Aquanaut 5168G launch",
+      "description": "Patek stretches the Aquanaut case to 42.2mm for the 5168G, the largest Aquanaut at launch and the first in white gold. The embossed checkerboard dial reads as a cleaner Nautilus-adjacent sports watch.",
+      "source_url": "https://www.patek.com/en/collection/aquanaut/5168g"
+    }
+  ],
   "narrative": {
     "story": "For the Aquanaut's 20th anniversary in 2017, Patek scaled the case to 42.2mm and cast it in white gold — the first white gold Aquanaut. The night-blue 5168G-001 came first; the khaki green 5168G-010 followed in 2019 and pushed the 'luxury tool watch in gold' idea further than the collection had gone before.",
     "collector_notes": "White gold reads as steel from across a table, which cuts both ways on resale. Green-strap wear shows fast; the khaki dial shifts noticeably between lighting conditions.",

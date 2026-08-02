@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Élégante",
     "tier": "haute",
-    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "1210", "type": "electromechanical" },
-    "case": { "diameter_mm": 48, "material": "titanium", "bezel": "brushed titanium, Tortue-shaped" },
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1210",
+      "type": "electromechanical"
+    },
+    "case": {
+      "diameter_mm": 48,
+      "material": "titanium",
+      "bezel": "brushed titanium, Tortue-shaped"
+    },
     "one_liner": "F.P. Journe's electro-mechanical movement, self-adjusting to a wearer's activity by shutting the motor down when the watch is left stationary and resetting hands the shortest path on pickup."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "Élégante 48mm",
+      "description": "F.P. Journe's Élégante is the brand's first (and only) quartz watch — but with a movement that stops when the watch is set down for a few minutes, preserving battery life. The Élégante reissue in 2023 brings a redesigned case and a 5-year battery claim.",
+      "source_url": "https://www.fpjourne.com/en/collections/ladies/elegante"
+    }
+  ],
   "narrative": {
     "story": "The Élégante houses a Journe-designed electro-mechanical movement rather than a conventional quartz or automatic caliber: a motor drives the hands, but a motion sensor cuts power when the watch sits still for roughly 20 minutes, extending battery life to years rather than months, and the hands re-synchronize to the correct time by the shortest path when the watch moves again. The 48mm Tortue-shaped case is oversized relative to most of Journe's catalog, built to carry the movement rather than to read as a sport or dress reference.",
     "collector_notes": "The Titalyt-coated titanium version, with its matte black ceramic-hardened finish, trades at a premium to the plain titanium case; buyers confirm which coating is present since photos at typical resolution can make the two look similar.",

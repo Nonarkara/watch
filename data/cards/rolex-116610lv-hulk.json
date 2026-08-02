@@ -8,9 +8,20 @@
     "nickname": "Hulk",
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2010, "end_year": 2020, "discontinued": true },
-    "movement": { "caliber": "3135", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "green Cerachrom" },
+    "produced": {
+      "start_year": 2010,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3135",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "green Cerachrom"
+    },
     "one_liner": "The green-dial, green-bezel Submariner of 2010-2020 whose discontinuation pushed its market price far above the black model's."
   },
   "retail": {
@@ -19,17 +30,43 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2026-06-12", "price_usd": 21590, "venue": "christies", "url": "https://www.christies.com/en/lot/lot-6590241", "condition": null, "box_papers": "box_only" }
+      {
+        "date": "2026-06-12",
+        "price_usd": 21590,
+        "venue": "christies",
+        "url": "https://www.christies.com/en/lot/lot-6590241",
+        "condition": null,
+        "box_papers": "box_only"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 17780,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "116610LV Hulk, 2020 (last year of production)",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2010-01-01",
+      "person_or_event": "Hulk 116610LV launch",
+      "description": "The \"Hulk\" — green ceramic bezel, green sunburst dial — runs 2010-2020 as the most-cited modern Submariner variant. The combination of green dial and green bezel had no Submariner precedent; discontinuation in 2020 makes it the 2010s baseline.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-116610lv-hulk-review"
+    }
+  ],
   "narrative": {
     "story": "Launched alongside the black 116610LN in 2010, the LV paired a green sunburst dial with a green Cerachrom bezel — the first all-green Submariner, following the green-bezel-only 'Kermit' 16610LV. Collectors named it the Hulk for the color and the heavy maxi case. When Rolex dropped it in 2020 without a direct all-green successor, secondary prices moved sharply upward and have stayed above the black model's since.",
     "collector_notes": "The dial shifts with light from deep green to near-black; photographs oversell the effect. Discontinuation made 2019-2020-carded full sets the sought-after configuration.",

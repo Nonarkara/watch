@@ -8,9 +8,20 @@
     "nickname": "MM300",
     "collection": "Prospex — Marinemaster",
     "tier": "attainable",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "8L35", "type": "automatic" },
-    "case": { "diameter_mm": 44.3, "material": "stainless steel, monobloc case", "bezel": "ceramic 120-click unidirectional dive bezel" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "8L35",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 44.3,
+      "material": "stainless steel, monobloc case",
+      "bezel": "ceramic 120-click unidirectional dive bezel"
+    },
     "one_liner": "A blue-dial continuation of the Marine Master 300 lineage, hand-assembled on caliber 8L35 using techniques shared with Grand Seiko's 9S movements."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-09-01",
+      "person_or_event": "Marine Master 300 reinterpretation",
+      "description": "The SLA023 is the 2020 reinterpretation of the 1968 62.5-600 Marine Master — a 44mm titanium-cased diver with a ceramic bezel, sold at 1,968-piece limited release worldwide.",
+      "source_url": "https://www.seikowatches.com/us-en/products/prospex/sla023j1"
+    }
+  ],
   "narrative": {
     "story": "The SLA023 continues the Marine Master 300 lineage that traces back to Seiko's 1968 professional diver, running caliber 8L35 — a manually assembled, 192-part automatic built at the Shizukuishi Watch Studio using techniques shared with Grand Seiko's caliber 9S. It uses a monobloc case with no separate caseback, the movement accessed through the crystal, paired with a ceramic 120-click bezel and 300m water resistance. Seiko finished it in a blue sunburst dial rather than the black dial of the original 1968 reference.",
     "collector_notes": "Currently shown as sold out at multiple authorized dealers rather than formally discontinued by Seiko; confirm current availability before assuming it's off the market for good.",

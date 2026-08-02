@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Khaki Field",
     "tier": "attainable",
-    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "H-50", "type": "manual" },
-    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "fixed steel" },
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "H-50",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "fixed steel"
+    },
     "one_liner": "A hand-wound 38mm field watch built to the pattern of Hamilton's Vietnam-era military issue pieces."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "Khaki Field Mechanical 38",
+      "description": "Hamilton's Khaki Field Mechanical 38 (H69439931) becomes the brand's most-cited military-flavored watch — a 38mm hand-wound field watch based on the 1960s MIL-W-3818B spec, with a 50m water resistance and a nylon strap.",
+      "source_url": "https://www.hamiltonwatch.com/en-us/h69439931"
+    }
+  ],
   "narrative": {
     "story": "Hamilton supplied field watches to the US military for decades under the MIL-W-46374 specification, and the 2018 Khaki Field Mechanical is the closest thing to that watch in a current catalog: 38mm, matte dial, no date, and the H-50 hand-wound movement with an 80-hour reserve. Winding it every morning is the point — it teaches the mechanical habit that grail ownership assumes.",
     "collector_notes": "The lug width is 20mm and the watch was designed for straps, not a bracelet. The matte earth-tone dial variants sell out in cycles; the black-dial reference here is the constant.",

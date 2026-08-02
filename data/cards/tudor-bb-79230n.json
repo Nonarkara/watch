@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Black Bay",
     "tier": "crown",
-    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "MT5602", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "MT5602",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "black unidirectional dive bezel"
+    },
     "one_liner": "The standard 41mm Black Bay diver, moved to Tudor's in-house MT5602 chronometer movement in 2016 while keeping the domed crystal, snowflake hands, and riveted-look bracelet of the earlier ETA-powered version."
   },
   "retail": {
@@ -18,12 +29,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2024-03-26",
+        "price_usd": 2600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/auction/HK080124",
+        "condition": "79230N Heritage Black Bay, full set, no-reserve",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

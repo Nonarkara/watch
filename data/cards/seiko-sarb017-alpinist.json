@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Spirit — Alpinist",
     "tier": "attainable",
-    "produced": { "start_year": 2006, "end_year": 2018, "discontinued": true },
-    "movement": { "caliber": "6R15", "type": "automatic" },
-    "case": { "diameter_mm": 38, "material": "stainless steel", "bezel": "none — internal rotating compass bezel operated by a crown at 4 o'clock" },
+    "produced": {
+      "start_year": 2006,
+      "end_year": 2018,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "6R15",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "none — internal rotating compass bezel operated by a crown at 4 o'clock"
+    },
     "one_liner": "A green-dial field watch with an internal compass bezel that ran an eleven-year production before Seiko discontinued it in 2018."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2006-01-01",
+      "person_or_event": "Alpinist SARB017",
+      "description": "The SARB017 runs 2006-2018 as the most-cited modern Seiko Alpinist — 39mm, caliber 6R15, green dial, internal rotating compass bezel. The 2020 SPB121 reissue revives the model with the 6R64 movement.",
+      "source_url": "https://www.hodinkee.com/articles/the-seiko-alpinist-watch-a-history"
+    }
+  ],
   "narrative": {
     "story": "The SARB017 'Alpinist' pairs caliber 6R15 with an internal rotating compass bezel, operated by a secondary crown at 4 o'clock, under a green sunburst dial with gold cathedral hands. Seiko introduced the SARB line, including the Alpinist, in 2006, and it built a following among collectors for its field-watch functionality at a modest JDM price. Seiko discontinued it in 2018 after an eleven-year run.",
     "collector_notes": "The internal compass bezel should turn freely and align accurately when set from the 4 o'clock crown; a stiff or misaligned bezel usually means a service is overdue.",

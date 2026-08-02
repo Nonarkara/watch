@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Sea-Dweller",
     "tier": "crown",
-    "produced": { "start_year": 1988, "end_year": 2008, "discontinued": true },
-    "movement": { "caliber": "3135", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "produced": {
+      "start_year": 1988,
+      "end_year": 2008,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3135",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black aluminum insert"
+    },
     "one_liner": "The Sea-Dweller of 1988-2008: 40mm, 1,220m, no cyclops, caliber 3135."
   },
   "retail": {
@@ -18,12 +29,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2024-06-08",
+        "price_usd": 107950,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080124",
+        "condition": "Mark 1 dial, guarantee, presentation box",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

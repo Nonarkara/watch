@@ -8,14 +8,29 @@
     "nickname": "White Birch",
     "collection": "Evolution 9 Collection",
     "tier": "core",
-    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "9SA5", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "none — Evolution 9 case shape" },
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9SA5",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "none — Evolution 9 case shape"
+    },
     "one_liner": "The debut reference for caliber 9SA5, a new Hi-Beat 36000 movement with an 80-hour reserve, in a dial textured after the white birch forests near the Shizukuishi studio."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 9800, "source_url": "https://www.grand-seiko.com/us-en/collections/slgh005g" }
+      {
+        "effective_year": 2026,
+        "price_usd": 9800,
+        "source_url": "https://www.grand-seiko.com/us-en/collections/slgh005g"
+      }
     ],
     "current_msrp_usd": 9800
   },
@@ -25,14 +40,27 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
   "provenance_events": [
-    { "date": "2021-11-04", "person_or_event": "Grand Prix d'Horlogerie de Genève 2021",
+    {
+      "date": "2021-11-04",
+      "person_or_event": "Grand Prix d'Horlogerie de Genève 2021",
       "description": "The SLGH005 won the Men's Watch Prize at the 2021 Grand Prix d'Horlogerie de Genève (GPHG), one of watchmaking's most cited industry awards.",
-      "source_url": "https://www.grand-seiko.com/us-en/news/20211105" }
+      "source_url": "https://www.grand-seiko.com/us-en/news/20211105"
+    },
+    {
+      "date": "2021-01-01",
+      "person_or_event": "White Birch launch",
+      "description": "Grand Seiko releases the SLGH005 \"White Birch\" — the first watch in the new Evolution 9 case family, with a 9SA5 high-beat movement. The dial pattern is hand-finished to evoke the white birch forest around the Shiojiri studio.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/evolution9/slgh005"
+    }
   ],
   "narrative": {
     "story": "The SLGH005 introduced caliber 9SA5, Grand Seiko's newly designed Hi-Beat 36000 movement with a dual-impulse escapement, twin barrels, and an 80-hour power reserve — a substantial jump over the 55-hour reserve of the outgoing 9S85. Its silvery-white dial is textured to evoke the white birch forests surrounding the Grand Seiko Studio Shizukuishi. It also introduced the Evolution 9 case design, a reworking of Grand Seiko's angular, Zaratsu-polished case language for improved wearing comfort. The reference won the Men's Watch Prize at the 2021 Grand Prix d'Horlogerie de Genève.",

@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Lange 1",
     "tier": "haute",
-    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "L121.1", "type": "manual" },
-    "case": { "diameter_mm": 38.5, "material": "18k pink gold", "bezel": "polished pink gold, integrated with case, no separate ring" },
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L121.1",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 38.5,
+      "material": "18k pink gold",
+      "bezel": "polished pink gold, integrated with case, no separate ring"
+    },
     "one_liner": "The decentralized dial layout that relaunched German watchmaking in 1994, still built around the outsize date it made standard across the industry."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1994-10-24",
+      "person_or_event": "Lange 1 launch",
+      "description": "Walter Lange presents the Lange 1 in Dresden on 24 October 1994, four years after German reunification. The watch — with its off-centre dial, outsize date, and the first in-house movement from the re-founded A. Lange & Söhne — defines the modern German haute horlogerie school.",
+      "source_url": "https://www.alange-soehne.com/en/collection/lange-1"
+    }
+  ],
   "narrative": {
     "story": "The Lange 1 was one of four watches shown at the October 1994 Dresden press conference that marked A. Lange & Söhne's re-entry into watchmaking after the East German state had absorbed the original firm in 1948. Its off-center dial, with hours and minutes pushed to the left and a matching outsize date at 12 o'clock, broke from the round-and-centered layout every other manufacture used at the time. The outsize date shown here, assembled from two overlapping discs instead of a single ring, became a specification other brands later copied outright.",
     "collector_notes": "Case metal and dial color define the value spread across Lange 1 references; this pink gold, argenté-dial 191.032 sits in the middle of the range. Collectors check for even patina on the solid silver dial and confirm the power-reserve indicator at 3 o'clock reads full when fully wound, since the underlying L121.1 is hand-wound and a lazy reserve display is often the first sign of service need.",

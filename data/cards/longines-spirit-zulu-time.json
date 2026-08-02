@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Spirit",
     "tier": "attainable",
-    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "L844.4", "type": "automatic" },
-    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "two-tone ceramic 24-hour" },
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L844.4",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "two-tone ceramic 24-hour"
+    },
     "one_liner": "A true flyer GMT with a silicon hairspring, priced at a fraction of the sports GMTs it competes with."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2022-01-01",
+      "person_or_event": "Spirit Zulu Time",
+      "description": "Longines releases the Spirit Zulu Time in 2022 — the brand's first GMT with a 24-hour graduated bezel, in 39mm and 42mm. The \"Zulu Time\" reference (a nod to the GMT-marker naming convention) is the most-cited modern Longines travel watch.",
+      "source_url": "https://www.longines.com/en-us/watch-spirit-zulu-time-l3-812-4-53-2"
+    }
+  ],
   "narrative": {
     "story": "Longines ran the first Zulu Time — a 24-hour-capable pilot's watch — in 1925, and the 2022 Spirit Zulu Time reclaims the name with a modern flyer GMT: independently settable local hour, ceramic two-tone bezel, and a silicon hairspring with chronometer certification. It is the reference most often named when collectors are asked what a traveler's GMT costs before the waitlist economy begins.",
     "collector_notes": "The 42mm case wears large; Longines added a 39mm version in 2023 for smaller wrists. Check bracelet versus strap on the specific sub-reference.",

@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2010, "end_year": 2020, "discontinued": true },
-    "movement": { "caliber": "3135", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black Cerachrom" },
+    "produced": {
+      "start_year": 2010,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3135",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black Cerachrom"
+    },
     "one_liner": "The 2010-2020 Submariner Date that brought the ceramic bezel and maxi case to the standard black Sub."
   },
   "retail": {
@@ -18,16 +29,36 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2023-05-15",
+        "price_usd": 13970,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "Standard 116610LN, full set, 2018",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2010-01-01",
+      "person_or_event": "Ceramic Submariner 116610LN",
+      "description": "The 116610LN is the last \"Maxi\" 40mm ceramic Submariner Date, with caliber 3135, running 2010-2020. After it, the line moves to 41mm with the 126610LN.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-ref-116610-ln"
+    }
+  ],
   "narrative": {
     "story": "The 116610LN replaced the 16610 in 2010, adding a Cerachrom bezel, a Glidelock clasp, and the broad-shouldered 'Super Case' with fat lugs and wider crown guards. A full decade as the default luxury dive watch made it one of the most-produced modern Rolex references, and it is the entry point many collectors use for the ceramic era.",
     "collector_notes": "Plentiful on the secondary market, so buy on condition and completeness. The thick lugs make past polishing easy to spot — check the chamfers.",

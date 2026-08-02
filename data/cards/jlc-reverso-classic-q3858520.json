@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Reverso",
     "tier": "haute",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "822", "type": "manual" },
-    "case": { "diameter_mm": 45.5, "material": "stainless steel", "bezel": "no bezel — polished flanks on a rectangular reversible case" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "822",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 45.5,
+      "material": "stainless steel",
+      "bezel": "no bezel — polished flanks on a rectangular reversible case"
+    },
     "one_liner": "The rectangular reversible dress watch designed for 1930s polo players, still built around a hand-wound small-seconds movement."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1931-03-04",
+      "person_or_event": "Reverso patent",
+      "description": "César de Trey commissions a watch that could survive polo matches; engineer Alfred Chauvot designs the sliding case. The Reverso is patented in 1931 and becomes one of the most recognizable case shapes in horology, redesigned in 2024 for the line's 90th anniversary.",
+      "source_url": "https://www.jaeger-lecoultre.com/us-en/watches/reverso"
+    }
+  ],
   "narrative": {
     "story": "The Reverso was created in 1931 after polo players in India asked Paris watch dealer César de Trey for a wristwatch that could survive the sport. De Trey brought the problem to Jacques-David LeCoultre, whose engineer René-Alfred Chauvot patented a case that slides and flips within a metal carrier, turning the crystal to face the wrist during play. The reversible case outlived its original purpose and became one of the defining Art Deco watch shapes of the twentieth century; Jaeger-LeCoultre has kept some version of the Reverso in the catalog almost continuously since.",
     "collector_notes": "The flat caseback is a common surface for engraving, which most collectors treat as a value reducer unless the engraving has personal or historical significance. JLC has changed the Reverso Classic line's case proportions and calibers across several relaunches, so confirm which generation and movement a given piece carries rather than assuming continuity across years.",
@@ -36,6 +58,8 @@
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/Reverso_(watch)"]
+    "sources": [
+      "https://en.wikipedia.org/wiki/Reverso_(watch)"
+    ]
   }
 }

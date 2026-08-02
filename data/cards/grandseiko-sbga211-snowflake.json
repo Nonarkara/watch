@@ -8,14 +8,29 @@
     "nickname": "Snowflake",
     "collection": "Heritage Collection",
     "tier": "core",
-    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "9R65", "type": "spring drive" },
-    "case": { "diameter_mm": 41, "material": "High-Intensity Titanium", "bezel": "none — seamless case-to-crystal construction, dual-curved sapphire" },
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R65",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "High-Intensity Titanium",
+      "bezel": "none — seamless case-to-crystal construction, dual-curved sapphire"
+    },
     "one_liner": "A titanium Spring Drive dress-sport watch whose dial texture, based on snow accumulation patterns near the Shinshu highlands, gave the reference its community name."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 6900, "source_url": "https://www.grand-seiko.com/us-en/collections/sbga211g" }
+      {
+        "effective_year": 2026,
+        "price_usd": 6900,
+        "source_url": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+      }
     ],
     "current_msrp_usd": 6900
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2010-01-01",
+      "person_or_event": "Snowflake launch",
+      "description": "The SBGA211 \"Snowflake\" launches as part of Grand Seiko's Heritage Collection — 41mm titanium case, Spring Drive 9R65 caliber, the dial texture hand-finished to evoke falling snow on the Shinshu studio. The Snowflake becomes the most-cited modern Grand Seiko reference.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/heritage/sbga211"
+    }
+  ],
   "narrative": {
     "story": "The SBGA211 pairs Grand Seiko's Spring Drive caliber 9R65 — a mechanical movement regulated by a quartz-controlled glide wheel instead of a conventional escapement — with a titanium case and a dial textured to resemble snow accumulation on the Shinshu highlands near the Shizukuishi Watch Studio, where the movement is hand-finished. Grand Seiko separated from the Seiko name to become a standalone international marque in 2017, and the SBGA211 has stood as one of the brand's most recognized US-market references since.",
     "collector_notes": "The dial texture varies subtly piece to piece since it's stamped rather than printed; buyers also compare the consistency of the Zaratsu-polished case bevels, since Grand Seiko's case finishing is done by hand.",

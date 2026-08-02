@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Pilot's Watch Big Pilot",
     "tier": "core",
-    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "52110", "type": "automatic" },
-    "case": { "diameter_mm": 46, "material": "stainless steel", "bezel": "no bezel — fixed black dial with oversized luminous numerals" },
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "52110",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 46,
+      "material": "stainless steel",
+      "bezel": "no bezel — fixed black dial with oversized luminous numerals"
+    },
     "one_liner": "A 46mm automatic with a 7-day power reserve, descended from 1940s observation watches built for military navigators rather than pilots' wrists."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2002-01-01",
+      "person_or_event": "Big Pilot reissue",
+      "description": "IWC reissues the 1940s Beobachtungsuhr (B-Uhr) pilot's watch as the Big Pilot's Watch 5002 (later 5007, 5010) in 2002. The 46.2mm case, conical crown, and onion-style hands establish the modern \"Big Pilot\" aesthetic that runs to the present.",
+      "source_url": "https://www.iwc.com/en/collection/pilot-s-watches"
+    }
+  ],
   "narrative": {
     "story": "IWC's Big Pilot lineage traces to 1940s observation watches like the Caliber 52 T.S.C., a 55mm pocket-watch-sized instrument built for military navigators who needed a large, highly legible dial rather than a watch meant to be worn during flight. IWC reintroduced the concept as a wearable wristwatch in 2002, and the current Big Pilot's Watch keeps the oversized crown and dial legibility of the original while adding a 7-day power reserve indicator — a feature the 1940s version, read at a desk rather than worn, never needed to solve.",
     "collector_notes": "Confirm the exact movement generation (52010 vs. 52110 vs. later updates), since power-reserve indicator position and case-back engraving changed across updates without any change to the outward case design.",
@@ -36,6 +58,8 @@
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/IWC_Schaffhausen"]
+    "sources": [
+      "https://en.wikipedia.org/wiki/IWC_Schaffhausen"
+    ]
   }
 }

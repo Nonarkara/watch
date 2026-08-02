@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Overseas",
     "tier": "trinity",
-    "produced": { "start_year": 2016, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "5200", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 42.5, "material": "stainless steel", "bezel": "six-sided, derived from the Maltese cross" },
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "5200",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 42.5,
+      "material": "stainless steel",
+      "bezel": "six-sided, derived from the Maltese cross"
+    },
     "one_liner": "The Overseas chronograph on Vacheron's in-house column-wheel caliber 5200, with the line's three-way strap system."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2016-01-01",
+      "person_or_event": "Overseas Chronograph",
+      "description": "Vacheron's Overseas Chronograph ref. 5500V is released alongside the 4500V at the 2016 Overseas relaunch — the brand's first chronograph in the Overseas line since 1999.",
+      "source_url": "https://www.vacheron-constantin.com/en/collections/overseas-chronograph-5500v"
+    }
+  ],
   "narrative": {
     "story": "Launched with the 2016 Overseas overhaul, the 5500V finally gave the collection's chronograph a manufacture movement: caliber 5200, column wheel, vertical clutch, 22k gold rotor, Geneva Seal. The 42.5mm case keeps the soft-iron dust cover tradition of anti-magnetic protection and ships with bracelet, leather and rubber, all tool-free. The blue-dial steel version is the collection's second pillar after the self-winding.",
     "collector_notes": "It is a thick watch — 13.7mm — and sits large; the reverse-panda and later dial colors trade behind the blue. Verify the strap kit is complete and the deployant matches both leather and rubber options.",
