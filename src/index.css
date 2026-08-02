@@ -571,6 +571,27 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   text-wrap: balance;
 }
 .timepop-hero-copy .home-lede { color: var(--ink); max-width: 36ch; }
+.hero-trust { margin-top: 22px; color: var(--dim); }
+.timepop-hero-art {
+  position: relative;
+  z-index: 1;
+  background: var(--navy);
+  border-top: 1px solid var(--navy);
+}
+.timepop-hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: right center;
+}
+.hero-art-credit {
+  padding: 8px var(--pad) 12px;
+  color: rgba(245, 240, 232, 0.72);
+  background: var(--navy);
+  font-size: var(--text-micro);
+}
 .btn.secondary {
   background: transparent;
   color: var(--navy);
@@ -745,7 +766,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .atelier-hero { grid-template-columns: 1.08fr .92fr; min-height: 640px; }
   .timepop-hero { grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.2fr); align-items: stretch; }
   .timepop-hero-copy { padding: 48px 40px 48px var(--pad); display: flex; flex-direction: column; justify-content: center; }
-  .hero-ledger { border-top: 0; border-left: 2px solid var(--navy); }
+  .timepop-hero-art { border-top: 0; border-left: 2px solid var(--navy); }
+  .timepop-hero-art img { max-height: none; height: 100%; min-height: 520px; object-fit: cover; object-position: 70% center; }
   .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-hero { grid-template-columns: 1.35fr .65fr; }
@@ -1495,42 +1517,8 @@ main.shell { padding-top: var(--space-md); }
 .ledger-lines p { padding: 8px 0; }
 .starter-list { margin-top: 12px; }
 
-/* ── Hero ledger ──────────────────────────────────────────────────────────
-   The right half of the fold used to hold a generated collage with no author,
-   licence, or source — the one image on a site that argues provenance is
-   checkable. It now holds the register itself: figures read from the live
-   build, so the hero cannot drift from the data, and the space is earned by
-   information rather than decoration. */
-.hero-ledger {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 32px var(--pad); border-top: 1px solid var(--rule); background: var(--paper-2);
-}
-.hero-ledger-head { font-size: var(--text-micro); letter-spacing: .06em; color: var(--dim); margin-bottom: 14px; }
-.hero-ledger-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
-.hero-ledger-grid > div {
-  display: flex; flex-direction: column; gap: 2px; padding: 12px 14px;
-  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-}
-.hero-ledger-grid dt { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: .04em; text-transform: uppercase; color: var(--dim); }
-.hero-ledger-grid dd {
-  font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 1;
-  letter-spacing: -.035em; font-variant-numeric: tabular-nums;
-}
-.hero-ledger-zero dd { color: var(--amber); }
-.hero-ledger-foot { font-size: var(--text-micro); letter-spacing: .04em; color: var(--dim); margin-top: 14px; }
-.hero-ledger-foot a { color: var(--amber); }
-@media (min-width: 900px) {
-  .hero-ledger { padding: 40px; }
-  .hero-ledger-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-ledger-grid dd { font-size: var(--text-display); }
-}
-
-/* The ledger fills its half rather than floating in it: the panel stretches to
-   the copy column's height and the figures space themselves inside it. */
 @media (min-width: 880px) {
   .timepop-hero { align-items: stretch; }
-  .hero-ledger { justify-content: center; padding: 40px 40px 40px 44px; }
-  .hero-ledger-grid { flex: 0 0 auto; }
   .timepop-hero-copy { padding-block: 44px; }
 }
 

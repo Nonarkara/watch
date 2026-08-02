@@ -33,12 +33,15 @@ scripts/test-invariants.mjs
 
 Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F6F0E5`, navy `#11364B`, coral accent `#EF6A5B` (CSS `--amber` maps to coral so existing rules keep working). Zero border-radius except true circles. No Inter/Roboto/etc. Archivo + Spectral + IBM Plex Mono. Halftone and offset color blocks are selective — one gesture per section.
 
+**Hero banner is load-bearing.** `public/img/hero/time-pop-banner.png` is the Time Pop brand surface on the home fold (and OG share image). Do not replace it with a data ledger or strip it for “provenance purity” without an explicit ask — the passion is the point; film stills stay separately credited on `/screen`.
+
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
 
 Screen exposure is demand-side attention, never physical scarcity. Exact-reference matches only enter the attention heuristic; family-level and tentative IDs stay labeled.
 
 ## Anti-Regression
 
+- Home hero pop-art banner (`/img/hero/time-pop-banner.png`) — keep; named brand surface.
 - Honesty ladder: no market price without ≥3 sourced comps; missing data renders "—" + reason.
 - Masked publish: full comps never ship to the client.
 - Film stills always carry studio + editorial credit and a promotional/editorial rights line.
