@@ -1,0 +1,110 @@
+{
+  "_fixture_note": "SYNTHETIC TEST FIXTURE for sightings — exercises the validator, the schema, and the merge logic.",
+  "synthetic_exact": {
+    "id": "fixture-exact-rolex-submariner-james-bond",
+    "brand": "Rolex",
+    "watch": "Submariner",
+    "title": "Rolex Submariner — Test Cast — Licence to Dryclean",
+    "description": "A synthetic sighting at a real reference, used to test the exact-reference code path against the validator and the build.",
+    "media_type": "film",
+    "release_year": 2024,
+    "identification": "reported",
+    "match_level": "exact_reference",
+    "matched_card_ids": ["rolex-16610"],
+    "source_url": "https://example.com/rolex-submariner-james-bond"
+  },
+  "synthetic_family": {
+    "id": "fixture-family-omega-seamaster-spy",
+    "brand": "Omega",
+    "watch": "Seamaster",
+    "title": "Omega Seamaster — Test Agent — Goldeneye Jr",
+    "description": "A synthetic family-level sighting to test that media is optional and matched_card_ids may be empty.",
+    "media_type": "television",
+    "release_year": 2023,
+    "identification": "reported",
+    "match_level": "family_only",
+    "matched_card_ids": [],
+    "source_url": "https://example.com/omega-seamaster-spy"
+  },
+  "synthetic_iconic": {
+    "id": "fixture-iconic-tag-heuer-monaco-test-driver",
+    "brand": "TAG Heuer",
+    "watch": "Monaco",
+    "title": "TAG Heuer Monaco — Test Driver — Daytimelight",
+    "description": "A synthetic iconic-still sighting to test the Promotional/editorial license requirement and the per-sighting media block.",
+    "media_type": "film",
+    "release_year": 2022,
+    "identification": "reported",
+    "match_level": "family_only",
+    "matched_card_ids": ["tagheuer-monaco-caw211p"],
+    "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+    "media": {
+      "type": "image",
+      "url": "/img/film/fixture-monaco.png",
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "credit": "Daytimelight (2022) / Test Pictures · editorial still via Teddy Baldassarre",
+      "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+      "caption": "Test driver with the Monaco on the wrist."
+    }
+  },
+  "synthetic_dup_id": {
+    "id": "fixture-exact-rolex-submariner-james-bond",
+    "brand": "Rolex",
+    "watch": "GMT-Master",
+    "title": "Same id, different watch — should fail duplicate check",
+    "description": "A second entry that reuses the first fixture's id; the validator must flag the duplicate.",
+    "media_type": "film",
+    "release_year": 2024,
+    "identification": "reported",
+    "match_level": "family_only",
+    "matched_card_ids": [],
+    "source_url": "https://example.com/dup"
+  },
+  "synthetic_orphan_rolex": {
+    "id": "fixture-exact-rolex-fake-id-card",
+    "brand": "Rolex",
+    "watch": "Day-Date",
+    "title": "Rolex Day-Date — Test Cast — exact with unmatched card",
+    "description": "An exact_reference sighting that references a card id not in the dataset; should still validate (the build will just skip it).",
+    "media_type": "film",
+    "release_year": 2024,
+    "identification": "reported",
+    "match_level": "exact_reference",
+    "matched_card_ids": ["rolex-does-not-exist"],
+    "source_url": "https://example.com/rolex-orphan"
+  },
+  "synthetic_missing_url": {
+    "id": "fixture-missing-url",
+    "brand": "Heuer",
+    "watch": "Carrera",
+    "title": "Heuer Carrera — Test Cast — no source URL",
+    "description": "Missing source_url; should fail validation.",
+    "media_type": "film",
+    "release_year": 2024,
+    "identification": "reported",
+    "match_level": "family_only",
+    "matched_card_ids": [],
+    "source_url": ""
+  },
+  "synthetic_fake_license_iconic": {
+    "id": "fixture-iconic-license-bypass-attempt",
+    "brand": "Heuer",
+    "watch": "Monaco",
+    "title": "Heuer Monaco — Test Cast — fake 'free' license on iconic still",
+    "description": "An iconic-still sighting that lies about the license; should fail validation because iconic stills cannot claim a free-reuse licence.",
+    "media_type": "film",
+    "release_year": 2024,
+    "identification": "reported",
+    "match_level": "family_only",
+    "matched_card_ids": [],
+    "source_url": "https://example.com/fake-free",
+    "media": {
+      "type": "image",
+      "url": "/img/film/fake.png",
+      "source_url": "https://example.com/fake",
+      "credit": "Test Cast",
+      "license": "Fair use, public domain, free for all",
+      "caption": "A fake free-reuse license on an iconic still."
+    }
+  }
+}

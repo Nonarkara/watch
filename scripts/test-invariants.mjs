@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { computeAll, marketEstimate } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
+import { validateSightings } from "./validate_sightings.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
@@ -102,5 +103,44 @@ assert.equal(cScreen.attention.value, 20);
 assert.equal(cScreen.attention.screen_count, 1);
 assert.equal(cScreen.scarcity.value, c1.scarcity.value, "screen exposure must not alter scarcity");
 assert.equal(cScreen.attention.pressure, Math.round(Math.sqrt(c1.scarcity.value * 20)));
+
+// ─── sightings schema invariants ────────────────────────────────────────────
+// The validator rejects bad data; the canonical screen data passes; the test
+// fixtures exercise the positive + negative paths. We never let a malformed
+// sighting reach the public dataset.
+const sFx = JSON.parse(readFileSync(new URL("./fixtures/test-sightings.json", import.meta.url), "utf8"));
+
+// positive: every well-formed fixture sighting passes
+for (const key of ["synthetic_exact", "synthetic_family", "synthetic_iconic", "synthetic_orphan_rolex"]) {
+  assert.deepEqual(validateSightings({ sightings: [sFx[key]] }), [], `expected ${key} to validate`);
+}
+
+// negative: missing source_url
+{
+  const errs = validateSightings({ sightings: [sFx.synthetic_missing_url] });
+  assert.ok(errs.some((e) => e.includes("source_url")), "missing source_url must fail validation");
+}
+
+// negative: duplicate id
+{
+  const errs = validateSightings({ sightings: [sFx.synthetic_exact, sFx.synthetic_dup_id] });
+  assert.ok(errs.some((e) => e.includes("duplicate")), "duplicate id must fail validation");
+}
+
+// negative: iconic still claiming a free-reuse licence — the design rule says
+// iconic stills are always Promotional/editorial because the film studio owns
+// the still. A "fair use, public domain" claim must be rejected.
+{
+  const errs = validateSightings({ sightings: [sFx.synthetic_fake_license_iconic] });
+  assert.ok(errs.some((e) => e.includes("Promotional") || e.includes("free-reuse")),
+    "iconic still with a fake free-reuse license must fail validation");
+}
+
+// The actual canonical screen data is valid
+{
+  const canonical = JSON.parse(readFileSync(new URL("../data/shared/screen_sightings.json", import.meta.url), "utf8"));
+  const errs = validateSightings(canonical);
+  assert.deepEqual(errs, [], `canonical screen data must validate — errors: ${errs.join("; ")}`);
+}
 
 console.log("✓ all invariants hold");

@@ -81,9 +81,12 @@ for (let offset = 0; offset < unique.length; offset += 5) {
   sightings.push(...batch);
 }
 
-if (sightings.length !== 31) throw new Error(`Expected 31 Rolex sightings, found ${sightings.length}`);
+// Watch-ID is a live source — the index page can grow or shrink without notice. Warn on
+// change but do not throw, so a re-harvest after the source adds a new entry does not break
+// the build. The audit script can flag drift between runs.
+if (sightings.length !== 31) console.warn(`! Watch-ID returned ${sightings.length} sightings (was 31 on 2026-07-31); audit will flag this`)
 const output = {
-  collected: '2026-07-31',
+  collected: new Date().toISOString().slice(0, 10),
   source_url: `${BASE}/brands/rolex`,
   count: sightings.length,
   screen_count: sightings.filter((s) => s.media_type !== 'other').length,
@@ -91,5 +94,4 @@ const output = {
   sightings,
 };
 writeFileSync(join(ROOT, 'data/shared/watch_id_rolex.json'), JSON.stringify(output, null, 2) + '\n');
-writeFileSync(join(ROOT, 'public/data/watch_id_rolex.json'), JSON.stringify(output, null, 2) + '\n');
-console.log(`✓ ${sightings.length} Rolex sightings (${output.screen_count} film/TV) → public/data/watch_id_rolex.json`);
+console.log(`✓ ${sightings.length} Rolex sightings (${output.screen_count} film/TV) → data/shared/watch_id_rolex.json`);
