@@ -7,20 +7,22 @@ import CompareDock from './components/CompareDock.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
+  { to: '/brands', label: 'Brands' },
   { to: '/screen', label: 'On screen' },
   { to: '/photos', label: 'Rolex atlas' },
   { to: '/economy', label: 'Economy' },
-  { to: '/about', label: 'About' },
-  { to: '/resources', label: 'Resources' },
-  { to: '/compare', label: 'Compare' },
+  { to: '/data', label: 'Data' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
   '/': 'Time Pop — Watches, Stories & Screen',
   '/register': 'Object Archive — Time Pop',
+  '/brands': 'Brand Directory — Time Pop',
   '/photos': 'Rolex Object Atlas — Time Pop',
   '/screen': 'Watches on Screen — Time Pop',
   '/economy': 'Attention, Supply & Price — Time Pop',
+  '/data': 'Data Pipeline — Time Pop',
+  '/glossary': 'Glossary — Time Pop',
   '/about': 'About — Time Pop',
   '/discover': 'Discover a Watch — Time Pop',
   '/rehome': 'Rehome a Watch — Time Pop',
@@ -50,9 +52,9 @@ export default function App() {
       <CompareProvider>
       <header className="hdr">
         <div className="shell hdr-in">
-          <NavLink to="/" className="wordmark">
+          <NavLink to="/" className="wordmark" aria-label="Time Pop — home">
             <span className="wm-main">Time Pop</span>
-            <span className="wm-sub mono">OBJECTS · SCREEN · SCARCITY · WATCH.NONARKARA.ORG</span>
+            <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>
           </NavLink>
           <nav className="nav">
             {NAV.map((n) => (
@@ -85,6 +87,9 @@ export default function App() {
           </p>
           <p className="micro mono ftr-links">
             <NavLink to="/about">ABOUT</NavLink>
+            <NavLink to="/brands">BRANDS</NavLink>
+            <NavLink to="/glossary">GLOSSARY</NavLink>
+            <NavLink to="/data">DATA</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>
             <NavLink to="/compare">COMPARE</NavLink>
             <NavLink to="/signals">SCARCITY</NavLink>
