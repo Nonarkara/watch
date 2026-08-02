@@ -44,22 +44,29 @@ const PATHS = [
   {
     label: 'Spot the co-star',
     title: 'Watches on screen',
-    body: 'McQueen\'s Monaco, Bond\'s Seamaster, Marty\'s Casio — credited stills, honest IDs, no fake scarcity from fame.',
-    stat: '45 sightings · 14 iconic stills',
+    body: 'McQueen\'s Monaco, Bond\'s Seamaster, Marty\'s Casio — credited stills, honest IDs, no fake scarcity.',
+    stat: '45 sightings · 14 credited stills',
     to: '/screen', action: 'OPEN ON SCREEN',
+  },
+  {
+    label: 'License-free archives',
+    title: '180+ Taggable Photos',
+    body: 'High-resolution studio photography catalog with spec tags, filters, and lightbox zoom.',
+    stat: '186 taggable photos · license verified',
+    to: '/photos', action: 'EXPLORE ARCHIVES',
   },
   {
     label: 'Look closely',
     title: 'The Rolex object atlas',
-    body: 'Eighty source-linked configurations. Dial, bezel, bracelet, and the catalog price as published.',
-    stat: '80 catalog records · 1 source each',
-    to: '/photos', action: 'OPEN THE ATLAS',
+    body: 'Eighty source-linked configurations — dial, bezel, bracelet, and published list price.',
+    stat: '80 catalog records · verified sources',
+    to: '/rolex-atlas', action: 'OPEN THE ATLAS',
   },
   {
     label: 'Ask the awkward question',
-    title: 'Scarcity or attention?',
-    body: 'Separate fixed supply from cultural exposure. Explore the signal without a price promise.',
-    stat: '0 invented prices',
+    title: 'The Collectible Economy',
+    body: 'Holding horizon simulator, physical storage drag ($0.6%/yr), and liquidity haircuts.',
+    stat: '0 invented prices · CPI & bank baselines',
     to: '/economy', action: 'OPEN THE LAB',
   },
   {
@@ -72,8 +79,8 @@ const PATHS = [
   {
     label: 'Read the method',
     title: 'About Time Pop',
-    body: 'Theories, honesty ladder, timeline, and what we refuse to invent.',
-    stat: 'methodology v2',
+    body: 'Theories, honesty ladder, system invariants, and what we refuse to invent.',
+    stat: 'methodology v2 · non-writer standards',
     to: '/about', action: 'READ ABOUT',
   },
 ]
@@ -258,8 +265,8 @@ export default function Home() {
           <span className="sticker-inline mono">PLAY FIRST · NUMBERS SECOND</span>
         </div>
         <div className="lookbook-grid">
-          {PATHS.map((path, index) => (
-            <Link className={`lookbook-card tone-${(index % 4) + 1}`} to={path.to} key={path.to}>
+          {PATHS.map((path) => (
+            <Link className="lookbook-card" to={path.to} key={path.to}>
               <span className="eyebrow">{path.label}</span>
               <h3>{path.title}</h3>
               <p>{path.body}</p>
