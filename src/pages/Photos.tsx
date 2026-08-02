@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, type RolexCatalog } from '../lib/catalog.ts'
 import { usd } from '../lib/format.ts'
+import type { Card } from '../lib/data.ts'
 
 export default function Photos() {
   const data = useDataset()
@@ -19,6 +20,15 @@ export default function Photos() {
       return !needle || `${record.name} ${record.reference} ${record.configuration_reference}`.toLowerCase().includes(needle)
     })
   }, [catalog, collection, query])
+  // Build a lookup once so the catalog grid doesn't run data.cards.find()
+  // (O(n)) inside records.map() — that was 80 × 217 lookups per render.
+  const rolexByRef = useMemo(() => {
+    const m = new Map<string, Card>()
+    for (const card of data?.cards ?? []) {
+      if (card.identity.brand === 'Rolex') m.set(card.identity.reference.toUpperCase(), card)
+    }
+    return m
+  }, [data])
 
   return (
     <div className="photos-page">
@@ -41,7 +51,7 @@ export default function Photos() {
 
       <div className="catalog-grid">
         {records.map((record, index) => {
-          const card = data?.cards.find((item) => item.identity.brand === 'Rolex' && item.identity.reference.toUpperCase() === record.reference)
+          const card = rolexByRef.get(record.reference)
           return (
             <article className="catalog-card" key={record.id}>
               <a href={record.source_url} target="_blank" rel="noreferrer" className="catalog-image">

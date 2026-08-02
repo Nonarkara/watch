@@ -1536,3 +1536,11 @@ main.shell { padding-top: var(--space-md); }
   .hero-ledger-grid { flex: 0 0 auto; }
   .timepop-hero-copy { padding-block: 44px; }
 }
+
+/* Error boundary fallback — honest message, not a blank shell. */
+.err-boundary {
+  padding: var(--space-xl) 0;
+  max-width: 640px;
+}
+.err-boundary .pagetitle { margin-top: var(--space-sm); }
+.err-boundary .lede { margin-top: var(--space-sm); }

@@ -4,6 +4,7 @@ import { loadDataset, type Dataset } from './lib/data.ts'
 import { DataContext } from './lib/dataset-context.ts'
 import { CompareProvider } from './lib/compare-context.tsx'
 import CompareDock from './components/CompareDock.tsx'
+import ErrorBoundary from './components/ErrorBoundary.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
@@ -72,7 +73,9 @@ export default function App() {
         ) : !data ? (
           <p className="boot mono">LOADING TIME POP…</p>
         ) : (
-          <Outlet />
+          <ErrorBoundary>
+            <Outlet />
+          </ErrorBoundary>
         )}
       </main>
       <footer className="ftr">

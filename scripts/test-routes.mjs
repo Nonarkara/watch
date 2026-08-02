@@ -33,3 +33,27 @@ for (const file of walk(join(ROOT, "src"))) {
 }
 assert.deepEqual(bad, [], `internal links with no matching route:\n  ${bad.join("\n  ")}`);
 console.log(`✓ every internal link resolves (${routes.size} routes)`);
+
+// ─── anti-drift: stat strings must not hardcode build-computed counts ───────
+// The 2026-08-02 lesson: a hardcoded "186 taggable photos · license verified"
+// stat on the front door drifted from reality and broke the site's own
+// attribution standard. Any count the build produces must be read from the
+// build, not typed into a string literal. This check fails if a stat string
+// in Home.tsx contains a bare number that looks like a dataset count.
+const homeSrc = readFileSync(join(ROOT, "src/pages/Home.tsx"), "utf8");
+// Pull every string literal assigned to a `stat:` field.
+const statLiterals = [...homeSrc.matchAll(/stat:\s*['"`]([^'"`]+)['"`]/g)].map((m) => m[1]);
+// Also catch template literals referencing counts (those are fine — they read
+// from data). We only flag PURE string literals that contain a digit sequence
+// long enough to be a count (≥2 digits) alongside a unit keyword.
+const unitWords = /\b(sighting|stills?|photos?|records?|cards?|references?|comps?|catalog|images?)\b/i;
+const driftHits = [];
+for (const lit of statLiterals) {
+  const nums = [...lit.matchAll(/\d{2,}/g)].map((m) => m[0]);
+  if (nums.length && unitWords.test(lit)) {
+    driftHits.push(`'${lit}'`);
+  }
+}
+assert.deepEqual(driftHits, [],
+  `Home.tsx stat strings hardcode counts instead of reading them from the build:\n  ${driftHits.join("\n  ")}\n  → derive these from data/screen/catalog so they cannot drift.`);
+console.log("✓ no hardcoded count strings in Home stat fields");

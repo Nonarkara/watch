@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
-import type { Card } from '../lib/data.ts'
+import { BRAND_REGION, type Card } from '../lib/data.ts'
 
 /**
  * Pick a cross-section of references that gives a reader the depth of the
@@ -39,51 +39,15 @@ function tasteOfRegister(cards: Card[]): Card[] {
   }
   return out
 }
-
-const PATHS = [
-  {
-    label: 'Spot the co-star',
-    title: 'Watches on screen',
-    body: 'McQueen\'s Monaco, Bond\'s Seamaster, Marty\'s Casio — credited stills, honest IDs, no fake scarcity.',
-    stat: '45 sightings · 14 credited stills',
-    to: '/screen', action: 'OPEN ON SCREEN',
-  },
-  {
-    label: 'License-free archives',
-    title: '180+ Taggable Photos',
-    body: 'High-resolution studio photography catalog with spec tags, filters, and lightbox zoom.',
-    stat: '186 taggable photos · license verified',
-    to: '/photos', action: 'EXPLORE ARCHIVES',
-  },
-  {
-    label: 'Look closely',
-    title: 'The Rolex object atlas',
-    body: 'Eighty source-linked configurations — dial, bezel, bracelet, and published list price.',
-    stat: '80 catalog records · verified sources',
-    to: '/photos', action: 'OPEN THE ATLAS',
-  },
-  {
-    label: 'Ask the awkward question',
-    title: 'The Collectible Economy',
-    body: 'Holding horizon simulator, physical storage drag ($0.6%/yr), and liquidity haircuts.',
-    stat: '0 invented prices · CPI & bank baselines',
-    to: '/economy', action: 'OPEN THE LAB',
-  },
-  {
-    label: 'Pass it on well',
-    title: 'Find the next custodian',
-    body: 'Build an honest handover brief around condition, care, and history — not sales theatre.',
-    stat: '6-step handover brief',
-    to: '/rehome', action: 'MAKE A BRIEF',
-  },
-  {
-    label: 'Read the method',
-    title: 'About Time Pop',
-    body: 'Theories, honesty ladder, system invariants, and what we refuse to invent.',
-    stat: 'methodology v2 · non-writer standards',
-    to: '/about', action: 'READ ABOUT',
-  },
-]
+/** Static lookbook entries (no data-dependent counts — those are injected at
+ *  render time from the live build so the copy can never drift from reality).
+ *  The 2026-08-02 lesson: a hardcoded "186 photos · license verified" stat on
+ *  the front door broke the site's own attribution standard. Numbers that the
+ *  build computes must be read from the build. */
+interface LookbookEntry {
+  label: string; title: string; body: string;
+  stat: string; to: string; action: string;
+}
 
 /** Most-recently-curated screen sightings, used to populate the marquee. */
 function topScreenPicks(snapshot: ScreenSnapshot | null, limit = 5): { title: string; meta: string; href: string }[] {
@@ -126,11 +90,9 @@ export default function Home() {
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const spotlight = useMemo(() => spotlightDossiers(cards), [cards])
   const ticker = useMemo(() => tasteOfRegister(cards), [cards])
-  const asiaPicks = useMemo(() => cards.filter((c) => {
-    const asianBrands = new Set(['Casio', 'Citizen', 'Credor', 'Grand Seiko', 'Hajime Asaoka',
-      'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Seiko'])
-    return asianBrands.has(c.identity.brand) && c.media.length > 0
-  }).slice(0, 4), [cards])
+  const asiaPicks = useMemo(() => cards.filter((c) =>
+    BRAND_REGION[c.identity.brand] === 'asia' && c.media.length > 0
+  ).slice(0, 4), [cards])
   const brassTacks = useMemo(() => {
     // For buyers: a couple of fully-stocked dossiers worth starting with.
     const withProvenanceAndComps = cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
@@ -140,6 +102,48 @@ export default function Home() {
   }, [cards])
 
   if (!data) return null
+
+  // Lookbook cards: copy is static, but every count is injected from the live
+  // build so the front door can never publish a number the dataset doesn't back.
+  // (2026-08-02 lesson: a hardcoded "license verified" stat here was false.)
+  const iconicStills = screen?.iconic_stills ?? 0
+  const PATHS: LookbookEntry[] = [
+    {
+      label: 'Spot the co-star',
+      title: 'Watches on screen',
+      body: 'McQueen\'s Monaco, Bond\'s Seamaster, Marty\'s Casio — credited stills, honest IDs, no fake scarcity.',
+      stat: screen ? `${screen.count} sightings · ${iconicStills} credited stills` : 'SIGHTINGS LOADING…',
+      to: '/screen', action: 'OPEN ON SCREEN',
+    },
+    {
+      label: 'The Rolex object atlas',
+      title: 'One crown, source-linked.',
+      body: 'Every configuration on a catalog page — dial, bezel, bracelet, and published list price, each linked to its source.',
+      stat: catalog ? `${catalog.count} catalog records · linked to source` : 'ATLAS LOADING…',
+      to: '/photos', action: 'OPEN THE ATLAS',
+    },
+    {
+      label: 'Ask the awkward question',
+      title: 'The Collectible Economy',
+      body: 'Holding horizon simulator, physical storage drag ($0.6%/yr), and liquidity haircuts.',
+      stat: '0 invented prices · CPI & bank baselines',
+      to: '/economy', action: 'OPEN THE LAB',
+    },
+    {
+      label: 'Pass it on well',
+      title: 'Find the next custodian',
+      body: 'Build an honest handover brief around condition, care, and history — not sales theatre.',
+      stat: '6-step handover brief',
+      to: '/rehome', action: 'MAKE A BRIEF',
+    },
+    {
+      label: 'Read the method',
+      title: 'About Time Pop',
+      body: 'Theories, honesty ladder, system invariants, and what we refuse to invent.',
+      stat: `methodology v${data.methodology_version} · non-writer standards`,
+      to: '/about', action: 'READ ABOUT',
+    },
+  ]
 
   return (
     <>
@@ -351,10 +355,10 @@ export default function Home() {
             <span className="sticker-inline mono">SOURCED COMPS · SOURCED PROVENANCE</span>
           </div>
           <ul className="starter-list">
-            {brassTacks.map((c) => (
+            {brassTacks.map((c, idx) => (
               <li key={c.id}>
                 <Link to={`/w/${c.id}`} className="starter-link">
-                  <span className="starter-num mono">{String(brassTacks.indexOf(c) + 1).padStart(2, '0')}</span>
+                  <span className="starter-num mono">{String(idx + 1).padStart(2, '0')}</span>
                   <span className="starter-id">
                     <span className="eyebrow">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                     <span className="starter-name">{c.identity.name}</span>

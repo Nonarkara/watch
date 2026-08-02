@@ -144,3 +144,42 @@
 - Empty-space complaints are measurable: height ÷ character count per section exposed the
   four loosest blocks immediately (1.0–1.4 px/char against 0.22 for a dense one). Measure
   before cutting, so the fix lands on the real offender rather than the nearest padding.
+
+## 2026-08-02 · A hardcoded stat string is a lie waiting to happen
+
+- **What went wrong:** the home lookbook cards carried hand-typed counts — "186 taggable
+  photos · license verified", "45 sightings · 14 credited stills", "80 catalog records".
+  Every one had drifted from the live build, and the first was actively false: there is no
+  186-photo archive (15 files in `public/img/`, 123/217 cards with media) and the Photos
+  page itself says *"reuse licence is not asserted"*. This was the exact failure mode
+  logged two entries up — the front door broke the site's own attribution standard.
+- **Correct behaviour:** the `PATHS` array is now built inside the component, and every
+  count is injected from the already-fetched `data`/`screen`/`catalog` objects. Copy is
+  static; numbers are read from the build. A regression test in `test-routes.mjs` fails
+  if any `stat:` string in `Home.tsx` contains a bare multi-digit number next to a unit
+  keyword, so the drift cannot recur silently.
+- **The general rule:** any number the build computes must be read from the build, not
+  typed into a string literal. A count on the front door is a promise the dataset makes —
+  hardcoding it severs the promise from the evidence.
+
+## 2026-08-02 · A 21-route SPA should not ship as one bundle
+
+- **What went wrong:** all 21 routes compiled into a single 431 KB JS bundle (130 KB
+  gzip). Pages like `About` (646 lines), `Paper` (the working paper), `Methodology`,
+  `Legal` and `Glossary` are heavy static content most visitors never reach, but every
+  visitor downloaded them before the first paint.
+- **Correct behaviour:** 20 of 21 routes are now `React.lazy` chunks fetched on demand;
+  only `Home` stays in the core bundle. Initial gzip JS dropped 37% (130 → 81 KB). The
+  change is mechanical — `main.tsx` only — and the `oxlint` Fast Refresh warnings it
+  produces are dev-only and harmless in production.
+- **The general rule:** on a multi-page SPA, code-split by route. The cost is near zero
+  and the initial-load win compounds with every new page.
+
+## 2026-08-02 · A render error should never white-screen the whole app
+
+- **What went wrong:** no error boundary existed. A single `throw` in any component
+  would unmount the entire tree with no fallback — the lessons log documents silent blank
+  pages as a recurring pain. On a reference site, a blank screen reads as broken data.
+- **Correct behaviour:** an `ErrorBoundary` class component wraps `<Outlet/>` in `App.tsx`,
+  catching render throws and showing an honest "that page hit an error" fallback with a
+  way back. The rest of the site stays usable because the boundary isolates the failure.

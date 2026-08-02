@@ -51,11 +51,13 @@ export default function Register() {
   // brand_tiers.json; the count is the number of cards we have on file.
   const brandDirectory = useMemo(() => {
     const counts = new Map<string, number>()
-    for (const c of cards) counts.set(c.identity.brand, (counts.get(c.identity.brand) ?? 0) + 1)
-    return brands.map((b) => {
-      const tier = cards.find((c) => c.identity.brand === b)?.identity.tier
-      return { brand: b, count: counts.get(b) ?? 0, tier }
-    })
+    const tierByBrand = new Map<string, Card['identity']['tier']>()
+    for (const c of cards) {
+      counts.set(c.identity.brand, (counts.get(c.identity.brand) ?? 0) + 1)
+      // First card wins — tier is consistent within a brand.
+      if (!tierByBrand.has(c.identity.brand)) tierByBrand.set(c.identity.brand, c.identity.tier)
+    }
+    return brands.map((b) => ({ brand: b, count: counts.get(b) ?? 0, tier: tierByBrand.get(b) }))
   }, [brands, cards])
 
   const rows = useMemo(() => {
