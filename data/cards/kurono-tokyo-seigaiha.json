@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "kurono-tokyo-seigaiha",
+  "identity": {
+    "brand": "Kurono Tokyo",
+    "reference": "Seigaiha",
+    "name": "Seigaiha 38mm Blue Dial",
+    "nickname": null,
+    "collection": null,
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Miyota 90S5",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "fixed, smooth"
+    },
+    "one_liner": "Kurono Tokyo's hand-finished 38mm dress watch with a 5-layer Urushi lacquer dial — a small-batch indie from the Lowther family (Grand Seiko veterans), sold by lottery at sub-$2k."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1700,
+        "source_url": "https://kuronotokyo.com/"
+      }
+    ],
+    "current_msrp_usd": 1700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-04-15",
+      "person_or_event": "Seigaiha release",
+      "description": "Hajime Ishikawa (former Grand Seiko designer) launches Kurono Tokyo Seigaiha — a 38mm dress watch with a 5-layer Urushi lacquer dial, sold by lottery.",
+      "source_url": "https://kuronotokyo.com/"
+    }
+  ],
+  "narrative": {
+    "story": "Kurono Tokyo is the indie line of Hajime Ishikawa, who spent a decade at Grand Seiko before going independent. The Seigaiha is his most-photographed piece: a 38mm steel dress watch with a 5-layer Urushi lacquer dial.",
+    "collector_notes": "The dial is hand-applied Urushi lacquer over a guilloché base — each layer takes 24 hours to cure.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://kuronotokyo.com/"
+    ]
+  }
+}

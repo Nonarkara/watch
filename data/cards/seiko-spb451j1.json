@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "seiko-spb451j1",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SPB451J1",
+    "name": "Prospex 1965 Heritage Diver 39mm Black",
+    "nickname": null,
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6R55",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional dive"
+    },
+    "one_liner": "The 2023 Prospex 1965 Heritage Diver 39mm with the new 6R55 movement — 70-hour reserve, hi-beat 21,600 vph, the most-cited Asian mid-tier diver at $1,500."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 1500,
+        "source_url": "https://www.seikowatches.com/us-en/products/prospex/spb451j1"
+      }
+    ],
+    "current_msrp_usd": 1500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "SPB451 release",
+      "description": "Seiko releases the SPB451 as the 39mm 1965 Heritage Diver with the new 6R55 movement — 70-hour reserve, hi-beat 21,600 vph.",
+      "source_url": "https://www.seikowatches.com/us-en/products/prospex/spb451j1"
+    }
+  ],
+  "narrative": {
+    "story": "The SPB451 is the 2023 addition to the Prospex 1965 Heritage line — 39mm steel, ceramic bezel, sapphire crystal, the new 6R55 movement (70-hour reserve, hi-beat 21,600 vph).",
+    "collector_notes": "The 6R55 is one of the most-cited mid-tier Seiko movements of the 2020s — 70-hour reserve, hi-beat 21,600 vph, free-sprung balance.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/prospex/spb451j1"
+    ]
+  }
+}

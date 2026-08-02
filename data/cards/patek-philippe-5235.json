@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "patek-philippe-5235",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "5235",
+    "name": "Annual Calendar Regulator",
+    "nickname": null,
+    "collection": "Complications",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 2011,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "31-260 REG QA",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "rose gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The Patek regulator — the only regulator-style watch in Patek's modern catalogue, with a single hour hand, a separate minute hand, and a sub-seconds subdial. The quietest Patek complications piece."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2011,
+        "price_usd": 51000,
+        "source_url": "https://www.patek.com/en/collection/complications/5235R-001"
+      }
+    ],
+    "current_msrp_usd": 51000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2011-01-01",
+      "person_or_event": "5235 release",
+      "description": "Patek Philippe releases the 5235 as the brand's only regulator-style watch — a single hour hand at 6, a central minute hand, an annual calendar with day/date/month in a sub-dial at 6.",
+      "source_url": "https://www.patek.com/en/collection/complications/5235R-001"
+    }
+  ],
+  "narrative": {
+    "story": "The 5235 is Patek's only modern regulator — a layout where the hour is on a sub-dial and only the minute is on a central hand. Patek has long resisted the regulator style (which is associated with German watchmaking) but in 2011 they made one for the Asian market's preference for asymmetric dial layouts.",
+    "collector_notes": "The dial is a matte black or silver with applied baton indices. The regulator sub-dial is at 6 with three sub-dials (day, date, month) and a sub-seconds.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.patek.com/en/collection/complications/5235R-001"
+    ]
+  }
+}

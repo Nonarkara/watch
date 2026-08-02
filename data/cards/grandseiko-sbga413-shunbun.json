@@ -8,14 +8,29 @@
     "nickname": "Shunbun",
     "collection": "Heritage Collection — Seasons",
     "tier": "core",
-    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "9R65", "type": "spring drive" },
-    "case": { "diameter_mm": 40, "material": "High-Intensity Titanium", "bezel": "none — bezel-less 62GS-style case, box-shaped sapphire crystal" },
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R65",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "High-Intensity Titanium",
+      "bezel": "none — bezel-less 62GS-style case, box-shaped sapphire crystal"
+    },
     "one_liner": "A titanium Spring Drive with a sakura-on-water dial referencing shunbun, the spring equinox in Japan's 24 micro-season calendar."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 7200, "source_url": "https://www.grand-seiko.com/us-en/collections/sbga413g" }
+      {
+        "effective_year": 2026,
+        "price_usd": 7200,
+        "source_url": "https://www.grand-seiko.com/us-en/collections/sbga413g"
+      }
     ],
     "current_msrp_usd": 7200
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-01-01",
+      "person_or_event": "Shunbun launch",
+      "description": "Grand Seiko releases the SBGA413 \"Shunbun\" (cherry blossom) — 41mm steel, 9R65 Spring Drive movement, the dial texture hand-finished to evoke cherry blossoms. The Shunbun becomes a particular favourite of the Asian collector market, with Hong Kong, Tokyo, and Singapore ADs running short waitlists through 2021-2022.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/sbga413"
+    }
+  ],
   "narrative": {
     "story": "The SBGA413 belongs to Grand Seiko's Seasons series, which ties dial design to Japan's traditional 24 micro-seasons; shunbun names the spring equinox, and the dial pattern references cherry blossoms floating on water (hanaikada). Grand Seiko released it in 2019 as one of four Seasons watches sold exclusively in the US before expanding availability worldwide in 2022. It carries the 62GS-derived bezel-less case and caliber 9R65 Spring Drive movement used across the Heritage Collection's dressier references.",
     "collector_notes": "Originally a US-market exclusive; pieces sold outside the US before the 2022 worldwide release are worth checking for warranty-card origin.",

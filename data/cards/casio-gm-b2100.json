@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "casio-gm-b2100",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GM-B2100",
+    "name": "G-Shock Full Metal 2100 Series",
+    "nickname": "Casioak Full Metal",
+    "collection": "G-Shock",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "5641",
+      "type": "tough solar radio-controlled"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "octagonal, faceted"
+    },
+    "one_liner": "The 2022 full-metal G-Shock that became a horological moment — the same octagonal case as the 2100 Casioak, in a 40mm stainless steel body with Tough Solar and Bluetooth."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 500,
+        "source_url": "https://www.casio.com/products/watches/g-shock/gm-b2100d-1a"
+      }
+    ],
+    "current_msrp_usd": 500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2022-04-15",
+      "person_or_event": "GM-B2100 release",
+      "description": "Casio releases the GM-B2100 in stainless steel with the same octagonal 2100 case as the 2019 Casioak GA-2100 — full metal, Tough Solar, Bluetooth, 200m water resistance.",
+      "source_url": "https://www.casio.com/products/watches/g-shock/gm-b2100d-1a"
+    }
+  ],
+  "narrative": {
+    "story": "The 2019 GA-2100 Casioak was Casio's most-cited 21st-century G-Shock. The 2022 GM-B2100 brought the same case in full stainless steel with Tough Solar radio-controlled accuracy and Bluetooth, at $500. The result: a $500 watch that wears like a Royal Oak and ticks like a Casio.",
+    "collector_notes": "The full-metal case weighs 167g — about 3x the resin 2100. The dial is a black sunray with applied indices.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.casio.com/products/watches/g-shock/gm-b2100d-1a"
+    ]
+  }
+}

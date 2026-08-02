@@ -8,9 +8,20 @@
     "nickname": "BB54",
     "collection": "Black Bay",
     "tier": "crown",
-    "produced": { "start_year": 2023, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "MT5400", "type": "automatic" },
-    "case": { "diameter_mm": 37, "material": "stainless steel", "bezel": "black unidirectional dive bezel" },
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "MT5400",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "stainless steel",
+      "bezel": "black unidirectional dive bezel"
+    },
     "one_liner": "The smallest current Black Bay at 37mm, referencing the 1954 Oyster Prince Submariner, Tudor's first diver, with no crown guards on the case."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "Black Bay 54 release",
+      "description": "Tudor releases the Black Bay 54 as the brand's first sub-40mm Black Bay in steel — 37mm, 11.2mm thick, with the in-house MT5400 movement. The 54 becomes the most-cited modern Tudor in the Asian collector market, with Hong Kong, Singapore, and Tokyo ADs running short waitlists.",
+      "source_url": "https://www.tudorwatch.com/en/black-bay-54"
+    }
+  ],
   "narrative": {
     "story": "Tudor introduced the Black Bay 54 in 2023 as a smaller, more historically faithful alternative to the Black Bay Fifty-Eight, dropping the case to 37mm and removing crown guards entirely to match the proportions of Tudor's first Submariner-type diver from 1954. It uses the same MT5400 movement family as the Pelagos 39.",
     "collector_notes": "The lack of crown guards and the smaller 37mm case make this sit noticeably closer to 1950s wrist presence than the Fifty-Eight, which buyers coming from a 39-41mm Black Bay should try on before ordering rather than judge by the diameter number alone.",

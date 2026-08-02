@@ -8,6 +8,15 @@ type Filter = 'all' | ScreenEvent['media_type']
 
 type ResolvedImage = MediaAttachment & { kind: 'in_context' | 'portrait' }
 
+// Studios / production companies hold the copyright on most screen stills.
+// Pull a short label from the title for the "image withheld" caption.
+// Title format is typically: "Brand Ref — Actor/Character — Production".
+function productionLabel(sighting: ScreenEvent): string {
+  const t = sighting.title ?? ''
+  const parts = t.split(/\s+[—-]\s+/)
+  return parts.length >= 3 ? parts.slice(2).join(' — ').trim() : t
+}
+
 function imageForSighting(sighting: ScreenEvent, mediaById: Map<string, MediaAttachment[]>): ResolvedImage | null {
   if (sighting.media) {
     return {
@@ -83,6 +92,14 @@ export default function Screen() {
   // Track dossier-portrait URLs already shown so two Milgauss cards don't look like two photos.
   const seenPortraits = new Set<string>()
 
+  const withStillsAndPortrait = snapshot?.sightings.filter((item) => {
+    if (item.media) return true
+    if (item.suppress_portrait_fallback) return false
+    const cid = item.matched_card_ids?.[0]
+    if (!cid) return false
+    return mediaById.has(cid)
+  }).length ?? 0
+
   return (
     <div className="screen-page">
       <Link to="/" className="crumb">← HOME</Link>
@@ -98,7 +115,7 @@ export default function Screen() {
         <div className="pop-panel screen-stat-panel">
           <span className="bubble-kicker mono">THE HONEST PLOT TWIST</span>
           <strong>{snapshot?.count ?? '—'} sightings</strong>
-          <span>{withStills} with credited stills · {exact} exact Rolex reference maps · {snapshot?.iconic_stills ?? 0} iconic film icons</span>
+          <span>{withStills} with credited stills · {withStillsAndPortrait} with a portrait shown · {exact} exact Rolex reference maps · {snapshot?.iconic_stills ?? 0} iconic film icons</span>
           {snapshot?.editorial_url && (
             <a href={snapshot.editorial_url} target="_blank" rel="noreferrer" className="mono micro">
               TEDDY BALDASSARRE ROUNDUP ↗
@@ -106,6 +123,12 @@ export default function Screen() {
           )}
         </div>
       </section>
+
+      <aside className="screen-policy" aria-label="Image policy">
+        <p className="mono micro">
+          STUDIO-COPYRIGHTED IN-FILM STILLS (White Lotus, Bosch, Hacks, etc.) ARE INTENTIONALLY ABSENT — NO CC LICENCE MEANS NO IMAGE. WE SHOW THE WATCH INSTEAD.
+        </p>
+      </aside>
 
       <div className="screen-controls">
         {(['all', 'film', 'television', 'other'] as Filter[]).map((value) => (
@@ -148,6 +171,7 @@ export default function Screen() {
             }
           }
           const isInContext = watchMedia?.kind === 'in_context'
+          const studio = productionLabel(item)
           return (
             <article className={`screen-card ${index % 5 === 1 ? 'tilt-right' : index % 5 === 3 ? 'tilt-left' : ''}`} key={item.id}>
               <div className="screen-card-media">
@@ -164,20 +188,26 @@ export default function Screen() {
                       {isInContext ? 'STILL' : 'WATCH PORTRAIT'} · {watchMedia.credit?.toUpperCase() ?? 'SOURCE'}
                     </span>
                     {isInContext && <span className="screen-card-image-tag mono">IN-CONTEXT</span>}
+                    {!isInContext && <span className="screen-card-image-tag mono">IN-FILM STILL WITHHELD</span>}
                   </a>
                 ) : (
                   <div className="screen-card-empty">
-                    <span className="mono">NO DISTINCT STILL</span>
+                    <span className="mono">IN-FILM STILL WITHHELD</span>
                     <span className="mono micro dim">
                       {sharedPortrait || item.suppress_portrait_fallback
-                        ? 'SAME REFERENCE ALREADY SHOWN — OPEN THE DOSSIER FOR THE PORTRAIT'
+                        ? 'SAME REFERENCE ALREADY SHOWN ABOVE — OPEN THE DOSSIER FOR THE PORTRAIT'
                         : item.match_level === 'exact_reference'
-                          ? 'DOSSIER HAS NO LICENSED PHOTO YET'
-                          : 'FAMILY-LEVEL — NO EXACT REFERENCE PORTRAIT'}
+                          ? `STUDIO COPYRIGHT · ${studio.toUpperCase()} · DOSSIER HAS NO LICENSED PHOTO YET`
+                          : `STUDIO COPYRIGHT · ${studio.toUpperCase()} · FAMILY-LEVEL — NOT YET IN ANY DOSSIER`}
                     </span>
                   </div>
                 )}
               </div>
+              {!isInContext && watchMedia && (
+                <p className="screen-still-withheld-note mono micro">
+                  THE IN-FILM STILL IS COPYRIGHTED BY {studio.toUpperCase()}. WE SHOW THE WATCH INSTEAD.
+                </p>
+              )}
               <div className="screen-card-top">
                 <span className="screen-kind mono">{item.brand} · {item.media_type}</span>
                 <span className={`evidence-badge ${item.identification}`}>{item.identification}</span>

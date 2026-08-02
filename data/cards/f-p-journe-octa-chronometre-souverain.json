@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "f-p-journe-octa-chronometre-souverain",
+  "identity": {
+    "brand": "F.P. Journe",
+    "reference": "Octa Chronometre Souverain",
+    "name": "Octa Chronometre Souverain 40mm Brass",
+    "nickname": null,
+    "collection": "Octa",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2001,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1304",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "platinum",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The F.P. Journe Octa — a 40mm platinum dress watch with the in-house 1304 manual movement, a deadbeat seconds sub-dial, and a brass or silver dial. The most-cited F.P. Journe in Asia."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2001,
+        "price_usd": 55000,
+        "source_url": "https://www.fpjourne.com/en/collections/octa-chronometre-souverain"
+      }
+    ],
+    "current_msrp_usd": 55000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2001-01-01",
+      "person_or_event": "Octa Chronometre Souverain release",
+      "description": "François-Paul Journe releases the Octa Chronometre Souverain — a 40mm platinum dress watch with the in-house 1304 manual movement.",
+      "source_url": "https://www.fpjourne.com/en/collections/octa-chronometre-souverain"
+    }
+  ],
+  "narrative": {
+    "story": "The Octa Chronometre Souverain is the watch that established F.P. Journe as a major independent. The 1304 movement is a manual-wind with a 56-hour reserve, a free-sprung balance, and a deadbeat seconds sub-dial.",
+    "collector_notes": "The 1304 movement is one of the most-cited independent movements of the 2000s — hand-finished, free-sprung balance, deadbeat seconds, 56-hour reserve.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.fpjourne.com/en/collections/octa-chronometre-souverain"
+    ]
+  }
+}

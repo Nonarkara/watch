@@ -119,6 +119,29 @@ export const TIER_LABEL: Record<Card['identity']['tier'], string> = {
 };
 export const TIER_ORDER: Card['identity']['tier'][] = ['trinity', 'crown', 'haute', 'core', 'attainable'];
 
+// Where the brand is headquartered / has its deepest cultural roots. Editorial signal only —
+// never feeds the estimator. Used to power the Asia / Europe / Americas filter on the Register.
+export const BRAND_REGION: Record<string, 'asia' | 'europe' | 'americas'> = {
+  // Asia
+  'Casio': 'asia', 'Citizen': 'asia', 'Credor': 'asia', 'Grand Seiko': 'asia',
+  'Hajime Asaoka': 'asia', 'King Seiko': 'asia', 'Kurono Tokyo': 'asia',
+  'Minase': 'asia', 'Naoya Hida': 'asia', 'Seiko': 'asia',
+  // Europe
+  'A. Lange & Söhne': 'europe', 'Audemars Piguet': 'europe', 'Breitling': 'europe',
+  'Cartier': 'europe', 'De Bethune': 'europe', 'DeWitt': 'europe', 'F.P. Journe': 'europe',
+  'H. Moser & Cie': 'europe', 'IWC': 'europe', 'Jaeger-LeCoultre': 'europe',
+  'Longines': 'europe', 'MB&F': 'europe', 'Omega': 'europe', 'Panerai': 'europe',
+  'Patek Philippe': 'europe', 'Philippe Dufour': 'europe', 'Rexhep Rexhepi': 'europe',
+  'Richard Mille': 'europe', 'TAG Heuer': 'europe', 'Tissot': 'europe',
+  'Vacheron Constantin': 'europe', 'Zenith': 'europe',
+  // Americas
+  'Hamilton': 'americas',
+};
+export const REGION_ORDER: Array<'asia' | 'europe' | 'americas'> = ['asia', 'europe', 'americas'];
+export const REGION_LABEL: Record<'asia' | 'europe' | 'americas', string> = {
+  asia: 'Asia', europe: 'Europe', americas: 'Americas',
+};
+
 let cache: Promise<Dataset> | null = null;
 export function loadDataset(): Promise<Dataset> {
   cache ??= fetch('/data.json').then((r) => {

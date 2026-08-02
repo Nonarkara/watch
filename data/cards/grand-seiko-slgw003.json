@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "grand-seiko-slgw003",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SLGW003",
+    "name": "Elegance Collection Manual 38",
+    "nickname": "Genbi Edition",
+    "collection": "Elegance",
+    "tier": "core",
+    "produced": {
+      "start_year": 2024,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9SA4",
+      "type": "manual-wind"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "polished, smooth"
+    },
+    "one_liner": "The hand-wound 38mm dress watch that marked Grand Seiko's 9SA4 caliber landing — and a quiet comeback for manual wind in the brand's catalogue."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2024,
+        "price_usd": 8200,
+        "source_url": "https://www.grandseiko.com/us-en/collections/slgw003"
+      }
+    ],
+    "current_msrp_usd": 8200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2024-03-12",
+      "person_or_event": "Watches and Wonders 2024",
+      "description": "Grand Seiko releases the SLGW003 with the 9SA4 manual caliber at 38mm — the first hand-wound movement in the modern Evolution 9 line and a return to manual winding in a slim dress case.",
+      "source_url": "https://www.grandseiko.com/us-en/news/news-20240312"
+    }
+  ],
+  "narrative": {
+    "story": "Grand Seiko spent 2020-2023 modernising its movements: 9SA5 hi-beat auto, 9RA5 Spring Drive Chronograph, 9SC5 vertical clutch chrono. The 9SA4 hand-wind was the missing piece — a manual-wind hi-beat calibre (36,000 vph) with 80-hour reserve, the same architecture as the 9SA5 in a thinner package.",
+    "collector_notes": "Look for the \"Genbi\" limited edition in white gold (sold only at the Seiko museum boutique in Ginza). Both versions share the dial's subtle stripe pattern, inspired by hot springs steam rising from the Suwa lake.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.grandseiko.com/us-en/collections/slgw003"
+    ]
+  }
+}

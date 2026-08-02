@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "jaeger-lecoultre-q3848420",
+  "identity": {
+    "brand": "Jaeger-LeCoultre",
+    "reference": "Q3848420",
+    "name": "Master Control Date",
+    "nickname": null,
+    "collection": "Master Control",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "899/1",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "The Master Control Date in steel with the new in-house 899/1 calibre — JLC's most-cited Asian entry-haute watch, with a clean sector dial and the Master Control 1000-hour chronometer certification."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 8400,
+        "source_url": "https://www.jaeger-lecoultre.com/us-en/watches/master-control"
+      }
+    ],
+    "current_msrp_usd": 8400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2020-01-01",
+      "person_or_event": "Master Control Date release",
+      "description": "JLC releases the Master Control Date in steel with the in-house 899/1 automatic calibre.",
+      "source_url": "https://www.jaeger-lecoultre.com/us-en/watches/master-control"
+    }
+  ],
+  "narrative": {
+    "story": "The Master Control is JLC's most-cited line for the Asian entry-haute market — a 40mm steel dress watch with the in-house 899/1 automatic movement, a clean sector dial, and the Master Control 1000-hour chronometer certification.",
+    "collector_notes": "The 1000-hour certification is unique to JLC — it's stricter than COSC.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.jaeger-lecoultre.com/us-en/watches/master-control"
+    ]
+  }
+}

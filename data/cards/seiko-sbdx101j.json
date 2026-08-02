@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sbdx101j",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SBDX101J",
+    "name": "Prospex Marinemaster 600m Professional Diver",
+    "nickname": null,
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "8L55",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 46.7,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional dive"
+    },
+    "one_liner": "The 600m saturation-diving Prospex reissue with a 47mm case, the 8L55 hi-beat movement, and a helium escape valve at 9 o'clock — a modern successor to the 6159-7001."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 3500,
+        "source_url": "https://www.seikowatches.com/us-en/products/prospex/sbdx101"
+      }
+    ],
+    "current_msrp_usd": 3500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-06-15",
+      "person_or_event": "SBDX101 launch",
+      "description": "Seiko releases the SBDX101 as a 600m professional dive watch in the Prospex line — a 47mm steel case, ceramic bezel, helium escape valve, 8L55 hi-beat 36,000 vph movement.",
+      "source_url": "https://www.seikowatches.com/us-en/products/prospex/sbdx101"
+    }
+  ],
+  "narrative": {
+    "story": "The 6159-7001 was Seiko's 1968 saturation-diving watch — 600m, helium escape valve, 36,000 vph movement. The SBDX101 is the modern Prospex successor: same 600m, same 8L55 hi-beat architecture, modern case proportions.",
+    "collector_notes": "The 8L55 is one of the few Seiko movements with a 55-hour reserve at 36,000 vph.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/prospex/sbdx101"
+    ]
+  }
+}

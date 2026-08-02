@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "grand-seiko-sbgc249",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGC249",
+    "name": "Heritage Collection Chronograph Spring Drive GMT",
+    "nickname": null,
+    "collection": "Heritage",
+    "tier": "core",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R96",
+      "type": "spring drive chronograph GMT"
+    },
+    "case": {
+      "diameter_mm": 44.5,
+      "material": "stainless steel",
+      "bezel": "polished, smooth"
+    },
+    "one_liner": "The high-end Spring Drive chronograph GMT with a column wheel and vertical clutch — Grand Seiko's statement of horological independence."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 12500,
+        "source_url": "https://www.grandseiko.com/us-en/collections/sbgc249"
+      }
+    ],
+    "current_msrp_usd": 12500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-04-12",
+      "person_or_event": "9R96 column-wheel chrono",
+      "description": "Grand Seiko releases the SBGC249 with the in-house 9R96 Spring Drive chronograph, the brand's first column-wheel/vertical-clutch chronograph with quartz-regulated accuracy.",
+      "source_url": "https://www.hodinkee.com/articles/grand-seiko-spring-drive-chronograph-sbgc249"
+    }
+  ],
+  "narrative": {
+    "story": "The 9R96 is the more premium of Grand Seiko's two chronograph movements: column wheel and vertical clutch, plus a 72-hour reserve, plus ±1 second/day accuracy. The SBGC249 wears larger than the 41mm dress pieces but is a coherent \"sport-traveller\" at 44.5mm with 100m water resistance.",
+    "collector_notes": "The dial layout borrows from the SBGA413 Shunbun family — clean, with subtle texture in the seconds sub-dial.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.grandseiko.com/us-en/collections/sbgc249"
+    ]
+  }
+}

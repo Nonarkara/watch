@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "credor-gc9950",
+  "identity": {
+    "brand": "Credor",
+    "reference": "GC9950",
+    "name": "Eichi II Spring Drive",
+    "nickname": "The Round",
+    "collection": "Eichi",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "7R14",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "18k white gold",
+      "bezel": "fixed, polished"
+    },
+    "one_liner": "Credor's hand-finished Spring Drive with a hand-painted porcelain dial — a high-end Seiko sub-brand, not Grand Seiko, the quietest haute horlogerie from a Japanese company."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2014,
+        "price_usd": 38000,
+        "source_url": "https://www.credor.com/"
+      }
+    ],
+    "current_msrp_usd": 38000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "Eichi II release",
+      "description": "Credor (Seiko's hand-finished sub-brand) releases the Eichi II with a 7R14 hand-wound Spring Drive movement and a hand-painted Arita porcelain dial, in a 39mm white-gold case.",
+      "source_url": "https://www.credor.com/"
+    }
+  ],
+  "narrative": {
+    "story": "Credor is the in-house hand-finished line within the Seiko group. The Eichi II is Credor's most-photographed piece: a 39mm white-gold case, a hand-painted Arita porcelain dial with a single Arabic \"12\" numeral, and a 7R14 hand-wound Spring Drive movement.",
+    "collector_notes": "The Arita porcelain dial is hand-painted by a single artisan — each dial is a one-off work. The power-reserve indicator wanders across the dial in 60 minutes, like a slow minute hand.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.credor.com/"
+    ]
+  }
+}

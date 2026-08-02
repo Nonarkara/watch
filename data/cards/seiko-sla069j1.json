@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "seiko-sla069j1",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SLA069J1",
+    "name": "Prospex 1965 Heritage Diver 39mm",
+    "nickname": "Cement 62MAS",
+    "collection": "Prospex",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6L37",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional dive"
+    },
+    "one_liner": "The 2023 Prospex reissue with a textured \"cement\" grey dial that nods to the 1965 62MAS, and the 6L37 hi-beat 36,000 vph movement over the standard 6R35."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 2400,
+        "source_url": "https://www.seikowatches.com/us-en/products/prospex/sla069j1"
+      }
+    ],
+    "current_msrp_usd": 2400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-01-01",
+      "person_or_event": "SLA069 release",
+      "description": "Seiko updates the 1965 62MAS reissue with a textured cement-grey dial, the 6L37 hi-beat 36,000 vph movement, and a 39mm case.",
+      "source_url": "https://www.hodinkee.com/articles/seiko-prospex-sla069-cement-62mas"
+    }
+  ],
+  "narrative": {
+    "story": "Seiko's Prospex 1965 Heritage line has gone from one reference (SPB143 in 2020) to a small family by 2023: 39mm and 40.5mm dive watches, all with the 6R35 or 6L37 movement. The SLA069's cement-grey dial is the only one in the family with a textured finish.",
+    "collector_notes": "The 6L37 beats at 36,000 vph — same as the Speedmaster. 200m water resistance, 70-hour reserve.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/prospex/sla069j1"
+    ]
+  }
+}

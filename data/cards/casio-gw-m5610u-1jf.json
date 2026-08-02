@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "casio-gw-m5610u-1jf",
+  "identity": {
+    "brand": "Casio",
+    "reference": "GW-M5610U-1JF",
+    "name": "G-Shock 5600 Series Tough Solar JDM",
+    "nickname": "Casio Square",
+    "collection": "G-Shock",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3495",
+      "type": "tough solar radio-controlled"
+    },
+    "case": {
+      "diameter_mm": 42.8,
+      "material": "resin",
+      "bezel": "resin"
+    },
+    "one_liner": "The Japan-only GW-M5610U — the square 5600 case in Tough Solar radio-controlled, 200m water resistance, Multiband 6, at sub-$200. The cleanest G-Shock for daily wear."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 180,
+        "source_url": "https://www.casio.com/jp/watches/g-shock/gw-m5610u-1jf"
+      }
+    ],
+    "current_msrp_usd": 180
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2019-01-01",
+      "person_or_event": "GW-M5610U release",
+      "description": "Casio Japan releases the GW-M5610U as a Japan-only square G-Shock with Tough Solar, Multiband 6 radio control, 200m water resistance.",
+      "source_url": "https://www.casio.com/jp/watches/g-shock/gw-m5610u-1jf"
+    }
+  ],
+  "narrative": {
+    "story": "The GW-M5610U is the modern interpretation of the 1983 DW-5000C — the original G-Shock. The case is 42.8mm in resin, the dial is the classic 5600 black-on-white, the movement is Tough Solar (no battery changes) with Multiband 6 radio control.",
+    "collector_notes": "The 3495 movement is one of Casio's most-cited: Tough Solar, Multiband 6, 200m water resistance, full auto EL backlight.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.casio.com/jp/watches/g-shock/gw-m5610u-1jf"
+    ]
+  }
+}

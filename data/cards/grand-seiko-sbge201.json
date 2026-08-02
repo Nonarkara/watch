@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "grand-seiko-sbge201",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGE201",
+    "name": "Heritage Collection Spring Drive GMT",
+    "nickname": null,
+    "collection": "Heritage",
+    "tier": "core",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R66",
+      "type": "spring drive GMT"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "polished, smooth"
+    },
+    "one_liner": "The 41mm Spring Drive GMT that became the quietest traveller's watch in the brand's catalogue — Tri-Compax dial, no rotor noise, ±1 second a day."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2014,
+        "price_usd": 5800,
+        "source_url": "https://www.grandseiko.com/us-en/collections/sbge201"
+      }
+    ],
+    "current_msrp_usd": 5800
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "SBGE201 launch",
+      "description": "Grand Seiko brings Spring Drive to a 41mm GMT with the Tri-Compax sub-dial layout, the only hi-beat-quartz-accuracy Spring Drive GMT in the brand's mid-tier line.",
+      "source_url": "https://www.hodinkee.com/articles/grand-seiko-spring-drive-gmt-sbge201"
+    }
+  ],
+  "narrative": {
+    "story": "The SBGE201 is the accessible Spring Drive GMT: 41mm steel, Tri-Compax sub-dial, a 9R66 movement that combines a quartz-regulated glide-wheel with mechanical mainspring for ±1 second/day accuracy. The case is 13.7mm thick.",
+    "collector_notes": "Look at the dial under low light — the polished indices and hands are hand-cut by the Shiojiri studio. Lume is exclusive to hands and 12, 3, 6, 9 markers.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.grandseiko.com/us-en/collections/sbge201"
+    ]
+  }
+}

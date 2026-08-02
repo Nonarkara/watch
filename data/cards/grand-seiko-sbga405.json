@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "grand-seiko-sbga405",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGA405",
+    "name": "Heritage Collection Spring Drive Snowflake Ti",
+    "nickname": "Snowflake Titanium",
+    "collection": "Heritage",
+    "tier": "core",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R65",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "titanium",
+      "bezel": "fixed, smooth"
+    },
+    "one_liner": "The titanium Snowflake — same textured dial and 9R65 Spring Drive movement as the steel SBGA211, in a 41mm titanium case for half the weight."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 6300,
+        "source_url": "https://www.grandseiko.com/us-en/collections/sbga405"
+      }
+    ],
+    "current_msrp_usd": 6300
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2017-04-15",
+      "person_or_event": "SBGA405 release",
+      "description": "Grand Seiko releases the titanium Snowflake (SBGA405) — 41mm titanium case, 9R65 Spring Drive movement, textured dial.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/sbga405"
+    },
+    {
+      "date": "2017-01-01",
+      "person_or_event": "Snowflake Titanium release",
+      "description": "Grand Seiko releases the SBGA405 titanium Snowflake — 41mm titanium case, 9R65 Spring Drive movement, textured dial. The titanium case is the most-cited Asian-market Grand Seiko because of the lighter weight and the cleaner dial reading in low light.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/sbga405"
+    }
+  ],
+  "narrative": {
+    "story": "The SBGA405 is the titanium version of the most-cited modern Grand Seiko — the Snowflake. Same 41mm case dimensions as the steel SBGA211, but in titanium for half the weight. The dial is the same textured white pattern that catches light like falling snow.",
+    "collector_notes": "The titanium case is 41mm but wears 40mm because of the lugs. The dial is the most-cited modern Grand Seiko pattern.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.grandseiko.com/us-en/collections/sbga405"
+    ]
+  }
+}

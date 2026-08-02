@@ -693,6 +693,25 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .screen-card-image-tag { position: absolute; top: 8px; left: 8px; background: var(--yellow); color: var(--navy); border: 1px solid var(--navy); padding: 2px 6px; font-size: 9px; letter-spacing: .1em; }
 .screen-card-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 12px; gap: 6px; color: var(--dim); font-size: var(--text-micro); letter-spacing: .04em; }
 .screen-card-empty .mono { color: var(--dim); }
+.screen-policy { border: 1px solid var(--amber); border-left-width: 2px; padding: 12px 16px; margin: 0 0 24px; background: var(--paper-2); max-width: 92ch; }
+.screen-policy p { color: var(--navy); margin: 0; font-weight: 500; }
+.screen-still-withheld-note { margin: -8px 0 12px; padding: 8px 10px; border-left: 2px solid var(--amber); background: var(--paper-2); color: var(--navy); line-height: 1.4; }
+.brand-region-tag { color: var(--amber); border: 1px solid var(--amber); padding: 1px 6px; margin-left: 6px; font-size: 9px; letter-spacing: .08em; }
+.asia-spotlight { padding: 0 0 64px; border-bottom: 1px solid var(--rule); }
+.asia-spotlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.asia-spotlight-card { display: flex; flex-direction: column; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 16px; background: transparent; transition: background 200ms ease; }
+.asia-spotlight-card:hover { background: var(--paper-2); }
+.asia-spotlight-media { aspect-ratio: 4 / 3; background: var(--paper-2); margin-bottom: 12px; overflow: hidden; }
+.asia-spotlight-media img { width: 100%; height: 100%; object-fit: cover; }
+.asia-spotlight-id { color: var(--dim); font-size: 11px; letter-spacing: .06em; margin-bottom: 4px; }
+.asia-spotlight-name { font-family: var(--font-display); font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.asia-spotlight-nick { font-size: 13px; color: var(--dim); margin-bottom: 6px; }
+.asia-spotlight-tier { color: var(--amber); font-size: 10px; letter-spacing: .1em; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--rule); }
+.asia-spotlight-all { background: var(--navy); color: var(--paper); }
+.asia-spotlight-all .asia-spotlight-all-eyebrow { color: var(--amber); font-size: 11px; letter-spacing: .1em; }
+.asia-spotlight-all .asia-spotlight-all-title { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin: 8px 0; color: var(--paper); }
+.asia-spotlight-all .asia-spotlight-all-body { font-size: 12px; line-height: 1.5; margin-bottom: 12px; color: rgba(246, 240, 229, 0.8); }
+.asia-spotlight-all .asia-spotlight-all-link { color: var(--amber); font-size: 11px; letter-spacing: .08em; margin-top: auto; }
 .screen-kind, .evidence-badge { font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: .04em; color: var(--dim); }
 .evidence-badge { border: 1px solid var(--rule); padding: 2px 5px; }
 .evidence-badge.tentative { color: var(--amber); border-color: var(--amber); }

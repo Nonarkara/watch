@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "grand-seiko-sbga413g",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGA413G",
+    "name": "Heritage Collection Spring Drive 6R Champagne",
+    "nickname": "Shunbun Cherry Blossom",
+    "collection": "Heritage",
+    "tier": "core",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R65",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 40.4,
+      "material": "18k rose gold",
+      "bezel": "polished, smooth"
+    },
+    "one_liner": "The rose-gold Shunbun — same cherry-blossom dial texture as the steel SBGA413, in a heavy 18k case for the Asian market's preference for warm metals."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 18000,
+        "source_url": "https://www.grandseiko.com/us-en/collections/sbga413g"
+      }
+    ],
+    "current_msrp_usd": 18000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2021-04-12",
+      "person_or_event": "Shunbun in gold",
+      "description": "Grand Seiko releases the rose-gold version of the Shunbun Spring Drive, two years after the steel reference launched.",
+      "source_url": "https://www.grandseiko.com/us-en/collections/sbga413g"
+    }
+  ],
+  "narrative": {
+    "story": "The Shunbun dial is one of the most-cited modern Grand Seiko designs: a textured surface that reads as cherry blossom petals against a champagne tone. The steel version (SBGA413) is the everyday hero; the gold version is the warm-metal counterpart for the Japanese market.",
+    "collector_notes": "The texture is created by repeated stamping, then hand-applied colour. No two dials are exactly identical.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-asia-coverage",
+    "curated_date": "2026-08-02",
+    "sources": [
+      "https://www.grandseiko.com/us-en/collections/sbga413g"
+    ]
+  }
+}

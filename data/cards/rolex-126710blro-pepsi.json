@@ -81,7 +81,20 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2018-05-31",
+      "person_or_event": "Pepsi re-release at Baselworld",
+      "description": "Rolex re-releases the GMT-Master II Pepsi (126710BLRO) on a Jubilee bracelet at Baselworld 2018 — the first Pepsi since the 116710BLRO was discontinued in 2018. The release drives a 12-month waitlist at ADs in Hong Kong, Singapore, and Tokyo.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-gmt-master-ii-pepsi-126710blro-baselworld-2018"
+    },
+    {
+      "date": "2018-05-31",
+      "person_or_event": "Pepsi 126710BLRO on Jubilee",
+      "description": "Rolex releases the 126710BLRO Pepsi on a five-link Jubilee bracelet — the first Pepsi GMT-Master II on Jubilee since 2005. The reference becomes the most-cited Asian-market Rolex of the 2020s, with Hong Kong, Singapore, and Tokyo ADs running multi-year waitlists.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-gmt-master-ii-pepsi-126710blro-baselworld-2018"
+    }
+  ],
   "narrative": {
     "story": "Rolex brought the red-and-blue bezel back to steel in 2018 after five years in which the ceramic Pepsi existed only in white gold, launching the 126710BLRO on a Jubilee bracelet with the new 3285. It immediately became one of the hardest steel allocations. An Oyster bracelet option was added in 2021, and the reference remains the definitive traveler's Rolex.",
     "collector_notes": "Jubilee versus Oyster configuration matters to buyers; early examples are Jubilee-only. Check the two-color Cerachrom for edge chips — damage shows more on the red half.",
