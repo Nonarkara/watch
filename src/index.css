@@ -624,10 +624,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 .screen-caption { margin-top: 10px; line-height: 1.4; }
 .screen-rights { margin-top: 6px; line-height: 1.35; max-width: 42ch; }
-.tone-1 { background: color-mix(in srgb, var(--sky) 28%, var(--surface)); }
-.tone-2 { background: color-mix(in srgb, var(--coral) 18%, var(--surface)); }
-.tone-3 { background: color-mix(in srgb, var(--yellow) 32%, var(--surface)); }
-.tone-4 { background: color-mix(in srgb, var(--teal) 22%, var(--surface)); }
 
 /* Was a speech bubble. Now a cited annotation. */
 .fact-bubble { position: relative; display: flex; flex-direction: column; gap: 6px; background: var(--bg); color: var(--fg); border: 1px solid var(--rule); border-left: 2px solid var(--amber); padding: 18px 20px; max-width: 340px; }
@@ -1471,3 +1467,54 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-xl); }
   line-height: 1.4;
 }
 
+
+/* ── Density pass II ──────────────────────────────────────────────────────
+   Measured before cutting: sections carried 56–64px margins, cards held 184
+   characters inside 22px padding at 209px tall, and the home page ran 4738px.
+   Read together that is not restraint, it is unsold inventory — the page looks
+   like it is waiting for an advertiser. Whitespace has to separate figures,
+   not pad them, so the rhythm tightens and the type does the spacing. */
+
+/* Section rhythm: one step, not two. */
+section, .sect, .lookbook-paths, .spotlight-row, .research-ledger,
+.brass-tacks, .screen-marquee, .starter-row, .asia-spotlight, .math-notes {
+  margin-top: 36px; margin-bottom: 36px;
+}
+.asia-spotlight { padding-bottom: 36px; }
+.section-rule { padding-bottom: 6px; margin-bottom: 12px; }
+.lookbook-paths { margin: 36px 0; }
+main.shell { padding-top: var(--space-md); }
+
+/* Cards: less air around the same words. */
+.lookbook-card { min-height: 0; padding: 14px 16px; }
+.lookbook-card h3 { font-size: var(--text-body); font-weight: 700; letter-spacing: -.01em;
+  text-transform: uppercase; margin: 6px 0 6px; }
+.lookbook-card p { font-size: var(--text-body); line-height: 1.4; max-width: 40ch; }
+.lookbook-card > span:last-child { padding-top: 12px; }
+.brass-card, .spotlight-card, .asia-spotlight-card { padding: 14px 16px; }
+.pop-panel { padding: 14px 16px; }
+
+/* Three columns on wide screens: six curiosities become two clean rows, and the
+   cards stop stretching to fill a half-width column they do not need. */
+@media (min-width: 1100px) {
+  .lookbook-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Lists and rows close up. */
+.starter-list a, .starter-list li > * { padding-top: 8px; padding-bottom: 8px; }
+.starter-row { margin: 36px 0 24px; }
+.research-ledger { padding: 28px 0; gap: 24px; }
+.proof-ribbon > div { padding: 12px 12px 12px 0; }
+
+/* The four loosest sections carried ~1.0-1.4px of height per character of
+   content — image wells sized for a lookbook, not a reference grid. Shorter
+   wells and tighter cells put the same information in two-thirds the page. */
+.asia-spotlight-media, .spotlight-media { aspect-ratio: 16 / 10; }
+.asia-spotlight-card { padding: 12px 14px; }
+.asia-spotlight-media { margin-bottom: 10px; }
+.asia-spotlight { padding: 0 0 28px; }
+.spotlight-card { padding: 10px 12px; gap: 6px; }
+.spotlight-grid { gap: 12px; margin-top: 12px; }
+.research-ledger { padding: 28px 0; gap: 24px; }
+.ledger-lines p { padding: 8px 0; }
+.starter-list { margin-top: 12px; }

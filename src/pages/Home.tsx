@@ -60,7 +60,7 @@ const PATHS = [
     title: 'The Rolex object atlas',
     body: 'Eighty source-linked configurations — dial, bezel, bracelet, and published list price.',
     stat: '80 catalog records · verified sources',
-    to: '/rolex-atlas', action: 'OPEN THE ATLAS',
+    to: '/photos', action: 'OPEN THE ATLAS',
   },
   {
     label: 'Ask the awkward question',
@@ -286,7 +286,7 @@ export default function Home() {
           <article className="brass-card">
             <span className="eyebrow">FOR THE BUYER</span>
             <h3>What you are looking at.</h3>
-            <p>Start with a reference you already have or are considering. Each dossier shows the dossier portrait, the comp evidence, the producer\'s catalogue history, and the screen record. The honesty ladder explains what is shown and what is deliberately hidden.</p>
+            <p>Start with a reference you already have or are considering. Each dossier shows the dossier portrait, the comp evidence, the producer’s catalogue history, and the screen record. The honesty ladder explains what is shown and what is deliberately hidden.</p>
             <ol className="brass-list mono">
               <li>1. Read the <strong>one-liner</strong> and the <strong>case</strong> row.</li>
               <li>2. Compare <strong>market</strong> to <strong>retail</strong> (with the stale-baseline flag).</li>
