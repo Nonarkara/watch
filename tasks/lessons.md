@@ -106,3 +106,15 @@
 - **Also:** Wikimedia Commons hosts replica watches with self-applied CC0 tags and brand press
   photos CC-tagged by non-holders. Read the file description, not just the licence box — two
   candidates for this build were counterfeits that described themselves as such.
+
+## 2026-08-02 · Compiled AI research gets its own layer, never the estimator
+
+- The four research documents (Grok/Perplexity/Google) carried genuinely useful index
+  figures and frameworks alongside citation lists polluted with junk entries. The honest
+  integration: a `market_context` layer republished with named-report attribution and a
+  visible "compiled, not verified by us" limitation, kept structurally separate from the
+  register's computed metrics. Where sources disagreed, the chart draws the range instead
+  of averaging it away.
+- The tiered price-band framework became a computed, invariant-tested metric because it is
+  a pure function of on-card prices; the index percentages stayed context because they are
+  not derivable from our evidence. The dividing line: can the build recompute it?
