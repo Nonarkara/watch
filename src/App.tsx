@@ -7,28 +7,28 @@ import CompareDock from './components/CompareDock.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
-  { to: '/photos', label: 'Rolex atlas' },
   { to: '/screen', label: 'On screen' },
+  { to: '/photos', label: 'Rolex atlas' },
   { to: '/economy', label: 'Economy' },
   { to: '/about', label: 'About' },
   { to: '/compare', label: 'Compare' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
-  '/': 'The Watch Register — Objects, Stories & Scarcity',
-  '/register': 'Watch Reference Register — The Watch Register',
-  '/photos': 'Rolex Object Atlas — The Watch Register',
-  '/screen': 'Rolex On Screen — The Watch Register',
-  '/economy': 'Attention, Supply & Price — The Watch Register',
-  '/about': 'About — Theories, History & The Build — The Watch Register',
-  '/discover': 'Discover a Watch — The Watch Register',
-  '/rehome': 'Rehome a Watch Responsibly — The Watch Register',
-  '/compare': 'Compare Watch References — The Watch Register',
-  '/signals': 'Scarcity Economics — The Watch Register',
-  '/patterns': 'Pattern Screen — The Watch Register',
-  '/starter': 'Starter Paths — The Watch Register',
-  '/methodology': 'Methodology — The Watch Register',
-  '/paper': 'Working Paper — The Watch Register',
+  '/': 'Time Pop — Watches, Stories & Screen',
+  '/register': 'Object Archive — Time Pop',
+  '/photos': 'Rolex Object Atlas — Time Pop',
+  '/screen': 'Watches on Screen — Time Pop',
+  '/economy': 'Attention, Supply & Price — Time Pop',
+  '/about': 'About — Time Pop',
+  '/discover': 'Discover a Watch — Time Pop',
+  '/rehome': 'Rehome a Watch — Time Pop',
+  '/compare': 'Compare References — Time Pop',
+  '/signals': 'Scarcity Economics — Time Pop',
+  '/patterns': 'Pattern Screen — Time Pop',
+  '/starter': 'Starter Paths — Time Pop',
+  '/methodology': 'Methodology — Time Pop',
+  '/paper': 'Working Paper — Time Pop',
 }
 
 export default function App() {
@@ -48,8 +48,8 @@ export default function App() {
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark">
-            <span className="wm-main">THE WATCH REGISTER</span>
-            <span className="wm-sub mono">OBJECTS · STORIES · MARKET SIGNALS · WATCH.NONARKARA.ORG</span>
+            <span className="wm-main">Time Pop</span>
+            <span className="wm-sub mono">OBJECTS · SCREEN · SCARCITY · WATCH.NONARKARA.ORG</span>
           </NavLink>
           <nav className="nav">
             {NAV.map((n) => (
@@ -63,9 +63,9 @@ export default function App() {
       </header>
       <main className="shell">
         {err ? (
-          <p className="boot mono">DATASET FAILED TO LOAD — {err}. The register refuses to render placeholder data.</p>
+          <p className="boot mono">DATASET FAILED TO LOAD — {err}. Time Pop refuses to render placeholder data.</p>
         ) : !data ? (
-          <p className="boot mono">LOADING REGISTER…</p>
+          <p className="boot mono">LOADING TIME POP…</p>
         ) : (
           <Outlet />
         )}

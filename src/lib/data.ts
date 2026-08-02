@@ -54,6 +54,12 @@ export interface ScreenEvent {
   /** Optional per-sighting in-film / premiere / press still. When present, the
    *  Screen page prefers this image over the watch-portrait fallback. */
   media?: SightingMedia;
+  /** Cross-check editorial URL (e.g. Teddy Baldassarre movie-watches roundup). */
+  editorial_url?: string;
+  /** When true, do not fall back to a dossier portrait — used when another
+   *  sighting already shows the same reference image (Milgauss double-map). */
+  suppress_portrait_fallback?: boolean;
+  shared_with?: string;
 }
 
 export interface Computed {

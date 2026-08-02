@@ -1,0 +1,781 @@
+{
+  "collected": "2026-08-02",
+  "source_url": "https://www.watch-id.com/brands/rolex",
+  "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+  "count": 45,
+  "screen_count": 45,
+  "iconic_stills": 14,
+  "limitation": "Rolex identifications come from Watch-ID (family-only and tentative stay labeled). Iconic film stills are promotional/editorial images credited to the studio and cross-checked against the Teddy Baldassarre movie-watches roundup — not free-reuse licences. Screen exposure is demand-side attention, never physical scarcity.",
+  "sightings": [
+    {
+      "id": "heuer-monaco-steve-mcqueen-le-mans",
+      "brand": "Heuer",
+      "watch": "Monaco",
+      "title": "Heuer Monaco — Steve McQueen — Le Mans",
+      "description": "Steve McQueen’s Michael Delaney in Le Mans (1971) wears the square Heuer Monaco — crown on the left, blue dial, racing strap. The film welded that shape to motorsport cool; TAG Heuer still lives on the echo. Still: McQueen in Gulf kit with the Monaco in frame.",
+      "media_type": "film",
+      "release_year": 1971,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "tagheuer-monaco-caw211p"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/le-mans-heuer-monaco.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Le Mans (1971) / Cinema Center Films · editorial still via Teddy Baldassarre movie-watches roundup",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Steve McQueen as Michael Delaney — Heuer Monaco on the wrist, Gulf racing suit."
+      }
+    },
+    {
+      "id": "omega-seamaster-daniel-craig-no-time-to-die",
+      "brand": "Omega",
+      "watch": "Seamaster Diver 300M 007 Edition",
+      "title": "Omega Seamaster — Daniel Craig — No Time to Die",
+      "description": "Craig’s final Bond film puts him in the titanium Seamaster Diver 300M 007 Edition — mesh bracelet, tropical dial, broad-arrow markers. Omega’s Bond deal is product placement with a plot function: the watch is part of how Bond reads as equipped.",
+      "media_type": "film",
+      "release_year": 2021,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "omega-seamaster-300m"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/no-time-to-die-omega.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "No Time to Die (2021) / EON · Metro-Goldwyn-Mayer · editorial composite via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Daniel Craig as Bond beside the Seamaster Diver 300M 007 Edition."
+      }
+    },
+    {
+      "id": "casio-ca53w-michael-j-fox-back-to-the-future",
+      "brand": "Casio",
+      "watch": "CA-53W Calculator",
+      "title": "Casio CA-53W — Michael J. Fox — Back to the Future",
+      "description": "Marty McFly’s calculator watch is 1985 in resin: keypad, tiny LCD, zero prestige — and more famous than most luxury placements. Scarcity here is cultural memory, not limited production.",
+      "media_type": "film",
+      "release_year": 1985,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "casio-f91w"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/bttf-casio.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Back to the Future (1985) / Universal Pictures · Amblin · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Michael J. Fox as Marty McFly with the Casio calculator watch visible on the wrist."
+      }
+    },
+    {
+      "id": "citizen-bullhead-brad-pitt-once-upon-a-time-in-hollywood",
+      "brand": "Citizen",
+      "watch": "Challenge Timer “Bullhead”",
+      "title": "Citizen Bullhead — Brad Pitt — Once Upon a Time in Hollywood",
+      "description": "Cliff Booth’s gold Citizen Challenge Timer (the “Bullhead”) sits on a wide bund strap while Brad Pitt drives through 1969 Los Angeles. Tarantino turned a relatively obscure chronograph into a modern grail overnight — attention without factory scarcity.",
+      "media_type": "film",
+      "release_year": 2019,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/ouatih-citizen-bullhead.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Once Upon a Time in Hollywood (2019) / Sony · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Brad Pitt as Cliff Booth — Citizen Bullhead chronograph on a bund strap."
+      }
+    },
+    {
+      "id": "hamilton-ventura-elvis-blue-hawaii",
+      "brand": "Hamilton",
+      "watch": "Ventura",
+      "title": "Hamilton Ventura — Elvis Presley — Blue Hawaii",
+      "description": "Elvis in Blue Hawaii (1961) wears the shield-shaped Hamilton Ventura — electric, asymmetrical, impossible to confuse with a round dress watch. The film fixed the Ventura in pop memory long before reissues.",
+      "media_type": "film",
+      "release_year": 1961,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/blue-hawaii-hamilton-ventura.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Blue Hawaii (1961) / Paramount · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Elvis Presley with the triangular Hamilton Ventura on the left wrist."
+      }
+    },
+    {
+      "id": "hamilton-khaki-interstellar",
+      "brand": "Hamilton",
+      "watch": "Khaki Field / Murph",
+      "title": "Hamilton — Matthew McConaughey — Interstellar",
+      "description": "Nolan’s Interstellar makes a Hamilton the plot device: Cooper’s field watch and Murph’s heirloom become the film’s clock. Hamilton later sold the association hard. Screen attention here is literally the story.",
+      "media_type": "film",
+      "release_year": 2014,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "hamilton-khaki-field-h69439931"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/interstellar-hamilton.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Interstellar (2014) / Paramount · Warner Bros. · promotional key art via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Interstellar promotional image — Hamilton’s on-screen partnership with the film is well documented."
+      }
+    },
+    {
+      "id": "seiko-h558-schwarzenegger-predator",
+      "brand": "Seiko",
+      "watch": "H558-5009 “Arnie”",
+      "title": "Seiko H558 — Arnold Schwarzenegger — Predator",
+      "description": "Dutch’s Seiko H558-5009 in Predator (1987) is the digital “Arnie” — chunky, utilitarian, and still chased by collectors who want the jungle chronograph that survived the hunt. Attention created the nickname.",
+      "media_type": "film",
+      "release_year": 1987,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/predator-seiko.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Predator (1987) / 20th Century Fox · theatrical poster via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Predator theatrical poster — Schwarzenegger as Dutch; the Seiko H558 is the associated on-wrist watch."
+      }
+    },
+    {
+      "id": "orfina-porsche-design-top-gun",
+      "brand": "Orfina Porsche Design",
+      "watch": "Chronograph 1",
+      "title": "Orfina Porsche Design Chronograph 1 — Top Gun",
+      "description": "On the carrier deck in Top Gun (1986), the matte black Orfina Porsche Design Chronograph 1 reads as fighter-pilot kit. Iceman’s wrist is part of why the watch still trades as an ’80s aviation icon.",
+      "media_type": "film",
+      "release_year": 1986,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/top-gun-orfina.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Top Gun (1986) / Paramount · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Val Kilmer (Iceman) and Tom Cruise (Maverick) — Orfina Porsche Design chronograph visible on Kilmer’s wrist."
+      }
+    },
+    {
+      "id": "rolex-datejust-christian-bale-american-psycho",
+      "brand": "Rolex",
+      "watch": "Datejust",
+      "title": "Rolex Datejust — Christian Bale — American Psycho",
+      "description": "Patrick Bateman’s gold Datejust on a Jubilee bracelet is 1980s Wall Street costume language — the watch as manners and menace. Mapped family-only; the still shows the bracelet and case clearly.",
+      "media_type": "film",
+      "release_year": 2000,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/american-psycho-datejust.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "American Psycho (2000) / Lionsgate · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Christian Bale as Patrick Bateman — gold Datejust on Jubilee bracelet."
+      }
+    },
+    {
+      "id": "tag-carrera-ryan-gosling-gray-man",
+      "brand": "TAG Heuer",
+      "watch": "Carrera Three Hands",
+      "title": "TAG Heuer Carrera — Ryan Gosling — The Gray Man",
+      "description": "Ryan Gosling’s Six in The Gray Man wears a clean Carrera three-hand — steel, silver dial, no chrono clutter. TAG’s placement is modern spy minimalism rather than Bond dive-watch theatre.",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "tagheuer-carrera-glassbox-cbs2210"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/gray-man-tag-carrera.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "The Gray Man (2022) / Netflix · TAG Heuer promotional still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Ryan Gosling with TAG Heuer Carrera three-hand visible on the left wrist."
+      }
+    },
+    {
+      "id": "bremont-tom-hardy-venom",
+      "brand": "Bremont",
+      "watch": "ALT1-C / Alt-series",
+      "title": "Bremont — Tom Hardy — Venom",
+      "description": "Tom Hardy’s Eddie Brock wears Bremont in Venom — independent British chronograph energy on a Marvel anti-hero. Placement over pedigree; we keep the read at family level.",
+      "media_type": "film",
+      "release_year": 2018,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/venom-bremont.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Venom (2018) / Sony · Columbia · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Tom Hardy as Eddie Brock — Bremont chronograph on the wrist."
+      }
+    },
+    {
+      "id": "panerai-sylvester-stallone-daylight",
+      "brand": "Panerai",
+      "watch": "Luminor (Sly era)",
+      "title": "Panerai — Sylvester Stallone — Daylight",
+      "description": "Stallone’s 1990s Panerai habit — including Daylight (1996) — dragged the oversized Luminor out of military obscurity into Hollywood. The brand’s modern fame is partly this casting history.",
+      "media_type": "film",
+      "release_year": 1996,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "panerai-luminor-marina-pam01312"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/daylight-stallone-panerai.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Daylight (1996) / Universal Pictures · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Sylvester Stallone — Panerai-associated still from the Daylight era."
+      }
+    },
+    {
+      "id": "rolex-submariner-dicaprio-blood-diamond",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner — Leonardo DiCaprio — Blood Diamond",
+      "description": "DiCaprio’s Danny Archer in Blood Diamond (2006) wears Submariner steel in a film about conflict minerals — a tool watch inside a story about extraction. Family-level Rolex sports mapping.",
+      "media_type": "film",
+      "release_year": 2006,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [
+        "rolex-16610"
+      ],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/blood-diamond-submariner.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Blood Diamond (2006) / Warner Bros. · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Leonardo DiCaprio as Danny Archer — Submariner-associated promotional still."
+      }
+    },
+    {
+      "id": "breguet-churchill-darkest-hour",
+      "brand": "Breguet",
+      "watch": "No. 765 “Turnip” (pocket)",
+      "title": "Breguet pocket watch — Gary Oldman — Darkest Hour",
+      "description": "Gary Oldman’s Churchill in Darkest Hour carries the gold Albert chain toward the famous Breguet “Turnip” pocket watch — inheritance as character. Not a wristwatch dossier, but a screen lesson in how timekeeping signals power.",
+      "media_type": "film",
+      "release_year": 2017,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "media": {
+        "type": "image",
+        "url": "/img/film/darkest-hour-breguet.png",
+        "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+        "credit": "Darkest Hour (2017) / Focus Features · Working Title · editorial still via Teddy Baldassarre",
+        "license": "Promotional / editorial still — rights remain with the film studio and rights holders. Shown for identification and education only; not a free-reuse licence.",
+        "caption": "Gary Oldman as Winston Churchill — pocket-watch chain visible across the waistcoat."
+      }
+    },
+    {
+      "id": "rolex-day-date-jason-isaacs-the-white-lotus",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Jason Isaacs - The White Lotus",
+      "description": "In White Lotus Season 3, Jason Isaacs plays Timothy Ratliff with a gold Day-Date on the wrist — the classic “president” signal. Watch-ID flags the family, not a single reference, so we keep it family-only until a clearer dial/bezel read lands.",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/rolex-day-date-jason-isaacs-the-white-lotus",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-milgauss-patrick-schwarzenegger-the-white-lotus-season-3",
+      "brand": "Rolex",
+      "watch": "Milgauss",
+      "title": "Rolex Milgauss - Patrick Schwarzenegger - The White Lotus Season 3",
+      "description": "Episode 1 of White Lotus Season 3 puts a green-crystal Milgauss on Patrick Schwarzenegger. That points at the modern 116400GV — the anti-magnetic Rolex with the green sapphire. Identification is still tentative: same object family as the Jeff Daniels sighting below, not proof of two different references.",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116400gv"
+      ],
+      "source_url": "https://www.watch-id.com/rolex-milgauss-patrick-schwarzenegger-the-white-lotus-season-3",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-gmt-master-ii-sterling-k-brown-paradise",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Sterling K. Brown - Paradise",
+      "description": "Sterling K. Brown’s Paradise opener shows a GMT-Master II — the travel bezel Rolex. We map it to the Pepsi 126710BLRO while the read stays tentative; a frame-perfect bezel still would lock the reference.",
+      "media_type": "television",
+      "release_year": 2025,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-126710blro-pepsi"
+      ],
+      "source_url": "https://www.watch-id.com/rolex-gmt-master-ii-sterling-k-brown-paradise",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-oyster-perpetual-milgauss-jeff-daniels-man-full",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Milgauss",
+      "title": "Rolex Oyster Perpetual Milgauss - Jeff Daniels - A Man In Full",
+      "description": "In Netflix’s A Man in Full, Jeff Daniels wears a green-crystal Milgauss — again the 116400GV family. That is the same reference mapped on White Lotus, not a second model. We refuse to paste the same dossier portrait here as if it were a still from this series.",
+      "media_type": "television",
+      "release_year": 2024,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116400gv"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-milgauss-jeff-daniels-man-full",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
+      "suppress_portrait_fallback": true,
+      "shared_with": "rolex-milgauss-patrick-schwarzenegger-the-white-lotus-season-3"
+    },
+    {
+      "id": "rolex-submariner-titus-welliver-bosch",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Titus Welliver - Bosch",
+      "description": "Titus Welliver’s Bosch keeps a Submariner in the frame across Bosch and Bosch: Legacy — a working detective’s steel sports watch. Mapped to the ceramic 116610LN pending a tighter year/bezel confirmation.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-116610ln"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-titus-welliver-bosch",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-day-date-chris-evans-pain-hustlers",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Chris Evans - Pain Hustlers",
+      "description": "Chris Evans in Pain Hustlers (2023) wears gold Day-Date energy — status jewellery for a pharmaceutical hustle story. Family-only until the case size and dial are pinned.",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-chris-evans-pain-hustlers",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-date-two-tone-josh-lucas-black-demon",
+      "brand": "Rolex",
+      "watch": "Submariner Date Two-Tone",
+      "title": "Rolex Submariner Date Two-Tone - Josh Lucas - The Black Demon",
+      "description": "Josh Lucas in The Black Demon (2023) wears a two-tone Submariner Date — steel and gold, the showier sibling of the full-steel diver.",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-two-tone-josh-lucas-black-demon",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-florence-pugh-good-person",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Florence Pugh - A Good Person",
+      "description": "Florence Pugh’s Submariner in A Good Person puts a tool dive watch on a drama about guilt and recovery. Family-level until the exact reference is confirmed.",
+      "media_type": "film",
+      "release_year": 2023,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-florence-pugh-good-person",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-explorer-1016-jennifer-connelly-top-gun-maverick",
+      "brand": "Rolex",
+      "watch": "Explorer 1016",
+      "title": "Rolex Explorer 1016 - Jennifer Connelly - Top Gun: Maverick",
+      "description": "Jennifer Connelly’s Penny in Top Gun: Maverick wears a vintage Explorer 1016 — the simple 3-6-9 explorer dial. A premiere still is credited below; the in-cockpit prop close-up stays with Paramount.",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-1016"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-1016-jennifer-connelly-top-gun-maverick",
+      "media": {
+        "type": "image",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Jennifer_Connelly_at_Top_Gun-_Maverick_premiere.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jennifer_Connelly_at_Top_Gun-_Maverick_premiere.jpg",
+        "credit": "Gabriel Hutchinson",
+        "license": "CC BY-SA 4.0",
+        "caption": "Jennifer Connelly at the Top Gun: Maverick premiere, San Diego, May 2022 — the closest verified CC-licensed photograph of the actress in a public film context. The actual in-film watch-in-scene image is copyrighted by Paramount and is not available for free reuse."
+      },
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-jon-hamm-confess-fletch",
+      "brand": "Rolex",
+      "watch": "Submariner",
+      "title": "Rolex Submariner - Jon Hamm - Confess, Fletch",
+      "description": "Jon Hamm’s Confess, Fletch Submariner is comedy-noir steel: a diver as costume shorthand for competent charm.",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-jon-hamm-confess-fletch",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-day-date-jerrod-carmichael-rothaniel",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Jerrod Carmichael - Rothaniel",
+      "description": "Jerrod Carmichael’s Rothaniel special puts a Day-Date in a stand-up room — gold as stage armour. Family-only.",
+      "media_type": "film",
+      "release_year": 2022,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-jerrod-carmichael-rothaniel",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-gmt-master-james-spader-blacklist",
+      "brand": "Rolex",
+      "watch": "GMT-Master",
+      "title": "Rolex GMT-Master - James Spader - The Blacklist",
+      "description": "James Spader’s Red Reddington on The Blacklist is long associated with a GMT-Master — a traveler’s bezel for a man who never stays put.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-16710"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-james-spader-blacklist",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-oyster-perpetual-datejust-pedro-pascal-wonder-woman-1984",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual DateJust",
+      "title": "Rolex Oyster Perpetual DateJust - Pedro Pascal - Wonder Woman 1984",
+      "description": "Pedro Pascal in Wonder Woman 1984 wears Datejust energy — the everyday Rolex dress sports hybrid. Family-level mapping.",
+      "media_type": "film",
+      "release_year": 1984,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-datejust-pedro-pascal-wonder-woman-1984",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-day-date-adam-sandler-uncut-gems",
+      "brand": "Rolex",
+      "watch": "Day-Date",
+      "title": "Rolex Day-Date - Adam Sandler - Uncut Gems",
+      "description": "Adam Sandler’s Howard Ratner in Uncut Gems lives inside pressure; the gold Day-Date is part of that costume of winning and losing at once.",
+      "media_type": "film",
+      "release_year": 2019,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-adam-sandler-uncut-gems",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-oyster-perpetual-39-adam-driver-marriage-story",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual 39",
+      "title": "Rolex Oyster Perpetual 39 - Adam Driver - Marriage Story",
+      "description": "Adam Driver’s Marriage Story Oyster Perpetual 39 is quiet steel — almost anti-flex — which fits a film about ordinary catastrophe.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-114300"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-39-adam-driver-marriage-story",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-gmt-master-ii-rob-delaney-catastrophe",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Rob Delaney - Catastrophe",
+      "description": "Rob Delaney’s Catastrophe GMT-Master II is domestic life with a travel bezel still on the wrist.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-rob-delaney-catastrophe",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-oyster-perpetual-day-date-john-travolta-speed-kills",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Day-Date",
+      "title": "Rolex Oyster Perpetual Day-Date - John Travolta - Speed Kills",
+      "description": "John Travolta in Speed Kills wears Day-Date flash for a boat-and-cocaine period piece. Family-only.",
+      "media_type": "film",
+      "release_year": 2018,
+      "identification": "tentative",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-228238"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-day-date-john-travolta-speed-kills",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-gmt-master-ii-jay-hernandez-magnum-pi",
+      "brand": "Rolex",
+      "watch": "GMT-Master II",
+      "title": "Rolex GMT-Master II - Jay Hernandez - Magnum P.I.",
+      "description": "Jay Hernandez’s Magnum P.I. reboot keeps the GMT-Master II in the Hawaii-private-eye lane — a tip of the hat to the travel-watch myth.",
+      "media_type": "television",
+      "release_year": 2018,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-jay-hernandez-magnum-pi",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-day-date-40-platinum-conor-mcgregor",
+      "brand": "Rolex",
+      "watch": "Day-Date 40 Platinum",
+      "title": "Rolex Day-Date 40 Platinum - Conor McGregor",
+      "description": "Conor McGregor’s platinum Day-Date 40 appearances blur sport, celebrity, and presidential-watch signalling. Treat as reported sightings, not market proof.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-40-platinum-conor-mcgregor",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-day-date-40-gold-conor-mcgregor",
+      "brand": "Rolex",
+      "watch": "Day-Date 40 Gold",
+      "title": "Rolex Day-Date 40 Gold - Conor McGregor",
+      "description": "The gold Day-Date 40 on McGregor is the louder twin of the platinum read — same mythology, different metal.",
+      "media_type": "other",
+      "release_year": 2017,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-day-date-40-gold-conor-mcgregor",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-sea-dweller-dwayne-johnson-baywatch",
+      "brand": "Rolex",
+      "watch": "Sea-Dweller (?)",
+      "title": "Rolex Sea-Dweller (?) - Dwayne Johnson - Baywatch",
+      "description": "Dwayne Johnson’s Baywatch Sea-Dweller (?) stays marked uncertain — thick dive watch energy, reference not locked.",
+      "media_type": "film",
+      "release_year": 2017,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sea-dweller-dwayne-johnson-baywatch",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-sky-dweller-lil-wayne-brown-suger-ray-j",
+      "brand": "Rolex",
+      "watch": "Sky-Dweller",
+      "title": "Rolex Sky-Dweller - Lil Wayne - Brown Suger (Ray J)",
+      "description": "Lil Wayne’s Sky-Dweller sighting in the Brown Sugar / Ray J orbit is music-video Rolex: annual calendar as flex.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sky-dweller-lil-wayne-brown-suger-ray-j",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-sky-dweller-trey-songz-touchin-lovin-featuring-nicki-minaj",
+      "brand": "Rolex",
+      "watch": "Sky-Dweller",
+      "title": "Rolex Sky-Dweller - Trey Songz - Touchin, Lovin featuring Nicki Minaj",
+      "description": "Trey Songz’s Touchin, Lovin video puts a Sky-Dweller in the frame — another annual-calendar flex in a pop clip.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-sky-dweller-trey-songz-touchin-lovin-featuring-nicki-minaj",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-explorer-ii-prince-harry-wales",
+      "brand": "Rolex",
+      "watch": "Explorer II",
+      "title": "Rolex Explorer II - Prince Harry of Wales",
+      "description": "Prince Harry’s Explorer II sightings sit at the edge of film/TV and public life. We keep the Watch-ID link and avoid over-claiming a single production.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-explorer-ii-prince-harry-wales",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-date-jeremy-renner-mission-impossible-ghost-protocol",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Jeremy Renner - Mission: Impossible - Ghost Protocol",
+      "description": "Jeremy Renner in Mission: Impossible — Ghost Protocol wears Submariner Date energy inside a franchise that usually sells Omega. Worth the contrast.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-jeremy-renner-mission-impossible-ghost-protocol",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-daytona-daniel-day-kim-lost",
+      "brand": "Rolex",
+      "watch": "Daytona",
+      "title": "Rolex Daytona - Daniel Day Kim - Lost",
+      "description": "Daniel Dae Kim’s Lost-era Daytona is island-castaway Rolex mythology — chronograph as survivor jewellery.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-daytona-daniel-day-kim-lost",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-date-luke-wilson-middle-men",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Luke Wilson - Middle Men",
+      "description": "Luke Wilson in Middle Men wears a Submariner Date through a film about the early internet porn business — steel sports watch as operator kit.",
+      "media_type": "film",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-luke-wilson-middle-men",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-date-kiefer-sutherland-24",
+      "brand": "Rolex",
+      "watch": "Submariner Date",
+      "title": "Rolex Submariner Date - Kiefer Sutherland - 24",
+      "description": "Kiefer Sutherland’s 24 Jack Bauer years put Submariner Date on the wrist of real-time television. Tool watch as ticking-clock costume.",
+      "media_type": "television",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "exact_reference",
+      "matched_card_ids": [
+        "rolex-16610"
+      ],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-date-kiefer-sutherland-24",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-gmt-master-ii-jason-bateman-switch",
+      "brand": "Rolex",
+      "watch": "GMT Master II",
+      "title": "Rolex GMT Master II - Jason Bateman - The Switch",
+      "description": "Jason Bateman in The Switch wears GMT-Master II — a soft comedy with a hard bezel.",
+      "media_type": "film",
+      "release_year": 2010,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-gmt-master-ii-jason-bateman-switch",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-submariner-5512-steve-mcqueen",
+      "brand": "Rolex",
+      "watch": "Submariner 5512",
+      "title": "Rolex Submariner 5512 - Steve McQueen",
+      "description": "Steve McQueen’s Submariner 5512 sits in the same cool-icon file as his Heuer Monaco. Crown and square chrono, both McQueen.",
+      "media_type": "other",
+      "release_year": null,
+      "identification": "reported",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-submariner-5512-steve-mcqueen",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    },
+    {
+      "id": "rolex-oyster-perpetual-day-date-he-got-game",
+      "brand": "Rolex",
+      "watch": "Oyster Perpetual Day-Date",
+      "title": "Rolex Oyster Perpetual Day-Date - He Got Game",
+      "description": "Spike Lee’s He Got Game puts Day-Date language on basketball ambition — gold as the scoreboard off the court.",
+      "media_type": "film",
+      "release_year": 1998,
+      "identification": "tentative",
+      "match_level": "family_only",
+      "matched_card_ids": [],
+      "source_url": "https://www.watch-id.com/sightings/rolex-oyster-perpetual-day-date-he-got-game",
+      "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches"
+    }
+  ]
+}

@@ -204,7 +204,7 @@ export default function About() {
       <Link to="/" className="crumb">← HOME</Link>
 
       <header className="about-hero">
-        <p className="eyebrow">ABOUT · THE WATCH REGISTER</p>
+        <p className="eyebrow">ABOUT · TIME POP</p>
         <h1 className="about-masthead">
           <span className="about-essay">
             A register that <em>refuses to lie</em>,<br />
@@ -212,7 +212,7 @@ export default function About() {
           </span>
         </h1>
         <p className="lede about-lede">
-          The Watch Register is a free, evidence-first catalog of around 300 luxury and collectible
+          Time Pop is a free, evidence-first catalog of around 300 luxury and collectible
           watches. This page is the story of how it was built, what its theories are, and how to read it
           as a buyer, a seller, a curious observer, or a person whose hobby just produced a $30,000 question.
         </p>

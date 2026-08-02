@@ -15,8 +15,8 @@ export default function Dossier() {
   const [view, setView] = useState<'evidence' | 'story'>('evidence')
 
   useEffect(() => {
-    if (c) document.title = `${c.identity.brand} ${c.identity.reference} — The Watch Register`
-    return () => { document.title = 'The Watch Register — Objects, Stories & Scarcity' }
+    if (c) document.title = `${c.identity.brand} ${c.identity.reference} — Time Pop`
+    return () => { document.title = 'Time Pop — Watches, Stories & Screen' }
   }, [c])
 
   if (!data) return null

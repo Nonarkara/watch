@@ -11,15 +11,25 @@
    The accent is a single warm rust, spent only on interaction and on the one number
    that matters — everything else is ink on paper. */
 :root {
-  --bg: #fafaf9;
-  --paper-2: #f2f1ef;        /* inset panels, image wells */
-  --fg: #111111;
-  --dim: rgba(17, 17, 17, 0.56);
-  --line: rgba(17, 17, 17, 0.13);
-  --rule: rgba(17, 17, 17, 0.28);   /* structural rules, heavier than a hairline */
+  /* Time Pop pop-art tokens (named folly in context.md). Coral is the expressive
+     accent for this project; house amber maps to coral so existing --amber rules work. */
+  --bg: #F6F0E5;
+  --canvas: #F6F0E5;
+  --paper-2: #FFFDF8;
+  --surface: #FFFDF8;
+  --fg: #132A3A;
+  --ink: #132A3A;
+  --dim: rgba(19, 42, 58, 0.58);
+  --line: #D8CFC1;
+  --rule: rgba(19, 42, 58, 0.28);
   --border: 1px solid var(--line);
-  --amber: #b0431a;
-  --fail: #b0431a;
+  --amber: #EF6A5B;          /* coral — Time Pop accent */
+  --coral: #EF6A5B;
+  --navy: #11364B;
+  --yellow: #F0B83A;
+  --teal: #55B8B1;
+  --sky: #7FC8DD;
+  --fail: #B9473F;
   --font-body: 'Archivo', system-ui, sans-serif;
   --font-display: 'Archivo', system-ui, sans-serif;
   --font-essay: 'Spectral', 'Georgia', serif;
@@ -503,7 +513,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    where it means something. Density is the point: this is a reference work
    for expensive objects, so it should read like an index, not a lookbook. */
 .hdr { background: color-mix(in srgb, var(--bg) 94%, transparent); position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(1.4) blur(8px); }
-.wm-main { font-size: clamp(19px, 2.1vw, 25px); letter-spacing: -0.035em; text-transform: uppercase; }
+.wm-main { font-size: clamp(22px, 2.4vw, 32px); letter-spacing: -0.04em; text-transform: none; font-weight: 800; color: var(--navy); }
 .wm-sub { color: var(--dim); }
 .pagetitle { font-size: clamp(34px, 5.2vw, 58px); letter-spacing: -0.04em; text-transform: none; max-width: 22ch; }
 .lede { font-size: 16px; line-height: 1.5; color: var(--dim); max-width: 60ch; }
@@ -524,6 +534,100 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .hero-object-card > a { min-height: 430px; display: flex; align-items: center; justify-content: center; }
 .hero-object-card img { display: block; width: 100%; height: 430px; object-fit: contain; mix-blend-mode: multiply; }
 .hero-object-card > p { border-top: var(--border); padding-top: 10px; color: var(--dim); }
+
+/* Time Pop hero — title sits in the open zone of the pop-art banner */
+.timepop-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0 calc(-1 * var(--pad));
+  border-bottom: 2px solid var(--navy);
+  background: var(--canvas);
+  position: relative;
+  overflow: hidden;
+}
+.timepop-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: radial-gradient(circle, var(--navy) 1px, transparent 1.3px);
+  background-size: 10px 10px;
+}
+.timepop-hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 36px var(--pad) 28px;
+  max-width: 34rem;
+}
+.timepop-title {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 14vw, 120px);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  color: var(--navy);
+  margin: 10px 0 18px;
+  text-wrap: balance;
+}
+.timepop-hero-copy .home-lede { color: var(--ink); max-width: 36ch; }
+.hero-trust { margin-top: 22px; color: var(--dim); }
+.timepop-hero-art {
+  position: relative;
+  z-index: 1;
+  background: var(--navy);
+  border-top: 1px solid var(--navy);
+}
+.timepop-hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: right center;
+}
+.hero-art-credit {
+  padding: 8px var(--pad) 12px;
+  color: rgba(245, 240, 232, 0.72);
+  background: var(--navy);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+.pop-panel {
+  position: relative;
+  isolation: isolate;
+  background: var(--surface);
+  border: 1.5px solid var(--navy);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pop-panel::before {
+  content: '';
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  background: var(--coral);
+  z-index: -1;
+  opacity: 0.9;
+}
+.screen-stat-panel strong {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--navy);
+}
+.screen-caption { margin-top: 10px; line-height: 1.4; }
+.screen-rights { margin-top: 6px; line-height: 1.35; max-width: 42ch; }
+.tone-1 { background: color-mix(in srgb, var(--sky) 28%, var(--surface)); }
+.tone-2 { background: color-mix(in srgb, var(--coral) 18%, var(--surface)); }
+.tone-3 { background: color-mix(in srgb, var(--yellow) 32%, var(--surface)); }
+.tone-4 { background: color-mix(in srgb, var(--teal) 22%, var(--surface)); }
 
 /* Was a speech bubble. Now a cited annotation. */
 .fact-bubble { position: relative; display: flex; flex-direction: column; gap: 6px; background: var(--bg); color: var(--fg); border: 1px solid var(--rule); border-left: 2px solid var(--amber); padding: 18px 20px; max-width: 340px; }
@@ -546,8 +650,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .lookbook-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; line-height: 1.15; letter-spacing: -.025em; margin: 18px 0 12px; }
 .lookbook-card p { max-width: 34ch; color: var(--dim); }
 .lookbook-card > span:last-child { margin-top: auto; padding-top: 26px; color: var(--amber); font-family: var(--font-mono); font-size: var(--text-micro); }
-.tone-1, .tone-2, .tone-3, .tone-4 { background: transparent; }
-.lookbook-card:hover { background: var(--paper-2); }
+.lookbook-card:hover { filter: brightness(0.98); }
 
 .research-ledger { display: grid; grid-template-columns: 1fr; gap: 32px; padding: 48px 0; border-top: 1px solid var(--rule); }
 .ledger-lines p { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: var(--border); font-family: var(--font-mono); font-size: var(--text-micro); }
@@ -582,13 +685,12 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .screen-card h2 { font-family: var(--font-display); font-size: 19px; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; margin: 8px 0 12px; }
 .screen-card-top { display: flex; justify-content: space-between; margin-bottom: 20px; }
 .screen-card-media { position: relative; aspect-ratio: 4 / 3; background: var(--paper-2); margin-bottom: 16px; overflow: hidden; }
-.screen-card-image { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+.screen-card-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 .screen-card-image-link { display: block; width: 100%; height: 100%; position: relative; }
-.screen-card-image-link:hover .screen-card-image { transform: scale(1.04); }
-.screen-card-image-link .screen-card-image { transition: transform 300ms ease; }
-.screen-card-image-credit { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; background: rgba(250, 250, 249, 0.92); color: var(--dim); font-size: 9px; letter-spacing: .08em; line-height: 1.3; opacity: 0; transition: opacity 200ms ease; }
-.screen-card-image-link:hover .screen-card-image-credit { opacity: 1; }
-.screen-card-image-tag { position: absolute; top: 8px; left: 8px; background: var(--bg); color: var(--amber); border: 1px solid var(--amber); padding: 2px 6px; font-size: 9px; letter-spacing: .12em; }
+.screen-card-image-link:hover .screen-card-image { transform: scale(1.02); }
+.screen-card-image-link .screen-card-image { transition: transform 200ms ease; }
+.screen-card-image-credit { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; background: rgba(246, 240, 229, 0.94); color: var(--dim); font-size: 9px; letter-spacing: .06em; line-height: 1.3; opacity: 1; }
+.screen-card-image-tag { position: absolute; top: 8px; left: 8px; background: var(--yellow); color: var(--navy); border: 1px solid var(--navy); padding: 2px 6px; font-size: 9px; letter-spacing: .1em; }
 .screen-card-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 12px; gap: 6px; color: var(--dim); font-size: var(--text-micro); letter-spacing: .04em; }
 .screen-card-empty .mono { color: var(--dim); }
 .screen-kind, .evidence-badge { font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: .04em; color: var(--dim); }
@@ -640,6 +742,10 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 @media (min-width: 880px) {
   .atelier-hero { grid-template-columns: 1.08fr .92fr; min-height: 640px; }
+  .timepop-hero { grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.2fr); align-items: stretch; }
+  .timepop-hero-copy { padding: 48px 40px 48px var(--pad); display: flex; flex-direction: column; justify-content: center; }
+  .timepop-hero-art { border-top: 0; border-left: 2px solid var(--navy); }
+  .timepop-hero-art img { max-height: none; height: 100%; min-height: 520px; object-fit: cover; object-position: 70% center; }
   .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-hero { grid-template-columns: 1.35fr .65fr; }
