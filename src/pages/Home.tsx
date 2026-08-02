@@ -143,6 +143,13 @@ export default function Home() {
       stat: `methodology v${data.methodology_version} · non-writer standards`,
       to: '/about', action: 'READ ABOUT',
     },
+    {
+      label: 'Learn the craft',
+      title: 'A page about watchmaking',
+      body: 'A joke, then a frame: time as an abstraction that mechanical time made countable. What is actually inside a watch, and how to look at one.',
+      stat: '6 parts · 5 complications · 6 periods of history',
+      to: '/watchmaking', action: 'READ THE PAGE',
+    },
   ]
 
   return (

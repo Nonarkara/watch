@@ -28,6 +28,7 @@ const About = lazy(() => import('./pages/About.tsx'))
 const Brands = lazy(() => import('./pages/Brands.tsx'))
 const Data = lazy(() => import('./pages/Data.tsx'))
 const Glossary = lazy(() => import('./pages/Glossary.tsx'))
+const Watchmaking = lazy(() => import('./pages/Watchmaking.tsx'))
 
 function RouteFallback() {
   return <p className="boot mono">LOADING…</p>
@@ -58,6 +59,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="brands" element={<Suspense fallback={<RouteFallback />}><Brands /></Suspense>} />
           <Route path="data" element={<Suspense fallback={<RouteFallback />}><Data /></Suspense>} />
           <Route path="glossary" element={<Suspense fallback={<RouteFallback />}><Glossary /></Suspense>} />
+          <Route path="watchmaking" element={<Suspense fallback={<RouteFallback />}><Watchmaking /></Suspense>} />
         </Route>
       </Routes>
     </BrowserRouter>
