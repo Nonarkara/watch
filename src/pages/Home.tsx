@@ -62,19 +62,6 @@ function topScreenPicks(snapshot: ScreenSnapshot | null, limit = 5): { title: st
     }))
 }
 
-/** A few real cards the user might want to land on, each picked because its
- *  dossier is currently the deepest in its brand. */
-function spotlightDossiers(cards: Card[]): Card[] {
-  // Pick one crown / one trinity / one haute / one core / one attainable.
-  const tiers: Card['identity']['tier'][] = ['trinity', 'crown', 'haute', 'core', 'attainable']
-  const out: Card[] = []
-  for (const tier of tiers) {
-    const withImg = cards.find((c) => c.identity.tier === tier && c.media.length > 0 && c.comp_summary)
-    if (withImg) out.push(withImg)
-  }
-  return out
-}
-
 export default function Home() {
   const data = useDataset()
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
@@ -83,9 +70,11 @@ export default function Home() {
   const cards = useMemo(() => data?.cards ?? [], [data])
   const withComps = cards.filter((card) => card.comp_summary).length
   const withMedia = cards.filter((card) => card.media.length).length
+  const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
+  const compCount = useMemo(() => cards.reduce((n, c) => n + (c.comp_summary?.n ?? 0), 0), [cards])
+  const eventCount = useMemo(() => cards.reduce((n, c) => n + c.provenance_events.length, 0), [cards])
   const stills = screen?.sightings.filter((s) => s.media).length ?? 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
-  const spotlight = useMemo(() => spotlightDossiers(cards), [cards])
   const ticker = useMemo(() => tasteOfRegister(cards), [cards])
   const asiaPicks = useMemo(() => cards.filter((c) =>
     BRAND_REGION[c.identity.brand] === 'asia' && c.media.length > 0
@@ -151,7 +140,15 @@ export default function Home() {
 
   return (
     <>
+      {/* Conservation law: first fold = brand banner + thesis + all eight ledger facts; invented prices = 0.
+          Banner is ground (full-bleed). Copy is a cream slab. Ledger is the floor. Numbers and pop art co-exist. */}
       <section className="timepop-hero" aria-label="Time Pop — home">
+        <img
+          className="timepop-hero-bg"
+          src="/img/hero/time-pop-banner.png"
+          alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
+          loading="eager"
+        />
         <div className="timepop-hero-copy">
           <p className="eyebrow">TIME POP · A LIVING ARCHIVE OF WATCHES</p>
           <h1 className="timepop-title">Watches,<br />on their own terms.</h1>
@@ -164,26 +161,30 @@ export default function Home() {
             <Link className="btn" to="/register">BROWSE THE {data.count} OBJECTS →</Link>
             <Link className="btn secondary" to="/screen">SEE IT ON SCREEN</Link>
           </div>
-          <p className="mono micro dim hero-trust">
-            {stills} CREDITED STILLS · {withComps} DOSSIERS WITH SALE EVIDENCE · 0 INVENTED PRICES · {data.built} BUILD
-          </p>
         </div>
-        <div className="timepop-hero-art" role="img" aria-label="Pop-art collage of watches in film">
-          <img
-            src="/img/hero/time-pop-banner.png"
-            alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
-            loading="eager"
-          />
+        <aside className="hero-ledger" aria-label="The register at a glance">
+          <p className="hero-ledger-head mono">THE REGISTER, AS BUILT {data.built}</p>
+          <dl className="hero-ledger-grid">
+            <div><dt>References</dt><dd>{data.count}</dd></div>
+            <div><dt>Brands</dt><dd>{brandCount}</dd></div>
+            <div><dt>Sale evidence</dt><dd>{withComps}</dd></div>
+            <div><dt>Verified sales</dt><dd>{compCount}</dd></div>
+            <div><dt>Sourced events</dt><dd>{eventCount}</dd></div>
+            <div><dt>Credited stills</dt><dd>{stills}</dd></div>
+            <div><dt>Photography</dt><dd>{withMedia}</dd></div>
+            <div className="hero-ledger-zero"><dt>Invented prices</dt><dd>0</dd></div>
+          </dl>
           <p className="mono micro hero-art-credit">
-            HERO ART · TIME POP BANNER · FILM STILLS CREDITED ON /SCREEN
+            HERO ART · TIME POP BANNER · FILM STILLS CREDITED ON /SCREEN ·{' '}
+            <Link to="/methodology">METHODOLOGY →</Link>
           </p>
-        </div>
+        </aside>
       </section>
 
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
-          <p className="ticker-meta mono">24 references · {new Set(data.cards.map((c) => c.identity.brand)).size} brands · last build {data.built}</p>
+          <p className="ticker-meta mono">24 references · {brandCount} brands · last build {data.built}</p>
         </div>
         <div className="ticker-strip">
           {ticker.map((c) => {
@@ -203,40 +204,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="proof-ribbon" aria-label="Research coverage">
-        <div><strong>{data.count}</strong><span>object dossiers</span></div>
-        <div><strong>{catalog?.count ?? '—'}</strong><span>Rolex catalog records</span></div>
-        <div><strong>{screen?.count ?? '—'}</strong><span>film &amp; TV sightings</span></div>
-        <div><strong>{stills}</strong><span>credited on-screen stills</span></div>
-      </section>
-
-      <section className="spotlight-row" aria-label="Spotlight dossiers">
-        <div className="section-rule">
-          <h2>Start with an evidence-rich dossier.</h2>
-          <span className="sticker-inline mono">{spotlight.length} REFERENCES · IMAGE + COMPS</span>
-        </div>
-        <div className="spotlight-grid">
-          {spotlight.map((c) => (
-            <Link key={c.id} to={`/w/${c.id}`} className="spotlight-card">
-              <span className="spotlight-media">
-                {c.media[0]
-                  ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
-                  : <span className="dim">NO PHOTO YET</span>}
-              </span>
-              <span className="spotlight-id">
-                <span className="mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
-                <span className="eyebrow">{c.identity.collection}</span>
-              </span>
-              <span className="spotlight-name">{c.identity.name}</span>
-              <span className="spotlight-stats mono">
-                {c.comp_summary ? <>{c.comp_summary.n} COMPS · {c.comp_summary.venues.length} VENUES</> : '—'}
-                {c.provenance_events.length > 0 && <> · {c.provenance_events.length} EVENTS</>}
-              </span>
-              <span className="spotlight-read mono">OPEN DOSSIER →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {brassTacks.length > 0 && (
+        <section className="starter-row" aria-label="Five fully-stocked dossiers to start with">
+          <div className="section-rule">
+            <h2>Five dossiers worth starting with.</h2>
+            <span className="sticker-inline mono">SOURCED COMPS · SOURCED PROVENANCE</span>
+          </div>
+          <ul className="starter-list">
+            {brassTacks.map((c, idx) => (
+              <li key={c.id}>
+                <Link to={`/w/${c.id}`} className="starter-link">
+                  <span className="starter-num mono">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="starter-id">
+                    <span className="eyebrow">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                    <span className="starter-name">{c.identity.name}</span>
+                  </span>
+                  <span className="starter-stats mono">
+                    {c.comp_summary?.n ?? '—'} COMPS · {c.provenance_events.length} EVENTS
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {asiaPicks.length > 0 && (
         <section className="asia-spotlight" aria-label="Asian-market references">
@@ -346,31 +337,6 @@ export default function Home() {
         </section>
       )}
 
-      {brassTacks.length > 0 && (
-        <section className="starter-row" aria-label="Five fully-stocked dossiers to start with">
-          <div className="section-rule">
-            <h2>Five dossiers worth starting with.</h2>
-            <span className="sticker-inline mono">SOURCED COMPS · SOURCED PROVENANCE</span>
-          </div>
-          <ul className="starter-list">
-            {brassTacks.map((c, idx) => (
-              <li key={c.id}>
-                <Link to={`/w/${c.id}`} className="starter-link">
-                  <span className="starter-num mono">{String(idx + 1).padStart(2, '0')}</span>
-                  <span className="starter-id">
-                    <span className="eyebrow">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
-                    <span className="starter-name">{c.identity.name}</span>
-                  </span>
-                  <span className="starter-stats mono">
-                    {c.comp_summary?.n ?? '—'} COMPS · {c.provenance_events.length} EVENTS
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       <section className="research-ledger">
         <div>
           <p className="eyebrow">THE UNFINISHED LEDGER</p>
@@ -380,7 +346,7 @@ export default function Home() {
         <div className="ledger-lines mono">
           <p><span>Verified comp coverage</span><strong>{withComps} / {data.count}</strong></p>
           <p><span>Reference-matched catalog media</span><strong>{withMedia} / {data.count}</strong></p>
-          <p><span>Provenance events</span><strong>{data.cards.reduce((s, c) => s + c.provenance_events.length, 0)} / —</strong></p>
+          <p><span>Provenance events</span><strong>{eventCount} / —</strong></p>
           <p><span>On-screen stills with credits</span><strong>{stills} / {screen?.count ?? '—'}</strong></p>
           <p className="crossed"><span>Hype premium</span><strong>AWAITING A VALID COHORT</strong></p>
         </div>

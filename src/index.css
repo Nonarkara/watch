@@ -534,31 +534,39 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .hero-object-card img { display: block; width: 100%; height: 430px; object-fit: contain; mix-blend-mode: multiply; }
 .hero-object-card > p { border-top: var(--border); padding-top: 10px; color: var(--dim); }
 
-/* Time Pop hero — title sits in the open zone of the pop-art banner */
+/* Time Pop hero — MoMA fold (Grok 4.5 audit 2026-08-03)
+   Conservation: brand banner (ground) + thesis slab + eight ledger facts; invented prices = 0.
+   Banner is oversized background. Copy is cream furniture. Ledger is the floor.
+   Hero bottom 2px navy IS the ticker's top edge — no orphan cream gutter. */
 .timepop-hero {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-rows: 1fr auto;
+  min-height: 400px;
   margin: 0 calc(-1 * var(--pad));
   border-bottom: 2px solid var(--navy);
-  background: var(--canvas);
-  position: relative;
+  background: var(--navy);
   overflow: hidden;
 }
-.timepop-hero::before {
-  content: '';
+.timepop-hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
   pointer-events: none;
-  opacity: 0.06;
-  background-image: radial-gradient(circle, var(--navy) 1px, transparent 1.3px);
-  background-size: 10px 10px;
 }
 .timepop-hero-copy {
   position: relative;
   z-index: 1;
-  padding: 36px var(--pad) 28px;
+  margin: 20px var(--pad) 16px;
   max-width: 34rem;
+  padding: 18px 20px 16px;
+  background: var(--canvas);
+  border: 1px solid var(--navy);
+  align-self: end;
 }
 .timepop-title {
   font-family: var(--font-display);
@@ -567,31 +575,85 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   line-height: 0.88;
   letter-spacing: -0.03em;
   color: var(--navy);
-  margin: 10px 0 18px;
+  margin: 8px 0 12px;
   text-wrap: balance;
 }
-.timepop-hero-copy .home-lede { color: var(--ink); max-width: 36ch; }
-.hero-trust { margin-top: 22px; color: var(--dim); }
-.timepop-hero-art {
+.timepop-hero-copy .home-lede { color: var(--ink); max-width: 36ch; line-height: 1.45; margin: 0; }
+.timepop-hero-copy .hero-actions { margin-top: 16px; gap: 10px; }
+.timepop-hero-copy .btn.secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+
+.hero-ledger {
   position: relative;
   z-index: 1;
-  background: var(--navy);
+  background: color-mix(in srgb, var(--canvas) 94%, transparent);
   border-top: 1px solid var(--navy);
+  padding: 0;
 }
-.timepop-hero-art img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 420px;
-  object-fit: cover;
-  object-position: right center;
-}
-.hero-art-credit {
-  padding: 8px var(--pad) 12px;
-  color: rgba(245, 240, 232, 0.72);
-  background: var(--navy);
+.hero-ledger-head {
   font-size: var(--text-micro);
+  letter-spacing: .06em;
+  color: var(--dim);
+  padding: 8px var(--pad) 0;
 }
+.hero-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+  margin-top: 8px;
+}
+.hero-ledger-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  min-width: 0;
+}
+.hero-ledger-grid dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-ledger-grid dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--navy);
+}
+.hero-ledger-zero dd { color: var(--amber); }
+.hero-art-credit {
+  padding: 6px var(--pad) 8px;
+  color: var(--dim);
+  line-height: 1.35;
+}
+.hero-art-credit a { color: var(--amber); }
+
+@media (min-width: 880px) {
+  .timepop-hero { min-height: 480px; }
+  .timepop-hero-copy {
+    margin: 32px var(--pad) 20px;
+    max-width: min(420px, 42%);
+    padding: 22px 24px 20px;
+    align-self: center;
+  }
+  .hero-ledger-grid { grid-template-columns: repeat(8, 1fr); }
+  .hero-ledger-grid dd { font-size: var(--text-display); }
+}
+
 .btn.secondary {
   background: transparent;
   color: var(--navy);
@@ -764,10 +826,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 @media (min-width: 880px) {
   .atelier-hero { grid-template-columns: 1.08fr .92fr; min-height: 640px; }
-  .timepop-hero { grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.2fr); align-items: stretch; }
-  .timepop-hero-copy { padding: 48px 40px 48px var(--pad); display: flex; flex-direction: column; justify-content: center; }
-  .timepop-hero-art { border-top: 0; border-left: 2px solid var(--navy); }
-  .timepop-hero-art img { max-height: none; height: 100%; min-height: 520px; object-fit: cover; object-position: 70% center; }
   .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-hero { grid-template-columns: 1.35fr .65fr; }
@@ -783,8 +841,10 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .hero-object-card { min-height: 400px; padding: 12px; }
   .hero-object-card > a, .hero-object-card img { min-height: 0; height: 300px; }
   .hero-bubble { position: relative; right: auto; bottom: auto; margin-top: 16px; width: 100%; }
-  .lookbook-paths { margin: 48px 0; }
+  .lookbook-paths { margin: 24px 0; }
   .ledger-lines p { flex-direction: column; gap: 5px; }
+  .timepop-hero { min-height: 400px; }
+  .timepop-hero-copy { max-width: none; margin-inline: var(--pad); }
 }
 
 /* ── Compare: a shelf you drag references onto, and a matrix that lines them up ──
@@ -1473,24 +1533,34 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-xl); }
    like it is waiting for an advertiser. Whitespace has to separate figures,
    not pad them, so the rhythm tightens and the type does the spacing. */
 
-/* Section rhythm: one step, not two. */
+/* Section rhythm: MoMA module — 24px, not unsold 36–64px air. */
 section, .sect, .lookbook-paths, .spotlight-row, .research-ledger,
 .brass-tacks, .screen-marquee, .starter-row, .asia-spotlight, .math-notes {
-  margin-top: 36px; margin-bottom: 36px;
+  margin-top: 24px; margin-bottom: 24px;
 }
-.asia-spotlight { padding-bottom: 36px; }
-.section-rule { padding-bottom: 6px; margin-bottom: 12px; }
-.lookbook-paths { margin: 36px 0; }
+.asia-spotlight { padding-bottom: 24px; }
+.section-rule { padding-bottom: 4px; margin-bottom: 8px; }
+.lookbook-paths { margin: 24px 0; }
 main.shell { padding-top: var(--space-md); }
 
+/* Ticker shares the hero's 2px navy bottom — no orphan cream band above. */
+.reference-ticker {
+  padding: 10px 0 16px;
+  border-bottom: 1px solid var(--rule);
+  margin-top: 0;
+  overflow: hidden;
+}
+.ticker-head { margin-bottom: 8px; }
+.ticker-thumb { width: 132px; height: 72px; margin-bottom: 4px; }
+
 /* Cards: less air around the same words. */
-.lookbook-card { min-height: 0; padding: 14px 16px; }
+.lookbook-card { min-height: 0; padding: 12px 14px; }
 .lookbook-card h3 { font-size: var(--text-body); font-weight: 700; letter-spacing: -.01em;
   text-transform: uppercase; margin: 6px 0 6px; }
 .lookbook-card p { font-size: var(--text-body); line-height: 1.4; max-width: 40ch; }
-.lookbook-card > span:last-child { padding-top: 12px; }
-.brass-card, .spotlight-card, .asia-spotlight-card { padding: 14px 16px; }
-.pop-panel { padding: 14px 16px; }
+.lookbook-card > span:last-child { padding-top: 10px; }
+.brass-card, .spotlight-card, .asia-spotlight-card { padding: 12px 14px; }
+.pop-panel { padding: 12px 14px; }
 
 /* Three columns on wide screens: six curiosities become two clean rows, and the
    cards stop stretching to fill a half-width column they do not need. */
@@ -1500,9 +1570,8 @@ main.shell { padding-top: var(--space-md); }
 
 /* Lists and rows close up. */
 .starter-list a, .starter-list li > * { padding-top: 8px; padding-bottom: 8px; }
-.starter-row { margin: 36px 0 24px; }
-.research-ledger { padding: 28px 0; gap: 24px; }
-.proof-ribbon > div { padding: 12px 12px 12px 0; }
+.starter-row { margin: 24px 0; }
+.research-ledger { padding: 20px 0; gap: 20px; }
 
 /* The four loosest sections carried ~1.0-1.4px of height per character of
    content — image wells sized for a lookbook, not a reference grid. Shorter
@@ -1510,17 +1579,11 @@ main.shell { padding-top: var(--space-md); }
 .asia-spotlight-media, .spotlight-media { aspect-ratio: 16 / 10; }
 .asia-spotlight-card { padding: 12px 14px; }
 .asia-spotlight-media { margin-bottom: 10px; }
-.asia-spotlight { padding: 0 0 28px; }
+.asia-spotlight { padding: 0 0 20px; }
 .spotlight-card { padding: 10px 12px; gap: 6px; }
 .spotlight-grid { gap: 12px; margin-top: 12px; }
-.research-ledger { padding: 28px 0; gap: 24px; }
 .ledger-lines p { padding: 8px 0; }
-.starter-list { margin-top: 12px; }
-
-@media (min-width: 880px) {
-  .timepop-hero { align-items: stretch; }
-  .timepop-hero-copy { padding-block: 44px; }
-}
+.starter-list { margin-top: 8px; }
 
 /* Error boundary fallback — honest message, not a blank shell. */
 .err-boundary {
