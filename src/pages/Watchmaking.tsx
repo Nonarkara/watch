@@ -23,7 +23,7 @@ function ArtifactFigure({ a, tall }: { a: WatchmakingArtifact; tall?: boolean })
         <span className="wmp-figure-cap">{a.caption}</span>
         <span className="mono micro dim wmp-figure-credit">
           {a.artist} · {a.license} ·{' '}
-          <a href={a.source_url} target="_blank" rel="noreferrer">Wikimedia Commons</a>
+          <a href={a.source_url} target="_blank" rel="noreferrer">Commons</a>
         </span>
       </figcaption>
     </figure>
