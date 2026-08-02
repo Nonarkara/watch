@@ -36,8 +36,27 @@ export interface ScreenSnapshot {
   sightings: ScreenEvent[]
 }
 
+export interface WatchmakingArtifact {
+  id: string
+  slot: string
+  caption: string
+  local: string
+  license: string
+  artist: string
+  source_url: string
+  commons_file: string
+}
+
+export interface WatchmakingArtifacts {
+  built: string
+  policy: string
+  count: number
+  artifacts: WatchmakingArtifact[]
+}
+
 let catalogCache: Promise<RolexCatalog> | null = null
 let screenCache: Promise<ScreenSnapshot> | null = null
+let watchmakingCache: Promise<WatchmakingArtifacts> | null = null
 
 export function loadRolexCatalog(): Promise<RolexCatalog> {
   catalogCache ??= fetch('/data/rolex_catalog.json').then((response) => {
@@ -54,4 +73,12 @@ export function loadScreenSightings(): Promise<ScreenSnapshot> {
       return response.json()
     })
   return screenCache
+}
+
+export function loadWatchmakingArtifacts(): Promise<WatchmakingArtifacts> {
+  watchmakingCache ??= fetch('/data/watchmaking_artifacts.json').then((response) => {
+    if (!response.ok) throw new Error(`watchmaking_artifacts.json ${response.status}`)
+    return response.json()
+  })
+  return watchmakingCache
 }

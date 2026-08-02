@@ -39,6 +39,8 @@ When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lo
 
 Screen exposure is demand-side attention, never physical scarcity. Exact-reference matches only enter the attention heuristic; family-level and tentative IDs stay labeled.
 
+**Watchmaking artifacts** live in `public/img/watchmaking/` + `public/data/watchmaking_artifacts.json`. Wikimedia Commons only: CC0 / Public Domain / CC BY / CC BY-SA (no NC/ND). Every figure shows artist + licence + Commons link.
+
 ## Anti-Regression
 
 - Home hero pop-art banner (`/img/hero/time-pop-banner.png`) — keep; named brand surface.

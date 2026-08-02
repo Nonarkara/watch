@@ -1,5 +1,6 @@
 // Watchmaking — a tab about the craft, told in Time Pop's voice: witty, sharp,
-// MITF, no marketing fluff. Three movements:
+// MITF, no marketing fluff. Visuals are Wikimedia Commons only (CC0 / PD /
+// CC BY / CC BY-SA, no NC/ND), each credited on the page. Three movements:
 //   1. The joke (the socialist one) and the frame it sets up
 //   2. Time as an abstraction that mechanical time made countable
 //   3. What is actually inside a watch, why the parts matter, why the craft survives
@@ -7,11 +8,39 @@
 // a watchmaker would sign off on. References to Time Pop dossiers are the breadcrumb
 // back to the catalogue; nothing is invented to pad the page.
 
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { loadWatchmakingArtifacts, type WatchmakingArtifact } from '../lib/catalog.ts'
+
+function ArtifactFigure({ a, tall }: { a: WatchmakingArtifact; tall?: boolean }) {
+  return (
+    <figure className={`wmp-figure${tall ? ' tall' : ''}`}>
+      <a href={a.source_url} target="_blank" rel="noreferrer" className="wmp-figure-media">
+        <img src={a.local} alt={a.caption} loading="lazy" />
+      </a>
+      <figcaption>
+        <span className="wmp-figure-cap">{a.caption}</span>
+        <span className="mono micro dim wmp-figure-credit">
+          {a.artist} · {a.license} ·{' '}
+          <a href={a.source_url} target="_blank" rel="noreferrer">Wikimedia Commons</a>
+        </span>
+      </figcaption>
+    </figure>
+  )
+}
+
+function Gallery({ items }: { items: WatchmakingArtifact[] }) {
+  if (!items.length) return null
+  return (
+    <div className={`wmp-gallery cols-${Math.min(items.length, 3)}`}>
+      {items.map((a) => <ArtifactFigure key={a.id} a={a} />)}
+    </div>
+  )
+}
 
 // ── The joke and the framing ────────────────────────────────────────────────
-function FrameCard() {
+function FrameCard({ hero }: { hero?: WatchmakingArtifact }) {
   return (
     <article className="wmp-frame">
       <span className="eyebrow">A JOKE TO START</span>
@@ -19,6 +48,7 @@ function FrameCard() {
         A socialist believes that capitalists invented the notion of time so everyone
         would have to buy a watch.
       </p>
+      {hero && <ArtifactFigure a={hero} />}
       <p className="dim">
         It is a good joke because the second half is almost true. Before mechanical
         clocks — before the bell tower in 13th-century Europe, before the spring-driven
@@ -83,7 +113,7 @@ function AbstractionCard() {
 }
 
 // ── The anatomy of a mechanical watch (the part you can learn to appreciate) ─
-function AnatomyCard() {
+function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
   const parts = [
     {
       name: 'Mainspring',
@@ -125,6 +155,7 @@ function AnatomyCard() {
         if you do not unscrew it. Here is what each part does, and why the work
         is not ceremonial.
       </p>
+      <Gallery items={shots} />
       <ol className="wmp-parts">
         {parts.map((p, i) => (
           <li key={p.name}>
@@ -182,7 +213,7 @@ function WhyItMattersCard() {
 }
 
 // ── The five complications, briefly ─────────────────────────────────────────
-function ComplicationsCard() {
+function ComplicationsCard({ shots }: { shots: WatchmakingArtifact[] }) {
   const items = [
     { name: 'Chronograph', blurb: 'A built-in stopwatch. Start, stop, reset with side pushers. Common from 1960s onward. Rolex Daytona, Omega Speedmaster, TAG Monaco are the textbook cases.' },
     { name: 'Date', blurb: 'A window that flips at midnight. A simple gear train, but the date change is the most-copied complication in horology because it makes a watch feel "alive" once a day.' },
@@ -200,6 +231,7 @@ function ComplicationsCard() {
         paid per complication, and the customer sees them as
         <em> complicating</em> the simple job of reading the hour. The joke stuck.
       </p>
+      <Gallery items={shots} />
       <ul className="wmp-comps">
         {items.map((c) => (
           <li key={c.name}>
@@ -213,7 +245,7 @@ function ComplicationsCard() {
 }
 
 // ── The six key periods (no-nonsense history) ───────────────────────────────
-function PeriodsCard() {
+function PeriodsCard({ shots }: { shots: WatchmakingArtifact[] }) {
   const periods = [
     { span: '1275–1500', title: 'The first escapements',
       body: 'Mechanical clocks appear in cathedral towers. The verge escapement turns a falling weight into equal ticks. They are huge, inaccurate to half an hour a day, and the only place to see one is the bell tower of a wealthy town.' },
@@ -237,6 +269,9 @@ function PeriodsCard() {
         as a list of <em>what got solved and when</em>. Here is the six-period
         version. Read the spans; the rest is a footnote.
       </p>
+      <div className="wmp-history-shots">
+        {shots.map((a) => <ArtifactFigure key={a.id} a={a} tall />)}
+      </div>
       <ol className="wmp-periods">
         {periods.map((p) => (
           <li key={p.span}>
@@ -253,7 +288,7 @@ function PeriodsCard() {
 }
 
 // ── Learn to appreciate: how to actually look at a watch ────────────────────
-function LearnToLookCard() {
+function LearnToLookCard({ shot }: { shot?: WatchmakingArtifact }) {
   return (
     <article className="wmp-frame">
       <span className="eyebrow">LEARN TO LOOK</span>
@@ -262,6 +297,7 @@ function LearnToLookCard() {
         You do not need to know the catalogue to appreciate a watch. You need
         to know where to put your eyes. Six places, in any order:
       </p>
+      {shot && <ArtifactFigure a={shot} />}
       <ol className="wmp-look">
         <li>
           <strong>The dial finish.</strong>
@@ -352,6 +388,24 @@ function NextReadsCard() {
 // ── The main page composition ──────────────────────────────────────────────
 export default function Watchmaking() {
   const data = useDataset()
+  const [artifacts, setArtifacts] = useState<WatchmakingArtifact[]>([])
+  const [policy, setPolicy] = useState('')
+
+  useEffect(() => {
+    loadWatchmakingArtifacts().then((snap) => {
+      setArtifacts(snap.artifacts)
+      setPolicy(snap.policy)
+    }).catch(() => { /* page still reads without images */ })
+  }, [])
+
+  const bySlot = useMemo(() => {
+    const m: Record<string, WatchmakingArtifact[]> = {}
+    for (const a of artifacts) {
+      ;(m[a.slot] ??= []).push(a)
+    }
+    return m
+  }, [artifacts])
+
   return (
     <div className="wmp-page">
       <Link to="/" className="crumb">← HOME</Link>
@@ -368,20 +422,26 @@ export default function Watchmaking() {
             explain why the catalogue looks the way it does.
           </p>
           <p className="mono micro dim">
-            {data?.count ?? '—'} REFERENCES · {data?.cards.filter((c) => c.comp_summary).length ?? '—'} DOSSIERS WITH SALE EVIDENCE · NO SPECIALIST VOCABULARY REQUIRED
+            {data?.count ?? '—'} REFERENCES · {artifacts.length || '—'} FREE-LICENCE ARTIFACTS · {data?.cards.filter((c) => c.comp_summary).length ?? '—'} DOSSIERS WITH SALE EVIDENCE
           </p>
         </div>
       </section>
 
-      <FrameCard />
+      <FrameCard hero={bySlot.frame?.[0]} />
       <AbstractionCard />
-      <AnatomyCard />
+      <AnatomyCard shots={bySlot.anatomy ?? []} />
       <WhyItMattersCard />
-      <ComplicationsCard />
-      <PeriodsCard />
-      <LearnToLookCard />
+      <ComplicationsCard shots={bySlot.complications ?? []} />
+      <PeriodsCard shots={bySlot.periods ?? []} />
+      <LearnToLookCard shot={bySlot.look?.[0]} />
       <KeyMovementsCard />
       <NextReadsCard />
+
+      {policy && (
+        <p className="mono micro dim wmp-rights">
+          IMAGE RIGHTS · {policy} Every figure links to its Commons file.
+        </p>
+      )}
     </div>
   )
 }
