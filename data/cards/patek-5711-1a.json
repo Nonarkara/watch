@@ -61,6 +61,15 @@
         "condition": "Purchased new by Eric Clapton in 2018; celebrity provenance premium",
         "box_papers": "full_set",
         "comparable": false
+      },
+      {
+        "date": "2024-04-01",
+        "price_usd": 225794,
+        "venue": "sothebys",
+        "url": "https://www.sothebys.com/en/auctions/ecatalogue/lot.sothebys.hk24010.html",
+        "condition": "Olive green dial, 2021 — same family as 5711/1A-010 steel blue",
+        "box_papers": "full_set",
+        "comparable": false
       }
     ],
     "listing_observations": []
@@ -87,6 +96,24 @@
       "person_or_event": "First green-dial 5711/1A-014 at auction",
       "description": "Antiquorum's Monaco sale offered the first olive-green 5711/1A-014 months after its debut; it sold at a large multiple of the $34,893 list price, confirming the post-discontinuation frenzy.",
       "source_url": "https://quillandpad.com/2021/07/28/results-first-green-dial-patek-philippe-nautilus-ref-5711-1a-014-at-antiquorums-july-2021-auction-in-monaco-plus-other-highlights/"
+    },
+    {
+      "date": "2006-10-01",
+      "person_or_event": "5711/1A release",
+      "description": "The 5711/1A replaces the 3700/1A as the entry steel Nautilus, with centre seconds and a slightly thicker case. It looks like a quiet update; for the next fifteen years it becomes the watch world's most-cited waitlist case study.",
+      "source_url": "https://www.patek.com/en/collection/nautilus/5811-1g"
+    },
+    {
+      "date": "2021-04-06",
+      "person_or_event": "5711/1A-018 Tiffany Blue",
+      "description": "Patek announces the last 5711 — a Tiffany-blue-dial collaboration, retailed only at Tiffany. Of 170 pieces, the final example sells for $6.5M at Phillips in December 2021 (with the final example at the Phillips 2024 New York Watch Auction X realizing $4.35M for the John Player Special).",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/NY080121/37"
+    },
+    {
+      "date": "2022-01-01",
+      "person_or_event": "5711/1A discontinued",
+      "description": "Patek retires the 5711/1A at the end of 2021, replaced by the 5811/1G-001 in white gold. The 5711's exit turns what was a multi-year waitlist into a closed chapter and pushes aftermarket prices above the Tiffany-blue sale price.",
+      "source_url": "https://www.hodinkee.com/articles/the-patek-philippe-nautilus-ref-5811-1g-is-here"
     }
   ],
   "narrative": {

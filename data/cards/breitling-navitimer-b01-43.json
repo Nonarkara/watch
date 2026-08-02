@@ -8,14 +8,29 @@
     "nickname": null,
     "collection": "Navitimer",
     "tier": "core",
-    "produced": { "start_year": 2019, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "B01", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 43, "material": "stainless steel", "bezel": "bidirectional circular slide-rule bezel" },
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "B01",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 43,
+      "material": "stainless steel",
+      "bezel": "bidirectional circular slide-rule bezel"
+    },
     "one_liner": "The 43mm steel flagship of Breitling's slide-rule pilot chronograph, built around the in-house B01 movement."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 10700, "source_url": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/" }
+      {
+        "effective_year": 2026,
+        "price_usd": 10700,
+        "source_url": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/"
+      }
     ],
     "current_msrp_usd": 10700
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1952-01-01",
+      "person_or_event": "Navitimer launch",
+      "description": "Breitling launches the Navitimer in 1952 — the first watch with a circular slide rule bezel, designed for pilots. The AOPA (Aircraft Owners and Pilots Association) endorsement turns the Navitimer into the most-cited pilot's watch of the 1950s-60s.",
+      "source_url": "https://www.breitling.com/us-en/watches/navitimer"
+    }
+  ],
   "narrative": {
     "story": "Breitling introduced the Navitimer in 1952 for members of the Aircraft Owners and Pilots Association, adapting the slide-rule bezel from its 1940s Chronomat into a tool for computing airspeed, fuel burn, and unit conversions in flight. The 2019 redesign dropped the interim \"Navitimer 1\" branding and paired the 43mm case with Breitling's in-house B01 chronograph movement, making AB0138 the collection's core steel model.",
     "collector_notes": "Dial color and strap (leather vs. steel bracelet) are the main configuration variables within this reference family; bracelet versions carry a meaningfully higher price than leather-strap versions.",

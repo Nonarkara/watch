@@ -8,9 +8,20 @@
     "nickname": "LMX",
     "collection": "Legacy Machine",
     "tier": "haute",
-    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "LMX", "type": "manual" },
-    "case": { "diameter_mm": 44, "material": "grade 5 titanium or 18k red gold", "bezel": "polished, matching case metal" },
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "LMX",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 44,
+      "material": "grade 5 titanium or 18k red gold",
+      "bezel": "polished, matching case metal"
+    },
     "one_liner": "A 10th-anniversary Legacy Machine, built on the original LM1 architecture with a central flying balance wheel and two independent time displays angled toward the wearer."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2018-01-01",
+      "person_or_event": "LMX launch",
+      "description": "MB&F releases the Legacy Machine LMX to mark its tenth anniversary. Two balance wheels beating at 2.5Hz with a differential, finished to haute horlogerie standards — the brand's most complicated LM to date at launch.",
+      "source_url": "https://mbandf.com/en/machines/legacy-machines/lmx"
+    }
+  ],
   "narrative": {
     "story": "MB&F released LMX in 2021 to mark ten years since the original Legacy Machine 1 introduced the brand's now-recognizable format of dual time displays flanking a central flying balance wheel. LMX pairs that layout with a seven-day power reserve, positioning it as both an anniversary piece and the longest-running Legacy Machine in terms of autonomy.",
     "collector_notes": "The titanium and red-gold versions were priced and released together rather than gold coming first as a limited run; collectors treat material as a wearing preference more than a scarcity signal for this specific reference.",

@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Nautilus",
     "tier": "trinity",
-    "produced": { "start_year": 2006, "end_year": 2025, "discontinued": true },
-    "movement": { "caliber": "240 PS IRM C LU", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "rounded octagonal, polished" },
+    "produced": {
+      "start_year": 2006,
+      "end_year": 2025,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "240 PS IRM C LU",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "rounded octagonal, polished"
+    },
     "one_liner": "The asymmetric-dial Nautilus — moonphase, date, power reserve and small seconds on a 3.98mm micro-rotor caliber."
   },
   "retail": {
@@ -19,17 +30,49 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-06-08", "price_usd": 101600, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080124/129", "condition": null, "box_papers": null }
+      {
+        "date": "2024-06-08",
+        "price_usd": 101600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080124/129",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2024-11-24",
+        "price_usd": 81576,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/auction/HK080124",
+        "condition": "2013, blue dial, certificate, presentation box",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2006-01-01",
+      "person_or_event": "5712/1A launch",
+      "description": "The 5712/1A brings a small-seconds, power-reserve, and date sub-dial arrangement to the steel Nautilus case. Visually busier than the 5711, the 5712/1A is preferred by collectors who want complication without paying the chronograph premium.",
+      "source_url": "https://www.hodinkee.com/articles/three-patek-philippe-nautilus-5711-vs-5712-vs-5712-1a"
+    },
+    {
+      "date": "2024-11-24",
+      "person_or_event": "Phillips Hong Kong sale",
+      "description": "A 2013 5712/1A-001 in steel, blue dial, sells at the Phillips Hong Kong Watch Auction XIX for HK$640,000 (~US$82,000) on an HK$300,000-600,000 estimate.",
+      "source_url": "https://www.phillips.com/auction/HK080124"
+    }
+  ],
   "narrative": {
     "story": "Launched in 2006 alongside the 5711 for the Nautilus 30th anniversary, the 5712 kept the off-center complication layout of the 3712 it replaced: small seconds at 4-5, moonphase-date cluster at 7, power reserve under 12. The ultra-thin caliber 240 PS IRM C LU with its 22k gold micro-rotor is the reason the case stays wearable. Patek quietly dropped it from the catalogue in early 2025, ending the last steel time-and-complication Nautilus of the 5711 generation.",
     "collector_notes": "The gradient blue dial shifted tone across production years, and the asymmetric layout hides a lot of service history — check moonphase alignment and pusher feel. Tiffany-stamped examples trade in a different bracket from standard dials.",

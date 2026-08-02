@@ -8,14 +8,29 @@
     "nickname": null,
     "collection": "Historiques",
     "tier": "trinity",
-    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "2455/2", "type": "automatic" },
-    "case": { "diameter_mm": 37, "material": "yellow gold (2022) / stainless steel (2025)", "bezel": "fluted-notch tonneau, integrated bracelet" },
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "2455/2",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "yellow gold (2022) / stainless steel (2025)",
+      "bezel": "fluted-notch tonneau, integrated bracelet"
+    },
     "one_liner": "The faithful reissue of Jorg Hysek's 1977 222 — 37mm, hidden Maltese cross on the case flank — in gold first, steel since 2025."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2025, "price_usd": 32000, "source_url": "https://www.ablogtowatch.com/new-release-vacheron-constantin-historiques-222-stainless-steel-watch/" }
+      {
+        "effective_year": 2025,
+        "price_usd": 32000,
+        "source_url": "https://www.ablogtowatch.com/new-release-vacheron-constantin-historiques-222-stainless-steel-watch/"
+      }
     ],
     "current_msrp_usd": 32000
   },
@@ -25,7 +40,11 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
@@ -35,6 +54,18 @@
       "person_or_event": "Steel 222 launched",
       "description": "Vacheron put the Historiques 222 into stainless steel (ref. 4200H/222A-B934) at $32,000 — the configuration collectors had asked for since the 2022 yellow-gold reissue, and the closest thing to the original 1977 steel 222 the modern catalog offers.",
       "source_url": "https://hypebeast.com/2025/1/vacheron-constantin-historiques-222-4200h-222a-b934-release-info"
+    },
+    {
+      "date": "1977-01-01",
+      "person_or_event": "222 designed",
+      "description": "Vacheron Constantin's 222 — designed by Jörg Hysek — launches for the brand's 222nd anniversary. A 37mm gold integrated bracelet with a notched bezel at 5 o'clock, the 222 is the third of the \"Holy Trinity\" sports watches after the Royal Oak (1972) and Nautilus (1976).",
+      "source_url": "https://www.vacheron-constantin.com/en/traditionnelle/historiques-222"
+    },
+    {
+      "date": "2022-01-01",
+      "person_or_event": "Historiques 222 reissue",
+      "description": "Vacheron Constantin reissues the 222 as the Historiques 222 ref. 4200H/222, a 37mm yellow-gold faithful reissue with a \"Jubilee\"-style bracelet — the spiritual sibling to the 1972 Royal Oak and 1976 Nautilus reissues.",
+      "source_url": "https://www.hodinkee.com/articles/vacheron-constantin-historiques-222"
     }
   ],
   "narrative": {

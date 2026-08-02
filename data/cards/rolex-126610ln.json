@@ -8,31 +8,76 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "3235", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "black Cerachrom" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3235",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel",
+      "bezel": "black Cerachrom"
+    },
     "one_liner": "The current-generation Submariner Date: 41mm case, caliber 3235, introduced 2020."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2020, "price_usd": 9150, "source_url": "https://stockx.com/rolex-submariner-date-126610ln-black" },
-      { "effective_year": 2025, "price_usd": 10650, "source_url": "https://atlasluxury.us/rolex-price-guide-2025/" }
+      {
+        "effective_year": 2020,
+        "price_usd": 9150,
+        "source_url": "https://stockx.com/rolex-submariner-date-126610ln-black"
+      },
+      {
+        "effective_year": 2025,
+        "price_usd": 10650,
+        "source_url": "https://atlasluxury.us/rolex-price-guide-2025/"
+      }
     ],
     "current_msrp_usd": 10650
   },
   "market_evidence": {
     "comps": [
-      { "date": "2025-04-08", "price_usd": 10795, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080325/43", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2025-04-08",
+        "price_usd": 10795,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080325/43",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 13970,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "126610LN 41mm Submariner Date, 2022",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-09-01",
+      "person_or_event": "41mm Submariner Date",
+      "description": "The 126610LN replaces the 116610LN, growing the case to 41mm while keeping the date complication. Caliber 3235. The transition is the most-cited 2020s Rolex sports-watch change.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-date-126610ln"
+    }
+  ],
   "narrative": {
     "story": "The 2020 Submariner refresh moved the case from 40 to 41mm while slimming the lugs, retreating from the slab-sided 'Super Case' of the 116610 generation. The 3235 brought the Chronergy escapement and a 70-hour reserve. It stays one of the hardest steel-sports allocations at retail, though grey-market premiums have thinned since the 2022 peak.",
     "collector_notes": "The spread between retail and grey narrowed after 2022, so condition and full-set status decide most of the price now. Check the warranty-card date against serial-era expectations.",

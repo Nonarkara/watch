@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 1962, "end_year": 1989, "discontinued": true },
-    "movement": { "caliber": "1530, later 1520", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "produced": {
+      "start_year": 1962,
+      "end_year": 1989,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1530, later 1520",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black aluminum insert"
+    },
     "one_liner": "The no-date Submariner produced 1962-1989 — the longest-running Sub reference and the staple of vintage Rolex collecting."
   },
   "retail": {
@@ -19,17 +30,43 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2025-12-17", "price_usd": 10795, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-submariner-wristwatch-ref-5513-315/285402", "condition": null, "box_papers": "watch_only" }
+      {
+        "date": "2025-12-17",
+        "price_usd": 10795,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-submariner-wristwatch-ref-5513-315/285402",
+        "condition": null,
+        "box_papers": "watch_only"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 13970,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "5513 Submariner, 1970s",
+        "box_papers": null
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1962-01-01",
+      "person_or_event": "Submariner 5513 release",
+      "description": "The 5513 runs 1962-1989 — the longest-running no-date Submariner reference, and the watch most associated with the British Ministry of Defence issue Submariners of the 1970s.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-5513-buying-guide"
+    }
+  ],
   "narrative": {
     "story": "The 5513 ran nearly three decades on calibers 1530 and 1520, spanning gilt gloss dials, matte dials with painted markers, and finally gloss dials with white-gold surrounds. That length of production created a catalog of collectible variants — 'Bart Simpson' coronets, meters-first depth text, serif dials — and a price ladder that runs from entry-vintage to six figures for early gilt examples. Roger Moore wore a modified 5513 in Live and Let Die.",
     "collector_notes": "Dial originality first: service dials with modern lume are common and cut value hard. Match the dial era to the serial, check bezel-insert correctness, and expect unpolished cases to command large premiums.",

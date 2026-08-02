@@ -8,14 +8,29 @@
     "nickname": "Jumbo",
     "collection": "Royal Oak",
     "tier": "trinity",
-    "produced": { "start_year": 2000, "end_year": 2022, "discontinued": true },
-    "movement": { "caliber": "2121", "type": "automatic" },
-    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "produced": {
+      "start_year": 2000,
+      "end_year": 2022,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "2121",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "octagonal with eight hexagonal screws"
+    },
     "one_liner": "The keeper of the 1972 Royal Oak formula — 39mm, 8.1mm, caliber 2121 — retired at the model's 50th birthday."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2021, "price_usd": 24700, "source_url": "https://www.luxurybazaar.com/grey-market/audemars-piguet-watch-prices-historical-and-current-from-actual-sales-numbers/" }
+      {
+        "effective_year": 2021,
+        "price_usd": 24700,
+        "source_url": "https://www.luxurybazaar.com/grey-market/audemars-piguet-watch-prices-historical-and-current-from-actual-sales-numbers/"
+      }
     ],
     "current_msrp_usd": null
   },
@@ -25,7 +40,11 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
@@ -35,6 +54,12 @@
       "person_or_event": "Discontinuation confirmed for 2022",
       "description": "AP confirmed the steel Jumbo 15202ST would leave production in 2022, to make way for a new reference at the Royal Oak's 50th anniversary. Secondary asking prices climbed roughly 50% on the news.",
       "source_url": "https://www.timeandwatches.com/2021/03/audemars-piguet-will-discontinue.html"
+    },
+    {
+      "date": "2000-01-01",
+      "person_or_event": "15202ST \"Jumbo\" Extra-Thin",
+      "description": "Audemars Piguet releases the 15202ST, the \"Jumbo\" Extra-Thin — a 39mm case 8.1mm thick, \"Petite Tapisserie\" dial, 2121 movement. It becomes the closest modern descendant of the 1972 5402ST and the reference against which all other steel APs are measured.",
+      "source_url": "https://www.audemarspiguet.com/com/en/collections/royal-oak-15202st"
     }
   ],
   "narrative": {

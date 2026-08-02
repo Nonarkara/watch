@@ -8,9 +8,20 @@
     "nickname": "LM101",
     "collection": "Legacy Machine",
     "tier": "haute",
-    "produced": { "start_year": 2014, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "LM101", "type": "manual" },
-    "case": { "diameter_mm": 40, "material": "18k red gold or white gold", "bezel": "polished, matching case metal" },
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "LM101",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "18k red gold or white gold",
+      "bezel": "polished, matching case metal"
+    },
     "one_liner": "MB&F's most accessible Legacy Machine, built around a single oversized balance wheel raised above the dial on its own bridge rather than the twin-balance layout of the earlier LM1 and LM2."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2014-01-01",
+      "person_or_event": "LM101 launch",
+      "description": "MB&F's Legacy Machine 101 (LM101) debuts as the brand's most \"classical\" piece: a suspended balance wheel above a sub-dial, with a 45mm case and an in-house movement. MB&F positions it as a \"watchmaker's watch\" — the simplest, most personal piece in the Horological Machine catalogue.",
+      "source_url": "https://mbandf.com/en/machines/legacy-machines/lm-101"
+    }
+  ],
   "narrative": {
     "story": "MB&F built its reputation on the more overtly mechanical, twin-balance-wheel Legacy Machine 1 and 2 before releasing LM101 in 2014 as a single-complication, single-balance simplification of the same visual language: a large balance wheel suspended on an arched bridge above a dial dominated by hours, minutes, and a power-reserve indicator. Max Büsser founded MB&F in 2005 after leaving executive roles at Jaeger-LeCoultre and Harry Winston, describing the company as a horological research lab rather than a conventional manufacture; LM101 was the model that made that lab's output ownable at a lower entry point than the rest of the Legacy Machine line.",
     "collector_notes": "The movement was co-developed with independent watchmaker Kari Voutilainen, and finishing quality on early production runs is a frequent point of comparison collectors make against Voutilainen's own eponymous watches.",

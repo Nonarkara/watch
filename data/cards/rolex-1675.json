@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "GMT-Master",
     "tier": "crown",
-    "produced": { "start_year": 1959, "end_year": 1980, "discontinued": true },
-    "movement": { "caliber": "1565, later 1575", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "red-blue aluminum insert" },
+    "produced": {
+      "start_year": 1959,
+      "end_year": 1980,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1565, later 1575",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "red-blue aluminum insert"
+    },
     "one_liner": "The GMT-Master produced 1959-1980, the longest-running GMT reference and the standard vintage Pepsi."
   },
   "retail": {
@@ -19,18 +30,42 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2016-10-26", "price_usd": 18750, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-time-autumn/rolex-gmt-master-ref-1675-1/33900", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2016-10-26",
+        "price_usd": 18750,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/christies-watches-online-time-autumn/rolex-gmt-master-ref-1675-1/33900",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2024-06-08",
+        "price_usd": 114300,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080124",
+        "condition": "Mark 0 matte dial, 1967, full set",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
   "provenance_events": [
-    { "date": "2019-12-10", "person_or_event": "Marlon Brando 'Apocalypse Now' GMT-Master", "description": "Brando's bezel-less 1675, worn on the set of Apocalypse Now and hand-engraved 'M. Brando' on the caseback, sells for $1,952,000 including premium at Phillips' Game Changers auction in New York.", "source_url": "https://www.phillips.com/auction/NY080119" }
+    {
+      "date": "2019-12-10",
+      "person_or_event": "Marlon Brando 'Apocalypse Now' GMT-Master",
+      "description": "Brando's bezel-less 1675, worn on the set of Apocalypse Now and hand-engraved 'M. Brando' on the caseback, sells for $1,952,000 including premium at Phillips' Game Changers auction in New York.",
+      "source_url": "https://www.phillips.com/auction/NY080119"
+    }
   ],
   "narrative": {
     "story": "The 1675 carried the GMT-Master through two decades: early gilt chapter-ring dials with pointed crown guards, then matte dials, on calibers 1565 and later 1575. Its Pepsi bezel and long production made it the entry point of serious vintage Rolex collecting. Marlon Brando's bezel-less 1675, worn in Apocalypse Now, sold at Phillips New York in December 2019.",

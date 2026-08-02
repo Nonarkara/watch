@@ -86,7 +86,7 @@ const row = (cells) => {
   lines.push(padded.join(' '))
 }
 
-lines.push('WATCH REGISTER · DATA HEALTH AUDIT')
+lines.push('TIME POP · DATA HEALTH AUDIT')
 lines.push(hr)
 row(['CARDS', 'BRANDS', 'IMG %', 'COMPS', 'PROV', 'NARR', 'EXACT'])
 row([summary.cards, summary.brands, summary.imageCoverage + '%', summary.withComps, summary.withProvenance, summary.withNarrative, publicData.cards.filter((c) => c.media?.some((m) => m.match === 'exact_reference')).length])

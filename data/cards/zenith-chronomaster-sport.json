@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Chronomaster",
     "tier": "haute",
-    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "El Primero 3600", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "black ceramic tachymeter bezel" },
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "El Primero 3600",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "black ceramic tachymeter bezel"
+    },
     "one_liner": "A modern El Primero chronograph with a panda dial and ceramic bezel, built to read 1/10th-of-a-second directly off the main dial track."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2021-01-01",
+      "person_or_event": "Chronomaster Sport launch",
+      "description": "Zenith releases the Chronomaster Sport in 2021 — a 41mm steel chrono with a 1/10th-of-a-second display, El Primero 3600 movement. The \"Rolex Daytona competitor\" framing dominated 2021-2022 watch media.",
+      "source_url": "https://www.zenith-watches.com/en/chronomaster/chronomaster-sport"
+    }
+  ],
   "narrative": {
     "story": "The Chronomaster Sport, launched in 2021, uses the El Primero 3600 automatic chronograph movement running at 36,000 vibrations per hour (5 Hz) — the same high-beat frequency Zenith introduced with the original El Primero in 1969. Because the chronograph seconds hand completes one full rotation every ten seconds instead of sixty, the dial can show 1/10th-of-a-second readings directly off the main scale instead of through a separate sub-dial, a functional carryover from the movement's original design rather than a new complication.",
     "collector_notes": "Steel bracelet and rubber strap versions carry different reference suffixes; confirm which one a listing describes, since the bracelet changes both retail cost and resale demand.",
@@ -36,6 +58,8 @@
   "meta": {
     "curated_by": "agent-cjzi",
     "curated_date": "2026-07-31",
-    "sources": ["https://en.wikipedia.org/wiki/Zenith_(watchmaker)"]
+    "sources": [
+      "https://en.wikipedia.org/wiki/Zenith_(watchmaker)"
+    ]
   }
 }

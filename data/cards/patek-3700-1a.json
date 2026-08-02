@@ -8,9 +8,20 @@
     "nickname": "Jumbo",
     "collection": "Nautilus",
     "tier": "trinity",
-    "produced": { "start_year": 1976, "end_year": 1990, "discontinued": true },
-    "movement": { "caliber": "28-255 C", "type": "automatic" },
-    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "rounded octagonal with 'ears', polished" },
+    "produced": {
+      "start_year": 1976,
+      "end_year": 1990,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "28-255 C",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "rounded octagonal with 'ears', polished"
+    },
     "one_liner": "The 1976 original: Genta's porthole Nautilus, a 42mm steel watch priced like gold."
   },
   "retail": {
@@ -19,17 +30,50 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-12-07", "price_usd": 82550, "venue": "phillips", "url": "https://www.phillips.com/detail/patek-philippe/NY080424/42", "condition": "1977 example", "box_papers": null }
+      {
+        "date": "2024-12-07",
+        "price_usd": 82550,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080424/42",
+        "condition": "1977 example",
+        "box_papers": null
+      },
+      {
+        "date": "2024-06-08",
+        "price_usd": 762000,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080124",
+        "condition": "3700/11 yellow gold/stainless steel \"Jumbo\" two-tone",
+        "box_papers": null,
+        "comparable": false
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1972-04-13",
+      "person_or_event": "Nautilus designed",
+      "description": "Gérald Genta draws the Nautilus in a single night after Basel director René Benabès commissions a steel sports watch that could compete with AP's Royal Oak. The horizontal-grooved dial, porthole bezel, and integrated bracelet define luxury-steel for the next fifty years.",
+      "source_url": "https://en.wikipedia.org/wiki/Patek_Philippe_Nautilus"
+    },
+    {
+      "date": "1976-10-01",
+      "person_or_event": "Nautilus 3700/1A launch",
+      "description": "Patek Philippe releases the 3700/1A \"Jumbo\" at Basel — the first luxury steel sports watch from the Stern family. The JLC-powered caliber 28-255 is JLC's thinnest automatic with date, but launch reception is muted: \"a watch like a ship's porthole\" was not the praise Patek hoped for.",
+      "source_url": "https://www.hodinkee.com/articles/the-story-behind-the-original-patek-philippe-nautilus"
+    }
+  ],
   "narrative": {
     "story": "Gerald Genta sketched the Nautilus during a Basel fair lunch, borrowing the proportions of a ship's porthole: a two-part case sealed by lateral 'ears', an embossed horizontal-relief dial, an integrated bracelet. Patek launched it in 1976 as the 3700/1, a 42mm steel watch priced against gold dress watches — the second act of the Genta steel-luxury idea after the Royal Oak. The 28-255 C inside is the same ultra-thin JLC 920 base AP used in the 5402. Production ran, with bracelet revisions, until about 1990.",
     "collector_notes": "Early first-series examples with correct dials and unstretched original bracelets carry the money; service dials and swapped clasps are common after five decades. The market corrected sharply after 2022 — recent New York results sit far below what identical watches asked at the peak.",

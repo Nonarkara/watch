@@ -8,28 +8,76 @@
     "nickname": "Pepsi",
     "collection": "GMT-Master II",
     "tier": "crown",
-    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "3285", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "Oystersteel", "bezel": "red-blue Cerachrom" },
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3285",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "Oystersteel",
+      "bezel": "red-blue Cerachrom"
+    },
     "one_liner": "The steel Pepsi GMT-Master II, returned in 2018 on a Jubilee bracelet with caliber 3285."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2018, "price_usd": 9250, "source_url": "https://stockx.com/rolex-gmtmaster-ii-pepsi-126710blro-black" }
+      {
+        "effective_year": 2018,
+        "price_usd": 9250,
+        "source_url": "https://stockx.com/rolex-gmtmaster-ii-pepsi-126710blro-black"
+      }
     ],
     "current_msrp_usd": null
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-12-13", "price_usd": 17920, "venue": "bonhams", "url": "https://www.bonhams.com/auction/30160/lot/99/", "condition": null, "box_papers": "full_set" },
-      { "date": "2026-04-08", "price_usd": 27940, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080326/65", "condition": null, "box_papers": "full_set" },
-      { "date": "2026-06-12", "price_usd": 25400, "venue": "christies", "url": "https://www.christies.com/en/lot/lot-6590231", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2024-12-13",
+        "price_usd": 17920,
+        "venue": "bonhams",
+        "url": "https://www.bonhams.com/auction/30160/lot/99/",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2026-04-08",
+        "price_usd": 27940,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080326/65",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2026-06-12",
+        "price_usd": 25400,
+        "venue": "christies",
+        "url": "https://www.christies.com/en/lot/lot-6590231",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 27940,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "126710BLRO Pepsi, 2019",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Tank",
     "tier": "core",
-    "produced": { "start_year": 1921, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "1917 MC", "type": "manual" },
-    "case": { "diameter_mm": 46, "material": "18K gold or platinum", "bezel": "curved flat sapphire crystal following the case, no bezel" },
+    "produced": {
+      "start_year": 1921,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1917 MC",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 46,
+      "material": "18K gold or platinum",
+      "bezel": "curved flat sapphire crystal following the case, no bezel"
+    },
     "one_liner": "The elongated, curved Tank variant built to wrap the wrist rather than sit flat against it, sold since 1921 only in periodic runs rather than continuous production."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1921-01-01",
+      "person_or_event": "Tank Cintrée 1921",
+      "description": "The Tank Cintrée — Cartier's elongated, curved Tank — debuts in 1921. A platinum limited edition of the Cintrée 100th anniversary (2018) is among the most-cited modern Cartier reissues.",
+      "source_url": "https://www.cartier.com/en-us/collections/watches/men-s-watches/tank"
+    }
+  ],
   "narrative": {
     "story": "Cartier introduced the Tank Cintrée in 1921, two years after Louis Cartier's original Tank, stretching the case and curving it along its length so it follows the wrist rather than sitting flat against it — a construction that also stretched the numerals and curved the dial to match. Cartier has not kept the Cintrée in continuous catalog production; it resurfaces periodically through Cartier Privé, including platinum pieces released around the design's 2021 centenary.",
     "collector_notes": "There is no single standing modern reference for the Tank Cintrée — case size, material, and movement vary by release, so any specific listing needs its own reference number and generation confirmed rather than treated as a fixed spec.",

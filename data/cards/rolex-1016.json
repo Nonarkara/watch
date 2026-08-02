@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Explorer",
     "tier": "crown",
-    "produced": { "start_year": 1963, "end_year": 1989, "discontinued": true },
-    "movement": { "caliber": "1560, later 1570", "type": "automatic" },
-    "case": { "diameter_mm": 36, "material": "stainless steel", "bezel": "smooth steel" },
+    "produced": {
+      "start_year": 1963,
+      "end_year": 1989,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1560, later 1570",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 36,
+      "material": "stainless steel",
+      "bezel": "smooth steel"
+    },
     "one_liner": "The Explorer of 1963-1989: matte black dial, 3-6-9 numerals, 36mm, and a 26-year production run."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1963-01-01",
+      "person_or_event": "Explorer 1016 release",
+      "description": "The Explorer 1016 runs from 1963 to 1989 — the longest-running Explorer reference and the one most associated with mountaineering expeditions, polar crossings, and 1970s-era tool-watch culture. The dial proportions and 36mm case became the template for every Rolex Explorer that followed.",
+      "source_url": "https://en.wikipedia.org/wiki/Rolex_Explorer"
+    }
+  ],
   "narrative": {
     "story": "The 1016 distilled the Explorer to its lasting form — matte black dial, luminous 3-6-9, calibers 1560 then 1570 — and held it for two and a half decades. Early gilt-dial examples and the rare 'Space-Dweller' variant sit at the top of the market, while later matte watches are the canonical entry into vintage sports Rolex. Its plainness is the point: one dial, one case, no date.",
     "collector_notes": "Gilt dials (pre-circa-1967) trade far above matte. Check for original lume, unpolished lug bevels, and era-correct riveted or folded-link bracelets.",

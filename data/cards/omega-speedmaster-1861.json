@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Speedmaster",
     "tier": "core",
-    "produced": { "start_year": 1997, "end_year": 2021, "discontinued": true },
-    "movement": { "caliber": "1861", "type": "manual chronograph" },
-    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "black aluminum tachymeter bezel" },
+    "produced": {
+      "start_year": 1997,
+      "end_year": 2021,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1861",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "black aluminum tachymeter bezel"
+    },
     "one_liner": "The hand-wound, hesalite-crystal Moonwatch Omega sold with only minor changes for 24 years before replacing it with the co-axial caliber 3861 in 2021."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1969-07-21",
+      "person_or_event": "Apollo 11 moon landing",
+      "description": "Buzz Aldrin wears his Omega Speedmaster Professional on the lunar surface during Apollo 11. NASA's qualification of the Speedmaster in 1965, after testing by astronaut candidates in a Houston simulation, makes it the first watch worn on the Moon.",
+      "source_url": "https://www.nasa.gov/feature/50-years-ago-the-speedmaster-watches-the-first-walk-on-the-moon"
+    }
+  ],
   "narrative": {
     "story": "Caliber 1861 replaced the 861 in the Speedmaster Professional line in 1997, a finishing and reliability update to a movement architecture that traces back to the manually wound caliber 321 NASA qualified for Apollo. Omega kept the 1861 essentially unchanged through reference 311.30.42.30.01.005, the hesalite-crystal Moonwatch, for 24 years — the longest run of any Speedmaster movement — before introducing the co-axial-escapement caliber 3861 in 2021 and phasing the 1861 out of the catalog.",
     "collector_notes": "Check dial print generation and hand luminova color against known transitional periods, whether the caseback is the closed steel Seahorse medallion (hesalite version) or a sapphire display back (a different, later reference), and service history — manual-wind chronographs see more winding-crown and pusher wear than automatics.",

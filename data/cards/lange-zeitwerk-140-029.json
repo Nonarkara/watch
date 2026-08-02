@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Zeitwerk",
     "tier": "haute",
-    "produced": { "start_year": 2009, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "L043.1", "type": "manual" },
-    "case": { "diameter_mm": 41.9, "material": "18k white gold", "bezel": "polished white gold" },
+    "produced": {
+      "start_year": 2009,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "L043.1",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 41.9,
+      "material": "18k white gold",
+      "bezel": "polished white gold"
+    },
     "one_liner": "Lange's digital-jump hours-and-minutes display, driven by a patented constant-force escapement that releases stored energy once every sixty seconds to advance the discs cleanly."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2009-01-01",
+      "person_or_event": "Zeitwerk launch",
+      "description": "A. Lange & Söhne's Zeitwerk debuts as a digital-display watch with three jumping numerals and a constant-force escapement. The piece becomes the brand's most-photographed haute horlogerie statement — the \"piano\" numerals visible across the dial at every angle.",
+      "source_url": "https://www.alange-soehne.com/en/collection/zeitwerk"
+    }
+  ],
   "narrative": {
     "story": "The Zeitwerk, introduced in 2009, moved Lange into digital time display without giving up mechanical construction: hours and minutes jump on discs rather than sweep on hands, timed by a remontoir d'egalite that stores and releases energy in one-second increments so the discs advance instantly rather than dragging. Mechanically replicating a digital jump display of this size and legibility had defeated most manufactures before Lange committed a purpose-built movement to it.",
     "collector_notes": "The jump mechanism draws down power quickly; collectors check that the power-reserve indicator and the jump action stay synchronized, since a worn remontoir spring shows up first as a hesitant or double jump rather than a reserve-display error.",

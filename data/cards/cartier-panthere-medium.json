@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Panthère",
     "tier": "core",
-    "produced": { "start_year": 2017, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "quartz", "type": "quartz" },
-    "case": { "diameter_mm": 27, "material": "steel", "bezel": "polished steel bezel integrated into the quilted-link bracelet" },
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 27,
+      "material": "steel",
+      "bezel": "polished steel bezel integrated into the quilted-link bracelet"
+    },
     "one_liner": "An integrated quilted-link bracelet watch that defined 1980s Cartier, revived in 2017 after roughly two decades out of the catalog."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1983-01-01",
+      "person_or_event": "Panthère de Cartier launch",
+      "description": "The Panthère de Cartier launches in 1983 as a square-cased, integrated-bracelet watch — the 1980s answer to the Royal Oak and the watch most associated with 1980s fashion. Reissued in 2017 to wide press coverage.",
+      "source_url": "https://www.cartier.com/en-us/collections/watches/women-s-watches/panthere"
+    }
+  ],
   "narrative": {
     "story": "Cartier launched the Panthère de Cartier in 1983, building the case and its flat quilted-link bracelet as one integrated piece rather than a case with a separate strap, styled toward the brand's jewelry-house identity rather than a tool-watch one. Cartier discontinued the line for roughly two decades before reviving it in 2017, reintroducing the same integrated-bracelet silhouette in steel, two-tone, and gold versions.",
     "collector_notes": "This steel-only medium reference (WSPN0015) sits at the entry point of a range that runs up through two-tone, diamond-set, and solid-gold versions at several times the price; confirm which generation and material a listing shows before comparing prices, since vintage 1980s-90s bracelets can develop play at the links from decades of wear.",

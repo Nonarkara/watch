@@ -8,14 +8,29 @@
     "nickname": "Moonwatch",
     "collection": "Speedmaster",
     "tier": "core",
-    "produced": { "start_year": 2021, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "3861", "type": "manual chronograph" },
-    "case": { "diameter_mm": 42, "material": "stainless steel", "bezel": "black aluminum tachymeter scale" },
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3861",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "black aluminum tachymeter scale"
+    },
     "one_liner": "The current-production hand-wound Moonwatch, updated in January 2021 with the Co-Axial Master Chronometer caliber 3861 while keeping the hesalite crystal and case profile of the earlier caliber 1861 reference."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2026, "price_usd": 7800, "source_url": "https://feldmarwatch.com/product/omega/speedmaster/moonwatch-professional-co-axial-master-chronometer-chronograph-cal-3861-8/" }
+      {
+        "effective_year": 2026,
+        "price_usd": 7800,
+        "source_url": "https://feldmarwatch.com/product/omega/speedmaster/moonwatch-professional-co-axial-master-chronometer-chronograph-cal-3861-8/"
+      }
     ],
     "current_msrp_usd": 7800
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": 0
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2021-01-01",
+      "person_or_event": "Speedmaster 3861 release",
+      "description": "The Speedmaster Moonwatch Professional with calibre 3861 — co-axial escapement, Master Chronometer, 50m water resistance — becomes the modern Moonwatch baseline, replacing the 1861 line that ran 1996-2021.",
+      "source_url": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-chronograph-42-mm-31030425001001"
+    }
+  ],
   "narrative": {
     "story": "Omega introduced this reference in January 2021 as the first Speedmaster Professional to carry a Co-Axial escapement, replacing the outgoing caliber 1861 with the Master Chronometer-certified caliber 3861 while keeping the hesalite crystal, dot-over-90 bezel, and asymmetrical case shape associated with the watch NASA qualified for spaceflight in 1965. The movement adds a silicon balance spring and resistance to magnetic fields up to 15,000 gauss but stays hand-wound, so the winding feel and 12-hour chronograph layout match the pre-2021 Moonwatch rather than switching to an automatic caliber. It is the reference Omega ships as the standard steel Moonwatch today, alongside sapphire-crystal and other case-material variants built on the same caliber 3861 movement.",
     "collector_notes": "Omega sells several parallel caliber 3861 references on this case — hesalite or sapphire crystal, bracelet or strap — so confirm the exact reference number rather than assuming 'Moonwatch' means this specific hesalite-on-bracelet execution. Because the watch remains in production, the originality checks that matter on vintage Speedmasters (relumed hands, replaced pushers, mismatched serials) don't apply yet.",

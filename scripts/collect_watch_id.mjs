@@ -1,9 +1,16 @@
-import { writeFileSync } from 'node:fs';
+// Watch-ID Rolex → data/shared/watch_id_rolex.json. Run: node scripts/collect_watch_id.mjs
+//
+// Refactored to use the shared fetch utility (retry + backoff + mtime tracking)
+// and to honour --dry-run. Page fetches are batched with rateLimitMs so the
+// collector respects the source's tolerance.
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { fetchText, recordFetch, isDryRun } from './lib/fetch.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const BASE = 'https://www.watch-id.com';
 const INDEX_PAGES = ['/brands/rolex', '/brands/rolex?page=1'];
+const SOURCE_KEY = 'watch-id-rolex';
 
 // Reference-level matches only. Family-only sightings stay useful editorial facts but
 // never alter a particular card's attention calculation.
@@ -34,25 +41,33 @@ const clean = (s = '') => s
   .replace(/&amp;/g, '&').replace(/&#039;/g, "'").replace(/&quot;/g, '"')
   .replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
-async function get(path) {
-  const response = await fetch(BASE + path, { headers: { 'user-agent': 'WATCH research collector/1.0 (+https://watch.nonarkara.org)' } });
-  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
-  return response.text();
-}
+const log = (...args) => console.log('[watch-id]', ...args);
 
+// Rate limit: 800ms between sequential calls. Watch-ID is a small server.
+const fetchOpts = { maxRetries: 3, baseDelayMs: 1500, rateLimitMs: 800,
+  onRetry: (reason, attempt, delay) => log(`retry ${attempt + 1} after ${reason} (${delay}ms)`) };
+
+// Index: pull all listing links across the brand index pages.
 const links = [];
 for (const page of INDEX_PAGES) {
-  const html = await get(page);
-  for (const match of html.matchAll(/href="([^"]+)"[^>]*>(Rolex[^<]+)</g)) {
+  const { text, error } = await fetchText(BASE + page, fetchOpts);
+  if (error) { log(`index fetch failed: ${error.message}`); continue; }
+  for (const match of text.matchAll(/href="([^"]+)"[^>]*>(Rolex[^<]+)</g)) {
     if (!match[1].startsWith('/brands/')) links.push({ path: match[1], title: clean(match[2]) });
   }
 }
 const unique = [...new Map(links.map((item) => [item.path, item])).values()];
+log(`index: ${unique.length} unique listing links`);
+
 const sightings = [];
 
 for (let offset = 0; offset < unique.length; offset += 5) {
   const batch = await Promise.all(unique.slice(offset, offset + 5).map(async (item) => {
-    const html = await get(item.path);
+    const { text: html, error } = await fetchText(BASE + item.path, fetchOpts);
+    if (error) {
+      log(`page fetch failed for ${item.path}: ${error.message}`);
+      return null;
+    }
     const description = clean(html.match(/<meta name="description" content="([^"]*)"/)?.[1]);
     const bodyStart = html.indexOf('<div class="sighting-page-body">');
     const bodyEnd = html.indexOf('</article>', bodyStart);
@@ -78,13 +93,63 @@ for (let offset = 0; offset < unique.length; offset += 5) {
       source_url: BASE + item.path,
     };
   }));
-  sightings.push(...batch);
+  sightings.push(...batch.filter(Boolean));
+  log(`  batch ${Math.floor(offset / 5) + 1}/${Math.ceil(unique.length / 5)} done (${sightings.length} sightings)`);
+}
+
+if (!sightings.length) {
+  log('no sightings fetched — refusing to overwrite the committed file');
+  recordFetch(SOURCE_KEY, { last_status: 'no_data' });
+  process.exit(1);
+}
+
+// Preserve any human-curated fields from the existing file. The scrape only knows
+// what Watch-ID publishes; curated additions (in-scene stills, longer copy,
+// editorial cross-checks) belong in the file too and must survive a re-run.
+// The merge is field-level: a field present in the old file but absent from the
+// new scrape is kept. A field present in both is overwritten by the scrape.
+const existingFile = join(ROOT, 'data/shared/watch_id_rolex.json');
+if (existsSync(existingFile)) {
+  let existing = null;
+  try { existing = JSON.parse(readFileSync(existingFile, 'utf8')); } catch {}
+  if (existing?.sightings?.length) {
+    const byId = new Map(existing.sightings.map((s) => [s.id, s]));
+    for (const s of sightings) {
+      const prev = byId.get(s.id);
+      if (!prev) continue;
+      for (const key of Object.keys(prev)) {
+        // Fields the scrape always produces — let the scrape win.
+        if (['description', 'media_type', 'release_year', 'identification',
+             'match_level', 'matched_card_ids', 'source_url', 'title',
+             'watch', 'brand', 'id'].includes(key)) continue;
+        // Anything else (media, editorial_url, longer descriptions) is
+        // curated; preserve it.
+        if (!(key in s)) s[key] = prev[key];
+      }
+    }
+    log(`preserved curated fields from existing file (${existing.sightings.length} entries)`);
+  }
 }
 
 // Watch-ID is a live source — the index page can grow or shrink without notice. Warn on
 // change but do not throw, so a re-harvest after the source adds a new entry does not break
 // the build. The audit script can flag drift between runs.
-if (sightings.length !== 31) console.warn(`! Watch-ID returned ${sightings.length} sightings (was 31 on 2026-07-31); audit will flag this`)
+if (sightings.length !== 31) log(`! Watch-ID returned ${sightings.length} sightings (was 31 on 2026-07-31); audit will flag this`);
+
+// Compare to previous file and report flips in `identification` so re-runs are visible.
+if (existsSync(existingFile)) {
+  let prev = null;
+  try { prev = JSON.parse(readFileSync(existingFile, 'utf8')); } catch {}
+  if (prev?.sightings) {
+    const prevById = new Map(prev.sightings.map((s) => [s.id, s]));
+    let flips = 0;
+    for (const s of sightings) {
+      const p = prevById.get(s.id);
+      if (p && p.identification && p.identification !== s.identification) flips++;
+    }
+    if (flips) log(`! ${flips} sighting(s) flipped identification (reported ↔ tentative) — review before commit`);
+  }
+}
 const output = {
   collected: new Date().toISOString().slice(0, 10),
   source_url: `${BASE}/brands/rolex`,
@@ -93,5 +158,14 @@ const output = {
   limitation: 'Watch-ID is a specialist identification source. Family-only and tentative identifications are displayed as such and never scored at reference level.',
   sightings,
 };
-writeFileSync(join(ROOT, 'data/shared/watch_id_rolex.json'), JSON.stringify(output, null, 2) + '\n');
-console.log(`✓ ${sightings.length} Rolex sightings (${output.screen_count} film/TV) → data/shared/watch_id_rolex.json`);
+const outFile = existingFile;
+
+if (isDryRun()) {
+  log(`[dry-run] would write ${sightings.length} sightings (${output.screen_count} film/TV)`);
+  recordFetch(SOURCE_KEY, { last_status: 'dry_run', count: sightings.length });
+  process.exit(0);
+}
+
+writeFileSync(outFile, JSON.stringify(output, null, 2) + '\n');
+recordFetch(SOURCE_KEY, { last_status: 'ok', count: sightings.length, screen_count: output.screen_count });
+log(`✓ ${sightings.length} sightings (${output.screen_count} film/TV) → data/shared/watch_id_rolex.json`);

@@ -8,9 +8,20 @@
     "nickname": "Starbucks",
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "3235", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "green Cerachrom" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3235",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel",
+      "bezel": "green Cerachrom"
+    },
     "one_liner": "The 2020 green-bezel, black-dial Submariner Date that succeeded the Hulk in the 41mm case."
   },
   "retail": {
@@ -18,16 +29,36 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2023-05-15",
+        "price_usd": 16510,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "126610LV Kermit, 2022",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-09-01",
+      "person_or_event": "Starbucks Kermit",
+      "description": "The 126610LV \"Starbucks\" or \"Kermit\" replaces the Hulk with a black dial and green ceramic bezel. The naming contest (Starbucks vs. Kermit vs. \"Cermit\") ran through 2020 watch media for months.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-date-126610lv-starbucks-kermit"
+    }
+  ],
   "narrative": {
     "story": "With the 2020 Submariner update Rolex replaced the all-green Hulk with a black-dial, green-bezel configuration — closer in spirit to the 2003 Kermit than to its immediate predecessor. Collectors settled on 'Starbucks' as the nickname, with 'Cermit' in circulation too. It carries the 3235 in the slimmer 41mm case and trades above the black 126610LN but well under what the discontinued Hulk commands.",
     "collector_notes": "The green Cerachrom bezel is the value carrier — check for edge chips. 'Cermit' and 'Starbucks' refer to the same watch; listings use both.",

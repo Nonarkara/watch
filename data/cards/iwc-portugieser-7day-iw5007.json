@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Portugieser",
     "tier": "core",
-    "produced": { "start_year": 2015, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "51011", "type": "automatic" },
-    "case": { "diameter_mm": 42.3, "material": "stainless steel", "bezel": "no bezel — fixed silver dial with railway-track minute scale, small seconds and power-reserve sub-dials" },
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "51011",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42.3,
+      "material": "stainless steel",
+      "bezel": "no bezel — fixed silver dial with railway-track minute scale, small seconds and power-reserve sub-dials"
+    },
     "one_liner": "A twin-barrel automatic with a genuine seven-day power reserve, using IWC's in-house 5000-series architecture inside the oversized Portugieser case."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2000-01-01",
+      "person_or_event": "Portugieser 7-Day release",
+      "description": "IWC's Portugieser 7-Day (IW5001, later IW5007) becomes the first watch from Schaffhausen to use a Pellaton winding system with a 7-day power reserve. The 42mm case and clean dial become the modern Portugieser baseline.",
+      "source_url": "https://www.iwc.com/en/collection/portugieser"
+    }
+  ],
   "narrative": {
     "story": "IWC developed its 5000-series automatic movement family specifically to deliver a full seven-day power reserve from twin mainspring barrels wound by a single unidirectional rotor, and fitted it into Portugieser cases starting in the mid-2000s. The Automatic 7 Days keeps the oversized round Portugieser case and railway-track dial styling while adding small seconds and a power-reserve indicator to track the twin-barrel system.",
     "collector_notes": "Check the power-reserve indicator function on used examples — after years of use these can stick or read inaccurately, and correcting it involves the barrel/reserve mechanism rather than a routine movement service.",

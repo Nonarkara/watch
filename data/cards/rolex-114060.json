@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2012, "end_year": 2020, "discontinued": true },
-    "movement": { "caliber": "3130", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black Cerachrom" },
+    "produced": {
+      "start_year": 2012,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3130",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black Cerachrom"
+    },
     "one_liner": "The 2012-2020 no-date Submariner: ceramic bezel, maxi case, caliber 3130."
   },
   "retail": {
@@ -18,16 +29,36 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2023-05-15",
+        "price_usd": 15240,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "114060 Submariner no-date, 2019",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2012-01-01",
+      "person_or_event": "Submariner 114060 no-date",
+      "description": "Rolex updates the no-date Submariner to the 114060 — 40mm, ceramic bezel, caliber 3130. The reference runs 2012-2020 before being replaced by the 124060. Becomes the most-cited modern Submariner baseline.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-114060-buying-guide"
+    }
+  ],
   "narrative": {
     "story": "The 114060 brought the no-date Sub into the ceramic era two years after the Date version, pairing Cerachrom and the Super Case with the time-only 3130. Its eight-year run made it the reference many collectors call the last tool-simple Sub: 40mm, no cyclops, solid-link bracelet with Glidelock.",
     "collector_notes": "Values sit below the 116610LN. There are no dial or bezel variants to chase within the reference, so condition drives the price.",

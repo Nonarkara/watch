@@ -8,29 +8,68 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 2020, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "3230", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "Oystersteel", "bezel": "black Cerachrom" },
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "3230",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Oystersteel",
+      "bezel": "black Cerachrom"
+    },
     "one_liner": "The no-date Submariner in the current 41mm case, caliber 3230, from 2020."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2020, "price_usd": 8100, "source_url": "https://www.hodinkee.com/articles/rolex-submariner-ref-124060-41mm-new-release" },
-      { "effective_year": 2022, "price_usd": 8950, "source_url": "https://professionalwatches.com/rolex-increased-prices-in-2022/" }
+      {
+        "effective_year": 2020,
+        "price_usd": 8100,
+        "source_url": "https://www.hodinkee.com/articles/rolex-submariner-ref-124060-41mm-new-release"
+      },
+      {
+        "effective_year": 2022,
+        "price_usd": 8950,
+        "source_url": "https://professionalwatches.com/rolex-increased-prices-in-2022/"
+      }
     ],
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2023-05-15",
+        "price_usd": 13970,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "124060 Submariner no-date, 2021",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-09-01",
+      "person_or_event": "124060 release",
+      "description": "Rolex grows the no-date Submariner from 40mm to 41mm in the 124060, with caliber 3230. The size increase is the headline; the dial proportions and case profile are recognisably the same family.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-ref-124060"
+    }
+  ],
   "narrative": {
     "story": "The 124060 continues the no-date line that traces to the original 1953 Submariner: the cleanest dial in the range, no cyclops, and a lower list price than the Date. The 2020 update gave it the time-only 3230 and the revised case with slimmer lugs. Purists tend to prefer it, while the market prices it below the Date versions.",
     "collector_notes": "The most attainable modern Sub at retail and on the grey market. The symmetric dial and uninterrupted crystal are why buyers pick it over the 126610LN — not price alone.",

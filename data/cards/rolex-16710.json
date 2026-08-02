@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "GMT-Master II",
     "tier": "crown",
-    "produced": { "start_year": 1989, "end_year": 2007, "discontinued": true },
-    "movement": { "caliber": "3185, later 3186", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "interchangeable aluminum insert (red-blue, red-black, or black)" },
+    "produced": {
+      "start_year": 1989,
+      "end_year": 2007,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3185, later 3186",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "interchangeable aluminum insert (red-blue, red-black, or black)"
+    },
     "one_liner": "The 1989-2007 GMT-Master II with interchangeable aluminum bezels: Pepsi, Coke, or black."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1989-01-01",
+      "person_or_event": "GMT-Master II 16710 release",
+      "description": "The 16710 is the last aluminium-bezel GMT-Master II, running 1989-2007 with the calibre 3185/3186. It is the last GMT with a Plexi crystal on early examples and the reference most cited for the \"Coke\" / \"Pepsi\" / \"Batman\" naming.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-gmt-master-ii-ref-16710-buying-guide"
+    }
+  ],
   "narrative": {
     "story": "The 16710 was the last aluminum-bezel GMT-Master II and the only modern reference that lets one watch wear Pepsi, Coke, or black inserts interchangeably. It ran caliber 3185, switching to 3186 in the final years — a detail collectors pay up for. Slim by current standards at 40mm, with drilled lugs for most of its run, it has become the default neo-vintage GMT.",
     "collector_notes": "Late 'stick dial' examples with caliber 3186 carry a premium. Verify insert originality — honest fading is desirable, but aftermarket fat-font reproductions are common.",

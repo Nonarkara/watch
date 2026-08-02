@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Defy",
     "tier": "haute",
-    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "El Primero 3620", "type": "automatic" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "faceted steel bezel integrated into the bracelet" },
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "El Primero 3620",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "faceted steel bezel integrated into the bracelet"
+    },
     "one_liner": "An integrated-bracelet steel sports watch built on a non-chronograph automatic caliber from the El Primero family."
   },
   "retail": {
@@ -23,11 +34,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2021-01-01",
+      "person_or_event": "Defy Skyline",
+      "description": "Zenith's Defy Skyline replaces the Defy Classic line in 2021 — a 41mm integrated bracelet sports watch with the high-frequency El Primero 3620 and a \"starry sky\" pattern on the dial.",
+      "source_url": "https://www.zenith-watches.com/en/defy/defy-skyline"
+    }
+  ],
   "narrative": {
     "story": "The Defy Skyline, launched in 2022, uses a non-chronograph automatic caliber drawn from the El Primero family, running at the same 36,000-vibrations-per-hour high-beat frequency as Zenith's chronograph movements, which makes the small seconds hand visibly sweep faster than on a standard 28,800 vph watch. It joined the wave of integrated steel-bracelet sports watches that followed the Royal Oak and Nautilus template, competing at the more accessible end of that category.",
     "collector_notes": "Bracelet sizing and clasp adjustment mechanisms vary across early production batches; try the bracelet on before buying used, since sizing is not a simple add-or-remove-link system on every version.",

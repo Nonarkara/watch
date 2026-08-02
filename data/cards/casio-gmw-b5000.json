@@ -8,14 +8,29 @@
     "nickname": "Full Metal Square",
     "collection": "5000/5600 Origin Series",
     "tier": "attainable",
-    "produced": { "start_year": 2018, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "Tough Solar quartz module", "type": "solar quartz" },
-    "case": { "diameter_mm": 43.2, "material": "stainless steel", "bezel": "none — DLC-coated screw-lock caseback, integrated square case" },
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Tough Solar quartz module",
+      "type": "solar quartz"
+    },
+    "case": {
+      "diameter_mm": 43.2,
+      "material": "stainless steel",
+      "bezel": "none — DLC-coated screw-lock caseback, integrated square case"
+    },
     "one_liner": "The first G-Shock square built from solid stainless steel instead of resin, adding Bluetooth sync and solar charging to the 1983 case shape."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2018, "price_usd": 500, "source_url": "https://www.g-central.com/g-shock-gmw-b5000-metal-screw-back-bluetooth-solar/" }
+      {
+        "effective_year": 2018,
+        "price_usd": 500,
+        "source_url": "https://www.g-central.com/g-shock-gmw-b5000-metal-screw-back-bluetooth-solar/"
+      }
     ],
     "current_msrp_usd": null
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2018-01-01",
+      "person_or_event": "Full Metal G-Shock",
+      "description": "The GMW-B5000 brings the iconic 5600 silhouette to a full-metal case — the first all-metal square G-Shock. The 2018 launch becomes the most-cited \"premium G-Shock\" of the 2010s-2020s.",
+      "source_url": "https://www.casio.com/products/watches/g-shock/gmw-b5000d-1"
+    }
+  ],
   "narrative": {
     "story": "The GMW-B5000D-1 is the first G-Shock square made entirely from stainless steel rather than a resin-clad case, applying full-metal construction to the silhouette of the original 1983 DW-5000C. Casio released it in Japan in April 2018 and in the US that May at $500, adding Bluetooth phone sync and Tough Solar charging to a shape that had run in resin form for 35 years. It sits above the resin DW-5600 and steel GW-5000U as the entry point into G-Shock's metal-square lineup, below the titanium MRG-B5000.",
     "collector_notes": "The silver GMW-B5000D-1 is the standard full-metal square; a gold IP-plated GMW-B5000TFG-9 and later colorway variants exist at higher price points but the silver reference is what collectors mean by 'the full metal square' by default.",

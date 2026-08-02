@@ -8,14 +8,29 @@
     "nickname": "Jumbo",
     "collection": "Royal Oak",
     "tier": "trinity",
-    "produced": { "start_year": 2022, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "7121", "type": "automatic" },
-    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "7121",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "octagonal with eight hexagonal screws"
+    },
     "one_liner": "The 50th-anniversary Jumbo: the 1972 case dimensions kept, the 50-year-old caliber 2121 finally replaced."
   },
   "retail": {
     "msrp_history": [
-      { "effective_year": 2022, "price_usd": 33200, "source_url": "https://professionalwatches.com/royal-oak-jumbo-16202/" }
+      {
+        "effective_year": 2022,
+        "price_usd": 33200,
+        "source_url": "https://professionalwatches.com/royal-oak-jumbo-16202/"
+      }
     ],
     "current_msrp_usd": null
   },
@@ -25,11 +40,22 @@
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2022-01-01",
+      "person_or_event": "16202ST \"Jumbo\" Extra-Thin",
+      "description": "Audemars Piguet releases the 16202ST as the modern-day descendant of the 15202ST. The new caliber 7121 with a full rotor replaces the Frédéric Piguet-derived 2121, marking the first new movement architecture in the \"Jumbo\" line in fifty years.",
+      "source_url": "https://www.hodinkee.com/articles/the-new-audemars-piguet-royal-oak-jumbo-extra-thin-reference-16202st"
+    }
+  ],
   "narrative": {
     "story": "Launched in 2022 for the Royal Oak's 50th anniversary, the 16202ST succeeded the 15202 with the case unchanged at 39mm x 8.1mm and the movement completely new: caliber 7121, larger, with 55 hours of reserve and a quick-set date the 2121 never had. First-year examples carry a '50 years' anniversary rotor. The blue petite tapisserie dial continues the Jumbo lineage unbroken.",
     "collector_notes": "The anniversary rotor marks 2022 production and collectors already sort by it. Waitlists at AP boutiques remain the norm for steel; the smoked-dial and precious-metal variants trade very differently from the standard blue.",

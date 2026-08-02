@@ -8,9 +8,20 @@
     "nickname": "Red Sub",
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 1969, "end_year": 1975, "discontinued": true },
-    "movement": { "caliber": "1575", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "produced": {
+      "start_year": 1969,
+      "end_year": 1975,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1575",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black aluminum insert"
+    },
     "one_liner": "The first Submariner with a date, wearing red 'Submariner' dial text for roughly its first six years of production."
   },
   "retail": {
@@ -19,18 +30,51 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2017-06-27", "price_usd": 16250, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-watch-out-summer/rolex-red-submariner-ref-1680-4/42077", "condition": null, "box_papers": null },
-      { "date": "2018-11-07", "price_usd": 32500, "venue": "christies", "url": "https://onlineonly.christies.com/s/christies-watches-online-play-time/rolex-tropical-red-submariner-ref-1680-97/62209", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2017-06-27",
+        "price_usd": 16250,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/christies-watches-online-watch-out-summer/rolex-red-submariner-ref-1680-4/42077",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2018-11-07",
+        "price_usd": 32500,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/christies-watches-online-play-time/rolex-tropical-red-submariner-ref-1680-97/62209",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2023-05-15",
+        "price_usd": 69850,
+        "venue": "phillips",
+        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
+        "condition": "1680 red Submariner Date, 1978",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "1975-01-01",
+      "person_or_event": "Submariner Date 1680 release",
+      "description": "The 1680 is the first Submariner Date, with a cyclops, and runs 1975-1979. The \"Red Submariner\" text below 6 o'clock identifies Mk1 examples and remains the most-cited variant among vintage Submariner Date collectors.",
+      "source_url": "https://www.hodinkee.com/articles/rolex-submariner-1680-buying-guide"
+    }
+  ],
   "narrative": {
     "story": "The 1680 added a date and cyclops to the Submariner, and early production printed the model name in red — a detail dropped around 1975 when the text turned white. Collectors sort Red Subs into Mark I through Mark VI dials by font and depth-rating layout, with the early meters-first marks the most valued. The red dial era turned a production quirk into one of vintage Rolex's most recognized sub-categories.",
     "collector_notes": "Verify the dial mark against the serial range; redialed and service-dial examples are everywhere. Feet-first versus meters-first depth text and open versus closed 6s are the fast checks.",

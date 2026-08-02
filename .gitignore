@@ -10,3 +10,6 @@ _shared
 
 # local symlink to /Users/nonarkara/Projects/_shared (design tokens)
 _shared
+
+# data pipeline runtime state (fetch mtimes, dry-run artefacts)
+data/.state/
