@@ -119,6 +119,9 @@ export default function Home() {
   const cards = useMemo(() => data?.cards ?? [], [data])
   const withComps = cards.filter((card) => card.comp_summary).length
   const withMedia = cards.filter((card) => card.media.length).length
+  const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
+  const compCount = useMemo(() => cards.reduce((n, c) => n + (c.comp_summary?.n ?? 0), 0), [cards])
+  const eventCount = useMemo(() => cards.reduce((n, c) => n + c.provenance_events.length, 0), [cards])
   const stills = screen?.sightings.filter((s) => s.media).length ?? 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const spotlight = useMemo(() => spotlightDossiers(cards), [cards])
@@ -153,20 +156,26 @@ export default function Home() {
             <Link className="btn" to="/register">BROWSE THE {data.count} OBJECTS →</Link>
             <Link className="btn secondary" to="/screen">SEE IT ON SCREEN</Link>
           </div>
-          <p className="mono micro dim hero-trust">
-            {stills} CREDITED STILLS · {withComps} DOSSIERS WITH SALE EVIDENCE · 0 INVENTED PRICES · {data.built} BUILD
-          </p>
         </div>
-        <div className="timepop-hero-art" role="img" aria-label="Pop-art collage of watches in film">
-          <img
-            src="/img/hero/time-pop-banner.png"
-            alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
-            loading="eager"
-          />
-          <p className="mono micro hero-art-credit">
-            HERO ART · EDITORIAL COLLAGE · FILM STILLS CREDITED ON /SCREEN
+        {/* The register at a glance. Every figure here is read from the live build,
+            so the hero cannot drift from the data behind it — and the panel earns
+            its half of the fold with information rather than decoration. */}
+        <aside className="hero-ledger" aria-label="The register at a glance">
+          <p className="hero-ledger-head mono">THE REGISTER, AS BUILT {data.built}</p>
+          <dl className="hero-ledger-grid">
+            <div><dt>References</dt><dd>{data.count}</dd></div>
+            <div><dt>Brands</dt><dd>{brandCount}</dd></div>
+            <div><dt>With sale evidence</dt><dd>{withComps}</dd></div>
+            <div><dt>Verified sales</dt><dd>{compCount}</dd></div>
+            <div><dt>Sourced events</dt><dd>{eventCount}</dd></div>
+            <div><dt>Credited stills</dt><dd>{stills}</dd></div>
+            <div><dt>With photography</dt><dd>{withMedia}</dd></div>
+            <div className="hero-ledger-zero"><dt>Invented prices</dt><dd>0</dd></div>
+          </dl>
+          <p className="hero-ledger-foot mono">
+            EVERY FIGURE COMPUTED FROM CITED EVIDENCE · <Link to="/methodology">METHODOLOGY →</Link>
           </p>
-        </div>
+        </aside>
       </section>
 
       <section className="reference-ticker" aria-label="A taste of the archive">
