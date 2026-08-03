@@ -136,6 +136,37 @@ export default function Data() {
         </div>
       </section>
 
+      <section className="what-changed" aria-label="What changed in this build">
+        <div className="section-rule">
+          <h2>What changed in this build.</h2>
+          <span className="sticker-inline mono">LAST 10 CURATED · {data.built}</span>
+        </div>
+        <p className="dim what-changed-deck">
+          The ten most recently curated or updated dossiers in this build. A dossier is curated
+          when an editor sits with the card, walks the evidence, and signs off on every number
+          shown. The build date is the date the dataset was last rendered — not the same as
+          the curated date.
+        </p>
+        <ol className="what-changed-list">
+          {data.cards
+            .filter((c) => c.meta.curated_date)
+            .slice()
+            .sort((a, b) => (b.meta.curated_date ?? '').localeCompare(a.meta.curated_date ?? ''))
+            .slice(0, 10)
+            .map((c) => (
+              <li key={c.id} className="what-changed-item">
+                <span className="what-changed-date mono">{c.meta.curated_date}</span>
+                <span className="what-changed-source mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                <Link to={`/w/${c.id}`} className="what-changed-name">{c.identity.name}</Link>
+                <span className="what-changed-meta mono">
+                  {c.comp_summary ? `${c.comp_summary.n} COMPS` : 'NO COMPS'} · {c.provenance_events.length} EVENTS
+                </span>
+                <Link to={`/w/${c.id}`} className="what-changed-open">OPEN →</Link>
+              </li>
+            ))}
+        </ol>
+      </section>
+
       <section className="data-methodology" id="how-we-work" aria-label="How we work, in full">
         <h2>How we work, in full.</h2>
         <p className="data-methodology-lede">

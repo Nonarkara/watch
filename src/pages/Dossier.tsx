@@ -22,6 +22,7 @@ export default function Dossier() {
   // and keeps the hook order stable.
   const compare = useCompare()
   const saved = useSaved()
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — Time Pop`
@@ -89,6 +90,20 @@ export default function Dossier() {
             title={isSaved ? 'Remove from your saved set' : 'Save to your watchlist'}
           >
             {isSaved ? '★ SAVED' : '☆ SAVE'}
+          </button>
+          <button
+            type="button"
+            className="dsr-action dsr-action-ghost mono"
+            onClick={() => {
+              const url = `${window.location.origin}/w/${c.id}`
+              navigator.clipboard?.writeText(url).then(
+                () => { setCopied(true); setTimeout(() => setCopied(false), 2000) },
+                () => { setCopied(false) }
+              )
+            }}
+            title="Copy link to this dossier"
+          >
+            {copied ? '✓ COPIED' : '⎘ COPY LINK'}
           </button>
           <Link to="/saved" className="dsr-action dsr-action-ghost mono">OPEN MY SAVED →</Link>
         </div>
