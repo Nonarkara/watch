@@ -70,7 +70,23 @@ export interface MarketBand {
 export interface Computed {
   estimate: Estimate; premium: Premium; change_1y: Change; change_5y: Change;
   scarcity: IndexMetric; collectibility: IndexMetric; liquidity: Liquidity;
-  confidence: Confidence; attention: Attention; market_band: MarketBand; as_of_build: string;
+  confidence: Confidence; attention: Attention; market_band: MarketBand;
+  resellability: Resellability; as_of_build: string;
+}
+
+// Resellability is a composite of how easily a reference changes hands. Inputs:
+// liquidity rate (sales/yr), venue diversity (how many auction houses have sold it),
+// comp recency (most recent sale), and confidence tier (data-quality). Output 0-100.
+export interface Resellability {
+  value: number | null;
+  tier: 'High' | 'Medium' | 'Low' | 'Unknown';
+  k_of: [number, number];
+  sales_per_year: number;
+  venues: number;
+  recency_days: number | null;
+  confidence: string | null;
+  reason: string | null;
+  limitation: string;
 }
 
 export interface Card {

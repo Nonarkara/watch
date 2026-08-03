@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
+import { ARTICLES } from './GuideArticles.tsx'
 
 /**
  * Pick a cross-section of references that gives a reader the depth of the
@@ -260,6 +261,24 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <section className="guides-row">
+        <div className="section-rule">
+          <h2>Read a guide.</h2>
+          <span className="sticker-inline mono">3 ARTICLES · ANTI-MARKETING · NO BULLSHIT</span>
+        </div>
+        <div className="guides-grid">
+          {ARTICLES.map((a) => (
+            <Link key={a.slug} to={`/guides/${a.slug}`} className={`guide-card guide-card--${a.hue}`}>
+              <span className="guide-card-num mono">GUIDE {a.number}</span>
+              <h3 className="guide-card-title">{a.title}</h3>
+              <p className="guide-card-subtitle">{a.subtitle}</p>
+              <span className="guide-card-mins mono">{a.minutes} MIN READ</span>
+              <span className="guide-card-cta mono">READ →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="lookbook-paths">
         <div className="section-rule">

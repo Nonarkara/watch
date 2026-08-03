@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "grandseiko-sbga413g",
+  "identity": {
+    "brand": "Grand Seiko",
+    "reference": "SBGA413G",
+    "name": "Heritage Collection Spring Drive",
+    "nickname": "Shunbun Gold",
+    "collection": "Heritage Collection — Seasons",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "9R65",
+      "type": "spring drive"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "18k yellow gold",
+      "bezel": "none -- bezel-less 62GS-style case"
+    },
+    "one_liner": "The Shunbun in 18k yellow gold -- the sakura-pink dial Spring Drive, 40mm bezel-less 62GS case, the high-end of the Shunbun family."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 28000,
+        "source_url": "https://www.grand-seiko.com/us-en/collections/sbga413g"
+      }
+    ],
+    "current_msrp_usd": 28000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2023-04-01",
+      "person_or_event": "SBGA413G release",
+      "description": "Grand Seiko releases the SBGA413G, the 18k yellow-gold sibling of the 2020 SBGA413 steel Shunbun. The release coincides with the brand's 2023 push to expand the Heritage Collection into the haute-luxury segment.",
+      "source_url": "https://www.hodinkee.com/articles/grand-seiko-sbga413g"
+    }
+  ],
+  "narrative": {
+    "story": "The SBGA413G is the gold sibling of the SBGA413 Shunbun, released in 2023 as Grand Seiko expanded the Heritage Collection into the higher-luxury segment. The 18k yellow-gold case is the same 40mm 62GS-style bezel-less form factor as the steel version, with the same textured sakura-pink dial. The 9R65 Spring Drive is the same caliber. The price is the 18k gold premium over the steel. The SBGA413G is the watch for the buyer who wants the Shunbun design language at the price point where the buyer is no longer comparing the watch to a Rolex.",
+    "collector_notes": "The 18k yellow-gold case weighs ~95g vs ~85g for the steel. The bracelet is the same 62GS-style brushed/polished, in 18k yellow gold.",
+    "starter_alternative": "grand-seiko-sbga405"
+  },
+  "meta": {
+    "curated_by": "agent-system-overhaul",
+    "curated_date": "2026-08-03",
+    "sources": [
+      "https://www.grand-seiko.com/us-en/collections/sbga413g"
+    ]
+  }
+}
