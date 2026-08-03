@@ -313,70 +313,155 @@ export default function About() {
 
       <section className="sect" id="why">
         <div className="section-rule"><h2>Why this exists</h2><span className="sticker-inline">THE PROBLEM</span></div>
-        <div className="prose">
-          <p>
-            The secondhand market for collectible watches ran a full boom-bust cycle between 2018 and
-            2026. {data.count} reference cards later, the question every buyer actually asks —
-            <em> "is this price real, and is this watch going to keep its value?" </em> — still has
-            no honest public answer.
-          </p>
-          <p>
-            Standard price guides fail the same way: they publish a number for every reference, even when
-            they have no comps behind it. The number looks like evidence. It is an opinion. The Register
-            is built on the opposite discipline: it refuses to publish a number unless at least three
-            comparable sales, cited and dated, can support it. The visible refusals are load-bearing —
-            they are what make the published numbers believable.
-          </p>
-          <p>
-            You can browse the Register as a buyer, a seller, a collector, or a curious person at a dinner
-            party. You should be able to read it without a finance background. You should never have to
-            take a number on faith.
-          </p>
+        <div className="why-split">
+          <div className="prose">
+            <p>
+              The secondhand market for collectible watches ran a full boom-bust cycle between 2018 and
+              2026. {data.count} reference cards later, the question every buyer actually asks —
+              <em> "is this price real, and is this watch going to keep its value?" </em> — still has
+              no honest public answer.
+            </p>
+            <p>
+              Standard price guides fail the same way: they publish a number for every reference, even when
+              they have no comps behind it. The number looks like evidence. It is an opinion. The Register
+              is built on the opposite discipline: it refuses to publish a number unless at least three
+              comparable sales, cited and dated, can support it. The visible refusals are load-bearing —
+              they are what make the published numbers believable.
+            </p>
+            <p>
+              You can browse the Register as a buyer, a seller, a collector, or a curious person at a dinner
+              party. You should be able to read it without a finance background. You should never have to
+              take a number on faith.
+            </p>
+          </div>
+          <aside className="why-aside">
+            <h3 className="why-aside-h">THE RULE IN ONE LINE</h3>
+            <p className="why-rule">No cited comps, no estimate.</p>
+            <p className="dim micro">
+              Every estimate on the site traces to at least three comparable sales on cited dates
+              with cited venues. When the data is thin, the site refuses to publish a number and
+              says so. The visible refusals are load-bearing.
+            </p>
+            <div className="why-stat-row">
+              <div>
+                <p className="why-stat-num mono">{data.count}</p>
+                <p className="why-stat-label mono">CARDS</p>
+              </div>
+              <div>
+                <p className="why-stat-num mono">{data.cards.filter((c) => c.comp_summary).length}</p>
+                <p className="why-stat-label mono">WITH COMPS</p>
+              </div>
+              <div>
+                <p className="why-stat-num mono">{data.count - data.cards.filter((c) => c.comp_summary).length}</p>
+                <p className="why-stat-label mono">REFUSED</p>
+              </div>
+            </div>
+            <p className="dim micro">
+              The right column is empty if a watch is on the site; the rule is the same for every
+              reference. The middle number is the count of dossiers where the estimator is enabled
+              — the right number is the count of dossiers where the system refused.
+            </p>
+          </aside>
         </div>
       </section>
 
       <section className="sect" id="market-history">
         <div className="section-rule"><h2>How collecting became a market</h2><span className="sticker-inline">A SHORT HISTORY</span></div>
-        <div className="prose">
-          <p>
-            Wristwatches started as jewelry for women. Breguet built one for Caroline Murat,
-            Napoleon's sister, around 1810–1812; for the next century men kept their watches in
-            their pockets and considered the wrist version a novelty. The First World War ended
-            that. Soldiers needed the time without letting go of anything, strapped watches to
-            their wrists, and came home still wearing them.
-          </p>
-          <p>
-            Quartz nearly closed the story. From 1969, cheap and more accurate Japanese quartz
-            movements gutted the Swiss industry — the "quartz crisis" that erased two-thirds of its
-            jobs. Mechanical watchmaking survived by changing what it was selling: not the time,
-            but the craft. That reinvention is why a hand-finished movement means something today.
-          </p>
-          <p>
-            Collecting itself has a birthday. In 1974 Osvaldo Patrizzi founded what became
-            Antiquorum in Geneva and ran the first auctions built around wristwatches — thematic
-            sales, serious catalogs, real scholarship. Until then collectors chased pocket watches;
-            wristwatches were just used goods. By 2002 a Patek Philippe 1415 world timer brought
-            CHF 6.6 million. In 2017 Paul Newman's own Daytona brought $17.75 million and the
-            provenance premium became front-page news.
-          </p>
-          <p>
-            Then came the platforms, and with them the cycle this register was built inside.
-            Online marketplaces made prices visible; visible prices invited money; between 2018 and
-            early 2022 top steel references roughly doubled, and the icons tripled. The peak coincided with the crypto
-            wealth surge in March 2022, and what followed was thirteen straight quarters of
-            decline. Rolex answered the trust problem directly, launching Certified Pre-Owned in
-            December 2022 — an admission that the secondhand market had become too big to leave
-            unverified. By 2026 the correction had run its course: the broad index is up 5–8% on
-            the year, auction volumes have doubled, and more than 70% of tracked brands are
-            positive again. The numbers live on the <Link className="src-a" to="/economy">Economy
-            page</Link>, with their sources.
-          </p>
-          <p>
-            The point of the history is a warning and an invitation at once. This market is
-            younger than most of the watches in it — and its information infrastructure is younger
-            still. That gap, between beautiful objects and thin public data, is exactly where Time
-            Pop works.
-          </p>
+        <div className="history-split">
+          <div className="prose">
+            <p>
+              Wristwatches started as jewelry for women. Breguet built one for Caroline Murat,
+              Napoleon's sister, around 1810–1812; for the next century men kept their watches in
+              their pockets and considered the wrist version a novelty. The First World War ended
+              that. Soldiers needed the time without letting go of anything, strapped watches to
+              their wrists, and came home still wearing them.
+            </p>
+            <p>
+              Quartz nearly closed the story. From 1969, cheap and more accurate Japanese quartz
+              movements gutted the Swiss industry — the "quartz crisis" that erased two-thirds of its
+              jobs. Mechanical watchmaking survived by changing what it was selling: not the time,
+              but the craft. That reinvention is why a hand-finished movement means something today.
+            </p>
+            <p>
+              Collecting itself has a birthday. In 1974 Osvaldo Patrizzi founded what became
+              Antiquorum in Geneva and ran the first auctions built around wristwatches — thematic
+              sales, serious catalogs, real scholarship. Until then collectors chased pocket watches;
+              wristwatches were just used goods. By 2002 a Patek Philippe 1415 world timer brought
+              CHF 6.6 million. In 2017 Paul Newman's own Daytona brought $17.75 million and the
+              provenance premium became front-page news.
+            </p>
+            <p>
+              Then came the platforms, and with them the cycle this register was built inside.
+              Online marketplaces made prices visible; visible prices invited money; between 2018 and
+              early 2022 top steel references roughly doubled, and the icons tripled. The peak
+              coincided with the crypto wealth surge in March 2022, and what followed was thirteen
+              straight quarters of decline. Rolex answered the trust problem directly, launching
+              Certified Pre-Owned in December 2022 — an admission that the secondhand market had
+              become too big to leave unverified. By 2026 the correction had run its course: the
+              broad index is up 5–8% on the year, auction volumes have doubled, and more than 70%
+              of tracked brands are positive again. The numbers live on the{' '}
+              <Link className="src-a" to="/economy">Economy page</Link>, with their sources.
+            </p>
+            <p>
+              The point of the history is a warning and an invitation at once. This market is
+              younger than most of the watches in it — and its information infrastructure is younger
+              still. That gap, between beautiful objects and thin public data, is exactly where Time
+              Pop works.
+            </p>
+          </div>
+          <aside className="history-timeline" aria-label="A short timeline of watch collecting">
+            <h3 className="history-timeline-h">A TIMELINE</h3>
+            <ol className="history-timeline-list">
+              <li>
+                <span className="history-year mono">1810</span>
+                <div>
+                  <p className="history-event">Breguet builds the first wristwatch for Caroline Murat.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">1914</span>
+                <div>
+                  <p className="history-event">World War I makes the wristwatch a soldier's tool.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">1969</span>
+                <div>
+                  <p className="history-event">Seiko Quartz Astron. The quartz crisis begins.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">1974</span>
+                <div>
+                  <p className="history-event">Osvaldo Patrizzi founds Antiquorum. Wristwatch collecting has an auction home.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">2002</span>
+                <div>
+                  <p className="history-event">Patek 1415 world timer brings CHF 6.6M. Provenance enters the seven-figure conversation.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">2017</span>
+                <div>
+                  <p className="history-event">Paul Newman's Daytona brings $17.75M. The provenance premium becomes front-page news.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">2022</span>
+                <div>
+                  <p className="history-event">Crypto-wealth peak, then thirteen straight quarters of decline. Rolex launches CPO.</p>
+                </div>
+              </li>
+              <li>
+                <span className="history-year mono">2026</span>
+                <div>
+                  <p className="history-event">Broad index up 5–8%. Auction volumes doubled. The correction has run its course.</p>
+                </div>
+              </li>
+            </ol>
+          </aside>
         </div>
       </section>
 
