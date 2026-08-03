@@ -166,20 +166,19 @@ export default function Home() {
         credit="HERO ART · POP-ART COLLAGE OF ICONIC WATCHES & FILM MOMENTS"
         meta={
           <aside className="hero-ledger" aria-label="The register at a glance">
-            <p className="hero-ledger-head mono">THE REGISTER, AS BUILT {data.built}</p>
+            <p className="hero-ledger-head mono">THE REGISTER · {data.built}</p>
             <dl className="hero-ledger-grid">
-              <div><dt>References</dt><dd>{data.count}</dd></div>
-              <div><dt>Brands</dt><dd>{brandCount}</dd></div>
-              <div><dt>Sale evidence</dt><dd>{withComps}</dd></div>
-              <div><dt>Verified sales</dt><dd>{compCount}</dd></div>
-              <div><dt>Sourced events</dt><dd>{eventCount}</dd></div>
-              <div><dt>Credited stills</dt><dd>{stills}</dd></div>
-              <div><dt>Photography</dt><dd>{withMedia}</dd></div>
-              <div className="hero-ledger-zero"><dt>Invented prices</dt><dd>0</dd></div>
+              <div title={`${data.count} references in the catalogue`}><dt>References</dt><dd>{data.count}</dd></div>
+              <div title={`${brandCount} brands covered`}><dt>Brands</dt><dd>{brandCount}</dd></div>
+              <div title={`${withComps} references with sale evidence`}><dt>With comps</dt><dd>{withComps}</dd></div>
+              <div title={`${compCount} verified sales on file`}><dt>Verified sales</dt><dd>{compCount}</dd></div>
+              <div title={`${eventCount} sourced provenance events`}><dt>Provenance</dt><dd>{eventCount}</dd></div>
+              <div title={`${stills} credited screen stills`}><dt>On screen</dt><dd>{stills}</dd></div>
+              <div title={`${withMedia} references with curated photography`}><dt>Photographed</dt><dd>{withMedia}</dd></div>
+              <div className="hero-ledger-zero" title="No invented prices. The register refuses to estimate without evidence."><dt>Invented</dt><dd>0</dd></div>
             </dl>
             <p className="mono micro hero-art-credit">
-              FILM STILLS CREDITED ON /SCREEN ·{' '}
-              <Link to="/methodology">METHODOLOGY →</Link>
+              ALL COUNTS COMPUTED FROM THE LIVE BUILD · <Link to="/methodology">METHODOLOGY →</Link>
             </p>
           </aside>
         }

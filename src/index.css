@@ -111,15 +111,18 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   .wm-logo { width: 40px; height: 40px; }
   .wm-sub { display: none; }
 }
-.nav { display: flex; overflow-x: auto; gap: var(--space-lg); margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); scrollbar-width: none; }
+.nav { display: flex; overflow-x: auto; gap: 18px; margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); scrollbar-width: none; }
 .nav::-webkit-scrollbar { display: none; }
 .nav-a {
   display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0;
-  font-size: var(--text-body); font-weight: 500; letter-spacing: -0.01em;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
   color: var(--dim); border-bottom: 2px solid transparent; white-space: nowrap;
 }
 .nav-a.on { color: var(--fg); border-bottom-color: var(--amber); }
 @media (hover: hover) and (pointer: fine) { .nav-a:hover { color: var(--fg); } }
+/* The Uncle Pom's link gets a small badge to differentiate it from the other
+   nav items -- it is a curated content page, not a system tab. */
+.nav-a[data-pom="1"]::after { content: "·14"; margin-left: 4px; color: var(--coral); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; }
 
 main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl) + 60px); min-height: 60vh; }
 .boot { color: var(--dim); padding: var(--space-2xl) 0; }
@@ -641,32 +644,35 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 10px 8px;
+  padding: 9px 10px;
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   min-width: 0;
 }
 .hero-ledger-grid dt {
   font-family: var(--font-mono);
-  font-size: var(--text-micro);
+  font-size: 10px;
   letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.2;
+  /* Labels wrap to 2 lines if needed instead of being truncated to "REF…". */
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 .hero-ledger-grid dd {
   font-family: var(--font-mono);
-  font-size: var(--text-h2);
+  font-size: 26px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums;
   color: var(--navy);
   white-space: nowrap;
+  /* 5-digit numbers (like 262) still need to fit; clip rather than ellipsis
+     so the digits stay readable when the meta slot is narrow. */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
 }
 .hero-ledger-zero dd { color: var(--amber); }
 .hero-art-credit {
@@ -684,8 +690,19 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
     padding: 22px 24px 20px;
     align-self: center;
   }
-  .hero-ledger-grid { grid-template-columns: repeat(8, 1fr); }
-  .hero-ledger-grid dd { font-size: var(--text-display); }
+  /* 4x2 grid: each cell is ~95-110px wide, room for a 3-digit number
+     (26px monospace tabular ≈ 42px wide) + a 10px label below, even
+     inside the 360-460px meta slot. 8 across was clipping the third
+     digit. */
+  .hero-ledger-grid { grid-template-columns: repeat(4, 1fr); }
+  .hero-ledger-grid dd { font-size: 22px; }
+  .hero-ledger-grid dt { font-size: 10px; }
+}
+
+@media (min-width: 1100px) {
+  /* On wider viewports the meta slot can carry the 8-across density. */
+  .hero-ledger-grid { grid-template-columns: repeat(4, 1fr); }
+  .hero-ledger-grid dd { font-size: 24px; }
 }
 
 .btn.secondary {
@@ -2000,9 +2017,9 @@ main.shell { padding-top: var(--space-md); }
 .hero-banner-btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .hero-banner-btn--secondary { background: transparent; color: inherit; }
 .hero-banner-credit { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin: 18px 0 0; opacity: 0.65; }
-.hero-banner-meta { max-width: 380px; width: 100%; }
+.hero-banner-meta { max-width: 460px; width: 100%; }
 @media (min-width: 960px) {
-  .hero-banner-grid { grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); gap: 32px; padding: 48px 36px; align-items: end; }
+  .hero-banner-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 460px); gap: 32px; padding: 48px 36px; align-items: end; }
   .hero-banner--xl { min-height: 600px; }
   .hero-banner--lg { min-height: 520px; }
   .hero-banner--md { min-height: 420px; }
