@@ -4,6 +4,7 @@ import { loadDataset, type Dataset } from './lib/data.ts'
 import { DataContext } from './lib/dataset-context.ts'
 import { CompareProvider } from './lib/compare-context.tsx'
 import { SavedProvider } from './lib/saved-context.tsx'
+import { useRecentlyViewed } from './lib/recently-viewed.ts'
 import CompareDock from './components/CompareDock.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
 import SavedBadge from './components/SavedBadge.tsx'
@@ -66,6 +67,7 @@ export default function App() {
       <CompareProvider>
       <SavedProvider>
       <SearchPalette />
+      <RecentlyViewedTracker />
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark" aria-label="Time Pop — home">
@@ -139,4 +141,10 @@ export default function App() {
       </CompareProvider>
     </DataContext.Provider>
   )
+}
+
+/** Watches the route, updates the recently-viewed list. Renders nothing. */
+function RecentlyViewedTracker() {
+  useRecentlyViewed()
+  return null
 }

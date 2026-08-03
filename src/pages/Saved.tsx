@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { useSaved } from '../lib/saved-store.ts'
+import { getRecentlyViewed } from '../lib/recently-viewed.ts'
 import { usd } from '../lib/format.ts'
 import { TIER_LABEL } from '../lib/data.ts'
 
@@ -14,6 +15,8 @@ export default function Saved() {
 
   const byId = new Map(data.cards.map((c) => [c.id, c]))
   const cards = ids.map((id) => byId.get(id)).filter((c): c is NonNullable<typeof c> => Boolean(c))
+  const recentIds = getRecentlyViewed().filter((rid) => !ids.includes(rid)) // exclude already-saved
+  const recentCards = recentIds.map((rid) => byId.get(rid)).filter((c): c is NonNullable<typeof c> => Boolean(c)).slice(0, 6)
 
   return (
     <>
@@ -47,6 +50,46 @@ export default function Saved() {
         <section className="sect">
           <div className="saved-grid">
             {cards.map((c) => {
+              const m = c.media[0]
+              const est = c.computed.estimate.value
+              const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
+              return (
+                <Link key={c.id} to={`/w/${c.id}`} className="saved-cell">
+                  <span className="saved-cell-img">
+                    {m
+                      ? <img src={m.url} alt={c.identity.name} loading="lazy" />
+                      : <span className="saved-cell-img-empty mono">NO PHOTO</span>}
+                  </span>
+                  <span className="saved-cell-body">
+                    <span className="saved-cell-source mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                    <span className="saved-cell-name">{c.identity.name}</span>
+                    {c.identity.nickname && <span className="saved-cell-nick">“{c.identity.nickname}”</span>}
+                    <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
+                    <span className="saved-cell-price mono">
+                      {est != null ? usd(est)
+                        : msrp != null ? `${usd(msrp)} RETAIL`
+                        : 'NO ESTIMATE'}
+                    </span>
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
+      {recentCards.length > 0 && (
+        <section className="sect">
+          <div className="section-rule">
+            <h2>Recently viewed.</h2>
+            <span className="sticker-inline mono">LAST 6 · LOCAL HISTORY</span>
+          </div>
+          <p className="dim what-changed-deck">
+            Dossiers you opened on this device. Same browser-local rules as your saved set —
+            we don’t see it, you can clear it any time.
+          </p>
+          <div className="saved-grid">
+            {recentCards.map((c) => {
               const m = c.media[0]
               const est = c.computed.estimate.value
               const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
