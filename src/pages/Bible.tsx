@@ -1,12 +1,14 @@
-// src/pages/Bible.tsx — a curated, cite-checked bibliography of watch literature.
+// src/pages/Bible.tsx — the central knowledge section of Time Pop.
 //
 // What this page is:
 //   - A 25+ book reading list, each entry linked to a public catalog (Open
 //     Library, publisher, Wikipedia) so a reader can verify the book exists.
-//   - A filterable, searchable view: by era, by subject, by brand.
-//   - A cross-reference layer: each book lists the watch_ids in our
-//     inventory that the book is known to discuss. Click a card → the
-//     dossier shows a "Cited in" panel.
+//   - A "THE READER" sub-section with 3 anti-marketing articles folded in from
+//     the old /guides section. Each is a collapsed card by default; expand to
+//     read the full MITF article. No separate page navigation.
+//   - A "WHY THIS LIST EXISTS" methodology footer.
+//   - Sub-tab nav (BOOKS · READER · WHY) lets a reader jump between sections
+//     without leaving the page.
 //
 // What this page is NOT:
 //   - A download list. Every book is published. No PDFs, no shadow libraries.
@@ -15,13 +17,14 @@
 //   - Exhaustive. This is a curator's first shelf, not a librarian's last
 //     catalog.
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBanner from '../components/HeroBanner'
 import {
   BIBLE, BIBLE_STATS, ERA_LABEL, ERA_ORDER, SUBJECT_LABEL, SUBJECT_ORDER,
   filterBible, type BibleBook, type Era, type Subject,
 } from '../lib/bible'
+import { ARTICLES } from './GuideArticles'
 
 interface FilterState {
   era: Era | null
@@ -30,72 +33,97 @@ interface FilterState {
   q: string
 }
 
+type Tab = 'books' | 'reader' | 'why'
+
 const ALL_BRANDS = (() => {
   const set = new Set<string>()
   for (const b of BIBLE) for (const brand of b.brands) set.add(brand)
   return [...set].sort()
 })()
 
+/** Compact book card. The cover is a 56px square on the left; on the right
+ *  is the title, author, year, and a one-line summary. The full metadata
+ *  (publisher, ISBN, era + subject chips, dossier citations, public source
+ *  link) lives in a collapsible details block below — out of the way unless
+ *  the reader wants it. Books without a cover just show the title block; no
+ *  empty placeholder square. */
 function BookCard({ book }: { book: BibleBook }) {
   return (
     <article className="bible-card">
-      <header className="bible-card-head">
-        <div className="bible-card-cover" aria-hidden="true">
-          {book.cover
-            ? <img src={book.cover} alt="" loading="lazy" />
-            : <div className="bible-card-cover-fallback">
-                <span className="bible-card-fallback-title">{book.title}</span>
-                <span className="bible-card-fallback-author mono">{book.authors.join(', ')}</span>
-              </div>
-          }
-        </div>
+      <div className="bible-card-row">
+        {book.cover
+          ? <img src={book.cover} alt="" loading="lazy" className="bible-card-cover" />
+          : <span className="bible-card-cover-fallback mono" aria-hidden="true">{book.authors[0]?.[0] ?? '·'}</span>}
         <div className="bible-card-meta">
           <h3 className="bible-card-title">{book.title}</h3>
-          <p className="bible-card-author">{book.authors.join(', ')}</p>
-          <p className="bible-card-publisher mono">
-            {book.publisher.toUpperCase()} · {book.year}{book.pages ? ` · ${book.pages} PP` : ''}
-            {book.isbn ? ` · ISBN ${book.isbn}` : ''}
-          </p>
+          <p className="bible-card-author">{book.authors.join(', ')} <span className="dim mono">· {book.year} · {book.publisher}</span></p>
           <p className="bible-card-summary">{book.summary}</p>
         </div>
-      </header>
-      <footer className="bible-card-foot">
-        <div className="bible-card-tags">
-          {book.eras.map((era) => (
-            <span key={era} className="chip chip-era">{ERA_LABEL[era]}</span>
-          ))}
-          {book.subjects.map((subj) => (
-            <span key={subj} className="chip chip-subject">{SUBJECT_LABEL[subj]}</span>
-          ))}
-        </div>
-        <div className="bible-card-footer-row">
-          <div className="bible-card-cites">
-            {book.watch_ids.length > 0
-              ? <span className="bible-cites-n">{book.watch_ids.length} DOSSIER CITATIONS</span>
-              : <span className="bible-cites-n bible-cites-none">NO DOSSIER CITATIONS YET</span>
-            }
-            <span className="bible-source">
-              PUBLIC SOURCE: <a href={book.public_source.url} target="_blank" rel="noreferrer">{book.public_source.label} ↗</a>
-            </span>
+      </div>
+      <details className="bible-card-expand">
+        <summary className="mono">SHOW {book.watch_ids.length} CITATION{book.watch_ids.length === 1 ? '' : 'S'} &amp; DETAILS</summary>
+        <div className="bible-card-details">
+          <div className="bible-card-tags">
+            {book.eras.map((era) => (
+              <span key={era} className="chip chip-era">{ERA_LABEL[era]}</span>
+            ))}
+            {book.subjects.map((subj) => (
+              <span key={subj} className="chip chip-subject">{SUBJECT_LABEL[subj]}</span>
+            ))}
           </div>
+          {book.pages && <p className="bible-card-line mono">{book.pages} PP</p>}
+          {book.isbn && <p className="bible-card-line mono">ISBN {book.isbn}</p>}
+          <p className="bible-card-line">
+            PUBLIC SOURCE:{' '}
+            <a href={book.public_source.url} target="_blank" rel="noreferrer">{book.public_source.label} ↗</a>
+          </p>
           {book.watch_ids.length > 0 && (
-            <details className="bible-card-dossier-list">
-              <summary className="mono">VIEW CITED DOSSIERS →</summary>
+            <div className="bible-card-cites">
+              <p className="bible-cites-n mono">{book.watch_ids.length} CITED IN THE REGISTER:</p>
               <ul className="bible-dossier-list">
                 {book.watch_ids.map((id) => (
-                  <li key={id}><Link to={`/w/${id}`} className="mono">{id}</Link></li>
+                  <li key={id}><Link to={`/w/${id}`}>{id}</Link></li>
                 ))}
               </ul>
-            </details>
+            </div>
           )}
         </div>
-      </footer>
+      </details>
+    </article>
+  )
+}
+
+/** Reader article — collapsed by default. The summary line gives the reader
+ *  the thesis; expand to read the full MITF body. The pop-art hue (coral,
+ *  yellow, navy) matches the article's editorial mood. */
+function ReaderCard({ article, idx }: { article: typeof ARTICLES[number]; idx: number }) {
+  return (
+    <article id={`reader-${article.slug}`} className={`reader-card reader-card--${article.hue}`}>
+      <details>
+        <summary className="reader-card-head">
+          <span className="reader-card-num mono">ARTICLE {article.number}</span>
+          <h3 className="reader-card-title">{article.title}</h3>
+          <p className="reader-card-subtitle">{article.subtitle}</p>
+          <p className="reader-card-lede">{article.lede}</p>
+          <p className="reader-card-cta mono">↓ EXPAND TO READ · {article.minutes} MIN</p>
+        </summary>
+        <div className="reader-card-body">
+          {article.body}
+        </div>
+        <p className="reader-card-foot mono">
+          END OF ARTICLE {article.number} · {article.minutes} MIN
+          {idx < ARTICLES.length - 1 && (
+            <> · <a href={`#reader-${ARTICLES[idx + 1].slug}`}>NEXT ARTICLE →</a></>
+          )}
+        </p>
+      </details>
     </article>
   )
 }
 
 export default function Bible() {
   const [filter, setFilter] = useState<FilterState>({ era: null, subject: null, brand: null, q: '' })
+  const [tab, setTab] = useState<Tab>('books')
 
   const filtered = useMemo(
     () => filterBible({ era: filter.era, subject: filter.subject, brand: filter.brand, q: filter.q }),
@@ -105,29 +133,54 @@ export default function Bible() {
   const update = <K extends keyof FilterState>(k: K, v: FilterState[K]) =>
     setFilter((f) => ({ ...f, [k]: v }))
 
+  // Honor a #reader hash on load (for /guides/:slug redirects)
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash.startsWith('#reader')) {
+      setTab('reader')
+      // wait for paint, then expand the matching article
+      const slug = hash.replace('#reader-', '').replace('#reader', '')
+      if (slug) {
+        setTimeout(() => {
+          const el = document.getElementById(`reader-${slug}`)
+          if (el) (el as HTMLDetailsElement).open = true
+          el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 80)
+      } else {
+        document.getElementById('reader')?.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else if (hash === '#why') {
+      setTab('why')
+      document.getElementById('why')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [])
+
   return (
     <>
       <HeroBanner
         bg="/heroes/bible.jpg"
         hue="navy"
         size="lg"
-        alt="A stack of watch books on a wooden desk — the curator's first shelf"
-        eyebrow="THE BIBLE · CURATED READING LIST"
-        title={<>The books<br />that built the field.</>}
+        alt="A pop-art fantasy collage of watch portraits, astronauts, and explorers across eras of time"
+        eyebrow="THE BIBLE · CURATED KNOWLEDGE"
+        title={<>The library<br />of watch knowledge.</>}
         subtitle={
           <>
             {BIBLE_STATS.count} books · {BIBLE_STATS.brands} brands covered · {BIBLE_STATS.citations} cross-references
-            into the register. Every entry is published, every summary is ours, every source is a public catalog
-            you can click. We do not link to shadow libraries; the provenance of the bibliography is the same
-            as the provenance of the register.
+            into the register. Three anti-marketing essays. One open methodology. Every entry is published, every
+            summary is ours, every source is a public catalog you can click. We do not link to shadow libraries.
           </>
         }
-        credit="CURATED BIBLIOGRAPHY · PUBLISHED BOOKS · OPEN LIBRARY + WIKIPEDIA + PUBLISHER SOURCES"
+        credit="HERO ART · POP-ART FANTASY SERIES · ASTRONAUTS, DIVERS, AND EXPLORERS OF TIME"
         meta={
           <aside className="bible-stats">
             <p className="bible-stats-row">
               <span className="bible-stats-num">{BIBLE_STATS.count}</span>
               <span className="bible-stats-label">BOOKS</span>
+            </p>
+            <p className="bible-stats-row">
+              <span className="bible-stats-num">3</span>
+              <span className="bible-stats-label">ESSAYS</span>
             </p>
             <p className="bible-stats-row">
               <span className="bible-stats-num">{BIBLE_STATS.brands}</span>
@@ -137,15 +190,23 @@ export default function Bible() {
               <span className="bible-stats-num">{BIBLE_STATS.citations}</span>
               <span className="bible-stats-label">CITATIONS</span>
             </p>
-            <p className="bible-stats-row">
-              <span className="bible-stats-num">{BIBLE_STATS.newest - BIBLE_STATS.oldest}</span>
-              <span className="bible-stats-label">YEAR SPAN</span>
-            </p>
           </aside>
         }
       />
 
-      <section className="bible-filters" aria-label="Filter the bible">
+      <nav className="bible-tabs" aria-label="Bible sections">
+        <a href="#books" className={'bible-tab mono' + (tab === 'books' ? ' on' : '')} onClick={() => setTab('books')}>
+          <span className="bible-tab-num">01</span> THE BOOKS · {BIBLE_STATS.count}
+        </a>
+        <a href="#reader" className={'bible-tab mono' + (tab === 'reader' ? ' on' : '')} onClick={() => setTab('reader')}>
+          <span className="bible-tab-num">02</span> THE READER · 3 ESSAYS
+        </a>
+        <a href="#why" className={'bible-tab mono' + (tab === 'why' ? ' on' : '')} onClick={() => setTab('why')}>
+          <span className="bible-tab-num">03</span> WHY · METHODOLOGY
+        </a>
+      </nav>
+
+      <section id="books" className="bible-filters" aria-label="Filter the books">
         <div className="bible-filters-row">
           <label className="bible-filter-field">
             <span className="bible-filter-label mono">SEARCH</span>
@@ -203,8 +264,26 @@ export default function Bible() {
         }
       </section>
 
-      <section className="bible-meth">
-        <h2 className="bible-meth-h2">WHY THIS LIST EXISTS</h2>
+      <section id="reader" className="bible-reader" aria-label="The reader">
+        <div className="section-rule">
+          <h2>The reader.</h2>
+          <span className="sticker-inline mono">3 ANTI-MARKETING ESSAYS · COLLAPSED BY DEFAULT</span>
+        </div>
+        <p className="bible-reader-deck">
+          Three short essays folded in from the old <span className="mono">/guides</span> section. Each is a
+          different way of saying the same thing: <em>we do not have to buy expensive watches</em>. The
+          expensive ones are expensive for a reason. There are good reasons and bad reasons. Buy for the good ones.
+        </p>
+        <div className="bible-reader-list">
+          {ARTICLES.map((a, i) => <ReaderCard key={a.slug} article={a} idx={i} />)}
+        </div>
+      </section>
+
+      <section id="why" className="bible-meth">
+        <div className="section-rule">
+          <h2>Why this list exists.</h2>
+          <span className="sticker-inline mono">METHODOLOGY · CURATION STANDARD</span>
+        </div>
         <p className="bible-meth-body">
           The register is a research artefact. Every claim is traceable; every price is sourced. The natural
           next layer is to point readers at the books that built the field. The bibliography is opinionated,
@@ -217,7 +296,7 @@ export default function Bible() {
           Cross-references into the register are conservative: a book is cited only if a specific watch in
           our inventory is known to be discussed in that book. The Hranek, Reardon, Foulkes, and FHH
           publications are the most-cited. Books with no cross-references are still on the shelf because
-          they shaped the field, even if they do not name a specific reference in our 287 records.
+          they shaped the field, even if they do not name a specific reference in our 261 records.
         </p>
         <p className="bible-meth-foot mono">
           ALL BOOKS PUBLISHED · NO SHADOW LIBRARIES · NO SELF-PUBLISHED ZINES

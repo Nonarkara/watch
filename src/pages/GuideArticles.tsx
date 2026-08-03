@@ -145,7 +145,7 @@ const ARTICLE_01: ArticleMeta = {
       </p>
 
       <p className="guide-nextup">
-        <Link to="/guides/1k">Starting with $1,000 &rarr;</Link>{' '}
+        <Link to="/bible#reader-1k">Starting with $1,000 &rarr;</Link>{' '}
         <span className="dim">Article 02, ~7 min</span>
       </p>
     </>
@@ -300,7 +300,7 @@ const ARTICLE_02: ArticleMeta = {
       </ArticleCallout>
 
       <p className="guide-nextup">
-        <Link to="/guides/upgrade">The $2,000 / $5,000 / $10,000 upgrade path &rarr;</Link>{' '}
+        <Link to="/bible#reader-upgrade">The $2,000 / $5,000 / $10,000 upgrade path &rarr;</Link>{' '}
         <span className="dim">Article 03, ~8 min</span>
       </p>
     </>
