@@ -626,7 +626,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 .hero-ledger-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid var(--rule);
   border-left: 1px solid var(--rule);
   margin-top: 8px;
@@ -652,12 +652,15 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 .hero-ledger-grid dd {
   font-family: var(--font-mono);
-  font-size: var(--text-display);
+  font-size: var(--text-h2);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums;
   color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .hero-ledger-zero dd { color: var(--amber); }
 .hero-art-credit {
@@ -1961,4 +1964,143 @@ main.shell { padding-top: var(--space-md); }
   .guides-grid { grid-template-columns: repeat(3, 1fr); }
   .guide-card { border-right: 1px solid var(--ink); border-bottom: 0; min-height: 360px; }
   .guide-card:last-child { border-right: 0; }
+}
+
+/* ── HERO BANNER (shared) ──────────────────────────────────────────────────
+   Full-bleed pop-art banner with a translucent text block on top. The
+   banner provides atmosphere (color, character, action); the block
+   provides the read (title, subtitle, actions). Both belong to the
+   same composition — the block is not opaque, the image shows through.
+
+   Hue variants tint the block. On dark hues (navy, teal) the text is
+   white; on yellow it's ink. The hue is also used for the eyebrow
+   border and the buttons, so the block, type, and CTAs all share a
+   color identity. */
+.hero-banner { position: relative; width: calc(100% + 2 * var(--pad) + 2 * var(--sal)); margin: 0 calc(-1 * (var(--pad) + var(--sal))); overflow: hidden; border-bottom: 2px solid var(--ink); }
+.hero-banner-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; display: block; }
+.hero-banner-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.18) 100%); pointer-events: none; }
+.hero-banner-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 24px; padding: 32px 28px; max-width: 1480px; margin: 0 auto; }
+.hero-banner--align-center .hero-banner-grid { justify-items: center; text-align: center; }
+.hero-banner--align-left .hero-banner-grid { justify-items: start; text-align: left; }
+.hero-banner-copy { position: relative; max-width: 720px; padding: 28px 28px 24px; border: 2px solid var(--ink); box-shadow: 6px 6px 0 0 var(--ink); }
+.hero-banner-eyebrow { display: inline-block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 14px; padding: 4px 10px; border: 1.5px solid currentColor; }
+.hero-banner-title { font-family: var(--font-display); font-size: clamp(36px, 5.4vw, 64px); font-weight: 700; line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 16px; max-width: 18ch; }
+.hero-banner-subtitle { font-family: var(--font-essay); font-size: clamp(15px, 1.3vw, 18px); line-height: 1.55; margin: 0 0 20px; max-width: 60ch; }
+.hero-banner-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.hero-banner-btn { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 18px; text-decoration: none; border: 2px solid currentColor; transition: transform 120ms ease, box-shadow 120ms ease; }
+.hero-banner-btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 currentColor; }
+.hero-banner-btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.hero-banner-btn--secondary { background: transparent; color: inherit; }
+.hero-banner-credit { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin: 18px 0 0; opacity: 0.65; }
+.hero-banner-meta { max-width: 380px; width: 100%; }
+@media (min-width: 960px) {
+  .hero-banner-grid { grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); gap: 32px; padding: 48px 36px; align-items: end; }
+  .hero-banner--xl { min-height: 600px; }
+  .hero-banner--lg { min-height: 520px; }
+  .hero-banner--md { min-height: 420px; }
+  .hero-banner--xl .hero-banner-grid { min-height: 600px; }
+  .hero-banner--lg .hero-banner-grid { min-height: 520px; }
+  .hero-banner--md .hero-banner-grid { min-height: 420px; }
+  .hero-banner-meta { align-self: end; }
+}
+
+/* Hue variants. Block color comes from the hue; text color auto-flips for
+   contrast; the eyebrow chip and buttons follow. The block sits at 90%
+   opacity so the image shows through faintly. */
+.hero-banner--coral .hero-banner-copy { background: rgba(239, 106, 91, 0.92); color: #FFFFFF; }
+.hero-banner--coral .hero-banner-btn--primary { background: #FFFFFF; color: var(--coral); border-color: #FFFFFF; }
+.hero-banner--coral .hero-banner-btn--primary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+.hero-banner--coral .hero-banner-btn--secondary { color: #FFFFFF; }
+.hero-banner--coral .hero-banner-btn--secondary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+
+.hero-banner--yellow .hero-banner-copy { background: rgba(240, 184, 58, 0.93); color: var(--ink); }
+.hero-banner--yellow .hero-banner-btn--primary { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+.hero-banner--yellow .hero-banner-btn--primary:hover { box-shadow: 4px 4px 0 0 var(--ink); }
+.hero-banner--yellow .hero-banner-btn--secondary { color: var(--ink); }
+.hero-banner--yellow .hero-banner-btn--secondary:hover { box-shadow: 4px 4px 0 0 var(--ink); }
+
+.hero-banner--navy .hero-banner-copy { background: rgba(17, 54, 75, 0.92); color: #FFFFFF; }
+.hero-banner--navy .hero-banner-btn--primary { background: #FFFFFF; color: var(--navy); border-color: #FFFFFF; }
+.hero-banner--navy .hero-banner-btn--primary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+.hero-banner--navy .hero-banner-btn--secondary { color: #FFFFFF; }
+.hero-banner--navy .hero-banner-btn--secondary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+
+.hero-banner--teal .hero-banner-copy { background: rgba(85, 184, 177, 0.93); color: #FFFFFF; }
+.hero-banner--teal .hero-banner-btn--primary { background: #FFFFFF; color: var(--teal); border-color: #FFFFFF; }
+.hero-banner--teal .hero-banner-btn--primary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+.hero-banner--teal .hero-banner-btn--secondary { color: #FFFFFF; }
+.hero-banner--teal .hero-banner-btn--secondary:hover { box-shadow: 4px 4px 0 0 #FFFFFF; }
+
+/* When the meta slot is empty, the copy can stretch to full width. */
+.hero-banner-grid > .hero-banner-copy:only-child { max-width: 920px; grid-column: 1 / -1; }
+
+/* ── POM PAGE ──────────────────────────────────────────────────────────────
+   Uncle Pom's collection: 14 watches with 4-axis scoring on a single
+   page. Lead with the bio paragraph (2 short paragraphs), then a
+   ledger of 14 watches in price order, each with brand+reference,
+   short caption, and the 4-axis chips. */
+.pom-page { max-width: 1240px; margin: 0 auto; padding: 56px 28px 80px; }
+.pom-bio { display: grid; grid-template-columns: 1fr; gap: 28px; margin: 32px 0 48px; }
+.pom-bio-text { min-width: 0; }
+.pom-bio-text h2 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; max-width: 32ch; }
+.pom-bio-text p { font-family: var(--font-essay); font-size: 17px; line-height: 1.6; margin: 0 0 16px; max-width: 64ch; overflow-wrap: break-word; }
+.pom-bio-aside { border: 2px solid var(--ink); padding: 20px 22px; background: var(--surface); min-width: 0; }
+.pom-bio-aside h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 12px; color: var(--coral); }
+.pom-bio-aside dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-family: var(--font-mono); font-size: 12px; }
+.pom-bio-aside dt { color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; align-self: center; }
+.pom-bio-aside dd { margin: 0; min-width: 0; word-break: break-word; }
+@media (min-width: 880px) {
+  .pom-bio { grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: start; }
+}
+
+.pom-ledger { margin-top: 16px; }
+.pom-ledger-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 16px; }
+.pom-ledger-head h2 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+.pom-ledger-head .sticker-inline { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.pom-watch-list { list-style: none; margin: 0; padding: 0; border: 2px solid var(--ink); }
+.pom-watch { display: grid; grid-template-columns: 56px 1fr; gap: 0; padding: 0; border-bottom: 1px solid var(--ink); align-items: stretch; }
+.pom-watch:last-child { border-bottom: 0; }
+.pom-watch-num { display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; border-right: 1px solid var(--ink); background: var(--paper); }
+.pom-watch-body { padding: 20px 22px; display: grid; grid-template-columns: 1fr; gap: 8px; }
+.pom-watch-id { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }
+.pom-watch-brand { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); }
+.pom-watch-ref { font-family: var(--font-mono); font-size: 13px; font-weight: 600; }
+.pom-watch-name { font-family: var(--font-display); font-size: 18px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; margin: 0; }
+.pom-watch-price { font-family: var(--font-mono); font-size: 12px; color: var(--dim); }
+.pom-watch-scores { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pom-watch-scores .score-axis { padding: 2px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.5; }
+.pom-watch-scores .score-axis strong { display: inline-block; margin-left: 6px; }
+.pom-watch-actions { margin-top: 8px; display: flex; gap: 12px; }
+.pom-watch-actions a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); }
+.pom-watch-actions a:hover { background: var(--ink); color: var(--paper); }
+@media (min-width: 880px) {
+  .pom-watch-body { grid-template-columns: 1.4fr 1fr 0.6fr; gap: 24px; align-items: center; padding: 20px 28px; }
+  .pom-watch-scores { margin-top: 0; justify-content: flex-start; }
+  .pom-watch-actions { margin-top: 0; justify-content: flex-end; }
+}
+
+/* ── FILM WATCHES (GQ-style 16-item list) ──────────────────────────────────
+   The /screen hero is now a film-banner; below it is a curated GQ-style
+   "Watch the screen" list of 16 iconic watches in film. Each row is a
+   film + watch pairing, with brand+reference on the left, film/character
+   in the middle, and a link to the matching dossier on the right. */
+.film-watches { padding: 56px 0; border-top: 1px solid var(--ink); }
+.film-watches .section-rule { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+.film-watches h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin: 0; }
+.film-watches .sticker-inline { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.film-list { list-style: none; margin: 0; padding: 0; border: 2px solid var(--ink); }
+.film-row { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 22px 24px; border-bottom: 1px solid var(--ink); }
+.film-row:last-child { border-bottom: 0; }
+.film-row-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); }
+.film-row-film { font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+.film-row-watch { font-family: var(--font-body); font-size: 14px; line-height: 1.5; margin: 0; color: var(--ink); }
+.film-row-watch strong { font-weight: 600; }
+.film-row-actor { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin: 4px 0 0; }
+.film-row-actions { margin-top: 8px; display: flex; gap: 8px; }
+.film-row-actions a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); }
+.film-row-actions a:hover { background: var(--ink); color: var(--paper); }
+@media (min-width: 880px) {
+  .film-row { grid-template-columns: 64px 1.6fr 1.4fr auto; gap: 24px; align-items: center; padding: 22px 32px; }
+  .film-row-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-align: center; }
+  .film-row-actions { margin-top: 0; }
 }

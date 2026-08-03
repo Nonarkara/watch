@@ -99,6 +99,7 @@ export default function App() {
             <NavLink to="/brands">BRANDS</NavLink>
             <NavLink to="/watchmaking">WATCHMAKING</NavLink>
             <NavLink to="/guides">GUIDES</NavLink>
+            <NavLink to="/pom">UNCLE POM\'S</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>
             <NavLink to="/data">DATA</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>
