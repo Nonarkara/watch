@@ -3,7 +3,7 @@
 // and provenance where the year or movement name is itself a marker.
 // Idempotent on card id (existing card file is left alone).
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname

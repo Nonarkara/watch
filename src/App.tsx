@@ -18,6 +18,7 @@ const NAV = [
   { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/bible', label: 'Bible' },
   { to: '/economy', label: 'Economy' },
+  { to: '/labs', label: 'Labs' },
   { to: '/about', label: 'About' },
   { to: '/pom', label: 'Uncle Pom' },
   { to: '/data', label: 'Data' },
@@ -30,6 +31,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/photos': 'Rolex Object Atlas — Time Pop',
   '/screen': 'Watches on Screen — Time Pop',
   '/economy': 'Attention, Supply & Price — Time Pop',
+  '/labs': 'Labs — Speculative Instruments — Time Pop',
   '/data': 'Data Pipeline — Time Pop',
   '/glossary': 'Glossary — Time Pop',
   '/watchmaking': 'Watchmaking — Time Pop',
@@ -125,6 +127,7 @@ export default function App() {
             <NavLink to="/compare">COMPARE</NavLink>
             <NavLink to="/signals">SCARCITY</NavLink>
             <NavLink to="/starter">STARTER PATHS</NavLink>
+            <NavLink to="/labs">LABS</NavLink>
             <NavLink to="/methodology">METHODOLOGY</NavLink>
             <NavLink to="/paper">WORKING PAPER</NavLink>
             <NavLink to="/resources">RESOURCES</NavLink>
