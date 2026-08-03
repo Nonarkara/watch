@@ -1,5 +1,9 @@
 // Top4Tiles -- the four research-justified axes that answer what a collector
-// first wants to know about a reference: Rarity, Demand, Provenance, Resellability.
+// first wants to know about a reference: Rarity, Demand, Story, Resellability.
+// The internal data field is still `provenance_events` for backwards
+// compatibility — the user-facing label is "STORY" because "provenance" was
+// a word buyers had to look up. The evidence (dated, sourced events) is
+// exactly the same.
 // Each tile is a 3-state color block (Strong / Neutral / Weak) using the
 // Time Pop pop-art palette. Color is never the only signal: each tile carries
 // a symbol (▲ / ◐ / ▽) and a label, so a color-blind user reads the same
@@ -11,6 +15,9 @@ type Strength = 'strong' | 'neutral' | 'weak'
 
 interface TileProps {
   label: string
+  /** Optional native title for a hover tooltip — used by the Story tile to
+   *  cross-reference the old "Provenance" term. */
+  title?: string
   number: string
   caption: string
   strength: Strength
@@ -29,9 +36,9 @@ const STRENGTH_LABEL: Record<Strength, string> = {
   weak: 'WEAK',
 }
 
-function Tile({ label, number, caption, strength, hue = 'coral' }: TileProps) {
+function Tile({ label, title, number, caption, strength, hue = 'coral' }: TileProps) {
   return (
-    <div className={`top4-tile top4-tile--${strength} top4-hue--${hue}`} data-state={strength}>
+    <div className={`top4-tile top4-tile--${strength} top4-hue--${hue}`} data-state={strength} title={title}>
       <div className="top4-tile-symbol" aria-hidden="true">{STRENGTH_SYMBOL[strength]}</div>
       <div className="top4-tile-label mono">{label}</div>
       <div className="top4-tile-num">{number}</div>
@@ -58,7 +65,9 @@ export default function Top4Tiles({ card }: { card: Card }) {
   // Demand: collectibility index 0-100, same threshold. The 30pt cap on the
   // premium sub-signal means a 60% premium alone never crosses 70.
   const demand = classify(collectibility.value, 70, 40)
-  // Provenance: count of dated, sourced events. Strong >= 5; Neutral 1-4; Weak 0.
+  // Story (was "Provenance"): count of dated, sourced events. Strong >= 5;
+  // Neutral 1-4; Weak 0. The events field is still called provenance_events
+  // in the data — only the user-facing label changed.
   const provenance: Strength = provCount >= 5 ? 'strong' : provCount >= 1 ? 'neutral' : 'weak'
   // Resellability: 0-100 composite. Strong >= 70; Neutral 40-69; Weak < 40.
   // Uses the engine's tier rather than the numeric value so the colors match
@@ -73,7 +82,7 @@ export default function Top4Tiles({ card }: { card: Card }) {
     <section className="top4" aria-label="The four axes collectors first want to know">
       <div className="top4-head">
         <p className="eyebrow">THE 4 AXES A COLLECTOR FIRST WANTS TO KNOW</p>
-        <p className="top4-rule">RARITY &middot; DEMAND &middot; PROVENANCE &middot; RESELLABILITY</p>
+        <p className="top4-rule">RARITY &middot; DEMAND &middot; STORY &middot; RESELLABILITY</p>
       </div>
       <div className="top4-grid">
         <Tile
@@ -91,7 +100,8 @@ export default function Top4Tiles({ card }: { card: Card }) {
           hue="yellow"
         />
         <Tile
-          label="Provenance"
+          label="Story"
+          title="Provenance — the dated, sourced history of the watch"
           number={String(provCount)}
           caption={provCount > 0
             ? `${provCount} SOURCED EVENT${provCount === 1 ? '' : 'S'}`

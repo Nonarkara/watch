@@ -161,7 +161,7 @@ export default function Labs() {
               <span className="bubble-kicker mono">WHAT WE HAVE</span>
               <dl className="labs-hero-stats">
                 <div><dt>References</dt><dd>{stats.total}</dd></div>
-                <div><dt>With provenance</dt><dd>{stats.withProvenance}</dd></div>
+                <div><dt>With story</dt><dd>{stats.withProvenance}</dd></div>
                 <div><dt>With comps</dt><dd>{stats.withComps}</dd></div>
                 <div><dt>On screen</dt><dd>{stats.withScreen}</dd></div>
               </dl>

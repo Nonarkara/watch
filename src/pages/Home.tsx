@@ -172,7 +172,7 @@ export default function Home() {
               <div title={`${brandCount} brands covered`}><dt>Brands</dt><dd>{brandCount}</dd></div>
               <div title={`${withComps} references with sale evidence`}><dt>With comps</dt><dd>{withComps}</dd></div>
               <div title={`${compCount} verified sales on file`}><dt>Verified sales</dt><dd>{compCount}</dd></div>
-              <div title={`${eventCount} sourced provenance events`}><dt>Provenance</dt><dd>{eventCount}</dd></div>
+              <div title={`${eventCount} sourced story events`}><dt>Story</dt><dd>{eventCount}</dd></div>
               <div title={`${stills} credited screen stills`}><dt>On screen</dt><dd>{stills}</dd></div>
               <div title={`${withMedia} references with curated photography`}><dt>Photographed</dt><dd>{withMedia}</dd></div>
               <div className="hero-ledger-zero" title="No invented prices. The register refuses to estimate without evidence."><dt>Invented</dt><dd>0</dd></div>
@@ -187,7 +187,7 @@ export default function Home() {
       <section className="featured-dossiers" aria-label="A dossier to start with">
         <div className="section-rule">
           <h2>Start with a dossier that has a story.</h2>
-          <span className="sticker-inline mono">PROVENANCE-RICH · 1 STORY, 1 WATCH</span>
+          <span className="sticker-inline mono">STORY-RICH · 1 STORY, 1 WATCH</span>
         </div>
         <div className="featured-dossiers-grid">
           {brassTacks.slice(0, 3).map((c, idx) => {
@@ -241,7 +241,7 @@ export default function Home() {
         <section className="starter-row" aria-label="Five fully-stocked dossiers to start with">
           <div className="section-rule">
             <h2>Five dossiers worth starting with.</h2>
-            <span className="sticker-inline mono">SOURCED COMPS · SOURCED PROVENANCE</span>
+            <span className="sticker-inline mono">SOURCED COMPS · SOURCED STORY</span>
           </div>
           <ul className="starter-list">
             {brassTacks.map((c, idx) => (
@@ -397,7 +397,7 @@ export default function Home() {
         <div className="ledger-lines mono">
           <p><span>Verified comp coverage</span><strong>{withComps} / {data.count}</strong></p>
           <p><span>Reference-matched catalog media</span><strong>{withMedia} / {data.count}</strong></p>
-          <p><span>Provenance events</span><strong>{eventCount} / —</strong></p>
+          <p><span>Story events</span><strong>{eventCount} / —</strong></p>
           <p><span>On-screen stills with credits</span><strong>{stills} / {screen?.count ?? '—'}</strong></p>
           <p className="crossed"><span>Hype premium</span><strong>AWAITING A VALID COHORT</strong></p>
         </div>

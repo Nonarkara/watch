@@ -883,6 +883,94 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .catalog-card:hover { background: var(--paper-2); }
 .catalog-image { position: relative; display: block; aspect-ratio: 1; background: var(--paper-2); overflow: hidden; }
 .catalog-image img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+:root[data-theme="dark"] .catalog-image img { mix-blend-mode: normal; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .catalog-image img { mix-blend-mode: normal; }
+}
+
+/* Rolex sub-tab nav: collection-level jump. Same visual language as the
+   watchmaking sub-tabs but a horizontal scroll on narrow viewports. */
+.rolex-subtabs {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  margin: 24px 0 16px;
+}
+.rolex-subtab {
+  flex: 1 1 0;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 12px 12px;
+  background: var(--paper);
+  border: 0;
+  border-right: 1px solid var(--ink);
+  cursor: pointer;
+  text-align: left;
+  color: var(--fg);
+  font-family: inherit;
+  transition: background 120ms ease;
+  min-width: 80px;
+}
+.rolex-subtab:last-child { border-right: 0; }
+.rolex-subtab:hover { background: var(--paper-2); }
+.rolex-subtab.is-active {
+  background: var(--ink);
+  color: var(--bg);
+}
+.rolex-subtab-num {
+  font-size: 9px; letter-spacing: 0.1em; color: var(--coral);
+  font-family: var(--font-mono);
+}
+.rolex-subtab.is-active .rolex-subtab-num { color: var(--amber); }
+.rolex-subtab-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+.rolex-subtab-sub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  line-height: 1.3;
+}
+.rolex-subtab.is-active .rolex-subtab-sub { color: var(--bg); opacity: 0.65; }
+@media (max-width: 720px) {
+  .rolex-subtabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .rolex-subtabs::-webkit-scrollbar { display: none; }
+  .rolex-subtab { flex: 0 0 auto; min-width: 120px; }
+}
+
+/* Rolex AxesBar — compact 4-axes summary inside each catalog card.
+   Color encodes strength (STRONG/NEUTRAL/WEAK); the bar shows the value
+   on a 0-100 scale. One-line caption under the bar. */
+.rax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
+.rax { padding: 8px 10px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; }
+.rax:nth-child(2n) { border-right: 0; }
+.rax:nth-last-child(-n+2) { border-bottom: 0; }
+.rax-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.rax-label { font-size: 9px; letter-spacing: 0.12em; color: var(--dim); }
+.rax-value { font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.rax-bar { position: relative; height: 4px; background: var(--paper); border: 1px solid var(--rule); overflow: hidden; }
+.rax-bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: currentColor; }
+.rax-caption { font-size: 8.5px; letter-spacing: 0.06em; line-height: 1.3; color: var(--dim); }
+/* Strength colors: STRONG = full hue, NEUTRAL = pale, WEAK = dim. */
+.rax--strong.rax--coral .rax-value, .rax--strong.rax--coral .rax-bar-fill { color: var(--coral); }
+.rax--strong.rax--yellow .rax-value, .rax--strong.rax--yellow .rax-bar-fill { color: var(--yellow-2); }
+.rax--strong.rax--navy .rax-value, .rax--strong.rax--navy .rax-bar-fill { color: var(--navy); }
+.rax--strong.rax--teal .rax-value, .rax--strong.rax--teal .rax-bar-fill { color: var(--teal); }
+.rax--neutral.rax--coral .rax-value, .rax--neutral.rax--coral .rax-bar-fill { color: var(--coral-pale); }
+.rax--neutral.rax--yellow .rax-value, .rax--neutral.rax--yellow .rax-bar-fill { color: var(--yellow-pale); }
+.rax--neutral.rax--navy .rax-value, .rax--neutral.rax--navy .rax-bar-fill { color: var(--navy-pale); }
+.rax--neutral.rax--teal .rax-value, .rax--neutral.rax--teal .rax-bar-fill { color: var(--teal-pale); }
+.rax--weak .rax-value { color: var(--dim); }
+.rax--weak .rax-bar-fill { background: var(--rule); }
+@media (max-width: 600px) {
+  .rax-grid { grid-template-columns: 1fr; }
+  .rax { border-right: 0; }
+  .rax:last-child { border-bottom: 0; }
+}
 .catalog-no { position: absolute; left: 12px; top: 12px; background: var(--bg); border: 1px solid var(--rule); padding: 2px 6px; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); }
 .catalog-copy { padding: 16px; display: flex; flex-direction: column; flex: 1; }
 .catalog-copy h2 { font-family: var(--font-display); font-size: var(--text-body); font-weight: 600; line-height: 1.2; letter-spacing: -.025em; margin: 6px 0; }
@@ -2175,7 +2263,7 @@ main.shell { padding-top: var(--space-md); }
 }
 
 /* ── TOP-4 DOSSIER TILES ──────────────────────────────────────────────────────
-   The first thing a collector wants to know: Rarity, Demand, Provenance,
+   The first thing a collector wants to know: Rarity, Demand, Story,
    Resellability. Each tile is a pop-art color block, not a card. Color is the
    signal strength; the number is the value. Three states -- STRONG, NEUTRAL,
    WEAK -- with a symbol + label so color-blind users read the same info. */

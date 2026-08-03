@@ -5,7 +5,8 @@ interface Term {
   term: string
   def: string
   example?: string
-  category: 'mechanics' | 'market' | 'watchmaking' | 'value'
+  category: 'mechanics' | 'market' | 'watchmaking' | 'value' | 'house'
+  id?: string
 }
 
 const TERMS: Term[] = [
@@ -71,9 +72,9 @@ const TERMS: Term[] = [
     example: 'The Patek 5711/1A was "scarce" by every measure during 2016-2021 — limited production, multi-year AD waitlists, and discontinuation in 2022.' },
   { term: 'Attention', category: 'value',
     def: 'How culturally visible a reference is — screen placements, celebrity sightings, press coverage. Attention is not scarcity. A watch can be very famous and very available.' },
-  { term: 'Provenance', category: 'value',
-    def: 'A dated, sourced event that connects a reference to a moment — a launch, a celebrity sighting, a record sale, a discontinuation. The "Federer effect" layer.',
-    example: 'Paul Newman\'s own 6239 Daytona selling for $17.75M in 2017 is a provenance event for the 6239 reference family.' },
+  { term: 'Provenance (now called Story)', id: 'provenance', category: 'value',
+    def: 'A dated, sourced event that connects a reference to a moment — a launch, a celebrity sighting, a record sale, a discontinuation. The internal data field is still "provenance_events" — only the user-facing label changed. "Provenance" is the auction-house word, French-origin, hard to read. We renamed it to "Story" on the site because the audience — collectors, buyers, the curious — should not have to look up a word to read a number. The evidence is identical.',
+    example: 'Paul Newman\'s own 6239 Daytona selling for $17.75M in 2017 is a story event for the 6239 reference family.' },
   { term: 'Honesty ladder', category: 'value',
     def: 'Time Pop\'s ranking of how much confidence a number deserves: cited comp with URL > cited comp with caveat > estimator above 3 sales > estimator above 1 sale > refusal with reason. Every published number sits on one of these rungs.' },
   { term: 'Family vs reference', category: 'value',
@@ -84,7 +85,8 @@ const CATEGORIES: { k: Term['category']; label: string; blurb: string }[] = [
   { k: 'mechanics', label: 'Mechanics', blurb: 'What moves the watch.' },
   { k: 'watchmaking', label: 'Watchmaking', blurb: 'The case, crystal, and how it sits on the wrist.' },
   { k: 'market', label: 'Market', blurb: 'How the price gets set, recorded, and cited.' },
-  { k: 'value', label: 'Value', blurb: 'How we reason about scarcity, attention, and the gap between them.' },
+  { k: 'value', label: 'Value', blurb: 'How we reason about scarcity, story, and the gap between them.' },
+  { k: 'house', label: 'House', blurb: 'A word we use, a word we changed, a word we refuse.' },
 ]
 
 export default function Glossary() {
@@ -145,7 +147,7 @@ export default function Glossary() {
             </div>
             <dl className="glossary-list">
               {terms.map((t) => (
-                <div key={t.term} className="glossary-item">
+                <div key={t.term} className="glossary-item" id={t.id ?? undefined}>
                   <dt>{t.term}</dt>
                   <dd>
                     <p>{t.def}</p>

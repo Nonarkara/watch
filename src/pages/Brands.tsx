@@ -134,7 +134,7 @@ export default function Brands() {
             <span>
               {groups.filter((g) => g.withImage === g.cards.length).length} fully photographed ·
               {' '}{groups.filter((g) => g.withComps > 0).length} with sale evidence ·
-              {' '}{groups.filter((g) => g.withProvenance > 0).length} with provenance
+              {' '}{groups.filter((g) => g.withProvenance > 0).length} with story
             </span>
           </div>
         }
@@ -222,7 +222,7 @@ export default function Brands() {
                 <div className="brand-stats mono">
                   <div><span>Image</span><strong>{g.withImage}/{g.cards.length}</strong><span className="dim micro">({coverage}%)</span></div>
                   <div><span>Comps</span><strong>{g.withComps}/{g.cards.length}</strong></div>
-                  <div><span>Provenance</span><strong>{g.withProvenance}/{g.cards.length}</strong><span className="dim micro">({g.totalEvents} events)</span></div>
+                  <div><span>Story</span><strong>{g.withProvenance}/{g.cards.length}</strong><span className="dim micro">({g.totalEvents} events)</span></div>
                   <div><span>Screen</span><strong>{g.withExactScreen}</strong><span className="dim micro">exact refs</span></div>
                 </div>
                 <div className="brand-coverage-bar" aria-hidden="true">

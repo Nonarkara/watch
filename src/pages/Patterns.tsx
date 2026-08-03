@@ -81,7 +81,7 @@ export default function Patterns() {
           <h2 className="sect-h"><span>What they have in common</span><span className="mono">N = {traits.n}</span></h2>
           <dl className="spec-grid">
             <div className="spec-row"><dt>Closed supply</dt><dd className="mono">{traits.discontinuedPct}% DISCONTINUED</dd></div>
-            <div className="spec-row"><dt>Story on record</dt><dd className="mono">{traits.provenancePct}% HAVE SOURCED PROVENANCE</dd></div>
+            <div className="spec-row"><dt>Story on record</dt><dd className="mono">{traits.provenancePct}% HAVE SOURCED STORY</dd></div>
             <div className="spec-row"><dt>Fixed editions</dt><dd className="mono">{traits.limitedPct}% LIMITED</dd></div>
             <div className="spec-row"><dt>Waitlist evidence</dt><dd className="mono">{traits.waitlistPct}%</dd></div>
             <div className="spec-row"><dt>Median scarcity</dt><dd className="mono">{traits.medianScarcity} / 100</dd></div>
