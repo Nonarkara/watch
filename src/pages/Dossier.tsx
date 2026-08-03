@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
-import { TIER_LABEL, type Change } from '../lib/data.ts'
+import { TIER_LABEL, type Card, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
 import Sparkline from '../components/Sparkline.tsx'
 import Top4Tiles from '../components/Top4Tiles.tsx'
@@ -295,6 +295,20 @@ export default function Dossier() {
       )}
       </>}
 
+      {!c.comp_summary && (
+        <section className="sect">
+          <div className="fact-bubble fact-bubble-coral">
+            <span className="bubble-kicker mono">WHY NO MARKET ESTIMATE?</span>
+            <strong>The register refuses to estimate this one.</strong>
+            <span>No verified sales of this exact reference have reached the register. The honest answer is
+              “we don’t know” — not a guessed number. A guess would mislead more than a blank.</span>
+            <Link to="/methodology" className="src-a">HOW THE ESTIMATOR DECIDES →</Link>
+          </div>
+        </section>
+      )}
+
+      <RelatedWatches current={c} all={data.cards} />
+
       <p className="micro dim mono">
         CURATED {c.meta.curated_date} · DATA BUILD {c.meta.build_date} · {c.meta.sources.length} SOURCES ·{' '}
         <Link to="/methodology" className="src-a">METHODOLOGY</Link>
@@ -326,5 +340,75 @@ function Why({ text }: { text: string }) {
       <summary>limits</summary>
       <p>{text}</p>
     </details>
+  )
+}
+
+/** Find 3 references that belong to the same conversation as `current`.
+ *  Priority: same brand + same tier (closest), then same tier, then within a 10-year
+ *  production window. Backfill with anything if the tiers are sparse. Excludes the
+ *  current card. The result is what the reader is most likely to compare against. */
+function findRelated(current: Card, all: Card[]): Card[] {
+  const others = all.filter((x) => x.id !== current.id)
+  const out: Card[] = []
+  const seen = new Set<string>()
+  const tryAdd = (card: Card) => {
+    if (out.length >= 3) return
+    if (seen.has(card.id)) return
+    seen.add(card.id)
+    out.push(card)
+  }
+  // Same brand + same tier — closest neighbours
+  others.filter((x) => x.identity.brand === current.identity.brand && x.identity.tier === current.identity.tier)
+    .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+    .forEach(tryAdd)
+  // Same tier, different brand
+  if (out.length < 3) {
+    others.filter((x) => x.identity.tier === current.identity.tier)
+      .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+      .forEach(tryAdd)
+  }
+  // Within 10 years of production start
+  if (out.length < 3) {
+    const cs = current.identity.produced.start_year
+    others.filter((x) => Math.abs(x.identity.produced.start_year - cs) < 10)
+      .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+      .forEach(tryAdd)
+  }
+  return out
+}
+
+function RelatedWatches({ current, all }: { current: Card; all: Card[] }) {
+  const related = findRelated(current, all)
+  if (related.length === 0) return null
+  return (
+    <section className="sect related-watches">
+      <h2 className="sect-h"><span>Read next in the same conversation</span><span className="mono">{related.length} NEIGHBOURS</span></h2>
+      <div className="related-watches-grid">
+        {related.map((r) => {
+          const m = r.media[0]
+          const est = r.computed.estimate.value
+          const msrp = r.retail.current_msrp_usd ?? r.retail.msrp_history.at(-1)?.price_usd
+          return (
+            <Link key={r.id} to={`/w/${r.id}`} className="related-watch">
+              <span className="related-watch-img">
+                {m ? <img src={m.url} alt={r.identity.name} loading="lazy" />
+                  : <span className="related-watch-img-empty mono">NO PHOTO</span>}
+              </span>
+              <span className="related-watch-body">
+                <span className="related-watch-source mono">{r.identity.brand.toUpperCase()} · {r.identity.reference}</span>
+                <span className="related-watch-name">{r.identity.name}</span>
+                {r.identity.nickname && <span className="related-watch-nick">“{r.identity.nickname}”</span>}
+                <span className="related-watch-price mono">
+                  {est != null ? usd(est)
+                    : msrp != null ? `${usd(msrp)} RETAIL`
+                    : 'NO ESTIMATE'}
+                </span>
+                <span className="related-watch-cta">OPEN →</span>
+              </span>
+            </Link>
+          )
+        })}
+      </div>
+    </section>
   )
 }
