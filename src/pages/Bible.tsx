@@ -41,19 +41,18 @@ const ALL_BRANDS = (() => {
   return [...set].sort()
 })()
 
-/** Compact book card. The cover is a 56px square on the left; on the right
- *  is the title, author, year, and a one-line summary. The full metadata
- *  (publisher, ISBN, era + subject chips, dossier citations, public source
- *  link) lives in a collapsible details block below — out of the way unless
- *  the reader wants it. Books without a cover just show the title block; no
- *  empty placeholder square. */
+/** Compact book card. The cover (if available) is a 64x92 thumb on the left;
+ *  on the right is the title, author, year, publisher, and a one-line summary.
+ *  Books WITHOUT a cover skip the thumb entirely — no empty placeholder square.
+ *  The full metadata (era + subject chips, ISBN, dossier citations, public
+ *  source link) lives in a collapsible details block below — out of the way
+ *  unless the reader wants it. */
 function BookCard({ book }: { book: BibleBook }) {
+  const hasCover = Boolean(book.cover)
   return (
-    <article className="bible-card">
+    <article className={'bible-card' + (hasCover ? '' : ' bible-card--no-cover')}>
       <div className="bible-card-row">
-        {book.cover
-          ? <img src={book.cover} alt="" loading="lazy" className="bible-card-cover" />
-          : <span className="bible-card-cover-fallback mono" aria-hidden="true">{book.authors[0]?.[0] ?? '·'}</span>}
+        {hasCover && <img src={book.cover} alt="" loading="lazy" className="bible-card-cover" />}
         <div className="bible-card-meta">
           <h3 className="bible-card-title">{book.title}</h3>
           <p className="bible-card-author">{book.authors.join(', ')} <span className="dim mono">· {book.year} · {book.publisher}</span></p>

@@ -2447,19 +2447,6 @@ main.shell { padding-top: var(--space-md); }
   overflow: hidden;
 }
 .bible-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.bible-card-cover-fallback {
-  text-align: center; padding: 8px;
-  display: flex; flex-direction: column; gap: 4px;
-  background: var(--coral); color: var(--ink);
-  width: 100%; height: 100%;
-  align-items: center; justify-content: center;
-}
-.bible-card-fallback-title {
-  font-family: var(--font-display); font-size: 11px; font-weight: 700; line-height: 1.1;
-}
-.bible-card-fallback-author {
-  font-size: 8px; letter-spacing: 0.05em; color: var(--ink);
-}
 .bible-card-meta { display: flex; flex-direction: column; gap: 6px; }
 .bible-card-title {
   font-family: var(--font-display); font-size: 20px; font-weight: 600;
@@ -2789,6 +2776,7 @@ main.shell { padding-top: var(--space-md); }
 .bible-card { display: grid; gap: 0; padding: 18px 0; border-top: 1px solid var(--rule); }
 .bible-card:last-child { border-bottom: 1px solid var(--rule); }
 .bible-card-row { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: start; }
+.bible-card--no-cover .bible-card-row { grid-template-columns: 1fr !important; }
 @media (min-width: 720px) { .bible-card-row { grid-template-columns: 64px 1fr; gap: 20px; } }
 .bible-card-cover { width: 64px; height: 92px; object-fit: cover; border: 1px solid var(--ink); display: block; }
 .bible-card-cover-fallback { width: 64px; height: 92px; background: var(--coral); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; border: 1px solid var(--ink); }
