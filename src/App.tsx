@@ -60,8 +60,11 @@ export default function App() {
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark" aria-label="Time Pop — home">
-            <span className="wm-main">Time Pop</span>
-            <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>
+            <img src="/tp-logo.png" alt="" className="wm-logo" />
+            <span className="wm-stack">
+              <span className="wm-main">Time Pop</span>
+              <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>
+            </span>
           </NavLink>
           <nav className="nav">
             {NAV.map((n) => (

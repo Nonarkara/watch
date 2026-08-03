@@ -12,6 +12,15 @@ type BrandGroup = {
   totalEvents: number
   withExactScreen: number
   tiers: Record<Card['identity']['tier'], number>
+  /** The model with the most data behind it: comps first, provenance second,
+   *  media third, first-by-id fallback. This is the "most popular" pick the
+   *  brand row shows alongside the wordmark — same as a magazine cover would
+   *  put its lead piece next to the masthead. */
+  mostPopular: Card | null
+  /** A second, contrasting pick for the "see also" tile: a different tier or
+   *  a different reference family from the most-popular pick. Falls back to
+   *  the second card alphabetically if no contrast is meaningful. */
+  contrast: Card | null
 }
 
 function groupByBrand(cards: Card[]): BrandGroup[] {
@@ -32,7 +41,23 @@ function groupByBrand(cards: Card[]): BrandGroup[] {
       if (c.screen_events.length > 0) withExactScreen++
       tiers[c.identity.tier]++
     }
-    return { brand, cards, withImage, withComps, withProvenance, totalEvents, withExactScreen, tiers }
+    // Most popular = the model with the most comps, then the most provenance,
+    // then the most-photographed, then the first alphabetically. We sort on
+    // (comps, provenance_events.length, media.length, -id) so ties break
+    // deterministically.
+    const sorted = [...cards].sort((a, b) => {
+      const ca = a.comp_summary?.n ?? 0
+      const cb = b.comp_summary?.n ?? 0
+      if (cb !== ca) return cb - ca
+      if (b.provenance_events.length !== a.provenance_events.length) return b.provenance_events.length - a.provenance_events.length
+      if (b.media.length !== a.media.length) return b.media.length - a.media.length
+      return a.id.localeCompare(b.id)
+    })
+    const mostPopular = sorted[0] ?? null
+    // Contrast = the next card that's a different reference family, or just
+    // the second one if not. We pick by tier difference first, then id.
+    const contrast = sorted.find((c) => c !== mostPopular && c.identity.tier !== mostPopular?.identity.tier) ?? sorted[1] ?? null
+    return { brand, cards, withImage, withComps, withProvenance, totalEvents, withExactScreen, tiers, mostPopular, contrast }
   })
 }
 
@@ -42,6 +67,27 @@ const TIER_BLURB: Record<Card['identity']['tier'], string> = {
   haute: 'Haute & Independent — A. Lange & Söhne, F.P. Journe, JLC, MB&F, Zenith, Moser, Richard Mille, De Bethune, Rexhep Rexhepi, Philippe Dufour, H. Moser, Panerai.',
   core: 'Core Luxury — Omega, Cartier, IWC, Breitling, TAG Heuer, Grand Seiko. The mainstream luxury and watchmaking benchmarks.',
   attainable: 'Attainable — Tissot, Longines, Hamilton, Seiko, Grand Seiko (sub-tier), Casio, vintage Casio. The honest entry points.',
+}
+
+// Wordmark styling: each brand gets a deterministic accent color from a
+// 5-hue palette, so the directory reads as a 35-color grid, not 35 same-look
+// rows. The brand name is set in a display font, no images, so we never need
+// to source a brand logo from anywhere — we generate the wordmark from the
+// brand name itself, which is honest.
+const WORDMARK_HUES = ['coral', 'yellow', 'navy', 'teal', 'sky'] as const
+function hueForBrand(brand: string): typeof WORDMARK_HUES[number] {
+  let h = 0
+  for (let i = 0; i < brand.length; i++) h = (h * 31 + brand.charCodeAt(i)) >>> 0
+  return WORDMARK_HUES[h % WORDMARK_HUES.length]
+}
+
+// Tier order for the tier pill (we use only the dominant tier for the badge).
+const TIER_PILL: Record<string, string> = {
+  trinity: 'TRINITY',
+  crown: 'CROWN',
+  haute: 'HAUTE',
+  core: 'CORE',
+  attainable: 'ATTAINABLE',
 }
 
 export default function Brands() {
@@ -68,9 +114,10 @@ export default function Brands() {
           <p className="eyebrow">DIRECTORY · {groups.length} BRANDS · {data.count} REFERENCES</p>
           <h1 className="pagetitle">A directory of brands we cover.</h1>
           <p className="lede">
-            Every dossier on Time Pop belongs to a brand. This page shows what we have on file for each
-            one — how many references, how much image and provenance coverage, and the most-cited
-            intersection between the catalogue and the screen.
+            Every dossier on Time Pop belongs to a brand. Each row pairs a brand wordmark with
+            the brand's most-cited reference, the dossier's evidence coverage, and the tier
+            breakdown. Click a wordmark to open the brand-filtered register; click a model
+            to open the dossier.
           </p>
         </div>
         <div className="pop-panel brand-stat-panel">
@@ -96,51 +143,93 @@ export default function Brands() {
       <div className="brand-list">
         {filtered.map((g) => {
           const coverage = g.cards.length === 0 ? 0 : Math.round((g.withImage / g.cards.length) * 100)
+          const hue = hueForBrand(g.brand)
+          const dominantTier = (Object.keys(g.tiers) as Card['identity']['tier'][])
+            .reduce((a, b) => (g.tiers[b] > g.tiers[a] ? b : a), 'core' as Card['identity']['tier'])
           return (
-            <article key={g.brand} className="brand-row">
-              <header className="brand-row-head">
-                <h2>
-                  <Link to={`/register?brand=${encodeURIComponent(g.brand)}`}>{g.brand}</Link>
-                </h2>
-                <span className="mono brand-row-count">
+            <article key={g.brand} className={`brand-row brand-row--${hue}`}>
+              {/* Column 1: brand wordmark */}
+              <Link to={`/register?brand=${encodeURIComponent(g.brand)}`} className={`brand-wm brand-wm--${hue}`}>
+                <span className="brand-wm-name">{g.brand}</span>
+                <span className="brand-wm-count mono">
                   {g.cards.length} reference{g.cards.length === 1 ? '' : 's'}
                   {BRAND_REGION[g.brand] && (
-                    <span className="brand-region-tag mono">· {REGION_LABEL[BRAND_REGION[g.brand]].toUpperCase()}</span>
+                    <span className="brand-wm-region">· {REGION_LABEL[BRAND_REGION[g.brand]]}</span>
                   )}
                 </span>
-              </header>
-              <div className="brand-tier-breakdown mono">
-                {(['trinity', 'crown', 'haute', 'core', 'attainable'] as Card['identity']['tier'][]).map((t) => {
-                  const n = g.tiers[t]
-                  if (n === 0) return null
-                  return (
-                    <span key={t} className="brand-tier-pill">
-                      <span className={`tier-dot tier-${t}`} />{TIER_LABEL[t]} · {n}
+                <span className="brand-wm-tier mono">{TIER_PILL[dominantTier]}</span>
+              </Link>
+
+              {/* Column 2: most popular model + contrast */}
+              <div className="brand-picks">
+                {g.mostPopular && (
+                  <Link to={`/w/${g.mostPopular.id}`} className="brand-pick">
+                    <span className="brand-pick-thumb">
+                      {g.mostPopular.media[0]
+                        ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" />
+                        : <span className="dim">—</span>}
                     </span>
-                  )
-                })}
-              </div>
-              <div className="brand-stats mono">
-                <div><span>Image</span><strong>{g.withImage}/{g.cards.length}</strong><span className="dim micro">({coverage}%)</span></div>
-                <div><span>Comps</span><strong>{g.withComps}/{g.cards.length}</strong></div>
-                <div><span>Provenance</span><strong>{g.withProvenance}/{g.cards.length}</strong><span className="dim micro">({g.totalEvents} events)</span></div>
-                <div><span>Screen</span><strong>{g.withExactScreen}</strong><span className="dim micro">exact refs</span></div>
-              </div>
-              <div className="brand-coverage-bar" aria-hidden="true">
-                <div className="brand-coverage-fill" style={{ width: `${coverage}%` }} />
-              </div>
-              <div className="brand-references">
-                {g.cards.slice(0, 6).map((c) => (
-                  <Link key={c.id} to={`/w/${c.id}`} className="brand-ref-pill">
-                    {c.identity.reference}
-                    <span className="dim">{c.identity.nickname ?? c.identity.name}</span>
-                  </Link>
-                ))}
-                {g.cards.length > 6 && (
-                  <Link to={`/register?brand=${encodeURIComponent(g.brand)}`} className="brand-ref-pill brand-ref-more">
-                    +{g.cards.length - 6} more
+                    <span className="brand-pick-body">
+                      <span className="brand-pick-eyebrow mono">MOST POPULAR</span>
+                      <span className="brand-pick-name">{g.mostPopular.identity.name}</span>
+                      <span className="brand-pick-ref mono">
+                        {g.mostPopular.identity.reference}
+                        {g.mostPopular.identity.nickname && <span className="dim"> · “{g.mostPopular.identity.nickname}”</span>}
+                      </span>
+                    </span>
                   </Link>
                 )}
+                {g.contrast && g.contrast.id !== g.mostPopular?.id && (
+                  <Link to={`/w/${g.contrast.id}`} className="brand-pick brand-pick--alt">
+                    <span className="brand-pick-thumb">
+                      {g.contrast.media[0]
+                        ? <img src={g.contrast.media[0].url} alt={g.contrast.identity.name} loading="lazy" />
+                        : <span className="dim">—</span>}
+                    </span>
+                    <span className="brand-pick-body">
+                      <span className="brand-pick-eyebrow mono">SEE ALSO · {TIER_PILL[g.contrast.identity.tier]}</span>
+                      <span className="brand-pick-name">{g.contrast.identity.name}</span>
+                      <span className="brand-pick-ref mono">{g.contrast.identity.reference}</span>
+                    </span>
+                  </Link>
+                )}
+              </div>
+
+              {/* Column 3: evidence + tier breakdown */}
+              <div className="brand-stats-block">
+                <div className="brand-tier-breakdown mono">
+                  {(['trinity', 'crown', 'haute', 'core', 'attainable'] as Card['identity']['tier'][]).map((t) => {
+                    const n = g.tiers[t]
+                    if (n === 0) return null
+                    return (
+                      <span key={t} className="brand-tier-pill">
+                        <span className={`tier-dot tier-${t}`} />{TIER_LABEL[t]} · {n}
+                      </span>
+                    )
+                  })}
+                </div>
+                <div className="brand-stats mono">
+                  <div><span>Image</span><strong>{g.withImage}/{g.cards.length}</strong><span className="dim micro">({coverage}%)</span></div>
+                  <div><span>Comps</span><strong>{g.withComps}/{g.cards.length}</strong></div>
+                  <div><span>Provenance</span><strong>{g.withProvenance}/{g.cards.length}</strong><span className="dim micro">({g.totalEvents} events)</span></div>
+                  <div><span>Screen</span><strong>{g.withExactScreen}</strong><span className="dim micro">exact refs</span></div>
+                </div>
+                <div className="brand-coverage-bar" aria-hidden="true">
+                  <div className="brand-coverage-fill" style={{ width: `${coverage}%` }} />
+                </div>
+                <div className="brand-references">
+                  {g.cards.slice(0, 6).map((c) => (
+                    <Link key={c.id} to={`/w/${c.id}`} className="brand-ref-pill">
+                      {c.identity.reference}
+                      <span className="dim">{c.identity.nickname ?? c.identity.name}</span>
+                    </Link>
+                  ))}
+                  {g.cards.length > 6 && (
+                    <Link to={`/register?brand=${encodeURIComponent(g.brand)}`} className="brand-ref-pill brand-ref-more">
+                      +{g.cards.length - 6} more
+                    </Link>
+                  )}
+                </div>
               </div>
             </article>
           )
@@ -158,7 +247,7 @@ export default function Brands() {
         <section className="tier-glossary">
           <h2>About the tiers</h2>
           <p>
-            The tier label is editorial, not a price tier. We assign it from the brand\'s standing in
+            The tier label is editorial, not a price tier. We assign it from the brand's standing in
             horological culture, not from the MSRP or the auction record. A Seiko Prospex at
             <strong> Attainable</strong> is no less of a watch than a Vacheron at <strong>Trinity</strong>;
             they answer different collector questions.
