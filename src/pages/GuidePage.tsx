@@ -9,6 +9,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import Guide from './Guide.tsx'
 import { getArticle, ARTICLES } from './GuideArticles.tsx'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 function slugFromPath(pathname: string): string | null {
   const m = pathname.match(/^\/guides\/([a-z0-9-]+)\/?$/i)
@@ -24,14 +25,34 @@ export default function GuidePage() {
   if (!slug) {
     return (
       <div className="guide">
+        <HeroBanner
+          bg="/heroes/art-adventure.jpg"
+          hue="coral"
+          size="md"
+          alt="Pop-art collage of adventurers, racers, aviators with watches — the guide index"
+          eyebrow="GUIDES · 3 ANTI-MARKETING ESSAYS"
+          title={<>Read a guide.</>}
+          subtitle={
+            <>
+              Anti-marketing. We do not need you to spend money. We do need you to spend
+              the time it takes to know what you actually want before someone hands you
+              a catalogue and asks you to choose.
+            </>
+          }
+          primary={{ to: '#guide-list', label: 'SEE THE THREE GUIDES' }}
+          secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
+          credit={`HERO ART · ADVENTURE + WATCHES — POP-ART COLLAGE · ${ARTICLES.length} GUIDES, ${ARTICLES.reduce((s, a) => s + a.minutes, 0)} MIN TOTAL`}
+          meta={
+            <div className="pop-panel guides-meta">
+              <span className="bubble-kicker mono">THE PROMISE</span>
+              <strong>No "leverage". No "journey".</strong>
+              <span>No "ultimately". No "in conclusion". No marketing copy. Every recommendation is scored on the four axes the register uses for every dossier.</span>
+            </div>
+          }
+        />
+
         <Link to="/" className="crumb">&larr; HOME</Link>
-        <h1 className="pagetitle">Read a guide.</h1>
-        <p className="lede">
-          Anti-marketing. We do not need you to spend money. We do need
-          you to spend the time it takes to know what you actually want
-          before someone hands you a catalogue and asks you to choose.
-        </p>
-        <ol className="guide-index">
+        <ol className="guide-index" id="guide-list">
           {ARTICLES.map((a, i) => (
             <li key={a.slug} className={`guide-index__item guide-index__item--${a.hue}`}>
               <Link to={`/guides/${a.slug}`} className="guide-index__link">

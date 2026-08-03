@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { BIBLE_STATS } from '../lib/bible'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 type DataState = {
   last_attempt: string
@@ -74,18 +75,33 @@ export default function Data() {
 
   return (
     <>
+      <HeroBanner
+        bg="/heroes/data.jpg"
+        hue="navy"
+        size="md"
+        alt="Pop-art methodology: a 4-axes diagram (Rarity / Demand / Provenance / Resellability) with a desk of evidence cards and a magnifier over a 'denied' price note"
+        eyebrow={`DATA · ${data.count} REFERENCES · BUILD ${data.built}`}
+        title={<>How Time Pop<br />collects its evidence.</>}
+        subtitle={
+          <>
+            Every published number traces to a cited public source or is computed from cited
+            evidence. This page is the audit trail: what we collect, where it comes from, and
+            how fresh the build you are reading is.
+          </>
+        }
+        primary={{ to: '#how-we-work', label: 'READ THE METHODOLOGY' }}
+        secondary={{ to: '/methodology', label: 'SEE THE RULEBOOK' }}
+        credit="HERO ART · 4 AXES + EVIDENCE CARDS + MAGNIFIER — POP-ART METHODOLOGY"
+        meta={
+          <div className="pop-panel data-meta">
+            <span className="bubble-kicker mono">THE RULE</span>
+            <strong>No cited comps, no estimate.</strong>
+            <span>The visible refusals are load-bearing. {data.count - cardStats.withComps} of {data.count} dossiers sit on the refusal rung today. That is the system working.</span>
+          </div>
+        }
+      />
+
       <Link to="/" className="crumb">← HOME</Link>
-      <section className="page-head">
-        <div>
-          <p className="eyebrow">DATA · {data.count} REFERENCES · BUILD {data.built}</p>
-          <h1 className="pagetitle">How Time Pop collects its evidence.</h1>
-          <p className="lede">
-            Every published number traces to a cited public source or is computed from cited evidence.
-            This page is the audit trail: what we collect, where it comes from, and how fresh the
-            build you are reading is.
-          </p>
-        </div>
-      </section>
 
       <section className="data-cards">
         <div className="data-card">
@@ -120,7 +136,7 @@ export default function Data() {
         </div>
       </section>
 
-      <section className="data-methodology" aria-label="How we work, in full">
+      <section className="data-methodology" id="how-we-work" aria-label="How we work, in full">
         <h2>How we work, in full.</h2>
         <p className="data-methodology-lede">
           A watch enters the register the way a good answer enters a room: it carries its

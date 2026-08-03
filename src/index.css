@@ -1586,7 +1586,8 @@ main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-xl); }
 
 /* Section rhythm: MoMA module — 24px, not unsold 36–64px air. */
 section, .sect, .lookbook-paths, .spotlight-row, .research-ledger,
-.brass-tacks, .screen-marquee, .starter-row, .asia-spotlight, .math-notes {
+.brass-tacks, .screen-marquee, .starter-row, .asia-spotlight, .math-notes,
+.featured-dossiers {
   margin-top: 24px; margin-bottom: 24px;
 }
 .asia-spotlight { padding-bottom: 24px; }
@@ -2557,3 +2558,34 @@ main.shell { padding-top: var(--space-md); }
   .pop-culture-card:nth-child(odd) { border-right: 1px solid var(--ink); }
   .pop-culture-card:nth-child(2n) .pop-culture-img { border-left: 1px solid var(--ink); }
 }
+
+/* ── /guides: hero meta panel ────────────────────────────────────────────── */
+.guides-meta { max-width: 360px; }
+.guides-meta .bubble-kicker { color: var(--coral); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; }
+.guides-meta strong { display: block; font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin: 6px 0; }
+.guides-meta span { display: block; font-size: 12px; line-height: 1.5; }
+
+/* ── /data: hero meta panel ─────────────────────────────────────────────── */
+.data-meta { max-width: 360px; }
+.data-meta .bubble-kicker { color: var(--coral); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; }
+.data-meta strong { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin: 6px 0; }
+.data-meta span { display: block; font-size: 12px; line-height: 1.5; }
+
+/* Tag on the methodology section so the hero's primary CTA lands where it should */
+#how-we-work { scroll-margin-top: 80px; }
+
+/* ── Home: Featured dossier callout (3 cards w/ image + story excerpt) ──── */
+.featured-dossiers-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.featured-dossier { display: grid; grid-template-rows: auto 1fr; background: var(--paper); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); color: var(--ink); transition: background 200ms ease; }
+.featured-dossier:hover { background: var(--paper-2); }
+.featured-dossier-img { display: block; aspect-ratio: 16 / 9; background: var(--paper-2); overflow: hidden; border-bottom: 1px solid var(--ink); }
+.featured-dossier-img img { width: 100%; height: 100%; object-fit: cover; }
+.featured-dossier-img-empty { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 11px; letter-spacing: 0.12em; color: var(--dim); background: var(--paper-2); }
+.featured-dossier-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; }
+.featured-dossier-source { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
+.featured-dossier-name { font-family: var(--font-display); font-size: clamp(20px, 1.8vw, 24px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 2px 0 4px; }
+.featured-dossier-deck { font-family: var(--font-essay); font-size: 14px; line-height: 1.55; margin: 0; max-width: 56ch; }
+.featured-dossier-meta { font-size: 10px; letter-spacing: 0.1em; color: var(--dim); margin-top: 6px; }
+.featured-dossier-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--navy); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ink); }
+@media (min-width: 720px) { .featured-dossiers-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .featured-dossiers-grid { grid-template-columns: 2fr 1fr 1fr; } .featured-dossier--lead .featured-dossier-img { aspect-ratio: 16 / 10; } }

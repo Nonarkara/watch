@@ -184,6 +184,36 @@ export default function Home() {
         }
       />
 
+      <section className="featured-dossiers" aria-label="A dossier to start with">
+        <div className="section-rule">
+          <h2>Start with a dossier that has a story.</h2>
+          <span className="sticker-inline mono">PROVENANCE-RICH · 1 STORY, 1 WATCH</span>
+        </div>
+        <div className="featured-dossiers-grid">
+          {brassTacks.slice(0, 3).map((c, idx) => {
+            const m = c.media[0]
+            return (
+              <Link key={c.id} to={`/w/${c.id}`} className={`featured-dossier ${idx === 0 ? 'featured-dossier--lead' : ''}`}>
+                <span className="featured-dossier-img">
+                  {m
+                    ? <img src={m.url} alt={c.identity.name} loading="lazy" />
+                    : <span className="featured-dossier-img-empty mono">NO CC PHOTO</span>}
+                </span>
+                <span className="featured-dossier-body">
+                  <span className="featured-dossier-source mono">{c.identity.brand.toUpperCase()} · {c.identity.reference} · {c.identity.tier === 'trinity' ? 'HOLY TRINITY' : c.identity.tier === 'crown' ? 'CROWN & COURT' : c.identity.tier === 'haute' ? 'HAUTE & INDEPENDENT' : c.identity.tier === 'core' ? 'CORE LUXURY' : 'ATTAINABLE'}</span>
+                  <span className="featured-dossier-name">{c.identity.name}</span>
+                  <span className="featured-dossier-deck">{c.narrative.story.slice(0, 220)}{c.narrative.story.length > 220 ? '…' : ''}</span>
+                  <span className="featured-dossier-meta mono">
+                    {c.provenance_events.length} PROVENANCE EVENTS · {c.comp_summary?.n ?? 0} CITED COMPS
+                  </span>
+                  <span className="featured-dossier-cta">OPEN THE DOSSIER →</span>
+                </span>
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
