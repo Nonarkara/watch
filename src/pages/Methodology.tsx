@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Methodology() {
   return (
     <>
@@ -15,7 +17,8 @@ export default function Methodology() {
         <h2>The pipeline, in four steps</h2>
         <p>
           <strong>Collect.</strong> Sold prices from auction results pages. Retail prices from brands
-          and dated press coverage. Provenance events from the public record. Every fact keeps its URL.<br />
+          and dated press coverage. Story events (we used to call these provenance events) from
+          the public record. Every fact keeps its URL.<br />
           <strong>Verify.</strong> A validator rejects any card with an unsourced number, a future
           date, or a sale marked non-comparable without a written reason. A failing card blocks the
           whole build.<br />
@@ -109,11 +112,13 @@ export default function Methodology() {
           verified sale. No sales, no grade — the card presents identity and history only.
         </p>
 
-        <h2>Provenance, not gossip</h2>
+        <h2>Story, not gossip</h2>
         <p>
-          The influence timeline records dated, sourced events: a discontinuation announcement, a
-          record auction, a documented celebrity association. Each entry links its source. Events
-          without a citation don't exist here, whatever the forums say.
+          The story timeline (we used to call this <em>provenance</em> — see the
+          {' '}<Link to="/glossary#provenance">glossary</Link>) records dated, sourced events: a
+          discontinuation announcement, a record auction, a documented celebrity association.
+          Each entry links its source. Events without a citation don't exist here, whatever the
+          forums say.
         </p>
 
         <h2>Screen attention, not screen scarcity</h2>

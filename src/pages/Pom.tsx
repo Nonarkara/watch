@@ -46,7 +46,7 @@ function DistributionChart() {
   const axes: Array<{ key: 'rarity' | 'demand' | 'provenance' | 'resellability'; label: string; hue: string }> = [
     { key: 'rarity', label: 'RARITY', hue: 'var(--coral)' },
     { key: 'demand', label: 'DEMAND', hue: 'var(--yellow)' },
-    { key: 'provenance', label: 'PROVENANCE', hue: 'var(--navy)' },
+    { key: 'provenance', label: 'STORY', hue: 'var(--navy)' },
     { key: 'resellability', label: 'RESELLABILITY', hue: 'var(--teal)' },
   ]
   const tiers: PomAxisTier[] = ['STRONG', 'NEUTRAL', 'WEAK', 'UNKNOWN']
@@ -203,7 +203,7 @@ export default function Pom() {
       <section className="pom-ledger" id="ledger">
         <div className="pom-ledger-head">
           <h2>The 14 watches.</h2>
-          <span className="sticker-inline mono">SCORED ON RARITY · DEMAND · PROVENANCE · RESELLABILITY</span>
+          <span className="sticker-inline mono">SCORED ON RARITY · DEMAND · STORY · RESELLABILITY</span>
         </div>
         <div className="pom-grid">
           {POM_COLLECTION.map((w) => <WatchCard key={`${w.position}-${w.brand}-${w.reference}`} watch={w} />)}

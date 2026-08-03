@@ -80,7 +80,7 @@ export default function Data() {
         bg="/heroes/data.jpg"
         hue="navy"
         size="md"
-        alt="Pop-art methodology: a 4-axes diagram (Rarity / Demand / Provenance / Resellability) with a desk of evidence cards and a magnifier over a 'denied' price note"
+        alt="Pop-art methodology: a 4-axes diagram (Rarity / Demand / Story / Resellability) with a desk of evidence cards and a magnifier over a 'denied' price note"
         eyebrow={`DATA · ${data.count} REFERENCES · BUILD ${data.built}`}
         title={<>How Time Pop<br />collects its evidence.</>}
         subtitle={
@@ -116,7 +116,7 @@ export default function Data() {
           <span className="dim">dossiers with at least one comparable cited sale</span>
         </div>
         <div className="data-card">
-          <span className="eyebrow">PROVENANCE</span>
+          <span className="eyebrow">STORY</span>
           <strong>{cardStats.totalEvents}</strong>
           <span className="dim">dated, sourced events across {cardStats.withProvenance} cards</span>
         </div>
@@ -255,7 +255,9 @@ export default function Data() {
           status, waitlist evidence, auction appearances, and discontinued production. Disclosed
           as <em>k-of-5</em> so a reader can see the signal count. <strong>Demand</strong> is the
           Collectibility Index: comps per year, venue breadth, and the press pressure on the
-          reference. <strong>Provenance</strong> is the count of sourced events on the timeline,
+          reference. <strong>Story</strong> (we used to call this Provenance — see the
+          <Link className="src-a" to="/glossary#provenance"> glossary</Link>) is the count of
+          sourced events on the timeline,
           plus a "provenance premium" reading for the iconic cases. <strong>Resellability</strong>
           is the comp velocity: a 0-100 score with a High / Medium / Low / Unknown tier. None
           of these are the catalog list price, none are the brand's MSRP, none are the
