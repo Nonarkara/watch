@@ -246,6 +246,71 @@ export default function About() {
         </div>
       </section>
 
+      <section className="founder" id="founder" aria-label="From the founder">
+        <div className="founder-grid">
+          <div>
+            <img
+              src="/about/founder-2005.jpg"
+              alt="The founder, 30 July 2005, in front of Taywin mall in Bangkok. A TAG Heuer Aquaracer 300M is on the wrist."
+              className="founder-photo"
+              loading="lazy"
+            />
+            <p className="founder-photo-caption">
+              BANGKOK · 30 JULY 2005 · THE DAY THE MIT ADMISSION LETTER ARRIVED
+            </p>
+            <div className="founder-meta">
+              <span>WRIST</span>
+              <Link to="/w/tagheuer-aquaracer-way111a" className="founder-watch">TAG HEUER AQUARACER 300M · WAY111A</Link>
+            </div>
+          </div>
+          <div className="founder-body">
+            <p className="eyebrow">FROM THE FOUNDER · A 2005 ANCHOR</p>
+            <h2>I am not a watch guy. I built this system because I am curious about why people are.</h2>
+            <p>
+              I have one watch. It is a <strong>TAG Heuer Aquaracer 300M, reference WAY111A</strong>,
+              bought for me in Bangkok by my father in July 2005, on the day I received my MIT admission
+              letter. My father was a technical engineer, the kind of man who taught his son to read a
+              movement by holding it up to the light. He introduced me to a lot of mechanical things
+              even though I never got into them the way he did. I still remember the first watches on my
+              wrist: a Casio, an Alba, and then this one.
+            </p>
+            <p>
+              I have fixed it three times — battery, gaskets, that's all. The quartz movement is
+              twenty years old and still running. The 20-year battery life of a quartz watch is not an
+              accident; it is the design.
+            </p>
+            <p>
+              I am not a Rolex kind of guy. I travel a lot, and a lot of the time I have to be in places
+              where I need to be very tough. Showing off an expensive watch is not that useful to me.
+              I do not collect. I am not in this for the money. But I am interested.
+            </p>
+            <p className="founder-quote">
+              It is really curious to me to understand the economy of collectible markets. A lot of
+              people collect things, and many of them feel emotionally attached to the objects
+              they collect. Some of them are just doing it for economic gain, but whatever it is,
+              I am interested in the behavioral economics of this — and that is why the system
+              was created.
+            </p>
+            <p>
+              Time Pop is my attempt to write the <em>honest</em> version of a thing that usually gets
+              written as marketing. The collectors' economy is the testing ground: prices, scarcity,
+              attention, provenance — every claim is either evidence or it is not. The system
+              refuses the second kind. That is what I would want if I were the buyer, so it is
+              what the system does.
+            </p>
+            <p>
+              The watch in the photo above is in the register. It is a single personal reference,
+              the only one whose owner is the system's author. The dossier rates it
+              <strong> attainable tier</strong>. The story is rated priceless; the register does
+              not have a tier for that.
+            </p>
+            <a className="founder-link" href="https://axiom.nonarkara.org" target="_blank" rel="noreferrer">
+              AXIOM.NONARKARA.ORG — CITY INTELLIGENCE SIBLING →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="sect" id="why">
         <div className="section-rule"><h2>Why this exists</h2><span className="sticker-inline">THE PROBLEM</span></div>
         <div className="prose">
@@ -633,13 +698,50 @@ export default function About() {
             register is to make you a slightly harder person to fool.
           </p>
           <p>
-            <Link className="btn" to="/register">OPEN THE 186 DOSSIERS →</Link>
+            <Link className="btn" to="/register">OPEN THE {data.count} DOSSIERS →</Link>
             {' '}
             <Link className="text-link mono" to="/starter">STARTER PATHS</Link>
             {' '}
             <Link className="text-link mono" to="/discover">WATCH ROULETTE</Link>
           </p>
         </div>
+      </section>
+
+      <section className="contact" id="contact" aria-label="Contact and sister projects">
+        <div className="contact-grid">
+          <div className="contact-card">
+            <h3>Axiom — city intelligence for operators.</h3>
+            <p>
+              The sibling product. Axiom is built for city operators — district chiefs, public-health
+              teams, transit agencies, election monitors — who need evidence-grade intelligence in
+              a way their own analysts can audit. The methodology is the same: cited evidence,
+              refusal as architecture, deterministic builds. The domains are different.
+            </p>
+            <p>
+              <a href="https://axiom.nonarkara.org" target="_blank" rel="noreferrer">axiom.nonarkara.org →</a>
+            </p>
+          </div>
+          <div className="contact-card">
+            <h3>Time Pop — the watch register you are on.</h3>
+            <p>
+              The hobby version. Time Pop is what happens when the Axiom methodology meets a
+              market full of beautiful objects and thin public data. The behavioural economics of
+              collectors is the test case. The honest refusal is the proof of method.
+            </p>
+            <p>
+              <a href="https://watch.nonarkara.org" target="_blank" rel="noreferrer">watch.nonarkara.org →</a>
+              {' · '}
+              <Link to="/methodology">methodology</Link>
+              {' · '}
+              <Link to="/paper">working paper</Link>
+            </p>
+          </div>
+        </div>
+        <p className="prose dim" style={{ maxWidth: '1240px', margin: '24px auto 0', padding: '0 28px' }}>
+          Both sites are built lean, on one laptop, with the same constraint: every number is a pure
+          function of cited public evidence. Same operating principle, different operating
+          question. Same refusal discipline, different data. Same Dr Non system.
+        </p>
       </section>
     </div>
   )
