@@ -9,7 +9,7 @@ least three verified sales in a 36-month window. Missing evidence renders as a r
 
 ## What ships
 
-- 217 unique reference dossiers across five collecting tiers
+- 261 unique reference dossiers across five collecting tiers
 - Deterministic scarcity, collectibility, liquidity, price-change, and confidence metrics
 - A searchable register, comparison table, starter paths, and playful discovery mode
 - A scarcity-economics explainer grounded in the published dataset

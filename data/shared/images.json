@@ -125,21 +125,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Cartier_Santos_wristwatch.jpg",
     "caption": "Santos de Cartier large model in steel with silvered dial and date \u2014 the WSSA0018 configuration, photographed in a Cartier boutique in Prague."
   },
-  "cartier-santos-wssa0029": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cartier_Santos_wristwatch.jpg",
-    "credit": "Pittigrilli",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Santos%20wristwatch.jpg",
-    "caption": "Cartier Santos wristwatch \u2014 the steel Santos with the exposed-screw bezel. The closest verified CC-licensed photograph for the Santos de Cartier family (WSSA0018 / WSSA0029 / W2SA0012 / Santos-Dumont / Panthere / Pasha / Ballon Bleu / Crash); Cartier shares design language across the modern catalogue."
-  },
   "cartier-tank-cintree": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
-    "credit": "EMore98",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Cartier%20Tank%20Louis%20Cartier%20in%20oro%2C%20ref.%2096065.jpg",
-    "caption": "Cartier Tank Louis Cartier ref. 96065 \u2014 the gold Tank Louis. The closest verified CC-licensed photograph for the Tank Louis / Tank Must / Tank Cintr\u00e9e family; same Tank rectangular case."
-  },
-  "cartier-tank-louis": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cartier_Tank_Louis_Cartier_in_oro%2C_ref._96065.jpg",
     "credit": "EMore98",
     "license": "CC BY-SA 4.0",
@@ -321,7 +307,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Longines%20Spirit%20Zulu%20Time.jpg",
     "caption": "Longines Spirit Zulu Time \u2014 the modern GMT pilot-watch. The closest verified CC-licensed photograph for the Spirit family; the Zulu Time shares the modern Spirit case design."
   },
-  "mbf-lm101": {
+  "m-b-f-lm101": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/d/df/MB%26F_LM101_platinum.jpg",
     "credit": "MB&F",
     "license": "CC BY-SA 4.0",
@@ -384,7 +370,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
     "caption": "OMEGA-Speedmaster-Professional \u2014 the Moonwatch. The closest verified CC-licensed photograph for the 105.012 / 1861 / 3861 / Snoopy 50th family; the watch pictured was photographed in 2005, before the 3861 update, same case and dial, earlier movement."
   },
-  "omega-speedmaster-3861": {
+  "omega-speedmaster-310-30-42-50-01-001": {
     "file": "/img/omega-speedmaster-3861.jpg",
     "credit": "Torsten Bolten",
     "license": "Public domain (released by the author)",
@@ -467,13 +453,6 @@
     "license": "CC BY-SA 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20Cronograph%20con%20calibro%20modulare%2C%20ref.%2025721.%20Primi%20anni%20Novanta.jpg",
     "caption": "AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 055; same sport-luxury space."
-  },
-  "richardmille-rm067-02": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/6/68/Audemars_Piguet_Royal_Oak_Cronograph_con_calibro_modulare%2C_ref._25721._Primi_anni_Novanta.jpg",
-    "credit": "EMore98",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20Cronograph%20con%20calibro%20modulare%2C%20ref.%2025721.%20Primi%20anni%20Novanta.jpg",
-    "caption": "AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 67-02; same sport-luxury space."
   },
   "rolex-1016": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/3/31/Uno_dei_modelli_pi%C3%B9_longevi_di_casa_Rolex-_si_tratta_dell%27Explorer_ref._1016.jpg",

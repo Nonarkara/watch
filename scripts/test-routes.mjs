@@ -57,3 +57,11 @@ for (const lit of statLiterals) {
 assert.deepEqual(driftHits, [],
   `Home.tsx stat strings hardcode counts instead of reading them from the build:\n  ${driftHits.join("\n  ")}\n  → derive these from data/screen/catalog so they cannot drift.`);
 console.log("✓ no hardcoded count strings in Home stat fields");
+
+// The Data page is the audit trail; a literal ledger count there is especially
+// dangerous because it looks authoritative after the dataset changes.
+const dataSrc = readFileSync(join(ROOT, "src/pages/Data.tsx"), "utf8");
+const literalDataCounts = [...dataSrc.matchAll(/<strong>\s*(\d{2,}[^<{]*?)<\/strong>/g)].map((m) => m[1]);
+assert.deepEqual(literalDataCounts, [],
+  `Data.tsx contains hardcoded counts inside <strong>: ${literalDataCounts.join(", ")}\n  → read them from the live dataset.`);
+console.log("✓ no hardcoded ledger counts on the Data audit page");

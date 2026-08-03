@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { BIBLE_STATS } from '../lib/bible'
 import HeroBanner from '../components/HeroBanner.tsx'
+import EvidenceField from '../components/EvidenceField.tsx'
 
 type DataState = {
   last_attempt: string
@@ -135,6 +136,8 @@ export default function Data() {
           <span className="dim">snapshotted at build time; pure functions of inputs</span>
         </div>
       </section>
+
+      <EvidenceField cards={data.cards} built={data.built} />
 
       <section className="what-changed" aria-label="What changed in this build">
         <div className="section-rule">
@@ -282,9 +285,9 @@ export default function Data() {
           number on the site traces to at least three comparable sales at cited venues on
           cited dates, or it does not publish. The visible refusals — the
           <code>—</code>s on the page — are load-bearing. They are what make the published
-          numbers believable. A reader who sees <strong>262 / 35 / 35 / 169 / 122 / 14 / 122 / 0</strong>
-          {' '}on the home hero can read those numbers and trust them precisely because the
-          last one is a 0, not a guess.
+          numbers believable. A reader who sees <strong>{data.count} references, {cardStats.withComps} with
+          sale evidence, {cardStats.totalEvents} sourced provenance events, and 0 invented prices</strong>
+          {' '}can trust those counts because the build computes them from the same public dataset.
         </p>
       </section>
 
@@ -295,6 +298,7 @@ export default function Data() {
           next <code>npm run data:build</code> will pick it up; until then, the snapshot is
           committed for deterministic behaviour.
         </p>
+        <div className="data-sources-table-wrap" role="region" aria-label="Upstream source table" tabIndex={0}>
         <table className="data-sources-table mono">
           <thead>
             <tr>
@@ -326,6 +330,7 @@ export default function Data() {
             })}
           </tbody>
         </table>
+        </div>
         <p className="data-sources-foot dim mono">
           THE BIBLE — a curated reading list of {BIBLE_STATS.count} published watch books — is also
           a data source. Every entry in <code>src/lib/bible.ts</code> carries its own public source

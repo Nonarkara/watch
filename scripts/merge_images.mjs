@@ -53,10 +53,9 @@ const captions = {
   'patek-5227g': 'Patek Philippe Calatrava ref. 3919G (early 1990s). The closest verified CC-licensed photograph for the 5227G Calatrava; same Calatrava dress-watch family, two generations apart.',
   'patek-5712-1a': 'Patek Philippe Calatrava ref. 96 (vintage, late 1930s). The closest verified CC-licensed photograph for the 5712/1A Nautilus; vintage Calatrava dial DNA — same brand, opposite ends of the Patek dress-sport divide.',
   'cartier-tank-must-wsta0041': null,  // exact reference (Cartier Tank Must 2021)
-  'cartier-tank-louis': null,  // exact reference
+  'cartier-tank-louis-wgta0211': null,  // exact family photograph
   'cartier-panthere-medium': 'Cartier Panthère Ruban. The closest verified CC-licensed photograph for the WSPN0015 Panthère de Cartier Medium; both are Panthère-family Cartier pieces with the integrated link bracelet.',
   'cartier-pasha-41': 'Cartier Pasha GMT ref. 2388. The closest verified CC-licensed photograph for the WHPA0018 Pasha de Cartier 41mm; both are Pasha-family Cartier pieces with the chain-and-medallion crown.',
-  'cartier-santos-wssa0029': 'Cartier Santos Galbée ref. 1564. The closest verified CC-licensed photograph for the WSSA0029 Santos de Cartier; both are Santos-family Cartier pieces with the exposed-screw bezel.',
   'cartier-ballon-bleu-42': 'Cartier Ronde in oro rosa al quarzo ref. 2886. The closest verified CC-licensed photograph for the WSBB0049 Ballon Bleu 42; same Cartier round-case dress watch DNA.',
   'cartier-tank-cintree': 'Cartier Tank Américaine automatic in steel. The closest verified CC-licensed photograph for the Tank Cintrée; both are elongated Tank-family Cartier pieces.',
   'cartier-santos-dumont': 'Cartier Santos Dumont al quarzo ref. 4240. The closest verified CC-licensed photograph for the WSSA0085 Santos-Dumont; same Santos-Dumont family.',
@@ -92,7 +91,6 @@ const captions = {
   'richardmille-rm011': 'AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 011; same large tonneau-shape sport-luxury space.',
   'richardmille-rm035': 'AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 035; same sport-luxury space.',
   'richardmille-rm055': 'AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 055; same sport-luxury space.',
-  'richardmille-rm067-02': 'AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the Richard Mille RM 67-02; same sport-luxury space.',
   'debethune-db28': 'Breguet ref. 5177 con datario. The closest verified CC-licensed photograph for the De Bethune DB28; both are haute horlogerie references with centre-seconds and date.',
   'rolex-126600': 'Rolex Sea-Dweller ref. 16600 (late 1980s, no cyclops). The closest verified CC-licensed photograph for the 126600 Sea-Dweller; same Sea-Dweller family, two generations apart.',
   'panerai-luminor-marina-pam01312': 'Panerai Luminor Marina PAM01312. The closest verified CC-licensed photograph for the PAM01312 Luminor Marina; same reference family.',
