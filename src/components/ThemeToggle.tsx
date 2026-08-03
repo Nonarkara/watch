@@ -13,14 +13,13 @@ export default function ThemeToggle() {
       onClick={cycle}
       aria-label={`Theme: ${pref}. Click to cycle.`}
       title={`Theme: ${pref} — click to cycle`}
+      data-pref={pref}
+      data-effective={effective}
     >
       <span className="theme-toggle-icon" aria-hidden="true">
         {effective === 'dark' ? '☾' : '☀'}
       </span>
-      <span className="theme-toggle-label">
-        {effective === 'dark' ? 'DARK' : 'LIGHT'}
-        <span className="theme-toggle-pref"> · {pref === 'auto' ? 'A' : pref === 'light' ? 'L' : 'D'}</span>
-      </span>
+      <span className="theme-toggle-dot" aria-hidden="true" />
     </button>
   )
 }

@@ -130,33 +130,59 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .amber { color: var(--amber); }
 h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 
-/* ── Header: wordmark left, nav right, one structural rule under it ── */
-.hdr { border-bottom: 1px solid var(--rule); padding-top: calc(var(--space-md) + var(--sat)); }
+/* ── Header: wordmark left, nav right, one structural rule under it ──
+   Pop-art masthead, not a SaaS nav. A 4px coral strip on top, the wordmark
+   in the display face, the nav in mono caps with an amber underline on
+   active, and a single 1px rule under the bar. No drop shadows, no rounded
+   corners, no padding-on-padding. Seven nav items max — the footer carries
+   the rest. */
+.hdr {
+  border-bottom: 1px solid var(--rule);
+  border-top: 4px solid var(--coral);
+  padding-top: calc(var(--space-md) + var(--sat));
+  position: relative;
+}
 .hdr-in { display: flex; flex-direction: column; gap: var(--space-md); padding-bottom: 0; }
-.wordmark { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
-.wm-logo { display: block; width: 56px; height: 56px; flex: 0 0 auto; }
-.wm-stack { display: flex; flex-direction: column; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); position: relative; }
+.wm-logo { display: block; width: 52px; height: 52px; flex: 0 0 auto; }
+.wm-stack { display: flex; flex-direction: column; gap: 4px; }
 .wm-main {
   display: block; font-family: var(--font-display); font-size: var(--text-display);
   font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; text-transform: none;
+  color: var(--ink);
 }
-.wm-sub { display: block; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); letter-spacing: 0.06em; margin-top: 6px; }
+.wm-sub { display: block; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); letter-spacing: 0.06em; }
+.wm-tag {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.12em; padding: 2px 6px; margin-top: 4px;
+  background: var(--amber); color: var(--ink);
+}
 @media (max-width: 720px) {
   .wm-logo { width: 40px; height: 40px; }
-  .wm-sub { display: none; }
+  .wm-sub, .wm-tag { display: none; }
 }
-.nav { display: flex; overflow-x: auto; gap: 18px; margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); scrollbar-width: none; }
-.nav::-webkit-scrollbar { display: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); }
 .nav-a {
   display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0;
-  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
   color: var(--dim); border-bottom: 2px solid transparent; white-space: nowrap;
+  text-decoration: none;
+  transition: color 120ms ease, border-color 120ms ease;
 }
-.nav-a.on { color: var(--fg); border-bottom-color: var(--amber); }
-@media (hover: hover) and (pointer: fine) { .nav-a:hover { color: var(--fg); } }
-/* The Uncle Pom's link gets a small badge to differentiate it from the other
-   nav items -- it is a curated content page, not a system tab. */
-.nav-a[data-pom="1"]::after { content: "·14"; margin-left: 4px; color: var(--coral); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; }
+.nav-a.on { color: var(--ink); border-bottom-color: var(--amber); }
+@media (hover: hover) and (pointer: fine) { .nav-a:hover { color: var(--ink); } }
+
+/* The header right cluster (search · saved · theme) sits on a colored chip
+   so it reads as a unit, not three separate SaaS buttons. */
+.hdr-cluster {
+  display: inline-flex; align-items: center; gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  flex: 0 0 auto;
+}
+.hdr-cluster > * { border-right: 1px solid var(--ink); }
+.hdr-cluster > *:last-child { border-right: 0; }
 
 main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl) + 60px); min-height: 60vh; }
 .boot { color: var(--dim); padding: var(--space-2xl) 0; }
@@ -283,7 +309,10 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 
 @media (min-width: 880px) {
   :root { --pad: 24px; }
-  .hdr-in { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .hdr-in { display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'wordmark cluster' 'nav nav'; column-gap: 24px; row-gap: var(--space-md); align-items: center; }
+  .hdr-in > .wordmark { grid-area: wordmark; }
+  .hdr-in > .hdr-cluster { grid-area: cluster; justify-self: end; }
+  .hdr-in > .nav { grid-area: nav; padding: 0; margin: 0; border-top: 1px solid var(--rule); padding-top: 10px; }
   .purpose-grid { grid-template-columns: 1fr 1fr; }
   .feature-readings { grid-template-columns: repeat(3, 1fr); }
   .discover-head { flex-direction: row; justify-content: space-between; align-items: flex-end; }
@@ -928,7 +957,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .math-notes { grid-template-columns: repeat(3, 1fr); }
   .research-ledger { grid-template-columns: .85fr 1.15fr; }
   .dossier-screen { grid-template-columns: .8fr 1.2fr; }
-  .hdr-in { flex-direction: row; align-items: flex-end; justify-content: space-between; padding-bottom: 0; }
+  /* the header grid is already set above — don't override */
   .nav { margin: 0; padding: 0; }
 }
 @media (max-width: 480px) {
@@ -2903,14 +2932,31 @@ main.shell { padding-top: var(--space-md); }
 @media (min-width: 900px) { .related-watches-grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* ── Header: Search button + Saved badge ─────────────────────────────────── */
-.srch-btn { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 6px 10px; font-size: 11px; letter-spacing: 0.08em; cursor: pointer; transition: background 150ms ease; }
+/* Search trigger — lives inside the right-cluster chip. The brackets are
+   the pop-art affordance; the kbd hint is mono and small. */
+.srch-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--paper); color: var(--ink);
+  border: 0; padding: 0 10px; height: 32px;
+  font-size: 11px; letter-spacing: 0.08em;
+  cursor: pointer; transition: background 120ms ease;
+  font-family: var(--font-mono);
+}
 .srch-btn:hover { background: var(--paper-2); }
-.srch-btn-text { font-weight: 600; }
-.srch-btn-kbd { font-size: 9px; color: var(--dim); border: 1px solid var(--rule); padding: 1px 4px; border-radius: 0; }
+.srch-btn-text { font-weight: 700; }
+.srch-btn-kbd { font-size: 9px; color: var(--dim); border: 1px solid var(--rule); padding: 1px 4px; }
 @media (max-width: 720px) { .srch-btn-text { display: none; } .srch-btn-kbd { display: none; } }
-.saved-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--coral); color: var(--paper); padding: 4px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; transition: background 150ms ease; }
+/* Saved badge — fits inside the right-cluster chip. Coral square + count. */
+.saved-badge {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  background: var(--coral); color: var(--paper);
+  padding: 0 10px; height: 32px; min-width: 44px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-decoration: none; transition: background 120ms ease;
+  font-family: var(--font-mono);
+}
 .saved-badge:hover { background: var(--navy); }
-.saved-badge span:first-child { font-size: 13px; }
+.saved-badge-star { font-size: 12px; line-height: 1; }
 
 /* ── Search palette (modal) ──────────────────────────────────────────────── */
 .srch-bk { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: flex-start; justify-content: center; z-index: 9999; padding-top: 12vh; }
@@ -2982,12 +3028,25 @@ main.shell { padding-top: var(--space-md); }
 }
 
 /* ── Header: theme toggle ────────────────────────────────────────────────── */
-.theme-toggle { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 6px 10px; font-size: 11px; letter-spacing: 0.08em; cursor: pointer; transition: background 150ms ease, color 150ms ease; }
-.theme-toggle:hover { background: var(--ink); color: var(--bg); }
-.theme-toggle-icon { font-size: 14px; line-height: 1; }
-.theme-toggle-label { font-weight: 600; }
-.theme-toggle-pref { color: var(--coral); font-weight: 700; }
-@media (max-width: 720px) { .theme-toggle-label { display: none; } }
+/* Theme toggle — square icon button, no label. The dot shows the preference
+   state: filled = locked (light/dark), hollow = following system. */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0;
+  background: var(--paper); color: var(--ink);
+  border: 0;
+  padding: 0; width: 36px; height: 32px;
+  cursor: pointer; position: relative;
+  transition: background 120ms ease;
+}
+.theme-toggle:hover { background: var(--paper-2); }
+.theme-toggle-icon { font-size: 16px; line-height: 1; }
+.theme-toggle-dot {
+  position: absolute; right: 6px; bottom: 6px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: transparent; border: 1px solid var(--ink);
+}
+.theme-toggle[data-pref="light"] .theme-toggle-dot { background: var(--amber); border-color: var(--amber); }
+.theme-toggle[data-pref="dark"] .theme-toggle-dot { background: var(--navy); border-color: var(--navy); }
 
 /* ── /bible: sub-tab nav (BOOKS · READER · WHY) ──────────────────────────── */
 .bible-tabs { display: flex; flex-wrap: wrap; gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin: 32px 0 0; }
