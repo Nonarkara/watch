@@ -11,17 +11,17 @@ import SavedBadge from './components/SavedBadge.tsx'
 import ThemeToggle from './components/ThemeToggle.tsx'
 import { SearchPalette } from './lib/SearchPalette.tsx'
 
+// Top-bar nav. Kept short on purpose — the footer carries the rest. Seven
+// items is the most that fits the masthead without scrolling on a 1280px
+// viewport. About, Data, and Uncle Pom live in the footer; nothing is hidden.
 const NAV = [
   { to: '/register', label: 'Objects' },
   { to: '/brands', label: 'Brands' },
-  { to: '/screen', label: 'On screen' },
+  { to: '/screen', label: 'On Screen' },
   { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/bible', label: 'Bible' },
   { to: '/economy', label: 'Economy' },
   { to: '/labs', label: 'Labs' },
-  { to: '/about', label: 'About' },
-  { to: '/pom', label: 'Uncle Pom' },
-  { to: '/data', label: 'Data' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
@@ -73,20 +73,22 @@ export default function App() {
             <span className="wm-stack">
               <span className="wm-main">Time Pop</span>
               <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>
+              <span className="wm-tag">EST. 2005</span>
             </span>
           </NavLink>
-          <button type="button" className="srch-btn mono" onClick={() => {
-            window.dispatchEvent(new CustomEvent('timepop:open-search'))
-          }} aria-label="Open search">
-            <span>⌕</span><span className="srch-btn-text">SEARCH</span><span className="srch-btn-kbd">⌘K</span>
-          </button>
-          <SavedBadge />
-          <ThemeToggle />
+          <div className="hdr-cluster">
+            <button type="button" className="srch-btn mono" onClick={() => {
+              window.dispatchEvent(new CustomEvent('timepop:open-search'))
+            }} aria-label="Open search">
+              <span>⌕</span><span className="srch-btn-text">SEARCH</span><span className="srch-btn-kbd">⌘K</span>
+            </button>
+            <SavedBadge />
+            <ThemeToggle />
+          </div>
           <nav className="nav">
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.to === '/'}
-                className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}
-                data-pom={n.to === '/pom' ? '1' : undefined}>
+                className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}>
                 {n.label.toUpperCase()}
               </NavLink>
             ))}
