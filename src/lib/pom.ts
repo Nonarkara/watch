@@ -46,7 +46,7 @@ export interface PomWatch {
 export const POM_COLLECTION: PomWatch[] = [
   {
     position: 1, brand: 'Richard Mille', reference: 'RM 029', watch: 'RM 029 (automatic, skeletonised)',
-    image: '/img/pom/01-pom-watch.jpg',
+    image: '/img/pom-real/01-rm-029.jpg',
     price_thb_at_publication: 3_600_000,
     dossierId: null,
     rarity: 'STRONG', demand: 'STRONG', provenance: 'NEUTRAL', resellability: 'WEAK',
@@ -64,7 +64,7 @@ export const POM_COLLECTION: PomWatch[] = [
   },
   {
     position: 3, brand: 'Rolex', reference: '116506', watch: 'Cosmograph Daytona Platinum — Ice Blue Dial',
-    image: '/img/pom/03-pom-watch.jpg',
+    image: '/img/pom-real/03-rolex-daytona-cosmograph.jpg',
     price_thb_range: '1.9M – 2.4M THB',
     dossierId: 'rolex-daytona-116506',
     rarity: 'STRONG', demand: 'STRONG', provenance: 'STRONG', resellability: 'STRONG',
@@ -73,7 +73,7 @@ export const POM_COLLECTION: PomWatch[] = [
   },
   {
     position: 4, brand: 'Patek Philippe', reference: '5960/1A', watch: 'Annual Calendar Chronograph — steel',
-    image: '/img/pom/04-pom-watch.jpg',
+    image: '/img/pom-real/04-patek-5960.jpg',
     price_thb_range: '1.5M – 1.66M THB',
     dossierId: null,
     rarity: 'STRONG', demand: 'STRONG', provenance: 'NEUTRAL', resellability: 'NEUTRAL',
@@ -163,7 +163,7 @@ export const POM_COLLECTION: PomWatch[] = [
   },
   {
     position: 14, brand: 'Rolex', reference: '126300', watch: 'Datejust Oyster 41',
-    image: '/img/pom/14-pom-watch.jpg',
+    image: '/img/pom-real/14-rolex-datejust-ii.jpg',
     price_thb_at_publication: 413_000,
     dossierId: 'rolex-126300',
     rarity: 'WEAK', demand: 'STRONG', provenance: 'NEUTRAL', resellability: 'STRONG',
