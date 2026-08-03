@@ -1874,6 +1874,91 @@ main.shell { padding-top: var(--space-md); }
   border-left: 0;
   border-right: 0;
 }
+/* split frame: 2-col internal layout (text + side figure). Used on
+   FirstPocketWatch, Quartz, and Smartphone so the figure reads alongside
+   the essay, not in a separate column. */
+.wmp-frame--split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 0; }
+.wmp-frame--split .wmp-frame-body { padding: 0 24px 0 16px; border-right: 1px solid var(--rule); }
+.wmp-frame--split .wmp-frame-side { padding: 0 16px 0 24px; display: flex; flex-direction: column; gap: 12px; }
+.wmp-frame--split .wmp-frame-side .wmp-figure { margin: 0 0 12px; }
+.wmp-frame--split .wmp-frame-side .wmp-figure:last-child { margin-bottom: 0; }
+.wmp-witness-link {
+  font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.04em;
+  color: var(--coral); margin: 0;
+}
+@media (max-width: 880px) {
+  .wmp-frame--split { grid-template-columns: 1fr; }
+  .wmp-frame--split .wmp-frame-body { padding: 0 16px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .wmp-frame--split .wmp-frame-side { padding: 12px 16px 16px; }
+}
+/* witness card: dramatic, full-bleed figure on the right */
+.wmp-frame--witness { background: var(--bg); border-top: 2px solid var(--coral); }
+.wmp-witness-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 0; }
+.wmp-witness-body { padding: 0 24px 0 16px; border-right: 1px solid var(--rule); }
+.wmp-witness-side { padding: 0 16px 0 24px; }
+.wmp-witness-side .wmp-figure { margin: 0; }
+.wmp-witness-side .wmp-figure img { max-height: none; }
+@media (max-width: 880px) {
+  .wmp-witness-grid { grid-template-columns: 1fr; }
+  .wmp-witness-body { padding: 0 16px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .wmp-witness-side { padding: 12px 16px 16px; }
+}
+
+/* TIME grid: essays on the left, sticky artifacts rail on the right. On
+   mobile the rail goes below. */
+.wmp-time-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 0; align-items: start; }
+.wmp-time-essays { border-right: 0; min-width: 0; }
+.wmp-time-rail {
+  border-left: 1px solid var(--rule);
+  padding: 0;
+  position: sticky;
+  top: calc(var(--header-h, 56px) + 120px);
+  align-self: start;
+  background: var(--paper-2);
+  max-height: calc(100vh - var(--header-h, 56px) - 140px);
+  overflow-y: auto;
+}
+.wmp-time-rail-head { padding: 16px 16px 8px; border-bottom: 1px solid var(--rule); }
+.wmp-time-rail-title { font-family: var(--font-display); font-size: var(--text-body); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 4px 0 6px; }
+.wmp-time-rail-head .dim { font-size: var(--text-micro); line-height: 1.4; margin: 0; }
+.wmp-time-rail-list { display: flex; flex-direction: column; }
+@media (max-width: 1100px) {
+  .wmp-time-grid { grid-template-columns: 1fr; }
+  .wmp-time-rail { position: static; max-height: none; border-left: 0; border-top: 2px solid var(--ink); }
+}
+
+/* One rail card. Small image, year, name, license. */
+.wmp-rail-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--fg);
+  transition: background 120ms ease;
+}
+.wmp-rail-card:hover { background: var(--paper); }
+.wmp-rail-card:last-child { border-bottom: 0; }
+.wmp-rail-img { width: 64px; height: 64px; overflow: hidden; background: var(--paper); flex: 0 0 auto; }
+.wmp-rail-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.wmp-rail-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.wmp-rail-year { font-size: 9px; letter-spacing: 0.12em; color: var(--coral); }
+.wmp-rail-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; }
+.wmp-rail-credit { font-size: 9px; letter-spacing: 0.04em; color: var(--dim); }
+
+/* In-line rail used inside an essay card (e.g. the Einstein card). Two
+   artifacts side by side, smaller than the sticky rail. */
+.wmp-time-rail--inline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--rule); margin: 10px 16px; }
+.wmp-time-rail--inline .wmp-rail-card { border-bottom: 0; border-right: 1px solid var(--rule); padding: 8px; }
+.wmp-time-rail--inline .wmp-rail-card:last-child { border-right: 0; }
+.wmp-time-rail--inline .wmp-rail-img { width: 48px; height: 48px; }
+.wmp-time-rail--inline .wmp-rail-name { font-size: 11px; }
+@media (max-width: 600px) {
+  .wmp-time-rail--inline { grid-template-columns: 1fr; }
+  .wmp-time-rail--inline .wmp-rail-card { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .wmp-time-rail--inline .wmp-rail-card:last-child { border-bottom: 0; }
+}
 .wmp-frame + .wmp-frame { border-top: 0; }
 .wmp-frame .eyebrow { display: block; margin-bottom: 8px; padding: 0 16px; }
 .wmp-frame p, .wmp-frame ol, .wmp-frame ul, .wmp-frame h2, .wmp-frame h3, .wmp-frame h4, .wmp-frame .wmp-figure { padding-left: 16px; padding-right: 16px; }
@@ -1978,14 +2063,20 @@ main.shell { padding-top: var(--space-md); }
 
 /* Free-licence artifacts (Wikimedia Commons).
    Light: multiply melts white diagram paper into the page.
-   Dark: multiply × black = invisible — light plate + normal blend. */
+   Dark: multiply × black = invisible — light plate + normal blend.
+   The image fills the card width and keeps its natural aspect — no
+   max-height that would letterbox the figure into the middle of a wide
+   card. On wide viewports the figure is capped so it does not run the
+   page too long. */
 .wmp-figure {
-  margin: 10px 0 12px;
+  margin: 10px 16px 12px;
   border: 1px solid var(--rule);
   background: var(--paper-2);
   display: flex;
   flex-direction: column;
 }
+.wmp-frame--split .wmp-frame-side .wmp-figure,
+.wmp-witness-side .wmp-figure { margin-left: 0; margin-right: 0; }
 .wmp-figure-media {
   display: block;
   background: #F4F4F2;
@@ -1995,7 +2086,7 @@ main.shell { padding-top: var(--space-md); }
   display: block;
   width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: 540px;
   object-fit: contain;
   mix-blend-mode: multiply;
 }
@@ -2003,7 +2094,11 @@ main.shell { padding-top: var(--space-md); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .wmp-figure img { mix-blend-mode: normal; }
 }
-.wmp-figure.tall img { max-height: 300px; }
+.wmp-figure.tall img { max-height: 720px; }
+@media (max-width: 720px) {
+  .wmp-figure img { max-height: none; }
+  .wmp-frame--split .wmp-frame-side .wmp-figure { margin: 0; }
+}
 .wmp-figure figcaption {
   display: flex;
   flex-direction: column;
@@ -2548,6 +2643,21 @@ main.shell { padding-top: var(--space-md); }
 .founder-watch:hover { background: var(--ink); color: var(--yellow); }
 .founder-link { display: inline-block; padding: 12px 18px; border: 2px solid var(--ink); background: var(--coral); color: #FFFFFF; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; margin-top: 16px; }
 .founder-link:hover { background: var(--ink); color: var(--paper); }
+
+/* Founder photo column: two photos (portrait + closeup) + spec sidebar.
+   Replaces the previous single-photo column. */
+.founder-photo-col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.founder-photo-closeup { display: block; width: 100%; max-width: 480px; height: auto; border: 1px solid var(--ink); margin-top: 4px; }
+.founder-photo-caption--two { max-width: 480px; margin-top: 8px; }
+.founder-specs { margin-top: 20px; padding: 16px; border: 1px solid var(--ink); background: var(--paper-2); max-width: 480px; }
+.founder-specs-h { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); }
+.founder-specs-list { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; padding: 0; }
+.founder-specs-list > div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.founder-specs-list > div:last-child { border-bottom: 0; }
+.founder-specs-list dt { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.founder-specs-list dd { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; margin: 0; }
+.founder-specs-link { display: inline-block; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--ink); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); text-decoration: none; }
+.founder-specs-link:hover { color: var(--ink); }
 @media (min-width: 880px) {
   .founder-grid { grid-template-columns: 480px 1fr; gap: 56px; align-items: start; padding: 0 28px; }
 }

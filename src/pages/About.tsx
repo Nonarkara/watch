@@ -256,7 +256,7 @@ export default function About() {
 
       <section className="founder" id="founder" aria-label="From the founder">
         <div className="founder-grid">
-          <div>
+          <div className="founder-photo-col">
             <img
               src="/about/founder-2005.jpg"
               alt="The founder, 30 July 2005, in front of Taywin mall in Bangkok. A TAG Heuer Aquaracer 300M is on the wrist."
@@ -270,6 +270,34 @@ export default function About() {
               <span>WRIST</span>
               <Link to="/w/tagheuer-aquaracer-way111a" className="founder-watch">TAG HEUER AQUARACER 300M · WAY111A</Link>
             </div>
+            <img
+              src="/about/founder-watch-closeup.jpg"
+              alt="Close-up of the TAG Heuer Aquaracer 300M dial — black sunray brushed with horizontal grooves, applied luminous indices, date at 3 o'clock with cyclops, polished steel bezel."
+              className="founder-photo-closeup"
+              loading="lazy"
+            />
+            <p className="founder-photo-caption founder-photo-caption--two">
+              THE SAME WATCH · 20 YEARS ON · STILL RUNNING ON THE ORIGINAL QUARTZ
+            </p>
+            <aside className="founder-specs" aria-label="Watch specifications">
+              <h3 className="founder-specs-h mono">SPEC SHEET</h3>
+              <dl className="founder-specs-list">
+                <div><dt>Reference</dt><dd>WAY111A</dd></div>
+                <div><dt>Diameter</dt><dd>41 mm</dd></div>
+                <div><dt>Case</dt><dd>stainless steel</dd></div>
+                <div><dt>Bezel</dt><dd>unidirectional, 12-sided, polished steel dive bezel</dd></div>
+                <div><dt>Crystal</dt><dd>sapphire, AR-coated</dd></div>
+                <div><dt>Water resistance</dt><dd>300 m</dd></div>
+                <div><dt>Movement</dt><dd>quartz, ETA-based</dd></div>
+                <div><dt>Dial</dt><dd>black sunray, horizontal grooves, applied luminous indices</dd></div>
+                <div><dt>Date</dt><dd>3 o'clock, cyclops magnifier</dd></div>
+                <div><dt>Production</dt><dd>2005 – 2021</dd></div>
+                <div><dt>Service history</dt><dd>battery ×2, gaskets, all done locally in Bangkok</dd></div>
+              </dl>
+              <Link to="/w/tagheuer-aquaracer-way111a" className="founder-specs-link mono">
+                READ THE FULL DOSSIER →
+              </Link>
+            </aside>
           </div>
           <div className="founder-body">
             <p className="eyebrow">FROM THE FOUNDER · A 2005 ANCHOR</p>
