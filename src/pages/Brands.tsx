@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, BRAND_REGION, REGION_LABEL, type Card } from '../lib/data.ts'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 type BrandGroup = {
   brand: string
@@ -108,28 +109,38 @@ export default function Brands() {
 
   return (
     <>
+      <HeroBanner
+        bg="/heroes/art-mens-classics.jpg"
+        hue="navy"
+        size="lg"
+        alt="Pop-art collage of collectors with Patek Philippe, Audemars Piguet, and Rolex — the brand directory of the archive"
+        eyebrow={`DIRECTORY · ${groups.length} BRANDS · ${data.count} REFERENCES`}
+        title={<>A directory of<br />brands we cover.</>}
+        subtitle={
+          <>
+            Every dossier on Time Pop belongs to a brand. Each row pairs a brand wordmark
+            with the brand's most-cited reference, the dossier's evidence coverage, and the
+            tier breakdown. Click a wordmark to open the brand-filtered register; click
+            a model to open the dossier.
+          </>
+        }
+        primary={{ to: '#ledger', label: 'SEE THE BRANDS' }}
+        secondary={{ to: '/register', label: `BROWSE ALL ${data.count} OBJECTS` }}
+        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
+        meta={
+          <div className="pop-panel brand-stat-panel">
+            <span className="bubble-kicker mono">READ THIS LIKE A LEDGER</span>
+            <strong>{groups.length} brands, {data.count} references</strong>
+            <span>
+              {groups.filter((g) => g.withImage === g.cards.length).length} fully photographed ·
+              {' '}{groups.filter((g) => g.withComps > 0).length} with sale evidence ·
+              {' '}{groups.filter((g) => g.withProvenance > 0).length} with provenance
+            </span>
+          </div>
+        }
+      />
+
       <Link to="/" className="crumb">← HOME</Link>
-      <section className="page-head">
-        <div>
-          <p className="eyebrow">DIRECTORY · {groups.length} BRANDS · {data.count} REFERENCES</p>
-          <h1 className="pagetitle">A directory of brands we cover.</h1>
-          <p className="lede">
-            Every dossier on Time Pop belongs to a brand. Each row pairs a brand wordmark with
-            the brand's most-cited reference, the dossier's evidence coverage, and the tier
-            breakdown. Click a wordmark to open the brand-filtered register; click a model
-            to open the dossier.
-          </p>
-        </div>
-        <div className="pop-panel brand-stat-panel">
-          <span className="bubble-kicker mono">READ THIS LIKE A LEDGER</span>
-          <strong>{groups.length} brands, {data.count} references</strong>
-          <span>
-            {groups.filter((g) => g.withImage === g.cards.length).length} fully photographed ·
-            {' '}{groups.filter((g) => g.withComps > 0).length} with sale evidence ·
-            {' '}{groups.filter((g) => g.withProvenance > 0).length} with provenance
-          </span>
-        </div>
-      </section>
 
       <div className="brand-tier-chips" role="group" aria-label="Filter brands by tier">
         <button className={'chip' + (tierFilter === 'all' ? ' on' : '')} onClick={() => setTierFilter('all')}>All {groups.length}</button>

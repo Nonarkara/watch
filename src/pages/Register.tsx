@@ -5,6 +5,7 @@ import { useCompare } from '../lib/compare-store.ts'
 import { TIER_LABEL, TIER_ORDER, BRAND_REGION, REGION_ORDER, REGION_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 type SortKey = 'collectibility' | 'scarcity' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
 const SORTS: { k: SortKey; label: string }[] = [
@@ -86,6 +87,32 @@ export default function Register() {
 
   return (
     <>
+      <HeroBanner
+        bg="/heroes/art-painterly.jpg"
+        hue="navy"
+        size="md"
+        alt="Pop-art collage of astronauts, aviators, and divers wearing watches — the register of references"
+        eyebrow="THE REGISTER"
+        title={<>Every reference,<br />with its evidence.</>}
+        subtitle={
+          <>
+            Market figures come from verified public sales; the indices are computed, sourced,
+            and show their own limits. Where evidence is thin, the register says so instead of
+            guessing.
+          </>
+        }
+        primary={{ to: '#ledger', label: 'BROWSE THE REGISTER' }}
+        secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
+        credit={`HERO ART · COLLECTORS IN ACTION — ${data?.count ?? '—'} REFERENCES INDEXED BELOW`}
+        meta={
+          <div className="pop-panel">
+            <span className="bubble-kicker mono">THE HONEST PLOT</span>
+            <strong>{data?.count ?? '—'} references</strong>
+            <span>{data ? `${data.cards.filter((c) => c.comp_summary).length} with cited comps · ${data.cards.length - data.cards.filter((c) => c.comp_summary).length} refused to estimate` : ''}</span>
+          </div>
+        }
+      />
+
       <div className="page-head">
         <div>
           <p className="eyebrow">The Register</p>
