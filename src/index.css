@@ -4,38 +4,62 @@
 /* ── WATCH project overrides ────────────────────────────────────────────────
    Tokens assume an app-shell dashboard (overflow:hidden, no selection).
    The Register is a readable, copyable catalog — re-enable both. */
-/* Register register (§XV Index): institutional, not editorial-fashion.
-   Paper is a barely-warm white — warmth comes from the paper tone, never from a cream
-   wash or a display serif. One neutral grotesque carries every level of hierarchy;
-   weight and scale do the work, so the type never announces itself (§14 rule 5).
-   The accent is a single warm rust, spent only on interaction and on the one number
-   that matters — everything else is ink on paper. */
+/* Register register (§XV Index): pop-art edition. White paper, black ink,
+   four-color accent system. Color is structural — the 4-tile dossier strip and
+   the article heroes are color blocks, not decoration. Cream wash removed; the
+   warmth that used to be on the page now lives in the coral accent. Dark mode
+   inverts canvas + ink; accents stay. */
 :root {
-  /* Time Pop pop-art tokens (named folly in context.md). Coral is the expressive
-     accent for this project; house amber maps to coral so existing --amber rules work. */
-  --bg: #F6F0E5;
-  --canvas: #F6F0E5;
-  --paper-2: #FFFDF8;
-  --surface: #FFFDF8;
-  --fg: #132A3A;
-  --ink: #132A3A;
-  --dim: rgba(19, 42, 58, 0.58);
-  --line: #D8CFC1;
-  --rule: rgba(19, 42, 58, 0.28);
-  --border: 1px solid var(--line);
-  --amber: #EF6A5B;          /* coral — Time Pop accent */
+  --bg: #FFFFFF;            /* pure paper white */
+  --canvas: #FFFFFF;
+  --paper-2: #FFFFFF;
+  --surface: #FAFAF8;        /* subtle off-white for inset cards */
+  --ink: #0A0A0A;
+  --fg: #0A0A0A;
+  --dim: rgba(10, 10, 10, 0.55);
+  --line: #0A0A0A;
+  --rule: rgba(10, 10, 10, 0.88);
+  --border: 1px solid #0A0A0A;
+  /* Pop-art accents. The 4 dossier axes get their own hue; article heroes rotate.
+     Coral is the passion, yellow is the alarm, navy is the formal, teal is cool. */
   --coral: #EF6A5B;
-  --navy: #11364B;
+  --coral-2: #D63E2D;
   --yellow: #F0B83A;
+  --yellow-2: #D49C12;
+  --navy: #11364B;
+  --navy-2: #0B2331;
   --teal: #55B8B1;
+  --teal-2: #3A9C95;
   --sky: #7FC8DD;
   --fail: #B9473F;
+  --amber: var(--coral);     /* legacy alias */
+  --neutral-pale: #F4F4F2;
+  --neutral-line: #D5D5D0;
+  /* Type system unchanged: Archivo / Spectral / IBM Plex Mono. */
   --font-body: 'Archivo', system-ui, sans-serif;
   --font-display: 'Archivo', system-ui, sans-serif;
   --font-essay: 'Spectral', 'Georgia', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --shell: 1240px;
   --pad: 20px;
+}
+
+/* Dark mode: invert canvas + ink. Accents stay. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0A0A0A;
+    --canvas: #0A0A0A;
+    --paper-2: #161616;
+    --surface: #1F1F1F;
+    --ink: #FAFAF8;
+    --fg: #FAFAF8;
+    --dim: rgba(250, 250, 250, 0.55);
+    --line: #FAFAF8;
+    --rule: rgba(250, 250, 250, 0.88);
+    --border: 1px solid #FAFAF8;
+    --neutral-pale: #1A1A1A;
+    --neutral-line: #2A2A2A;
+  }
 }
 /* Design tokens lock the dashboard shell (height:100dvh; overflow:hidden).
    Do NOT write `overflow: visible` then `overflow-x: hidden` — Lightning CSS
@@ -255,9 +279,10 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .mast-nick { color: var(--amber); font-family: var(--font-mono); }
 .mast-line { color: var(--dim); max-width: 68ch; margin-top: var(--space-xs); }
 
-.metric-strip { display: grid; grid-template-columns: 1fr; border-top: var(--border); border-left: var(--border); margin: var(--space-lg) 0; }
+.metric-strip { display: grid; grid-template-columns: 1fr; border: 1px solid var(--ink); margin: 24px 0 16px; }
 @media (min-width: 360px) { .metric-strip { grid-template-columns: repeat(2, 1fr); } }
-.mcell { border-right: var(--border); border-bottom: var(--border); padding: var(--space-md); min-width: 0; }
+.mcell { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: var(--space-md); min-width: 0; }
+.mcell:nth-child(2n) { border-right: 0; }
 .mcell .lab { display: block; color: var(--dim); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: var(--space-xs); }
 .mcell .val { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 /* Display tier, capped to its column. An 8-character figure ($266,700) at the full 32px
@@ -1764,4 +1789,150 @@ main.shell { padding-top: var(--space-md); }
   margin: 12px 0 4px;
   max-width: 72ch;
   line-height: 1.4;
+}
+
+/* ── TOP-4 DOSSIER TILES ──────────────────────────────────────────────────────
+   The first thing a collector wants to know: Rarity, Demand, Provenance,
+   Resellability. Each tile is a pop-art color block, not a card. Color is the
+   signal strength; the number is the value. Three states -- STRONG, NEUTRAL,
+   WEAK -- with a symbol + label so color-blind users read the same info. */
+.top4 {
+  margin: 32px 0 8px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 24px 0 22px;
+  background: var(--bg);
+  position: relative;
+}
+.top4::before, .top4::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 8px; background:
+    repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 6px);
+}
+.top4::before { top: -2px; }
+.top4::after { bottom: -2px; }
+.top4-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.top4-head .eyebrow { margin: 0; }
+.top4-rule { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--dim); margin: 0; }
+.top4-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--ink); }
+.top4-tile {
+  position: relative; padding: 20px 18px 18px; min-height: 168px; display: flex; flex-direction: column; gap: 4px;
+  border-bottom: 1px solid var(--ink); background: var(--bg); color: var(--ink);
+  transition: background 120ms ease, color 120ms ease;
+}
+.top4-tile:last-child { border-bottom: 0; }
+.top4-tile-symbol { position: absolute; top: 12px; right: 14px; font-size: 22px; line-height: 1; font-weight: 700; opacity: 0.55; }
+.top4-tile-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: inherit; opacity: 0.7; }
+.top4-tile-num { font-family: var(--font-display); font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.top4-tile-caption { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; margin-top: auto; padding-top: 12px; }
+/* Strong = full color, white text. Neutral = pale tint, ink text. Weak = no fill, dim text. */
+.top4-tile--strong.top4-hue--coral { background: var(--coral); color: #FFFFFF; }
+.top4-tile--strong.top4-hue--yellow { background: var(--yellow); color: var(--ink); }
+.top4-tile--strong.top4-hue--navy { background: var(--navy); color: #FFFFFF; }
+.top4-tile--strong.top4-hue--teal { background: var(--teal); color: #FFFFFF; }
+.top4-tile--neutral.top4-hue--coral { background: #FBE5E2; color: var(--ink); border-left: 0; }
+.top4-tile--neutral.top4-hue--yellow { background: #FCEFC8; color: var(--ink); }
+.top4-tile--neutral.top4-hue--navy { background: #DDE7EE; color: var(--ink); }
+.top4-tile--neutral.top4-hue--teal { background: #DDEEEF; color: var(--ink); }
+.top4-tile--strong .top4-tile-symbol { opacity: 1; }
+.top4-tile--weak { background: var(--bg); color: var(--dim); }
+.top4-tile--weak .top4-tile-symbol { opacity: 0.4; }
+.top4-meta { font-size: 11px; letter-spacing: 0.04em; color: var(--dim); margin: 12px 0 0; max-width: 72ch; }
+@media (min-width: 720px) {
+  .top4-grid { grid-template-columns: repeat(2, 1fr); }
+  .top4-tile { border-right: 1px solid var(--ink); border-bottom: 0; }
+  .top4-tile:nth-child(2n) { border-right: 0; }
+  .top4-tile:nth-child(1), .top4-tile:nth-child(2) { border-bottom: 1px solid var(--ink); }
+}
+@media (min-width: 980px) {
+  .top4-grid { grid-template-columns: repeat(4, 1fr); }
+  .top4-tile { border-right: 1px solid var(--ink); border-bottom: 0; }
+  .top4-tile:nth-child(1), .top4-tile:nth-child(2) { border-bottom: 0; }
+  .top4-tile:last-child { border-right: 0; }
+  .top4-tile-num { font-size: 72px; }
+}
+
+/* ── GUIDE (article) PAGES ───────────────────────────────────────────────────
+   Each /guides/:slug article is a pop-art color-block hero on top, single-column
+   body in the middle, and a quiet footer pointing back to the register. The
+   hero color comes from the article's hue prop; the body uses the same ink-on-paper
+   palette as the dossier. The score chips reuse the dossier's 3-state coloring
+   but in compact form for the inline table. */
+.guide { max-width: 920px; }
+.guide-hero { position: relative; margin: 0 0 36px; padding: 56px 28px 40px; border: 2px solid var(--ink); color: var(--ink); }
+.guide-hero--coral { background: var(--coral); color: #FFFFFF; }
+.guide-hero--yellow { background: var(--yellow); color: var(--ink); }
+.guide-hero--navy { background: var(--navy); color: #FFFFFF; }
+.guide-hero--teal { background: var(--teal); color: #FFFFFF; }
+.guide-hero--coral .guide-hero-subtitle, .guide-hero--coral .guide-hero-lede { color: rgba(255, 255, 255, 0.92); }
+.guide-hero--navy .guide-hero-subtitle, .guide-hero--navy .guide-hero-lede { color: rgba(255, 255, 255, 0.88); }
+.guide-hero--teal .guide-hero-subtitle, .guide-hero--teal .guide-hero-lede { color: rgba(255, 255, 255, 0.92); }
+.guide-hero--yellow .guide-hero-subtitle, .guide-hero--yellow .guide-hero-lede { color: rgba(10, 10, 10, 0.78); }
+.guide-hero-stripe { display: flex; align-items: baseline; gap: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; }
+.guide-hero-num { font-family: var(--font-display); font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; opacity: 0.78; }
+.guide-hero-mins { margin-left: auto; padding-top: 6px; }
+.guide-hero-title { font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 56px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin: 8px 0 16px; max-width: 22ch; }
+.guide-hero-subtitle { font-family: var(--font-display); font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 16px; max-width: 56ch; }
+.guide-hero-lede { font-family: var(--font-essay); font-size: 16px; line-height: 1.6; font-style: italic; margin: 0; max-width: 60ch; }
+.guide-body { font-family: var(--font-essay); font-size: 18px; line-height: 1.75; color: var(--ink); }
+.guide-body p { margin: 0 0 24px; max-width: 64ch; }
+.guide-body h2 { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--ink); border-top: 2px solid var(--ink); padding-top: 16px; }
+.guide-body h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin: 32px 0 8px; color: var(--ink); }
+.guide-body ol, .guide-body ul { margin: 0 0 24px; padding-left: 24px; }
+.guide-body li { margin-bottom: 12px; }
+.guide-body strong { color: var(--ink); font-weight: 600; }
+.guide-body em { font-style: italic; color: var(--coral-2); }
+/* Callouts inside an article: good/bad/note. The color comes from the hue. */
+.callout { padding: 18px 22px; margin: 24px 0; border-left: 4px solid; background: var(--surface); max-width: 64ch; }
+.callout--good { border-color: var(--teal); }
+.callout--bad { border-color: var(--coral); }
+.callout--note { border-color: var(--navy); }
+.callout strong { display: block; margin-bottom: 6px; }
+.callout ul { margin: 8px 0 0 0; padding-left: 20px; }
+.callout li { margin-bottom: 4px; }
+.guide-nextup { margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--ink); font-family: var(--font-display); }
+.guide-nextup a { color: var(--coral); font-weight: 600; }
+.guide-nextup a:hover { color: var(--coral-2); }
+.guide-foot { margin: 48px 0 0; padding: 24px 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 24px; align-items: center; flex-wrap: wrap; }
+.guide-foot-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink); }
+.guide-foot-link:hover { color: var(--coral); }
+.guide-foot-meta { font-size: 11px; letter-spacing: 0.04em; color: var(--dim); margin: 0; max-width: 56ch; }
+
+/* Score chips inside the article's pick table. Same 3-state as the dossier tiles. */
+.pick-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-family: var(--font-body); font-size: 14px; }
+.pick-table thead th { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--ink); font-weight: 500; }
+.pick-table tbody td { padding: 14px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.pick-table tbody tr:last-child td { border-bottom: 0; }
+.pick-table tbody tr:hover { background: var(--surface); }
+.score-chip { display: inline-block; padding: 2px 8px; margin: 2px 2px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.4; }
+.score-chip--strong { background: var(--coral); color: #FFFFFF; }
+.score-chip--neutral { background: var(--neutral-pale); color: var(--ink); border: 1px solid var(--rule); }
+.score-chip--weak { background: transparent; color: var(--dim); border: 1px solid var(--rule); }
+.score-axis--rarity { border-left: 3px solid var(--coral); }
+.score-axis--demand { border-left: 3px solid var(--yellow); }
+.score-axis--provenance { border-left: 3px solid var(--navy); }
+.score-axis--resellability { border-left: 3px solid var(--teal); }
+
+/* ── HOME: GUIDES SECTION ──────────────────────────────────────────────────
+   A 3-card row on the home page that links to the articles. Each card is a
+   pop-art color block with the article number, title, reading time. */
+.guides-row { padding: 56px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.guides-row .section-rule { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+.guides-row h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin: 0; }
+.guides-row .sticker-inline { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.guides-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--ink); }
+.guide-card { display: flex; flex-direction: column; padding: 28px 24px; min-height: 280px; color: var(--ink); border-bottom: 1px solid var(--ink); text-decoration: none; transition: transform 120ms ease; }
+.guide-card:last-child { border-bottom: 0; }
+.guide-card:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--ink); }
+.guide-card--coral { background: var(--coral); color: #FFFFFF; }
+.guide-card--yellow { background: var(--yellow); color: var(--ink); }
+.guide-card--navy { background: var(--navy); color: #FFFFFF; }
+.guide-card-num { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; opacity: 0.78; }
+.guide-card-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin: 12px 0 16px; }
+.guide-card-subtitle { font-family: var(--font-display); font-size: 14px; line-height: 1.45; font-weight: 500; opacity: 0.85; margin: 0 0 24px; }
+.guide-card-mins { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; margin-top: auto; }
+.guide-card-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 8px; padding-top: 8px; border-top: 1px solid currentColor; opacity: 0.9; }
+@media (min-width: 720px) {
+  .guides-grid { grid-template-columns: repeat(3, 1fr); }
+  .guide-card { border-right: 1px solid var(--ink); border-bottom: 0; min-height: 360px; }
+  .guide-card:last-child { border-right: 0; }
 }

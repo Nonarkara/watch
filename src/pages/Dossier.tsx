@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
-import Meter from '../components/Meter.tsx'
 import Sparkline from '../components/Sparkline.tsx'
+import Top4Tiles from '../components/Top4Tiles.tsx'
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
 
 export default function Dossier() {
@@ -32,7 +32,7 @@ export default function Dossier() {
   }
   const starter = c.narrative.starter_alternative
     ? data.cards.find((x) => x.id === c.narrative.starter_alternative) : undefined
-  const { estimate, premium, change_1y, change_5y, scarcity, collectibility, liquidity, confidence } = c.computed
+  const { estimate, premium, change_1y, change_5y, liquidity, confidence } = c.computed
   const msrpNow = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
 
   return (
@@ -77,6 +77,8 @@ export default function Dossier() {
         
       </div>
       </div>
+
+      <Top4Tiles card={c} />
 
       <div className="dsr-tabs" role="tablist" aria-label="Dossier view">
         <button type="button" role="tab" aria-selected={view === 'evidence'}
@@ -124,24 +126,16 @@ export default function Dossier() {
         <ChangeCell label="1 year" ch={change_1y} />
         <ChangeCell label="5 years" ch={change_5y} />
         <div className="mcell">
-          <span className="lab">Scarcity {scarcity.value >= 75 ? '· GRAIL' : ''}</span>
-          <span className="val big">{scarcity.value}</span>
-          <span className="note mono">{scarcity.tier?.toUpperCase()} · {scarcity.k_of[0]}/{scarcity.k_of[1]} SIGNALS</span>
-          <Meter value={scarcity.value} />
-          <Why text={scarcity.limitation} />
-        </div>
-        <div className="mcell">
-          <span className="lab">Collectibility</span>
-          <span className="val big">{collectibility.value}</span>
-          <span className="note mono">{collectibility.k_of[0]}/{collectibility.k_of[1]} COMPONENTS</span>
-          <Meter value={collectibility.value} />
-          <Why text={collectibility.limitation} />
-        </div>
-        <div className="mcell">
           <span className="lab">Liquidity</span>
           <span className="val big">{liquidity.tier !== 'Unknown' ? liquidity.tier.toUpperCase() : dash}</span>
           <span className="note mono">{liquidity.sales_per_year} TRACKED SALES / YR</span>
           <Why text={liquidity.limitation} />
+        </div>
+        <div className="mcell">
+          <span className="lab">Resellability</span>
+          <span className="val big">{c.computed.resellability.value != null ? c.computed.resellability.value : dash}</span>
+          <span className="note mono">{c.computed.resellability.tier.toUpperCase()} &middot; {c.computed.resellability.sales_per_year} SALE{c.computed.resellability.sales_per_year === 1 ? '' : 'S'}/YR</span>
+          <Why text={c.computed.resellability.limitation} />
         </div>
         <div className="mcell">
           <span className="lab">Data confidence</span>
@@ -158,12 +152,6 @@ export default function Dossier() {
           <span className={'val big' + (c.computed.attention.value == null ? ' dim' : '')}>{c.computed.attention.value ?? dash}</span>
           <span className="note mono">{c.computed.attention.value == null ? reasonText(c.computed.attention.reason) : `${c.computed.attention.screen_count} EXACT FILM/TV SIGHTING${c.computed.attention.screen_count === 1 ? '' : 'S'}`}</span>
           <Why text={c.computed.attention.limitation} />
-        </div>
-        <div className="mcell pressure-cell">
-          <span className="lab">Supply × attention</span>
-          <span className={'val big' + (c.computed.attention.pressure == null ? ' dim' : '')}>{c.computed.attention.pressure ?? dash}</span>
-          <span className="note mono">RESEARCH PRESSURE · NOT PRICE</span>
-          <Why text={c.computed.attention.price_response.limitation} />
         </div>
       </div>
 
