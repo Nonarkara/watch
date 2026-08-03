@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import MarketChart from '../components/MarketChart.tsx'
 import IndexRangeChart from '../components/IndexRangeChart.tsx'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 export default function Economy() {
   const data = useDataset()
@@ -14,13 +15,33 @@ export default function Economy() {
 
   return (
     <div className="economy-page">
+      <HeroBanner
+        bg="/heroes/art-modern.jpg"
+        hue="navy"
+        size="lg"
+        alt="Pop-art collage of contemporary collectors and brand watches — the attention × fixed supply lab"
+        eyebrow="ATTENTION × FIXED SUPPLY LAB"
+        title={<>A spotlight is<br />not a mint.</>}
+        subtitle={
+          <>
+            A screen appearance may increase attention to a watch. It does not reduce supply.
+            This lab keeps those two ideas separate, then shows where demand pressure could
+            deserve closer study.
+          </>
+        }
+        primary={{ to: '#the-numbers', label: 'SEE THE NUMBERS' }}
+        secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
+        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
+        meta={
+          <div className="pop-panel economy-meta">
+            <span className="bubble-kicker mono">NO FORECASTS</span>
+            <strong>NO FAKE RETURNS</strong>
+            <span>The lab is a measurement instrument, not a tip sheet. The indices are computed from cited comps; the facts cite the source by name and link.</span>
+          </div>
+        }
+      />
+
       <Link to="/" className="crumb">← HOME</Link>
-      <div className="masthead economy-masthead">
-        <p className="eyebrow">ATTENTION × FIXED SUPPLY LAB</p>
-        <h1 className="pagetitle">A spotlight is not a mint.</h1>
-        <p className="lede">A screen appearance may increase attention to a watch. It does not reduce supply. This lab keeps those two ideas separate, then shows where demand pressure could deserve closer study.</p>
-        <div className="sticker">NO FORECASTS<br />NO FAKE RETURNS</div>
-      </div>
 
       <section className="sect" id="the-numbers">
         <div className="section-rule">
