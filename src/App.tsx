@@ -11,6 +11,7 @@ const NAV = [
   { to: '/brands', label: 'Brands' },
   { to: '/screen', label: 'On screen' },
   { to: '/watchmaking', label: 'Watchmaking' },
+  { to: '/bible', label: 'Bible' },
   { to: '/guides', label: 'Guides' },
   { to: '/economy', label: 'Economy' },
   { to: '/about', label: 'About' },
@@ -28,6 +29,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/data': 'Data Pipeline — Time Pop',
   '/glossary': 'Glossary — Time Pop',
   '/watchmaking': 'Watchmaking — Time Pop',
+  '/bible': 'The Bible — Time Pop',
   '/guides': 'Guides — Time Pop',
   '/guides/feeling': 'A Watch Is a Feeling — Time Pop',
   '/guides/1k': 'Starting with $1,000 — Time Pop',
@@ -104,6 +106,7 @@ export default function App() {
             <NavLink to="/about">ABOUT</NavLink>
             <NavLink to="/brands">BRANDS</NavLink>
             <NavLink to="/watchmaking">WATCHMAKING</NavLink>
+            <NavLink to="/bible">BIBLE</NavLink>
             <NavLink to="/guides">GUIDES</NavLink>
             <NavLink to="/pom">UNCLE POM\'S</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>

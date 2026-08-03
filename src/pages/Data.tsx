@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { BIBLE_STATS } from '../lib/bible'
 
 type DataState = {
   last_attempt: string
@@ -157,6 +158,12 @@ export default function Data() {
             })}
           </tbody>
         </table>
+        <p className="data-sources-foot dim mono">
+          THE BIBLE — a curated reading list of {BIBLE_STATS.count} published watch books — is also
+          a data source. Every entry in <code>src/lib/bible.ts</code> carries its own public source
+          (Open Library, publisher, Wikipedia) and its watch_ids cross-references feed the
+          “Cited in” panel on dossier pages. See <Link to="/bible">/bible →</Link>.
+        </p>
       </section>
 
       <section className="data-pipeline">
