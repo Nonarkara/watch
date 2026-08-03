@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import HeroBanner from '../components/HeroBanner.tsx'
 import MarketChart from '../components/MarketChart.tsx'
 
 // A compact sketch of the four theories, hand-drawn in SVG so it always renders.
@@ -203,27 +204,34 @@ export default function About() {
 
   return (
     <div className="about-page">
-      <Link to="/" className="crumb">← HOME</Link>
+      <HeroBanner
+        bg="/heroes/art-mixed-bond.jpg"
+        hue="navy"
+        size="md"
+        alt="Pop-art collage of collectors with watches — the curator and the register"
+        eyebrow="ABOUT · TIME POP"
+        title={<>A register that refuses to lie,<br />a system that refuses to guess.</>}
+        subtitle={
+          <>
+            Time Pop is a free, evidence-first catalog of around 300 luxury and collectible
+            watches. This page is the story of how it was built, what its theories are,
+            and how to read it as a buyer, a seller, a curious observer, or a person
+            whose hobby just produced a $30,000 question.
+          </>
+        }
+        primary={{ to: '#theories', label: 'READ THE FOUR THEORIES ↓' }}
+        secondary={{ to: '/methodology', label: 'FULL METHODOLOGY' }}
+        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
+        meta={
+          <div className="pop-panel about-meta">
+            <span className="bubble-kicker mono">THE FOUNDER</span>
+            <strong>One watch on my wrist. 261 in the register.</strong>
+            <span>The system refuses the same answer the founder would refuse if he were the buyer. That is the proof of the system.</span>
+          </div>
+        }
+      />
 
-      <header className="about-hero">
-        <p className="eyebrow">ABOUT · TIME POP</p>
-        <h1 className="about-masthead">
-          <span className="about-essay">
-            A register that <em>refuses to lie</em>,<br />
-            and a system that <em>refuses to guess</em>.
-          </span>
-        </h1>
-        <p className="lede about-lede">
-          Time Pop is a free, evidence-first catalog of around 300 luxury and collectible
-          watches. This page is the story of how it was built, what its theories are, and how to read it
-          as a buyer, a seller, a curious observer, or a person whose hobby just produced a $30,000 question.
-        </p>
-        <div className="hero-actions">
-          <a className="btn" href="#theories">READ THE FOUR THEORIES ↓</a>
-          <Link className="text-link mono" to="/methodology">FULL METHODOLOGY</Link>
-          <Link className="text-link mono" to="/paper">WORKING PAPER ↗</Link>
-        </div>
-      </header>
+      <Link to="/" className="crumb">← HOME</Link>
 
       <section className="about-statement" aria-label="Project at a glance">
         <div className="ast-row">

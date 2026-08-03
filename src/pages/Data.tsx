@@ -120,6 +120,127 @@ export default function Data() {
         </div>
       </section>
 
+      <section className="data-methodology" aria-label="How we work, in full">
+        <h2>How we work, in full.</h2>
+        <p className="data-methodology-lede">
+          A watch enters the register the way a good answer enters a room: it carries its
+          sources. Everything that follows is the work of being honest about that — a single
+          loop that runs from <em>is this watch worth a dossier</em> to <em>what number can
+          we publish</em> to <em>what will we refuse to invent</em>. We will walk through it
+          once, end to end.
+        </p>
+
+        <h3>1. The first question: is this watch worth a dossier?</h3>
+        <p>
+          A reference makes the cut when it satisfies at least one of three conditions. The
+          reference is in <strong>the cultural conversation</strong> — there is published
+          journalism, an auction record, a film placement, or a brand-heritage story that the
+          site can point to. The reference is in <strong>active production or active resale</strong> —
+          the catalogue has it or the secondary market trades it, and a reader in 2026 can
+          plausibly go out and buy one. Or the reference is in <strong>the field's standard
+          bibliography</strong> — the watch literature we curate in the Bible tab treats it as
+          a canonical example. Without one of those three, we skip the dossier. There are
+          roughly {data.count} watches in the register today; there are roughly 20,000
+          references that would qualify as "luxury watches" if you grep Wikipedia. The cut
+          is real.
+        </p>
+
+        <h3>2. The dossier, in one sitting</h3>
+        <p>
+          A dossier begins as a JSON file under <code>data/cards/&lt;id&gt;.json</code>. The
+          schema requires six blocks, in this order: <strong>identity</strong> (brand, reference,
+          caliber, case, one-liner), <strong>retail</strong> (MSRP history with a cited source for
+          every data point), <strong>market_evidence</strong> (comps: every comp has a date, a
+          price, a venue, a URL, and a box-and-papers flag), <strong>scarcity_inputs</strong>
+          (limited-edition metadata and the waitlist evidence if any),
+          <strong>provenance_events</strong> (a timeline of dated, sourced events: releases,
+          celebrity ownerships, auction records, museum placements), and
+          <strong>narrative</strong> (a story of the watch in plain prose, with collector
+          notes that say what the model is for). The card never invents a number. If the
+          comps do not exist, the comps are not present, and the published number will be a
+          <code>—</code>, not a guess.
+        </p>
+
+        <h3>3. The honest ladder, top to bottom</h3>
+        <p>
+          For each card we then build, top to bottom, a ladder of what we are willing to
+          publish. The top rungs are <em>identity</em>, <em>retail at launch</em>, and
+          <em>production timeline</em> — these are set by the brand and we treat them as
+          citation-level. The next rung is <strong>sale evidence</strong> — comparable sales
+          at the same configuration, with the same case material, the same dial variant. A
+          single comp is an anecdote; three comps at a venue, in a window, are a market. The
+          next rung is <strong>provenance</strong> — a sourced event that puts a number on the
+          watch's cultural weight (Newman's own Daytona, the 5960P Phillips result, the
+          Murph prop release). The next rung is <strong>screen and media</strong> — exact
+          reference matches in film or TV, the Ted Talks the watch appeared on, the
+          magazine covers. The last rungs are <em>liquidity</em> (how many comps per year)
+          and <em>confidence</em> (tier of venue, recency of comp, number of venues). Below
+          all of these: <strong>the refusal</strong>. The dossier publishes a
+          <code> —</code> where the evidence is too thin. Today,{' '}
+          <strong>{data.count - cardStats.withComps} of {data.count}</strong> dossiers sit on
+          the refusal rung. That is the system working.
+        </p>
+
+        <h3>4. From card to wire</h3>
+        <p>
+          Every card passes through <code>scripts/validate_card.mjs</code> before the build
+          sees it. The validator checks schema, dates, money shapes, license strings, and a
+          hard <em>comparable-or-justify</em> rule on variant sales: a non-comparable sale
+          cannot enter the estimator unless its condition is spelled out in plain text. One
+          validation error, and the build refuses to publish — the broken card is rejected,
+          the rest of the dataset ships. The estimate, premium, scarcity, collectibility,
+          liquidity, attention, and confidence blocks are then computed by
+          <code>scripts/lib/indices.mjs</code>. Each block carries a <code>limitation</code>
+          string so the UI can say why a number is a <code>—</code> instead of inventing a
+          value. The <code>build_indices.mjs</code> script then strips the full comps list
+          from the wire and publishes at most 5 notable sales per card (largest by price, with
+          the box-and-papers flags). The full comp list stays committed in
+          <code>data/cards/</code> and is reproducible from any clone.
+        </p>
+
+        <h3>5. The four axes, by reference</h3>
+        <p>
+          Every dossier publishes the same four metrics, on the same scale. <strong>Rarity</strong>
+          {' '}is the Scarcity Index: a five-signal composite of brand production, limited-edition
+          status, waitlist evidence, auction appearances, and discontinued production. Disclosed
+          as <em>k-of-5</em> so a reader can see the signal count. <strong>Demand</strong> is the
+          Collectibility Index: comps per year, venue breadth, and the press pressure on the
+          reference. <strong>Provenance</strong> is the count of sourced events on the timeline,
+          plus a "provenance premium" reading for the iconic cases. <strong>Resellability</strong>
+          is the comp velocity: a 0-100 score with a High / Medium / Low / Unknown tier. None
+          of these are the catalog list price, none are the brand's MSRP, none are the
+          "estimated retail replacement" that the second-tier guides publish. The system
+          refuses to publish that number. It is opinion, not evidence, and the system is
+          built on the opposite discipline.
+        </p>
+
+        <h3>6. Build, test, deploy</h3>
+        <p>
+          The build is one command: <code>npm run build</code>. It calls
+          <code> build_rolex_catalog.mjs</code>, then <code>build_screen_sightings.mjs</code>,
+          then <code>build_indices.mjs</code>, then the TypeScript compiler, then{' '}
+          <code>vite build</code>. The output is a <code>dist/</code> folder. The deploy is
+          one command: <code>wrangler pages deploy dist --branch main</code>. The build is
+          deterministic — the same inputs produce the same wire output, which is why a
+          dossier published in 2026 still has the same numbers a year later unless we
+          deliberately refresh. The audit script is <code>npm run data:audit</code>; the
+          self-check is <code>npm test</code>; the freshness check is{' '}
+          <code>npm run data:status</code>. All three are idempotent, all three write to
+          committed files only when the result changes.
+        </p>
+
+        <h3>7. The rule, restated</h3>
+        <p>
+          The system has one rule: <em>no cited comps, no estimate</em>. Every published
+          number on the site traces to at least three comparable sales at cited venues on
+          cited dates, or it does not publish. The visible refusals — the
+          <code>—</code>s on the page — are load-bearing. They are what make the published
+          numbers believable. A reader who sees <strong>262 / 35 / 35 / 169 / 122 / 14 / 122 / 0</strong>
+          {' '}on the home hero can read those numbers and trust them precisely because the
+          last one is a 0, not a guess.
+        </p>
+      </section>
+
       <section className="data-sources">
         <h2>Upstream sources</h2>
         <p className="dim">
