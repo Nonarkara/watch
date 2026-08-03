@@ -71,3 +71,26 @@ assert.ok(dataSrc.includes('computed.estimate.value != null'),
 assert.ok(!dataSrc.includes('data.count - cardStats.withComps'),
   'having one comp is not the same as clearing the estimate gate');
 console.log("✓ Data refusal count follows the publishable-estimate gate");
+
+// The Pom page is the worked example for the valuation system. Its calculator
+// must keep scenario math separate from the evidence-derived estimate, and its
+// dossier buttons must never point at invented or renamed card ids.
+const pomPageSrc = readFileSync(join(ROOT, "src/pages/Pom.tsx"), "utf8");
+const pomDataSrc = readFileSync(join(ROOT, "src/lib/pom.ts"), "utf8");
+assert.match(pomPageSrc, /const HORIZONS = \[1, 2, 3, 10, 20\] as const/,
+  'Pom value lab must publish the five requested holding periods');
+assert.ok(pomPageSrc.includes('Math.pow(1 + annualRate / 100, years)'),
+  'Pom projection must use explicit annual compounding');
+assert.ok(pomPageSrc.includes('computed.estimate.value'),
+  'Pom value lab must distinguish a computed estimate from a user scenario');
+const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
+assert.equal(Math.round(compoundBenchmark), 26_533,
+  '20-year 5% compound benchmark must remain stable');
+
+const publicData = JSON.parse(readFileSync(join(ROOT, "public/data.json"), "utf8"));
+const publicCardIds = new Set(publicData.cards.map((card) => card.id));
+const pomDossierIds = [...pomDataSrc.matchAll(/dossierId:\s*'([^']+)'/g)].map((match) => match[1]);
+const deadPomDossiers = pomDossierIds.filter((id) => !publicCardIds.has(id));
+assert.deepEqual(deadPomDossiers, [],
+  `Pom dossier links missing from public data: ${deadPomDossiers.join(', ')}`);
+console.log("✓ Pom value lab horizons, compounding, estimate gate, and dossier links hold");

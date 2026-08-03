@@ -1,37 +1,39 @@
 {
-  "as_of": "Q2 2026",
-  "compiled": "2026-08-02",
+  "as_of": "July 2026",
+  "compiled": "2026-08-04",
   "limitation": "Compiled from named third-party industry reporting. Ranges are shown where sources disagree. Time Pop republishes these figures as market context and does not verify them independently — they never enter the register's own computed metrics.",
   "indices": [
     {
       "id": "watchcharts_overall",
       "label": "WatchCharts Overall Market Index",
-      "low_pct": 5.1,
-      "high_pct": 8.2,
+      "low_pct": 8.7,
+      "high_pct": 9.4,
       "window": "12 months",
       "sources": [
-        { "name": "WatchCharts market reporting" },
-        { "name": "Knight Frank, The Wealth Report 2026 (Luxury Investment Index)", "url": "https://www.knightfrank.com/wealthreport" }
+        { "name": "WatchCharts Overall Market Index — July 16, 2026", "url": "https://watchcharts.com/watches/price_index" },
+        { "name": "WatchCharts Brand Indexes snapshot — July 2026", "url": "https://watchcharts.com/watches/brand_indexes" }
       ]
     },
     {
       "id": "patek_index",
       "label": "Patek Philippe Market Index",
-      "low_pct": 12.1,
-      "high_pct": 16.2,
+      "low_pct": 18.7,
+      "high_pct": 19.4,
       "window": "12 months",
       "sources": [
-        { "name": "WatchCharts brand index, as covered in Q1–Q2 2026 market reports" }
+        { "name": "WatchCharts Patek Philippe Market Index — July 16, 2026", "url": "https://watchcharts.com/watches/brand_index/patek%20philippe" },
+        { "name": "WatchCharts Brand Indexes snapshot — July 2026", "url": "https://watchcharts.com/watches/brand_indexes" }
       ]
     },
     {
       "id": "rolex_index",
       "label": "Rolex Market Index",
-      "low_pct": 4.6,
-      "high_pct": 6.7,
+      "low_pct": 6.4,
+      "high_pct": 7.2,
       "window": "12 months",
       "sources": [
-        { "name": "WatchCharts brand index; secondary-market reporting on Rolex, 2026" }
+        { "name": "WatchCharts Rolex Market Index — July 13, 2026", "url": "https://watchcharts.com/watches/brand_index/rolex" },
+        { "name": "WatchCharts Brand Indexes snapshot — July 2026", "url": "https://watchcharts.com/watches/brand_indexes" }
       ]
     }
   ],

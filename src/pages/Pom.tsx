@@ -12,9 +12,11 @@
 // The page never asks how the watches were paid for. It scores what is
 // public, the same way the rest of the site does.
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBanner from '../components/HeroBanner.tsx'
+import { useDataset } from '../lib/dataset-context.ts'
+import type { Card, ContextIndex } from '../lib/data.ts'
 import { POM_AGGREGATE, POM_BIO, POM_COLLECTION, type PomAxisTier, type PomWatch } from '../lib/pom.ts'
 
 function axisClass(t: PomAxisTier): string {
@@ -27,9 +29,275 @@ function axisClass(t: PomAxisTier): string {
 }
 
 function formatPrice(w: PomWatch): string {
-  if (w.price_thb_range) return w.price_thb_range
+  if (w.price_thb_range) {
+    const [low, high] = w.price_thb_range
+    return `${(low / 1_000_000).toFixed(2).replace(/\.?0+$/, '')}M – ${(high / 1_000_000).toFixed(2).replace(/\.?0+$/, '')}M THB`
+  }
   if (w.price_thb_at_publication == null) return '—'
   return `${(w.price_thb_at_publication / 1_000_000).toFixed(2).replace(/\.?0+$/, '')}M THB`
+}
+
+const HORIZONS = [1, 2, 3, 10, 20] as const
+const DEFAULT_ANNUAL_RATE = 5
+
+function money(value: number, currency: 'THB' | 'USD'): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+  }).format(Math.round(value))
+}
+
+function signedMoney(value: number, currency: 'THB' | 'USD'): string {
+  return `${value >= 0 ? '+' : '−'}${money(Math.abs(value), currency)}`
+}
+
+function compoundValue(baseline: number, annualRate: number, years: number): number {
+  return baseline * Math.pow(1 + annualRate / 100, years)
+}
+
+function ProjectionTable({ baseline, annualRate, currency }: {
+  baseline: number
+  annualRate: number
+  currency: 'THB' | 'USD'
+}) {
+  return (
+    <div className="pom-projection-wrap">
+      <table className="pom-projection-table" aria-label={`Compound value scenario at ${annualRate}% annually`}>
+        <thead>
+          <tr><th>Hold</th><th>Modeled value</th><th>Change from start</th></tr>
+        </thead>
+        <tbody>
+          {HORIZONS.map((years) => {
+            const projected = compoundValue(baseline, annualRate, years)
+            return (
+              <tr key={years}>
+                <th scope="row">{years} {years === 1 ? 'year' : 'years'}</th>
+                <td>{money(projected, currency)}</td>
+                <td className={projected >= baseline ? 'pom-gain' : 'pom-loss'}>{signedMoney(projected - baseline, currency)}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+function RateControl({ value, onChange, context, id }: {
+  value: number
+  onChange: (value: number) => void
+  context: ContextIndex
+  id: string
+}) {
+  const source = context.sources.find((item) => item.url)
+  return (
+    <div className="pom-rate-control">
+      <div className="pom-rate-label">
+        <label htmlFor={id}>Annual growth assumption</label>
+        <output htmlFor={id}>{value.toFixed(1)}%</output>
+      </div>
+      <input id={id} type="range" min="-10" max="20" step="0.5" value={value}
+        onChange={(event) => onChange(Number(event.target.value))} />
+      <div className="pom-rate-presets" aria-label="Growth assumption presets">
+        {[0, 5, 10].map((rate) => (
+          <button type="button" key={rate} aria-pressed={value === rate} onClick={() => onChange(rate)}>{rate}%</button>
+        ))}
+      </div>
+      <p>
+        You control this assumption. For context only, {context.label} was{' '}
+        <strong>+{context.low_pct}–{context.high_pct}%</strong> over {context.window} as of July 2026.
+        {source?.url && <> <a href={source.url} target="_blank" rel="noreferrer">Source ↗</a></>}
+        {' '}A trailing index is not a forecast for this reference.
+      </p>
+    </div>
+  )
+}
+
+function investmentRead(card: Card): { label: string; body: string; tone: string } {
+  if (card.computed.estimate.value == null) {
+    return {
+      label: 'NOT YET GRADEABLE',
+      body: 'There is no publishable market estimate. A user-entered baseline can run the arithmetic, but it cannot turn missing sales into investment evidence.',
+      tone: 'unknown',
+    }
+  }
+  const realChange = card.computed.change_1y.real_pct
+  if (realChange == null) {
+    return {
+      label: 'PRICEABLE, NOT FORECASTABLE',
+      body: `The system can price this reference from ${card.computed.estimate.n} comparable sales, but it cannot establish a one-year real trend. Treat the projection as a scenario, not a verdict.`,
+      tone: 'neutral',
+    }
+  }
+  if (realChange > 0 && ['High', 'Medium'].includes(card.computed.resellability.tier)) {
+    return {
+      label: 'EVIDENCE LEANS POSITIVE',
+      body: `The measured one-year real change is +${realChange}% and resellability is ${card.computed.resellability.tier.toLowerCase()}. That supports further research; it does not guarantee the next year.`,
+      tone: 'positive',
+    }
+  }
+  if (realChange > 0) {
+    return {
+      label: 'GAIN, THIN EXIT',
+      body: `The measured one-year real change is +${realChange}%, but resellability is ${card.computed.resellability.tier.toLowerCase()}. A paper gain matters less if the watch is difficult to sell.`,
+      tone: 'neutral',
+    }
+  }
+  return {
+    label: 'EVIDENCE LEANS CAUTIOUS',
+    body: `The measured one-year real change is ${realChange}% and resellability is ${card.computed.resellability.tier.toLowerCase()}. On current evidence, this is a watch to love before treating it as an investment.`,
+    tone: 'cautious',
+  }
+}
+
+function ValueLab() {
+  const data = useDataset()
+  const [tab, setTab] = useState<'collection' | 'watch'>('collection')
+  const [annualRate, setAnnualRate] = useState(DEFAULT_ANNUAL_RATE)
+  const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
+  const [selectedId, setSelectedId] = useState('rolex-116500ln')
+  const [manualWatchBaseline, setManualWatchBaseline] = useState('')
+  if (!data) return null
+
+  const byId = new Map(data.cards.map((card) => [card.id, card]))
+  const exactPomCards = POM_COLLECTION
+    .map((watch) => watch.dossierId ? byId.get(watch.dossierId) : null)
+    .filter((card): card is Card => Boolean(card))
+  const exactPomEstimates = exactPomCards.filter((card) => card.computed.estimate.value != null).length
+  const forecastReady = data.cards.filter((card) => card.computed.estimate.value != null).length
+  const sortedCards = [...data.cards].sort((a, b) =>
+    `${a.identity.brand} ${a.identity.reference}`.localeCompare(`${b.identity.brand} ${b.identity.reference}`))
+  const selectedCard = byId.get(selectedId) ?? sortedCards[0]
+  const enteredWatchBaseline = Number(manualWatchBaseline)
+  const watchBaseline = enteredWatchBaseline > 0
+    ? enteredWatchBaseline
+    : selectedCard.computed.estimate.value
+  const basketBaseline = Number(pomBaseline) > 0
+    ? Number(pomBaseline)
+    : POM_AGGREGATE.article_value_mid_thb
+  const overallIndex = data.market_context.indices.find((item) => item.id === 'watchcharts_overall')!
+  const watchIndex = data.market_context.indices.find((item) =>
+    item.id === (selectedCard.identity.brand === 'Rolex' ? 'rolex_index'
+      : selectedCard.identity.brand === 'Patek Philippe' ? 'patek_index' : 'watchcharts_overall')) ?? overallIndex
+  const read = investmentRead(selectedCard)
+
+  return (
+    <section className="pom-lab" id="value-lab" aria-labelledby="pom-lab-title">
+      <div className="pom-lab-head">
+        <div>
+          <p className="eyebrow">THE VALUE LAB · THE MATHEMATICS IN PUBLIC</p>
+          <h2 id="pom-lab-title">What might time do to the value?</h2>
+        </div>
+        <p>
+          Pick a starting value and an annual assumption. The lab compounds it across five holding
+          periods. It never promotes an assumption into an appraisal.
+        </p>
+      </div>
+
+      <div className="pom-lab-tabs" role="tablist" aria-label="Value lab mode">
+        <button type="button" role="tab" aria-selected={tab === 'collection'} aria-controls="pom-collection-panel"
+          onClick={() => setTab('collection')}>UNCLE POM'S 14</button>
+        <button type="button" role="tab" aria-selected={tab === 'watch'} aria-controls="pom-watch-panel"
+          onClick={() => setTab('watch')}>TRY YOUR WATCH · {data.count}</button>
+      </div>
+
+      {tab === 'collection' ? (
+        <div className="pom-lab-panel" id="pom-collection-panel" role="tabpanel">
+          <div className="pom-value-status">
+            <div>
+              <span className="mono">KNOWN 2018 ARTICLE ANCHOR</span>
+              <strong>{money(POM_AGGREGATE.article_value_low_thb, 'THB')}–{money(POM_AGGREGATE.article_value_high_thb, 'THB')}</strong>
+              <p>All 14 article-stated prices, with reported ranges preserved.</p>
+            </div>
+            <div className="pom-value-refusal">
+              <span className="mono">CURRENT APPRAISED TOTAL</span>
+              <strong>—</strong>
+              <p>{exactPomEstimates}/{POM_AGGREGATE.count} exact references clear today’s estimate gate. The system will not pretend the 2018 price list is a 2026 valuation.</p>
+            </div>
+          </div>
+
+          <div className="pom-lab-controls">
+            <label className="pom-baseline-field">
+              <span>Scenario starting value · THB</span>
+              <input type="number" min="1" step="100000" inputMode="numeric" value={pomBaseline}
+                onChange={(event) => setPomBaseline(event.target.value)} />
+              <small>Prefilled with the midpoint of the 2018 article range. Replace it with a current appraisal if you have one.</small>
+            </label>
+            <RateControl id="pom-collection-rate" value={annualRate} onChange={setAnnualRate} context={overallIndex} />
+          </div>
+
+          <ProjectionTable baseline={basketBaseline} annualRate={annualRate} currency="THB" />
+          <p className="pom-formula mono">
+            VALUE AFTER t YEARS = STARTING VALUE × (1 + ANNUAL RATE)<sup>t</sup> · {money(basketBaseline, 'THB')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup>
+          </p>
+        </div>
+      ) : (
+        <div className="pom-lab-panel" id="pom-watch-panel" role="tabpanel">
+          <div className="pom-watch-picker">
+            <label htmlFor="pom-watch-select">Pick a reference in the register</label>
+            <select id="pom-watch-select" value={selectedCard.id} onChange={(event) => {
+              setSelectedId(event.target.value)
+              setManualWatchBaseline('')
+            }}>
+              {sortedCards.map((card) => (
+                <option value={card.id} key={card.id}>
+                  {card.identity.brand} · {card.identity.reference} · {card.identity.name}{card.computed.estimate.value != null ? ' · ESTIMATE READY' : ''}
+                </option>
+              ))}
+            </select>
+            <p className="mono">COVERAGE TARGET: EVERY CITED REFERENCE ABOVE $1,000 · {data.count} REFERENCES TODAY · {forecastReady} WITH PUBLISHABLE MARKET ESTIMATES · MORE ARRIVE WITH SOURCED SALES</p>
+          </div>
+
+          <div className="pom-watch-evidence">
+            <div className="pom-watch-title">
+              <span className="mono">{selectedCard.identity.brand} · {selectedCard.identity.reference}</span>
+              <h3>{selectedCard.identity.name}</h3>
+              <Link to={`/w/${selectedCard.id}`}>OPEN DOSSIER →</Link>
+            </div>
+            <dl>
+              <div><dt>Market estimate</dt><dd>{selectedCard.computed.estimate.value != null ? money(selectedCard.computed.estimate.value, 'USD') : '—'}</dd></div>
+              <div><dt>Estimate band</dt><dd>{selectedCard.computed.estimate.band ? `${money(selectedCard.computed.estimate.band[0], 'USD')}–${money(selectedCard.computed.estimate.band[1], 'USD')}` : '—'}</dd></div>
+              <div><dt>Comparable sales</dt><dd>{selectedCard.computed.estimate.n || '—'}</dd></div>
+              <div><dt>Confidence</dt><dd>{selectedCard.computed.confidence.tier ?? '—'}</dd></div>
+              <div><dt>1y real change</dt><dd>{selectedCard.computed.change_1y.real_pct != null ? `${selectedCard.computed.change_1y.real_pct > 0 ? '+' : ''}${selectedCard.computed.change_1y.real_pct}%` : '—'}</dd></div>
+              <div><dt>Resellability</dt><dd>{selectedCard.computed.resellability.tier}</dd></div>
+            </dl>
+          </div>
+
+          <div className="pom-investment-read" data-tone={read.tone}>
+            <span className="mono">GOOD OR BAD INVESTMENT?</span>
+            <strong>{read.label}</strong>
+            <p>{read.body}</p>
+          </div>
+
+          <div className="pom-lab-controls">
+            <label className="pom-baseline-field">
+              <span>Your starting value · USD</span>
+              <input type="number" min="1" step="100" inputMode="numeric" value={manualWatchBaseline}
+                placeholder={selectedCard.computed.estimate.value?.toString() ?? 'Enter purchase price'}
+                onChange={(event) => setManualWatchBaseline(event.target.value)} />
+              <small>{enteredWatchBaseline > 0 ? 'Using your number.' : selectedCard.computed.estimate.value != null
+                ? `Using the ${selectedCard.computed.estimate.method?.replaceAll('_', ' ')} estimate until you enter your own value.`
+                : 'No estimate exists. Enter a purchase price to run arithmetic without claiming a market valuation.'}</small>
+            </label>
+            <RateControl id="pom-watch-rate" value={annualRate} onChange={setAnnualRate} context={watchIndex} />
+          </div>
+
+          {watchBaseline != null && watchBaseline > 0 ? (
+            <>
+              <ProjectionTable baseline={watchBaseline} annualRate={annualRate} currency="USD" />
+              <p className="pom-formula mono">
+                SCENARIO ONLY · {money(watchBaseline, 'USD')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup> · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED
+              </p>
+            </>
+          ) : (
+            <p className="pom-projection-refusal">Enter a starting value to run the scenario. The blank is deliberate: this reference does not yet have enough comparable sales for a market estimate.</p>
+          )}
+        </div>
+      )}
+    </section>
+  )
 }
 
 function AxisChip({ axis, value }: { axis: string; value: PomAxisTier }) {
@@ -142,7 +410,7 @@ export default function Pom() {
         size="lg"
         position="center 30%"
         alt="Pop-art illustration: a Thai general in white military uniform with a fleet of luxury watches behind him"
-        eyebrow={`UNCLE POM\'S COLLECTION · ${POM_AGGREGATE.count} WATCHES FROM A ${POM_BIO.article_date.slice(0, 4)} VOICE TV CSI-LA COMPILATION`}
+        eyebrow={`UNCLE POM'S COLLECTION · ${POM_AGGREGATE.count} WATCHES FROM A ${POM_BIO.article_date.slice(0, 4)} VOICE TV CSI-LA COMPILATION`}
         title={<>Uncle Pom's Collection.</>}
         subtitle={
           <>
@@ -151,8 +419,8 @@ export default function Pom() {
             paid for. We score what is in the public record.
           </>
         }
-        primary={{ to: '#ledger', label: `SEE THE ${POM_AGGREGATE.count} WATCHES` }}
-        secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
+        primary={{ to: '#value-lab', label: 'TRY THE VALUE LAB' }}
+        secondary={{ to: '#ledger', label: `SEE THE ${POM_AGGREGATE.count} WATCHES` }}
         credit="HERO ART · UNCLE POM PORTRAIT WITH WATCH COLLECTION"
       />
 
@@ -197,6 +465,8 @@ export default function Pom() {
           </dl>
         </aside>
       </section>
+
+      <ValueLab />
 
       <DistributionChart />
 

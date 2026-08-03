@@ -21,6 +21,13 @@ export type HeroHue = 'coral' | 'yellow' | 'navy' | 'teal'
 
 interface ActionLink { to: string; label: string; variant?: 'primary' | 'secondary' }
 
+function HeroAction({ action, kind }: { action: ActionLink; kind: 'primary' | 'secondary' }) {
+  const className = `hero-banner-btn hero-banner-btn--${kind}`
+  return action.to.startsWith('#')
+    ? <a className={className} href={action.to}>{action.label}</a>
+    : <Link className={className} to={action.to}>{action.label}</Link>
+}
+
 interface HeroBannerProps {
   bg: string
   hue?: HeroHue
@@ -71,14 +78,10 @@ export default function HeroBanner({
           {(primary || secondary) && (
             <div className="hero-banner-actions">
               {primary && (
-                <Link className="hero-banner-btn hero-banner-btn--primary" to={primary.to}>
-                  {primary.label}
-                </Link>
+                <HeroAction action={primary} kind="primary" />
               )}
               {secondary && (
-                <Link className="hero-banner-btn hero-banner-btn--secondary" to={secondary.to}>
-                  {secondary.label}
-                </Link>
+                <HeroAction action={secondary} kind="secondary" />
               )}
             </div>
           )}
