@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
+import HeroBanner from '../components/HeroBanner.tsx'
 import { ARTICLES } from './GuideArticles.tsx'
 
 /**
@@ -141,46 +142,48 @@ export default function Home() {
 
   return (
     <>
-      {/* Conservation law: first fold = brand banner + thesis + all eight ledger facts; invented prices = 0.
-          Banner is ground (full-bleed). Copy is a cream slab. Ledger is the floor. Numbers and pop art co-exist. */}
-      <section className="timepop-hero" aria-label="Time Pop — home">
-        <img
-          className="timepop-hero-bg"
-          src="/img/hero/time-pop-banner.png"
-          alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
-          loading="eager"
-        />
-        <div className="timepop-hero-copy">
-          <p className="eyebrow">TIME POP · A LIVING ARCHIVE OF WATCHES</p>
-          <h1 className="timepop-title">Watches,<br />on their own terms.</h1>
-          <p className="home-lede">
+      {/* First fold: full-bleed pop-art banner with a translucent navy text
+          block (the thesis) and the eight-cell ledger on the right. The
+          banner shows the watch's whole pop-cultural world; the block
+          tells you what the site is; the ledger is the floor. */}
+      <HeroBanner
+        bg="/heroes/home.jpg"
+        hue="navy"
+        size="xl"
+        eager
+        alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, racing drivers, astronauts, and watchmakers"
+        eyebrow="TIME POP · A LIVING ARCHIVE OF WATCHES"
+        title={<>Watches,<br />on their own terms.</>}
+        subtitle={
+          <>
             A free, evidence-first register of {data.count} luxury and collectible references.
-            Cited comps, sourced provenance, credited on-screen stills — and the honesty
-            ladder that shows where we refuse to estimate.
-          </p>
-          <div className="hero-actions">
-            <Link className="btn" to="/register">BROWSE THE {data.count} OBJECTS →</Link>
-            <Link className="btn secondary" to="/screen">SEE IT ON SCREEN</Link>
-          </div>
-        </div>
-        <aside className="hero-ledger" aria-label="The register at a glance">
-          <p className="hero-ledger-head mono">THE REGISTER, AS BUILT {data.built}</p>
-          <dl className="hero-ledger-grid">
-            <div><dt>References</dt><dd>{data.count}</dd></div>
-            <div><dt>Brands</dt><dd>{brandCount}</dd></div>
-            <div><dt>Sale evidence</dt><dd>{withComps}</dd></div>
-            <div><dt>Verified sales</dt><dd>{compCount}</dd></div>
-            <div><dt>Sourced events</dt><dd>{eventCount}</dd></div>
-            <div><dt>Credited stills</dt><dd>{stills}</dd></div>
-            <div><dt>Photography</dt><dd>{withMedia}</dd></div>
-            <div className="hero-ledger-zero"><dt>Invented prices</dt><dd>0</dd></div>
-          </dl>
-          <p className="mono micro hero-art-credit">
-            HERO ART · TIME POP BANNER · FILM STILLS CREDITED ON /SCREEN ·{' '}
-            <Link to="/methodology">METHODOLOGY →</Link>
-          </p>
-        </aside>
-      </section>
+            Cited comps, sourced provenance, credited on-screen stills — and the
+            honesty ladder that shows where we refuse to estimate.
+          </>
+        }
+        primary={{ to: '/register', label: `BROWSE THE ${data.count} OBJECTS →` }}
+        secondary={{ to: '/screen', label: 'SEE IT ON SCREEN' }}
+        credit="HERO ART · POP-ART COLLAGE OF ICONIC WATCHES & FILM MOMENTS"
+        meta={
+          <aside className="hero-ledger" aria-label="The register at a glance">
+            <p className="hero-ledger-head mono">THE REGISTER, AS BUILT {data.built}</p>
+            <dl className="hero-ledger-grid">
+              <div><dt>References</dt><dd>{data.count}</dd></div>
+              <div><dt>Brands</dt><dd>{brandCount}</dd></div>
+              <div><dt>Sale evidence</dt><dd>{withComps}</dd></div>
+              <div><dt>Verified sales</dt><dd>{compCount}</dd></div>
+              <div><dt>Sourced events</dt><dd>{eventCount}</dd></div>
+              <div><dt>Credited stills</dt><dd>{stills}</dd></div>
+              <div><dt>Photography</dt><dd>{withMedia}</dd></div>
+              <div className="hero-ledger-zero"><dt>Invented prices</dt><dd>0</dd></div>
+            </dl>
+            <p className="mono micro hero-art-credit">
+              FILM STILLS CREDITED ON /SCREEN ·{' '}
+              <Link to="/methodology">METHODOLOGY →</Link>
+            </p>
+          </aside>
+        }
+      />
 
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">

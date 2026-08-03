@@ -12,6 +12,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadWatchmakingArtifacts, type WatchmakingArtifact } from '../lib/catalog.ts'
+import HeroBanner from '../components/HeroBanner.tsx'
 
 function ArtifactFigure({ a, tall }: { a: WatchmakingArtifact; tall?: boolean }) {
   return (
@@ -408,24 +409,27 @@ export default function Watchmaking() {
 
   return (
     <div className="wmp-page">
-      <Link to="/" className="crumb">← HOME</Link>
-
-      <section className="wmp-hero">
-        <div>
-          <p className="eyebrow">WATCHMAKING · A PAGE ABOUT THE CRAFT</p>
-          <h1 className="pagetitle">A watch is a philosophy instrument that happens to be worn on the wrist.</h1>
-          <p className="lede">
+      <HeroBanner
+        bg="/heroes/watchmaking.jpg"
+        hue="teal"
+        size="lg"
+        alt="Pop-art sepia collage of vintage watches, classic characters, and the history of horology"
+        eyebrow="WATCHMAKING · A PAGE ABOUT THE CRAFT"
+        title={<>A watch is a philosophy instrument that happens to be worn on the wrist.</>}
+        subtitle={
+          <>
             The first half of this page is a joke and a frame. The second half
             is what is actually inside a mechanical watch, why the parts matter,
             and how to look at one without feeling like you need a degree. The
             third half is the no-nonsense history and the five movements that
             explain why the catalogue looks the way it does.
-          </p>
-          <p className="mono micro dim">
-            {data?.count ?? '—'} REFERENCES · {artifacts.length || '—'} FREE-LICENCE ARTIFACTS · {data?.cards.filter((c) => c.comp_summary).length ?? '—'} DOSSIERS WITH SALE EVIDENCE
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        primary={{ to: '/register', label: `BROWSE ALL ${data?.count ?? 0} REFERENCES →` }}
+        secondary={{ to: '/glossary', label: 'READ THE GLOSSARY' }}
+        credit="HERO ART · SEPIA COLLAGE — VINTAGE WATCHES, CLASSIC CHARACTERS, HISTORY"
+      />
+      <p className="crumb"><Link to="/">← HOME</Link></p>
 
       <FrameCard hero={bySlot.frame?.[0]} />
       <AbstractionCard />
