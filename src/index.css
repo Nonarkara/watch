@@ -143,17 +143,37 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   position: relative;
 }
 .hdr-in { display: flex; flex-direction: column; gap: var(--space-md); padding-bottom: 0; }
-.wordmark { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); position: relative; }
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  background: transparent;
+  position: relative;
+}
+.wordmark:hover,
+.wordmark:focus,
+.wordmark:focus-visible,
+.wordmark.active,
+.wordmark[aria-current="page"] {
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
 .wm-logo {
   display: block;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   border-radius: 50%;
   background: transparent;
   object-fit: cover;
+  /* hard disc — kills any residual matte fringe from the raster */
+  -webkit-mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+  mask-image: radial-gradient(circle, #000 99%, transparent 100%);
 }
-.wm-stack { display: flex; flex-direction: column; gap: 4px; }
+.wm-stack { display: flex; flex-direction: column; gap: 2px; }
 .wm-main {
   display: block; font-family: var(--font-display); font-size: var(--text-display);
   font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; text-transform: none;
@@ -162,12 +182,12 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 .wm-sub { display: block; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); letter-spacing: 0.06em; }
 .wm-tag {
   display: inline-block;
-  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-  letter-spacing: 0.12em; padding: 2px 6px; margin-top: 4px;
-  background: var(--amber); color: var(--ink);
+  font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 700;
+  letter-spacing: 0.12em; padding: 2px 6px; margin-top: 2px;
+  background: var(--amber); color: #0A0A0A;
 }
 @media (max-width: 720px) {
-  .wm-logo { width: 40px; height: 40px; }
+  .wm-logo { width: 36px; height: 36px; }
   .wm-sub, .wm-tag { display: none; }
 }
 .nav { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); }
@@ -617,12 +637,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    where it means something. Density is the point: this is a reference work
    for expensive objects, so it should read like an index, not a lookbook. */
 .hdr { background: color-mix(in srgb, var(--bg) 94%, transparent); position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(1.4) blur(8px); }
-.wm-main { font-size: var(--text-display); letter-spacing: -0.03em; text-transform: none; font-weight: 800; color: var(--navy); }
+.wm-main { font-size: var(--text-display); letter-spacing: -0.03em; text-transform: none; font-weight: 800; color: var(--ink); }
 .wm-sub { color: var(--dim); }
-:root[data-theme="dark"] .wm-main { color: var(--sky); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .wm-main { color: var(--sky); }
-}
 .pagetitle { font-size: var(--text-display); letter-spacing: -0.03em; text-transform: none; max-width: 22ch; }
 .lede { font-size: var(--text-body); line-height: 1.5; color: var(--dim); max-width: 60ch; }
 .text-link { color: var(--fg); font-size: var(--text-micro); letter-spacing: .02em; border-bottom: 1px solid var(--rule); }
