@@ -473,6 +473,141 @@ export default function About() {
         </div>
       </section>
 
+      <section className="sect" id="pop-culture">
+        <div className="section-rule">
+          <h2>Watches in popular culture</h2>
+          <span className="sticker-inline">A SMALL SECTION</span>
+        </div>
+        <p className="prose" style={{ maxWidth: '68ch' }}>
+          The history of the wristwatch is the history of people using it to tell a story
+          about themselves. Long before the auction record became the metric, the
+          popular image became the metric. Manga panel, anime opening, comic strip,
+          album cover — a watch on a wrist is a sentence a character is saying
+          about who they are. This is a small section. Five moments, five
+          watches, and the comics that put them in the cultural conversation.
+        </p>
+
+        <div className="pop-culture-grid">
+          <article className="pop-culture-card">
+            <div className="pop-culture-img">
+              <img src="/img/pop-culture/death-note-speedmaster.jpg"
+                   alt="Pop-art manga panel: a Speedmaster with the words 'This watch is the Moonwatch' in a manga speech bubble" loading="lazy" />
+            </div>
+            <div className="pop-culture-meta">
+              <p className="pop-culture-source mono">DEATH NOTE · 2003-2006 · TSUGUMI OHBA × TAKESHI OBATA</p>
+              <h3 className="pop-culture-title">Omega Speedmaster, "the Moonwatch"</h3>
+              <p className="pop-culture-body">
+                Light Yagami wears an Omega Speedmaster Professional throughout Death
+                Note, and the manga devotes a panel to naming it. The reference is
+                small in the story (a watch, not a weapon), but it is the moment
+                Japanese readers under 30 first heard "moonwatch" used in earnest. The
+                Speedy sells in Tokyo on the strength of that page, not the catalogue
+                copy. <em>Public knowledge:</em> the panel is on Chapter 7 of volume 1,
+                with Light's monologue and the watch held at centre.
+              </p>
+            </div>
+          </article>
+
+          <article className="pop-culture-card">
+            <div className="pop-culture-img">
+              <img src="/img/pop-culture/lupin-iii-seiko-6139.jpg"
+                   alt="Pop-art: Lupin III silhouette in tuxedo and top hat with a Seiko 6139 chronograph — Cagliostro" loading="lazy" />
+            </div>
+            <div className="pop-culture-meta">
+              <p className="pop-culture-source mono">LUPIN THE THIRD: CASTLE OF CAGLIASTRO · 1979 · DIR. HAYAO MIYAZAKI</p>
+              <h3 className="pop-culture-title">Seiko 6139-7002, the Lupin Chronograph</h3>
+              <p className="pop-culture-body">
+                Arsène Lupin III wears a Seiko 6139-7002 throughout Castle of
+                Cagliostro, Miyazaki's first feature. The watch is yellow on a steel
+                bracelet, with the crown on the left wrist so it doesn't catch the
+                sleeve of a tuxedo. Seiko issued a 2018 limited edition commemorating
+                the film, 39 years after the original release, in the same colour
+                scheme. <em>Public knowledge:</em> the 6139-7002 is the first
+                automatic chronograph Seiko ever made; the Lupin wearing it is the
+                reason a generation of Japanese watch fans know what an automatic
+                chrono is.
+              </p>
+            </div>
+          </article>
+
+          <article className="pop-culture-card">
+            <div className="pop-culture-img">
+              <img src="/img/pop-culture/city-hunter-seiko-6309.jpg"
+                   alt="Pop-art: Ryo Saeba silhouette on a Hong Kong rooftop with a Seiko 6309 diver" loading="lazy" />
+            </div>
+            <div className="pop-culture-meta">
+              <p className="pop-culture-source mono">CITY HUNTER · 1985-1991 · TSUKASA HOJO</p>
+              <h3 className="pop-culture-title">Seiko 6309 Diver, the "Saeba Special"</h3>
+              <p className="pop-culture-body">
+                Ryo Saeba, the long-suffering "sweeper" of Shinjuku, wears a Seiko
+                6309 on his left wrist and carries a Colt Python on his back. The
+                6309 is the cheapest serious dive watch Seiko ever made, with the
+                famous cushion case and 150m water resistance. The manga ran for
+                seven years and 336 chapters; the watch appeared in almost every
+                cover. The 6309 is the most-cited Japanese diver in collector
+                conversations today, and the City Hunter association is the
+                proximate cause.
+              </p>
+            </div>
+          </article>
+
+          <article className="pop-culture-card">
+            <div className="pop-culture-img">
+              <img src="/img/pop-culture/initial-d-synchronize.jpg"
+                   alt="Pop-art: a large analog chronograph with a tarmac strip and the words 'Let's synchronize watches'" loading="lazy" />
+            </div>
+            <div className="pop-culture-meta">
+              <p className="pop-culture-source mono">INITIAL D · 1995-2013 · SHIGENO SHUICHI</p>
+              <h3 className="pop-culture-title">"Let's synchronize watches" — the togue ritual</h3>
+              <p className="pop-culture-body">
+                Initial D is about cars, not watches. But the manga and anime
+                repeatedly stage the moment before a mountain pass run — a
+                character reaches to the wrist, taps the crystal, and says
+                "let's synchronize watches, 3... 2... 1." It is a ritual borrowed
+                from motorsport timing, and it became a cult gesture in Japanese
+                youth culture in the late 1990s. The watch on the wrist in those
+                frames is usually a Seiko or Casio, but the reference is to the
+                <em> gesture</em>: a watch as a piece of equipment, not a piece of
+                jewellery. That framing is rare in comics.
+              </p>
+            </div>
+          </article>
+
+          <article className="pop-culture-card">
+            <div className="pop-culture-img">
+              <img src="/img/pop-culture/snoopy-speedmaster.jpg"
+                   alt="Pop-art: Snoopy on his doghouse with an Omega Speedmaster, the Silver Snoopy Award" loading="lazy" />
+            </div>
+            <div className="pop-culture-meta">
+              <p className="pop-culture-source mono">PEANUTS · 1969 · CHARLES M. SCHULZ · OMEGA × NASA, 1970-</p>
+              <h3 className="pop-culture-title">Snoopy and the Speedmaster, since 1969</h3>
+              <p className="pop-culture-body">
+                The Peanuts comic strip published "Snoopy on the Moon" on the day
+                of the Apollo 11 landing, 21 July 1969. NASA had been issuing the
+                Silver Snoopy Award to flight crews since 1967; Omega picked up
+                the visual in 1970 when it made a silver Snoopy pin for the
+                Apollo 13 recovery. In 2003, 2015, 2018, and 2020, Omega issued a
+                Snoopy Speedmaster limited edition. The Peanuts-Speedmaster tie
+                is the longest-running licensed watch-collaboration in the field.
+                <em>Public knowledge:</em> the comic strip ran for 50 years
+                (1950-2000); Snoopy appeared in 17,897 strips.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <p className="prose" style={{ maxWidth: '68ch', marginTop: 32 }}>
+          The five panels above are a small selection. The wider list includes
+          Maison Ikkoku (Rumiko Takahashi, 1980-1987) and the Citizen watch
+          Godai keeps on his desk, Ah! My Goddess and Skuld's clockwork tools, the
+          Cartiers in Cowboy Bebop, the timepiece obsession in Death Parade, and
+          the 6139 in nearly every Lupin III special since 1971. Each is a
+          chapter in the same book: a watch is a sentence a character is
+          saying. The register keeps the receipts; the comics keep the
+          cultural memory.
+        </p>
+      </section>
+
       <section className="sect" id="framework">
         <div className="section-rule"><h2>The collector's framework</h2><span className="sticker-inline">TEN FACTORS, TWO KINDS</span></div>
         <div className="prose">

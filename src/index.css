@@ -2531,3 +2531,29 @@ main.shell { padding-top: var(--space-md); }
   .data-methodology h2 { max-width: 28ch; }
   .data-methodology p { max-width: 72ch; }
 }
+
+/* ── /about: Watches in popular culture section ───────────────────────────── */
+.pop-culture-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+.pop-culture-card { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--ink); }
+.pop-culture-img { aspect-ratio: 16 / 9; background: var(--paper-2); border-bottom: 1px solid var(--ink); overflow: hidden; }
+.pop-culture-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pop-culture-meta { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 8px; }
+.pop-culture-source { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin: 0; }
+.pop-culture-title { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+.pop-culture-body { font-family: var(--font-essay); font-size: 15px; line-height: 1.6; margin: 8px 0 0; max-width: 60ch; }
+.pop-culture-body em { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--dim); font-style: normal; }
+@media (min-width: 880px) {
+  .pop-culture-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .pop-culture-card { grid-template-columns: 1fr 1fr; }
+  .pop-culture-card:nth-child(odd) { border-right: 1px solid var(--ink); }
+  .pop-culture-card:nth-child(2n) { /* offset every second card */ }
+  .pop-culture-img { border-bottom: 0; border-right: 1px solid var(--ink); }
+  .pop-culture-card:nth-child(2n) .pop-culture-img { border-right: 0; border-left: 1px solid var(--ink); }
+}
+@media (min-width: 1100px) {
+  .pop-culture-grid { grid-template-columns: 1fr; }
+  .pop-culture-card { grid-template-columns: 1fr 1.2fr; }
+  .pop-culture-card:nth-child(2n) { transform: translateX(20px); }
+  .pop-culture-card:nth-child(odd) { border-right: 1px solid var(--ink); }
+  .pop-culture-card:nth-child(2n) .pop-culture-img { border-left: 1px solid var(--ink); }
+}
