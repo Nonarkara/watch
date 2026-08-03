@@ -2104,3 +2104,44 @@ main.shell { padding-top: var(--space-md); }
   .film-row-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-align: center; }
   .film-row-actions { margin-top: 0; }
 }
+
+/* ── ABOUT: FOUNDER ANCHOR ─────────────────────────────────────────────────
+   The personal section of the About page. One photo from 2005, the personal
+   story behind why the system was built, the honest stance ("I am not a
+   collector"), and a link to axiom.nonarkara.org (the city-intelligence
+   sibling). The section is deliberately low on visual chrome -- the photo
+   is the anchor, the text is the project. */
+.founder { padding: 56px 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--paper); }
+.founder-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+.founder-photo { display: block; width: 100%; max-width: 480px; height: auto; border: 2px solid var(--ink); box-shadow: 6px 6px 0 0 var(--ink); }
+.founder-photo-caption { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-top: 10px; max-width: 480px; }
+.founder-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; max-width: 480px; }
+.founder-meta span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.founder-body { min-width: 0; }
+.founder-body h2 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 20px; max-width: 22ch; }
+.founder-body p { font-family: var(--font-essay); font-size: 17px; line-height: 1.65; margin: 0 0 18px; max-width: 64ch; }
+.founder-body p strong { font-weight: 600; }
+.founder-body p em { font-style: italic; color: var(--coral); }
+.founder-quote { font-family: var(--font-display); font-size: 22px; line-height: 1.3; font-style: italic; letter-spacing: -0.01em; padding: 18px 22px; border-left: 4px solid var(--coral); background: var(--surface); margin: 20px 0; max-width: 56ch; }
+.founder-watch { display: inline-block; padding: 4px 10px; border: 1.5px solid var(--ink); background: var(--yellow); color: var(--ink); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; margin-right: 6px; }
+.founder-watch:hover { background: var(--ink); color: var(--yellow); }
+.founder-link { display: inline-block; padding: 12px 18px; border: 2px solid var(--ink); background: var(--coral); color: #FFFFFF; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; margin-top: 16px; }
+.founder-link:hover { background: var(--ink); color: var(--paper); }
+@media (min-width: 880px) {
+  .founder-grid { grid-template-columns: 480px 1fr; gap: 56px; align-items: start; padding: 0 28px; }
+}
+
+/* ── ABOUT: CONTACT ──────────────────────────────────────────────────────
+   The contact block. axiom.nonarkara.org is the city-intelligence sibling
+   product; watch.nonarkara.org is the academic / hobby project. Both are
+   Dr Non systems, both share the same methodology. */
+.contact { padding: 56px 0; border-top: 1px solid var(--ink); background: var(--paper-2); }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+.contact-card { border: 2px solid var(--ink); background: var(--paper); padding: 28px; }
+.contact-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 8px; }
+.contact-card p { font-family: var(--font-essay); font-size: 15px; line-height: 1.6; margin: 0 0 16px; max-width: 60ch; }
+.contact-card a { color: var(--coral); }
+.contact-card a:hover { color: var(--coral-2); }
+@media (min-width: 880px) {
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}

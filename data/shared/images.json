@@ -859,5 +859,12 @@
     "license": "CC BY-SA 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Audemars%20Piguet%20Royal%20Oak%20Cronograph%20con%20calibro%20modulare%2C%20ref.%2025721.%20Primi%20anni%20Novanta.jpg",
     "caption": "AP Royal Oak Chronograph with modular calibre, ref. 25721 (early 1990s). The closest verified CC-licensed photograph for the 26331ST Royal Oak Chronograph 41; same Royal Oak chronograph family."
+  },
+  "tagheuer-aquaracer-way111a": {
+    "file": "/about/founder-2005.jpg",
+    "credit": "Founder's own photograph, 30 July 2005, Bangkok",
+    "license": "Personal photograph, used with explicit consent. Not a free-reuse license. Shown as a self-referential test case for the register.",
+    "source_url": "https://www.tagheuer.com/us/en/collection/aquaracer.html",
+    "caption": "Founder, 2005. The TAG Heuer Aquaracer 300M WAY111A on the wrist, in front of Taywin mall, Bangkok. A self-referential dossier: the only card whose owner is the system author."
   }
 }
