@@ -1733,21 +1733,97 @@ main.shell { padding-top: var(--space-md); }
 
 /* ── Watchmaking page (wmp-) ───────────────────────────────────────────────
    Dense editorial: hairline frames, short vertical rhythm, figures earn their
-   height. Keep three text sizes; density comes from spacing, not a fourth size. */
-.wmp-page { max-width: 980px; }
+   height. Full shell width, no orphan 980 column. Four sub-tabs over one
+   spine of frames. Three text sizes only; density comes from spacing, not a
+   fourth size. */
+.wmp-page { max-width: none; width: 100%; }
+
+/* sub-tab nav */
+.wmp-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--ink);
+  border-bottom: 0;
+  background: var(--paper);
+  margin-top: 20px;
+  position: sticky;
+  top: var(--header-h, 56px);
+  z-index: 5;
+}
+.wmp-tab {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 12px 14px 14px;
+  background: var(--paper);
+  border: 0;
+  border-right: 1px solid var(--ink);
+  cursor: pointer;
+  text-align: left;
+  color: var(--fg);
+  font-family: inherit;
+  transition: background 0.12s ease;
+}
+.wmp-tab:last-child { border-right: 0; }
+.wmp-tab:hover { background: var(--paper-2); }
+.wmp-tab.is-active {
+  background: var(--ink);
+  color: var(--bg);
+}
+.wmp-tab.is-active .wmp-tab-num { color: var(--amber); }
+.wmp-tab-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  color: var(--coral);
+  font-weight: 500;
+}
+.wmp-tab-label {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.wmp-tab-sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  line-height: 1.3;
+  max-width: 26ch;
+}
+.wmp-tab.is-active .wmp-tab-sub { color: var(--bg); opacity: 0.65; }
+@media (max-width: 720px) {
+  .wmp-tabs { grid-template-columns: repeat(2, 1fr); }
+  .wmp-tab:nth-child(2) { border-right: 0; }
+  .wmp-tab:nth-child(1), .wmp-tab:nth-child(2) { border-bottom: 1px solid var(--ink); }
+}
+
+/* panel */
+.wmp-panels { display: block; }
+.wmp-panel { display: block; border: 1px solid var(--ink); border-top: 0; }
+.wmp-panel > .wmp-frame { border: 0; border-bottom: 1px solid var(--rule); margin-bottom: 0; }
+.wmp-panel > .wmp-frame:last-child { border-bottom: 0; }
+
 .wmp-hero { padding: 12px 0 20px; border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
 .wmp-hero .pagetitle { max-width: 24ch; margin: 6px 0 10px; }
 .wmp-hero .lede { margin-bottom: 8px; max-width: 58ch; line-height: 1.45; }
+
 .wmp-frame {
   border: 1px solid var(--rule);
-  background: var(--paper);
-  padding: 16px 18px 18px;
-  margin-bottom: 14px;
+  background: var(--paper-2);
+  padding: 16px 0;
+  margin-bottom: 0;
   position: relative;
+  border-left: 0;
+  border-right: 0;
 }
-.wmp-frame .eyebrow { display: block; margin-bottom: 8px; }
+.wmp-frame + .wmp-frame { border-top: 0; }
+.wmp-frame .eyebrow { display: block; margin-bottom: 8px; padding: 0 16px; }
+.wmp-frame p, .wmp-frame ol, .wmp-frame ul, .wmp-frame h2, .wmp-frame h3, .wmp-frame h4, .wmp-frame .wmp-figure { padding-left: 16px; padding-right: 16px; }
+.wmp-frame .wmp-h2 { padding-left: 16px; padding-right: 16px; }
 .wmp-frame p { line-height: 1.5; margin-bottom: 10px; max-width: 64ch; }
 .wmp-frame p:last-child { margin-bottom: 0; }
+.wmp-frame .wmp-h2 { margin-left: 0; margin-right: 0; }
 .wmp-frame .wmp-h2 {
   font-family: var(--font-display); font-size: var(--text-body); font-weight: 600;
   letter-spacing: -.025em; line-height: 1.2; max-width: 40ch; margin: 4px 0 10px;
@@ -1766,13 +1842,31 @@ main.shell { padding-top: var(--space-md); }
 .wmp-italic { font-style: italic; color: var(--navy); max-width: 58ch; }
 .wmp-frame strong { color: var(--navy); font-weight: 600; }
 .wmp-frame em { font-style: italic; }
+.wmp-frame .wmp-h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: 48ch;
+  margin: 4px 0 10px;
+  color: var(--navy);
+}
+.wmp-time-lead .wmp-h2 { color: var(--navy); }
 
-/* parts list */
+/* parts list — the new AnatomyCard uses <figure>, not <li> */
 .wmp-parts { list-style: none; padding: 0; margin: 12px 0 8px; display: grid; gap: 0; }
-.wmp-parts li { display: grid; grid-template-columns: 36px 1fr; gap: 10px; border-top: 1px solid var(--rule); padding: 10px 0; }
+.wmp-parts li, .wmp-part { display: grid; grid-template-columns: 96px 1fr; gap: 12px; border-top: 1px solid var(--rule); padding: 10px 0; align-items: start; }
+.wmp-part img { width: 96px; height: 96px; object-fit: cover; background: var(--paper); }
+.wmp-part figcaption { padding: 0; }
 .wmp-part-num { color: var(--amber); font-size: var(--text-micro); font-weight: 500; line-height: 1.4; letter-spacing: .04em; }
-.wmp-parts strong { display: block; font-family: var(--font-display); font-size: var(--text-body); font-weight: 600; margin-bottom: 2px; }
-.wmp-parts p { margin: 0; max-width: 60ch; line-height: 1.45; }
+.wmp-parts strong, .wmp-part strong { display: block; font-family: var(--font-display); font-size: var(--text-body); font-weight: 600; margin-bottom: 2px; }
+.wmp-parts p, .wmp-part p { margin: 0; max-width: 60ch; line-height: 1.45; }
+.wmp-part .mono { color: var(--amber); margin-top: 2px; }
+@media (max-width: 600px) {
+  .wmp-parts li, .wmp-part { grid-template-columns: 64px 1fr; gap: 10px; }
+  .wmp-part img { width: 64px; height: 64px; }
+}
 
 /* complications list */
 .wmp-comps { list-style: none; padding: 0; margin: 12px 0 4px; display: grid; gap: 8px; }
@@ -1902,6 +1996,12 @@ main.shell { padding-top: var(--space-md); }
   margin: 12px 0 4px;
   max-width: 72ch;
   line-height: 1.4;
+}
+
+/* dark mode: multiply × black canvas = invisible, swap to normal blend */
+:root[data-theme="dark"] .wmp-figure img { mix-blend-mode: normal; background: #F4F4F2; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .wmp-figure img { mix-blend-mode: normal; background: #F4F4F2; }
 }
 
 /* ── TOP-4 DOSSIER TILES ──────────────────────────────────────────────────────
@@ -2684,15 +2784,28 @@ main.shell { padding-top: var(--space-md); }
   letter-spacing: 0.04em; color: var(--dim); font-style: normal;
 }
 @media (min-width: 720px) {
-  .pop-culture-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: stretch; }
+  .pop-culture-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: stretch;
+    min-height: 320px;
+  }
   .pop-culture-img {
-    aspect-ratio: 1 / 1; border-bottom: 0; border-right: 1px solid var(--ink);
+    aspect-ratio: auto;
+    height: 320px;
+    border-bottom: 0; border-right: 1px solid var(--ink);
   }
   .pop-culture-card:nth-child(even) .pop-culture-img {
     order: 2; border-right: 0; border-left: 1px solid var(--ink);
   }
   .pop-culture-card:nth-child(even) .pop-culture-meta { order: 1; }
-  .pop-culture-meta { padding: 14px 16px; }
+  .pop-culture-meta {
+    padding: 14px 16px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+  }
+}
+@media (min-width: 1100px) {
+  .pop-culture-card { min-height: 360px; }
+  .pop-culture-img { height: 360px; }
 }
 
 /* ── /guides: hero meta panel ────────────────────────────────────────────── */
