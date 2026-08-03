@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, type Card, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
+import { useCompare } from '../lib/compare-store.ts'
+import { useSaved } from '../lib/saved-store.ts'
 import Sparkline from '../components/Sparkline.tsx'
 import Top4Tiles from '../components/Top4Tiles.tsx'
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
@@ -15,6 +17,11 @@ export default function Dossier() {
   // Must sit above the early returns: a conditional hook changes hook order when
   // navigating from a found card to a missing one, and React throws.
   const [view, setView] = useState<'evidence' | 'story'>('evidence')
+  // Compare and Saved don't depend on data — they read from localStorage-backed
+  // contexts mounted in App.tsx. Calling them before the !data guard is safe
+  // and keeps the hook order stable.
+  const compare = useCompare()
+  const saved = useSaved()
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — Time Pop`
@@ -35,6 +42,8 @@ export default function Dossier() {
     ? data.cards.find((x) => x.id === c.narrative.starter_alternative) : undefined
   const { estimate, premium, change_1y, change_5y, liquidity, confidence } = c.computed
   const msrpNow = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
+  const inCompare = compare.has(c.id)
+  const isSaved = saved.has(c.id)
 
   return (
     <>
@@ -60,6 +69,29 @@ export default function Dossier() {
         <h1 className="pagetitle">{c.identity.name} <span className="mono">{c.identity.reference}</span></h1>
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
+
+        <div className="dsr-actions">
+          <button
+            type="button"
+            className={'dsr-action mono' + (inCompare ? ' on' : '')}
+            onClick={() => compare.toggle(c.id)}
+            aria-pressed={inCompare}
+            disabled={!inCompare && compare.full}
+            title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (3 max)' : 'Add to compare set'}
+          >
+            {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ ADD TO COMPARE'}
+          </button>
+          <button
+            type="button"
+            className={'dsr-action dsr-action-save mono' + (isSaved ? ' on' : '')}
+            onClick={() => saved.toggle(c.id)}
+            aria-pressed={isSaved}
+            title={isSaved ? 'Remove from your saved set' : 'Save to your watchlist'}
+          >
+            {isSaved ? '★ SAVED' : '☆ SAVE'}
+          </button>
+          <Link to="/saved" className="dsr-action dsr-action-ghost mono">OPEN MY SAVED →</Link>
+        </div>
 
         <dl className="spec-grid mast-spec">
           {c.computed.market_band.band && (
