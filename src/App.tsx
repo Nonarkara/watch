@@ -3,8 +3,11 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import { loadDataset, type Dataset } from './lib/data.ts'
 import { DataContext } from './lib/dataset-context.ts'
 import { CompareProvider } from './lib/compare-context.tsx'
+import { SavedProvider } from './lib/saved-context.tsx'
 import CompareDock from './components/CompareDock.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
+import SavedBadge from './components/SavedBadge.tsx'
+import { SearchPalette } from './lib/SearchPalette.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
@@ -61,6 +64,8 @@ export default function App() {
   return (
     <DataContext.Provider value={data}>
       <CompareProvider>
+      <SavedProvider>
+      <SearchPalette />
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark" aria-label="Time Pop — home">
@@ -70,6 +75,12 @@ export default function App() {
               <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>
             </span>
           </NavLink>
+          <button type="button" className="srch-btn mono" onClick={() => {
+            window.dispatchEvent(new CustomEvent('timepop:open-search'))
+          }} aria-label="Open search">
+            <span>⌕</span><span className="srch-btn-text">SEARCH</span><span className="srch-btn-kbd">⌘K</span>
+          </button>
+          <SavedBadge />
           <nav className="nav">
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.to === '/'}
@@ -109,6 +120,7 @@ export default function App() {
             <NavLink to="/bible">BIBLE</NavLink>
             <NavLink to="/guides">GUIDES</NavLink>
             <NavLink to="/pom">UNCLE POM\'S</NavLink>
+            <NavLink to="/saved">MY SAVED</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>
             <NavLink to="/data">DATA</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>
@@ -123,6 +135,7 @@ export default function App() {
         </div>
       </footer>
       <CompareDock />
+      </SavedProvider>
       </CompareProvider>
     </DataContext.Provider>
   )
