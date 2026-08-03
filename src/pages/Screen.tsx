@@ -21,42 +21,60 @@ interface FilmWatchRow {
   year: number
   character: string
   note: string
+  /** Pop-art still generated for the film + watch pairing. */
+  still: string
   /** Optional deep-link to a dossier in our register when the reference maps. */
   dossierId?: string
 }
 
 const FILM_WATCHES: FilmWatchRow[] = [
   { brand: 'Rolex', reference: '6538', watch: 'Submariner (Big Crown)', film: 'Dr. No', year: 1962, character: 'Sean Connery as James Bond',
+    still: '/heroes/screen/bond-drno.jpg',
     note: 'Connery lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor.', dossierId: 'rolex-submariner-6538' },
   { brand: 'Heuer', reference: '1133B', watch: 'Monaco', film: 'Le Mans', year: 1971, character: 'Steve McQueen as Michael Delaney',
+    still: '/heroes/screen/monaco-le-mans.jpg',
     note: 'McQueen personally requested the Monaco from Jack Heuer. Crown sits on the left so it does not dig into the wrist while racing.', dossierId: 'tagheuer-monaco-caw211p' },
   { brand: 'Omega', reference: 'Speedmaster', watch: 'Professional Moonwatch', film: 'Apollo 13', year: 1995, character: 'Kevin Bacon as Jack Swigert',
+    still: '/heroes/screen/apollo13.jpg',
     note: 'Tom Hanks is the star, but it is Swigert\'s Speedmaster that times the engine burn that brings the crew home.', dossierId: 'omega-speedmaster' },
   { brand: 'Hamilton', reference: 'H70455533', watch: 'Khaki Field Murph', film: 'Interstellar', year: 2014, character: 'Matthew McConaughey as Joseph Cooper',
+    still: '/heroes/screen/interstellar.jpg',
     note: 'Five years after the film, Hamilton released the prop to the public. The second hand carries "Eureka" in Morse code.', dossierId: 'hamilton-khaki-field-h70455533' },
   { brand: 'TAG Heuer', reference: 'CAW211P', watch: 'Monaco (modern)', film: 'Glass Onion', year: 2022, character: 'Daniel Craig as Benoit Blanc',
+    still: '/heroes/screen/glass-onion.jpg',
     note: 'Craig wore the modern Monaco in the Knives Out sequel. He had already shipped the Calibre 11 in No Time to Die; the Monaco is the second life of the same character.' },
   { brand: 'Omega', reference: '210.30.42.20.03.001', watch: 'Seamaster Diver 300M 007 Edition', film: 'No Time to Die', year: 2021, character: 'Daniel Craig as James Bond',
+    still: '/heroes/screen/no-time-to-die.jpg',
     note: 'Craig co-designed the 007 Edition: titanium case, tropical dial, broad-arrow at 6. His last Bond outing.', dossierId: 'omega-seamaster-300m' },
   { brand: 'Hamilton', reference: 'H24411732', watch: 'Khaki Navy BeLOWZERO', film: 'Tenet', year: 2020, character: 'John David Washington as The Protagonist',
+    still: '/heroes/screen/tenet.jpg',
     note: 'Tenet is the second Nolan film to put Hamilton on a hero wrist after Interstellar.' },
   { brand: 'Casio', reference: 'DW-5000C', watch: 'G-Shock (orig. square)', film: 'Back to the Future', year: 1985, character: 'Michael J. Fox as Marty McFly',
+    still: '/heroes/screen/back-to-the-future.jpg',
     note: 'Released the same year as the film. Marty wears the original square G-Shock; the brand had not yet been in U.S. stores when the prop was chosen.' },
   { brand: 'Citizen', reference: 'AT9510', watch: 'Eco-Drive Skyhawk', film: 'Top Gun: Maverick', year: 2022, character: 'Tom Cruise as Capt. Pete "Maverick" Mitchell',
+    still: '/heroes/screen/top-gun-maverick.jpg',
     note: 'Citizen returned as the official Top Gun watch after a 36-year gap. The original 1986 Top Gun used a Seiko 7A28.' },
   { brand: 'Seiko', reference: 'SKX007', watch: 'Diver Automatic', film: 'James Bond — "Skyfall" homage / fan art', year: 2012, character: 'Seiko 007 mod (unofficial Bond)',
+    still: '/heroes/screen/seiko-007.jpg',
     note: 'The "Seiko 007" Bond homage is fan culture, not studio product placement. Listed for the watch fan reader, not for canon.' },
   { brand: 'Audemars Piguet', reference: '26420SO', watch: 'Royal Oak Offshore Chronograph', film: 'Entourage (movie)', year: 2015, character: 'Vince, E, Drama, Turtle — full cast',
+    still: '/heroes/screen/entourage.jpg',
     note: 'The Entourage movie is the most on-the-nose AP placement in cinema. Loud, expensive, exactly the point the film makes about its cast.' },
   { brand: 'Rolex', reference: '126710BLRO', watch: 'GMT-Master II "Pepsi"', film: 'Gone Girl', year: 2014, character: 'Ben Affleck as Nick Dunne',
+    still: '/heroes/screen/gone-girl.jpg',
     note: 'Affleck\'s "writer of some sort" wears the Pepsi. A quieter, post-Argo correction to his character\'s wage.' },
   { brand: 'Piaget', reference: 'G0A41002', watch: 'Polo FortyFive', film: 'Focus', year: 2015, character: 'Will Smith as Nicky Spurgeon',
+    still: '/heroes/screen/focus.jpg',
     note: 'A deliberately un-pickable pick. The Polo is the watch that says the con man is not trying to be read.' },
   { brand: 'Bremont', reference: 'MB II / U-2', watch: 'Bremont Broadsword / U-2', film: 'Kingsman: The Secret Service', year: 2014, character: 'Taron Egerton as Eggsy — full cast',
+    still: '/heroes/screen/kingsman.jpg',
     note: 'Native marketing so complete the film functioned as a 130-minute Mr Porter ad. The brand earned its place by being credible in the hand.' },
   { brand: 'Panerai', reference: 'PAM 305', watch: 'Luminor 1950 Submersible', film: 'Daylight / The Expendables', year: 1996 / 2010, character: 'Sylvester Stallone / Dwayne Johnson',
+    still: '/heroes/screen/daylight-panerai.jpg',
     note: 'Stallone wore a Luminor in Daylight and the brand found its movie-persona. The Rock in Expendables continued the casting.' },
   { brand: 'Jaeger-LeCoultre', reference: 'Q3858420', watch: 'Reverso', film: 'Batman Begins', year: 2005, character: 'Christian Bale as Bruce Wayne',
+    still: '/heroes/screen/batman-begins.jpg',
     note: 'The Reverso is the watch a man wears when he wants to be seen as a gentleman, not a soldier. Nolan picked it for the same reason.' },
 ]
 
@@ -194,9 +212,13 @@ export default function Screen() {
         </div>
         <ol className="film-list" style={{ margin: '0 28px', maxWidth: 1240 }}>
           {FILM_WATCHES.map((row, idx) => (
-            <li key={`${row.brand}-${row.reference}-${row.film}`} className="film-row">
+            <li key={`${row.brand}-${row.reference}-${row.film}`} className="film-row film-row--with-still">
               <span className="film-row-num mono">{String(idx + 1).padStart(2, '0')}</span>
-              <div>
+              <div className="film-row-still">
+                <img src={row.still} alt={`${row.film} (${row.year}) — pop-art still of the ${row.brand} ${row.watch}`} loading="lazy" />
+                <span className="film-row-still-tag mono">POP-ART STILL</span>
+              </div>
+              <div className="film-row-body">
                 <p className="film-row-eyebrow">{row.film} · {row.year} · {row.character}</p>
                 <h3 className="film-row-film">
                   {row.brand} <span className="dim">·</span> {row.watch}
@@ -204,13 +226,13 @@ export default function Screen() {
                 <p className="film-row-watch">
                   Reference <strong>{row.reference}</strong> · {row.note}
                 </p>
-              </div>
-              <div className="film-row-actions">
-                {row.dossierId ? (
-                  <Link to={`/w/${row.dossierId}`}>DOSSIER →</Link>
-                ) : (
-                  <Link to={`/register?brand=${encodeURIComponent(row.brand)}`}>SEE IN REGISTER →</Link>
-                )}
+                <div className="film-row-actions">
+                  {row.dossierId ? (
+                    <Link to={`/w/${row.dossierId}`}>DOSSIER →</Link>
+                  ) : (
+                    <Link to={`/register?brand=${encodeURIComponent(row.brand)}`}>SEE IN REGISTER →</Link>
+                  )}
+                </div>
               </div>
             </li>
           ))}
