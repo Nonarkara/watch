@@ -206,11 +206,11 @@ export default function Screen() {
       />
 
       <section className="film-watches" aria-label="Watch the screen — 16 iconic watches in film">
-        <div className="section-rule" style={{ padding: '0 28px', maxWidth: 1240, margin: '0 auto' }}>
+        <div className="section-rule">
           <h2>Watch the screen.</h2>
           <span className="sticker-inline mono">16 ICONIC PAIRINGS · CURATED FOR CHARACTER</span>
         </div>
-        <ol className="film-list" style={{ margin: '0 28px', maxWidth: 1240 }}>
+        <ol className="film-list">
           {FILM_WATCHES.map((row, idx) => (
             <li key={`${row.brand}-${row.reference}-${row.film}`} className="film-row film-row--with-still">
               <span className="film-row-num mono">{String(idx + 1).padStart(2, '0')}</span>
@@ -237,8 +237,8 @@ export default function Screen() {
             </li>
           ))}
         </ol>
-        <p className="mono micro" style={{ padding: '24px 28px 0', maxWidth: 1240, margin: '0 auto', color: 'var(--dim)' }}>
-          EDITORIAL REFERENCE · GQ AUSTRALIA "WATCH THE SCREEN" (FEB 2021, ANA EKSOUZIAN-CAVADAS) · CURATED TO 16 ICONIC PAIRINGS, NOT TO 16 PRODUCTION-DEAL ANNOUNCEMENTS. WATCH FOR CHARACTER, NOT FOR PLACEMENT.
+        <p className="film-watches-note mono">
+          EDITORIAL REFERENCE · GQ AUSTRALIA "WATCH THE SCREEN" (FEB 2021, ANA EKSOUZIAN-CAVADAS) · CURATED TO 16 ICONIC PAIRINGS, NOT TO 16 PRODUCTION-DEAL ANNOUNCEMENTS. WATCH FOR CHARACTER, NOT FOR PLACEMENT. POP-ART STILLS ARE EDITORIAL COLLAGES, NOT STUDIO FRAME GRABS.
         </p>
       </section>
 
