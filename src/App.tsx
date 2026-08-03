@@ -69,7 +69,7 @@ export default function App() {
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" className="wordmark" aria-label="Time Pop — home">
-            <img src="/tp-logo.png" alt="" className="wm-logo" />
+            <img src="/tp-logo-mark.png" alt="" className="wm-logo" width={128} height={128} decoding="async" />
             <span className="wm-stack">
               <span className="wm-main">Time Pop</span>
               <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>

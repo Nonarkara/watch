@@ -144,7 +144,15 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 }
 .hdr-in { display: flex; flex-direction: column; gap: var(--space-md); padding-bottom: 0; }
 .wordmark { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); position: relative; }
-.wm-logo { display: block; width: 52px; height: 52px; flex: 0 0 auto; }
+.wm-logo {
+  display: block;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: transparent;
+  object-fit: cover;
+}
 .wm-stack { display: flex; flex-direction: column; gap: 4px; }
 .wm-main {
   display: block; font-family: var(--font-display); font-size: var(--text-display);
