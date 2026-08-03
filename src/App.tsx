@@ -8,11 +8,13 @@ import ErrorBoundary from './components/ErrorBoundary.tsx'
 
 const NAV = [
   { to: '/register', label: 'Objects' },
-  { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/brands', label: 'Brands' },
   { to: '/screen', label: 'On screen' },
-  { to: '/economy', label: 'Economy' },
+  { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/guides', label: 'Guides' },
+  { to: '/economy', label: 'Economy' },
+  { to: '/about', label: 'About' },
+  { to: '/pom', label: 'Uncle Pom' },
   { to: '/data', label: 'Data' },
 ]
 
@@ -69,7 +71,8 @@ export default function App() {
           <nav className="nav">
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.to === '/'}
-                className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}>
+                className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}
+                data-pom={n.to === '/pom' ? '1' : undefined}>
                 {n.label.toUpperCase()}
               </NavLink>
             ))}
