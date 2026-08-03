@@ -48,7 +48,14 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2018-01-01",
+      "person_or_event": "Khaki Field Auto 38mm release",
+      "description": "Hamilton releases the Khaki Field 38mm with the H-10 movement (80-hour reserve, anti-magnetic Nivachron hairspring). The 38mm case is the modern reissue of the 1960s Hamilton MIL-W-46374 that the US military issued to soldiers in Vietnam. The 80-hour reserve is the longest in any sub-$1,000 mechanical watch.",
+      "source_url": "https://www.hamiltonwatch.com/en-us/h70455533-khaki-field-auto-38mm"
+    }
+  ],
   "narrative": {
     "story": "The Khaki Field Auto 38mm is the 2018 reference that defined Hamilton's modern field watch identity. The 38mm stainless steel case, the matte black dial with the Arabic numerals, the 100m water resistance, and the H-10 caliber (an ETA-based automatic with an 80-hour reserve) are the 2018 specification. The Khaki Field is the most-cited modern Hamilton field watch and the watch a collector cites when they want a field watch that is not a Seiko 5 or a Marathon.",
     "collector_notes": "The H-10 is a modified ETA C07.611 with a 80-hour reserve. The Khaki Field lineage runs back to the 1960s Hamilton MIL-W-46374, the watch the US military issued to soldiers in Vietnam.",

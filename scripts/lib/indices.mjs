@@ -280,6 +280,47 @@ export function marketBand(card, estimate, bandFramework) {
     limitation: `Band placed on ${basis.from}; it names a market segment, not a valuation.` };
 }
 
+// (j) Resellability Index 0-100 -- "do people trade this particular watch?"
+// Composite of four observable signals: how often it trades, how many venues have
+// seen it, how recent the most recent sale is, and the data confidence tier.
+// Pure function of inputs; no estimation, no opinion. Returns null when the
+// underlying comp set is empty (cannot resell-proof what has never traded).
+export function resellabilityIndex(comps, buildDate, confidence) {
+  if (!comps.length) {
+    return { value: null, tier: "Unknown", k_of: [0, 4],
+      sales_per_year: 0, venues: 0, recency_days: null, confidence: confidence?.tier ?? null,
+      reason: "no_comps",
+      limitation: "No verified sales on file. Resellability is not estimated without at least one tracked venue sale." };
+  }
+  // liquidity rate, log-saturated: 12+ sales/yr = full 30
+  const win24 = compsInWindow(comps, buildDate, 24);
+  const rateYr = win24.length / 2;
+  const liqPts = Math.min(30, Math.round(Math.log2(1 + rateYr) * 6));
+  // venue diversity: 1 venue = 4pts, 5+ = full 20
+  const venues = new Set(comps.map((c) => c.venue)).size;
+  const venuePts = Math.min(20, Math.max(4, venues * 4));
+  // recency: newest sale age in days
+  const newest = comps.map((c) => c.date).sort().at(-1);
+  const recencyDays = newest ? daysBetween(buildDate, newest) : null;
+  let recencyPts = 0;
+  if (recencyDays != null) {
+    if (recencyDays <= 90) recencyPts = 25;
+    else if (recencyDays <= 180) recencyPts = 20;
+    else if (recencyDays <= 365) recencyPts = 12;
+    else if (recencyDays <= 730) recencyPts = 5;
+    else recencyPts = 0;
+  }
+  // confidence tier: A=25, B=18, C=8, null=0
+  const confPts = confidence?.tier === "A" ? 25 : confidence?.tier === "B" ? 18 : confidence?.tier === "C" ? 8 : 0;
+  const value = liqPts + venuePts + recencyPts + confPts;
+  const tier = value >= 70 ? "High" : value >= 40 ? "Medium" : "Low";
+  const k = (win24.length > 0 ? 1 : 0) + (venues > 0 ? 1 : 0) + (recencyPts > 0 ? 1 : 0) + (confPts > 0 ? 1 : 0);
+  return { value, tier, k_of: [k, 4],
+    sales_per_year: rateYr, venues, recency_days: recencyDays, confidence: confidence?.tier ?? null,
+    reason: null,
+    limitation: `Composite of ${k}/4 observable signals (liquidity rate, venue diversity, sale recency, data confidence). No estimation of future liquidity.` };
+}
+
 export function computeAll(card, shared, buildDate) {
   const comps = card.market_evidence.comps.filter(isComparable);
   const estimate = marketEstimate(comps, buildDate);
@@ -293,6 +334,7 @@ export function computeAll(card, shared, buildDate) {
   const attention = screenAttention(card, scarcity, shared.screen_sightings);
   const stale = estimate.value != null && daysBetween(buildDate, estimate.as_of) > 365;
   const market_band = marketBand(card, estimate, shared.market_context?.band_framework);
+  const resellability = resellabilityIndex(comps, buildDate, confidence);
   return { estimate: { ...estimate, stale }, premium, change_1y, change_5y,
-    scarcity, collectibility, liquidity, confidence, attention, market_band, as_of_build: buildDate };
+    scarcity, collectibility, liquidity, confidence, attention, market_band, resellability, as_of_build: buildDate };
 }
