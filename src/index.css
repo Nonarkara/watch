@@ -2225,3 +2225,198 @@ main.shell { padding-top: var(--space-md); }
 @media (min-width: 1024px) {
   .brand-row { grid-template-columns: 240px 360px 1fr; }
 }
+
+/* ── Bible: bibliography tab ──────────────────────────────────────────────── */
+.bible-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--navy);
+  background: color-mix(in srgb, var(--canvas) 94%, transparent);
+}
+.bible-stats-row {
+  display: flex; flex-direction: column;
+  padding: 14px 16px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  min-width: 0;
+}
+.bible-stats-row:nth-child(2n) { border-right: 0; }
+.bible-stats-num {
+  font-family: var(--font-mono);
+  font-size: 28px; font-weight: 500; line-height: 1;
+  letter-spacing: -0.03em; color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+.bible-stats-label {
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--dim); margin-top: 6px; text-transform: uppercase;
+}
+
+.bible-filters { padding: 32px 0 16px; border-bottom: 1px solid var(--rule); }
+.bible-filters-row {
+  display: grid; gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) { .bible-filters-row { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 14px; } }
+.bible-filter-field { display: flex; flex-direction: column; gap: 6px; }
+.bible-filter-label { font-size: 10px; letter-spacing: 0.1em; color: var(--dim); }
+.bible-input {
+  appearance: none; -webkit-appearance: none;
+  font-family: var(--font-mono); font-size: 13px;
+  padding: 8px 10px; background: var(--paper-2);
+  border: 1px solid var(--ink); color: var(--ink);
+  border-radius: 0;
+  min-height: var(--tap-min);
+}
+.bible-input:focus { outline: 2px solid var(--ink); outline-offset: -2px; }
+.bible-filter-count {
+  font-size: 11px; letter-spacing: 0.06em; color: var(--dim);
+  margin-top: 16px;
+}
+
+.bible-list { display: flex; flex-direction: column; gap: 0; padding: 0; }
+.bible-card {
+  display: grid; gap: 0;
+  border-top: 1px solid var(--rule);
+  padding: 24px 0;
+}
+.bible-card:last-child { border-bottom: 1px solid var(--rule); }
+
+.bible-card-head { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 720px) { .bible-card-head { grid-template-columns: 100px 1fr; gap: 24px; } }
+.bible-card-cover {
+  width: 100px; height: 140px; background: var(--surface);
+  border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.bible-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bible-card-cover-fallback {
+  text-align: center; padding: 8px;
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--coral); color: var(--ink);
+  width: 100%; height: 100%;
+  align-items: center; justify-content: center;
+}
+.bible-card-fallback-title {
+  font-family: var(--font-display); font-size: 11px; font-weight: 700; line-height: 1.1;
+}
+.bible-card-fallback-author {
+  font-size: 8px; letter-spacing: 0.05em; color: var(--ink);
+}
+.bible-card-meta { display: flex; flex-direction: column; gap: 6px; }
+.bible-card-title {
+  font-family: var(--font-display); font-size: 20px; font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.15; margin: 0;
+}
+.bible-card-author { font-size: 14px; color: var(--ink); margin: 0; }
+.bible-card-publisher {
+  font-size: 10px; letter-spacing: 0.08em; color: var(--dim);
+  text-transform: uppercase; margin: 0;
+}
+.bible-card-summary {
+  font-size: 14px; line-height: 1.5; color: var(--ink);
+  max-width: 70ch; margin: 8px 0 0;
+}
+
+.bible-card-foot { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+.bible-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-era, .chip-subject {
+  display: inline-flex; align-items: center;
+  padding: 3px 8px; font-size: 10px; letter-spacing: 0.05em;
+  border: 1px solid var(--ink); background: var(--paper-2);
+  font-family: var(--font-mono); text-transform: uppercase;
+}
+.chip-era { border-color: var(--navy); color: var(--navy); }
+.chip-subject { border-color: var(--coral); color: var(--coral); }
+
+.bible-card-footer-row {
+  display: flex; flex-direction: column; gap: 8px;
+  padding-top: 12px; border-top: 1px dashed var(--rule);
+}
+.bible-card-cites { display: flex; flex-direction: column; gap: 6px; }
+.bible-cites-n {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  color: var(--ink); font-weight: 500;
+}
+.bible-cites-none { color: var(--dim); }
+.bible-source { font-family: var(--font-mono); font-size: 10px; color: var(--dim); }
+.bible-source a { color: var(--coral); text-decoration: none; }
+.bible-source a:hover { text-decoration: underline; }
+
+.bible-card-dossier-list { font-size: 11px; }
+.bible-card-dossier-list summary {
+  cursor: pointer; color: var(--coral);
+  font-size: 10px; letter-spacing: 0.06em;
+  padding: 4px 0;
+}
+.bible-dossier-list {
+  list-style: none; padding: 8px 0 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 4px 12px;
+}
+.bible-dossier-list a { color: var(--navy); text-decoration: none; }
+.bible-dossier-list a:hover { text-decoration: underline; color: var(--coral); }
+
+.bible-empty {
+  text-align: center; padding: 60px 0;
+  font-size: 12px; letter-spacing: 0.1em; color: var(--dim);
+}
+
+.bible-meth {
+  padding: 48px 0 32px; border-top: 1px solid var(--rule); margin-top: 32px;
+}
+.bible-meth-h2 {
+  font-family: var(--font-display); font-size: 22px; font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 16px;
+}
+.bible-meth-body { font-size: 14px; line-height: 1.6; max-width: 72ch; margin: 0 0 12px; }
+.bible-meth-foot {
+  font-size: 10px; letter-spacing: 0.1em; color: var(--dim);
+  margin: 20px 0 0; text-transform: uppercase;
+}
+
+/* ── CitedIn (dossier panel) ─────────────────────────────────────────────── */
+.cited-in { background: var(--surface); }
+.cited-in-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.cited-in-item {
+  display: grid; grid-template-columns: 56px 1fr; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid var(--rule);
+}
+.cited-in-item:last-child { border-bottom: 0; }
+.cited-in-cover {
+  width: 56px; height: 78px;
+  background: var(--paper-2); border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.cited-in-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cited-in-cover-fallback {
+  font-family: var(--font-mono); font-size: 11px; color: var(--ink);
+  background: var(--yellow); width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.cited-in-title {
+  font-family: var(--font-display); font-size: 14px; font-weight: 600;
+  margin: 0 0 2px; line-height: 1.2;
+}
+.cited-in-author {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+  color: var(--dim); margin: 0 0 6px; text-transform: uppercase;
+}
+.cited-in-summary { font-size: 12px; line-height: 1.45; margin: 0 0 6px; max-width: 60ch; }
+.cited-in-source { font-family: var(--font-mono); font-size: 10px; margin: 0; }
+.cited-in-source a { color: var(--coral); text-decoration: none; }
+.cited-in-source a:hover { text-decoration: underline; }
+.cited-in-foot {
+  font-size: 10px; letter-spacing: 0.08em; color: var(--dim);
+  margin: 14px 0 0; padding-top: 10px; border-top: 1px dashed var(--rule);
+}
+.cited-in-foot a { color: var(--coral); text-decoration: none; margin-left: 8px; }
+.cited-in-foot a:hover { text-decoration: underline; }
+.data-sources-foot {
+  font-size: 11px; line-height: 1.5; margin-top: 18px;
+  padding-top: 12px; border-top: 1px dashed var(--rule);
+}
+.data-sources-foot a { color: var(--coral); text-decoration: none; }
+.data-sources-foot a:hover { text-decoration: underline; }

@@ -6,6 +6,7 @@ import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/form
 import Sparkline from '../components/Sparkline.tsx'
 import Top4Tiles from '../components/Top4Tiles.tsx'
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
+import CitedIn from '../components/CitedIn.tsx'
 
 export default function Dossier() {
   const { id } = useParams()
@@ -267,6 +268,8 @@ export default function Dossier() {
         <p>{c.narrative.story}</p>
         {c.narrative.collector_notes && <p className="dim">{c.narrative.collector_notes}</p>}
       </section>
+
+      <CitedIn watchId={c.id} />
 
       {starter && (
         <section className="sect">
