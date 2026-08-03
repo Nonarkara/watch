@@ -8,6 +8,7 @@ import { useRecentlyViewed } from './lib/recently-viewed.ts'
 import CompareDock from './components/CompareDock.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
 import SavedBadge from './components/SavedBadge.tsx'
+import ThemeToggle from './components/ThemeToggle.tsx'
 import { SearchPalette } from './lib/SearchPalette.tsx'
 
 const NAV = [
@@ -16,7 +17,6 @@ const NAV = [
   { to: '/screen', label: 'On screen' },
   { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/bible', label: 'Bible' },
-  { to: '/guides', label: 'Guides' },
   { to: '/economy', label: 'Economy' },
   { to: '/about', label: 'About' },
   { to: '/pom', label: 'Uncle Pom' },
@@ -34,10 +34,6 @@ const PAGE_TITLES: Record<string, string> = {
   '/glossary': 'Glossary — Time Pop',
   '/watchmaking': 'Watchmaking — Time Pop',
   '/bible': 'The Bible — Time Pop',
-  '/guides': 'Guides — Time Pop',
-  '/guides/feeling': 'A Watch Is a Feeling — Time Pop',
-  '/guides/1k': 'Starting with $1,000 — Time Pop',
-  '/guides/upgrade': 'The Upgrade Path — Time Pop',
   '/about': 'About — Time Pop',
   '/discover': 'Discover a Watch — Time Pop',
   '/rehome': 'Rehome a Watch — Time Pop',
@@ -83,6 +79,7 @@ export default function App() {
             <span>⌕</span><span className="srch-btn-text">SEARCH</span><span className="srch-btn-kbd">⌘K</span>
           </button>
           <SavedBadge />
+          <ThemeToggle />
           <nav className="nav">
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.to === '/'}
@@ -120,7 +117,6 @@ export default function App() {
             <NavLink to="/brands">BRANDS</NavLink>
             <NavLink to="/watchmaking">WATCHMAKING</NavLink>
             <NavLink to="/bible">BIBLE</NavLink>
-            <NavLink to="/guides">GUIDES</NavLink>
             <NavLink to="/pom">UNCLE POM\'S</NavLink>
             <NavLink to="/saved">MY SAVED</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>

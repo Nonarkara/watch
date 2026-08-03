@@ -30,9 +30,19 @@ const Data = lazy(() => import('./pages/Data.tsx'))
 const Glossary = lazy(() => import('./pages/Glossary.tsx'))
 const Watchmaking = lazy(() => import('./pages/Watchmaking.tsx'))
 const Bible = lazy(() => import('./pages/Bible.tsx'))
-const GuidePage = lazy(() => import('./pages/GuidePage.tsx'))
 const Pom = lazy(() => import('./pages/Pom.tsx'))
 const Saved = lazy(() => import('./pages/Saved.tsx'))
+
+/** /guides and /guides/:slug were folded into /bible. Old URLs still resolve
+ *  via this lightweight redirect so external links and search results don't
+ *  dead-end. The slug is preserved as a #reader anchor on /bible. */
+function GuidesRedirect() {
+  const url = new URL(window.location.href)
+  const slug = url.pathname.match(/^\/guides\/([a-z0-9-]+)/)?.[1] ?? null
+  const dest = slug ? `/bible#reader-${slug}` : '/bible#reader'
+  window.location.replace(dest)
+  return <p className="boot mono">REDIRECTING TO /BIBLE…</p>
+}
 
 function RouteFallback() {
   return <p className="boot mono">LOADING…</p>
@@ -67,8 +77,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="bible" element={<Suspense fallback={<RouteFallback />}><Bible /></Suspense>} />
           <Route path="pom" element={<Suspense fallback={<RouteFallback />}><Pom /></Suspense>} />
           <Route path="saved" element={<Suspense fallback={<RouteFallback />}><Saved /></Suspense>} />
-          <Route path="guides" element={<Suspense fallback={<RouteFallback />}><GuidePage /></Suspense>} />
-          <Route path="guides/:slug" element={<Suspense fallback={<RouteFallback />}><GuidePage /></Suspense>} />
+          <Route path="guides" element={<GuidesRedirect />} />
+          <Route path="guides/:slug" element={<GuidesRedirect />} />
         </Route>
       </Routes>
     </BrowserRouter>

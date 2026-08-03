@@ -301,12 +301,12 @@ export default function Home() {
         </div>
         <div className="guides-grid">
           {ARTICLES.map((a) => (
-            <Link key={a.slug} to={`/guides/${a.slug}`} className={`guide-card guide-card--${a.hue}`}>
-              <span className="guide-card-num mono">GUIDE {a.number}</span>
+            <Link key={a.slug} to={`/bible#reader-${a.slug}`} className={`guide-card guide-card--${a.hue}`}>
+              <span className="guide-card-num mono">ARTICLE {a.number}</span>
               <h3 className="guide-card-title">{a.title}</h3>
               <p className="guide-card-subtitle">{a.subtitle}</p>
               <span className="guide-card-mins mono">{a.minutes} MIN READ</span>
-              <span className="guide-card-cta mono">READ →</span>
+              <span className="guide-card-cta mono">READ IN THE BIBLE →</span>
             </Link>
           ))}
         </div>

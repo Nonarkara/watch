@@ -24,12 +24,16 @@
      Coral is the passion, yellow is the alarm, navy is the formal, teal is cool. */
   --coral: #EF6A5B;
   --coral-2: #D63E2D;
+  --coral-pale: #FBE5E2;
   --yellow: #F0B83A;
   --yellow-2: #D49C12;
+  --yellow-pale: #FCEFC8;
   --navy: #11364B;
   --navy-2: #0B2331;
+  --navy-pale: #DDE7EE;
   --teal: #55B8B1;
   --teal-2: #3A9C95;
+  --teal-pale: #DDEEEF;
   --sky: #7FC8DD;
   --fail: #B9473F;
   --amber: var(--coral);     /* legacy alias */
@@ -44,9 +48,32 @@
   --pad: 20px;
 }
 
-/* Dark mode: invert canvas + ink. Accents stay. */
+/* Dark mode: invert canvas + ink. Accents stay.
+   Triggered by [data-theme="dark"] (manual override) or system prefers-color-scheme.
+   The manual override wins once the user clicks the toggle. */
+:root[data-theme="dark"] {
+  --bg: #0A0A0A;
+  --canvas: #0A0A0A;
+  --paper-2: #161616;
+  --surface: #1F1F1F;
+  --ink: #FAFAF8;
+  --fg: #FAFAF8;
+  --dim: rgba(250, 250, 250, 0.55);
+  --line: #FAFAF8;
+  --rule: rgba(250, 250, 250, 0.88);
+  --border: 1px solid #FAFAF8;
+  --neutral-pale: #1A1A1A;
+  --neutral-line: #2A2A2A;
+  --coral-2: #F08776;
+  --yellow-2: #FFD25E;
+  --navy-2: #1B4F6A;
+  --coral-pale: #4A1F1B;
+  --yellow-pale: #3A2E15;
+  --navy-pale: #1A2A36;
+  --teal-pale: #18302E;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0A0A0A;
     --canvas: #0A0A0A;
     --paper-2: #161616;
@@ -59,6 +86,13 @@
     --border: 1px solid #FAFAF8;
     --neutral-pale: #1A1A1A;
     --neutral-line: #2A2A2A;
+    --coral-2: #F08776;
+    --yellow-2: #FFD25E;
+    --navy-2: #1B4F6A;
+    --coral-pale: #4A1F1B;
+    --yellow-pale: #3A2E15;
+    --navy-pale: #1A2A36;
+    --teal-pale: #18302E;
   }
 }
 /* Design tokens lock the dashboard shell (height:100dvh; overflow:hidden).
@@ -456,7 +490,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   display: flex; flex-direction: column;
 }
 .photo-card:hover { border-color: var(--amber); }
-.photo-thumb-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; background: #111; }
+.photo-thumb-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--paper-2); }
 .photo-img { width: 100%; height: 100%; object-fit: cover; }
 .tier-badge { position: absolute; top: 8px; right: 8px; background: rgba(0, 0, 0, 0.75); border: 1px solid var(--amber); color: var(--amber); padding: 2px 6px; font-size: var(--text-micro); }
 
@@ -808,7 +842,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .screen-card-media { position: relative; aspect-ratio: 4 / 3; background: var(--paper-2); margin-bottom: 16px; overflow: hidden; }
 .screen-card-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 .screen-card-image-link { display: block; width: 100%; height: 100%; position: relative; }
-.screen-card-image-credit { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; background: rgba(246, 240, 229, 0.94); color: var(--dim); font-size: var(--text-micro); letter-spacing: .06em; line-height: 1.3; opacity: 1; }
+.screen-card-image-credit { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; background: var(--bg); color: var(--dim); font-size: var(--text-micro); letter-spacing: .06em; line-height: 1.3; opacity: 1; }
 .screen-card-image-tag { position: absolute; top: 8px; left: 8px; background: var(--yellow); color: var(--navy); border: 1px solid var(--navy); padding: 2px 6px; font-size: var(--text-micro); letter-spacing: .1em; }
 .screen-card-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 12px; gap: 6px; color: var(--dim); font-size: var(--text-micro); letter-spacing: .04em; }
 .screen-card-empty .mono { color: var(--dim); }
@@ -1905,10 +1939,10 @@ main.shell { padding-top: var(--space-md); }
 .top4-tile--strong.top4-hue--yellow { background: var(--yellow); color: var(--ink); }
 .top4-tile--strong.top4-hue--navy { background: var(--navy); color: #FFFFFF; }
 .top4-tile--strong.top4-hue--teal { background: var(--teal); color: #FFFFFF; }
-.top4-tile--neutral.top4-hue--coral { background: #FBE5E2; color: var(--ink); border-left: 0; }
-.top4-tile--neutral.top4-hue--yellow { background: #FCEFC8; color: var(--ink); }
-.top4-tile--neutral.top4-hue--navy { background: #DDE7EE; color: var(--ink); }
-.top4-tile--neutral.top4-hue--teal { background: #DDEEEF; color: var(--ink); }
+.top4-tile--neutral.top4-hue--coral { background: var(--coral-pale); color: var(--ink); border-left: 0; }
+.top4-tile--neutral.top4-hue--yellow { background: var(--yellow-pale); color: var(--ink); }
+.top4-tile--neutral.top4-hue--navy { background: var(--navy-pale); color: var(--ink); }
+.top4-tile--neutral.top4-hue--teal { background: var(--teal-pale); color: var(--ink); }
 .top4-tile--strong .top4-tile-symbol { opacity: 1; }
 .top4-tile--weak { background: var(--bg); color: var(--dim); }
 .top4-tile--weak .top4-tile-symbol { opacity: 0.4; }
@@ -2734,3 +2768,73 @@ main.shell { padding-top: var(--space-md); }
   .what-changed-date, .what-changed-source, .what-changed-meta { font-size: 10px; }
   .what-changed-open { justify-self: start; }
 }
+
+/* ── Header: theme toggle ────────────────────────────────────────────────── */
+.theme-toggle { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 6px 10px; font-size: 11px; letter-spacing: 0.08em; cursor: pointer; transition: background 150ms ease, color 150ms ease; }
+.theme-toggle:hover { background: var(--ink); color: var(--bg); }
+.theme-toggle-icon { font-size: 14px; line-height: 1; }
+.theme-toggle-label { font-weight: 600; }
+.theme-toggle-pref { color: var(--coral); font-weight: 700; }
+@media (max-width: 720px) { .theme-toggle-label { display: none; } }
+
+/* ── /bible: sub-tab nav (BOOKS · READER · WHY) ──────────────────────────── */
+.bible-tabs { display: flex; flex-wrap: wrap; gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin: 32px 0 0; }
+.bible-tab { flex: 1; min-width: 200px; display: flex; align-items: center; gap: 12px; padding: 18px 20px; font-size: 12px; letter-spacing: 0.1em; color: var(--ink); text-decoration: none; border-right: 1px solid var(--ink); transition: background 150ms ease; }
+.bible-tab:last-child { border-right: 0; }
+.bible-tab:hover { background: var(--paper-2); }
+.bible-tab.on { background: var(--ink); color: var(--bg); }
+.bible-tab-num { font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid currentColor; }
+
+/* ── /bible: compact book cards (cover + title + summary + collapsible) ── */
+.bible-card { display: grid; gap: 0; padding: 18px 0; border-top: 1px solid var(--rule); }
+.bible-card:last-child { border-bottom: 1px solid var(--rule); }
+.bible-card-row { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: start; }
+@media (min-width: 720px) { .bible-card-row { grid-template-columns: 64px 1fr; gap: 20px; } }
+.bible-card-cover { width: 64px; height: 92px; object-fit: cover; border: 1px solid var(--ink); display: block; }
+.bible-card-cover-fallback { width: 64px; height: 92px; background: var(--coral); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; border: 1px solid var(--ink); }
+.bible-card-meta { display: flex; flex-direction: column; gap: 4px; }
+.bible-card-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+.bible-card-author { font-size: 13px; color: var(--ink); margin: 0; }
+.bible-card-summary { font-size: 13px; line-height: 1.5; color: var(--ink); max-width: 72ch; margin: 4px 0 0; }
+.bible-card-expand { margin-top: 10px; }
+.bible-card-expand > summary { cursor: pointer; font-size: 10px; letter-spacing: 0.1em; color: var(--coral); padding: 6px 0; user-select: none; }
+.bible-card-expand > summary:hover { color: var(--ink); }
+.bible-card-details { padding: 10px 0 0; border-top: 1px dashed var(--rule); display: flex; flex-direction: column; gap: 8px; }
+.bible-card-line { font-size: 11px; margin: 0; color: var(--dim); }
+.bible-card-line a { color: var(--coral); text-decoration: none; }
+.bible-card-line a:hover { text-decoration: underline; }
+.bible-card-cites { margin-top: 4px; }
+.bible-dossier-list { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.bible-dossier-list a { color: var(--navy); text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+.bible-dossier-list a:hover { color: var(--coral); text-decoration: underline; }
+
+/* ── /bible: reader cards (3 anti-marketing essays as collapsibles) ────── */
+.bible-reader { margin-top: 48px; padding-top: 24px; border-top: 2px solid var(--ink); }
+.bible-reader-deck { font-family: var(--font-essay); font-size: 15px; line-height: 1.6; max-width: 64ch; margin: 0 0 24px; color: var(--ink); }
+.bible-reader-list { display: flex; flex-direction: column; gap: 0; }
+.reader-card { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.reader-card + .reader-card { border-top: 0; }
+.reader-card details > summary { list-style: none; cursor: pointer; display: block; }
+.reader-card details > summary::-webkit-details-marker { display: none; }
+.reader-card-head { padding: 20px 24px; display: flex; flex-direction: column; gap: 6px; transition: background 150ms ease; }
+.reader-card-head:hover { background: var(--paper-2); }
+.reader-card-num { font-size: 11px; letter-spacing: 0.12em; color: var(--coral); }
+.reader-card-title { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin: 0; color: var(--ink); }
+.reader-card-subtitle { font-size: 14px; line-height: 1.5; color: var(--ink); margin: 4px 0 0; max-width: 60ch; }
+.reader-card-lede { font-family: var(--font-essay); font-size: 15px; line-height: 1.6; color: var(--ink); margin: 10px 0 0; max-width: 60ch; font-style: italic; }
+.reader-card-cta { font-size: 11px; letter-spacing: 0.12em; color: var(--coral); margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--rule); }
+.reader-card-body { padding: 0 24px 24px; max-width: 72ch; }
+.reader-card-body h2 { font-family: var(--font-display); font-size: clamp(20px, 1.8vw, 24px); font-weight: 700; margin: 28px 0 10px; letter-spacing: -0.01em; }
+.reader-card-body p { font-family: var(--font-essay); font-size: 16px; line-height: 1.6; margin: 0 0 14px; }
+.reader-card-body ol, .reader-card-body ul { font-family: var(--font-essay); font-size: 16px; line-height: 1.6; margin: 0 0 14px; padding-left: 20px; }
+.reader-card-body li { margin: 0 0 8px; }
+.reader-card-body strong { font-weight: 700; }
+.reader-card-foot { padding: 12px 24px 20px; font-size: 11px; letter-spacing: 0.1em; color: var(--dim); border-top: 1px dashed var(--rule); }
+.reader-card-foot a { color: var(--coral); text-decoration: none; margin-left: 6px; }
+.reader-card-foot a:hover { text-decoration: underline; }
+
+/* Pop-art hue on the reader card left border, to give the article a mood */
+.reader-card--coral { border-left: 6px solid var(--coral); }
+.reader-card--yellow { border-left: 6px solid var(--yellow); }
+.reader-card--navy { border-left: 6px solid var(--navy); }
+.reader-card--navy .reader-card-title { color: var(--navy); }
