@@ -2941,7 +2941,8 @@ main.shell { padding-top: var(--space-md); }
 }
 
 /* ── /data: methodology section — long-form prose ────────────────────────── */
-.data-methodology { padding: 48px 0 24px; border-top: 1px solid var(--rule); margin-top: 32px; max-width: 78ch; }
+.data-methodology { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 48px 0 24px; border-top: 1px solid var(--rule); margin-top: 32px; }
+.data-methodology-copy { max-width: 78ch; min-width: 0; }
 .data-methodology h2 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 18px; max-width: 22ch; }
 .data-methodology-lede { font-family: var(--font-essay); font-size: 19px; line-height: 1.55; color: var(--ink); max-width: 70ch; margin: 0 0 32px; }
 .data-methodology h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--coral); margin: 36px 0 8px; padding-top: 8px; }
@@ -2950,9 +2951,31 @@ main.shell { padding-top: var(--space-md); }
 .data-methodology strong { color: var(--ink); font-weight: 600; }
 .data-methodology em { color: var(--coral); font-style: normal; font-weight: 600; }
 .data-methodology code { font-family: var(--font-mono); font-size: 13px; padding: 1px 6px; background: var(--surface); border: 1px solid var(--rule); }
+.data-methodology h3[id] { scroll-margin-top: 240px; }
+.data-methodology-rail { align-self: start; border: 2px solid var(--ink); background: var(--surface); padding: 20px; min-width: 0; }
+.method-refusal { margin: 12px 0 24px; padding: 18px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.method-refusal > strong { display: block; font-family: var(--font-mono); font-size: clamp(54px, 6vw, 84px); font-weight: 500; line-height: .82; letter-spacing: -.06em; color: var(--coral); }
+.method-refusal > span { display: block; max-width: 30ch; margin-top: 12px; font-size: 10px; line-height: 1.45; letter-spacing: .08em; }
+.method-refusal p { margin: 12px 0 0; font-family: var(--font-essay); font-size: 14px; line-height: 1.5; }
+.method-rail-title { margin: 0 0 10px; font-size: 10px; letter-spacing: .12em; color: var(--dim); }
+.method-coverage { margin-bottom: 24px; }
+.method-coverage-row { margin-bottom: 11px; }
+.method-coverage-row > div { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 5px; font-size: 11px; }
+.method-coverage-row > div strong { color: var(--ink); font-size: 10px; }
+.method-coverage-track { display: block; height: 8px; border: 1px solid var(--ink); background: var(--paper-2); overflow: hidden; }
+.method-coverage-track > span { display: block; height: 100%; background: var(--coral); }
+.method-map { border-top: 1px solid var(--ink); padding-top: 16px; }
+.method-map a { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: center; min-height: 38px; border-bottom: 1px solid var(--neutral-line); font-size: 11px; }
+.method-map a > span:first-child { color: var(--coral); font-size: 10px; }
+.method-map a > span:last-child { color: var(--dim); }
+.method-map a:hover { background: var(--paper-2); }
+.method-build { margin: 18px 0 0; font-size: 9px; letter-spacing: .08em; color: var(--dim); }
 @media (min-width: 880px) {
+  .data-methodology { grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 56px; align-items: start; }
   .data-methodology h2 { max-width: 28ch; }
+  .data-methodology h3[id] { scroll-margin-top: 180px; }
   .data-methodology p { max-width: 72ch; }
+  .data-methodology-rail { position: sticky; top: 24px; }
 }
 
 /* ── /about: Watches in popular culture — MoMA planar stack ─────────────────

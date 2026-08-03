@@ -65,3 +65,9 @@ const literalDataCounts = [...dataSrc.matchAll(/<strong>\s*(\d{2,}[^<{]*?)<\/str
 assert.deepEqual(literalDataCounts, [],
   `Data.tsx contains hardcoded counts inside <strong>: ${literalDataCounts.join(", ")}\n  → read them from the live dataset.`);
 console.log("✓ no hardcoded ledger counts on the Data audit page");
+
+assert.ok(dataSrc.includes('computed.estimate.value != null'),
+  'Data refusal count must use the actual publishable estimate gate');
+assert.ok(!dataSrc.includes('data.count - cardStats.withComps'),
+  'having one comp is not the same as clearing the estimate gate');
+console.log("✓ Data refusal count follows the publishable-estimate gate");

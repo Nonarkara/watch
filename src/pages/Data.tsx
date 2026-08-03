@@ -68,11 +68,19 @@ export default function Data() {
   const cardStats = {
     withImage: data.cards.filter((c) => c.media.length > 0).length,
     withComps: data.cards.filter((c) => c.comp_summary).length,
+    withEstimate: data.cards.filter((c) => c.computed.estimate.value != null).length,
     withProvenance: data.cards.filter((c) => c.provenance_events.length > 0).length,
     totalEvents: data.cards.reduce((s, c) => s + c.provenance_events.length, 0),
     withExactScreen: data.cards.filter((c) => c.screen_events.length > 0).length,
     withMsrp: data.cards.filter((c) => c.retail.msrp_history.length > 0 || c.retail.current_msrp_usd != null).length,
   }
+  const methodCoverage = [
+    ['Licensed photo', cardStats.withImage],
+    ['Sale evidence', cardStats.withComps],
+    ['Publishable estimate', cardStats.withEstimate],
+    ['Sourced provenance', cardStats.withProvenance],
+    ['Retail history', cardStats.withMsrp],
+  ] as const
 
   return (
     <>
@@ -97,7 +105,7 @@ export default function Data() {
           <div className="pop-panel data-meta">
             <span className="bubble-kicker mono">THE RULE</span>
             <strong>No cited comps, no estimate.</strong>
-            <span>The visible refusals are load-bearing. {data.count - cardStats.withComps} of {data.count} dossiers sit on the refusal rung today. That is the system working.</span>
+            <span>The visible refusals are load-bearing. {data.count - cardStats.withEstimate} of {data.count} dossiers do not clear the estimate gate today. That is the system working.</span>
           </div>
         }
       />
@@ -171,6 +179,7 @@ export default function Data() {
       </section>
 
       <section className="data-methodology" id="how-we-work" aria-label="How we work, in full">
+        <div className="data-methodology-copy">
         <h2>How we work, in full.</h2>
         <p className="data-methodology-lede">
           A watch enters the register the way a good answer enters a room: it carries its
@@ -180,7 +189,7 @@ export default function Data() {
           once, end to end.
         </p>
 
-        <h3>1. The first question: is this watch worth a dossier?</h3>
+        <h3 id="method-1">1. The first question: is this watch worth a dossier?</h3>
         <p>
           A reference makes the cut when it satisfies at least one of three conditions. The
           reference is in <strong>the cultural conversation</strong> — there is published
@@ -195,7 +204,7 @@ export default function Data() {
           is real.
         </p>
 
-        <h3>2. The dossier, in one sitting</h3>
+        <h3 id="method-2">2. The dossier, in one sitting</h3>
         <p>
           A dossier begins as a JSON file under <code>data/cards/&lt;id&gt;.json</code>. The
           schema requires six blocks, in this order: <strong>identity</strong> (brand, reference,
@@ -211,7 +220,7 @@ export default function Data() {
           <code>—</code>, not a guess.
         </p>
 
-        <h3>3. The honest ladder, top to bottom</h3>
+        <h3 id="method-3">3. The honest ladder, top to bottom</h3>
         <p>
           For each card we then build, top to bottom, a ladder of what we are willing to
           publish. The top rungs are <em>identity</em>, <em>retail at launch</em>, and
@@ -227,11 +236,11 @@ export default function Data() {
           and <em>confidence</em> (tier of venue, recency of comp, number of venues). Below
           all of these: <strong>the refusal</strong>. The dossier publishes a
           <code> —</code> where the evidence is too thin. Today,{' '}
-          <strong>{data.count - cardStats.withComps} of {data.count}</strong> dossiers sit on
+          <strong>{data.count - cardStats.withEstimate} of {data.count}</strong> dossiers sit on
           the refusal rung. That is the system working.
         </p>
 
-        <h3>4. From card to wire</h3>
+        <h3 id="method-4">4. From card to wire</h3>
         <p>
           Every card passes through <code>scripts/validate_card.mjs</code> before the build
           sees it. The validator checks schema, dates, money shapes, license strings, and a
@@ -248,7 +257,7 @@ export default function Data() {
           <code>data/cards/</code> and is reproducible from any clone.
         </p>
 
-        <h3>5. The four axes, by reference</h3>
+        <h3 id="method-5">5. The four axes, by reference</h3>
         <p>
           Every dossier publishes the same four metrics, on the same scale. <strong>Rarity</strong>
           {' '}is the Scarcity Index: a five-signal composite of brand production, limited-edition
@@ -264,7 +273,7 @@ export default function Data() {
           built on the opposite discipline.
         </p>
 
-        <h3>6. Build, test, deploy</h3>
+        <h3 id="method-6">6. Build, test, deploy</h3>
         <p>
           The build is one command: <code>npm run build</code>. It calls
           <code> build_rolex_catalog.mjs</code>, then <code>build_screen_sightings.mjs</code>,
@@ -279,7 +288,7 @@ export default function Data() {
           committed files only when the result changes.
         </p>
 
-        <h3>7. The rule, restated</h3>
+        <h3 id="method-7">7. The rule, restated</h3>
         <p>
           The system has one rule: <em>no cited comps, no estimate</em>. Every published
           number on the site traces to at least three comparable sales at cited venues on
@@ -289,6 +298,45 @@ export default function Data() {
           sale evidence, {cardStats.totalEvents} sourced provenance events, and 0 invented prices</strong>
           {' '}can trust those counts because the build computes them from the same public dataset.
         </p>
+        </div>
+
+        <aside className="data-methodology-rail" aria-label="Live methodology ledger">
+          <p className="eyebrow">LIVE METHOD LEDGER</p>
+          <div className="method-refusal">
+            <strong>{data.count - cardStats.withEstimate}</strong>
+            <span className="mono">OF {data.count} DOSSIERS DO NOT PUBLISH A MARKET ESTIMATE</span>
+            <p>{cardStats.withEstimate} references clear the current comparable-sale gate. A blank price is a result, not unfinished UI.</p>
+          </div>
+
+          <div className="method-coverage" aria-label="Evidence coverage">
+            <p className="method-rail-title mono">EVIDENCE ON FILE</p>
+            {methodCoverage.map(([label, count]) => (
+              <div className="method-coverage-row" key={label}>
+                <div><span>{label}</span><strong className="mono">{count}/{data.count}</strong></div>
+                <span className="method-coverage-track" role="img" aria-label={`${label}: ${count} of ${data.count}`}>
+                  <span style={{ width: `${Math.round((count / data.count) * 100)}%` }} />
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <nav className="method-map" aria-label="Method sections">
+            <p className="method-rail-title mono">THE SEVEN CHECKPOINTS</p>
+            {[
+              ['01', 'Admission', '#method-1'],
+              ['02', 'The dossier', '#method-2'],
+              ['03', 'Honesty ladder', '#method-3'],
+              ['04', 'Card to wire', '#method-4'],
+              ['05', 'Four axes', '#method-5'],
+              ['06', 'Build and test', '#method-6'],
+              ['07', 'The rule', '#method-7'],
+            ].map(([number, label, href]) => (
+              <a href={href} key={href}><span className="mono">{number}</span><strong>{label}</strong><span>↓</span></a>
+            ))}
+          </nav>
+
+          <p className="method-build mono">PUBLIC BUILD {data.built} · METHOD V{data.methodology_version}</p>
+        </aside>
       </section>
 
       <section className="data-sources">
