@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "orient-kamasu-ra-aa0003",
+  "identity": {
+    "brand": "Orient",
+    "reference": "RA-AA0003R19B",
+    "name": "Kamasu",
+    "nickname": "Kamasu",
+    "collection": "Mako",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "F6724",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41.8,
+      "material": "stainless steel",
+      "bezel": "unidirectional 60-min dive"
+    },
+    "one_liner": "The sub-$250 automatic dive watch with sapphire crystal, 200m water resistance, and hacking — the most-recommended entry diver in Southeast Asia."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 225,
+        "source_url": "https://orientwatch.com/collections/mako-kamasu"
+      }
+    ],
+    "current_msrp_usd": 225
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Kamasu (Japanese for barracuda) pairs Orient's in-house F6724 automatic with a sapphire crystal and 200m water resistance at a price that undercuts Seiko and Citizen by a wide margin. Orient sells it in Asia under the Mako III name; the Kamasu designation is the one most collectors cite. It is the most-recommended sub-$300 automatic dive watch in the SEA market and the watch a first-time buyer lands on before graduating to a Seiko Prospex or a Tudor Black Bay.",
+    "collector_notes": "The Kamasu and the Mako III share the same F6724 movement and case; the naming varies by market. Sapphire crystal and a solid end-link bracelet distinguish it from the older Mako II.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://orientwatch.com/collections/mako-kamasu"
+    ]
+  }
+}

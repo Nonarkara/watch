@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "oris-divers-sixty-five",
+  "identity": {
+    "brand": "Oris",
+    "reference": "01 733 7764 4054",
+    "name": "Divers Sixty-Five",
+    "nickname": "Divers 65",
+    "collection": "Divers",
+    "tier": "core",
+    "produced": {
+      "start_year": 2015,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Oris 733",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "aluminum unidirectional 60-min"
+    },
+    "one_liner": "The 2015 reissue of Oris's 1965 dive watch — 40mm, vintage proportions, the most-cited modern Oris diver before the Calibre 400."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2015,
+        "price_usd": 2200,
+        "source_url": "https://www.oris.ch/en/watch-collection/divers/divers-sixty-five"
+      }
+    ],
+    "current_msrp_usd": 2200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Divers Sixty-Five is the reissue of the 1965 Oris dive watch (ref. 6518), scaled to 40mm from the original 36mm. The Oris 733 caliber is a Sellita SW200-1 base with a 38-hour reserve. The domed sapphire crystal and the thin aluminum bezel give it a vintage profile that reads closer to a 1960s watch than any modern diver at the $2,200 price point. The Divers Sixty-Five is the most-cited Oris diver before the Calibre 400 era.",
+    "collector_notes": "The Divers Sixty-Five is available in 36mm, 40mm, and 42mm. The 40mm is the most-cited size. The 733 caliber is Sellita-based; the later Calibre 400 version (2023) added the 5-day reserve.",
+    "starter_alternative": "orient-kamasu-ra-aa0003"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.oris.ch/en/watch-collection/divers/divers-sixty-five"
+    ]
+  }
+}

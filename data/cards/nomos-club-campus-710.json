@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "nomos-club-campus-710",
+  "identity": {
+    "brand": "Nomos Glashütte",
+    "reference": "710",
+    "name": "Club Campus",
+    "nickname": "Campus",
+    "collection": "Club",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Alpha",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 36.4,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The entry Nomos — a 36.4mm hand-wound with the Alpha manufacture caliber, designed as the first serious mechanical watch for students and young collectors."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 1780,
+        "source_url": "https://nomos-glashuette.com/en/collections/club"
+      }
+    ],
+    "current_msrp_usd": 1780
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Club Campus is the entry point to Nomos's manufacture lineup: the same Alpha hand-wind movement as the Tangente, in a smaller 36.4mm case with a more casual dial. Nomos designed the Campus line for students and first-time buyers, and the caseback is engravable — a deliberate gesture toward the graduation-gift market. The Club Campus is the most-cited entry German manufacture watch and the watch a collector cites when they want Glashütte watchmaking under $2,000.",
+    "collector_notes": "The Club line dates to 1992. The Campus variant (2017) uses the same Alpha movement but drops the date and simplifies the dial.",
+    "starter_alternative": "orient-bambino-v4-ra-ac0900"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://nomos-glashuette.com/en/collections/club"
+    ]
+  }
+}

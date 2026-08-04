@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "nomos-metro-1102",
+  "identity": {
+    "brand": "Nomos Glashütte",
+    "reference": "1102",
+    "name": "Metro 38 Datum",
+    "nickname": "Metro",
+    "collection": "Metro",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "DUW 4401",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "stainless steel",
+      "bezel": "wire-lug thin"
+    },
+    "one_liner": "The Metro with Nomos's in-house swing-system escapement — the watch that proved the brand could build its own escapement."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 4200,
+        "source_url": "https://nomos-glashuette.com/en/collections/metro"
+      }
+    ],
+    "current_msrp_usd": 4200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Metro (2014) was the first Nomos to carry the DUW 4401 caliber with the Nomos Swing System — the brand's in-house-designed escapement, balance wheel, balance spring, and pallet fork. Before the Swing System, Nomos sourced escapement components from Swiss suppliers. The Metro's 37mm case with wire lugs and the distinctive two-tone minute track is a design by Mark Braun. The Metro 38 Datum is the most-cited Nomos above the entry tier and the watch a collector cites when arguing Nomos is a full manufacture, not a design house with sourced movements.",
+    "collector_notes": "The Nomos Swing System (2014) is the brand's first fully in-house escapement. Wire lugs and the Braun-designed minute track distinguish it from the Tangente.",
+    "starter_alternative": "orient-bambino-v4-ra-ac0900"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://nomos-glashuette.com/en/collections/metro"
+    ]
+  }
+}

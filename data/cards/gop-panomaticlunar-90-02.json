@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "gop-panomaticlunar-90-02",
+  "identity": {
+    "brand": "Glashütte Original",
+    "reference": "90-02-42-32-61",
+    "name": "PanoMaticLunar",
+    "nickname": null,
+    "collection": "Pano",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Calibre 90-02",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The PanoMaticLunar with the asymmetric panodate dial layout and an in-house moon-phase — the most-cited Glashütte Original complication."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 10000,
+        "source_url": "https://www.glashuette-original.com/en/collections/pano"
+      }
+    ],
+    "current_msrp_usd": 10000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The PanoMaticLunar pairs the asymmetric \"Pano\" dial layout (off-centre hour/minute, large panorama date, moon-phase at 2 o'clock) with the in-house Calibre 90-02 — a Glashütte three-quarter-plate automatic with a 42-hour reserve. The moon-phase display is a hand-painted golden moon against a blue sky. The PanoMaticLunar is the most-cited Glashütte Original complication and the watch a collector cites when they want a moon-phase that is a German manufacture piece rather than a Swiss classic.",
+    "collector_notes": "The asymmetric dial is a GO signature. The panorama date (large double-digit date window) is a Glashütte watchmaking tradition shared with Lange's outsize date.",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.glashuette-original.com/en/collections/pano"
+    ]
+  }
+}

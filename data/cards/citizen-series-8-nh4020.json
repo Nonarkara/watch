@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "citizen-series-8-nh4020",
+  "identity": {
+    "brand": "Citizen",
+    "reference": "NH4020-54L",
+    "name": "Series 8 Automatic",
+    "nickname": "Series 8",
+    "collection": "Series 8",
+    "tier": "core",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "0950",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished with fluted variant"
+    },
+    "one_liner": "The Series 8 automatic with the in-house caliber 0950 — Citizen's mid-range manufacture line, positioned between the Tsuyosa and the high-end Citizen Chronomaster."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 700,
+        "source_url": "https://www.citizenwatch.com/us/en/collections/promaster/"
+      }
+    ],
+    "current_msrp_usd": 700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Series 8 is Citizen's mid-tier mechanical line, launched globally in 2023 (sold in Japan since the 2010s as the \"8\" series). The 0950 caliber is a modern Citizen automatic with a 50-hour reserve and anti-magnetic resistance to 16,000 A/m. The 40mm case comes in smooth, fluted, and integrated-bracelet variants. The Series 8 is the most-cited Citizen mechanical above the entry tier and the watch a collector cites when they want Japanese automatic watchmaking with anti-magnetic specs at the $700 price point.",
+    "collector_notes": "The 0950 caliber is the modern Citizen mechanical platform; it differs from the older 8210 in the Tsuyosa by adding anti-magnetic shielding and a longer reserve.",
+    "starter_alternative": "citizen-tsuyosa-nj0150"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.citizenwatch.com/us/en/collections/promaster/"
+    ]
+  }
+}

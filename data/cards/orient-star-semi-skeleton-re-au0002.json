@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "orient-star-semi-skeleton-re-au0002",
+  "identity": {
+    "brand": "Orient",
+    "reference": "RE-AU0002L00B",
+    "name": "Orient Star Semi-Skeleton",
+    "nickname": null,
+    "collection": "Orient Star",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "F6N47",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The higher-tier Orient Star with a semi-skeleton open heart — the gateway to Japanese manufacture watchmaking at the sub-$700 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 695,
+        "source_url": "https://orientwatch.jp/en/collections/orient-star/"
+      }
+    ],
+    "current_msrp_usd": 695
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Orient Star line sits above the standard Orient range in finish, movement decoration, and case execution. The Semi-Skeleton exposes part of the in-house F6N47 caliber through an open-heart window at 9 o'clock. The 40mm case, sapphire crystal with anti-reflective coating, and 50-hour reserve put it in direct competition with entry Seiko Presage and Tissot. In the Asian market it is the watch a buyer chooses when they want mechanical watchmaking with visible decoration at the sub-$700 tier.",
+    "collector_notes": "The F6N47 is a decorated version of the F6 series with a semi-skeleton bridge. Orient Star models are assembled in Japan, unlike the standard Orient range.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://orientwatch.jp/en/collections/orient-star/"
+    ]
+  }
+}

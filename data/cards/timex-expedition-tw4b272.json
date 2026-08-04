@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "timex-expedition-tw4b272",
+  "identity": {
+    "brand": "Timex",
+    "reference": "TW4B27200",
+    "name": "Expedition Gallatin",
+    "nickname": "Expedition",
+    "collection": "Expedition",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2014,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Indiglo quartz",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "brass with resin overlay",
+      "bezel": "bidirectional compass"
+    },
+    "one_liner": "The $50 field/tactical quartz with compass bezel and Indiglo — Timex's entry in the outdoor-instrument category."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2014,
+        "price_usd": 50,
+        "source_url": "https://www.timex.com/expedition-gallatin-41mm-fabric-strap-watch/TW4B27200.html"
+      }
+    ],
+    "current_msrp_usd": 50
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Expedition Gallatin is Timex's field-and-trail watch, named for the Gallatin National Forest. The 41mm case combines a brass body with a resin overlay for impact resistance. The bidirectional compass bezel and the Indiglo backlight are the functional features. The Expedition is the most-cited Timex field watch and the watch a collector cites when they want an affordable outdoor instrument that runs on a coin-cell battery.",
+    "collector_notes": "The Expedition line has been in the Timex catalogue since the 1990s. The Gallatin variant is the mid-size (41mm); the Field Expedition is smaller.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.timex.com/expedition-gallatin-41mm-fabric-strap-watch/TW4B27200.html"
+    ]
+  }
+}

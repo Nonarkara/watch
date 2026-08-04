@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "oris-big-crown-pointer-date",
+  "identity": {
+    "brand": "Oris",
+    "reference": "01 754 7779 4054",
+    "name": "Big Crown Pointer Date",
+    "nickname": "Pointer Date",
+    "collection": "Aviation",
+    "tier": "core",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Oris 754",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "coin-edge fluted"
+    },
+    "one_liner": "The pointer-date complication on a coin-edge Aviator case — the only series-production automatic with a center-hand date complication at this price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 2200,
+        "source_url": "https://www.oris.ch/en/watch-collection/aviation/big-crown-pointer-date"
+      }
+    ],
+    "current_msrp_usd": 2200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Big Crown Pointer Date pairs Oris's 754 caliber (a Sellita SW200-1 with an in-house pointer-date module) with the 1938 Big Crown aviation case — the coin-edge bezel and the oversized crown are the 1938 originals. The pointer-date complication — a fourth hand that points to a date scale on the dial periphery — is rare in series production and unique at this price. The Big Crown Pointer Date is the most-cited Oris non-diver and the watch a collector cites when they want a complication no Swiss competitor offers at the $2,200 price point.",
+    "collector_notes": "The pointer-date module is an in-house Oris design on a Sellita base. The Big Crown line dates to 1938; the coin-edge bezel and oversized crown are original design elements.",
+    "starter_alternative": "orient-bambino-v4-ra-ac0900"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.oris.ch/en/watch-collection/aviation/big-crown-pointer-date"
+    ]
+  }
+}

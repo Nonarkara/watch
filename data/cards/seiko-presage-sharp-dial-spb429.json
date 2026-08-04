@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "seiko-presage-sharp-dial-spb429",
+  "identity": {
+    "brand": "Seiko",
+    "reference": "SPB429",
+    "name": "Presage Sharp Dial",
+    "nickname": "Sharp Dial",
+    "collection": "Presage",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "6R35",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40.2,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 40.2mm Presage with the sharp-edged Sharaku dial pattern and the 6R35 caliber — the most-cited Seiko dress automatic at the $850 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 850,
+        "source_url": "https://www.seikowatches.com/us-en/products/presage/spb429"
+      }
+    ],
+    "current_msrp_usd": 850
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The SPB429 is part of Seiko's Presage Sharp Dial series, which draws on the Japanese Sharaku woodblock-print aesthetic — the dial pattern is a series of radiating sharp-edged lines. The 6R35 caliber (hand-wind, hacking, 70-hour reserve) is Seiko's mid-range automatic. The 40.2mm stainless steel case, sapphire crystal, and see-through caseback are the modern Presage specification. The SPB429 is the most-cited Presage dress watch at the $850 price point.",
+    "collector_notes": "The 6R35 replaced the 6R15 with a longer reserve (70h vs 50h). The Sharaku pattern references Toshusai Sharaku, an 18th-century ukiyo-e artist.",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.seikowatches.com/us-en/products/presage/spb429"
+    ]
+  }
+}

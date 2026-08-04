@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "breguet-type-xx-1050",
+  "identity": {
+    "brand": "Breguet",
+    "reference": "Type XX 1050ST/62/W670",
+    "name": "Type XX",
+    "nickname": "Type 20",
+    "collection": "Type XX",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "728",
+      "type": "automatic flyback chronograph"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "bidirectional 12-hr"
+    },
+    "one_liner": "The 2023 Type XX reissue with the in-house caliber 728 flyback chronograph — the 1950s French Air Force navigation chronograph reissued in a 39mm civilian case."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Type XX (Type 20 in French) was originally specified by the French Air Force in the 1950s as a navigation chronograph; Breguet, Dodane, and Airain all produced versions. Breguet's civilian Type XX has been in the catalogue since the 1960s, and the 2023 reissue (Type 20) houses the new in-house caliber 728 flyback chronograph — a column-wheel, vertical-clutch movement with a 60-hour reserve. The 39mm steel case and the bidirectional 12-hour bezel are the 1950s originals. The Type XX is the most-cited Breguet sport chronograph and the watch a collector cites when they want a military-heritage flyback.",
+    "collector_notes": "The caliber 728 (2023) replaces the earlier 582 used in the previous Type XX. The flyback function allows resetting and restarting the chronograph without stopping it first.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.breguet.com/en/collections/type-xx"
+    ]
+  }
+}

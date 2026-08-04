@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "citizen-navihawk-at-j80",
+  "identity": {
+    "brand": "Citizen",
+    "reference": "J80-Y028E",
+    "name": "Navihawk A-T",
+    "nickname": "Navihawk",
+    "collection": "Eco-Drive",
+    "tier": "core",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "U600 Eco-Drive",
+      "type": "quartz (solar)"
+    },
+    "case": {
+      "diameter_mm": 45,
+      "material": "titanium",
+      "bezel": "slide-rule bidirectional"
+    },
+    "one_liner": "The solar-powered pilot chronograph with radio-controlled timekeeping and a slide-rule bezel — the most feature-dense Citizen at the $650 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 650,
+        "source_url": "https://www.citizenwatch.com/us/en/collections/navihawk/"
+      }
+    ],
+    "current_msrp_usd": 650
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Navihawk A-T is the full-spec pilot watch from Citizen's Eco-Drive line: solar charging (any light), radio-controlled time sync (Multi-Band 6), a slide-rule bezel, a 1/100-second chronograph, a world timer (43 cities), and two alarms. The U600 caliber is the Eco-Drive movement that powers it all from ambient light — no battery replacement. The 45mm titanium case keeps the weight manageable. The Navihawk is the most-cited Citizen pilot watch and the watch a collector cites when they want maximum functions per dollar.",
+    "collector_notes": "Eco-Drive is Citizen's solar-charging technology (launched 1995). Multi-Band 6 syncs with radio towers in the US, UK, Germany, China, and Japan (2 towers). The slide-rule bezel performs fuel and distance calculations.",
+    "starter_alternative": "casio-ga-2100"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.citizenwatch.com/us/en/collections/navihawk/"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "orient-bambino-v4-ra-ac0900",
+  "identity": {
+    "brand": "Orient",
+    "reference": "RA-AC0900L",
+    "name": "Bambino Version IV",
+    "nickname": "Bambino",
+    "collection": "Bambino",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "F6724",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The affordable dress automatic that defined entry-level mechanical watchmaking for a generation of collectors across Asia and beyond."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 330,
+        "source_url": "https://orientwatch.com/collections/bambino"
+      }
+    ],
+    "current_msrp_usd": 330
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Bambino Version IV refines the 2012 original with a domed mineral crystal, a sunburst domed dial, and Orient's in-house F6724 caliber — hand-winding and hacking, both rare at this price point. The 40.5mm case and 21mm lug width give it a presence that reads above its cost. The Bambino has been Orient's most-cited dress watch since the first version launched, and the V4 is the most refined of the series.",
+    "collector_notes": "The F6724 replaced the earlier 46943 in the Bambino line, adding hand-wind and hacking. Check domed crystal height — the V4 sits taller than the V1-V3.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://orientwatch.com/collections/bambino"
+    ]
+  }
+}

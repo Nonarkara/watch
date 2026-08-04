@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "chopard-alpine-eagle-298600",
+  "identity": {
+    "brand": "Chopard",
+    "reference": "298600-3001",
+    "name": "Alpine Eagle",
+    "nickname": null,
+    "collection": "Alpine Eagle",
+    "tier": "core",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Chopard 01.01-C",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "Lucent steel A223",
+      "bezel": "integrated round-textured"
+    },
+    "one_liner": "The 41mm integrated-bracelet sport watch in Chopard's proprietary Lucent Steel A223 — the steel-sport competitor to the Royal Oak and Nautilus that entered the market in 2019."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Alpine Eagle (2019) is Chopard's entry into the integrated-bracelet steel-sport category defined by the Royal Oak and the Nautilus. The case material is Lucent Steel A223 — a proprietary Chopard alloy that is harder than conventional stainless steel and has a brighter reflectivity. The Chopard 01.01-C caliber is an in-house automatic with a 60-hour reserve. The textured dial references the iris of an eagle. The Alpine Eagle is the most-cited modern Chopard sport watch and the one a collector cites when they want an integrated-bracelet design that is not from the established Swiss trio.",
+    "collector_notes": "Lucent Steel A223 is a Chopard-exclusive alloy, recycled and harder than 316L. The Alpine Eagle line was inspired by the 1980 Chopard St. Moritz (Karl-Friedrich Scheufele's first design).",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.chopard.com/us/en/watches/alpine-eagle"
+    ]
+  }
+}

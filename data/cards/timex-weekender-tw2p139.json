@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "timex-weekender-tw2p139",
+  "identity": {
+    "brand": "Timex",
+    "reference": "TW2P13900",
+    "name": "Weekender",
+    "nickname": "Weekender",
+    "collection": "Weekender",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2011,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Indiglo quartz",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "brass case with leather strap",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The $40 quartz field watch with the Indiglo backlight — the most-sold affordable watch in North America and the one most-cited as a first watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2011,
+        "price_usd": 40,
+        "source_url": "https://www.timex.com/weekender-38mm-leather-strap-watch/TW2P13900.html"
+      }
+    ],
+    "current_msrp_usd": 40
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Weekender (2011) is the watch that re-established Timex as a volume player in the 2010s. The 38mm brass case, the interchangeable slip-thru strap, and the Indiglo backlight (Timex's 1992 electroluminescent technology) are the core specification. The Weekender is sold in hundreds of dial/strap colorways and is the most-sold affordable watch in North America. It is the watch most-cited as a first watch — the one a non-collector buys and the one a collector cites when they want a beater that costs less than a meal.",
+    "collector_notes": "The Weekender's ticking is audible — the quartz module ticks once per second. The brass case is not stainless; it scratches and patinas. Indiglo is a Timex patent.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.timex.com/weekender-38mm-leather-strap-watch/TW2P13900.html"
+    ]
+  }
+}

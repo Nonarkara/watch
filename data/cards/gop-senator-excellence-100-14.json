@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "gop-senator-excellence-100-14",
+  "identity": {
+    "brand": "Glashütte Original",
+    "reference": "100-14-05-02-04",
+    "name": "Senator Excellence",
+    "nickname": null,
+    "collection": "Senator",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Calibre 36",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 40mm Senator Excellence with the in-house Calibre 36 — the German manufacture dress watch with a 100-hour reserve and a Glashütte three-quarter plate."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 9000,
+        "source_url": "https://www.glashuette-original.com/en/collections/senator"
+      }
+    ],
+    "current_msrp_usd": 9000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Glashütte Original is the other major manufacture in Glashütte, Saxony (the first being A. Lange & Söhne), and the Senator Excellence is its flagship three-hand dress watch. The Calibre 36 (2016) is a fully in-house automatic with a 100-hour reserve, a silicon balance spring, and the Glashütte three-quarter plate — the architectural signature of Saxon watchmaking. The Senator Excellence is the most-cited GO dress watch and the reference a collector cites when they want German manufacture quality at a price point below Lange.",
+    "collector_notes": "The Calibre 36 replaced the older Calibre 39. The three-quarter plate is a Glashütte signature that differs from the Swiss full-bridge or cock architecture.",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.glashuette-original.com/en/collections/senator"
+    ]
+  }
+}

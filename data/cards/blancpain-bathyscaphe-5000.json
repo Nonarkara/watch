@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "blancpain-bathyscaphe-5000",
+  "identity": {
+    "brand": "Blancpain",
+    "reference": "5000-1110-B52A",
+    "name": "Fifty Fathoms Bathyscaphe",
+    "nickname": "Bathyscaphe",
+    "collection": "Fifty Fathoms",
+    "tier": "core",
+    "produced": {
+      "start_year": 2013,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1315",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 43,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional 60-min"
+    },
+    "one_liner": "The 43mm Bathyscaphe — the smaller, more wearable Fifty Fathoms with a ceramic bezel and the 1315 caliber, designed as the everyday-luxury diver."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Bathyscaphe line references the 1956 Blancpain Bathyscaphe (named for Auguste Piccard's deep-sea submersible). The 2013 reissue scaled the Fifty Fathoms case down from 45mm to 43mm and swapped the sapphire bezel for ceramic — a lighter, more everyday wearable result. The 1315 caliber (120-hour reserve) is the same as in the 45mm Fifty Fathoms. The Bathyscaphe is the most-cited modern Blancpain for daily wear and the watch a collector cites when they want the Fifty Fathoms heritage in a case that fits under a cuff.",
+    "collector_notes": "The Bathyscaphe is 43mm vs the Fifty Fathoms 45mm; the bezel is ceramic (not the sapphire of the 45mm). The 1315 caliber runs at 28,800 vph with a 120-hour reserve.",
+    "starter_alternative": "orient-kamasu-ra-aa0003"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.blancpain.com/en/fifty-fathoms/bathyscaphe"
+    ]
+  }
+}

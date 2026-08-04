@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "hublot-classic-fusion-521-nx",
+  "identity": {
+    "brand": "Hublot",
+    "reference": "521.NX.1171.LR",
+    "name": "Classic Fusion",
+    "nickname": null,
+    "collection": "Classic Fusion",
+    "tier": "core",
+    "produced": {
+      "start_year": 2010,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "HUB1112",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 45,
+      "material": "titanium",
+      "bezel": "polished titanium 6-screw"
+    },
+    "one_liner": "The 45mm Classic Fusion — the toned-down Big Bang with the Sellita-based HUB1112 and a thinner profile, Hublot's entry into the integrated-bracelet segment."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Classic Fusion (2010) is the simpler sibling of the Big Bang: a thinner case (9.4mm vs 15mm), a Sellita SW300-1-based HUB1112 movement instead of the in-house Unico, and a cleaner dial without a chronograph. The 45mm titanium case retains the layered case middle and the 6-screw bezel. The Classic Fusion is Hublot's most-cited dress/sport watch and the watch a collector cites when they want the Hublot design language without the flyback-chronograph complication or the 15mm case height.",
+    "collector_notes": "The HUB1112 is a Sellita SW300-1 base — not an in-house movement. The Classic Fusion is available in 38mm, 42mm, and 45mm; the 45mm is the most-cited.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.hublot.com/en-us/watches/classic-fusion"
+    ]
+  }
+}

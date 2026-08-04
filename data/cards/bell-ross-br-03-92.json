@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "bell-ross-br-03-92",
+  "identity": {
+    "brand": "Bell & Ross",
+    "reference": "BR0392-BL-ST/SCA",
+    "name": "BR 03-92 Steel",
+    "nickname": "BR 03",
+    "collection": "BR 03",
+    "tier": "core",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "BR-CAL.302",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "integrated square 4-screw"
+    },
+    "one_liner": "The 42mm square-instrument three-hand watch — the 1990s cockpit-panel design language that has defined Bell & Ross since the BR 01."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2017,
+        "price_usd": 3500,
+        "source_url": "https://www.bell-ross.com/en/collection/br-03"
+      }
+    ],
+    "current_msrp_usd": 3500
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The BR 03 is the 42mm civilian version of the 46mm BR 01 (2005), which was itself a wristwatch interpretation of an airplane cockpit clock. The \"circle within a square\" case reads as an instrument panel — the Bell & Ross design brief since the brand's 1992 founding. The BR-CAL.302 caliber is a Sellita SW300-1 base. The BR 03-92 Steel is the most-cited Bell & Ross and the watch a collector cites when they want a square-case sport watch that is not a Monaco.",
+    "collector_notes": "The BR 03 is the 42mm case; the BR 01 is 46mm (discontinued); the BR S is 39mm. The four visible bezel screws are a direct cockpit-clock reference.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.bell-ross.com/en/collection/br-03"
+    ]
+  }
+}

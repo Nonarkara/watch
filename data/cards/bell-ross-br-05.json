@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "bell-ross-br-05",
+  "identity": {
+    "brand": "Bell & Ross",
+    "reference": "BR05A-BL-ST/SRB",
+    "name": "BR 05",
+    "nickname": null,
+    "collection": "BR 05",
+    "tier": "core",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "BR-CAL.321",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "integrated square with rounded bezel ring"
+    },
+    "one_liner": "The 2019 BR 05 — Bell & Ross's integrated-bracelet sport watch, the case that competes with the Royal Oak and the Nautilus at the sub-$5,000 price point."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 4200,
+        "source_url": "https://www.bell-ross.com/en/collection/br-05"
+      }
+    ],
+    "current_msrp_usd": 4200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The BR 05 (2019) is Bell & Ross's answer to the integrated-bracelet steel-sport category. The 40mm case softens the BR 03's hard square edges with a rounded bezel ring and an integrated bracelet — a design that reads as a cockpit panel refined for the wrist rather than a cockpit panel strapped to the wrist. The BR-CAL.321 (Sellita SW300-1 base) is the same movement family as the BR 03. The BR 05 is the most-cited modern Bell & Ross and the watch a collector cites when they want the integrated-bracelet design language at a price point below the Swiss trio.",
+    "collector_notes": "The BR 05 was designed by Bruno Belamich (the \"Bell\" of Bell & Ross). The integrated bracelet distinguishes it from the BR 03's strap-only design.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.bell-ross.com/en/collection/br-05"
+    ]
+  }
+}

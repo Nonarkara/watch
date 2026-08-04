@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "blancpain-fifty-fathoms-5015",
+  "identity": {
+    "brand": "Blancpain",
+    "reference": "5015-12B40-NABA",
+    "name": "Fifty Fathoms",
+    "nickname": null,
+    "collection": "Fifty Fathoms",
+    "tier": "core",
+    "produced": {
+      "start_year": 2007,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "1315",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 45,
+      "material": "stainless steel",
+      "bezel": "sapphire unidirectional 60-min"
+    },
+    "one_liner": "The 45mm modern Fifty Fathoms with sapphire bezel and the 1315 caliber — the dive watch that predates the Submariner and defined the luxury dive category."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Blancpain launched the Fifty Fathoms in 1953, a year before the Rolex Submariner, and the original was specified by French Navy combat swimmers (Robert Maloubier and Claude Riffaud). The modern 5015 reissue (2007) scales the case to 45mm, uses a sapphire crystal bezel (not aluminum or ceramic), and houses the in-house 1315 caliber with a 120-hour reserve. The Fifty Fathoms is the oldest continuously-produced luxury dive watch and the one a collector cites when arguing that the dive-watch category did not begin with the Submariner.",
+    "collector_notes": "The sapphire bezel is a Blancpain signature — most competitors use ceramic. The 1315 has a 120-hour (5-day) reserve with three barrels. The 45mm case wears large; the 43mm Bathyscaphe is the smaller alternative.",
+    "starter_alternative": "orient-kamasu-ra-aa0003"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.blancpain.com/en/fifty-fathoms"
+    ]
+  }
+}

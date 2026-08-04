@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "nomos-tangente-38-164",
+  "identity": {
+    "brand": "Nomos Glashütte",
+    "reference": "164",
+    "name": "Tangente 38",
+    "nickname": "Tangente",
+    "collection": "Tangente",
+    "tier": "haute",
+    "produced": {
+      "start_year": 1992,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Alpha",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 37.5,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The German Bauhaus dress watch that has defined Nomos Glashütte since 1992 — a hand-wound manufacture movement in a pared-down steel case."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 2280,
+        "source_url": "https://nomos-glashuette.com/en/collections/tangente"
+      }
+    ],
+    "current_msrp_usd": 2280
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Tangente has been Nomos's most-cited model since the brand's 1990 founding in Glashütte, Saxony. The Alpha caliber is Nomos's first in-house movement, a hand-wound movement with a 43-hour reserve and a Glashütte three-quarter plate. The 37.5mm stainless steel case, the thin bezel, and the printed Arabic numerals are the Tangente's unchanged design language since 1992. The Tangente 38 is the most-cited affordable German manufacture watch and the reference a collector cites when arguing that Glashütte watchmaking is not limited to the higher-priced A. Lange & Söhne.",
+    "collector_notes": "The Alpha caliber was Nomos's first in-house movement (launched 2005). Earlier Tangente models used a Peseux 7001 base. The \"38\" in the name refers to the 37.5mm case diameter.",
+    "starter_alternative": "orient-bambino-v4-ra-ac0900"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://nomos-glashuette.com/en/collections/tangente"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "chopard-mille-miglia-168571",
+  "identity": {
+    "brand": "Chopard",
+    "reference": "168571-3002",
+    "name": "Mille Miglia Classic",
+    "nickname": "Mille Miglia",
+    "collection": "Mille Miglia",
+    "tier": "core",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Chopard 03.05-C",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40.5,
+      "material": "stainless steel",
+      "bezel": "smooth polished"
+    },
+    "one_liner": "The 40.5mm Mille Miglia chronograph — the watch Chopard has made as the official timekeeper of the Mille Miglia vintage car race since 1988."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Chopard has been the official timekeeper of the Mille Miglia (the 1,000-mile Italian vintage car race) since 1988, and the Mille Miglia watch line is the brand's motorsport-heritage entry. The 40.5mm case houses the in-house Chopard 03.05-C automatic chronograph caliber with a 60-hour reserve. The dial design references 1960s racing dashboards — the tire-tread strap and the race-route map on the caseback are Mille Miglia signatures. The Mille Miglia is the most-cited Chopard chronograph and the watch a collector cites when they want a motorsport watch from a brand that actually races.",
+    "collector_notes": "Chopard co-president Karl-Friedrich Scheufele drives the Mille Miglia every year. The 03.05-C is a COSC-certified chronometer.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.chopard.com/us/en/watches/mille-miglia"
+    ]
+  }
+}

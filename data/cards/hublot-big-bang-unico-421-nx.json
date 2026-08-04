@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "hublot-big-bang-unico-421-nx",
+  "identity": {
+    "brand": "Hublot",
+    "reference": "421.NX.1177.RX",
+    "name": "Big Bang Unico",
+    "nickname": null,
+    "collection": "Big Bang",
+    "tier": "core",
+    "produced": {
+      "start_year": 2018,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "HUB1280",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "titanium",
+      "bezel": "brushed titanium 6-screw"
+    },
+    "one_liner": "The 42mm Big Bang Unico flyback chronograph with Hublot's in-house HUB1280 caliber — the watch that defined the modern Hublot identity."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Big Bang line launched in 2005 under Jean-Claude Biver; the Unico variant (2018) houses Hublot's in-house HUB1280 flyback chronograph caliber — a column-wheel, vertical-clutch movement with a 72-hour reserve. The 42mm titanium case uses Hublot's \"Art of Fusion\" construction: a layered case middle with exposed 6-screw bezel. The Big Bang Unico is the most-cited modern Hublot and the watch a collector cites when they want a flyback chronograph with a recognizable case design that is not a Daytona or a Royal Oak Offshore.",
+    "collector_notes": "The HUB1280 is a Unico movement — Hublot's first fully in-house chronograph caliber (launched 2010). The flyback function resets and restarts the chronograph in one button press.",
+    "starter_alternative": "tissot-prx-t137-407"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.hublot.com/en-us/watches/big-bang/unico"
+    ]
+  }
+}

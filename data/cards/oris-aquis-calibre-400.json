@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "oris-aquis-calibre-400",
+  "identity": {
+    "brand": "Oris",
+    "reference": "01 400 7763 4151",
+    "name": "Aquis Calibre 400 Date",
+    "nickname": "Aquis",
+    "collection": "Aquis",
+    "tier": "core",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Oris 400",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 41.5,
+      "material": "stainless steel",
+      "bezel": "ceramic unidirectional 60-min"
+    },
+    "one_liner": "The Aquis dive watch with Oris's first in-house 5-day automatic caliber — the movement that moved Oris from base-Sellita to a true manufacture."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 3800,
+        "source_url": "https://www.oris.ch/en/watch-collection/divers/aquis-date"
+      }
+    ],
+    "current_msrp_usd": 3800
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Calibre 400, launched in 2020, is Oris's first in-house automatic movement in a generation: a 120-hour (5-day) power reserve, anti-magnetic to 2,250 gauss, and a 10-year service interval. The Aquis case — 41.5mm with the trademark integrated crown protector — had been Oris's flagship diver since 2011. The Calibre 400 replaced the Sellita-based Oris 733 inside it. The Aquis Calibre 400 is the most-cited modern Oris and the watch that re-positioned the brand from a Sellita-base house to a credible independent manufacture.",
+    "collector_notes": "The Calibre 400 is a true manufacture movement designed in-house. Earlier Aquis models used the Sellita SW200-1-based Oris 733 — check the caseback marking.",
+    "starter_alternative": "orient-kamasu-ra-aa0003"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.oris.ch/en/watch-collection/divers/aquis-date"
+    ]
+  }
+}

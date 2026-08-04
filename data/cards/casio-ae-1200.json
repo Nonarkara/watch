@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-ae-1200",
+  "identity": {
+    "brand": "Casio",
+    "reference": "AE-1200WH-1AV",
+    "name": "Casio Royale",
+    "nickname": "Casio Royale",
+    "collection": "Casio Standard",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2008,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 3768",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 42.4,
+      "material": "resin case and strap",
+      "bezel": "fixed resin (4-screw)"
+    },
+    "one_liner": "The $25 digital field watch nicknamed for its James Bond resemblance — the most feature-rich Casio at the bottom of the catalogue, with world time and a 10-year battery."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2008,
+        "price_usd": 25,
+        "source_url": "https://www.casio.com/us/watches/casio/ae1200wh-1av"
+      }
+    ],
+    "current_msrp_usd": 25
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The AE-1200 (dubbed the \"Casio Royale\" for its resemblance to a watch in Casino Royale media) is the feature-dense entry in Casio's digital line: world time (31 time zones, 48 cities), a 1/100-second stopwatch, a countdown timer, five daily alarms, an LED backlight, and a 10-year battery. The 42.4mm resin case has a 100m water resistance — more than most digitals at this price. The AE-1200 is the most-cited affordable digital after the F-91W and the watch a collector cites when they want maximum function per dollar.",
+    "collector_notes": "The AE-1200 and the AE-1500 share the 3768 module. The \"Royale\" nickname is collector slang; the watch has no official Bond association. The case screws are decorative.",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.casio.com/us/watches/casio/ae1200wh-1av"
+    ]
+  }
+}

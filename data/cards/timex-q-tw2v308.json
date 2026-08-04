@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "timex-q-tw2v308",
+  "identity": {
+    "brand": "Timex",
+    "reference": "TW2V30800",
+    "name": "Q Timex Reissue",
+    "nickname": "Q Timex",
+    "collection": "Q Timex",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "mechanical hand-wind",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "bidirectional 12-hr (pepsi)"
+    },
+    "one_liner": "The 2019 reissue of the 1979 Q Timex — a hand-wound mechanical with a Pepsi bezel and a woven stainless bracelet at under $200."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 199,
+        "source_url": "https://www.timex.com/q-timex-1979-reissue-38mm-stainless-steel-bracelet-watch/TW2V30800.html"
+      }
+    ],
+    "current_msrp_usd": 199
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Q Timex (1979) was Timex's first electronic/mechanical hybrid; the 2019 reissue is fully mechanical — a hand-wind movement with a Pepsi (red/blue) bidirectional bezel, a woven stainless-steel expansion bracelet, and a 38mm case that matches the original. The reissue was the surprise of 2019: a sub-$200 mechanical from a brand known for $40 quartz. The Q Timex is the most-cited affordable mechanical reissue and the watch a collector cites when they want 1970s design without the 1970s maintenance.",
+    "collector_notes": "The 2019 Q Timex is hand-wind only (no automatic). The woven expansion bracelet is a stretch-link design from the 1970s.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.timex.com/q-timex-1979-reissue-38mm-stainless-steel-bracelet-watch/TW2V30800.html"
+    ]
+  }
+}

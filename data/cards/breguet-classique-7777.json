@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "breguet-classique-7777",
+  "identity": {
+    "brand": "Breguet",
+    "reference": "7777BB/29/9V6",
+    "name": "Classique",
+    "nickname": null,
+    "collection": "Classique",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "537/3",
+      "type": "automatic perpetual calendar"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "18k white gold",
+      "bezel": "fluted (coin-edge)"
+    },
+    "one_liner": "The 39mm Classique perpetual calendar with the fluted caseband and Breguet hands — the dress-watch reference for the oldest name in Swiss watchmaking."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Abraham-Louis Breguet founded the house in 1775, and the Classique line carries the brand's founding design codes: the fluted (coin-edge) caseband, the Breguet hands (the open-tipped \"pomme\" hands Breguet designed in 1783), and the guilloché dial. The 537/3 caliber is an automatic perpetual calendar based on a Lemania-derived platform with a silicon balance spring. The Classique perpetual is the most-cited Breguet dress complication and the watch a collector cites when they want a perpetual calendar from the house that invented the tourbillon.",
+    "collector_notes": "The fluted caseband is hand-knurled. Breguet hands (open-tipped blue steel) are a house signature since 1783. The silicon balance spring is Breguet's modern addition to the classic Lemania base.",
+    "starter_alternative": "grandseiko-sbga413g"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.breguet.com/en/collections/classique"
+    ]
+  }
+}

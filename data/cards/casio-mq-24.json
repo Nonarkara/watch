@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "casio-mq-24",
+  "identity": {
+    "brand": "Casio",
+    "reference": "MQ-24-7B",
+    "name": "Casio MQ-24 Analog",
+    "nickname": "MQ-24",
+    "collection": "Casio Standard",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2003,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "quartz module 536",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 35,
+      "material": "resin case and strap",
+      "bezel": "fixed resin (round)"
+    },
+    "one_liner": "The $15 analog quartz — the cheapest watch in the Casio catalogue, and the most-cited \"just a watch\" in the affordable-collecting conversation."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2003,
+        "price_usd": 15,
+        "source_url": "https://www.casio.com/us/watches/casio/mq24-7b"
+      }
+    ],
+    "current_msrp_usd": 15
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The MQ-24 is the bottom of Casio's analog line: a 35mm resin case, a mineral glass crystal, a basic three-hand quartz movement (module 536), and a 3-year battery. It is the cheapest watch Casio makes and the one most-cited when collectors discuss the minimum viable watch. The MQ-24 is the watch a collector cites when they want to make the point that a functional timepiece does not require a mechanical movement or a four-figure budget.",
+    "collector_notes": "The MQ-24 has no water resistance rating beyond splash resistant. The resin strap is non-replaceable without modification. The mineral glass is unusual at this price point (most competitors use acrylic).",
+    "starter_alternative": "casio-f-91w"
+  },
+  "meta": {
+    "curated_by": "agent-global-coverage",
+    "curated_date": "2026-08-04",
+    "sources": [
+      "https://www.casio.com/us/watches/casio/mq24-7b"
+    ]
+  }
+}
