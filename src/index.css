@@ -4053,3 +4053,106 @@ main.shell { padding-top: var(--space-md); }
   .bible-spotlight-cover { border-right: 0; border-bottom: 1px solid var(--ink); min-height: 240px; }
   .bible-spotlight-body { padding: 16px 18px 18px; }
 }
+
+/* ── CITE — the visible side of "every number has a source" ────────────────
+   A small footnote marker (†) on any published number. Hover or focus
+   reveals a popover with the source. Pure CSS — no JS state. The
+   popover drops below the value on hover; a hairline rule under the
+   source-eyebrow keeps the citation compact and readable. */
+.cite {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  cursor: help;
+  border-bottom: 1px dashed var(--rule);
+}
+.cite-marker {
+  font-family: var(--font-display);
+  font-size: 0.7em;
+  color: var(--coral);
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: super;
+  user-select: none;
+}
+.cite-source {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  min-width: 240px;
+  max-width: 320px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  display: flex; flex-direction: column; gap: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  z-index: 100;
+}
+.cite-source-eyebrow {
+  font-size: 9px; letter-spacing: 0.16em; color: var(--coral);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+.cite-source-name {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--ink); line-height: 1.3;
+}
+.cite-source-detail {
+  font-family: var(--font-essay); font-size: 11px; line-height: 1.4;
+  color: var(--dim);
+}
+.cite-source-link {
+  display: inline-block; margin-top: 4px;
+  font-size: 9px; letter-spacing: 0.12em;
+  color: var(--coral); text-decoration: none;
+  border-top: 1px solid var(--rule); padding-top: 4px;
+  pointer-events: auto;
+}
+.cite:hover .cite-source,
+.cite:focus-within .cite-source {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (max-width: 720px) {
+  .cite-source { min-width: 200px; max-width: 240px; }
+}
+
+/* ── HOME "WHY THESE NUMBERS" BAND ─────────────────────────────────────────
+   A 4-column strip above the hero that names the four values the site
+   refuses to compromise on. Makes the honesty ladder visible from the
+   first fold. Hairline rules between columns. */
+.home-why-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper-2);
+  margin: 0 0 var(--space-lg);
+  border-top: 4px solid var(--ink);
+}
+.home-why-band-item {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px 16px;
+  border-right: 1px solid var(--ink);
+  background: var(--paper);
+}
+.home-why-band-item:last-child { border-right: 0; }
+.home-why-num {
+  font-size: 10px; letter-spacing: 0.16em; color: var(--coral);
+}
+.home-why-text {
+  font-family: var(--font-essay); font-size: 13px; line-height: 1.4;
+  color: var(--ink);
+}
+@media (max-width: 880px) {
+  .home-why-band { grid-template-columns: 1fr; }
+  .home-why-band-item { border-right: 0; border-bottom: 1px solid var(--ink); }
+  .home-why-band-item:last-child { border-bottom: 0; }
+}
