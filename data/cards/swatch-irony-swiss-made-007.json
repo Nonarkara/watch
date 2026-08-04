@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "swatch-irony-swiss-made-007",
+  "identity": {
+    "brand": "Swatch",
+    "reference": "YSS1007",
+    "name": "Swatch Irony Swiss-Made 007",
+    "nickname": "Irony 007",
+    "collection": "Irony",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2010,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "ETA quartz 3-hand",
+      "type": "quartz"
+    },
+    "case": {
+      "diameter_mm": 43,
+      "material": "stainless steel case, leather strap",
+      "bezel": "fixed stainless"
+    },
+    "one_liner": "The Swatch Irony line is the affordable end of Swatch's Swiss-made offering — ETA quartz in a steel case for less than the cost of a dinner."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2010,
+        "price_usd": 180,
+        "source_url": "https://www.swatch.com/en-us/watches/irony/YSS1007.html"
+      }
+    ],
+    "current_msrp_usd": 180
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Irony line is Swatch's answer to the question \"what if a plastic Swatch was stainless steel and on a leather strap?\" — a $180 Swiss-made quartz watch in a 43mm steel case. The Irony is the watch a Bangkok secondary-school student is most likely to own before they upgrade to a Tissot. Swatch sells the Irony across roughly 40 reference families, of which the 007 is the most-cited because of the obvious name echo with Bond — a deliberate marketing coincidence the brand has not leaned into, but the watch world has.",
+    "collector_notes": "The Irony 007's reference number is YSS1007. The 007 has no formal Bond association. The case is 43mm, which is large for a $180 quartz. The leather strap is interchangeable with any standard 21mm Swatch Irony strap.",
+    "starter_alternative": "casio-mq-24"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

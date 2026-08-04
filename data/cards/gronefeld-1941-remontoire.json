@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "gronefeld-1941-remontoire",
+  "identity": {
+    "brand": "Grönefeld",
+    "reference": "1941 Remontoire",
+    "name": "Grönefeld 1941 Remontoire",
+    "nickname": "1941",
+    "collection": "1941",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "G-05 (in-house manual, 8-second remontoire, 72h reserve)",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel (also in titanium, rose gold)",
+      "bezel": "fixed polished"
+    },
+    "one_liner": "The 1941 Remontoire is the Grönefeld brothers' signature — a hand-finished in-house movement with an 8-second constant-force remontoire, in a 40mm steel case that is the most-cited modern Dutch independent watch."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 95000,
+        "source_url": "https://gronefeld.com/timepieces/1941-remontoire"
+      }
+    ],
+    "current_msrp_usd": 95000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Grönefeld brothers (Tim and Bart) are third-generation watchmakers from Oldenzaal, Netherlands, who established their brand in 2008. The 1941 Remontoire is the watch that put them on the global map: a 40mm steel case containing an in-house manual-wind movement with an 8-second remontoire — a constant-force mechanism that re-tensions the mainspring every 8 seconds, dramatically improving rate stability. The 1941 is named after the brothers' grandfather, who was a horology instructor in 1941. Production is roughly 12 pieces per year. The 1941 is the most-cited modern Dutch independent watch in international collector circles.",
+    "collector_notes": "The 8-second remontoire uses a small auxiliary spring that is wound and released every 8 seconds, providing a constant force to the escapement. The main plate of the movement is hand-finished with a \"frosted\" texture that takes roughly 4 hours per movement. Production is roughly 12 pieces per year. The brand is among the most-awarded independents of the past decade.",
+    "starter_alternative": "fp-journe-octa-chronometre-souverain"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "maurice-lacroix-aikon-automatic",
+  "identity": {
+    "brand": "Maurice Lacroix",
+    "reference": "AI6007-SS002-330-1",
+    "name": "Maurice Lacroix Aikon Automatic 42",
+    "nickname": "Aikon",
+    "collection": "Aikon",
+    "tier": "core",
+    "produced": {
+      "start_year": 2016,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "ML115 (Sellita SW200-1 base)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "fixed stainless with engraved \"Clous de Paris\" pattern"
+    },
+    "one_liner": "The Maurice Lacroix Aikon is the Swiss integrated-bracelet sports watch Asian collectors buy instead of an entry-level Royal Oak — the casework is the same supplier as AP's steel sports line."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2016,
+        "price_usd": 2400,
+        "source_url": "https://www.mauricelacroix.com/en-us/aikon-automatic-42mm-ai6007-ss002-330-1"
+      }
+    ],
+    "current_msrp_usd": 2400
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Aikon is Maurice Lacroix's most-photographed case — a 42mm steel integrated-bracelet sports watch with the brand's \"Clous de Paris\" hobnail pattern on the bezel. The line is the brand's most successful in Asia, where it sells as the Swiss alternative to an entry-level Audemars Piguet Royal Oak. The case uses the same case-supplier (Les Artisans Boîtiers) that supplies Audemars Piguet's steel sports line — which is why the finishing reads as AP-adjacent at one-fifth the price. Maurice Lacroix is one of the last Swiss independent-brand holdouts that has not been acquired by a group.",
+    "collector_notes": "The Clous de Paris pattern is hobnail-engraved on the bezel, not stamped — visible under loupe. The bracelet is integrated, no end-links, with brushed and polished surfaces. The movement is decorated (Geneva stripes, blued screws) but not COSC certified.",
+    "starter_alternative": "tissot-prx-powermatic-80"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

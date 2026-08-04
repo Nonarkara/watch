@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "rado-captain-cook-42",
+  "identity": {
+    "brand": "Rado",
+    "reference": "R32105313",
+    "name": "Rado Captain Cook 42",
+    "nickname": "Captain Cook",
+    "collection": "Captain Cook",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2021,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Rado Caliber R763 (Sellita SW200-1 base, 80h reserve)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "stainless steel",
+      "bezel": "unidirectional ceramic dive bezel"
+    },
+    "one_liner": "The Captain Cook 42 reissues the 1962 Rado dive watch — high-tech ceramic, 80h movement, and a bracelet that wears like a hot knife through rubber."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2021,
+        "price_usd": 2200,
+        "source_url": "https://www.rado.com/en_us/captain-cook-r32105313.html"
+      }
+    ],
+    "current_msrp_usd": 2200
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The original Captain Cook was issued in 1962, the same year as the first dive watches from Blancpain and Zodiac. The 2021 reissue takes the 1962 silhouette and the boxed sapphire crystal and pairs them with a modern Sellita-based 80-hour movement and Rado's signature high-tech ceramic bezel insert. Rado is the Swatch Group brand with the deepest ceramic-construction heritage — the Captain Cook is the watch the brand uses to demonstrate that ceramic can be made to look like a 1960s dive watch and not like a 2000s Apple Watch. The Captain Cook sells particularly well in Singapore and Bangkok, where Rado has long had brand recognition through its jewellery-watch sister line.",
+    "collector_notes": "The 80-hour power reserve is the headline spec — it is one of the few sub-$2,500 Swiss dive watches with an 80h movement. The ceramic bezel is virtually scratch-proof. The bracelet uses a quick-change system; the rubber strap is included in the box and the bracelet-to-rubber swap takes about 30 seconds with no tools.",
+    "starter_alternative": "certina-ds-ph200m"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}
