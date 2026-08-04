@@ -9,6 +9,7 @@ import Sparkline from '../components/Sparkline.tsx'
 import Top4Tiles from '../components/Top4Tiles.tsx'
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
 import CitedIn from '../components/CitedIn.tsx'
+import Cite from '../components/Cite.tsx'
 
 export default function Dossier() {
   const { id } = useParams()
@@ -76,25 +77,49 @@ export default function Dossier() {
         <ol className="dsr-verdict-list">
           <li className={`dsr-verdict-row dsr-verdict-row--coral dsr-verdict-row--${rarityClass(c)}`}>
             <span className="dsr-verdict-key mono">RARITY</span>
-            <span className="dsr-verdict-val mono">{c.computed.scarcity.value != null ? String(c.computed.scarcity.value) : '—'}</span>
+            <Cite
+              source="5-signal Scarcity Index"
+              detail={`${c.computed.scarcity.k_of[0]} of 5 signals available: production status, edition size, brand capacity, listings, waitlist.`}
+              href="/methodology#scarcity"
+            >
+              <span className="dsr-verdict-val mono">{c.computed.scarcity.value != null ? String(c.computed.scarcity.value) : '—'}</span>
+            </Cite>
             <span className="dsr-verdict-cap mono">{c.computed.scarcity.tier?.toUpperCase() ?? 'NO SIGNALS'}</span>
             <span className="dsr-verdict-state mono">{rarityClass(c).toUpperCase()}</span>
           </li>
           <li className={`dsr-verdict-row dsr-verdict-row--yellow dsr-verdict-row--${demandClass(c)}`}>
             <span className="dsr-verdict-key mono">DEMAND</span>
-            <span className="dsr-verdict-val mono">{c.computed.collectibility.value != null ? String(c.computed.collectibility.value) : '—'}</span>
+            <Cite
+              source="5-component Collectibility Index"
+              detail={`${c.computed.collectibility.k_of[0]} of 5 components available: premium, scarcity, provenance density, auction presence, 5y real price durability.`}
+              href="/methodology#collectibility"
+            >
+              <span className="dsr-verdict-val mono">{c.computed.collectibility.value != null ? String(c.computed.collectibility.value) : '—'}</span>
+            </Cite>
             <span className="dsr-verdict-cap mono">{c.computed.collectibility.k_of[0]}/{c.computed.collectibility.k_of[1]} COMPONENTS</span>
             <span className="dsr-verdict-state mono">{demandClass(c).toUpperCase()}</span>
           </li>
           <li className={`dsr-verdict-row dsr-verdict-row--navy dsr-verdict-row--${storyClass(c)}`}>
             <span className="dsr-verdict-key mono">STORY</span>
-            <span className="dsr-verdict-val mono">{c.provenance_events.length}</span>
+            <Cite
+              source="Sourced event timeline"
+              detail={`${c.provenance_events.length} dated event${c.provenance_events.length === 1 ? '' : 's'} on the dossier timeline — each with a cited URL.`}
+              href="/methodology#story"
+            >
+              <span className="dsr-verdict-val mono">{c.provenance_events.length}</span>
+            </Cite>
             <span className="dsr-verdict-cap mono">{c.provenance_events.length === 0 ? 'NO EVENTS' : c.provenance_events.length === 1 ? 'SOURCED EVENT' : 'SOURCED EVENTS'}</span>
             <span className="dsr-verdict-state mono">{storyClass(c).toUpperCase()}</span>
           </li>
           <li className={`dsr-verdict-row dsr-verdict-row--teal dsr-verdict-row--${resellClass(c)}`}>
             <span className="dsr-verdict-key mono">RESELL</span>
-            <span className="dsr-verdict-val mono">{c.computed.resellability.value != null ? String(c.computed.resellability.value) : '—'}</span>
+            <Cite
+              source="4-signal Resellability Index"
+              detail={`${c.computed.resellability.k_of[0]} of 4 signals available: sales per year, venue diversity, recency, confidence.`}
+              href="/methodology#resellability"
+            >
+              <span className="dsr-verdict-val mono">{c.computed.resellability.value != null ? String(c.computed.resellability.value) : '—'}</span>
+            </Cite>
             <span className="dsr-verdict-cap mono">{c.computed.resellability.tier === 'Unknown' ? 'NEVER TRADED' : `${c.computed.resellability.tier.toUpperCase()} · ${c.computed.resellability.sales_per_year}/YR`}</span>
             <span className="dsr-verdict-state mono">{resellClass(c).toUpperCase()}</span>
           </li>

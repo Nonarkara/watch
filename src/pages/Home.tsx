@@ -143,6 +143,16 @@ export default function Home() {
 
   return (
     <>
+      {/* Why these numbers — a 4-eyebrow band above the hero that names the
+          four values the site refuses to compromise on. Makes the honesty
+          ladder visible from the first fold. */}
+      <div className="home-why-band" aria-label="What these numbers rest on">
+        <span className="home-why-band-item"><span className="home-why-num mono">01</span><span className="home-why-text">Every number is cited or refused.</span></span>
+        <span className="home-why-band-item"><span className="home-why-num mono">02</span><span className="home-why-text">No invented prices. The ladder publishes what it has and declines what it does not.</span></span>
+        <span className="home-why-band-item"><span className="home-why-num mono">03</span><span className="home-why-text">Every image links to its source and license.</span></span>
+        <span className="home-why-band-item"><span className="home-why-num mono">04</span><span className="home-why-text">The catalogue rebuilds on the live build — every count is computed, never faked.</span></span>
+      </div>
+
       {/* First fold: full-bleed pop-art banner with a translucent navy text
           block (the thesis) and the eight-cell ledger on the right. The
           banner shows the watch's whole pop-cultural world; the block
