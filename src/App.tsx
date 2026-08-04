@@ -9,6 +9,7 @@ import CompareDock from './components/CompareDock.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
 import SavedBadge from './components/SavedBadge.tsx'
 import ThemeToggle from './components/ThemeToggle.tsx'
+import TimePopMark from './components/TimePopMark.tsx'
 import { SearchPalette } from './lib/SearchPalette.tsx'
 
 // Top-bar nav. Kept short on purpose — the footer carries the rest. Seven
@@ -69,7 +70,7 @@ export default function App() {
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" end className="wordmark" aria-label="Time Pop — home">
-            <img src="/tp-mark-v2.png" alt="" className="wm-logo" width={256} height={256} decoding="async" />
+            <TimePopMark />
             <span className="wm-stack">
               <span className="wm-main">Time Pop</span>
               <span className="wm-sub mono">A LIVING ARCHIVE OF WATCHES</span>

@@ -12,6 +12,7 @@
 :root {
   --bg: #FFFFFF;            /* pure paper white */
   --canvas: #FFFFFF;
+  --paper: #FFFFFF;          /* page plate — must track theme */
   --paper-2: #FFFFFF;
   --surface: #FAFAF8;        /* subtle off-white for inset cards */
   --ink: #0A0A0A;
@@ -54,6 +55,7 @@
 :root[data-theme="dark"] {
   --bg: #0A0A0A;
   --canvas: #0A0A0A;
+  --paper: #0A0A0A;
   --paper-2: #161616;
   --surface: #1F1F1F;
   --ink: #FAFAF8;
@@ -76,6 +78,7 @@
   :root:not([data-theme="light"]) {
     --bg: #0A0A0A;
     --canvas: #0A0A0A;
+    --paper: #0A0A0A;
     --paper-2: #161616;
     --surface: #1F1F1F;
     --ink: #FAFAF8;
@@ -140,7 +143,10 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   border-bottom: 1px solid var(--rule);
   border-top: 4px solid var(--coral);
   padding-top: calc(var(--space-md) + var(--sat));
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
 }
 .hdr-in { display: flex; flex-direction: column; gap: var(--space-md); padding-bottom: 0; }
 .wordmark {
@@ -166,14 +172,10 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   width: 44px;
   height: 44px;
   flex: 0 0 auto;
-  border-radius: 50%;
-  background: transparent;
-  object-fit: cover;
-  /* hard disc — kills any residual matte fringe from the raster */
-  -webkit-mask-image: radial-gradient(circle, #000 99%, transparent 100%);
-  mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+  color: var(--ink);
+  overflow: visible;
 }
-.wm-stack { display: flex; flex-direction: column; gap: 2px; }
+.wm-stack { display: flex; flex-direction: column; gap: 2px; justify-content: center; }
 .wm-main {
   display: block; font-family: var(--font-display); font-size: var(--text-display);
   font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; text-transform: none;
@@ -182,6 +184,7 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 .wm-sub { display: block; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); letter-spacing: 0.06em; }
 .wm-tag {
   display: inline-block;
+  width: fit-content;
   font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 700;
   letter-spacing: 0.12em; padding: 2px 6px; margin-top: 2px;
   background: var(--amber); color: #0A0A0A;
@@ -193,7 +196,7 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 .nav { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad); }
 .nav-a {
   display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+  font-size: var(--text-micro); font-weight: 600; letter-spacing: 0.06em;
   color: var(--dim); border-bottom: 2px solid transparent; white-space: nowrap;
   text-decoration: none;
   transition: color 120ms ease, border-color 120ms ease;
@@ -201,15 +204,14 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 .nav-a.on { color: var(--ink); border-bottom-color: var(--amber); }
 @media (hover: hover) and (pointer: fine) { .nav-a:hover { color: var(--ink); } }
 
-/* The header right cluster (search · saved · theme) sits on a colored chip
-   so it reads as a unit, not three separate SaaS buttons. */
+/* Search / saved / theme — one hairline frame, no filled plate */
 .hdr-cluster {
   display: inline-flex; align-items: center; gap: 0;
   border: 1px solid var(--ink);
-  background: var(--paper);
+  background: transparent;
   flex: 0 0 auto;
 }
-.hdr-cluster > * { border-right: 1px solid var(--ink); }
+.hdr-cluster > * { border-right: 1px solid var(--ink); background: transparent; }
 .hdr-cluster > *:last-child { border-right: 0; }
 
 main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl) + 60px); min-height: 60vh; }
@@ -673,7 +675,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    is carried by weight, scale and rule-weight alone, and colour is spent only
    where it means something. Density is the point: this is a reference work
    for expensive objects, so it should read like an index, not a lookbook. */
-.hdr { background: color-mix(in srgb, var(--bg) 94%, transparent); position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(1.4) blur(8px); }
+.hdr { background: var(--bg); position: sticky; top: 0; z-index: 20; }
 .wm-main { font-size: var(--text-display); letter-spacing: -0.03em; text-transform: none; font-weight: 800; color: var(--ink); }
 .wm-sub { color: var(--dim); }
 .pagetitle { font-size: var(--text-display); letter-spacing: -0.03em; text-transform: none; max-width: 22ch; }
@@ -4179,4 +4181,36 @@ main.shell { padding-top: var(--space-md); }
   .hot-grid { grid-template-columns: 1fr; }
   .hot-col { border-right: 0; border-bottom: 1px solid var(--ink); }
   .hot-col:last-child { border-bottom: 0; }
+}
+
+/* Dark mode: navy-as-text fails on black — sky carries the formal role. */
+:root[data-theme="dark"] .data-card strong,
+:root[data-theme="dark"] .screen-policy p,
+:root[data-theme="dark"] .screen-still-withheld-note,
+:root[data-theme="dark"] .bible-dossier-list a,
+:root[data-theme="dark"] .chip-era,
+:root[data-theme="dark"] .featured-dossier-cta,
+:root[data-theme="dark"] .related-watch-price,
+:root[data-theme="dark"] .srch-row-tier,
+:root[data-theme="dark"] .saved-cell-tier,
+:root[data-theme="dark"] .what-changed-meta,
+:root[data-theme="dark"] .wmp-time-lead .wmp-h2,
+:root[data-theme="dark"] .reader-card--navy .reader-card-title {
+  color: var(--sky);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .data-card strong,
+  :root:not([data-theme="light"]) .screen-policy p,
+  :root:not([data-theme="light"]) .screen-still-withheld-note,
+  :root:not([data-theme="light"]) .bible-dossier-list a,
+  :root:not([data-theme="light"]) .chip-era,
+  :root:not([data-theme="light"]) .featured-dossier-cta,
+  :root:not([data-theme="light"]) .related-watch-price,
+  :root:not([data-theme="light"]) .srch-row-tier,
+  :root:not([data-theme="light"]) .saved-cell-tier,
+  :root:not([data-theme="light"]) .what-changed-meta,
+  :root:not([data-theme="light"]) .wmp-time-lead .wmp-h2,
+  :root:not([data-theme="light"]) .reader-card--navy .reader-card-title {
+    color: var(--sky);
+  }
 }
