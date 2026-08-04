@@ -205,7 +205,49 @@ export default function Screen() {
         }
       />
 
-      <section className="film-watches" aria-label="Watch the screen — 16 iconic watches in film">
+      {/* Featured pairing — the one cinematic moment the rest of the page
+          is an afterword to. A full-bleed pop-art still, the watch and the
+          character, the source and the license, the deep link. */}
+      <section className="screen-spotlight" aria-label="Featured cinematic pairing">
+        <div className="screen-spotlight-eyebrow">
+          <span className="eyebrow">FEATURED PAIRING · THE ONE THAT STARTED IT</span>
+          <span className="screen-spotlight-eyebrow-meta mono">1962 · DR. NO · THE SUBMARINER ON BOND'S WRIST</span>
+        </div>
+        <div className="screen-spotlight-grid">
+          <a className="screen-spotlight-still" href="https://www.imdb.com/title/tt0055928/" target="_blank" rel="noreferrer">
+            <img src="/heroes/screen/bond-drno.jpg" alt="Sean Connery as James Bond, wearing a Rolex Submariner 6538 in Dr. No (1962) — pop-art still" loading="eager" />
+            <span className="screen-spotlight-still-cap mono">
+              DR. NO · 1962 · SEAN CONNERY AS JAMES BOND · ROLEX SUBMARINER 6538
+            </span>
+          </a>
+          <div className="screen-spotlight-body">
+            <p className="screen-spotlight-eyebrow-row">
+              <span className="eyebrow">ROLEX · SUBMARINER 6538 · BIG CROWN</span>
+            </p>
+            <h2 className="screen-spotlight-title">"I lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor."</h2>
+            <p className="screen-spotlight-body-text">
+              The 6538 sits on Connery's wrist in Dr. No and across the first four Bond films.
+              It is the first watch the screen ever wore on purpose — not as a brand placement,
+              but as a piece of equipment the character would actually need. The dial reads
+              because Bond needs to read it. That is why it became the most-cited watch in
+              any catalogue.
+            </p>
+            <div className="screen-spotlight-credits mono">
+              <div><span>STUDIO</span><strong>United Artists (EON Productions)</strong></div>
+              <div><span>YEAR</span><strong>1962</strong></div>
+              <div><span>CHARACTER</span><strong>James Bond (Sean Connery)</strong></div>
+              <div><span>WATCH</span><strong>Rolex Submariner 6538 (Big Crown, no-date)</strong></div>
+              <div><span>STILL</span><strong>Pop-art illustration · Time Pop editorial</strong></div>
+            </div>
+            <div className="screen-spotlight-ctas mono">
+              <Link to="/w/rolex-submariner-6538" className="screen-spotlight-cta screen-spotlight-cta--primary">OPEN THE DOSSIER →</Link>
+              <a href="#film-list" className="screen-spotlight-cta screen-spotlight-cta--ghost">SEE ALL 16 PAIRINGS ↓</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="film-watches" id="film-list" aria-label="Watch the screen — 16 iconic watches in film">
         <div className="section-rule">
           <h2>Watch the screen.</h2>
           <span className="sticker-inline mono">16 ICONIC PAIRINGS · CURATED FOR CHARACTER</span>

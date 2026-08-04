@@ -3866,3 +3866,190 @@ main.shell { padding-top: var(--space-md); }
   .spotlight-verdict-row { grid-template-columns: 70px 48px 1fr 70px; padding: 6px 10px; }
   .spotlight-body { padding: 16px 18px 18px; }
 }
+
+/* ── SCREEN SPOTLIGHT — the featured cinematic pairing ────────────────────
+   A full-bleed pop-art still on the left, story + credits + CTAs on the right.
+   Sits at the top of /screen, before the 16-pairing list. Bond + Submariner. */
+.screen-spotlight { margin: var(--space-xl) 0; border: 1px solid var(--ink); background: var(--bg); }
+.screen-spotlight-eyebrow {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 12px 20px; border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  flex-wrap: wrap;
+}
+.screen-spotlight-eyebrow .eyebrow { margin: 0; }
+.screen-spotlight-eyebrow-meta {
+  font-size: 10px; letter-spacing: 0.12em; color: var(--coral);
+}
+.screen-spotlight-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0; }
+.screen-spotlight-still {
+  display: block; position: relative;
+  background: var(--paper-2);
+  border-right: 1px solid var(--ink);
+  min-height: 360px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.screen-spotlight-still img { display: block; width: 100%; height: 100%; object-fit: cover; min-height: 360px; }
+.screen-spotlight-still-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 8px 14px;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-top: 1px solid var(--rule);
+  font-size: 9px; letter-spacing: 0.1em; color: var(--dim);
+}
+.screen-spotlight-body { padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+.screen-spotlight-eyebrow-row { margin: 0; }
+.screen-spotlight-eyebrow-row .eyebrow { margin: 0; }
+.screen-spotlight-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-style: italic; font-weight: 700;
+  line-height: 1.25; letter-spacing: -0.015em;
+  margin: 4px 0 4px;
+  color: var(--ink);
+  border-left: 3px solid var(--coral);
+  padding-left: 14px;
+}
+.screen-spotlight-body-text {
+  font-family: var(--font-essay); font-size: 14px; line-height: 1.55;
+  color: var(--fg); margin: 0; max-width: 62ch;
+}
+.screen-spotlight-credits {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  border: 1px solid var(--ink);
+  margin-top: 10px;
+}
+.screen-spotlight-credits > div {
+  display: grid; grid-template-columns: 90px 1fr; gap: 10px;
+  padding: 6px 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.screen-spotlight-credits > div:first-child { border-top: 0; }
+.screen-spotlight-credits span { color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; font-size: 9px; }
+.screen-spotlight-credits strong { font-weight: 600; color: var(--ink); }
+.screen-spotlight-ctas {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid var(--ink);
+  align-self: flex-start; margin-top: 10px;
+}
+.screen-spotlight-cta {
+  display: inline-flex; align-items: center; padding: 10px 16px;
+  background: var(--bg); color: var(--ink);
+  border-right: 1px solid var(--ink);
+  text-decoration: none; font-size: 11px; letter-spacing: 0.1em;
+  transition: background 120ms ease, color 120ms ease;
+}
+.screen-spotlight-cta:last-child { border-right: 0; }
+.screen-spotlight-cta--primary { background: var(--ink); color: var(--bg); }
+.screen-spotlight-cta--primary:hover { background: var(--coral); color: var(--bg); }
+.screen-spotlight-cta--ghost:hover { background: var(--paper-2); }
+@media (max-width: 880px) {
+  .screen-spotlight-grid { grid-template-columns: 1fr; }
+  .screen-spotlight-still { border-right: 0; border-bottom: 1px solid var(--ink); min-height: 240px; }
+  .screen-spotlight-still img { min-height: 240px; }
+  .screen-spotlight-body { padding: 16px 18px 18px; }
+}
+
+/* ── BIBLE SPOTLIGHT — the featured book ───────────────────────────────────
+   A full-bleed editorial cover (CSS-drawn, no image required) on the left,
+   the essay's pull quote + CTAs on the right. Sits at the top of /bible,
+   before the books / reader / why tabs. */
+.bible-spotlight { margin: var(--space-xl) 0; border: 1px solid var(--ink); background: var(--bg); }
+.bible-spotlight-eyebrow {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 12px 20px; border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  flex-wrap: wrap;
+}
+.bible-spotlight-eyebrow .eyebrow { margin: 0; }
+.bible-spotlight-eyebrow-meta { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
+.bible-spotlight-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 0; }
+.bible-spotlight-cover {
+  display: block; position: relative;
+  background: var(--ink);
+  border-right: 1px solid var(--ink);
+  min-height: 380px;
+  text-decoration: none;
+  overflow: hidden;
+}
+.bible-spotlight-cover-art {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 32px;
+  height: 100%;
+  background: var(--coral);
+  color: var(--bg);
+}
+.bible-spotlight-cover-art-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.025em;
+  text-transform: none; max-width: 18ch;
+  margin: 0 0 12px;
+}
+.bible-spotlight-cover-art-byline {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding-top: 12px; border-top: 1px solid var(--bg);
+  color: var(--bg);
+}
+.bible-spotlight-cover-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 9px; letter-spacing: 0.1em; text-align: center;
+}
+.bible-spotlight-body { padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+.bible-spotlight-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-style: italic; font-weight: 700;
+  line-height: 1.25; letter-spacing: -0.015em;
+  margin: 4px 0 4px;
+  color: var(--ink);
+  border-left: 3px solid var(--coral);
+  padding-left: 14px;
+}
+.bible-spotlight-body-text {
+  font-family: var(--font-essay); font-size: 14px; line-height: 1.55;
+  color: var(--fg); margin: 0; max-width: 62ch;
+}
+.bible-spotlight-credits {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  border: 1px solid var(--ink);
+  margin-top: 10px;
+}
+.bible-spotlight-credits > div {
+  display: grid; grid-template-columns: 80px 1fr; gap: 10px;
+  padding: 6px 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.bible-spotlight-credits > div:first-child { border-top: 0; }
+.bible-spotlight-credits span { color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; font-size: 9px; }
+.bible-spotlight-credits strong { font-weight: 600; color: var(--ink); }
+.bible-spotlight-ctas {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid var(--ink);
+  align-self: flex-start; margin-top: 10px;
+}
+.bible-spotlight-cta {
+  display: inline-flex; align-items: center; padding: 10px 16px;
+  background: var(--bg); color: var(--ink);
+  border-right: 1px solid var(--ink);
+  text-decoration: none; font-size: 11px; letter-spacing: 0.1em;
+  transition: background 120ms ease, color 120ms ease;
+}
+.bible-spotlight-cta:last-child { border-right: 0; }
+.bible-spotlight-cta--primary { background: var(--ink); color: var(--bg); }
+.bible-spotlight-cta--primary:hover { background: var(--coral); color: var(--bg); }
+.bible-spotlight-cta--ghost:hover { background: var(--paper-2); }
+@media (max-width: 880px) {
+  .bible-spotlight-grid { grid-template-columns: 1fr; }
+  .bible-spotlight-cover { border-right: 0; border-bottom: 1px solid var(--ink); min-height: 240px; }
+  .bible-spotlight-body { padding: 16px 18px 18px; }
+}
