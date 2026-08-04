@@ -237,7 +237,7 @@ export default function Dossier() {
         <div className="mcell">
           <span className="lab">Resellability</span>
           <span className="val big">{c.computed.resellability.value != null ? c.computed.resellability.value : dash}</span>
-          <span className="note mono">{c.computed.resellability.tier.toUpperCase()} &middot; {c.computed.resellability.sales_per_year} SALE{c.computed.resellability.sales_per_year === 1 ? '' : 'S'}/YR</span>
+          <span className="note mono">{c.computed.resellability.tier.toUpperCase()} · {c.computed.resellability.sales_per_year} SALE{c.computed.resellability.sales_per_year === 1 ? '' : 'S'}/YR</span>
           <Why text={c.computed.resellability.limitation} />
         </div>
         <div className="mcell">

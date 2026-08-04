@@ -42,7 +42,7 @@ function Tile({ label, title, number, caption, strength, hue = 'coral' }: TilePr
       <div className="top4-tile-symbol" aria-hidden="true">{STRENGTH_SYMBOL[strength]}</div>
       <div className="top4-tile-label mono">{label}</div>
       <div className="top4-tile-num">{number}</div>
-      <div className="top4-tile-caption mono">{STRENGTH_LABEL[strength]} &middot; {caption}</div>
+      <div className="top4-tile-caption mono">{STRENGTH_LABEL[strength]} · {caption}</div>
     </div>
   )
 }
@@ -82,13 +82,13 @@ export default function Top4Tiles({ card }: { card: Card }) {
     <section className="top4" aria-label="The four axes collectors first want to know">
       <div className="top4-head">
         <p className="eyebrow">THE 4 AXES A COLLECTOR FIRST WANTS TO KNOW</p>
-        <p className="top4-rule">RARITY &middot; DEMAND &middot; STORY &middot; RESELLABILITY</p>
+        <p className="top4-rule">RARITY · DEMAND · STORY · RESELLABILITY</p>
       </div>
       <div className="top4-grid">
         <Tile
           label="Rarity"
           number={scarcity.value != null ? String(scarcity.value) : '—'}
-          caption={scarcity.tier ? `${scarcity.tier.toUpperCase()} &middot; ${scarcity.k_of[0]}/${scarcity.k_of[1]} SIGNALS` : 'NO SIGNALS'}
+          caption={scarcity.tier ? `${scarcity.tier.toUpperCase()} · ${scarcity.k_of[0]}/${scarcity.k_of[1]} SIGNALS` : 'NO SIGNALS'}
           strength={rarity}
           hue="coral"
         />
@@ -113,7 +113,7 @@ export default function Top4Tiles({ card }: { card: Card }) {
           label="Resellability"
           number={resell.value != null ? String(resell.value) : '—'}
           caption={resell.tier === 'Unknown' ? 'NEVER TRADED' :
-            `${resell.tier.toUpperCase()} &middot; ${resell.sales_per_year} SALE${resell.sales_per_year === 1 ? '' : 'S'}/YR`}
+            `${resell.tier.toUpperCase()} · ${resell.sales_per_year} SALE${resell.sales_per_year === 1 ? '' : 'S'}/YR`}
           strength={resellability}
           hue="teal"
         />

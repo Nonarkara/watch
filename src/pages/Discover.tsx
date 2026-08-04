@@ -125,7 +125,7 @@ export default function Discover() {
         </div>
 
         <footer className="discovery-foot">
-          <span className="mono micro dim">{card.meta.sources.length} SOURCES · {card.provenance_events.length} SOURCED EVENTS</span>
+          <span className="mono micro dim">{(card.meta.sources ?? []).length} SOURCES · {(card.provenance_events ?? []).length} SOURCED EVENTS</span>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button type="button" className="btn" onClick={spinRoulette}>SPIN AGAIN 🎲</button>
             <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>

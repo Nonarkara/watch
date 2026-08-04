@@ -65,6 +65,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
 
   req(card.narrative && typeof card.narrative.story === "string" && card.narrative.story.length > 20, "narrative.story required");
   req(card.meta && isDate(card.meta.curated_date), "meta.curated_date required");
+  req(Array.isArray(card.meta?.sources), "meta.sources must be an array (use [] if none) — the register renders its length unguarded");
   return errs;
 }
 

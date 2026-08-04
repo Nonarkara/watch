@@ -122,7 +122,7 @@ export default function App() {
             <NavLink to="/brands">BRANDS</NavLink>
             <NavLink to="/watchmaking">WATCHMAKING</NavLink>
             <NavLink to="/bible">BIBLE</NavLink>
-            <NavLink to="/pom">UNCLE POM\'S</NavLink>
+            <NavLink to="/pom">UNCLE POM'S</NavLink>
             <NavLink to="/saved">MY SAVED</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>
             <NavLink to="/data">DATA</NavLink>

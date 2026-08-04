@@ -395,31 +395,31 @@ const ARTICLE_03: ArticleMeta = {
         </thead>
         <tbody>
           <tr>
-            <td><strong>Longines Spirit Zulu Time</strong><br /><span className="dim mono">L3.821.1.53.2 &middot; 39mm GMT</span></td>
+            <td><strong>Longines Spirit Zulu Time</strong><br /><span className="dim mono">L3.821.1.53.2 · 39mm GMT</span></td>
             <td className="mono">$2,150</td>
             <td>GMT is the complication that teaches you about time zones. The Spirit is the cleanest GMT under $3,000.</td>
-            <td><span className="score-chip score-chip--neutral">N &middot; NEUTRAL</span></td>
-            <td><span className="score-chip score-chip--neutral">D &middot; NEUTRAL</span></td>
-            <td><span className="score-chip score-chip--neutral">P &middot; NEUTRAL</span></td>
-            <td><span className="score-chip score-chip--strong">R &middot; STRONG</span></td>
+            <td><span className="score-chip score-chip--neutral">N · NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--neutral">D · NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--neutral">P · NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--strong">R · STRONG</span></td>
           </tr>
           <tr>
-            <td><strong>Grand Seiko SBGA413G</strong><br /><span className="dim mono">Spring Drive &middot; 40mm dress</span></td>
+            <td><strong>Grand Seiko SBGA413G</strong><br /><span className="dim mono">Spring Drive · 40mm dress</span></td>
             <td className="mono">$5,600</td>
             <td>Spring Drive is the only movement in the world. The dial is hand-painted in Shiojiri. It is the watch that makes every other dress watch feel hurried.</td>
-            <td><span className="score-chip score-chip--neutral">N &middot; NEUTRAL</span></td>
-            <td><span className="score-chip score-chip--strong">D &middot; STRONG</span></td>
-            <td><span className="score-chip score-chip--neutral">P &middot; NEUTRAL</span></td>
-            <td><span className="score-chip score-chip--neutral">R &middot; NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--neutral">N · NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--strong">D · STRONG</span></td>
+            <td><span className="score-chip score-chip--neutral">P · NEUTRAL</span></td>
+            <td><span className="score-chip score-chip--neutral">R · NEUTRAL</span></td>
           </tr>
           <tr>
-            <td><strong>Rolex Datejust 41</strong><br /><span className="dim mono">126334 &middot; 41mm three-hand</span></td>
+            <td><strong>Rolex Datejust 41</strong><br /><span className="dim mono">126334 · 41mm three-hand</span></td>
             <td className="mono">$9,500</td>
             <td>The most-cited watch in the world. The most-flipped watch in the world. The watch that says "I have a watch" and does not say anything else.</td>
-            <td><span className="score-chip score-chip--strong">N &middot; STRONG</span></td>
-            <td><span className="score-chip score-chip--strong">D &middot; STRONG</span></td>
-            <td><span className="score-chip score-chip--strong">P &middot; STRONG</span></td>
-            <td><span className="score-chip score-chip--strong">R &middot; STRONG</span></td>
+            <td><span className="score-chip score-chip--strong">N · STRONG</span></td>
+            <td><span className="score-chip score-chip--strong">D · STRONG</span></td>
+            <td><span className="score-chip score-chip--strong">P · STRONG</span></td>
+            <td><span className="score-chip score-chip--strong">R · STRONG</span></td>
           </tr>
         </tbody>
       </table>

@@ -67,7 +67,7 @@ export function ArticleCallout({ kind, children }: { kind: 'good' | 'bad' | 'not
 // Used inline in article recommendation tables.
 export function ScoreChip({ axis, tier }: { axis: 'rarity' | 'demand' | 'provenance' | 'resellability'; tier: 'STRONG' | 'NEUTRAL' | 'WEAK' | 'HIGH' | 'MEDIUM' | 'LOW' }) {
   const cls = ['STRONG', 'HIGH'].includes(tier) ? 'strong' : ['WEAK', 'LOW'].includes(tier) ? 'weak' : 'neutral'
-  return <span className={`score-chip score-chip--${cls} score-axis--${axis}`}>{axis[0].toUpperCase()} &middot; {tier}</span>
+  return <span className={`score-chip score-chip--${cls} score-axis--${axis}`}>{axis[0].toUpperCase()} · {tier}</span>
 }
 
 // A recommendation row in a comparison table.
