@@ -193,6 +193,47 @@ export default function Bible() {
         }
       />
 
+      {/* Featured book — one book the Bible stands behind. The book that
+          taught the curator the most, or the one the catalogue cites most.
+          Single full-bleed moment before the tab nav. */}
+      <section className="bible-spotlight" aria-label="Featured book">
+        <div className="bible-spotlight-eyebrow">
+          <span className="eyebrow">FEATURED BOOK · THE ONE THAT STARTED THE BIBLE</span>
+          <span className="bible-spotlight-eyebrow-meta mono">IF A WATCH IS A FEELING · ON THE WALL EVERY READER NEEDS</span>
+        </div>
+        <div className="bible-spotlight-grid">
+          <a className="bible-spotlight-cover" href="https://www.thewatchpages.com" target="_blank" rel="noreferrer">
+            <span className="bible-spotlight-cover-art">
+              <span className="bible-spotlight-cover-art-title">A WATCH IS A FEELING, NOT A TROPHY</span>
+              <span className="bible-spotlight-cover-art-byline">THE TIME POP BIBLE · ARTICLE 01</span>
+            </span>
+            <span className="bible-spotlight-cover-cap mono">
+              READ THE FULL ESSAY ↓
+            </span>
+          </a>
+          <div className="bible-spotlight-body">
+            <p className="eyebrow">THE READER · 5 MIN READ · ANTI-MARKETING</p>
+            <h2 className="bible-spotlight-title">"Why the watch on your wrist should represent you, not the person you want strangers to think you are."</h2>
+            <p className="bible-spotlight-body-text">
+              The Bible opens with a thesis most watch publications will not write: that the
+              watch you wear should be a sentence you say about yourself, not a costume
+              you wear for an audience. The essay is short, sharp, and the only
+              anti-marketing piece in the catalogue. Every reader gets it for free.
+            </p>
+            <div className="bible-spotlight-credits mono">
+              <div><span>FORMAT</span><strong>Long-form essay · 1,800 words</strong></div>
+              <div><span>READ</span><strong>5 minutes</strong></div>
+              <div><span>VOICE</span><strong>MITF, MITF, MITF</strong></div>
+              <div><span>ANCHOR</span><strong>The Three Moves: Buy what you would wear, not what you would show</strong></div>
+            </div>
+            <div className="bible-spotlight-ctas mono">
+              <a href="#reader" className="bible-spotlight-cta bible-spotlight-cta--primary">READ THE ESSAY →</a>
+              <a href="#books" className="bible-spotlight-cta bible-spotlight-cta--ghost">SEE ALL 26 BOOKS</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <nav className="bible-tabs" aria-label="Bible sections">
         <a href="#books" className={'bible-tab mono' + (tab === 'books' ? ' on' : '')} onClick={() => setTab('books')}>
           <span className="bible-tab-num">01</span> THE BOOKS · {BIBLE_STATS.count}
