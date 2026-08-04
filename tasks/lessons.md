@@ -195,3 +195,35 @@
 - **Correct behaviour:** an `ErrorBoundary` class component wraps `<Outlet/>` in `App.tsx`,
   catching render throws and showing an honest "that page hit an error" fallback with a
   way back. The rest of the site stays usable because the boundary isolates the failure.
+
+## 2026-08-05 · AI-hero-collage regression, third time — a lesson log entry is not enough
+
+- **What went wrong:** the full-bleed AI-generated "pop-art" hero collage (coral/yellow/
+  navy/teal glass panel over a stock-style image of identifiable people) was removed once
+  (`c8f0d53 Replace the generated hero with the register itself`), documented as
+  deliberate in the 2026-08-03 lesson above, then silently reverted by a later session
+  (`a130b0b restore: Time Pop pop-art hero banner on the home fold`) — a commit message
+  that reads as a fix, not as the regression it was. The same session that reverted the
+  hero also independently shipped a second, worse instance on `/screen`: 16 AI-generated
+  "pop-art" stills of real actors in real roles with zero attribution, plus a fabricated
+  first-person quote ("I lit the dial with a lighter in Goldfinger…") presented as
+  something Sean Connery actually said. A lessons-log entry that only says "don't do X"
+  did not stop a later session from redoing X, because nothing in the code itself made
+  the violation visible at the point of the edit.
+- **Correct behaviour:** `HeroBanner.tsx` no longer accepts an image path that renders —
+  `bg`/`alt`/`position` stay in the prop type for backward compatibility but are never
+  destructured into the render function, so wiring a background image back in requires
+  touching the component itself, not just a call site. The file header spells out why in
+  four lines, pointing back to this entry. The fabricated Bond quote was rewritten as
+  third-person description (already accurate text that existed elsewhere in the same
+  file). All 36 image files under `public/heroes/` were deleted, not just unlinked.
+- **How to recognise:** any `<img>`/`background-image` inside `hero-banner*` or
+  `film-row-still`/`screen-spotlight-still`; a commit message starting with "restore:" on
+  a design surface (§11 Rule 6 requires `remove:`/`breaking:` for destructive diffs, so
+  "restore:" on a prior removal is itself the tell); any quotation mark around dialogue
+  attributed to a real named person without a cited source.
+- **The general rule:** a prohibition documented only in prose (a comment, a lessons-log
+  line) gets rediscovered and reverted by a session that didn't read it closely enough.
+  Where possible, encode the constraint in the code shape itself — an unused prop, a
+  type that can't render an image, a test that fails on the pattern — so the regression
+  is structurally harder to reintroduce, not just discouraged.

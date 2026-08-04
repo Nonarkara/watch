@@ -110,10 +110,8 @@ export default function Brands() {
   return (
     <>
       <HeroBanner
-        bg="/heroes/art-mens-classics.jpg"
         hue="navy"
         size="lg"
-        alt="Pop-art collage of collectors with Patek Philippe, Audemars Piguet, and Rolex — the brand directory of the archive"
         eyebrow={`DIRECTORY · ${groups.length} BRANDS · ${data.count} REFERENCES`}
         title={<>A directory of<br />brands we cover.</>}
         subtitle={
@@ -126,7 +124,6 @@ export default function Brands() {
         }
         primary={{ to: '#ledger', label: 'SEE THE BRANDS' }}
         secondary={{ to: '/register', label: `BROWSE ALL ${data.count} OBJECTS` }}
-        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
         meta={
           <div className="pop-panel brand-stat-panel">
             <span className="bubble-kicker mono">READ THIS LIKE A LEDGER</span>

@@ -205,10 +205,8 @@ export default function About() {
   return (
     <div className="about-page">
       <HeroBanner
-        bg="/heroes/art-mixed-bond.jpg"
         hue="navy"
         size="md"
-        alt="Pop-art collage of collectors with watches — the curator and the register"
         eyebrow="ABOUT · TIME POP"
         title={<>A register that refuses to lie,<br />a system that refuses to guess.</>}
         subtitle={
@@ -221,7 +219,6 @@ export default function About() {
         }
         primary={{ to: '#theories', label: 'READ THE FOUR THEORIES ↓' }}
         secondary={{ to: '/methodology', label: 'FULL METHODOLOGY' }}
-        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
         meta={
           <div className="pop-panel about-meta">
             <span className="bubble-kicker mono">THE FOUNDER</span>

@@ -16,10 +16,8 @@ export default function Economy() {
   return (
     <div className="economy-page">
       <HeroBanner
-        bg="/heroes/art-modern.jpg"
         hue="navy"
         size="lg"
-        alt="Pop-art collage of contemporary collectors and brand watches — the attention × fixed supply lab"
         eyebrow="ATTENTION × FIXED SUPPLY LAB"
         title={<>A spotlight is<br />not a mint.</>}
         subtitle={
@@ -31,7 +29,6 @@ export default function Economy() {
         }
         primary={{ to: '#the-numbers', label: 'SEE THE NUMBERS' }}
         secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
-        credit="HERO ART · COLLECTORS + BRAND WATCHES — POP-ART COLLAGE"
         meta={
           <div className="pop-panel economy-meta">
             <span className="bubble-kicker mono">NO FORECASTS</span>

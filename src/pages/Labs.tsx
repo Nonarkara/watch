@@ -138,10 +138,8 @@ export default function Labs() {
   return (
     <div className="labs-page">
       <HeroBanner
-        bg="/heroes/labs.jpg"
         hue="coral"
         size="lg"
-        alt="Pop-art collage of speculative watch-data instruments — gauges, oracles, and constellation maps"
         eyebrow="LABS · SPECULATIVE INSTRUMENTS"
         title={<>The wildest ideas<br />we could build.</>}
         subtitle={
@@ -154,7 +152,6 @@ export default function Labs() {
         }
         primary={{ to: '#the-concepts', label: 'SEE THE SIX CONCEPTS' }}
         secondary={{ to: '/methodology', label: 'THE HONESTY LADDER' }}
-        credit="HERO ART · SPECULATIVE INSTRUMENTS — GAUGES, ORACLES, CONSTELLATIONS"
         meta={
           stats && (
             <aside className="labs-hero-meta pop-panel">

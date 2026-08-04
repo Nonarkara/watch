@@ -157,10 +157,8 @@ export default function Bible() {
   return (
     <>
       <HeroBanner
-        bg="/heroes/bible.jpg"
         hue="navy"
         size="lg"
-        alt="A pop-art fantasy collage of watch portraits, astronauts, and explorers across eras of time"
         eyebrow="THE BIBLE · CURATED KNOWLEDGE"
         title={<>The library<br />of watch knowledge.</>}
         subtitle={
@@ -170,7 +168,6 @@ export default function Bible() {
             summary is ours, every source is a public catalog you can click. We do not link to shadow libraries.
           </>
         }
-        credit="HERO ART · POP-ART FANTASY SERIES · ASTRONAUTS, DIVERS, AND EXPLORERS OF TIME"
         meta={
           <aside className="bible-stats">
             <p className="bible-stats-row">

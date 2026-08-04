@@ -900,10 +900,8 @@ export default function Watchmaking() {
   return (
     <div className="wmp-page">
       <HeroBanner
-        bg="/heroes/watchmaking.jpg"
         hue="teal"
         size="lg"
-        alt="Pop-art sepia collage of vintage watches, classic characters, and the history of horology"
         eyebrow="WATCHMAKING · A PAGE ABOUT THE CRAFT, AND THE TIME IT IS ABOUT"
         title={<>A watch is a philosophy instrument that happens to be worn on the wrist.</>}
         subtitle={
@@ -918,7 +916,6 @@ export default function Watchmaking() {
         }
         primary={{ to: '#time', label: '01 · START WITH THE QUESTION OF TIME ↓' }}
         secondary={{ to: '/register', label: `BROWSE ALL ${data?.count ?? 0} REFERENCES →` }}
-        credit="HERO ART · SEPIA COLLAGE — VINTAGE WATCHES, CLASSIC CHARACTERS, HISTORY"
       />
       <p className="crumb"><Link to="/">← HOME</Link></p>
 

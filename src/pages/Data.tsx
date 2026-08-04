@@ -85,10 +85,8 @@ export default function Data() {
   return (
     <>
       <HeroBanner
-        bg="/heroes/data.jpg"
         hue="navy"
         size="md"
-        alt="Pop-art methodology: a 4-axes diagram (Rarity / Demand / Story / Resellability) with a desk of evidence cards and a magnifier over a 'denied' price note"
         eyebrow={`DATA · ${data.count} REFERENCES · BUILD ${data.built}`}
         title={<>How Time Pop<br />collects its evidence.</>}
         subtitle={
@@ -100,7 +98,6 @@ export default function Data() {
         }
         primary={{ to: '#how-we-work', label: 'READ THE METHODOLOGY' }}
         secondary={{ to: '/methodology', label: 'SEE THE RULEBOOK' }}
-        credit="HERO ART · 4 AXES + EVIDENCE CARDS + MAGNIFIER — POP-ART METHODOLOGY"
         meta={
           <div className="pop-panel data-meta">
             <span className="bubble-kicker mono">THE RULE</span>

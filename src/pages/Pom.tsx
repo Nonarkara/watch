@@ -405,11 +405,8 @@ export default function Pom() {
   return (
     <div className="pom-page">
       <HeroBanner
-        bg="/heroes/pom-1.jpg"
         hue="navy"
         size="lg"
-        position="center 30%"
-        alt="Pop-art illustration: a Thai general in white military uniform with a fleet of luxury watches behind him"
         eyebrow={`UNCLE POM'S COLLECTION · ${POM_AGGREGATE.count} WATCHES FROM A ${POM_BIO.article_date.slice(0, 4)} VOICE TV CSI-LA COMPILATION`}
         title={<>Uncle Pom's Collection.</>}
         subtitle={
@@ -421,7 +418,6 @@ export default function Pom() {
         }
         primary={{ to: '#value-lab', label: 'TRY THE VALUE LAB' }}
         secondary={{ to: '#ledger', label: `SEE THE ${POM_AGGREGATE.count} WATCHES` }}
-        credit="HERO ART · UNCLE POM PORTRAIT WITH WATCH COLLECTION"
       />
 
       <p className="crumb"><Link to="/">← HOME</Link></p>

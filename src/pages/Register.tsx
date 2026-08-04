@@ -88,10 +88,8 @@ export default function Register() {
   return (
     <>
       <HeroBanner
-        bg="/heroes/art-painterly.jpg"
         hue="navy"
         size="md"
-        alt="Pop-art collage of astronauts, aviators, and divers wearing watches — the register of references"
         eyebrow="THE REGISTER"
         title={<>Every reference,<br />with its evidence.</>}
         subtitle={
@@ -103,7 +101,6 @@ export default function Register() {
         }
         primary={{ to: '#ledger', label: 'BROWSE THE REGISTER' }}
         secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
-        credit={`HERO ART · COLLECTORS IN ACTION — ${data?.count ?? '—'} REFERENCES INDEXED BELOW`}
         meta={
           <div className="pop-panel">
             <span className="bubble-kicker mono">THE HONEST PLOT</span>

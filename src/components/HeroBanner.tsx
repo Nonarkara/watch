@@ -1,18 +1,20 @@
-// HeroBanner.tsx -- full-bleed image hero with translucent text block.
+// HeroBanner.tsx -- masthead block: eyebrow, title, subtitle, actions, and an
+// optional meta panel (ledger / stat card) on the right.
 //
-// Design contract:
-//   1. Banner image fills the full hero (object-fit: cover).
-//   2. Title sits in a translucent ink-colored block on top of the image.
-//      Hue picks the block color (coral/yellow/navy/teal), with the title
-//      auto-flipped to white when the block is dark enough.
-//   3. Eyebrow / subtitle / actions live inside the block so the image
-//      provides atmosphere and the block provides the read.
-//   4. Optional meta slot (right side) takes the ledger / status card
-//      without inheriting the banner's saturation.
+// This component intentionally renders no image. It shipped twice with a
+// full-bleed AI-generated pop-art collage behind a translucent colour panel
+// (coral/yellow/navy/teal) -- an unlicensed image of identifiable people, and
+// also the single most recognisable "AI website builder" template tell there
+// is. Both times it was removed after review; see tasks/lessons.md before
+// wiring an image or a second accent colour back in. House law is one
+// accent colour only (--amber), no exceptions -- if a page needs a visual
+// anchor, it should come from the register's own data (a stat, a number, a
+// real credited photograph on its own dossier), never decorative stock art.
 //
-// Why "translucent" and not "opaque": a solid block is a slap. A
-// translucent block lets the pop-art banner show through, so the
-// image and the type belong to the same composition.
+// `bg`/`alt`/`position` remain in the prop type so existing call sites don't
+// need touching if a *real*, credited, rights-cleared photograph is ever
+// worth adding to a specific page -- but the default, and the only thing
+// this component renders today, is type on paper.
 
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
@@ -29,15 +31,13 @@ function HeroAction({ action, kind }: { action: ActionLink; kind: 'primary' | 's
 }
 
 interface HeroBannerProps {
-  bg: string
+  /** Reserved for a real, credited photograph. Not rendered — see file header. */
+  bg?: string
   hue?: HeroHue
-  /** Optional image alt text — for accessibility. */
   alt?: string
-  /** Fixed top-of-page band height. Default "lg" (540px desktop). */
+  /** Fixed top-of-page band height. Default "lg". */
   size?: 'md' | 'lg' | 'xl'
-  /** Background image position (CSS object-position). Default "center". */
   position?: string
-  /** Set true for the very first fold of the home page. */
   eager?: boolean
   eyebrow: string
   title: ReactNode
@@ -46,29 +46,18 @@ interface HeroBannerProps {
   secondary?: ActionLink
   /** Optional right-side meta block (ledger, status card, etc.). */
   meta?: ReactNode
-  /** Optional element rendered above the title (eyebrow rendered separately,
-   *  this slot is for things like a logo or a number tag). */
+  /** Optional element rendered above the title (e.g. a logo or a number tag). */
   above?: ReactNode
-  /** Where to align the text block. Default "left". */
   align?: 'left' | 'center'
-  /** Optional credit line under the subtitle. */
+  /** Optional credit line under the subtitle — for a cited source, not decoration. */
   credit?: string
 }
 
 export default function HeroBanner({
-  bg, hue = 'navy', alt, size = 'lg', position = 'center', eager,
-  eyebrow, title, subtitle, primary, secondary, meta, above, align = 'left', credit,
+  hue = 'navy', size = 'lg', eyebrow, title, subtitle, primary, secondary, meta, above, align = 'left', credit,
 }: HeroBannerProps) {
   return (
     <section className={`hero-banner hero-banner--${size} hero-banner--${hue} hero-banner--align-${align}`}>
-      <img
-        className="hero-banner-bg"
-        src={bg}
-        alt={alt ?? ''}
-        loading={eager ? 'eager' : 'lazy'}
-        style={{ objectPosition: position }}
-      />
-      <div className="hero-banner-overlay" aria-hidden="true" />
       <div className="hero-banner-grid">
         <div className="hero-banner-copy">
           {above}

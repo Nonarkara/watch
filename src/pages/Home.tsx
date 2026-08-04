@@ -178,11 +178,9 @@ export default function Home() {
           banner shows the watch's whole pop-cultural world; the block
           tells you what the site is; the ledger is the floor. */}
       <HeroBanner
-        bg="/heroes/home.jpg"
         hue="navy"
         size="xl"
         eager
-        alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, racing drivers, astronauts, and watchmakers"
         eyebrow="TIME POP · A LIVING ARCHIVE OF WATCHES"
         title={<>Watches,<br />on their own terms.</>}
         subtitle={
@@ -194,7 +192,6 @@ export default function Home() {
         }
         primary={{ to: '/register', label: `BROWSE THE ${data.count} OBJECTS →` }}
         secondary={{ to: '/screen', label: 'SEE IT ON SCREEN' }}
-        credit="HERO ART · POP-ART COLLAGE OF ICONIC WATCHES & FILM MOMENTS"
         meta={
           <aside className="hero-ledger" aria-label="The register at a glance">
             <p className="hero-ledger-head mono">THE REGISTER · {data.built}</p>
