@@ -2430,66 +2430,6 @@ main.shell { padding-top: var(--space-md); }
   :root:not([data-theme="light"]) .wmp-figure img { mix-blend-mode: normal; background: #F4F4F2; }
 }
 
-/* ── TOP-4 DOSSIER TILES ──────────────────────────────────────────────────────
-   The first thing a collector wants to know: Rarity, Demand, Story,
-   Resellability. Each tile is a pop-art color block, not a card. Color is the
-   signal strength; the number is the value. Three states -- STRONG, NEUTRAL,
-   WEAK -- with a symbol + label so color-blind users read the same info. */
-.top4 {
-  margin: 32px 0 8px;
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
-  padding: 24px 0 22px;
-  background: var(--bg);
-  position: relative;
-}
-.top4::before, .top4::after {
-  content: ''; position: absolute; left: 0; right: 0; height: 8px; background:
-    repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 6px);
-}
-.top4::before { top: -2px; }
-.top4::after { bottom: -2px; }
-.top4-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
-.top4-head .eyebrow { margin: 0; }
-.top4-rule { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--dim); margin: 0; }
-.top4-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--ink); }
-.top4-tile {
-  position: relative; padding: 20px 18px 18px; min-height: 168px; display: flex; flex-direction: column; gap: 4px;
-  border-bottom: 1px solid var(--ink); background: var(--bg); color: var(--ink);
-  transition: background 120ms ease, color 120ms ease;
-}
-.top4-tile:last-child { border-bottom: 0; }
-.top4-tile-symbol { position: absolute; top: 12px; right: 14px; font-size: 22px; line-height: 1; font-weight: 700; opacity: 0.55; }
-.top4-tile-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: inherit; opacity: 0.7; }
-.top4-tile-num { font-family: var(--font-display); font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
-.top4-tile-caption { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; margin-top: auto; padding-top: 12px; }
-/* Strong = full color, white text. Neutral = pale tint, ink text. Weak = no fill, dim text. */
-.top4-tile--strong.top4-hue--coral { background: var(--coral); color: #FFFFFF; }
-.top4-tile--strong.top4-hue--yellow { background: var(--yellow); color: var(--ink); }
-.top4-tile--strong.top4-hue--navy { background: var(--navy); color: #FFFFFF; }
-.top4-tile--strong.top4-hue--teal { background: var(--teal); color: #FFFFFF; }
-.top4-tile--neutral.top4-hue--coral { background: var(--coral-pale); color: var(--ink); border-left: 0; }
-.top4-tile--neutral.top4-hue--yellow { background: var(--yellow-pale); color: var(--ink); }
-.top4-tile--neutral.top4-hue--navy { background: var(--navy-pale); color: var(--ink); }
-.top4-tile--neutral.top4-hue--teal { background: var(--teal-pale); color: var(--ink); }
-.top4-tile--strong .top4-tile-symbol { opacity: 1; }
-.top4-tile--weak { background: var(--bg); color: var(--dim); }
-.top4-tile--weak .top4-tile-symbol { opacity: 0.4; }
-.top4-meta { font-size: 11px; letter-spacing: 0.04em; color: var(--dim); margin: 12px 0 0; max-width: 72ch; }
-@media (min-width: 720px) {
-  .top4-grid { grid-template-columns: repeat(2, 1fr); }
-  .top4-tile { border-right: 1px solid var(--ink); border-bottom: 0; }
-  .top4-tile:nth-child(2n) { border-right: 0; }
-  .top4-tile:nth-child(1), .top4-tile:nth-child(2) { border-bottom: 1px solid var(--ink); }
-}
-@media (min-width: 980px) {
-  .top4-grid { grid-template-columns: repeat(4, 1fr); }
-  .top4-tile { border-right: 1px solid var(--ink); border-bottom: 0; }
-  .top4-tile:nth-child(1), .top4-tile:nth-child(2) { border-bottom: 0; }
-  .top4-tile:last-child { border-right: 0; }
-  .top4-tile-num { font-size: 72px; }
-}
-
 /* ── GUIDE (article) PAGES ───────────────────────────────────────────────────
    Each /guides/:slug article is a pop-art color-block hero on top, single-column
    body in the middle, and a quiet footer pointing back to the register. The

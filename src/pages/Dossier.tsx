@@ -6,7 +6,6 @@ import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/form
 import { useCompare } from '../lib/compare-store.ts'
 import { useSaved } from '../lib/saved-store.ts'
 import Sparkline from '../components/Sparkline.tsx'
-import Top4Tiles from '../components/Top4Tiles.tsx'
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
 import CitedIn from '../components/CitedIn.tsx'
 import Cite from '../components/Cite.tsx'
@@ -180,8 +179,6 @@ export default function Dossier() {
         
       </div>
       </div>
-
-      <Top4Tiles card={c} />
 
       <div className="dsr-tabs" role="tablist" aria-label="Dossier view">
         <button type="button" role="tab" aria-selected={view === 'evidence'}
@@ -420,7 +417,7 @@ export default function Dossier() {
 }
 
 // The four "classify" helpers used by the 5-second verdict on the Dossier.
-// Same thresholds as Top4Tiles — STRONG/NEUTRAL/WEAK.
+// Thresholds: STRONG / NEUTRAL / WEAK.
 function rarityClass(c: Card): 'strong' | 'neutral' | 'weak' {
   const v = c.computed.scarcity.value
   if (v == null) return 'weak'

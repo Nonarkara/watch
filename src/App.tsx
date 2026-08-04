@@ -102,7 +102,7 @@ export default function App() {
         ) : !data ? (
           <p className="boot mono">LOADING TIME POP…</p>
         ) : (
-          <ErrorBoundary>
+          <ErrorBoundary key={pathname}>
             <Outlet />
           </ErrorBoundary>
         )}
