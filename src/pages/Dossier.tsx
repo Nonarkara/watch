@@ -71,6 +71,36 @@ export default function Dossier() {
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
 
+      <div className="dsr-verdict" aria-label="Five-second verdict">
+        <span className="dsr-verdict-eyebrow mono">FIVE-SECOND VERDICT</span>
+        <ol className="dsr-verdict-list">
+          <li className={`dsr-verdict-row dsr-verdict-row--coral dsr-verdict-row--${rarityClass(c)}`}>
+            <span className="dsr-verdict-key mono">RARITY</span>
+            <span className="dsr-verdict-val mono">{c.computed.scarcity.value != null ? String(c.computed.scarcity.value) : '—'}</span>
+            <span className="dsr-verdict-cap mono">{c.computed.scarcity.tier?.toUpperCase() ?? 'NO SIGNALS'}</span>
+            <span className="dsr-verdict-state mono">{rarityClass(c).toUpperCase()}</span>
+          </li>
+          <li className={`dsr-verdict-row dsr-verdict-row--yellow dsr-verdict-row--${demandClass(c)}`}>
+            <span className="dsr-verdict-key mono">DEMAND</span>
+            <span className="dsr-verdict-val mono">{c.computed.collectibility.value != null ? String(c.computed.collectibility.value) : '—'}</span>
+            <span className="dsr-verdict-cap mono">{c.computed.collectibility.k_of[0]}/{c.computed.collectibility.k_of[1]} COMPONENTS</span>
+            <span className="dsr-verdict-state mono">{demandClass(c).toUpperCase()}</span>
+          </li>
+          <li className={`dsr-verdict-row dsr-verdict-row--navy dsr-verdict-row--${storyClass(c)}`}>
+            <span className="dsr-verdict-key mono">STORY</span>
+            <span className="dsr-verdict-val mono">{c.provenance_events.length}</span>
+            <span className="dsr-verdict-cap mono">{c.provenance_events.length === 0 ? 'NO EVENTS' : c.provenance_events.length === 1 ? 'SOURCED EVENT' : 'SOURCED EVENTS'}</span>
+            <span className="dsr-verdict-state mono">{storyClass(c).toUpperCase()}</span>
+          </li>
+          <li className={`dsr-verdict-row dsr-verdict-row--teal dsr-verdict-row--${resellClass(c)}`}>
+            <span className="dsr-verdict-key mono">RESELL</span>
+            <span className="dsr-verdict-val mono">{c.computed.resellability.value != null ? String(c.computed.resellability.value) : '—'}</span>
+            <span className="dsr-verdict-cap mono">{c.computed.resellability.tier === 'Unknown' ? 'NEVER TRADED' : `${c.computed.resellability.tier.toUpperCase()} · ${c.computed.resellability.sales_per_year}/YR`}</span>
+            <span className="dsr-verdict-state mono">{resellClass(c).toUpperCase()}</span>
+          </li>
+        </ol>
+      </div>
+
         <div className="dsr-actions">
           <button
             type="button"
@@ -362,6 +392,35 @@ export default function Dossier() {
       </p>
     </>
   )
+}
+
+// The four "classify" helpers used by the 5-second verdict on the Dossier.
+// Same thresholds as Top4Tiles — STRONG/NEUTRAL/WEAK.
+function rarityClass(c: Card): 'strong' | 'neutral' | 'weak' {
+  const v = c.computed.scarcity.value
+  if (v == null) return 'weak'
+  if (v >= 70) return 'strong'
+  if (v >= 40) return 'neutral'
+  return 'weak'
+}
+function demandClass(c: Card): 'strong' | 'neutral' | 'weak' {
+  const v = c.computed.collectibility.value
+  if (v == null) return 'weak'
+  if (v >= 70) return 'strong'
+  if (v >= 40) return 'neutral'
+  return 'weak'
+}
+function storyClass(c: Card): 'strong' | 'neutral' | 'weak' {
+  const n = c.provenance_events.length
+  if (n >= 5) return 'strong'
+  if (n >= 1) return 'neutral'
+  return 'weak'
+}
+function resellClass(c: Card): 'strong' | 'neutral' | 'weak' {
+  const t = c.computed.resellability.tier
+  if (t === 'High') return 'strong'
+  if (t === 'Medium' || t === 'Low') return 'neutral'
+  return 'weak'
 }
 
 function ChangeCell({ label, ch }: { label: string; ch: Change }) {

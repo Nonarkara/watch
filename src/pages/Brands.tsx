@@ -142,6 +142,45 @@ export default function Brands() {
 
       <Link to="/" className="crumb">← HOME</Link>
 
+      {/* "Most-covered brands" — a 3-up row of the brands with the most
+          references, each anchored by its most-collected piece. This is the
+          visual directory before the alphabetical list — like the front
+          display window of a museum before the long gallery. */}
+      <section className="brand-spotlight-row" aria-label="Most-covered brands">
+        <div className="section-rule">
+          <h2>The most-covered brands.</h2>
+          <span className="sticker-inline mono">BY REFERENCE COUNT · TOP 3</span>
+        </div>
+        <div className="brand-spotlight-grid">
+          {groups
+            .slice()
+            .sort((a, b) => b.cards.length - a.cards.length)
+            .slice(0, 3)
+            .map((g) => (
+              <Link key={g.brand} to={`/register?brand=${encodeURIComponent(g.brand)}`} className={`brand-spotlight brand-spotlight--${hueForBrand(g.brand)}`}>
+                <span className="brand-spotlight-media">
+                  {g.mostPopular?.media?.[0]
+                    ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" />
+                    : <span className="dim">NO PHOTO YET</span>}
+                </span>
+                <span className="brand-spotlight-id">
+                  <span className="brand-spotlight-name">{g.brand}</span>
+                  <span className="brand-spotlight-count mono">
+                    {g.cards.length} reference{g.cards.length === 1 ? '' : 's'} · {g.withComps} WITH COMPS · {g.withProvenance} WITH STORY
+                  </span>
+                </span>
+                {g.mostPopular && (
+                  <span className="brand-spotlight-most">
+                    <span className="brand-spotlight-most-eyebrow mono">MOST COLLECTED</span>
+                    <span className="brand-spotlight-most-name">{g.mostPopular.identity.name}</span>
+                    <span className="brand-spotlight-most-ref mono">{g.mostPopular.identity.reference}</span>
+                  </span>
+                )}
+              </Link>
+            ))}
+        </div>
+      </section>
+
       <div className="brand-tier-chips" role="group" aria-label="Filter brands by tier">
         <button className={'chip' + (tierFilter === 'all' ? ' on' : '')} onClick={() => setTierFilter('all')}>All {groups.length}</button>
         {(Object.keys(TIER_BLURB) as Card['identity']['tier'][]).map((t) => (

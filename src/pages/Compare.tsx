@@ -1,9 +1,50 @@
+// Compare — a side-by-side matrix of up to 3 references. Each column has a
+// 4-axes verdict at the top (Rarity / Demand / Story / Resell), so the
+// buyer reads the whole column in 5 seconds before scrolling. Below, the
+// rows answer the questions a buyer or seller actually asks, in the order
+// they ask them.
+
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { useCompare } from '../lib/compare-store.ts'
 import { COMPARE_MAX } from '../lib/compare-config.ts'
 import { TIER_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
+
+type Strength = 'strong' | 'neutral' | 'weak'
+
+function rarityClass(c: Card): Strength {
+  const v = c.computed.scarcity.value
+  if (v == null) return 'weak'
+  if (v >= 70) return 'strong'
+  if (v >= 40) return 'neutral'
+  return 'weak'
+}
+function demandClass(c: Card): Strength {
+  const v = c.computed.collectibility.value
+  if (v == null) return 'weak'
+  if (v >= 70) return 'strong'
+  if (v >= 40) return 'neutral'
+  return 'weak'
+}
+function storyClass(c: Card): Strength {
+  const n = c.provenance_events.length
+  if (n >= 5) return 'strong'
+  if (n >= 1) return 'neutral'
+  return 'weak'
+}
+function resellClass(c: Card): Strength {
+  const t = c.computed.resellability.tier
+  if (t === 'High') return 'strong'
+  if (t === 'Medium' || t === 'Low') return 'neutral'
+  return 'weak'
+}
+
+const STRENGTH_LABEL: Record<Strength, string> = {
+  strong: 'STRONG',
+  neutral: 'NEUTRAL',
+  weak: 'WEAK',
+}
 
 /** Rows are the questions a buyer or seller actually asks, in the order they ask them.
  *  Every row is one line tall so the eye can run across the set without re-reading. */
@@ -19,7 +60,7 @@ const ROWS: { label: string; get: (c: Card) => React.ReactNode; group?: string }
 
   { group: 'Standing', label: 'Scarcity', get: (c) => `${c.computed.scarcity.value} · ${c.computed.scarcity.tier}` },
   { label: 'Collectibility', get: (c) => c.computed.collectibility.value },
-  { label: 'Provenance', get: (c) => c.provenance_events.length || dash },
+  { label: 'Story', get: (c) => c.provenance_events.length || dash },
   { label: 'Supply', get: (c) => c.identity.produced.discontinued ? 'Discontinued' : 'In production' },
   { label: 'Edition', get: (c) => c.scarcity_public.limited_edition.is_limited
       ? (c.scarcity_public.limited_edition.stated_size?.toLocaleString() ?? 'Limited') : 'Series' },
@@ -29,6 +70,26 @@ const ROWS: { label: string; get: (c: Card) => React.ReactNode; group?: string }
   { label: 'Case', get: (c) => `${c.identity.case.diameter_mm}mm · ${c.identity.case.material}` },
   { label: 'Caliber', get: (c) => c.identity.movement.caliber },
 ]
+
+function ColumnVerdict({ c }: { c: Card }) {
+  const rows = [
+    { k: 'RARITY', v: c.computed.scarcity.value != null ? String(c.computed.scarcity.value) : '—', cap: c.computed.scarcity.tier?.toUpperCase() ?? 'NO SIGNALS', s: rarityClass(c), hue: 'coral' },
+    { k: 'DEMAND', v: c.computed.collectibility.value != null ? String(c.computed.collectibility.value) : '—', cap: `${c.computed.collectibility.k_of[0]}/${c.computed.collectibility.k_of[1]}`, s: demandClass(c), hue: 'yellow' },
+    { k: 'STORY', v: String(c.provenance_events.length), cap: c.provenance_events.length === 0 ? '—' : c.provenance_events.length === 1 ? 'EVENT' : 'EVENTS', s: storyClass(c), hue: 'navy' },
+    { k: 'RESELL', v: c.computed.resellability.value != null ? String(c.computed.resellability.value) : '—', cap: c.computed.resellability.tier === 'Unknown' ? '—' : c.computed.resellability.tier.toUpperCase(), s: resellClass(c), hue: 'teal' },
+  ] as const
+  return (
+    <div className="cmp-verdict">
+      {rows.map((r) => (
+        <div key={r.k} className={`cmp-verdict-row cmp-verdict-row--${r.hue} cmp-verdict-row--${r.s}`}>
+          <span className="cmp-verdict-key mono">{r.k}</span>
+          <span className="cmp-verdict-val mono">{r.v}</span>
+          <span className="cmp-verdict-state mono">{STRENGTH_LABEL[r.s]}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function Compare() {
   const data = useDataset()
@@ -44,6 +105,11 @@ export default function Compare() {
         <div>
           <p className="eyebrow">Compare</p>
           <h1 className="pagetitle">Side by side, one line each</h1>
+          <p className="lede">
+            Up to {COMPARE_MAX} references, hairline columns, four-axes verdict
+            at the top of every column. A museum vitrine for the dossier —
+            not a spreadsheet.
+          </p>
         </div>
         <div className="cmp-head-tools">
           <select className="sel" value="" aria-label="Add a reference"
@@ -67,42 +133,35 @@ export default function Compare() {
         </p>
       ) : (
         <div className="cmp-wrap">
-          <table className="cmp-matrix">
-            <thead>
-              <tr>
-                <th className="cmp-corner" />
-                {picked.map((c) => (
-                  <th key={c.id}>
-                    <span className="cmp-media">
-                      {c.media?.[0]
-                        ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
-                        : <span className="rc-media-empty mono">NO IMAGE</span>}
-                    </span>
-                    <Link to={`/w/${c.id}`} className="cmp-brand">{c.identity.brand}</Link>
-                    <span className="cmp-name">{c.identity.name}</span>
-                    <span className="cmp-ref mono">{c.identity.reference}</span>
-                    <button type="button" className="cmp-drop mono" onClick={() => remove(c.id)}>REMOVE</button>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((r) => (
-                <>
-                  {r.group && (
-                    <tr className="cmp-group" key={`g-${r.group}`}>
-                      <th scope="rowgroup" className="mono">{r.group}</th>
-                      {picked.map((c) => <td key={c.id} />)}
-                    </tr>
-                  )}
-                  <tr key={r.label}>
-                    <th scope="row">{r.label}</th>
-                    {picked.map((c) => <td key={c.id} className="mono">{r.get(c)}</td>)}
-                  </tr>
-                </>
-              ))}
-            </tbody>
-          </table>
+          <div className="cmp-vitrine" data-count={picked.length}>
+            {picked.map((c) => (
+              <article key={c.id} className="cmp-col">
+                <div className="cmp-col-head">
+                  <span className="cmp-media">
+                    {c.media?.[0]
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      : <span className="rc-media-empty mono">NO IMAGE</span>}
+                  </span>
+                  <Link to={`/w/${c.id}`} className="cmp-brand">{c.identity.brand}</Link>
+                  <span className="cmp-name">{c.identity.name}</span>
+                  <span className="cmp-ref mono">{c.identity.reference}</span>
+                  <ColumnVerdict c={c} />
+                  <button type="button" className="cmp-drop mono" onClick={() => remove(c.id)}>REMOVE</button>
+                </div>
+                <dl className="cmp-col-rows">
+                  {ROWS.map((r) => (
+                    <div key={r.label} className={`cmp-row ${r.group ? 'cmp-row--group' : ''}`}>
+                      {r.group && <span className="cmp-row-group mono">{r.group}</span>}
+                      <div className="cmp-row-pair">
+                        <dt className="cmp-row-label">{r.label}</dt>
+                        <dd className="mono">{r.get(c)}</dd>
+                      </div>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            ))}
+          </div>
         </div>
       )}
 
