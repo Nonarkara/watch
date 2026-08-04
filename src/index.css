@@ -4156,3 +4156,27 @@ main.shell { padding-top: var(--space-md); }
   .home-why-band-item { border-right: 0; border-bottom: 1px solid var(--ink); }
   .home-why-band-item:last-child { border-bottom: 0; }
 }
+
+/* "What's hot" — two parallel 4-up rows, one for Thai/SEA and one for
+   the global independent watchmaking scene. Each row is a self-contained
+   strip with its own eyebrow + caption. Hairline rules between cards. */
+.hot-row { margin: var(--space-xl) 0; }
+.hot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--ink); }
+.hot-col { display: flex; flex-direction: column; padding: 18px; border-right: 1px solid var(--ink); background: var(--bg); }
+.hot-col:last-child { border-right: 0; }
+.hot-col-eyebrow { font-size: 10px; letter-spacing: 0.16em; color: var(--coral); margin: 0 0 4px; }
+.hot-col-line { font-family: var(--font-essay); font-size: 13px; line-height: 1.4; color: var(--dim); margin: 0 0 12px; }
+.hot-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); }
+.hot-col-card { display: flex; flex-direction: column; padding: 8px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--fg); transition: background 120ms ease; }
+.hot-col-card:nth-child(2n) { border-right: 0; }
+.hot-col-card:nth-last-child(-n+2) { border-bottom: 0; }
+.hot-col-card:hover { background: var(--paper-2); }
+.hot-col-media { display: block; width: 100%; aspect-ratio: 1; background: var(--paper-2); overflow: hidden; margin-bottom: 6px; }
+.hot-col-media img { width: 100%; height: 100%; object-fit: contain; }
+.hot-col-id { font-size: 9px; letter-spacing: 0.1em; color: var(--dim); }
+.hot-col-name { font-family: var(--font-display); font-size: 12px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin-top: 2px; }
+@media (max-width: 880px) {
+  .hot-grid { grid-template-columns: 1fr; }
+  .hot-col { border-right: 0; border-bottom: 1px solid var(--ink); }
+  .hot-col:last-child { border-bottom: 0; }
+}

@@ -90,6 +90,26 @@ export default function Home() {
       .slice(0, 5)
   }, [cards])
 
+  // Thai/SEA picks: cards that Thai collectors cite most, weighted by
+  // (region, dossier completeness, media). Surfaced as a separate section
+  // because the home is read by both the global audience and the local
+  // Bangkok/Singapore/KL audience.
+  const thaiPicks = useMemo(() => {
+    const seaBrands = new Set(['Casio', 'Seiko', 'Grand Seiko', 'Credor', 'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Hajime Asaoka', 'Citizen', 'Orient', 'Certina', 'Mido', 'Rado', 'Zelos', 'AnOrdain'])
+    return cards
+      .filter((c) => seaBrands.has(c.identity.brand) && c.media.length > 0)
+      .slice(0, 4)
+  }, [cards])
+
+  // Global hot independents: the most-cited independent watchmakers of the
+  // 2020s. Sized to four — one of each "hot" tier.
+  const globalHot = useMemo(() => {
+    const target = new Set(['F.P. Journe', 'Laurent Ferrier', 'Grönefeld', 'H. Moser & Cie', 'De Bethune', 'Rexhep Rexhepi', 'Philippe Dufour', 'MB&F', 'Hajime Asaoka'])
+    return cards
+      .filter((c) => target.has(c.identity.brand) && c.media.length > 0)
+      .slice(0, 4)
+  }, [cards])
+
   if (!data) return null
 
   // Lookbook cards: copy is static, but every count is injected from the live
@@ -282,6 +302,53 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* "What's hot" — two parallel 4-up rows. One for the Thai/SEA market
+          (the brand owners, the local dealers, the collectors in Bangkok
+          and Singapore), one for the global hot independent watchmaking
+          scene. The two halves of the Time Pop audience in two passes. */}
+      <section className="hot-row" aria-label="What's hot — Thai and global">
+        <div className="section-rule">
+          <h2>What's hot right now.</h2>
+          <span className="sticker-inline mono">THAI/SEA · GLOBAL INDEPENDENT</span>
+        </div>
+        <div className="hot-grid">
+          <div className="hot-col">
+            <p className="hot-col-eyebrow mono">01 · THAI / SEA</p>
+            <p className="hot-col-line">What the Bangkok dealer is showing this month.</p>
+            <div className="hot-col-grid">
+              {thaiPicks.map((c) => (
+                <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
+                  <span className="hot-col-media">
+                    {c.media[0]
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      : <span className="dim">—</span>}
+                  </span>
+                  <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                  <span className="hot-col-name">{c.identity.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="hot-col">
+            <p className="hot-col-eyebrow mono">02 · GLOBAL INDEPENDENT</p>
+            <p className="hot-col-line">What the global independent scene is talking about.</p>
+            <div className="hot-col-grid">
+              {globalHot.map((c) => (
+                <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
+                  <span className="hot-col-media">
+                    {c.media[0]
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      : <span className="dim">—</span>}
+                  </span>
+                  <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
+                  <span className="hot-col-name">{c.identity.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="guides-row">
         <div className="section-rule">

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "mido-ocean-star-600-chronometer",
+  "identity": {
+    "brand": "Mido",
+    "reference": "M026.608.11.051.00",
+    "name": "Mido Ocean Star 600 Chronometer",
+    "nickname": "Ocean Star 600",
+    "collection": "Ocean Star",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Mido Caliber 80 (COSC chronometer)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 43.5,
+      "material": "stainless steel",
+      "bezel": "unidirectional ceramic dive bezel"
+    },
+    "one_liner": "A COSC-certified 600m dive watch from the Swatch Group — chronometer-grade at sub-$2,000, with the case construction Mido has been refining since the 1940s."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1895,
+        "source_url": "https://www.midowatches.com/en-us/mido-ocean-star-600-chronometer-m0266081105100"
+      }
+    ],
+    "current_msrp_usd": 1895
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Ocean Star line has been Mido's dive watch since 1944. The 600 Chronometer is the modern extreme: a 43.5mm steel case rated to 600m, a COSC-certified Caliber 80, and a ceramic unidirectional bezel. Mido sells very few of these relative to Tissot and Longines — the 600 is the watch the dealer brings out when the customer has said \"show me something serious, but I am not paying Omega money.\" Mido's positioning in the Swatch Group is the value play just below Longines, and the Ocean Star 600 is the most-cited argument for that positioning.",
+    "collector_notes": "COSC certification means the movement has passed the Swiss chronometer test in five positions over 15 days. The 600m water resistance is double the ISO 6425 dive watch minimum, and the case uses a helium escape valve at 9 o'clock for saturation diving. The dial has applied indices and a date at 3 o'clock.",
+    "starter_alternative": "certina-ds-action-diver-38"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

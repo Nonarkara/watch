@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "laurent-ferrier-galet-classic-micro-rotor",
+  "identity": {
+    "brand": "Laurent Ferrier",
+    "reference": "LCF001.T1.A1.C",
+    "name": "Laurent Ferrier Galet Classic Micro-Rotor",
+    "nickname": "Galet Classic",
+    "collection": "Galet",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2010,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Caliber LF 230.01 (in-house micro-rotor, 80h reserve)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel (also in white and rose gold)",
+      "bezel": "fixed polished"
+    },
+    "one_liner": "The Galet Classic Micro-Rotor is the watch that established Laurent Ferrier as the most-cited independent watchmaker of the 2010s — a hand-finished in-house micro-rotor movement in a 40mm pebble-shaped case."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2010,
+        "price_usd": 55000,
+        "source_url": "https://laurentferrier.ch/en/collections/galet-classic"
+      }
+    ],
+    "current_msrp_usd": 55000
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Laurent Ferrier founded his eponymous brand in 2010, after a 37-year career at Patek Philippe (where he was technical director under the Stern family). The Galet Classic Micro-Rotor was his debut watch: a 40mm pebble-shaped case in stainless steel, a hand-finished in-house micro-rotor movement with an 80-hour reserve, and the most-cited finishing standard in the independent watchmaking world. Ferrier produces roughly 200 watches per year across all his lines. The Galet Classic Micro-Rotor is the most-cited of the brand's output and the most-cited example of a watch that came from a former Patek Philippe director.",
+    "collector_notes": "The LF 230.01 movement is decorated with \"Côtes Rompues\" (broken waves) perlage — a finish that takes a master watchmaker roughly 8 hours per movement. The micro-rotor is in 22k gold. The case is named \"Galet\" (pebble) for its rounded, polished silhouette. Production is roughly 50 pieces per year in steel.",
+    "starter_alternative": "fp-journe-octa-chronometre-souverain"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

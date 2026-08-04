@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "mido-multifort-tv-big-date",
+  "identity": {
+    "brand": "Mido",
+    "reference": "M049.426.11.091.00",
+    "name": "Mido Multifort TV Big Date",
+    "nickname": "Multifort TV",
+    "collection": "Multifort",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2022,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Mido Caliber 80 (ETA C07.821 base)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "fixed TV-shaped horizontal-brushed bezel"
+    },
+    "one_liner": "The Mido Multifort TV Big Date is the watch Asian collectors reach for when they want a TV-shaped dial, a 80-hour movement, and a price that does not make the watch the most expensive thing in the room."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2022,
+        "price_usd": 1095,
+        "source_url": "https://www.midowatches.com/en-us/mido-multifort-tv-big-date-m0494261109100"
+      }
+    ],
+    "current_msrp_usd": 1095
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The Multifort was Mido's 1930s line and the TV-shaped case (the horizontal TV-screen silhouette, not the boob-tube one) is the line's signature. The 2022 Big Date reissue pairs the original 1970s silhouette with the modern Caliber 80 (an 80-hour-reserve automatic) and a 12 o'clock big date. Mido is the Swatch Group brand that sits between Tissot and Longines in the hierarchy, and the Multifort is the line Asian collectors cite most often. The TV shape is the most-photographed Mido case in the brand's modern output.",
+    "collector_notes": "The Caliber 80 movement is the same architecture as the Tissot PRX Powermatic 80 and the Certina DS Action Powermatic 80 — they are sister movements. The TV case is 40mm wide and 11mm thick, which makes it one of the thinner modern TV-shaped watches on the market.",
+    "starter_alternative": "tissot-prx-powermatic-80"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

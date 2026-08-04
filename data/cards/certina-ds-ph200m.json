@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "certina-ds-ph200m",
+  "identity": {
+    "brand": "Certina",
+    "reference": "C036.407.11.050.00",
+    "name": "Certina DS PH200M",
+    "nickname": "DS PH200",
+    "collection": "DS Heritage",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Powermatic 80 (ETA C07.821)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42.8,
+      "material": "stainless steel",
+      "bezel": "unidirectional ceramic dive bezel"
+    },
+    "one_liner": "A reissue of the 1960s DS PH200 — one of the most-cited mid-century skin-divers, now with a Powermatic 80 and ceramic bezel."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2019,
+        "price_usd": 850,
+        "source_url": "https://www.certina.com/en-us/watches/ds-ph200m.c0364071105000.html"
+      }
+    ],
+    "current_msrp_usd": 850
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The original Certina DS PH200 was issued in 1967 and was the watch Issacar Andraos wore to the deepest dive a human had made in 1969. The 2019 reissue takes the case silhouette, the dial layout, and the bezel hash-mark pattern, and pairs them with the modern Powermatic 80. The result is a watch that reads as a 1960s skin-diver in the hand and behaves as a 2020s daily on the wrist. The DS case construction (a second gasket inside the caseback) was the original selling point in 1967 and remains the technical answer to the question \"is this watch actually water-resistant to 200m?\" — yes, with a margin.",
+    "collector_notes": "The bezel insert is ceramic, not aluminium, which is the most-cited 2019-reissue upgrade. The dial has the original \"turtle\" markers and a 6 o'clock date. There is no helium escape valve; this is a recreational dive watch, not a saturation watch.",
+    "starter_alternative": "seiko-sarb017"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

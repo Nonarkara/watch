@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "zelos-horizon-v2",
+  "identity": {
+    "brand": "Zelos",
+    "reference": "Horizon V2 300M Bronze",
+    "name": "Zelos Horizon V2 300M Bronze",
+    "nickname": "Horizon V2",
+    "collection": "Zelos Diver",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2023,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Miyota 9015 (automatic, 24 jewels, 42h)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "CuSn6 bronze case",
+      "bezel": "unidirectional ceramic dive bezel"
+    },
+    "one_liner": "A Singaporean microbrand's bronze dive watch — 300m water resistance, ceramic bezel, and the patina bronze in a 40mm case for under $600."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2023,
+        "price_usd": 549,
+        "source_url": "https://zeloswatches.com/products/horizon-v2-bronze"
+      }
+    ],
+    "current_msrp_usd": 549
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Zelos is run by a Singaporean watch collector who started the brand in 2014 with a successful Kickstarter. The Horizon line is the brand's most-cited dive watch: a 40mm bronze case (CuSn6, a marine bronze that ages green-blue in salt water), a 300m water resistance, a ceramic unidirectional bezel, and a Miyota 9015 movement. The brand is the most-cited SEA-headquartered microbrand in international dive-watch collector circles, and the Horizon V2 is its 2023 update. The company operates as a true microbrand — most production runs are 100–300 pieces.",
+    "collector_notes": "CuSn6 bronze is the same alloy used by Tudor for the Black Bay Bronze. The ceramic bezel insert uses luminous markers. The case comes on a leather strap and a rubber dive strap. Production runs are 100–300 pieces per dial color.",
+    "starter_alternative": "seiko-sarb017"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}

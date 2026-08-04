@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "certina-ds-action-diver-38",
+  "identity": {
+    "brand": "Certina",
+    "reference": "C032.807.11.051.00",
+    "name": "Certina DS Action Diver 38",
+    "nickname": "DS Action",
+    "collection": "DS Action",
+    "tier": "attainable",
+    "produced": {
+      "start_year": 2020,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "Powermatic 80 (ETA C07.821)",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 38,
+      "material": "stainless steel",
+      "bezel": "unidirectional ceramic dive bezel"
+    },
+    "one_liner": "The Certina DS Action Diver is the best value Swiss dive watch in 2026 — a Powermatic 80 movement, ceramic bezel, and 300m water resistance for $700."
+  },
+  "retail": {
+    "msrp_history": [
+      {
+        "effective_year": 2020,
+        "price_usd": 700,
+        "source_url": "https://www.certina.com/en-us/watches/ds-action.diver.38mm.c0328071105100.html"
+      }
+    ],
+    "current_msrp_usd": 700
+  },
+  "market_evidence": {
+    "comps": [],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
+    "waitlist_evidence": [],
+    "brand_capacity_note": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "Certina is the Swatch Group brand that almost nobody outside Switzerland discusses and almost every Thai collector under the age of 35 owns. The DS Action Diver 38 takes the company's 60-year DS (Double Security) case-construction heritage and pairs it with the Powermatic 80 (an 80-hour-reserve ETA variant) and a ceramic unidirectional bezel. At 38mm it is one of the few serious dive watches that does not wear oversized on a 6.5-inch wrist. Certina sells the same watch in 43mm and 45.5mm but the 38 is the one Thai collectors cite most often — it is the watch a Bangkok dealer would show a first-time buyer who has outgrown a Seiko.",
+    "collector_notes": "The Powermatic 80 uses a Nivachron hairsprings for antimagnetic resistance. The case is rated to 300m ISO 6425. The helium escape valve is present on the 43mm but not on the 38mm — a deliberate choice for the slimmer profile.",
+    "starter_alternative": "seiko-sarb033"
+  },
+  "media": [],
+  "meta": {
+    "curated_date": "2026-08-04",
+    "curated_by": "agent-thai-global",
+    "methodology_version": 4
+  }
+}
