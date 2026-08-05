@@ -15,7 +15,6 @@ import HeroBanner from '../components/HeroBanner.tsx'
 interface Concept {
   id: string
   num: string
-  hue: 'coral' | 'yellow' | 'navy' | 'teal'
   status: 'speculative' | 'prototype-ready' | 'data-limited'
   name: string
   pitch: string
@@ -29,7 +28,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'federer-effect',
     num: '01',
-    hue: 'coral',
     status: 'data-limited',
     name: 'The Federer Effect Engine',
     pitch: 'Quantify how a celebrity association moves the attention-pressure needle — and whether it sticks after the spotlight leaves.',
@@ -41,7 +39,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'attention-oracle',
     num: '02',
-    hue: 'navy',
     status: 'speculative',
     name: 'The Attention Oracle',
     pitch: 'A watch-world version of "who is due for a feature." Which references have the scarcity and cultural footprint to be the next screen cameo — before it happens.',
@@ -53,7 +50,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'wrist-dna',
     num: '03',
-    hue: 'teal',
     status: 'prototype-ready',
     name: 'Wrist-DNA Matcher',
     pitch: '“You are what you wear.” Cluster the register into collector archetypes — the Tool Watch Purist, the Dress-Code Formalist, the Japanese-Minimalist — and show which references belong to each tribe.',
@@ -65,7 +61,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'time-travel-portfolio',
     num: '04',
-    hue: 'yellow',
     status: 'data-limited',
     name: 'The Time-Travel Portfolio',
     pitch: '“If you had walked into a dealer in YEAR and bought REFERENCE, what would it be worth today?” — a CPI-adjusted holding-horizon simulator.',
@@ -77,7 +72,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'heirloom-decay',
     num: '05',
-    hue: 'coral',
     status: 'speculative',
     name: 'The Heirloom Decay Model',
     pitch: 'Which watches survive being passed down — not mechanically, but economically? A multi-generational value-retention model built on liquidity, not price.',
@@ -89,7 +83,6 @@ const CONCEPTS: Concept[] = [
   {
     id: 'counterfeit-index',
     num: '06',
-    hue: 'navy',
     status: 'speculative',
     name: 'The Counterfeit Risk Index',
     pitch: 'Where fakes concentrate tells you where demand outruns supply. A proxy index for counterfeiting pressure, built from the gap between market presence and legitimate production volume.',
@@ -104,20 +97,6 @@ const STATUS_LABEL: Record<Concept['status'], string> = {
   'speculative': 'SPECULATIVE',
   'prototype-ready': 'PROTOTYPE-READY',
   'data-limited': 'BLOCKED ON DATA',
-}
-
-function PlaceholderFigure({ hue, label }: { hue: Concept['hue']; label: string }) {
-  return (
-    <figure className={`labs-fig labs-fig--${hue}`} aria-label={`Illustration placeholder: ${label}`}>
-      <div className="labs-fig-frame">
-        <span className="labs-fig-mono mono">ILLUSTRATION TO COME</span>
-        <span className="labs-fig-label">{label}</span>
-      </div>
-      <figcaption className="labs-fig-cap mono micro dim">
-        FIGURE SLOT · POP-ART DIAGRAM
-      </figcaption>
-    </figure>
-  )
 }
 
 export default function Labs() {
@@ -191,7 +170,7 @@ export default function Labs() {
 
       <div className="labs-concepts">
         {CONCEPTS.map((c) => (
-          <article key={c.id} className={`labs-card labs-card--${c.hue}`} id={c.id}>
+          <article key={c.id} className="labs-card" id={c.id}>
             <header className="labs-card-head">
               <span className="labs-card-num mono">{c.num}</span>
               <span className={`labs-card-status mono labs-card-status--${c.status}`}>
@@ -200,8 +179,6 @@ export default function Labs() {
             </header>
             <h3 className="labs-card-name">{c.name}</h3>
             <p className="labs-card-pitch">{c.pitch}</p>
-
-            <PlaceholderFigure hue={c.hue} label={c.name} />
 
             <div className="labs-card-body">
               <div className="labs-card-section">
