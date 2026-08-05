@@ -3759,16 +3759,96 @@ main.shell { padding-top: var(--space-md); }
 .reader-card--navy .reader-card-title { color: var(--navy); }
 
 /* ── Labs page ────────────────────────────────────────────────────────────
-   The workshop floor. Each concept is a tall card with a placeholder figure
-   slot (for illustrations to come), the data it would draw on, and the honest
-   limit that stops it from overreaching. Color is structural — each card gets
-   one hue from the four-accent system, same as the dossier strip. */
+   Workshop with the collage turned up. Banner-alt is the unused sibling of
+   the home brand surface — Labs-only. Each concept wears one dedicated
+   /img/labs/ still (not Screen evidence). Image first, honesty second. */
 .labs-page { padding-bottom: 64px; }
-.labs-hero-meta { max-width: 340px; }
+
+.labs-hero {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 420px;
+  margin: 0 calc(-1 * var(--pad));
+  border-bottom: 2px solid var(--navy);
+  background: var(--navy);
+  overflow: hidden;
+}
+.labs-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;
+  pointer-events: none;
+}
+.labs-hero-copy {
+  position: relative;
+  z-index: 1;
+  margin: 20px var(--pad) 16px;
+  max-width: 34rem;
+  padding: 18px 20px 16px;
+  background: var(--canvas);
+  border: 1px solid var(--navy);
+  align-self: end;
+}
+.labs-hero-eyebrow {
+  font-size: var(--text-micro);
+  letter-spacing: .06em;
+  color: var(--amber);
+  margin: 0;
+}
+.labs-hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin: 8px 0 12px;
+  text-wrap: balance;
+}
+.labs-hero-lede {
+  color: var(--ink);
+  max-width: 38ch;
+  line-height: 1.45;
+  margin: 0;
+  font-size: var(--text-body);
+}
+.labs-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.labs-hero-actions .btn.secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+.labs-hero-ledger {
+  position: relative;
+  z-index: 1;
+  background: color-mix(in srgb, var(--canvas) 94%, transparent);
+  border-top: 1px solid var(--navy);
+}
+.labs-hero-ledger-head {
+  font-size: var(--text-micro);
+  letter-spacing: .06em;
+  color: var(--ink);
+  opacity: 0.65;
+  padding: 8px var(--pad) 0;
+  margin: 0;
+}
 .labs-hero-stats {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 0; margin: 12px 0;
-  border-top: 1px solid var(--rule); border-left: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
 }
 .labs-hero-stats > div {
   display: flex; flex-direction: column; gap: 2px;
@@ -3782,7 +3862,12 @@ main.shell { padding-top: var(--space-md); }
 .labs-hero-stats dd {
   font-family: var(--font-mono); font-size: 22px; font-weight: 500;
   line-height: 1.05; letter-spacing: -.03em; font-variant-numeric: tabular-nums;
-  color: var(--navy);
+  color: var(--fg);
+}
+@media (min-width: 880px) {
+  .labs-hero { min-height: 520px; }
+  .labs-hero-copy { margin: 32px var(--pad) 20px; padding: 22px 24px 18px; }
+  .labs-hero-stats { grid-template-columns: repeat(4, 1fr); }
 }
 
 .labs-intro .lede { max-width: 68ch; margin-bottom: var(--space-lg); }
@@ -3806,13 +3891,51 @@ main.shell { padding-top: var(--space-md); }
 
 .labs-card {
   display: flex; flex-direction: column;
-  padding: var(--space-lg);
+  padding: 0;
   border-right: var(--border); border-bottom: var(--border);
   background: var(--bg);
+  overflow: hidden;
 }
+.labs-card-art {
+  margin: 0;
+  border-bottom: 1px solid var(--navy);
+  background: var(--navy);
+}
+.labs-card-art img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+.labs-card-art-cap {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: var(--text-micro);
+  letter-spacing: .05em;
+  color: var(--canvas);
+  background: var(--navy);
+  line-height: 1.35;
+}
+.labs-card-head,
+.labs-card-name,
+.labs-card-pitch,
+.labs-card-body,
+.labs-card-foot {
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+.labs-card-head { padding-top: var(--space-md); }
+.labs-card-foot { padding-bottom: var(--space-lg); }
 @media (hover: hover) and (pointer: fine) {
   .labs-card { transition: background 200ms ease; }
   .labs-card:hover { background: var(--paper-2); }
+  .labs-card-art img { transition: transform 280ms ease-out; }
+  .labs-card:hover .labs-card-art img { transform: scale(1.03); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .labs-card-art img { transition: none; }
+  .labs-card:hover .labs-card-art img { transform: none; }
 }
 .labs-card-head {
   display: flex; justify-content: space-between; align-items: baseline;
@@ -3820,7 +3943,7 @@ main.shell { padding-top: var(--space-md); }
 }
 .labs-card-num {
   font-size: var(--text-display); font-weight: 500; line-height: 1;
-  letter-spacing: -.03em; color: var(--dim);
+  letter-spacing: -.03em; color: var(--amber);
 }
 .labs-card-status {
   font-size: var(--text-micro); letter-spacing: .06em;
@@ -3834,7 +3957,8 @@ main.shell { padding-top: var(--space-md); }
   line-height: 1.2; letter-spacing: -.025em; margin: 0 0 var(--space-xs);
 }
 .labs-card-pitch {
-  color: var(--dim); line-height: 1.45; max-width: 56ch; margin: 0 0 var(--space-md);
+  color: var(--fg); line-height: 1.45; max-width: 56ch; margin: 0 0 var(--space-md);
+  font-family: var(--font-essay);
 }
 
 .labs-card-body { display: flex; flex-direction: column; gap: var(--space-md); }

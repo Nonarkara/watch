@@ -44,6 +44,7 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 ## Anti-Regression
 
 - Home hero pop-art banner (`/img/hero/time-pop-banner.png`) — keep; named brand surface.
+- Labs workshop art (`/img/hero/time-pop-banner-alt.png` + `/img/labs/*.jpg`) — Labs-only mood plates; do not demote to text-only cards or reuse as Screen stills.
 - Honesty ladder: no market price without ≥3 sourced comps; missing data renders "—" + reason.
 - Masked publish: full comps never ship to the client.
 - Film stills always carry studio + editorial credit and a promotional/editorial rights line.
