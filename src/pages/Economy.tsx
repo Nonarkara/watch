@@ -4,6 +4,7 @@ import { useDataset } from '../lib/dataset-context.ts'
 import MarketChart from '../components/MarketChart.tsx'
 import IndexRangeChart from '../components/IndexRangeChart.tsx'
 import HeroBanner from '../components/HeroBanner.tsx'
+import ArtBand from '../components/ArtBand.tsx'
 
 export default function Economy() {
   const data = useDataset()
@@ -78,6 +79,14 @@ export default function Economy() {
           <Link className="src-a" to="/about#the-market">All brands and the event overlay →</Link>
         </p>
       </section>
+
+      <ArtBand
+        id="renard-vanitas"
+        tint="teal"
+        height="md"
+        eyebrow="SIMON RENARD DE SAINT-ANDRÉ · LATER 17TH CENTURY"
+        line="The instruments make the music. The watch is what the music is measured in."
+      />
 
       <section className="pressure-lab">
         <div className="lab-controls">

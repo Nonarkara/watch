@@ -1,7 +1,7 @@
 // Watchmaking — the question of time itself, then the craft, then the eras,
-// then the next reads. Four sub-tabs. The MITF voice stays. Every generalisation
-// is one a watchmaker would sign off on. Every figure is Wikimedia Commons
-// (CC0 / PD / CC BY / CC BY-SA), credited on the page.
+// then the art, then the next reads. Five sub-tabs. The MITF voice stays. Every
+// generalisation is one a watchmaker would sign off on. Every figure is Wikimedia
+// Commons (CC0 / PD / CC BY / CC BY-SA), credited on the page.
 //
 // Tab map:
 //   01 TIME     — Why are we measuring time now? Hume, Einstein, the first
@@ -11,21 +11,26 @@
 //   02 CRAFT    — The socialist joke. The abstraction. Anatomy. Why it matters.
 //                 Complications. The inside of a watch.
 //   03 ERAS     — Periods. How to look at one. Five key movements.
-//   04 LEARN    — Glossary, methodology, register, paper. Where to go next.
+//   04 ART      — The watch in painting (vanitas, enamel cases), the painters
+//                 who wore one, and the modern works we refuse to reproduce
+//                 because they are still in copyright.
+//   05 LEARN    — Glossary, methodology, register, paper. Where to go next.
 
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadWatchmakingArtifacts, type WatchmakingArtifact } from '../lib/catalog.ts'
 import HeroBanner from '../components/HeroBanner.tsx'
+import ArtBand, { ArtPlate } from '../components/ArtBand.tsx'
 
-type TabId = 'time' | 'craft' | 'eras' | 'learn'
+type TabId = 'time' | 'craft' | 'eras' | 'art' | 'learn'
 
 const TABS: { id: TabId; num: string; label: string; sub: string }[] = [
   { id: 'time', num: '01', label: 'TIME', sub: 'Why are we measuring time now?' },
   { id: 'craft', num: '02', label: 'CRAFT', sub: 'The socialist joke. The anatomy.' },
   { id: 'eras', num: '03', label: 'ERAS', sub: 'Periods. Key movements. How to look.' },
-  { id: 'learn', num: '04', label: 'LEARN', sub: 'Glossary, methodology, register, paper.' },
+  { id: 'art', num: '04', label: 'ART', sub: 'The watch in painting. Artists and their watches.' },
+  { id: 'learn', num: '05', label: 'LEARN', sub: 'Glossary, methodology, register, paper.' },
 ]
 
 function ArtifactFigure({ a, tall, className }: { a: WatchmakingArtifact; tall?: boolean; className?: string }) {
@@ -849,6 +854,314 @@ function NextReadsCard() {
   )
 }
 
+// ── 05 ART ─────────────────────────────────────────────────────────────────
+// The watch in painting, and the painters who wore one.
+//
+// Two halves, and the split between them is a licensing fact, not an
+// editorial preference. Everything before 1900 is out of copyright, so the
+// page shows it. Everything after — Dalí, Picasso, Warhol, González-Torres,
+// Wiley — is still in copyright, so the page describes it, links it, and
+// refuses to reproduce it. Same ladder the register runs on: cite it or
+// refuse it, and say which one you did.
+
+/** Works still in copyright. Described and linked, never reproduced. */
+const ART_WITHHELD: {
+  artist: string
+  title: string
+  year: string
+  holder: string
+  note: string
+  url: string
+}[] = [
+  {
+    artist: 'Salvador Dalí',
+    title: 'The Persistence of Memory',
+    year: '1931',
+    holder: 'MoMA, New York',
+    note: 'The soft watches draping over a branch and a dead olive tree. The most reproduced painting of a timepiece ever made, and the reason "melting clock" is a phrase civilians understand.',
+    url: 'https://www.moma.org/collection/works/79018',
+  },
+  {
+    artist: 'Pablo Picasso',
+    title: 'Femme à la montre (Woman with a Watch)',
+    year: '1932',
+    holder: 'Private collection',
+    note: 'Marie-Thérèse Walter in a throne-like chair against cobalt blue, a wristwatch on her arm. Sold at Sotheby\'s New York in November 2023 for US$139.4m — the second-highest price paid at auction for a Picasso.',
+    url: 'https://www.sothebys.com/en/articles/powerful-portrait-of-picassos-golden-muse',
+  },
+  {
+    artist: 'Félix González-Torres',
+    title: 'Untitled (Perfect Lovers)',
+    year: '1987–1990',
+    holder: 'MoMA, New York',
+    note: 'Two identical commercial wall clocks, set to the same second, hung touching. They drift apart as their batteries die. The most devastating thing anyone has done with a timepiece, and it required no watchmaking at all.',
+    url: 'https://www.moma.org/collection/works/81074',
+  },
+  {
+    artist: 'Kehinde Wiley',
+    title: 'Portrait of a Venetian Ambassador, Aged 59, II',
+    year: '2006',
+    holder: 'Artist / gallery',
+    note: 'Wiley re-stages Renaissance power portraiture with contemporary sitters — and keeps the wristwatch in frame, doing exactly the job the pocket watch did in the original genre.',
+    url: 'https://kehindewiley.com/',
+  },
+  {
+    artist: 'Richard Prince',
+    title: "Untitled (Three Men's Hands with Watches)",
+    year: '1980',
+    holder: 'Artist / gallery',
+    note: 'Re-photographed advertising: three cropped hands, three watches, no product copy. The watch as pure aspirational signal, lifted out of the ad and hung on a wall.',
+    url: 'https://www.guggenheim.org/artwork/artist/richard-prince',
+  },
+]
+
+/** Painters and their own watches — documented sightings, not folklore. */
+const ARTIST_WATCHES: {
+  artist: string
+  watch: string
+  reference: string
+  evidence: string
+  confidence: 'documented' | 'partial'
+  url?: string
+  urlLabel?: string
+}[] = [
+  {
+    artist: 'Andy Warhol',
+    watch: 'Cartier Tank',
+    reference: 'Tank (Cintrée, per most accounts)',
+    evidence:
+      'Warhol on why he owned one: "I don\'t wear a Tank to tell the time. In fact, I never wind it. I wear a Tank because it\'s the watch to wear." A working definition of a status object, from someone who spent a career on the subject.',
+    confidence: 'documented',
+    url: 'https://www.thejewelleryeditor.com/watches/article/cartier-tank-watch-history-100-years-of-style/',
+    urlLabel: 'THE JEWELLERY EDITOR',
+  },
+  {
+    artist: 'David Hockney',
+    watch: 'Swatch',
+    reference: 'GB 403 "Chrono-Tech" (1984)',
+    evidence:
+      'Identified from photographs of Hockney wearing it. A £20 plastic Swiss quartz watch on one of the most expensive living painters — which is its own argument about what a watch signals.',
+    confidence: 'documented',
+    url: 'https://www.watchprosite.com/digest/david-hockney-watches-laco-swatch-victorinox-tribute/',
+    urlLabel: 'WATCHPROSITE',
+  },
+  {
+    artist: 'David Hockney',
+    watch: 'Victorinox',
+    reference: 'Swiss Army Officer',
+    evidence:
+      'Appears in at least two photographs of Hockney and reads as a favoured piece rather than a one-off. Brand is confirmed; the exact reference is not.',
+    confidence: 'partial',
+    url: 'https://www.watchprosite.com/digest/david-hockney-watches-laco-swatch-victorinox-tribute/',
+    urlLabel: 'WATCHPROSITE',
+  },
+]
+
+function ArtOpening() {
+  return (
+    <article className="wmp-frame">
+      <span className="eyebrow">05.1 · THE ARGUMENT</span>
+      <h2 className="wmp-h2">The watch was in the picture before it was on the wrist.</h2>
+      <p>
+        For most of its life the portable timepiece was not a thing you wore
+        where people could see it. It hung on a chain, or sat in a waistcoat
+        pocket, or lived in a drawer. If you wanted to know what a watch
+        <em> meant</em> to the people who owned the first ones, the wrist is
+        the wrong place to look. The right place is a painting.
+      </p>
+      <p>
+        Dutch and Flemish painters of the 17th century put the pocket watch
+        into a genre called <strong>vanitas</strong> — still lifes built
+        entirely out of the argument that everything on the table is going to
+        end. A skull states the conclusion. A guttered candle, a toppled
+        glass, a wilting tulip all restate it. But the watch is the only
+        object in the arrangement that is actually <em>doing</em> something:
+        it is counting, right now, while you look at it. It is the one piece
+        of equipment in the picture that agrees with the skull and can prove it.
+      </p>
+      <p>
+        That is a considerably older and stranger idea about watches than the
+        one the modern market runs on. A vanitas painter would have found
+        "holds its value" an odd thing to want from an object whose entire
+        symbolic job is to remind you that you do not.
+      </p>
+    </article>
+  )
+}
+
+function ArtCaseCanvasCard() {
+  return (
+    <article className="wmp-frame wmp-frame--split">
+      <div className="wmp-frame-body">
+        <span className="eyebrow">05.2 · THE CASE WAS THE CANVAS</span>
+        <h3 className="wmp-h3">Before the dial was decorated, the back of the case was a painting.</h3>
+        <p>
+          In Geneva in the late 1600s, the Huaud brothers — Jean-Pierre and
+          Ami, sons of a goldsmith — painted in enamel on the outside of
+          pocket-watch cases. Mythological scenes, biblical scenes,
+          portraits: full compositions rendered at roughly fifty millimetres
+          across, fired in a kiln, and then attached to a machine that a
+          person shut inside a pocket.
+        </p>
+        <p>
+          It is worth sitting with how strange that is. The picture was made
+          to a standard that would survive a museum wall, and then mounted on
+          the one surface guaranteed to spend most of its life face-down in
+          fabric, in the dark, unseen. The decoration was not for an
+          audience. It was for the owner, in private, in the two seconds
+          between taking the watch out and reading it.
+        </p>
+        <p className="micro dim">
+          The enamel case below is in the Louvre. Painted watch cases are the
+          direct ancestor of every modern decorative dial — guilloché, grand
+          feu, métiers d'art — and the reason those departments still exist
+          inside watch houses.
+        </p>
+      </div>
+      <div className="wmp-frame-media">
+        <ArtPlate id="huaud-watch-case" />
+      </div>
+    </article>
+  )
+}
+
+function ArtVanitasCard() {
+  return (
+    <article className="wmp-frame">
+      <span className="eyebrow">05.3 · THE WATCH AS MEMENTO MORI</span>
+      <h3 className="wmp-h3">Six paintings in which a timepiece is doing the arguing.</h3>
+      <p>
+        Every work below is out of copyright and comes from Wikimedia
+        Commons, credited to its collection and licence. Read them as a set:
+        the same object turns up in a flower piece, a scholar's desk, a
+        sleeping knight's nightmare and a woman painter's ledger, and it means
+        roughly the same thing every time.
+      </p>
+      <div className="art-grid">
+        <ArtPlate id="aelst-flowers-watch" />
+        <ArtPlate id="oosterwijck-vanitas-1668" />
+      </div>
+      <p className="micro dim art-grid-note">
+        Willem van Aelst hangs the watch off the marble ledge on a blue
+        ribbon, level with the lowest flowers — the bouquet is at its peak and
+        the watch is the reason that is a temporary condition. Maria van
+        Oosterwijck stands an hourglass between a celestial globe and a ledger
+        marked <em>Rekeningh</em> — "account." She was paid more than most of
+        her male contemporaries and never joined a guild that would have taken
+        a cut of it.
+      </p>
+    </article>
+  )
+}
+
+function ArtistWatchesCard() {
+  return (
+    <article className="wmp-frame">
+      <span className="eyebrow">05.4 · ARTISTS AND THEIR WATCHES</span>
+      <h2 className="wmp-h2">What painters actually wore, when anyone bothered to photograph it.</h2>
+      <p>
+        The other half of the subject: not watches in art, but watches on
+        artists. These are documented sightings — a photograph, a quotation —
+        not the usual "was said to have owned" that fills auction copy. Where
+        the brand is confirmed and the reference is not, the row says so.
+      </p>
+      <div className="art-wear-list">
+        {ARTIST_WATCHES.map((w, i) => (
+          <article className="art-wear" key={`${w.artist}-${w.reference}`}>
+            <span className="art-wear-num mono">{String(i + 1).padStart(2, '0')}</span>
+            <div className="art-wear-body">
+              <p className="art-wear-head">
+                <strong>{w.artist}</strong>
+                <span className="dim"> · </span>
+                {w.watch} <span className="dim">·</span>{' '}
+                <span className="mono art-wear-ref">{w.reference}</span>
+              </p>
+              <p className="art-wear-note">{w.evidence}</p>
+              <p className="mono micro art-wear-meta">
+                <span
+                  className={`art-wear-tag art-wear-tag--${w.confidence}`}
+                >
+                  {w.confidence === 'documented' ? 'PHOTO / QUOTE DOCUMENTED' : 'BRAND ONLY · REFERENCE NOT CONFIRMED'}
+                </span>
+                {w.url && (
+                  <>
+                    {' · '}
+                    <a href={w.url} target="_blank" rel="noreferrer">
+                      {w.urlLabel} ↗
+                    </a>
+                  </>
+                )}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p className="micro dim art-grid-note">
+        Note what the Hockney entries do to the usual story. A painter whose
+        canvases sell for tens of millions wore a plastic Swatch and a
+        Victorinox — which is a cleaner statement about what a watch is for
+        than any amount of brand copy.
+      </p>
+    </article>
+  )
+}
+
+function ArtWithheldCard() {
+  return (
+    <article className="wmp-frame">
+      <span className="eyebrow">05.5 · WHAT THIS PAGE WILL NOT SHOW YOU</span>
+      <h2 className="wmp-h2">The best watch paintings of the last hundred years are all still in copyright.</h2>
+      <p>
+        This is the honest problem with a page called "the watch in art." The
+        vanitas painters are safely dead and their work is public domain, so
+        you get to see it. The twentieth century is not: Dalí died in 1989,
+        Picasso in 1973, Warhol in 1987, and their work stays in copyright for
+        decades yet. Reproducing those images here would be a straightforward
+        infringement dressed up as editorial.
+      </p>
+      <p>
+        So the page does what the register does with a price it cannot cite —
+        it names the thing, says where to go and see it, and refuses to fake
+        it. Five works worth the trip:
+      </p>
+      <ol className="art-withheld-list">
+        {ART_WITHHELD.map((w) => (
+          <li className="art-withheld" key={`${w.artist}-${w.title}`}>
+            <div className="art-withheld-plate mono" aria-hidden="true">
+              IMAGE WITHHELD
+              <span>IN COPYRIGHT</span>
+            </div>
+            <div className="art-withheld-body">
+              <p className="art-withheld-head">
+                <strong>{w.artist}</strong>, <em>{w.title}</em>, {w.year}
+              </p>
+              <p className="art-withheld-note">{w.note}</p>
+              <p className="mono micro dim">
+                {w.holder.toUpperCase()} ·{' '}
+                <a href={w.url} target="_blank" rel="noreferrer">
+                  SEE IT AT THE SOURCE ↗
+                </a>
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p className="micro dim art-grid-note">
+        The modern list above follows Watchonista's survey of timepieces in
+        contemporary art, which is worth reading in full.{' '}
+        <a
+          className="src-a"
+          href="https://www.watchonista.com/articles/opinions/watching-watches-taking-look-timepieces-contemporary-art"
+          target="_blank"
+          rel="noreferrer"
+        >
+          WATCHING WATCHES ↗
+        </a>
+      </p>
+    </article>
+  )
+}
+
 // ── the page ───────────────────────────────────────────────────────────────
 
 export default function Watchmaking() {
@@ -906,12 +1219,12 @@ export default function Watchmaking() {
         title={<>A watch is a philosophy instrument that happens to be worn on the wrist.</>}
         subtitle={
           <>
-            Four sub-tabs. The first is the question of time itself — Hume, Einstein,
+            Five sub-tabs. The first is the question of time itself — Hume, Einstein,
             the first watch, the first pocket watch, quartz, the smartphone, and a
             witness. The second is what is inside a mechanical watch, why the parts
-            matter, and how the craft survives. The third is the eras. The fourth
-            is where to go next. Nothing is invented. Every figure is Wikimedia
-            Commons.
+            matter, and how the craft survives. The third is the eras. The fourth is
+            the watch in art, and the painters who wore one. The fifth is where to go
+            next. Nothing is invented. Every figure is Wikimedia Commons.
           </>
         }
         primary={{ to: '#time', label: '01 · START WITH THE QUESTION OF TIME ↓' }}
@@ -987,6 +1300,45 @@ export default function Watchmaking() {
             <PeriodsCard shots={bySlot.periods ?? []} />
             <LearnToLookCard shot={bySlot.look?.[0]} />
             <KeyMovementsCard />
+          </section>
+        )}
+
+        {tab === 'art' && (
+          <section className="wmp-panel" data-panel="art" id="art">
+            <ArtOpening />
+            <ArtBand
+              id="claesz-vanitas-1632"
+              tint="coral"
+              height="lg"
+              eyebrow="PIETER CLAESZ · 1632 · MAURITSHUIS"
+              line="The skull states the conclusion. The watch is the only thing on the table that can prove it."
+            />
+            <ArtCaseCanvasCard />
+            <ArtBand
+              id="pereda-knights-dream"
+              tint="yellow"
+              height="md"
+              eyebrow="ANTONIO DE PEREDA · c. 1650"
+              line="AETERNE PVNGIT · CITO VOLAT · ET OCCIDIT"
+              showCaption
+            />
+            <ArtVanitasCard />
+            <ArtBand
+              id="collier-vanitas-1662"
+              tint="teal"
+              height="md"
+              eyebrow="EVERT COLLIER · 1662 · THE MET"
+              line="Everything a life gets filled with, arranged around the two objects that measure it."
+            />
+            <ArtistWatchesCard />
+            <ArtBand
+              id="steenwijck-vanitas"
+              tint="navy"
+              height="sm"
+              eyebrow="HARMEN STEENWIJCK · c. 1640"
+              line="The possessions of a life of taste, lit from the left, going nowhere."
+            />
+            <ArtWithheldCard />
           </section>
         )}
 

@@ -20,6 +20,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBanner from '../components/HeroBanner'
+import ArtBand from '../components/ArtBand'
 import {
   BIBLE, BIBLE_STATS, ERA_LABEL, ERA_ORDER, SUBJECT_LABEL, SUBJECT_ORDER,
   filterBible, type BibleBook, type Era, type Subject,
@@ -300,6 +301,14 @@ export default function Bible() {
           : filtered.map((b) => <BookCard key={b.id} book={b} />)
         }
       </section>
+
+      <ArtBand
+        id="gijsbrechts-vanitas-1662"
+        tint="yellow"
+        height="md"
+        eyebrow="CORNELIS NORBERTUS GIJSBRECHTS · 1662"
+        line="Gijsbrechts painted the same argument for twenty years and never softened it."
+      />
 
       <section id="reader" className="bible-reader" aria-label="The reader">
         <div className="section-rule">

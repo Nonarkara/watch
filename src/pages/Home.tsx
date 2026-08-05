@@ -4,6 +4,7 @@ import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
 import HeroBanner from '../components/HeroBanner.tsx'
+import ArtBand from '../components/ArtBand.tsx'
 import Spotlight from '../components/Spotlight.tsx'
 import { ARTICLES } from './GuideArticles.tsx'
 
@@ -382,6 +383,14 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <ArtBand
+        id="willebeeck-vanity-fruit"
+        tint="coral"
+        height="md"
+        eyebrow="PETRUS WILLEBEECK · 1632–1648"
+        line="Fruit rots on a schedule. The watch is the schedule."
+      />
 
       <section className="brass-tacks" aria-label="Where to start">
         <div className="section-rule">

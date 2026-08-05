@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import HeroBanner from '../components/HeroBanner.tsx'
+import ArtBand from '../components/ArtBand.tsx'
 import MarketChart from '../components/MarketChart.tsx'
 
 // A compact sketch of the four theories, hand-drawn in SVG so it always renders.
@@ -630,6 +631,62 @@ export default function About() {
           chapter in the same book: a watch is a sentence a character is
           saying. The register keeps the receipts; the comics keep the
           cultural memory.
+        </p>
+      </section>
+
+      <section className="sect" id="art">
+        <div className="section-rule">
+          <h2>Watches in art — and why this site looks the way it does</h2>
+          <span className="sticker-inline">THE VISUAL LANGUAGE</span>
+        </div>
+        <p className="prose" style={{ maxWidth: '68ch' }}>
+          The pictures that divide the pages of this site are not decoration and
+          they are not illustrations commissioned to fill a slot. They are
+          seventeenth-century Dutch and Flemish <strong>vanitas</strong> paintings,
+          and every one of them was chosen because there is a watch in it.
+        </p>
+        <p className="prose" style={{ maxWidth: '68ch' }}>
+          Vanitas is a genre built out of a single argument: everything on this
+          table is going to end. A skull states the conclusion. A guttered candle,
+          a toppled glass and a ripe melon restate it. But the pocket watch is the
+          only object in the arrangement that is <em>doing</em> something — it is
+          counting, while you look at it. It is the one instrument in the picture
+          that agrees with the skull and can show its working. That is a much
+          older and stranger idea about watches than the one this market runs on,
+          and it is a useful thing to keep on the page of a site that spends the
+          rest of its time on prices.
+        </p>
+
+        <ArtBand
+          id="roestraten-vanitas-carpet"
+          tint="navy"
+          height="md"
+          eyebrow="THE VISUAL LANGUAGE OF THIS SITE"
+          line="Every picture on these pages has a watch in it, and every one is out of copyright."
+          showCaption
+        />
+
+        <p className="prose" style={{ maxWidth: '68ch' }}>
+          There is a second reason for reaching back three hundred years, and it
+          is not romantic. The best watch paintings of the last hundred years —
+          Dalí's melting watches, Picasso's <em>Femme à la montre</em>,
+          González-Torres's two clocks running down together — are all still in
+          copyright. Reproducing them here would be infringement dressed up as
+          editorial. So this site does with pictures exactly what it does with
+          prices: it publishes what it can source and license, it names what it
+          cannot, and it never quietly fabricates the difference. The modern works
+          are described and linked; the images are withheld and the page says why.
+        </p>
+        <p className="prose dim" style={{ maxWidth: '68ch' }}>
+          Each artwork carries its painter, date, holding collection and licence on
+          the face of the image, linked to the Wikimedia Commons file it came from.
+          Where a work sits in a private collection rather than a museum, the credit
+          says that too rather than borrowing a museum's authority.
+        </p>
+        <p className="prose" style={{ maxWidth: '68ch' }}>
+          <Link className="src-a" to="/watchmaking#art">
+            THE FULL ESSAY — THE WATCH IN ART, AND THE PAINTERS WHO WORE ONE →
+          </Link>
         </p>
       </section>
 

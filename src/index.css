@@ -2418,6 +2418,269 @@ main.shell { padding-top: var(--space-md); }
   line-height: 1.4;
 }
 
+/* ── ART BAND — licensed painting as a page divider ────────────────────────
+   A full-bleed dark plate carrying a real, out-of-copyright painting, with
+   the artist / title / collection / licence printed on its face. Dark in
+   both themes on purpose: every work in the set is a dark-ground 17th-c.
+   oil, so a constant dark plate reads as a picture hung on the page rather
+   than as a panel that changes character with the theme toggle.
+
+   The scrim is the one gradient house law allows — dark-to-transparent over
+   a photograph, purely so the type stays legible (§11.10). No radius, no
+   shadow, one hue on the top rule at a time. */
+.art-band {
+  position: relative;
+  /* Full-bleed to the shell, measured from the shell token rather than from
+     the parent's padding. The hero's `100% + 2*--pad` idiom silently inherits
+     any chrome on its parent — inside .wmp-panel, whose 1px side borders
+     shrink the content box, that lands the band 1px inside the hero's edge.
+     Keying off --shell keeps every bleed edge on the same line no matter what
+     it is nested in (§14.11 — an edge must resolve to another edge). */
+  --art-bleed: min(100vw, var(--shell));
+  width: var(--art-bleed);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  margin-left: calc((100% - var(--art-bleed)) / 2);
+  margin-right: calc((100% - var(--art-bleed)) / 2);
+  background: #0A0A0A;
+  border-top: 3px solid var(--art-tint, var(--coral));
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  /* body and credit sit in normal flow, stacked and bottom-aligned. An
+     absolutely-positioned credit has to have its height guessed by a padding
+     reservation on the body, and that guess breaks the moment the credit
+     wraps to two or three lines on a narrow screen. Flow layout cannot
+     overlap itself. */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+}
+.art-band--coral { --art-tint: var(--coral); }
+.art-band--yellow { --art-tint: var(--yellow); }
+.art-band--navy { --art-tint: var(--navy); }
+.art-band--teal { --art-tint: var(--teal); }
+
+.art-band--sm { min-height: clamp(140px, 18vw, 200px); }
+.art-band--md { min-height: clamp(200px, 26vw, 300px); }
+.art-band--lg { min-height: clamp(260px, 34vw, 400px); }
+
+.art-band-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* the oils are warm and saturated; easing them back keeps the painting
+     from fighting the coral accent that runs the rest of the site */
+  filter: saturate(0.82) contrast(1.04);
+  z-index: 0;
+}
+.art-band-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.82) 38%,
+    rgba(10, 10, 10, 0.30) 72%,
+    rgba(10, 10, 10, 0.12) 100%
+  );
+}
+.art-band-body {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-lg) var(--pad) 0;
+  max-width: 62ch;
+}
+.art-band-eyebrow {
+  font-size: var(--text-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--art-tint, var(--coral));
+  margin: 0 0 8px;
+}
+.art-band-line {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin: 0;
+  text-wrap: balance;
+}
+.art-band-caption {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 12px 0 0;
+  max-width: 56ch;
+}
+.art-band-credit {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 12px var(--pad) 14px;
+  /* kept inside the dark end of the scrim so the attribution stays legible
+     against the picture rather than landing on a lit passage of the oil */
+  max-width: 76ch;
+  font-size: var(--text-micro);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.66);
+  text-decoration: none;
+  line-height: 1.4;
+}
+.art-band-credit:hover { color: #FFFFFF; text-decoration: underline; }
+
+/* ── ART PLATE — portrait / object works, shown in a grid ─────────────── */
+.art-plate {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.art-plate-media {
+  display: block;
+  background: #0A0A0A;
+  border-bottom: 1px solid var(--rule);
+}
+.art-plate-media img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 30vw, 320px);
+  object-fit: contain;
+}
+.art-plate-cap {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.art-plate-title {
+  font-size: var(--text-body);
+  line-height: 1.35;
+  margin: 0;
+  color: var(--fg);
+}
+.art-plate-body {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--dim);
+  margin: 0;
+}
+.art-plate-credit { margin: 4px 0 0; letter-spacing: 0.06em; }
+.art-plate-credit a { color: inherit; }
+
+/* ── ART TAB — grids, the wear list, the withheld list ─────────────────── */
+.art-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+@media (min-width: 720px) { .art-grid { grid-template-columns: 1fr 1fr; } }
+.art-grid-note { max-width: 72ch; line-height: 1.55; margin-top: var(--space-sm); }
+
+/* artists and their own watches */
+.art-wear-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+.art-wear {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.art-wear-num {
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--dim);
+  opacity: 0.45;
+}
+.art-wear-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.art-wear-head { margin: 0; font-size: var(--text-body); line-height: 1.35; }
+.art-wear-ref { font-size: var(--text-micro); letter-spacing: 0.04em; }
+.art-wear-note { margin: 0; color: var(--dim); line-height: 1.5; max-width: 68ch; }
+.art-wear-meta { margin: 2px 0 0; letter-spacing: 0.06em; }
+.art-wear-meta a { color: inherit; }
+.art-wear-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+}
+.art-wear-tag--documented { color: var(--teal-2); }
+.art-wear-tag--partial { color: var(--yellow-2); }
+
+/* works we refuse to reproduce */
+.art-withheld-list {
+  list-style: none;
+  margin: var(--space-lg) 0 var(--space-md);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.art-withheld {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 720px) {
+  .art-withheld { grid-template-columns: 160px 1fr; gap: 20px; }
+}
+/* the refusal is drawn, not hidden — an empty plate that says why it is empty */
+.art-withheld-plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 92px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid var(--rule);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 7px,
+    rgba(128, 128, 128, 0.13) 7px,
+    rgba(128, 128, 128, 0.13) 8px
+  );
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  color: var(--dim);
+}
+.art-withheld-plate span { opacity: 0.7; }
+.art-withheld-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.art-withheld-head { margin: 0; font-size: var(--text-body); line-height: 1.35; }
+.art-withheld-note { margin: 0; color: var(--dim); line-height: 1.5; max-width: 68ch; }
+.art-withheld-body a { color: inherit; }
+
+@media (max-width: 720px) {
+  .art-band-body { padding: var(--space-md) var(--pad) 0; }
+  /* on a phone the picture has to carry itself behind a narrow column, so
+     the scrim goes vertical — light at the top, solid under the type */
+  .art-band-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.35) 0%,
+      rgba(10, 10, 10, 0.72) 45%,
+      rgba(10, 10, 10, 0.95) 100%
+    );
+  }
+}
+
 /* dark mode: multiply × black canvas = invisible, swap to normal blend */
 :root[data-theme="dark"] .wmp-figure img { mix-blend-mode: normal; background: #F4F4F2; }
 @media (prefers-color-scheme: dark) {
