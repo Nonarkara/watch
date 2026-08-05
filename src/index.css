@@ -851,6 +851,26 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   color: var(--navy);
   border: 1px solid var(--navy);
 }
+/* --navy on the dark canvas is 1.56:1 — the button reads as an empty outline
+   with nothing in it. --sky keeps the same blue identity and clears 10:1
+   (§11.10). Scoped globally rather than per-page because .btn.secondary is
+   also the escape link on the error boundary, which is the worst possible
+   place to hide a way out. Covers the .timepop-hero-copy and
+   .labs-hero-actions copies of this rule too — they set the same --navy. */
+:root[data-theme="dark"] .btn.secondary,
+:root[data-theme="dark"] .timepop-hero-copy .btn.secondary,
+:root[data-theme="dark"] .labs-hero-actions .btn.secondary {
+  color: var(--sky);
+  border-color: var(--sky);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn.secondary,
+  :root:not([data-theme="light"]) .timepop-hero-copy .btn.secondary,
+  :root:not([data-theme="light"]) .labs-hero-actions .btn.secondary {
+    color: var(--sky);
+    border-color: var(--sky);
+  }
+}
 /* Was an offset "sticker shadow" (a solid coral rectangle behind the panel) --
    the trading-card-pop-art tell. A plain hairline card reads calmer and still
    separates the panel from the paper behind it. */
@@ -3797,8 +3817,17 @@ main.shell { padding-top: var(--space-md); }
 .labs-hero-eyebrow {
   font-size: var(--text-micro);
   letter-spacing: .06em;
-  color: var(--amber);
+  /* --amber (#EF6A5B) on white paper is 3.05:1 — under the 4.5:1 floor for
+     11px text. --coral-2 clears it at 4.55:1 and keeps the same accent
+     family. Dark mode keeps the lighter coral, which is already 6.49:1 on
+     the near-black canvas. This is the site-wide eyebrow colour; fixed here
+     because this rule was being touched (§11.10 is retroactive). */
+  color: var(--coral-2);
   margin: 0;
+}
+:root[data-theme="dark"] .labs-hero-eyebrow { color: var(--coral); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .labs-hero-eyebrow { color: var(--coral); }
 }
 .labs-hero-title {
   font-family: var(--font-display);
@@ -3870,7 +3899,26 @@ main.shell { padding-top: var(--space-md); }
   .labs-hero-stats { grid-template-columns: repeat(4, 1fr); }
 }
 
-.labs-intro .lede { max-width: 68ch; margin-bottom: var(--space-lg); }
+/* Dark mode: --navy (#11364B) on --canvas (#0A0A0A) is 1.56:1, so the H1 is
+   effectively invisible. --sky keeps the blue the design wants and clears
+   10:1 (§11.10). The secondary button is fixed globally at .btn.secondary. */
+:root[data-theme="dark"] .labs-hero-title { color: var(--sky); }
+:root[data-theme="dark"] .labs-hero-copy { border-color: var(--sky); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .labs-hero-title { color: var(--sky); }
+  :root:not([data-theme="light"]) .labs-hero-copy { border-color: var(--sky); }
+}
+
+.labs-intro .lede { max-width: 68ch; margin-bottom: var(--space-md); }
+.labs-art-note {
+  max-width: 74ch;
+  line-height: 1.55;
+  letter-spacing: .01em;
+  padding-left: 12px;
+  border-left: 1px solid var(--rule);
+  margin-bottom: var(--space-lg);
+}
+.labs-art-note a { color: inherit; }
 .labs-status-key {
   display: flex; flex-wrap: wrap; gap: var(--space-md);
   padding: var(--space-sm) 0; border-top: var(--border);
@@ -3913,7 +3961,10 @@ main.shell { padding-top: var(--space-md); }
   padding: 8px 14px;
   font-size: var(--text-micro);
   letter-spacing: .05em;
-  color: var(--canvas);
+  /* The plate behind this is a constant --navy in both themes, so the text on
+     it has to be constant too. --canvas flips to #0A0A0A in dark mode, which
+     put near-black on navy at 1.56:1 and erased the caption (§11.10). */
+  color: #FFFFFF;
   background: var(--navy);
   line-height: 1.35;
 }
@@ -3924,6 +3975,12 @@ main.shell { padding-top: var(--space-md); }
 .labs-card-foot {
   padding-left: var(--space-lg);
   padding-right: var(--space-lg);
+  /* 12px keeps adjacent 44px targets clear of each other's thumb radius
+     (§11.8.7 asks for at least 8px between neighbouring tap targets). */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
 }
 .labs-card-head { padding-top: var(--space-md); }
 .labs-card-foot { padding-bottom: var(--space-lg); }
@@ -3989,6 +4046,12 @@ main.shell { padding-top: var(--space-md); }
 .labs-card-link {
   font-size: var(--text-micro); letter-spacing: .04em; color: var(--dim);
   border-bottom: 1px solid var(--line);
+  /* was an 18px-tall text link — under the 44px tap target floor (§11.8.2).
+     inline-flex + min-height gives the thumb something to hit without
+     changing where the underline sits. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 .labs-card-link:hover { color: var(--amber); border-bottom-color: var(--amber); }
 

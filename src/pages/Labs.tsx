@@ -185,8 +185,18 @@ export default function Labs() {
         </div>
         <p className="lede">
           Labs is where Time Pop thinks out loud with the pictures turned up.
-          The stills set the mood. The cards keep the rules: provenance, comps,
+          The plates set the mood. The cards keep the rules: provenance, comps,
           screen, scarcity, liquidity — and a clear stop when the evidence runs out.
+        </p>
+        <p className="micro dim labs-art-note">
+          ABOUT THE PICTURES · The plates on this page are original pop-art
+          collages made for Time Pop. They are not film stills and not evidence:
+          no frame here is a studio image, and nothing on this page is
+          identifying a watch from one. Where the register does read a watch off
+          a real screen appearance, it says so and credits the studio — see{' '}
+          <Link className="src-a" to="/screen">on screen</Link>. Where a studio
+          still is copyrighted, the register withholds it rather than
+          substituting a picture that only looks like one.
         </p>
         <div className="labs-status-key mono">
           <span><strong className="labs-dot labs-dot--speculative">●</strong> SPECULATIVE — needs design + data work</span>
