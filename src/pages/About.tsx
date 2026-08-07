@@ -266,11 +266,11 @@ export default function About() {
             </p>
             <div className="founder-meta">
               <span>WRIST</span>
-              <Link to="/w/tagheuer-aquaracer-way111a" className="founder-watch">TAG HEUER AQUARACER 300M · WAY111A</Link>
+              <Link to="/w/tagheuer-aquaracer-way101a" className="founder-watch">TAG HEUER AQUARACER 300M · WAY101A</Link>
             </div>
             <img
               src="/about/founder-watch-closeup.jpg"
-              alt="Close-up of the TAG Heuer Aquaracer 300M dial — black sunray brushed with horizontal grooves, applied luminous indices, date at 3 o'clock with cyclops, polished steel bezel."
+              alt="Close-up of the TAG Heuer Aquaracer 300M dial — black sunray brushed with horizontal grooves, applied luminous indices, flat date window at 3 o'clock, black aluminum dive bezel on a brushed steel case."
               className="founder-photo-closeup"
               loading="lazy"
             />
@@ -280,19 +280,19 @@ export default function About() {
             <aside className="founder-specs" aria-label="Watch specifications">
               <h3 className="founder-specs-h mono">SPEC SHEET</h3>
               <dl className="founder-specs-list">
-                <div><dt>Reference</dt><dd>WAY111A</dd></div>
-                <div><dt>Diameter</dt><dd>41 mm</dd></div>
-                <div><dt>Case</dt><dd>stainless steel</dd></div>
-                <div><dt>Bezel</dt><dd>unidirectional, 12-sided, polished steel dive bezel</dd></div>
+                <div><dt>Reference</dt><dd>WAY101A</dd></div>
+                <div><dt>Diameter</dt><dd>43 mm</dd></div>
+                <div><dt>Case</dt><dd>stainless steel, six grip studs</dd></div>
+                <div><dt>Bezel</dt><dd>unidirectional black aluminum dive bezel</dd></div>
                 <div><dt>Crystal</dt><dd>sapphire, AR-coated</dd></div>
                 <div><dt>Water resistance</dt><dd>300 m</dd></div>
                 <div><dt>Movement</dt><dd>quartz, ETA-based</dd></div>
                 <div><dt>Dial</dt><dd>black sunray, horizontal grooves, applied luminous indices</dd></div>
-                <div><dt>Date</dt><dd>3 o'clock, cyclops magnifier</dd></div>
+                <div><dt>Date</dt><dd>3 o'clock, flat window, no magnifier</dd></div>
                 <div><dt>Production</dt><dd>2005 – 2021</dd></div>
                 <div><dt>Service history</dt><dd>battery ×2, gaskets, all done locally in Bangkok</dd></div>
               </dl>
-              <Link to="/w/tagheuer-aquaracer-way111a" className="founder-specs-link mono">
+              <Link to="/w/tagheuer-aquaracer-way101a" className="founder-specs-link mono">
                 READ THE FULL DOSSIER →
               </Link>
             </aside>
@@ -301,7 +301,7 @@ export default function About() {
             <p className="eyebrow">FROM THE FOUNDER · A 2005 ANCHOR</p>
             <h2>I am not a watch guy. I built this system because I am curious about why people are.</h2>
             <p>
-              I have one watch. It is a <strong>TAG Heuer Aquaracer 300M, reference WAY111A</strong>,
+              I have one watch. It is a <strong>TAG Heuer Aquaracer 300M, reference WAY101A</strong>,
               bought for me in Bangkok by my father in July 2005, on the day I received my MIT admission
               letter. My father was a technical engineer, the kind of man who taught his son to read a
               movement by holding it up to the light. He introduced me to a lot of mechanical things

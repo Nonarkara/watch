@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "id": "tagheuer-aquaracer-way111a",
+  "id": "tagheuer-aquaracer-way101a",
   "identity": {
     "brand": "TAG Heuer",
-    "reference": "WAY111A",
-    "name": "Aquaracer 300M Quartz — Steel Fair",
+    "reference": "WAY101A",
+    "name": "Aquaracer 300M Quartz 43mm — Steel Fair",
     "nickname": null,
     "collection": "Aquaracer",
     "tier": "attainable",
     "produced": { "start_year": 2005, "end_year": 2021, "discontinued": true },
     "movement": { "caliber": "Quartz (ETA-based)", "type": "quartz" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "unidirectional 12-sided polished steel dive bezel" },
+    "case": { "diameter_mm": 43, "material": "stainless steel", "bezel": "unidirectional black aluminum dive bezel, brushed and polished steel case with six grip studs" },
     "one_liner": "The Aquaracer line's mid-2000s quartz three-hand: the watch on the founder's wrist, gifted by his father in 2005, still running 20 years later."
   },
   "retail": {
@@ -38,8 +38,8 @@
     }
   ],
   "narrative": {
-    "story": "This is the only watch on the founder's wrist. He is not a collector. He is a builder of systems for cities, and the Aquaracer 300M is what survives his travel. The reference WAY111A is the mid-2000s stainless steel three-hand with the polished 12-sided dive bezel and 300m water resistance. It was bought for him in 2005 by his father on the day the founder was admitted to MIT. Twenty years later, the watch has been serviced three times (battery, gaskets) and is still running on the original quartz movement. It is included in the register because the system requires that its own author's watch be subject to the same evidence standard as every other reference on the site. The watch is rated attainable tier. The story is rated priceless; the register does not have a tier for that.",
-    "collector_notes": "The WAY111A is the kind of object the system exists to protect: a watch with no auction comps, no premium over retail, no provenance events except the one above. It is in the register because it is the founder's watch, not because the system would otherwise have included it. Read it as the proof of the system, not as a recommendation.",
+    "story": "This is the only watch on the founder's wrist. He is not a collector. He is a builder of systems for cities, and the Aquaracer 300M is what survives his travel. The reference WAY101A is the mid-2000s stainless steel three-hand, 43mm, with the black aluminum dive bezel, six-stud grip case, and 300m water resistance. It was bought for him in 2005 by his father on the day the founder was admitted to MIT. Twenty years later, the watch has been serviced three times (battery, gaskets) and is still running on the original quartz movement. It is included in the register because the system requires that its own author's watch be subject to the same evidence standard as every other reference on the site. The watch is rated attainable tier. The story is rated priceless; the register does not have a tier for that.",
+    "collector_notes": "The WAY101A is the kind of object the system exists to protect: a watch with no auction comps, no premium over retail, no provenance events except the one above. It is in the register because it is the founder's watch, not because the system would otherwise have included it. Read it as the proof of the system, not as a recommendation.",
     "starter_alternative": null
   },
   "meta": {
@@ -58,7 +58,7 @@
       "source_url": "/about/founder-2005.jpg",
       "credit": "Founder's own photograph, 30 July 2005, in front of Taywin mall, Bangkok. The watch on the wrist is this dossier's reference. Used with consent.",
       "license": "Personal photograph, used with explicit consent. Not a free-reuse license. Shown as a self-referential test case for the register.",
-      "caption": "Founder, 2005. The TAG Heuer Aquaracer 300M WAY111A is on the wrist. The watch was a gift from the founder's father on the day the MIT admission letter arrived.",
+      "caption": "Founder, 2005. The TAG Heuer Aquaracer 300M WAY101A is on the wrist. The watch was a gift from the founder's father on the day the MIT admission letter arrived.",
       "match": "exact_reference"
     }
   ]
