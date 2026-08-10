@@ -2,6 +2,12 @@
 
 (§13 Rule 3/10 — every correction lands here. Read at session start.)
 
+## 2026-08-10 · Week-one: HeroBanner is not the home brand surface
+
+- **What went wrong:** Home used image-less `HeroBanner` while `context.md` still called `/img/hero/time-pop-banner.png` load-bearing. OG/canonical pointed at `watch.nonarkara.org` before the custom domain was attached, so share previews failed. Ticker said "24 references" as a literal.
+- **Correct behaviour:** Home uses `.timepop-hero` + banner asset; `HeroBanner` stays image-free for other pages. Canonical/OG follow the live Pages URL until the custom domain works. Ticker count = `ticker.length`. Tests lock banner wiring + starter_alternative integrity.
+- **How to recognise:** Home fold is cream type only with no collage ground; OG image 404s on a domain that does not resolve.
+
 ## 2026-08-03 · AIX: starter IDs must match card `id`, not filename stem
 
 - **What went wrong:** An audit counted broken `starter_alternative` refs by comparing against JSON filenames. Several cards use `grand-seiko-…` / `hamilton-khaki-field-…` as `id` while older refs still said `grandseiko-…` / `hamilton-intra-matic-68`. Filename-stem matching both missed real breaks and invented false ones.

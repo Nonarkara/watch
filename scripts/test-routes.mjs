@@ -94,3 +94,23 @@ const deadPomDossiers = pomDossierIds.filter((id) => !publicCardIds.has(id));
 assert.deepEqual(deadPomDossiers, [],
   `Pom dossier links missing from public data: ${deadPomDossiers.join(', ')}`);
 console.log("✓ Pom value lab horizons, compounding, estimate gate, and dossier links hold");
+
+// ─── week-one anti-regression: home banner is load-bearing ──────────────────
+assert.ok(homeSrc.includes('timepop-hero'),
+  'Home must use the MoMA timepop-hero fold, not image-less HeroBanner alone');
+assert.ok(homeSrc.includes('/img/hero/time-pop-banner.png'),
+  'Home must render the load-bearing pop-art banner asset');
+assert.ok(!homeSrc.includes('24 references'),
+  'Home ticker count must come from ticker.length, not a hardcoded "24 references"');
+console.log("✓ home pop-art banner fold is wired");
+
+// ─── starter ladders must resolve on card.id ────────────────────────────────
+const danglingStarters = [];
+for (const card of publicData.cards) {
+  const alt = card.narrative?.starter_alternative;
+  if (!alt) continue;
+  if (!publicCardIds.has(alt)) danglingStarters.push(`${card.id} → ${alt}`);
+}
+assert.deepEqual(danglingStarters, [],
+  `starter_alternative targets missing from public data:\n  ${danglingStarters.join("\n  ")}\n  → resolve on card.id (not filename stem)`);
+console.log("✓ every starter_alternative resolves to a live card id");

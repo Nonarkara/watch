@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
-import HeroBanner from '../components/HeroBanner.tsx'
 import ArtBand from '../components/ArtBand.tsx'
 import Spotlight from '../components/Spotlight.tsx'
 import { ARTICLES } from './GuideArticles.tsx'
@@ -174,44 +173,50 @@ export default function Home() {
         <span className="home-why-band-item"><span className="home-why-num mono">04</span><span className="home-why-text">The catalogue rebuilds on the live build — every count is computed, never faked.</span></span>
       </div>
 
-      {/* First fold: full-bleed pop-art banner with a translucent navy text
-          block (the thesis) and the eight-cell ledger on the right. The
-          banner shows the watch's whole pop-cultural world; the block
-          tells you what the site is; the ledger is the floor. */}
-      <HeroBanner
-        hue="navy"
-        size="xl"
-        eager
-        eyebrow="TIME POP · A LIVING ARCHIVE OF WATCHES"
-        title={<>Watches,<br />on their own terms.</>}
-        subtitle={
-          <>
+      {/* Conservation: first fold = brand banner + thesis + eight ledger facts;
+          invented prices = 0. Banner is full-bleed ground. Copy is cream slab.
+          Ledger is the floor. Do not demote the banner to HeroBanner (no image). */}
+      <section className="timepop-hero" aria-label="Time Pop — home">
+        <img
+          className="timepop-hero-bg"
+          src="/img/hero/time-pop-banner.png"
+          alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
+          width={1600}
+          height={900}
+          decoding="async"
+          fetchPriority="high"
+        />
+        <div className="timepop-hero-copy">
+          <p className="eyebrow">TIME POP · A LIVING ARCHIVE OF WATCHES</p>
+          <h1 className="timepop-title">Watches,<br />on their own terms.</h1>
+          <p className="home-lede">
             A free, evidence-first register of {data.count} luxury and collectible
-            references. Cited comps. Sourced story. Credited on-screen stills.
-            And the honesty ladder that shows where we refuse to estimate.
-          </>
-        }
-        primary={{ to: '/register', label: `BROWSE THE ${data.count} OBJECTS →` }}
-        secondary={{ to: '/screen', label: 'SEE IT ON SCREEN' }}
-        meta={
-          <aside className="hero-ledger" aria-label="The register at a glance">
-            <p className="hero-ledger-head mono">THE REGISTER · {data.built}</p>
-            <dl className="hero-ledger-grid">
-              <div title={`${data.count} references in the catalogue`}><dt>References</dt><dd>{data.count}</dd></div>
-              <div title={`${brandCount} brands covered`}><dt>Brands</dt><dd>{brandCount}</dd></div>
-              <div title={`${withComps} references with sale evidence`}><dt>With comps</dt><dd>{withComps}</dd></div>
-              <div title={`${compCount} verified sales on file`}><dt>Verified sales</dt><dd>{compCount}</dd></div>
-              <div title={`${eventCount} sourced story events`}><dt>Story</dt><dd>{eventCount}</dd></div>
-              <div title={`${stills} credited screen stills`}><dt>On screen</dt><dd>{stills}</dd></div>
-              <div title={`${withMedia} references with curated photography`}><dt>Photographed</dt><dd>{withMedia}</dd></div>
-              <div className="hero-ledger-zero" title="No invented prices. The register refuses to estimate without evidence."><dt>Invented</dt><dd>0</dd></div>
-            </dl>
-            <p className="mono micro hero-art-credit">
-              ALL COUNTS COMPUTED FROM THE LIVE BUILD · <Link to="/methodology">METHODOLOGY →</Link>
-            </p>
-          </aside>
-        }
-      />
+            references. Cited comps, sourced story, credited on-screen stills —
+            and the honesty ladder that shows where we refuse to estimate.
+          </p>
+          <div className="hero-actions">
+            <Link className="btn" to="/register">BROWSE THE {data.count} OBJECTS →</Link>
+            <Link className="btn secondary" to="/screen">SEE IT ON SCREEN</Link>
+          </div>
+        </div>
+        <aside className="hero-ledger" aria-label="The register at a glance">
+          <p className="hero-ledger-head mono">THE REGISTER · {data.built}</p>
+          <dl className="hero-ledger-grid">
+            <div title={`${data.count} references in the catalogue`}><dt>References</dt><dd>{data.count}</dd></div>
+            <div title={`${brandCount} brands covered`}><dt>Brands</dt><dd>{brandCount}</dd></div>
+            <div title={`${withComps} references with sale evidence`}><dt>With comps</dt><dd>{withComps}</dd></div>
+            <div title={`${compCount} verified sales on file`}><dt>Verified sales</dt><dd>{compCount}</dd></div>
+            <div title={`${eventCount} sourced story events`}><dt>Story</dt><dd>{eventCount}</dd></div>
+            <div title={`${stills} credited screen stills`}><dt>On screen</dt><dd>{stills}</dd></div>
+            <div title={`${withMedia} references with curated photography`}><dt>Photographed</dt><dd>{withMedia}</dd></div>
+            <div className="hero-ledger-zero" title="No invented prices. The register refuses to estimate without evidence."><dt>Invented</dt><dd>0</dd></div>
+          </dl>
+          <p className="mono micro hero-art-credit">
+            HERO ART · TIME POP BANNER · FILM STILLS CREDITED ON /SCREEN ·{' '}
+            <Link to="/methodology">METHODOLOGY →</Link>
+          </p>
+        </aside>
+      </section>
 
       {brassTacks[0] && (
         <Spotlight
@@ -224,7 +229,7 @@ export default function Home() {
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
-          <p className="ticker-meta mono">24 references · {brandCount} brands · last build {data.built}</p>
+          <p className="ticker-meta mono">{ticker.length} references · {brandCount} brands · last build {data.built}</p>
         </div>
         <div className="ticker-strip">
           {ticker.map((c) => {

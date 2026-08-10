@@ -4,7 +4,7 @@
 
 ## What this is
 
-Free, highly detailed, AI-curated + human-verified living archive for luxury and collectible watches. The current build contains 261 unique reference cards with real market data: price vs retail (nominal + CPI-adjusted), Scarcity Index, Collectibility Index, provenance timelines (the "Federer effect" made visible), liquidity, credited film/TV stills, and an honest A/B/C data-confidence tier. v1.0 is read-only intelligence; the marketplace/matchmaker is a later phase.
+Free, highly detailed, AI-curated + human-verified living archive for luxury and collectible watches. The current build contains 302 unique reference cards with real market data: price vs retail (nominal + CPI-adjusted), Scarcity Index, Collectibility Index, provenance timelines (the "Federer effect" made visible), liquidity, credited film/TV stills, and an honest A/B/C data-confidence tier. v1.0 is read-only intelligence; the marketplace/matchmaker is a later phase.
 
 ## Decisions (2026-07-31 / 2026-08-02, Dr Non)
 
@@ -33,7 +33,9 @@ scripts/test-invariants.mjs
 
 Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F6F0E5`, navy `#11364B`, coral accent `#EF6A5B` (CSS `--amber` maps to coral so existing rules keep working). Zero border-radius except true circles. No Inter/Roboto/etc. Archivo + Spectral + IBM Plex Mono. Halftone and offset color blocks are selective — one gesture per section.
 
-**Hero banner is load-bearing.** `public/img/hero/time-pop-banner.png` is the Time Pop brand surface on the home fold (and OG share image). Composition (Grok 4.5 audit 2026-08-03): banner = oversized full-bleed *ground*; cream slab = thesis + CTAs; 8-cell ledger = floor with live counts (invented prices hard-coded 0). Do not demote the banner to a sibling column or replace the ledger with a second proof ribbon.
+**Hero banner is load-bearing.** `public/img/hero/time-pop-banner.png` is the Time Pop brand surface on the home fold (and OG share image). Composition (Grok 4.5 audit 2026-08-03): banner = oversized full-bleed *ground* via `.timepop-hero` (not `HeroBanner`, which intentionally renders no image); cream slab = thesis + CTAs; 8-cell ledger = floor with live counts (invented prices hard-coded 0). Do not demote the banner to a sibling column or replace the ledger with a second proof ribbon.
+
+**Live URL (2026-08-10):** production serves at `https://watch-1de.pages.dev` until `watch.nonarkara.org` is attached. Canonical + OG tags follow the live Pages URL so share previews resolve.
 
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
 
