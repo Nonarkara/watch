@@ -1,6 +1,6 @@
 // Link integrity — fails if any internal <Link to>/PATHS target has no matching route.
 // A dead nav link renders a blank page, which on a reference site reads as broken data.
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import assert from "node:assert/strict";
 
@@ -98,6 +98,8 @@ console.log("✓ Pom value lab horizons, compounding, estimate gate, and dossier
 // ─── week-one anti-regression: home banner is load-bearing ──────────────────
 assert.ok(homeSrc.includes('timepop-hero'),
   'Home must use the MoMA timepop-hero fold, not image-less HeroBanner alone');
+assert.ok(homeSrc.includes('market-trends') && homeSrc.includes('loadMarketTrends'),
+  'Home must render the daily market-attention band from loadMarketTrends');
 assert.ok(homeSrc.includes('/img/hero/time-pop-banner.png'),
   'Home must render the load-bearing pop-art banner asset');
 assert.ok(!homeSrc.includes('24 references'),
@@ -114,3 +116,24 @@ for (const card of publicData.cards) {
 assert.deepEqual(danglingStarters, [],
   `starter_alternative targets missing from public data:\n  ${danglingStarters.join("\n  ")}\n  → resolve on card.id (not filename stem)`);
 console.log("✓ every starter_alternative resolves to a live card id");
+
+// ─── market trends snapshot must map to live cards ──────────────────────────
+const trendsPath = join(ROOT, "public/data/market_trends.json");
+assert.ok(existsSync(trendsPath), "public/data/market_trends.json missing — run npm run data:trends");
+const trends = JSON.parse(readFileSync(trendsPath, "utf8"));
+assert.ok(trends.as_of && trends.trending?.length >= 5,
+  "market_trends snapshot must carry as_of + ≥5 ranked rows");
+assert.ok(Array.isArray(trends.sources) && trends.sources.length >= 1,
+  "market_trends must disclose sources");
+assert.ok(typeof trends.limitation === "string" && trends.limitation.length > 40,
+  "market_trends must state a limitation (attention ≠ price)");
+const deadTrendCards = trends.trending
+  .map((row) => row.card_id)
+  .filter((id) => !publicCardIds.has(id));
+assert.deepEqual(deadTrendCards, [],
+  `market_trends card_ids missing from public data: ${deadTrendCards.join(", ")}`);
+const inventedInterest = trends.trending.filter((row) =>
+  row.trends?.interest != null && (row.trends.interest < 0 || row.trends.interest > 100));
+assert.deepEqual(inventedInterest, [],
+  "Google Trends interest must stay in 0–100 when present");
+console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of})`);

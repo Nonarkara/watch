@@ -4460,6 +4460,112 @@ main.shell { padding-top: var(--space-md); }
 /* "What's hot" — two parallel 4-up rows, one for Thai/SEA and one for
    the global independent watchmaking scene. Each row is a self-contained
    strip with its own eyebrow + caption. Hairline rules between cards. */
+.market-trends {
+  margin: 0 calc(-1 * var(--pad)) var(--space-xl);
+  padding: var(--space-lg) var(--pad);
+  border-bottom: 2px solid var(--navy);
+  background: var(--paper-2);
+}
+.market-trends .section-rule { margin-bottom: var(--space-sm); }
+.market-trends-lede {
+  max-width: 68ch;
+  color: var(--dim);
+  line-height: 1.45;
+  margin: 0 0 var(--space-md);
+  font-family: var(--font-essay);
+}
+.market-trends-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--navy);
+  background: var(--bg);
+}
+.market-trends-list > li { border-bottom: 1px solid var(--rule); }
+.market-trends-list > li:last-child { border-bottom: 0; }
+.market-trends-row {
+  display: grid;
+  grid-template-columns: 40px 56px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--fg);
+  min-height: 44px;
+}
+.market-trends-rank {
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--amber);
+}
+.market-trends-media {
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.market-trends-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.market-trends-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.market-trends-label {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.market-trends-meta {
+  font-size: var(--text-micro);
+  letter-spacing: .04em;
+  color: var(--dim);
+}
+.market-trends-signals {
+  display: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  grid-column: 1 / -1;
+}
+.market-trends-signals > span {
+  padding: 2px 6px;
+  border: 1px solid var(--rule);
+  font-size: var(--text-micro);
+  letter-spacing: .04em;
+}
+.market-trends-up { color: var(--teal); border-color: var(--teal) !important; }
+.market-trends-down { color: var(--coral); border-color: var(--coral) !important; }
+.market-trends-level { color: var(--dim); }
+.market-trends-foot {
+  margin: 10px 0 0;
+  color: var(--dim);
+  line-height: 1.4;
+}
+.market-trends-foot a { color: var(--amber); }
+@media (hover: hover) and (pointer: fine) {
+  .market-trends-row { transition: background 160ms ease; }
+  .market-trends-row:hover { background: var(--paper-2); }
+}
+@media (min-width: 720px) {
+  .market-trends-row {
+    grid-template-columns: 48px 64px 1fr auto;
+  }
+  .market-trends-signals {
+    display: flex;
+    grid-column: auto;
+    justify-content: flex-end;
+    max-width: 280px;
+  }
+  .market-trends-media { width: 64px; height: 64px; }
+}
+@media (max-width: 719px) {
+  .market-trends-signals { display: flex; }
+}
+
 .hot-row { margin: var(--space-xl) 0; }
 .hot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--ink); }
 .hot-col { display: flex; flex-direction: column; padding: 18px; border-right: 1px solid var(--ink); background: var(--bg); }

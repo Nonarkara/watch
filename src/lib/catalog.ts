@@ -82,3 +82,55 @@ export function loadWatchmakingArtifacts(): Promise<WatchmakingArtifacts> {
   })
   return watchmakingCache
 }
+
+export interface MarketTrendRow {
+  rank: number
+  id: string
+  label: string
+  card_id: string
+  trends_query: string
+  wikipedia_title: string
+  wiki_note: string | null
+  score: number
+  trends: {
+    interest: number | null
+    momentum: number | null
+    points?: number
+    window?: string
+    source?: string
+    geo?: string
+    reason?: string
+  }
+  wikipedia: {
+    last_day?: string
+    last_views: number | null
+    prior_views?: number
+    week_views?: number
+    dod_pct: number | null
+    source?: string
+    project?: string
+    reason?: string
+  }
+}
+
+export interface MarketTrendsSnapshot {
+  as_of: string
+  built_at: string
+  count: number
+  sources: { id: string; label: string; status: string; harvested?: number; geo?: string; window?: string; project?: string }[]
+  method: string
+  limitation: string
+  trending: MarketTrendRow[]
+}
+
+let trendsCache: Promise<MarketTrendsSnapshot | null> | null = null
+
+export function loadMarketTrends(): Promise<MarketTrendsSnapshot | null> {
+  trendsCache ??= fetch('/data/market_trends.json')
+    .then((response) => {
+      if (!response.ok) return null
+      return response.json() as Promise<MarketTrendsSnapshot>
+    })
+    .catch(() => null)
+  return trendsCache
+}

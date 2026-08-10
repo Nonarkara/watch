@@ -1,0 +1,47 @@
+# Daily market-attention harvest for Time Pop home.
+# Pulls Google Trends (US) + Wikipedia pageviews, writes public/data/market_trends.json,
+# commits when the ranked list changes, then Cloudflare Pages picks up the push.
+name: Daily market trends
+
+on:
+  schedule:
+    - cron: '15 6 * * *' # 06:15 UTC ≈ 13:15 ICT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-trends
+  cancel-in-progress: true
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Harvest Google Trends + Wikipedia
+        run: npm run data:trends
+      - name: Invariant tests
+        run: npm test
+      - name: Commit snapshot if changed
+        run: |
+          if git diff --quiet -- public/data/market_trends.json data/shared/market_trends.json; then
+            echo "No trend delta"
+            exit 0
+          fi
+          git config user.name "time-pop-bot"
+          git config user.email "bot@nonarkara.org"
+          git add public/data/market_trends.json data/shared/market_trends.json
+          git commit -m "data: daily market-attention snapshot
+
+          Google Trends (US) + Wikipedia pageviews for the curated watchlist.
+          Home trending band reads this file; attention is not price.
+
+          Co-Authored-By: Cursor <cursoragent@cursor.com>"
+          git push

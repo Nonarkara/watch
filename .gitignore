@@ -13,3 +13,4 @@ _shared
 
 # data pipeline runtime state (fetch mtimes, dry-run artefacts)
 data/.state/
+.cache/

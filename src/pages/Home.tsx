@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
-import { loadRolexCatalog, loadScreenSightings, type RolexCatalog, type ScreenSnapshot } from '../lib/catalog.ts'
+import { loadRolexCatalog, loadScreenSightings, loadMarketTrends, type RolexCatalog, type ScreenSnapshot, type MarketTrendsSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
 import ArtBand from '../components/ArtBand.tsx'
 import Spotlight from '../components/Spotlight.tsx'
@@ -69,8 +69,22 @@ export default function Home() {
   const data = useDataset()
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
   const [screen, setScreen] = useState<ScreenSnapshot | null>(null)
-  useEffect(() => { Promise.all([loadRolexCatalog(), loadScreenSightings()]).then(([c, s]) => { setCatalog(c); setScreen(s) }) }, [])
+  const [trends, setTrends] = useState<MarketTrendsSnapshot | null>(null)
+  useEffect(() => {
+    Promise.all([loadRolexCatalog(), loadScreenSightings(), loadMarketTrends()]).then(([c, s, t]) => {
+      setCatalog(c)
+      setScreen(s)
+      setTrends(t)
+    })
+  }, [])
   const cards = useMemo(() => data?.cards ?? [], [data])
+  const cardById = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards])
+  const trending = useMemo(() => {
+    if (!trends?.trending?.length) return []
+    return trends.trending
+      .filter((row) => cardById.has(row.card_id))
+      .slice(0, 8)
+  }, [trends, cardById])
   const withComps = cards.filter((card) => card.comp_summary).length
   const withMedia = cards.filter((card) => card.media.length).length
   const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
@@ -218,6 +232,77 @@ export default function Home() {
         </aside>
       </section>
 
+      {trending.length > 0 && trends && (
+        <section className="market-trends" aria-label="Trending in public attention">
+          <div className="section-rule">
+            <h2>Trending in public attention.</h2>
+            <span className="sticker-inline mono">
+              AS OF {trends.as_of} · GOOGLE TRENDS + WIKIPEDIA · DAILY
+            </span>
+          </div>
+          <p className="market-trends-lede">
+            What people are looking up — not what is selling. Ranked from Google Trends
+            (US search interest, last 7 days) and Wikipedia pageviews (day-over-day change).
+            Relative Trends scores stay relative; Wikipedia counts are absolute.
+          </p>
+          <ol className="market-trends-list">
+            {trending.map((row) => {
+              const card = cardById.get(row.card_id)!
+              const media = card.media[0]
+              const dod = row.wikipedia.dod_pct
+              const mom = row.trends.momentum
+              const interest = row.trends.interest
+              return (
+                <li key={row.id}>
+                  <Link to={`/w/${row.card_id}`} className="market-trends-row">
+                    <span className="market-trends-rank mono">{String(row.rank).padStart(2, '0')}</span>
+                    <span className="market-trends-media">
+                      {media
+                        ? <img src={media.url} alt="" loading="lazy" />
+                        : <span className="dim">—</span>}
+                    </span>
+                    <span className="market-trends-body">
+                      <span className="market-trends-label">{row.label}</span>
+                      <span className="market-trends-meta mono">
+                        {card.identity.brand.toUpperCase()} · {card.identity.reference}
+                      </span>
+                    </span>
+                    <span className="market-trends-signals mono">
+                      {dod != null && (
+                        <span className={dod >= 0 ? 'market-trends-up' : 'market-trends-down'} title="Wikipedia day-over-day pageviews">
+                          WIKI {dod >= 0 ? '+' : ''}{dod}%
+                        </span>
+                      )}
+                      {mom != null && (
+                        <span className={mom >= 0 ? 'market-trends-up' : 'market-trends-down'} title="Google Trends 24h momentum vs prior 24h">
+                          GT Δ{mom >= 0 ? '+' : ''}{mom}
+                        </span>
+                      )}
+                      {interest != null && (
+                        <span className="market-trends-level" title="Google Trends average interest (0–100, relative within harvest batch)">
+                          GT {Math.round(interest)}
+                        </span>
+                      )}
+                      {row.wikipedia.last_views != null && (
+                        <span className="market-trends-level" title="Wikipedia user pageviews, last complete UTC day">
+                          {row.wikipedia.last_views} VIEWS
+                        </span>
+                      )}
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ol>
+          <p className="market-trends-foot mono micro">
+            SOURCES · GOOGLE TRENDS US (UNOFFICIAL) · WIKIMEDIA PAGEVIEWS ·{' '}
+            {trends.sources.filter((s) => s.status === 'ok').map((s) => s.label.toUpperCase()).join(' · ')}
+            {' · '}NOT PRICE · NOT SELL-THROUGH ·{' '}
+            <Link to="/methodology">METHOD →</Link>
+          </p>
+        </section>
+      )}
+
       {brassTacks[0] && (
         <Spotlight
           card={brassTacks[0]}
@@ -312,8 +397,8 @@ export default function Home() {
           scene. The two halves of the Time Pop audience in two passes. */}
       <section className="hot-row" aria-label="What's hot — Thai and global">
         <div className="section-rule">
-          <h2>What's hot right now.</h2>
-          <span className="sticker-inline mono">THAI/SEA · GLOBAL INDEPENDENT</span>
+          <h2>What's hot in the register.</h2>
+          <span className="sticker-inline mono">THAI/SEA · GLOBAL INDEPENDENT · EDITORIAL</span>
         </div>
         <div className="hot-grid">
           <div className="hot-col">

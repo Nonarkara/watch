@@ -16,6 +16,7 @@
     "data:audit": "node scripts/audit.mjs",
     "data:sightings:validate": "node scripts/validate_sightings.mjs",
     "data:cpi": "node scripts/collect-cpi.mjs",
+    "data:trends": "node scripts/collect_market_trends.mjs",
     "data:status": "node scripts/data-status.mjs"
   },
   "dependencies": {

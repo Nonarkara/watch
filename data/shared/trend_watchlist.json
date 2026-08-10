@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "limitation": "Watchlist is editorial — only references that already exist in the Time Pop register. Google Trends scores are relative within each harvest batch (0–100), never absolute market share. Wikipedia pageviews measure encyclopedia attention, not grey-market demand.",
+  "items": [
+    {
+      "id": "rolex-submariner",
+      "label": "Rolex Submariner",
+      "trends_query": "Rolex Submariner",
+      "wikipedia": "Rolex_Submariner",
+      "card_id": "rolex-126610ln"
+    },
+    {
+      "id": "rolex-daytona",
+      "label": "Rolex Daytona",
+      "trends_query": "Rolex Daytona",
+      "wikipedia": "Rolex_Daytona",
+      "card_id": "rolex-116500ln"
+    },
+    {
+      "id": "rolex-gmt-pepsi",
+      "label": "Rolex GMT Pepsi",
+      "trends_query": "Rolex Pepsi",
+      "wikipedia": "Rolex_GMT_Master_II",
+      "card_id": "rolex-126710blro-pepsi"
+    },
+    {
+      "id": "rolex-explorer",
+      "label": "Rolex Explorer",
+      "trends_query": "Rolex Explorer",
+      "wikipedia": "Rolex_Explorer",
+      "card_id": "rolex-124270"
+    },
+    {
+      "id": "rolex-datejust",
+      "label": "Rolex Datejust",
+      "trends_query": "Rolex Datejust",
+      "wikipedia": "Rolex_Datejust",
+      "card_id": "rolex-126334"
+    },
+    {
+      "id": "patek-nautilus",
+      "label": "Patek Nautilus",
+      "trends_query": "Patek Nautilus",
+      "wikipedia": "Patek_Philippe",
+      "card_id": "patek-5711-1a",
+      "wiki_note": "Brand-level article — no dedicated Nautilus pageviews series"
+    },
+    {
+      "id": "ap-royal-oak",
+      "label": "AP Royal Oak",
+      "trends_query": "Audemars Royal Oak",
+      "wikipedia": "Royal_Oak_(watch)",
+      "card_id": "ap-15202st"
+    },
+    {
+      "id": "omega-speedmaster",
+      "label": "Omega Speedmaster",
+      "trends_query": "Omega Speedmaster",
+      "wikipedia": "Omega_Speedmaster",
+      "card_id": "omega-105-012"
+    },
+    {
+      "id": "omega-seamaster",
+      "label": "Omega Seamaster",
+      "trends_query": "Omega Seamaster",
+      "wikipedia": "Omega_Seamaster",
+      "card_id": "omega-seamaster-300m"
+    },
+    {
+      "id": "cartier-tank",
+      "label": "Cartier Tank",
+      "trends_query": "Cartier Tank",
+      "wikipedia": "Cartier_Tank",
+      "card_id": "cartier-tank-must-wsta0041"
+    },
+    {
+      "id": "cartier-santos",
+      "label": "Cartier Santos",
+      "trends_query": "Cartier Santos",
+      "wikipedia": "Cartier",
+      "card_id": "cartier-santos-wssa0018",
+      "wiki_note": "Brand-level article — Santos shares Cartier pageviews"
+    },
+    {
+      "id": "tudor-bb58",
+      "label": "Tudor Black Bay 58",
+      "trends_query": "Tudor Black Bay",
+      "wikipedia": "Tudor_(watch)",
+      "card_id": "tudor-bb58-79030n"
+    },
+    {
+      "id": "jlc-reverso",
+      "label": "JLC Reverso",
+      "trends_query": "Jaeger Reverso",
+      "wikipedia": "Reverso_(watch)",
+      "card_id": "jlc-reverso-classic-q3858520"
+    },
+    {
+      "id": "tissot-prx",
+      "label": "Tissot PRX",
+      "trends_query": "Tissot PRX",
+      "wikipedia": "Tissot",
+      "card_id": "tissot-prx-t137-407"
+    },
+    {
+      "id": "casio-gshock",
+      "label": "Casio G-Shock",
+      "trends_query": "G-Shock",
+      "wikipedia": "G-Shock",
+      "card_id": "casio-ga-2100"
+    },
+    {
+      "id": "seiko-alpinist",
+      "label": "Seiko Alpinist",
+      "trends_query": "Seiko Alpinist",
+      "wikipedia": "Seiko",
+      "card_id": "seiko-sarb017-alpinist"
+    },
+    {
+      "id": "tag-aquaracer",
+      "label": "TAG Aquaracer",
+      "trends_query": "TAG Heuer Aquaracer",
+      "wikipedia": "TAG_Heuer",
+      "card_id": "tagheuer-aquaracer-way101a"
+    },
+    {
+      "id": "paul-newman",
+      "label": "Paul Newman Daytona",
+      "trends_query": "Paul Newman Daytona",
+      "wikipedia": "Rolex_Daytona",
+      "card_id": "rolex-6239-paul-newman"
+    },
+    {
+      "id": "grand-seiko",
+      "label": "Grand Seiko",
+      "trends_query": "Grand Seiko",
+      "wikipedia": "Grand_Seiko",
+      "card_id": "grand-seiko-sbga405"
+    },
+    {
+      "id": "fp-journe",
+      "label": "F.P. Journe",
+      "trends_query": "FP Journe",
+      "wikipedia": "F.P._Journe",
+      "card_id": "f-p-journe-chronometre-souverain"
+    }
+  ]
+}
