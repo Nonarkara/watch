@@ -9,6 +9,7 @@
 
 import { Link } from 'react-router-dom'
 import type { Card } from '../lib/data.ts'
+import type { MarketTrendRow } from '../lib/catalog.ts'
 
 type Strength = 'strong' | 'neutral' | 'weak'
 
@@ -31,9 +32,14 @@ interface SpotlightProps {
   eyebrow: string
   /** Short callout for the featured reason. */
   reason: string
+  /** If the featured card is also in today's public-attention list, the
+   *  MarketTrendRow so the Spotlight can show a "RANK #N TODAY" line
+   *  between the oneliner and the 5-second verdict. Optional — most
+   *  Spotlights (Screen, Bible) won't have trend data. */
+  trend?: MarketTrendRow | null
 }
 
-export default function Spotlight({ card, eyebrow, reason }: SpotlightProps) {
+export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightProps) {
   const c = card
   const m = c.media[0]
   const { scarcity, collectibility, resellability } = c.computed
@@ -84,6 +90,17 @@ export default function Spotlight({ card, eyebrow, reason }: SpotlightProps) {
           <h2 className="spotlight-name">{c.identity.name}</h2>
           {c.identity.nickname && <p className="spotlight-nick">"{c.identity.nickname}"</p>}
           <p className="spotlight-oneliner">{c.identity.one_liner}</p>
+
+          {trend && (
+            <p className="spotlight-trend mono" title="Wikipedia pageviews + Google Trends, not price">
+              <span className="spotlight-trend-pulse" aria-hidden="true">●</span>
+              <strong>RANK {trend.rank} IN PUBLIC ATTENTION TODAY</strong>
+              <span className="dim"> · not price</span>
+              {trend.wikipedia.dod_pct != null && (
+                <span className="dim"> · wiki {trend.wikipedia.dod_pct > 0 ? '+' : ''}{trend.wikipedia.dod_pct}%</span>
+              )}
+            </p>
+          )}
 
           <div className="spotlight-verdict" aria-label="Five-second verdict">
             <span className="spotlight-verdict-eyebrow mono">FIVE-SECOND VERDICT</span>

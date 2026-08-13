@@ -96,6 +96,9 @@ export default function Home() {
       .filter((row) => cardById.has(row.card_id))
       .slice(0, 8)
   }, [trends, cardById])
+  // Top 5 trending refs for the "TRENDING NOW" strip — same data, smaller
+  // sampler. The full list sits below as a deeper read.
+  const topTrending = useMemo(() => trending.slice(0, 5), [trending])
   const withComps = cards.filter((card) => card.comp_summary).length
   const withMedia = cards.filter((card) => card.media.length).length
   const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
@@ -243,8 +246,63 @@ export default function Home() {
         </aside>
       </section>
 
+      {topTrending.length > 0 && trends && (
+        // "TRENDING NOW" — a 5-up horizontal strip placed right after the hero.
+        // Smaller, more prominent than the full market-trends section that sits
+        // below: the strip is the hook, the section is the deep read. Same data,
+        // different rhythm. Each cell shows rank · media · brand·ref · name · and
+        // the one signal that has actual data (wiki day-over-day %, or "—" if
+        // the day was flat). 5 not 8 because the strip has to read at a glance
+        // and stay above the fold on tablet.
+        <section className="trending-now" aria-label="Trending now — top 5 in public attention">
+          <div className="trending-now-head">
+            <span className="trending-now-eyebrow mono">
+              <span className="trending-now-dot" aria-hidden="true">●</span>
+              TRENDING NOW
+            </span>
+            <span className="trending-now-meta mono">
+              AS OF {trends.as_of} · PUBLIC ATTENTION, NOT PRICE ·{' '}
+              <Link to="#trending-full">SEE ALL {trends.trending.filter((r) => cardById.has(r.card_id)).length} →</Link>
+            </span>
+          </div>
+          <ol className="trending-now-strip">
+            {topTrending.map((row) => {
+              const card = cardById.get(row.card_id)
+              if (!card) return null
+              const media = card.media[0]
+              const dod = row.wikipedia.dod_pct
+              const interest = row.trends.interest
+              return (
+                <li key={row.id}>
+                  <Link to={`/w/${row.card_id}`} className="trending-now-cell">
+                    <span className="trending-now-rank mono">{String(row.rank).padStart(2, '0')}</span>
+                    <span className="trending-now-media">
+                      {media
+                        ? <img src={media.url} alt="" loading="lazy" />
+                        : <span className="dim">—</span>}
+                    </span>
+                    <span className="trending-now-body">
+                      <span className="trending-now-brand mono">{card.identity.brand.toUpperCase()}</span>
+                      <span className="trending-now-name">{row.label}</span>
+                      <span className="trending-now-signal mono">
+                        {dod != null
+                          ? <span className={dod >= 0 ? 'trending-now-up' : 'trending-now-down'}>WIKI {dod > 0 ? '+' : ''}{dod}%</span>
+                          : <span className="trending-now-flat">WIKI —</span>}
+                        {interest != null && (
+                          <span className="trending-now-level"> · TRENDS {interest}</span>
+                        )}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ol>
+        </section>
+      )}
+
       {trending.length > 0 && trends && (
-        <section className="market-trends" aria-label="Trending in public attention">
+        <section id="trending-full" className="market-trends" aria-label="Trending in public attention">
           <div className="section-rule">
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
@@ -319,6 +377,7 @@ export default function Home() {
           card={brassTacks[0]}
           eyebrow="FEATURED DOSSIER · STORY-RICH"
           reason={`${brassTacks[0].comp_summary?.n ?? 0} cited comps · ${brassTacks[0].provenance_events.length} sourced events`}
+          trend={trends?.trending?.find((row) => row.card_id === brassTacks[0].id) ?? null}
         />
       )}
 

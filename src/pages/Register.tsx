@@ -197,7 +197,7 @@ export default function Register() {
       {viewMode === 'grid' ? (
         <div className="card-grid-view">
           {rows.map((c) => (
-            <VisualCard key={c.id} c={c} />
+            <VisualCard key={c.id} c={c} watchingRank={watchingRank} />
           ))}
         </div>
       ) : (
@@ -214,15 +214,16 @@ export default function Register() {
   )
 }
 
-function VisualCard({ c }: { c: Card }) {
+function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, number> }) {
   const { has, toggle } = useCompare()
   const inSet = has(c.id)
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
+  const trendRank = watchingRank.get(c.id) ?? null
   return (
     <Link
       to={`/w/${c.id}`}
-      className={'reg-card' + (inSet ? ' picked' : '')}
+      className={'reg-card' + (inSet ? ' picked' : '') + (trendRank != null ? ' has-trend' : '')}
       draggable
       onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
     >
@@ -233,6 +234,12 @@ function VisualCard({ c }: { c: Card }) {
       </div>
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
+        {trendRank != null && (
+          <span className="rc-trend-badge mono" title="In today's public-attention watchlist — Wikipedia + Google Trends, not price">
+            <span className="rc-trend-badge-dot" aria-hidden="true">●</span>
+            TODAY #{trendRank}
+          </span>
+        )}
         <span className="rc-conf mono">{confidence.tier ?? dash}</span>
       </div>
       <button
