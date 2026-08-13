@@ -1,26 +1,41 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { loadMarketTrends } from '../lib/catalog.ts'
 import type { Card } from '../lib/data.ts'
+
+type Vibe = 'all' | 'grail' | 'watching' | 'understated' | 'chronograph' | 'diver'
+
+const GRAIL_TIERS = new Set(['crown', 'trinity', 'haute'])
 
 export default function Discover() {
   const data = useDataset()
   const cards = useMemo(() => data?.cards.filter((c) => c.narrative.story) ?? [], [data])
   const [index, setIndex] = useState(() => Math.floor(Date.now() / 86_400_000))
-  const [filterVibe, setFilterVibe] = useState<'all' | 'grail' | 'understated' | 'chronograph' | 'diver'>('all')
+  const [filterVibe, setFilterVibe] = useState<Vibe>('all')
+  const [watchingIds, setWatchingIds] = useState<Set<string>>(new Set())
+
+  useEffect(() => {
+    loadMarketTrends().then((snap) => {
+      if (!snap?.trending) return
+      setWatchingIds(new Set(snap.trending.map((row) => row.card_id)))
+    }).catch(() => {})
+  }, [])
 
   const filteredCards = useMemo(() => {
     if (filterVibe === 'all') return cards
-    if (filterVibe === 'grail') return cards.filter((c) => c.computed.scarcity.value >= 75)
+    if (filterVibe === 'grail') return cards.filter((c) => GRAIL_TIERS.has(c.identity.tier))
+    if (filterVibe === 'watching') return cards.filter((c) => watchingIds.has(c.id))
     if (filterVibe === 'understated') return cards.filter((c) => c.identity.tier === 'attainable' || c.identity.tier === 'core')
     if (filterVibe === 'chronograph') return cards.filter((c) => c.identity.movement.type.includes('chronograph'))
     if (filterVibe === 'diver') return cards.filter((c) => c.identity.name.toLowerCase().includes('submariner') || c.identity.name.toLowerCase().includes('diver') || c.identity.name.toLowerCase().includes('seamaster'))
     return cards
-  }, [cards, filterVibe])
+  }, [cards, filterVibe, watchingIds])
 
   if (!data || cards.length === 0) return null
 
-  const activeCards = filteredCards.length > 0 ? filteredCards : cards
+  const withPhoto = filteredCards.filter((c) => c.media.length > 0)
+  const activeCards = (withPhoto.length > 0 ? withPhoto : filteredCards.length > 0 ? filteredCards : cards)
   const card = activeCards[index % activeCards.length]
   const signals = scarcitySignals(card)
 
@@ -45,31 +60,38 @@ export default function Discover() {
       <div className="chips" style={{ marginBottom: '24px' }}>
         <button
           className={`chip ${filterVibe === 'all' ? 'on' : ''}`}
-          onClick={() => setFilterVibe('all')}
+          onClick={() => { setFilterVibe('all'); setIndex(0) }}
         >
           ANY VIBE ({cards.length})
         </button>
         <button
           className={`chip ${filterVibe === 'grail' ? 'on' : ''}`}
-          onClick={() => setFilterVibe('grail')}
+          onClick={() => { setFilterVibe('grail'); setIndex(0) }}
         >
-          🏆 GRAILS ONLY (SCARCITY ≥ 75)
+          GRAILS · CROWN / TRINITY / HAUTE
+        </button>
+        <button
+          className={`chip ${filterVibe === 'watching' ? 'on' : ''}`}
+          onClick={() => { setFilterVibe('watching'); setIndex(0) }}
+          disabled={watchingIds.size === 0}
+        >
+          WATCHING TODAY ({watchingIds.size})
         </button>
         <button
           className={`chip ${filterVibe === 'understated' ? 'on' : ''}`}
-          onClick={() => setFilterVibe('understated')}
+          onClick={() => { setFilterVibe('understated'); setIndex(0) }}
         >
           🌿 UNDERSTATED DAILY
         </button>
         <button
           className={`chip ${filterVibe === 'chronograph' ? 'on' : ''}`}
-          onClick={() => setFilterVibe('chronograph')}
+          onClick={() => { setFilterVibe('chronograph'); setIndex(0) }}
         >
           ⏱️ CHRONOGRAPHS
         </button>
         <button
           className={`chip ${filterVibe === 'diver' ? 'on' : ''}`}
-          onClick={() => setFilterVibe('diver')}
+          onClick={() => { setFilterVibe('diver'); setIndex(0) }}
         >
           🌊 DIVERS
         </button>

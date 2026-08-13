@@ -10,9 +10,11 @@ import { ARTICLES } from './GuideArticles.tsx'
 /**
  * Pick a cross-section of references that gives a reader the depth of the
  * register at a glance — Rolex first (crown-tier anchor), then every other
- * brand in alphabetical order, one card at a time, until we hit 24. The
- * ticker is the first thing most readers see; it should read as a deliberate
- * cross-section, not "the first N cards of the biggest brand".
+ * brand in alphabetical order, one card at a time, until we hit 24. Within
+ * each brand, photographed cards go first, then provenance depth, then comps,
+ * so the ticker never leads with empty frames. The ticker is the first thing
+ * most readers see; it should read as a deliberate cross-section, not "the
+ * first N cards of the biggest brand".
  */
 function tasteOfRegister(cards: Card[]): Card[] {
   const byBrand = new Map<string, Card[]>()
@@ -20,6 +22,15 @@ function tasteOfRegister(cards: Card[]): Card[] {
     const list = byBrand.get(c.identity.brand) ?? []
     list.push(c)
     byBrand.set(c.identity.brand, list)
+  }
+  for (const list of byBrand.values()) {
+    list.sort((a, b) => {
+      const photo = Number(b.media.length > 0) - Number(a.media.length > 0)
+      if (photo) return photo
+      const story = b.provenance_events.length - a.provenance_events.length
+      if (story) return story
+      return (b.comp_summary?.n ?? 0) - (a.comp_summary?.n ?? 0)
+    })
   }
   const sortedBrands = [...byBrand.keys()].sort((a, b) => {
     if (a === 'Rolex') return -1

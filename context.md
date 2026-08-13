@@ -37,7 +37,7 @@ Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F
 
 **Live URL (2026-08-10):** production serves at `https://watch-1de.pages.dev` until `watch.nonarkara.org` is attached. Canonical + OG tags follow the live Pages URL so share previews resolve.
 
-**Market attention (daily).** `npm run data:trends` harvests Google Trends (US, unofficial) + Wikimedia Pageviews for a curated watchlist (`data/shared/trend_watchlist.json`) into `public/data/market_trends.json`. Home shows the ranked band under the hero. Attention ≠ price — limitation is on the face of the UI. GitHub Action `daily-market-trends.yml` refreshes at 06:15 UTC.
+**Market attention (daily).** `npm run data:trends` harvests Google Trends (US, unofficial) + Wikimedia Pageviews for a curated watchlist (`data/shared/trend_watchlist.json`) into `public/data/market_trends.json`. Home shows the ranked band under the hero. Discover exposes it as WATCHING TODAY. Register can sort by it. A matching dossier Evidence tab says the card is in public attention. Attention ≠ price — limitation is on the face of the UI. GitHub Action `daily-market-trends.yml` refreshes at 06:15 UTC.
 
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
 

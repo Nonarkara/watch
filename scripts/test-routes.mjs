@@ -137,3 +137,35 @@ const inventedInterest = trends.trending.filter((row) =>
 assert.deepEqual(inventedInterest, [],
   "Google Trends interest must stay in 0–100 when present");
 console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of})`);
+
+// ─── catalog picks: grow / precise / interesting without inventing comps ───
+assert.ok(homeSrc.includes('media.length > 0'),
+  'Home ticker must prefer photographed cards within each brand');
+const discoverSrc = readFileSync(join(ROOT, "src/pages/Discover.tsx"), "utf8");
+assert.ok(discoverSrc.includes('GRAIL_TIERS'),
+  'Discover grail chip must key off identity.tier, not a scarcity cutoff that hits one card');
+assert.ok(!discoverSrc.includes('SCARCITY ≥ 75') && !discoverSrc.includes('scarcity.value >= 75'),
+  'Discover grail chip must not use the scarcity ≥ 75 gate');
+assert.ok(discoverSrc.includes("filterVibe === 'watching'"),
+  'Discover must expose today\'s market-attention watchlist as a vibe');
+assert.ok(discoverSrc.includes('withPhoto'),
+  'Discover roulette must prefer photographed cards when the filter has any');
+const grailTiers = new Set(['crown', 'trinity', 'haute']);
+const grailStories = publicData.cards.filter((c) => grailTiers.has(c.identity.tier) && c.narrative?.story).length;
+assert.ok(grailStories >= 10,
+  `grail pool by tier should be a real set, got ${grailStories}`);
+const dossierSrc = readFileSync(join(ROOT, "src/pages/Dossier.tsx"), "utf8");
+assert.ok(dossierSrc.includes('(b.comp_summary?.n ?? 0) - (a.comp_summary?.n ?? 0)'),
+  'Dossier related sort must parenthesize both n counts');
+assert.ok(!dossierSrc.includes('b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0)'),
+  'Dossier related sort must not use the unparenthesized n ?? 0 - n bug');
+assert.ok(dossierSrc.includes('EXPLORE ON SCREEN'),
+  'Dossier screen CTA must not pretend every sighting is Rolex');
+assert.ok(!dossierSrc.includes('EXPLORE ROLEX ON SCREEN'),
+  'Dossier screen CTA must not say Rolex on non-Rolex cards');
+assert.ok(dossierSrc.includes('loadMarketTrends') && dossierSrc.includes('In public attention'),
+  'Dossier evidence tab must surface today\'s attention when the card is on the watchlist');
+const registerSrc = readFileSync(join(ROOT, "src/pages/Register.tsx"), "utf8");
+assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('WATCHING TODAY'),
+  'Register must sort today\'s attention watchlist first when asked');
+console.log('✓ ticker / grail / related / attention wiring holds');

@@ -15,6 +15,9 @@
 - [x] CDPT: commit, push, Cloudflare Pages production deploy, live route verification
 - [x] Week-one audit (2026-08-10): restore MoMA home banner, OG→live Pages URL,
       ticker count from data, starter-integrity + banner regression tests
+- [x] Catalog picks audit (2026-08-13): ticker photos first, grail-by-tier,
+      Discover watching-today + photo-first roulette, dossier related-sort
+      parens + attention/starter on Evidence, Register trending sort
 - [ ] IN FLIGHT: comp enrichment wave — unlock the premium metric (34/302 have comps; 9 publishable estimates)
 - [ ] BLOCKED ON DR NON: watch.nonarkara.org custom domain (see below)
 - [ ] Coverage push: 113 skeleton dossiers (no image, no comps, no provenance) — Casio/GS/Panerai worst

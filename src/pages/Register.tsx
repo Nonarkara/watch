@@ -4,13 +4,15 @@ import { useDataset } from '../lib/dataset-context.ts'
 import { useCompare } from '../lib/compare-store.ts'
 import { TIER_LABEL, TIER_ORDER, BRAND_REGION, REGION_ORDER, REGION_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
+import { loadMarketTrends } from '../lib/catalog.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
 import HeroBanner from '../components/HeroBanner.tsx'
 
-type SortKey = 'collectibility' | 'scarcity' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
+type SortKey = 'collectibility' | 'scarcity' | 'trending' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
 const SORTS: { k: SortKey; label: string }[] = [
   { k: 'collectibility', label: 'COLLECTIBILITY' },
   { k: 'scarcity', label: 'SCARCITY' },
+  { k: 'trending', label: 'WATCHING TODAY' },
   { k: 'market_desc', label: 'MARKET ↓' },
   { k: 'market_asc', label: 'MARKET ↑' },
   { k: 'delta', label: 'VS RETAIL' },
@@ -29,6 +31,14 @@ export default function Register() {
   )
   const [sort, setSort] = useState<SortKey>('collectibility')
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
+  const [watchingRank, setWatchingRank] = useState<Map<string, number>>(new Map())
+
+  useEffect(() => {
+    loadMarketTrends().then((snap) => {
+      if (!snap?.trending) return
+      setWatchingRank(new Map(snap.trending.map((row) => [row.card_id, row.rank])))
+    }).catch(() => {})
+  }, [])
 
   // Keep the URL in sync with active filters so a back-link or a "see all asia" link survives reload.
   useEffect(() => {
@@ -76,6 +86,12 @@ export default function Register() {
     const cmp: Record<SortKey, (a: Card, b: Card) => number> = {
       collectibility: (a, b) => b.computed.collectibility.value - a.computed.collectibility.value,
       scarcity: (a, b) => b.computed.scarcity.value - a.computed.scarcity.value,
+      trending: (a, b) => {
+        const ra = watchingRank.get(a.id) ?? 999
+        const rb = watchingRank.get(b.id) ?? 999
+        if (ra !== rb) return ra - rb
+        return b.computed.collectibility.value - a.computed.collectibility.value
+      },
       market_desc: (a, b) => (est(b) ?? -1) - (est(a) ?? -1),
       market_asc: (a, b) => (est(a) ?? Infinity) - (est(b) ?? Infinity),
       delta: (a, b) => (b.computed.premium.value ?? -Infinity) - (a.computed.premium.value ?? -Infinity),
@@ -83,7 +99,7 @@ export default function Register() {
       az: (a, b) => a.id.localeCompare(b.id),
     }
     return [...f].sort(cmp[sort])
-  }, [cards, q, tier, brand, region, sort])
+  }, [cards, q, tier, brand, region, sort, watchingRank])
 
   return (
     <>

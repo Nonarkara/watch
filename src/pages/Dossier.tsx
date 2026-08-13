@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
+import { loadMarketTrends, type MarketTrendRow } from '../lib/catalog.ts'
 import { TIER_LABEL, type Card, type Change } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
 import { useCompare } from '../lib/compare-store.ts'
@@ -23,11 +24,22 @@ export default function Dossier() {
   const compare = useCompare()
   const saved = useSaved()
   const [copied, setCopied] = useState(false)
+  const [trendHit, setTrendHit] = useState<MarketTrendRow | null>(null)
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — Time Pop`
     return () => { document.title = 'Time Pop — Watches, Stories & Screen' }
   }, [c])
+
+  useEffect(() => {
+    let cancelled = false
+    setTrendHit(null)
+    loadMarketTrends().then((snap) => {
+      if (cancelled || !id || !snap?.trending) return
+      setTrendHit(snap.trending.find((row) => row.card_id === id) ?? null)
+    }).catch(() => { if (!cancelled) setTrendHit(null) })
+    return () => { cancelled = true }
+  }, [id])
 
   if (!data) return null
   if (!c) {
@@ -268,7 +280,7 @@ export default function Dossier() {
             <span>{c.screen_events[0].description}</span>
             <a href={c.screen_events[0].source_url} target="_blank" rel="noreferrer">WATCH-ID SOURCE ↗</a>
           </div>
-          <div><p className="eyebrow">ATTENTION IS NOT SCARCITY</p><p>This exact-reference match adds to the documented screen-attention signal. It does not change the scarcity score. Price response remains {c.computed.attention.price_response.value == null ? 'not computable' : `${c.computed.attention.price_response.value}%`} because the required before-and-after sales cohort is absent.</p>{c.screen_events.length > 1 && <p className="micro dim">Plus {c.screen_events.length - 1} more exact-reference sighting{c.screen_events.length === 2 ? '' : 's'}.</p>}<Link to="/screen" className="text-link mono">EXPLORE ROLEX ON SCREEN →</Link></div>
+          <div><p className="eyebrow">ATTENTION IS NOT SCARCITY</p><p>This exact-reference match adds to the documented screen-attention signal. It does not change the scarcity score. Price response remains {c.computed.attention.price_response.value == null ? 'not computable' : `${c.computed.attention.price_response.value}%`} because the required before-and-after sales cohort is absent.</p>{c.screen_events.length > 1 && <p className="micro dim">Plus {c.screen_events.length - 1} more exact-reference sighting{c.screen_events.length === 2 ? '' : 's'}.</p>}<Link to="/screen" className="text-link mono">EXPLORE ON SCREEN →</Link></div>
         </section>
       )}
 
@@ -357,8 +369,35 @@ export default function Dossier() {
 
       </>}
 
-      {view === 'evidence' && <>
-
+      {view === 'evidence' && (trendHit || starter) && <>
+      {trendHit && (
+        <section className="sect">
+          <h2 className="sect-h"><span>In public attention</span><span className="mono">RANK {trendHit.rank} TODAY</span></h2>
+          <p>People are looking this one up today — Wikipedia pageviews and Google Trends, not grey-market price.</p>
+          <p className="micro dim">
+            {trendHit.wikipedia.dod_pct != null
+              ? `Wikipedia ${trendHit.wikipedia.dod_pct > 0 ? '+' : ''}${trendHit.wikipedia.dod_pct}% day-over-day`
+              : 'Wikipedia quiet'}
+            {trendHit.trends.interest != null ? ` · Trends interest ${trendHit.trends.interest} (relative, 0–100)` : ''}
+            .
+          </p>
+          <Link to="/" className="text-link mono">SEE THE HOME BAND →</Link>
+        </section>
+      )}
+      {starter && (
+        <section className="sect">
+          <h2 className="sect-h"><span>If this is the destination</span></h2>
+          <Link to={`/w/${starter.id}`} className="ladder-row" style={{ border: 'var(--border)' }}>
+            <span><span className="l-brand">{starter.identity.brand}</span> <span className="mono dim">{starter.identity.reference}</span>
+              {starter.identity.nickname && <span className="l-nick"> “{starter.identity.nickname}”</span>}</span>
+            <span className="mono">{starter.computed.estimate.value != null ? usd(starter.computed.estimate.value)
+              : starter.retail.current_msrp_usd != null ? `${usd(starter.retail.current_msrp_usd)} RETAIL` : dash}</span>
+          </Link>
+          <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
+            Same design DNA, a fraction of the price. The full ladder lives on the Story tab.
+          </p>
+        </section>
+      )}
       </>}
 
       {view === 'story' && <>
@@ -485,21 +524,26 @@ function findRelated(current: Card, all: Card[]): Card[] {
     seen.add(card.id)
     out.push(card)
   }
+  const byEvidence = (a: Card, b: Card) => {
+    const photo = Number(b.media.length > 0) - Number(a.media.length > 0)
+    if (photo) return photo
+    return (b.comp_summary?.n ?? 0) - (a.comp_summary?.n ?? 0)
+  }
   // Same brand + same tier — closest neighbours
   others.filter((x) => x.identity.brand === current.identity.brand && x.identity.tier === current.identity.tier)
-    .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+    .sort(byEvidence)
     .forEach(tryAdd)
   // Same tier, different brand
   if (out.length < 3) {
     others.filter((x) => x.identity.tier === current.identity.tier)
-      .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+      .sort(byEvidence)
       .forEach(tryAdd)
   }
   // Within 10 years of production start
   if (out.length < 3) {
     const cs = current.identity.produced.start_year
     others.filter((x) => Math.abs(x.identity.produced.start_year - cs) < 10)
-      .sort((a, b) => b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0))
+      .sort(byEvidence)
       .forEach(tryAdd)
   }
   return out

@@ -1,6 +1,9 @@
-# WATCH — lessons log
+## 2026-08-13 · Catalog growth is pick quality, not more skeleton cards
 
-(§13 Rule 3/10 — every correction lands here. Read at session start.)
+- **What went wrong:** Home ticker round-robined brands with no media filter (16/24 empty frames). Discover grail used `scarcity ≥ 75` (one card). Dossier `findRelated` wrote `b.n ?? 0 - (a.n ?? 0)` so operator precedence ate the sort. Screen CTA said Rolex on every brand. Daily trends lived only on Home.
+- **Correct behaviour:** Prefer photographed cards in ticker / roulette / neighbours. Grail = crown/trinity/haute. Parenthesize both `n` counts. Surface the existing `market_trends.json` watchlist on Discover, Register sort, and dossier Evidence. Never stamp one Wikimedia family photo onto every missing card.
+- **How to recognise:** ticker cells show `—`; grail chip always lands on Tiffany Nautilus; neighbours look random; a Seiko dossier says EXPLORE ROLEX ON SCREEN.
+
 
 ## 2026-08-10 · Week-one: HeroBanner is not the home brand surface
 
