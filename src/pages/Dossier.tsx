@@ -83,6 +83,17 @@ export default function Dossier() {
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
 
+      {trendHit && (
+        <p className="dsr-trending mono" title="Wikipedia pageviews + Google Trends, not price">
+          <span className="dsr-trending-pulse" aria-hidden="true">●</span>
+          <strong>RANK {trendHit.rank} TODAY</strong>
+          <span className="dim"> · in public attention, not price</span>
+          {trendHit.wikipedia.dod_pct != null && (
+            <span className="dim"> · wiki {trendHit.wikipedia.dod_pct > 0 ? '+' : ''}{trendHit.wikipedia.dod_pct}%</span>
+          )}
+        </p>
+      )}
+
       <div className="dsr-verdict" aria-label="Five-second verdict">
         <span className="dsr-verdict-eyebrow mono">FIVE-SECOND VERDICT</span>
         <ol className="dsr-verdict-list">
@@ -369,7 +380,7 @@ export default function Dossier() {
 
       </>}
 
-      {view === 'evidence' && (trendHit || starter) && <>
+      {view === 'evidence' && (starter) && <>
       {trendHit && (
         <section className="sect">
           <h2 className="sect-h"><span>In public attention</span><span className="mono">RANK {trendHit.rank} TODAY</span></h2>
