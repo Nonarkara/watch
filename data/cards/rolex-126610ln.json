@@ -56,6 +56,14 @@
         "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
         "condition": "126610LN 41mm Submariner Date, 2022",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2025-11-20",
+        "price_usd": 13750,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-submariner-date-reference-126610ln-full-set/a/5574-54125.s",
+        "condition": "Like-new full set; case Z30057W8; guarantee card dated 2020-08-18",
+        "box_papers": "full_set"
       }
     ],
     "listing_observations": []
@@ -91,10 +99,11 @@
   },
   "meta": {
     "curated_by": "agent-rolex",
-    "curated_date": "2026-07-31",
+    "curated_date": "2026-08-17",
     "sources": [
       "https://stockx.com/rolex-submariner-date-126610ln-black",
-      "https://atlasluxury.us/rolex-price-guide-2025/"
+      "https://atlasluxury.us/rolex-price-guide-2025/",
+      "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-submariner-date-reference-126610ln-full-set/a/5574-54125.s"
     ]
   }
 }

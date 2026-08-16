@@ -94,6 +94,19 @@ const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
 
+// 10a. Evidence-wave regression: the ordinary 126610LN now clears the market gate.
+// The three source records are distinct watches/sales; no converted prices or special lots.
+{
+  const submariner = JSON.parse(readFileSync(new URL("../data/cards/rolex-126610ln.json", import.meta.url), "utf8"));
+  const estimate = marketEstimate(submariner.market_evidence.comps.filter((c) => c.comparable !== false), BUILD);
+  assert.equal(estimate.n, 3, "126610LN must retain three comparable USD sales");
+  assert.equal(estimate.value, 13750, "126610LN estimate must be the three-sale median");
+  assert.equal(estimate.window_months, 60, "126610LN must disclose its five-year evidence window");
+  assert.equal(estimate.as_of, "2025-11-20");
+  assert.equal(new Set(submariner.market_evidence.comps.map((c) => c.url)).size, 3,
+    "126610LN comps must point to three distinct source records");
+}
+
 // 11. Screen exposure changes attention pressure, never scarcity.
 const withScreen = { ...shared, screen_sightings: { sightings: [{
   media_type: "film", match_level: "exact_reference", matched_card_ids: [fixture.id],
