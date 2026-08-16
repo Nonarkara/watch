@@ -43,6 +43,8 @@ Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F
 
 **Personal value lab (browser-private).** `/pom#value-lab` has three modes: Uncle Pom's reported 2018 basket, the visitor's `watch.saved` set, and one reference from the register. A system-derived saved-collection total exists only when every saved watch has a publishable estimate; a priced subset is shown but never promoted into a total. Otherwise the visitor must enter an appraisal baseline. All five holding periods are scenario arithmetic, default growth is neutral 0%, and the total names its component source, confidence tier, and as-of date.
 
+**Venue fee lab.** `/marketplaces` and each dossier’s venue tab preserve the global directory, but only checked official fee schedules may produce arithmetic. Every scenario starts from the single dossier estimate and names its comp count, confidence tier, estimate date, fee source, and fee check date. A venue multiplier is never a quote; MSRP is never a resale baseline. Unverified venues stay searchable with fee math visibly off.
+
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
 
 Screen exposure is demand-side attention, never physical scarcity. Exact-reference matches only enter the attention heuristic; family-level and tentative IDs stay labeled.
@@ -58,5 +60,6 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 - Film stills always carry studio + editorial credit and a promotional/editorial rights line.
 - Every metric shows source, n, window, limitation.
 - Value Lab never adds priced and unpriced saved watches into a collection total; projection defaults to 0% until the visitor chooses an assumption.
+- Venue cards never turn directory multipliers, stale fee notes, or MSRP into independent venue valuations.
 - Hidden citation popovers must keep `pointer-events: none`; their links become interactive only while the popover is visible, or they steal clicks from dossier actions below.
 - A brand + reference identity may appear only once. The build refuses duplicate dossiers even when their slugs differ.

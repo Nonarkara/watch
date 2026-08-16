@@ -5196,3 +5196,51 @@ main.shell { padding-top: var(--space-md); }
   padding-top: var(--space-xs);
   border-top: var(--border);
 }
+
+.dossier-pending-venues {
+  margin-top: var(--space-xl);
+  border-top: var(--border);
+  padding-top: var(--space-md);
+}
+.dossier-pending-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  border-top: var(--border);
+  border-left: var(--border);
+  margin-top: var(--space-md);
+}
+.dossier-pending-links a {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--space-sm);
+  border-right: var(--border);
+  border-bottom: var(--border);
+  color: var(--text);
+  text-decoration: none;
+}
+.dossier-pending-links a:hover,
+.dossier-pending-links a:focus-visible {
+  background: var(--paper-2);
+  color: var(--amber);
+}
+.dossier-pending-links span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dossier-pending-links small {
+  color: var(--dim);
+}
+
+@media (max-width: 640px) {
+  .dossier-pending-links {
+    grid-template-columns: 1fr;
+  }
+  .dvc-details {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

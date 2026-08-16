@@ -11,7 +11,7 @@ import TransactionGraphic from '../components/TransactionGraphic.tsx'
 import CitedIn from '../components/CitedIn.tsx'
 import Cite from '../components/Cite.tsx'
 
-import { getVenueValuations } from '../lib/venues.ts'
+import { feeRuleLabel, getVenueScenarios } from '../lib/venues.ts'
 
 export default function Dossier() {
   const { id } = useParams()
@@ -59,6 +59,9 @@ export default function Dossier() {
   const msrpNow = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
   const inCompare = compare.has(c.id)
   const isSaved = saved.has(c.id)
+  const venueScenarios = getVenueScenarios(c)
+  const verifiedVenueScenarios = venueScenarios.filter((scenario) => scenario.fee_rule)
+  const pendingVenueScenarios = venueScenarios.filter((scenario) => !scenario.fee_rule)
 
   return (
     <>
@@ -212,7 +215,7 @@ export default function Dossier() {
         </button>
         <button type="button" role="tab" aria-selected={view === 'venues'}
           className={'dsr-tab' + (view === 'venues' ? ' on' : '')} onClick={() => setView('venues')}>
-          MARKETPLACES & VENUES
+          WHERE TO BUY & SELL
         </button>
         <button type="button" role="tab" aria-selected={view === 'story'}
           className={'dsr-tab' + (view === 'story' ? ' on' : '')} onClick={() => setView('story')}>
@@ -371,39 +374,72 @@ export default function Dossier() {
       {view === 'venues' && (
         <section className="sect dossier-venues-section">
           <div className="section-rule">
-            <h2>Global Marketplaces & Platform Valuations</h2>
-            <span className="mono micro dim">32 PLATFORMS & AUCTION HOUSES WORLDWIDE</span>
+            <h2>Venue fee scenarios</h2>
+            <span className="mono micro dim">ONE BASELINE · VERIFIED FEES ONLY</span>
           </div>
           <p className="lede dim" style={{ marginBottom: 'var(--space-md)' }}>
-            Real-time estimated clearing tags, cash buyouts, and certified retail premiums for {c.identity.brand} {c.identity.name} ({c.identity.reference}) across global marketplaces, fine auction houses, and dealer networks.
+            These are not live venue quotes. Time Pop applies a checked public fee schedule to this
+            dossier’s market estimate. If either the estimate or the fee source is missing, the math
+            stays off.
           </p>
 
           <div className="dossier-venue-grid">
-            {getVenueValuations(c).map((q) => (
-              <div key={q.venue.id} className="dossier-venue-card">
+            {verifiedVenueScenarios.map((scenario) => (
+              <div key={scenario.venue.id} className="dossier-venue-card">
                 <div className="dvc-head">
                   <div>
-                    <span className="eyebrow">{q.venue.region.toUpperCase()} · {q.venue.country.toUpperCase()}</span>
-                    <h4>{q.venue.name}</h4>
+                    <span className="eyebrow">{scenario.venue.region.toUpperCase()} · {scenario.venue.country.toUpperCase()}</span>
+                    <h4>{scenario.venue.name}</h4>
                   </div>
-                  <span className="vc-type-tag mono micro">{q.venue.type.toUpperCase()}</span>
+                  <span className="vc-type-tag mono micro">{scenario.venue.type.toUpperCase()}</span>
                 </div>
-                <div className="dvc-price-row">
-                  <span className="lab mono micro">ESTIMATED TAG</span>
-                  <span className="val mono">{q.estimated_price ? usd(q.estimated_price) : 'N/A'}</span>
-                </div>
-                <div className="dvc-details mono micro">
-                  <span>Seller Net: <strong>{q.net_seller_payout ? usd(q.net_seller_payout) : 'N/A'}</strong></span>
-                  <span>Buyer Cost: <strong>{q.total_buyer_cost ? usd(q.total_buyer_cost) : 'N/A'}</strong></span>
-                </div>
+                {scenario.fee_rule ? <>
+                  <div className="dvc-price-row">
+                    <span className="lab mono micro">DOSSIER BASELINE · NOT A QUOTE</span>
+                    <span className="val mono">{scenario.baseline_value != null ? usd(scenario.baseline_value) : '—'}</span>
+                  </div>
+                  <div className="dvc-details mono micro">
+                    <span>Modeled seller proceeds: <strong>{scenario.seller_proceeds != null ? usd(scenario.seller_proceeds) : 'NOT MODELED'}</strong></span>
+                    <span>Modeled buyer total: <strong>{scenario.buyer_total != null ? usd(scenario.buyer_total) : 'NOT MODELED'}</strong></span>
+                  </div>
+                  <span className="dvc-bias mono micro amber">{feeRuleLabel(scenario.fee_rule)}</span>
+                  <span className="mono micro dim">{scenario.fee_rule.scope}</span>
+                  <span className="mono micro dim">
+                    BASE: {scenario.baseline_n} COMPS · TIER {scenario.baseline_confidence ?? '—'} · AS OF {scenario.baseline_as_of ?? '—'}
+                  </span>
+                  <span className="mono micro dim">
+                    FEE SOURCE: OFFICIAL · TIER VERIFIED · CHECKED {scenario.fee_rule.checked_date} ·{' '}
+                    {scenario.fee_rule.sources.map((source, index) => <span key={source.url}>
+                      {index > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+                    </span>)}
+                  </span>
+                  <span className="micro dim">{scenario.limitation}</span>
+                </> : null}
                 <div className="dvc-footer">
-                  <span className="dvc-bias mono micro amber">{q.bias_label}</span>
-                  <a href={`${q.venue.website_url}?q=${encodeURIComponent(`${c.identity.brand} ${c.identity.reference}`)}`} target="_blank" rel="noreferrer" className="src-a mono micro">
-                    SEARCH {q.venue.name.toUpperCase()} ↗
+                  <span className="mono micro dim">VERIFIED FEE SCHEDULE</span>
+                  <a href={`${scenario.venue.website_url}?q=${encodeURIComponent(`${c.identity.brand} ${c.identity.reference}`)}`} target="_blank" rel="noreferrer" className="src-a mono micro">
+                    SEARCH {scenario.venue.name.toUpperCase()} ↗
                   </a>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="dossier-pending-venues">
+            <div className="section-rule">
+              <h3>Search the wider directory</h3>
+              <span className="mono micro dim">{pendingVenueScenarios.length} VENUES · FEE MATH OFF</span>
+            </div>
+            <p className="micro dim">These venues remain useful places to look. Their public fee schedules have not cleared the source check, so Time Pop shows no proceeds or buyer-cost number.</p>
+            <div className="dossier-pending-links">
+              {pendingVenueScenarios.map((scenario) => (
+                <a key={scenario.venue.id}
+                  href={`${scenario.venue.website_url}?q=${encodeURIComponent(`${c.identity.brand} ${c.identity.reference}`)}`}
+                  target="_blank" rel="noreferrer">
+                  <span>{scenario.venue.name}</span>
+                  <small className="mono">{scenario.venue.region.toUpperCase()} · SEARCH ↗</small>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       )}

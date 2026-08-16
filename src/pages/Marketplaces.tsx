@@ -1,7 +1,13 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
-import { GLOBAL_VENUES, filterVenues, getVenueValuations } from '../lib/venues.ts'
+import {
+  feeRuleLabel,
+  GLOBAL_VENUES,
+  filterVenues,
+  getVenueScenarios,
+  type VenueScenario,
+} from '../lib/venues.ts'
 import { usd } from '../lib/format.ts'
 
 export default function Marketplaces() {
@@ -26,38 +32,40 @@ export default function Marketplaces() {
         (v) =>
           v.name.toLowerCase().includes(q) ||
           v.country.toLowerCase().includes(q) ||
-          v.city.toLowerCase().includes(q) ||
-          v.description.toLowerCase().includes(q),
+          v.city.toLowerCase().includes(q),
       )
     }
     return list
   }, [regionFilter, typeFilter, searchQuery])
 
-  const venueQuotes = useMemo(() => {
+  const venueScenarios = useMemo(() => {
     if (!selectedCard) return []
-    return getVenueValuations(selectedCard)
+    return getVenueScenarios(selectedCard)
   }, [selectedCard])
 
-  const quoteMap = useMemo(() => {
-    const map = new Map()
-    venueQuotes.forEach((q) => map.set(q.venue.id, q))
+  const scenarioMap = useMemo(() => {
+    const map = new Map<string, VenueScenario>()
+    venueScenarios.forEach((scenario) => map.set(scenario.venue.id, scenario))
     return map
-  }, [venueQuotes])
+  }, [venueScenarios])
 
   if (!data) return null
 
   return (
     <>
-      <p className="eyebrow">GLOBAL DIRECTORY & VALUATION DATA</p>
-      <h1 className="pagetitle">Global Watch Marketplaces & Trading Venues</h1>
+      <p className="eyebrow">GLOBAL DIRECTORY & VERIFIED FEE LAB</p>
+      <h1 className="pagetitle">Where watches change hands.</h1>
       <p className="lede">
-        An extensive directory of {GLOBAL_VENUES.length} major global platforms, auction houses, dealer networks, and grey market exchanges selling, trading, and advertising watches worldwide — complete with fee structures, authentication guarantees, and valuation baselines.
+        Search marketplaces, dealers, and auction houses. Fee math appears only where Time Pop has
+        checked an official schedule. Every calculation starts from one dossier estimate; it is a
+        scenario, not a live quote from the venue.
       </p>
+      <p className="mono micro dim">DIRECTORY: {GLOBAL_VENUES.length} ENTRIES · SOURCE: TIME POP DIRECTORY · TIER WORKING · BUILD 2026-08-17 · VERIFY CURRENT TERMS WITH THE VENUE</p>
 
       {/* Watch Selection & Reference Valuation Bar */}
       <div className="venue-card-selector-panel">
         <div className="section-rule">
-          <h2>Select a reference to calculate venue valuations</h2>
+          <h2>Pick a reference to test verified fees</h2>
           <span className="mono micro dim">{cards.length} OBJECTS IN REGISTER</span>
         </div>
 
@@ -68,7 +76,7 @@ export default function Marketplaces() {
             onChange={(e) => setSelectedId(e.target.value)}
             aria-label="Choose a watch reference"
           >
-            <option value="">CHOOSE A WATCH REFERENCE TO CALCULATE VENUE VALUATIONS…</option>
+            <option value="">CHOOSE A WATCH REFERENCE…</option>
             {cards.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.identity.brand.toUpperCase()} · {c.identity.name.toUpperCase()} · {c.identity.reference}
@@ -83,7 +91,9 @@ export default function Marketplaces() {
               <span className="eyebrow">{selectedCard.identity.brand} · {selectedCard.identity.collection}</span>
               <h3>{selectedCard.identity.name} <span className="mono">{selectedCard.identity.reference}</span></h3>
               <p className="mono micro dim">
-                ESTIMATE: {selectedCard.computed.estimate.value ? usd(selectedCard.computed.estimate.value) : 'NO VERIFIED SALES'} · RETAIL: {selectedCard.retail.current_msrp_usd ? usd(selectedCard.retail.current_msrp_usd) : 'N/A'}
+                {selectedCard.computed.estimate.value != null
+                  ? `MARKET BASELINE: ${usd(selectedCard.computed.estimate.value)} · ${selectedCard.computed.estimate.n} COMPS · TIER ${selectedCard.computed.confidence.tier ?? '—'} · AS OF ${selectedCard.computed.estimate.as_of ?? '—'}`
+                  : 'NO MARKET BASELINE · FEE MATH STAYS OFF'}
               </p>
             </div>
             <Link to={`/w/${selectedCard.id}`} className="btn secondary">
@@ -136,7 +146,7 @@ export default function Marketplaces() {
       {/* Venues Grid */}
       <div className="venues-grid">
         {filteredVenues.map((v) => {
-          const q = quoteMap.get(v.id)
+          const scenario = scenarioMap.get(v.id)
           return (
             <article key={v.id} className="venue-card">
               <div className="vc-top">
@@ -147,43 +157,41 @@ export default function Marketplaces() {
                 <span className="vc-type-tag mono micro">{v.type.toUpperCase()}</span>
               </div>
 
-              <p className="vc-desc">{v.description}</p>
-
-              {/* Valuation Quote if watch is selected */}
-              {selectedCard && q && (
+              {selectedCard && scenario && (
                 <div className="vc-quote-box">
-                  <div className="vcq-row">
-                    <span className="lab mono micro">ESTIMATED PRICE TAG</span>
-                    <span className="val mono">{q.estimated_price ? usd(q.estimated_price) : 'N/A'}</span>
-                  </div>
-                  <div className="vcq-sub">
-                    <span>Seller Net: <strong>{q.net_seller_payout ? usd(q.net_seller_payout) : 'N/A'}</strong></span>
-                    <span>Buyer Cost: <strong>{q.total_buyer_cost ? usd(q.total_buyer_cost) : 'N/A'}</strong></span>
-                  </div>
-                  <span className="vcq-bias mono micro amber">{q.bias_label}</span>
+                  {scenario.fee_rule ? <>
+                    <div className="vcq-row">
+                      <span className="lab mono micro">FEE SCENARIO · NOT A QUOTE</span>
+                      <span className="val mono">{scenario.baseline_value != null ? usd(scenario.baseline_value) : '—'}</span>
+                    </div>
+                    <div className="vcq-sub">
+                      <span>Modeled seller proceeds: <strong>{scenario.seller_proceeds != null ? usd(scenario.seller_proceeds) : 'NOT MODELED'}</strong></span>
+                      <span>Modeled buyer total: <strong>{scenario.buyer_total != null ? usd(scenario.buyer_total) : 'NOT MODELED'}</strong></span>
+                    </div>
+                    <span className="vcq-bias mono micro amber">{feeRuleLabel(scenario.fee_rule)}</span>
+                    <span className="mono micro dim">{scenario.fee_rule.scope}</span>
+                    <span className="mono micro dim">
+                      SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED · CHECKED {scenario.fee_rule.checked_date} ·{' '}
+                      {scenario.fee_rule.sources.map((source, index) => <span key={source.url}>
+                        {index > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+                      </span>)}
+                    </span>
+                    <span className="micro dim">{scenario.limitation}</span>
+                  </> : <>
+                    <strong className="mono micro">FEE MATH OFF</strong>
+                    <span className="micro dim">{scenario.limitation}</span>
+                  </>}
                 </div>
               )}
 
               <div className="vc-specs">
                 <div className="vcs-row">
-                  <dt>Active Listings</dt>
-                  <dd className="mono">{v.est_listings.toLocaleString()}</dd>
+                  <dt>Venue role</dt>
+                  <dd className="mono">{v.type}</dd>
                 </div>
                 <div className="vcs-row">
-                  <dt>Seller Fee</dt>
-                  <dd className="mono">{v.seller_fee_pct > 0 ? `${v.seller_fee_pct}%` : '0% (Dealer / Trade)'}</dd>
-                </div>
-                <div className="vcs-row">
-                  <dt>Buyer Fee</dt>
-                  <dd className="mono">{v.buyer_fee_pct > 0 ? `${v.buyer_fee_pct}% (Premium)` : '0%'}</dd>
-                </div>
-                <div className="vcs-row">
-                  <dt>Authentication</dt>
-                  <dd className="mono">{v.authentication_type}</dd>
-                </div>
-                <div className="vcs-row">
-                  <dt>Escrow / Protection</dt>
-                  <dd className="mono">{v.escrow_protection}</dd>
+                  <dt>Fee evidence</dt>
+                  <dd className="mono">{scenario?.fee_rule ? `VERIFIED · ${scenario.fee_rule.checked_date}` : 'NOT YET VERIFIED'}</dd>
                 </div>
               </div>
 
