@@ -3038,6 +3038,34 @@ main.shell { padding-top: var(--space-md); }
   cursor: pointer;
 }
 .pom-watch-actions button[aria-pressed="true"] { background: var(--coral); font-weight: 700; }
+.pom-net-lab { margin-top: 22px; border: 1px solid var(--ink); background: var(--surface); }
+.pom-net-head { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 18px; padding: 18px; border-bottom: 1px solid var(--ink); }
+.pom-net-head span { color: var(--coral); font-size: 9px; letter-spacing: .1em; }
+.pom-net-head h3 { margin: 6px 0 0; font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); line-height: 1; }
+.pom-net-head p { margin: 0; font-family: var(--font-essay); font-size: 15px; line-height: 1.5; }
+.pom-net-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid var(--ink); }
+.pom-net-controls label { display: grid; align-content: start; gap: 8px; padding: 18px; }
+.pom-net-controls label + label { border-left: 1px solid var(--ink); }
+.pom-net-controls label > span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.pom-net-controls select,
+.pom-net-controls input { width: 100%; min-height: 42px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); padding: 8px; font-family: var(--font-mono); }
+.pom-net-controls small { color: var(--dim); font-family: var(--font-mono); font-size: 9px; line-height: 1.45; }
+.pom-net-source { display: grid; gap: 5px; padding: 14px 18px; background: var(--yellow); color: var(--ink); font-size: 10px; }
+.pom-net-source a { text-decoration: underline; }
+.pom-net-read { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6px 18px; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
+.pom-net-read > span { grid-row: 1 / span 2; align-self: center; color: var(--coral); font-size: 9px; letter-spacing: .1em; }
+.pom-net-read > strong { font-family: var(--font-display); font-size: 20px; line-height: 1.1; }
+.pom-net-read > p { margin: 0; color: var(--dim); font-size: 11px; line-height: 1.4; }
+.pom-net-read[data-positive="true"] > strong { color: var(--teal-2); }
+.pom-net-table { min-width: 900px; }
+.pom-net-table strong { font-weight: 800; }
+@media (max-width: 620px) {
+  .pom-net-head,
+  .pom-net-controls,
+  .pom-net-read { grid-template-columns: 1fr; }
+  .pom-net-controls label + label { border-left: 0; border-top: 1px solid var(--ink); }
+  .pom-net-read > span { grid-row: auto; }
+}
 .pom-lab-tabs button:focus-visible,
 .pom-watch-actions button:focus-visible,
 .pom-saved-empty a:focus-visible { outline: 2px solid var(--ink); outline-offset: -3px; }

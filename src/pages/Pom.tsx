@@ -22,8 +22,10 @@ import { POM_AGGREGATE, POM_BIO, POM_COLLECTION, type PomAxisTier, type PomWatch
 import {
   NEUTRAL_ANNUAL_RATE,
   projectHoldingPeriods,
+  projectNetHoldingPeriods,
   summarizeCollectionEstimates,
 } from '../lib/value-lab.ts'
+import { getVenueScenarios } from '../lib/venues.ts'
 
 function axisClass(t: PomAxisTier): string {
   switch (t) {
@@ -55,6 +57,12 @@ function signedMoney(value: number, currency: 'THB' | 'USD'): string {
   return `${value >= 0 ? '+' : '−'}${money(Math.abs(value), currency)}`
 }
 
+function sellerFeeLabel(rule: { seller_fee_pct: number | null; seller_flat_fee_usd: number | null }): string {
+  if (rule.seller_fee_pct != null) return `SELLER ${rule.seller_fee_pct}%`
+  if (rule.seller_flat_fee_usd != null) return `SELLER ${money(rule.seller_flat_fee_usd, 'USD')}`
+  return 'SELLER FEE NOT MODELED'
+}
+
 function ProjectionTable({ baseline, annualRate, currency }: {
   baseline: number
   annualRate: number
@@ -79,6 +87,56 @@ function ProjectionTable({ baseline, annualRate, currency }: {
         </tbody>
       </table>
     </div>
+  )
+}
+
+function NetProjectionTable({ baseline, annualRate, annualOwnershipCost, fee }: {
+  baseline: number
+  annualRate: number
+  annualOwnershipCost: number
+  fee: { seller_fee_pct: number | null; seller_flat_fee_usd: number | null }
+}) {
+  const rows = projectNetHoldingPeriods(baseline, annualRate, annualOwnershipCost, fee)
+  const firstNetPositive = rows.find((row) => row.net_change >= 0)
+  const longestHorizon = rows.at(-1)!
+  return (
+    <>
+      <div className="pom-net-read" data-positive={Boolean(firstNetPositive)}>
+        <span className="mono">MODEL READ · ASSUMPTIONS, NOT A FORECAST</span>
+        <strong>{firstNetPositive
+          ? `Net break-even appears by year ${firstNetPositive.years}`
+          : `Still below net break-even after ${longestHorizon.years} years`}</strong>
+        <p>{annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve · selected verified seller fee applied at exit.</p>
+      </div>
+      <div className="pom-projection-wrap">
+        <table className="pom-projection-table pom-net-table" aria-label="Net sale outcome after verified seller fees and user-declared ownership costs">
+        <thead>
+          <tr>
+            <th>Hold</th>
+            <th>Gross scenario</th>
+            <th>Exit fee</th>
+            <th>Ownership costs</th>
+            <th>Net sale outcome</th>
+            <th>Net vs start</th>
+            <th>Growth needed to break even</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.years}>
+              <th scope="row">{row.years} {row.years === 1 ? 'year' : 'years'}</th>
+              <td>{money(row.value, 'USD')}</td>
+              <td>−{money(row.exit_fee, 'USD')}</td>
+              <td>−{money(row.ownership_cost, 'USD')}</td>
+              <td><strong>{money(row.net_proceeds, 'USD')}</strong></td>
+              <td className={row.net_change >= 0 ? 'pom-gain' : 'pom-loss'}>{signedMoney(row.net_change, 'USD')}</td>
+              <td>{Number.isFinite(row.break_even_annual_rate) ? `${row.break_even_annual_rate.toFixed(1)}% / yr` : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+        </table>
+      </div>
+    </>
   )
 }
 
@@ -159,6 +217,8 @@ function ValueLab() {
   const [savedBaseline, setSavedBaseline] = useState('')
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
   const [manualWatchBaseline, setManualWatchBaseline] = useState('')
+  const [exitVenueId, setExitVenueId] = useState('chrono24')
+  const [annualOwnershipCost, setAnnualOwnershipCost] = useState('')
 
   const requestedWatchId = searchParams.get('watch')
   useEffect(() => {
@@ -234,6 +294,11 @@ function ValueLab() {
     item.id === (selectedCard.identity.brand === 'Rolex' ? 'rolex_index'
       : selectedCard.identity.brand === 'Patek Philippe' ? 'patek_index' : 'watchcharts_overall')) ?? overallIndex
   const read = investmentRead(selectedCard)
+  const verifiedExitScenarios = getVenueScenarios(selectedCard).filter((scenario) =>
+    scenario.fee_rule && (scenario.fee_rule.seller_fee_pct != null || scenario.fee_rule.seller_flat_fee_usd != null))
+  const selectedExitScenario = verifiedExitScenarios.find((scenario) => scenario.venue.id === exitVenueId)
+    ?? verifiedExitScenarios[0]
+  const ownershipCost = Number(annualOwnershipCost) > 0 ? Number(annualOwnershipCost) : 0
 
   const setWatchQuery = (watchId: string | null) => {
     const next = new URLSearchParams(searchParams)
@@ -462,6 +527,55 @@ function ValueLab() {
           ) : (
             <p className="pom-projection-refusal">Enter a starting value to run the scenario. The blank is deliberate: this reference does not yet have enough comparable sales for a market estimate.</p>
           )}
+
+          <div className="pom-net-lab">
+            <div className="pom-net-head">
+              <div>
+                <span className="mono">THE REALITY CHECK · NET, NOT GROSS</span>
+                <h3>What could be left after owning and selling it?</h3>
+              </div>
+              <p>Gross appreciation is not profit. Choose one checked seller-fee schedule and declare an annual ownership-cost reserve. The system then shows the exit result and the growth needed just to break even.</p>
+            </div>
+
+            <div className="pom-net-controls">
+              <label>
+                <span>Exit route · verified seller fee</span>
+                <select aria-label="Exit route · verified seller fee" value={selectedExitScenario?.venue.id ?? ''} onChange={(event) => setExitVenueId(event.target.value)}>
+                  {verifiedExitScenarios.map((scenario) => (
+                    <option value={scenario.venue.id} key={scenario.venue.id}>
+                      {scenario.venue.name} · {sellerFeeLabel(scenario.fee_rule!)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span>Annual ownership-cost reserve · USD</span>
+                <input aria-label="Annual ownership-cost reserve · USD" type="number" min="0" step="100" inputMode="numeric" value={annualOwnershipCost}
+                  placeholder="0" onChange={(event) => setAnnualOwnershipCost(event.target.value)} />
+                <small>USER ASSUMPTION · service, insurance, shipping and storage vary. Enter the annual reserve you want the model to deduct.</small>
+              </label>
+            </div>
+
+            {selectedExitScenario?.fee_rule && watchBaseline != null && watchBaseline > 0 ? (
+              <>
+                <div className="pom-net-source">
+                  <strong className="mono">{selectedExitScenario.venue.name.toUpperCase()} · {sellerFeeLabel(selectedExitScenario.fee_rule)}</strong>
+                  <span className="mono">SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED · CHECKED {selectedExitScenario.fee_rule.checked_date} · OWNERSHIP COST: USER ASSUMPTION {money(ownershipCost, 'USD')}/YR</span>
+                  <span className="mono">ONLY THE SELLER FEE ENTERS THIS NET-OUTCOME MODEL · ANY BUYER FEE SHOWN ON THE VENUE PAGE IS NOT DEDUCTED HERE</span>
+                  <span>{selectedExitScenario.fee_rule.sources.map((source, index) => <span key={source.url}>
+                    {index > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+                  </span>)}</span>
+                </div>
+                <NetProjectionTable baseline={watchBaseline} annualRate={annualRate}
+                  annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
+                <p className="pom-formula mono">
+                  NET SALE OUTCOME = GROSS SCENARIO − VERIFIED SELLER FEE − ({money(ownershipCost, 'USD')} × YEARS HELD) · TAX, INFLATION, PURCHASE FEES, CONDITION AND NEGOTIATED PRICE STILL EXCLUDED
+                </p>
+              </>
+            ) : (
+              <p className="pom-projection-refusal">A net outcome needs both a starting value and a verified seller-fee schedule. The system will not substitute an unsourced marketplace fee.</p>
+            )}
+          </div>
         </div>
       )}
     </section>
