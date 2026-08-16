@@ -25,6 +25,8 @@ import {
   projectHoldingPeriods,
   projectNetHoldingPeriods,
   summarizeCollectionEstimates,
+  type NetProjectionRow,
+  type NetSaleOutcome,
 } from '../lib/value-lab.ts'
 import { getVenueScenarios } from '../lib/venues.ts'
 
@@ -91,6 +93,76 @@ function ProjectionTable({ baseline, annualRate, currency }: {
   )
 }
 
+function ScenarioCurve({ baseline, costBasis, rows, today }: {
+  baseline: number
+  costBasis: number
+  rows: NetProjectionRow[]
+  today: NetSaleOutcome
+}) {
+  const points = [
+    { years: 0, gross: Math.round(baseline), net: today.net_proceeds, netChange: today.net_change },
+    ...rows.map((row) => ({ years: row.years, gross: row.value, net: row.net_proceeds, netChange: row.net_change })),
+  ]
+  const values = points.flatMap((point) => [point.gross, point.net]).concat(costBasis)
+  const rawMin = Math.min(...values)
+  const rawMax = Math.max(...values)
+  const spread = Math.max(1, rawMax - rawMin)
+  const domainMin = rawMin - spread * 0.12
+  const domainMax = rawMax + spread * 0.12
+  const chartWidth = 720
+  const chartHeight = 220
+  const insetX = 18
+  const insetY = 16
+  const x = (years: number) => insetX + (years / 20) * (chartWidth - insetX * 2)
+  const y = (value: number) => insetY + ((domainMax - value) / (domainMax - domainMin)) * (chartHeight - insetY * 2)
+  const line = (key: 'gross' | 'net') => points.map((point, index) =>
+    `${index === 0 ? 'M' : 'L'} ${x(point.years).toFixed(2)} ${y(point[key]).toFixed(2)}`).join(' ')
+  const milestones = points.filter((point) => [0, 3, 10, 20].includes(point.years))
+  const last = points.at(-1)!
+
+  return (
+    <div className="pom-scenario-chart" role="img" aria-label={`Owner scenario from ${money(baseline, 'USD')} today to ${money(last.gross, 'USD')} gross and ${money(last.net, 'USD')} net after 20 years, compared with a ${money(costBasis, 'USD')} cost basis.`}>
+      <div className="pom-scenario-head">
+        <span className="mono">OWNER SCENARIO · LIVE</span>
+        <strong>{money(last.net, 'USD')} NET AT 20Y</strong>
+        <small className={last.netChange >= 0 ? 'pom-gain' : 'pom-loss'}>{signedMoney(last.netChange, 'USD')} VS COST BASIS</small>
+      </div>
+      <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} aria-hidden="true">
+        {[0.25, 0.5, 0.75].map((ratio) => (
+          <line key={ratio} className="pom-scenario-grid" x1={insetX} x2={chartWidth - insetX}
+            y1={insetY + ratio * (chartHeight - insetY * 2)} y2={insetY + ratio * (chartHeight - insetY * 2)} />
+        ))}
+        {[0, 3, 10, 20].map((years) => (
+          <line key={years} className="pom-scenario-grid" x1={x(years)} x2={x(years)} y1={insetY} y2={chartHeight - insetY} />
+        ))}
+        <line className="pom-scenario-cost" x1={insetX} x2={chartWidth - insetX} y1={y(costBasis)} y2={y(costBasis)} />
+        <path className="pom-scenario-gross" d={line('gross')} />
+        <path className="pom-scenario-net" d={line('net')} />
+        {milestones.flatMap((point) => ([
+          <circle key={`gross-${point.years}`} className="pom-scenario-point pom-scenario-point--gross" r="6"
+            style={{ transform: `translate(${x(point.years)}px, ${y(point.gross)}px)` }} />,
+          <circle key={`net-${point.years}`} className="pom-scenario-point pom-scenario-point--net" r="6"
+            style={{ transform: `translate(${x(point.years)}px, ${y(point.net)}px)` }} />,
+        ]))}
+      </svg>
+      <div className="pom-scenario-milestones">
+        {milestones.map((point) => (
+          <span key={point.years}>
+            <small className="mono">{point.years === 0 ? 'TODAY' : `${point.years}Y NET`}</small>
+            <strong>{money(point.net, 'USD')}</strong>
+          </span>
+        ))}
+      </div>
+      <div className="pom-scenario-legend mono">
+        <span><i className="pom-scenario-swatch pom-scenario-swatch--gross" />GROSS · CURRENT VALUE × YOUR RATE</span>
+        <span><i className="pom-scenario-swatch pom-scenario-swatch--net" />NET · AFTER VERIFIED FEE + YOUR COSTS</span>
+        <span><i className="pom-scenario-swatch pom-scenario-swatch--cost" />COST BASIS</span>
+        <span>PLOT RANGE {money(rawMin, 'USD')}–{money(rawMax, 'USD')} · YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS</span>
+      </div>
+    </div>
+  )
+}
+
 function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCost, fee }: {
   baseline: number
   costBasis: number
@@ -114,6 +186,7 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
           : `Still below net break-even after ${longestHorizon.years} years`}</strong>
         <p>Today after the selected seller fee: {signedMoney(today.net_change, 'USD')} vs cost basis, before tax and past ownership costs. Future model: {annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve.</p>
       </div>
+      <ScenarioCurve baseline={baseline} costBasis={costBasis} rows={rows} today={today} />
       <div className="pom-projection-wrap">
         <table className="pom-projection-table pom-net-table" aria-label="Net sale outcome after verified seller fees and user-declared ownership costs">
         <thead>

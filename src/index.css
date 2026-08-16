@@ -3068,6 +3068,32 @@ main.shell { padding-top: var(--space-md); }
 .pom-net-read > strong { font-family: var(--font-display); font-size: 20px; line-height: 1.1; }
 .pom-net-read > p { margin: 0; color: var(--dim); font-size: 11px; line-height: 1.4; }
 .pom-net-read[data-positive="true"] > strong { color: var(--teal-2); }
+.pom-scenario-chart { border-bottom: 1px solid var(--ink); background: var(--paper-2); }
+.pom-scenario-head { display: grid; gap: 5px; padding: 14px 18px; }
+.pom-scenario-head > span { color: var(--coral); font-size: 9px; letter-spacing: .1em; }
+.pom-scenario-head > strong { font-family: var(--font-display); font-size: 20px; line-height: 1; }
+.pom-scenario-head > small { font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; }
+.pom-scenario-chart svg { display: block; width: 100%; height: auto; border-top: 1px solid var(--neutral-line); border-bottom: 1px solid var(--neutral-line); background: var(--surface); }
+.pom-scenario-grid { stroke: var(--neutral-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.pom-scenario-cost { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+.pom-scenario-gross, .pom-scenario-net { fill: none; stroke-width: 3; vector-effect: non-scaling-stroke; }
+.pom-scenario-gross { stroke: var(--coral); }
+.pom-scenario-net { stroke: var(--teal-2); }
+.pom-scenario-point { stroke: var(--surface); stroke-width: 2; vector-effect: non-scaling-stroke; transition: transform 180ms ease-out; }
+.pom-scenario-point--gross { fill: var(--coral); }
+.pom-scenario-point--net { fill: var(--teal-2); }
+.pom-scenario-milestones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--neutral-line); }
+.pom-scenario-milestones > span { min-width: 0; padding: 9px 8px; border-right: 1px solid var(--neutral-line); }
+.pom-scenario-milestones > span:last-child { border-right: 0; }
+.pom-scenario-milestones small, .pom-scenario-milestones strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pom-scenario-milestones small { color: var(--dim); font-size: 8px; letter-spacing: .06em; }
+.pom-scenario-milestones strong { margin-top: 3px; font-family: var(--font-mono); font-size: 11px; }
+.pom-scenario-legend { display: grid; gap: 7px; padding: 12px 18px; color: var(--dim); font-size: 8px; line-height: 1.4; letter-spacing: .05em; }
+.pom-scenario-legend > span { display: flex; min-width: 0; align-items: center; gap: 7px; overflow-wrap: anywhere; }
+.pom-scenario-swatch { display: inline-block; width: 18px; height: 3px; flex: none; background: var(--ink); }
+.pom-scenario-swatch--gross { background: var(--coral); }
+.pom-scenario-swatch--net { background: var(--teal-2); }
+.pom-scenario-swatch--cost { height: 1px; background: var(--ink); }
 .pom-net-table { min-width: 900px; }
 .pom-net-table strong { font-weight: 800; }
 @media (max-width: 620px) {
@@ -3076,6 +3102,14 @@ main.shell { padding-top: var(--space-md); }
   .pom-net-read { grid-template-columns: 1fr; }
   .pom-net-controls label + label { border-left: 0; border-top: 1px solid var(--ink); }
   .pom-net-read > span { grid-row: auto; }
+}
+@media (min-width: 720px) {
+  .pom-scenario-head { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: baseline; }
+  .pom-scenario-head > span { grid-row: 1 / span 2; align-self: center; }
+  .pom-scenario-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pom-scenario-point { transition: none; }
 }
 .pom-lab-tabs button:focus-visible,
 .pom-watch-actions button:focus-visible,
