@@ -295,6 +295,8 @@ function ValueLab() {
   const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
   const [savedBaseline, setSavedBaseline] = useState('')
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
+  const [watchSearch, setWatchSearch] = useState('')
+  const [watchScope, setWatchScope] = useState<'all' | 'anchored' | 'ready'>('all')
   const [manualWatchValue, setManualWatchValue] = useState('')
   const [purchaseCostBasis, setPurchaseCostBasis] = useState('')
   const [exitVenueId, setExitVenueId] = useState('chrono24')
@@ -332,6 +334,18 @@ function ValueLab() {
   const sortedCards = [...data.cards].sort((a, b) =>
     `${a.identity.brand} ${a.identity.reference}`.localeCompare(`${b.identity.brand} ${b.identity.reference}`))
   const selectedCard = byId.get(selectedId) ?? sortedCards[0]
+  const normalizedWatchSearch = watchSearch.trim().toLocaleLowerCase()
+  const scopedCards = sortedCards.filter((card) => watchScope === 'all'
+    || (watchScope === 'anchored' && (priceAnchor(card) ?? 0) > 1_000)
+    || (watchScope === 'ready' && card.computed.estimate.value != null))
+  const visibleCards = scopedCards.filter((card) => !normalizedWatchSearch || [
+    card.identity.brand,
+    card.identity.reference,
+    card.identity.name,
+    card.identity.nickname ?? '',
+    card.identity.collection ?? '',
+  ].join(' ').toLocaleLowerCase().includes(normalizedWatchSearch))
+  const visibleSelection = visibleCards.some((card) => card.id === selectedCard.id) ? selectedCard.id : ''
   const invalidRequestedWatch = requestedWatchId != null && !byId.has(requestedWatchId)
   const savedCards = saved.ids
     .map((id) => byId.get(id))
@@ -547,10 +561,30 @@ function ValueLab() {
         <div className="pom-lab-panel" id="pom-watch-panel" role="tabpanel">
           <div className="pom-watch-picker">
             <label htmlFor="pom-watch-select">Pick a reference in the register</label>
-            <select id="pom-watch-select" value={selectedCard.id} onChange={(event) => chooseWatch(event.target.value)}>
-              {sortedCards.map((card) => (
+            <div className="pom-watch-search">
+              <input type="search" aria-label="Search watch references" value={watchSearch}
+                placeholder="Brand, reference, name or nickname"
+                onChange={(event) => setWatchSearch(event.target.value)} />
+              {watchSearch && <button type="button" onClick={() => setWatchSearch('')} aria-label="Clear watch search">CLEAR</button>}
+            </div>
+            <div className="pom-watch-scopes" role="group" aria-label="Reference evidence filter">
+              <button type="button" aria-pressed={watchScope === 'all'} onClick={() => setWatchScope('all')}>ALL · {data.count}</button>
+              <button type="button" aria-pressed={watchScope === 'anchored'} onClick={() => setWatchScope('anchored')}>OVER $1K · {aboveThousand}</button>
+              <button type="button" aria-pressed={watchScope === 'ready'} onClick={() => setWatchScope('ready')}>ESTIMATE READY · {estimateReady}</button>
+            </div>
+            <p className="pom-watch-result mono" role="status" aria-live="polite">
+              {visibleCards.length} SHOWN · {watchScope === 'all' ? 'ALL REFERENCES' : watchScope === 'anchored' ? 'PRICE ANCHOR ABOVE $1,000' : 'PUBLISHABLE MARKET ESTIMATE'}{normalizedWatchSearch ? ` · MATCHING “${watchSearch.trim()}”` : ''} · DATA BUILD {data.built}
+            </p>
+            <select id="pom-watch-select" value={visibleSelection} disabled={visibleCards.length === 0}
+              onChange={(event) => chooseWatch(event.target.value)}>
+              {visibleSelection === '' && (
+                <option value="" disabled>{visibleCards.length === 0 ? 'No references match' : `Choose from ${visibleCards.length} matching references`}</option>
+              )}
+              {visibleCards.map((card) => (
                 <option value={card.id} key={card.id}>
-                  {card.identity.brand} · {card.identity.reference} · {card.identity.name}{card.computed.estimate.value != null ? ' · ESTIMATE READY' : ''}
+                  {card.identity.brand} · {card.identity.reference} · {card.identity.name}{card.computed.estimate.value != null
+                    ? ' · ESTIMATE READY'
+                    : (priceAnchor(card) ?? 0) > 1_000 ? ' · PRICE ANCHOR' : ''}
                 </option>
               ))}
             </select>

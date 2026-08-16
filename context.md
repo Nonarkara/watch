@@ -47,6 +47,8 @@ For a single watch, current value and owner cost basis are separate inputs. Futu
 
 The owner-scenario curve is a view of those same table rows, never a second calculator: gross comes from current value × user rate; net subtracts the checked seller fee and user costs; the cost-basis line never moves. Years are spaced to scale and the plotted value range is printed on the chart.
 
+The single-watch picker keeps the native select but adds search plus three dataset-derived scopes: all references, price anchors above $1,000, and publishable estimates. Filtering changes only the candidate list; it never changes the selected dossier or its calculations until the visitor chooses another reference. Every result count names the data build date.
+
 **Venue fee lab.** `/marketplaces` and each dossier’s venue tab preserve the global directory, but only checked official fee schedules may produce arithmetic. Every scenario starts from the single dossier estimate and names its comp count, confidence tier, estimate date, fee source, and fee check date. A venue multiplier is never a quote; MSRP is never a resale baseline. Unverified venues stay searchable with fee math visibly off.
 
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.

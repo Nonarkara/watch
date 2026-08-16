@@ -3030,6 +3030,17 @@ main.shell { padding-top: var(--space-md); }
 .pom-basis-snapshot > div:last-child strong { color: var(--coral); }
 .pom-basis-snapshot > div[data-positive="true"] strong { color: var(--teal-2); }
 .pom-watch-picker { padding: 18px; border: 1px solid var(--ink); background: var(--yellow); color: var(--ink); }
+.pom-watch-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; margin-top: 10px; }
+.pom-watch-search input, .pom-watch-search button { min-width: 0; min-height: 42px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); }
+.pom-watch-search input { width: 100%; padding: 10px 12px; font-size: 12px; }
+.pom-watch-search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.pom-watch-search button { padding: 8px 12px; border-left: 0; font-size: 9px; letter-spacing: .08em; cursor: pointer; }
+.pom-watch-search button:active, .pom-watch-scopes button:active { transform: scale(.97); }
+.pom-watch-scopes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 8px; }
+.pom-watch-scopes button { min-width: 0; min-height: 40px; padding: 7px 5px; border: 1px solid var(--ink); border-right: 0; background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 8px; line-height: 1.25; letter-spacing: .04em; cursor: pointer; }
+.pom-watch-scopes button:last-child { border-right: 1px solid var(--ink); }
+.pom-watch-scopes button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.pom-watch-result { padding: 8px 10px; border-right: 1px solid var(--ink); border-left: 1px solid var(--ink); background: var(--paper-2); overflow-wrap: anywhere; }
 .pom-watch-picker select { width: 100%; margin-top: 10px; padding: 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; }
 .pom-watch-picker p { margin: 10px 0 0; font-size: 9px; letter-spacing: .08em; }
 .pom-watch-evidence { display: grid; grid-template-columns: 1fr; margin-top: 18px; border: 1px solid var(--ink); }
@@ -3113,6 +3124,9 @@ main.shell { padding-top: var(--space-md); }
 }
 .pom-lab-tabs button:focus-visible,
 .pom-watch-actions button:focus-visible,
+.pom-watch-search input:focus-visible,
+.pom-watch-search button:focus-visible,
+.pom-watch-scopes button:focus-visible,
 .pom-saved-empty a:focus-visible { outline: 2px solid var(--ink); outline-offset: -3px; }
 .pom-saved-empty { padding: 24px; border: 1px solid var(--ink); background: var(--paper-2); }
 .pom-saved-empty > span { color: var(--coral); font-size: 9px; letter-spacing: .12em; }

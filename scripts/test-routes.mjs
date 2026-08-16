@@ -108,6 +108,9 @@ assert.ok(pomPageSrc.includes('Current market value · USD') && pomPageSrc.inclu
 assert.ok(pomPageSrc.includes('OWNER SCENARIO · LIVE') && pomPageSrc.includes('YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS')
   && pomPageSrc.includes('ScenarioCurve'),
   'owner scenario must expose the same gross, net, and cost-basis rows as a live time curve');
+assert.ok(pomPageSrc.includes('Search watch references') && pomPageSrc.includes("watchScope === 'anchored'")
+  && pomPageSrc.includes('DATA BUILD {data.built}'),
+  'the 302-reference picker must support search and dataset-derived evidence scopes');
 const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
 assert.equal(Math.round(compoundBenchmark), 26_533,
   '20-year 5% compound benchmark must remain stable');
