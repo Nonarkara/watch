@@ -41,6 +41,8 @@ Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F
 
 **Personal pulse (browser-private).** `/saved` joins the visitor's `watch.saved` ids to that public snapshot and retains only the current and previous rank map in `watch.attention.history.v1`. This creates visible NEW / UP / DOWN / OUT movement without accounts or remote tracking. The conservation law is explicit: the saved set never leaves the device; the daily public signal changes around it. Snapshot age follows the visitor's calendar day, and every surface says `ATTENTION ≠ PRICE`.
 
+**Personal value lab (browser-private).** `/pom#value-lab` has three modes: Uncle Pom's reported 2018 basket, the visitor's `watch.saved` set, and one reference from the register. A system-derived saved-collection total exists only when every saved watch has a publishable estimate; a priced subset is shown but never promoted into a total. Otherwise the visitor must enter an appraisal baseline. All five holding periods are scenario arithmetic, default growth is neutral 0%, and the total names its component source, confidence tier, and as-of date.
+
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
 
 Screen exposure is demand-side attention, never physical scarcity. Exact-reference matches only enter the attention heuristic; family-level and tentative IDs stay labeled.
@@ -55,5 +57,6 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 - Masked publish: full comps never ship to the client.
 - Film stills always carry studio + editorial credit and a promotional/editorial rights line.
 - Every metric shows source, n, window, limitation.
+- Value Lab never adds priced and unpriced saved watches into a collection total; projection defaults to 0% until the visitor chooses an assumption.
 - Hidden citation popovers must keep `pointer-events: none`; their links become interactive only while the popover is visible, or they steal clicks from dossier actions below.
 - A brand + reference identity may appear only once. The build refuses duplicate dossiers even when their slugs differ.

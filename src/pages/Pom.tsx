@@ -16,8 +16,14 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBanner from '../components/HeroBanner.tsx'
 import { useDataset } from '../lib/dataset-context.ts'
+import { useSaved } from '../lib/saved-store.ts'
 import type { Card, ContextIndex } from '../lib/data.ts'
 import { POM_AGGREGATE, POM_BIO, POM_COLLECTION, type PomAxisTier, type PomWatch } from '../lib/pom.ts'
+import {
+  NEUTRAL_ANNUAL_RATE,
+  projectHoldingPeriods,
+  summarizeCollectionEstimates,
+} from '../lib/value-lab.ts'
 
 function axisClass(t: PomAxisTier): string {
   switch (t) {
@@ -37,9 +43,6 @@ function formatPrice(w: PomWatch): string {
   return `${(w.price_thb_at_publication / 1_000_000).toFixed(2).replace(/\.?0+$/, '')}M THB`
 }
 
-const HORIZONS = [1, 2, 3, 10, 20] as const
-const DEFAULT_ANNUAL_RATE = 5
-
 function money(value: number, currency: 'THB' | 'USD'): string {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -50,10 +53,6 @@ function money(value: number, currency: 'THB' | 'USD'): string {
 
 function signedMoney(value: number, currency: 'THB' | 'USD'): string {
   return `${value >= 0 ? '+' : '−'}${money(Math.abs(value), currency)}`
-}
-
-function compoundValue(baseline: number, annualRate: number, years: number): number {
-  return baseline * Math.pow(1 + annualRate / 100, years)
 }
 
 function ProjectionTable({ baseline, annualRate, currency }: {
@@ -68,13 +67,12 @@ function ProjectionTable({ baseline, annualRate, currency }: {
           <tr><th>Hold</th><th>Modeled value</th><th>Change from start</th></tr>
         </thead>
         <tbody>
-          {HORIZONS.map((years) => {
-            const projected = compoundValue(baseline, annualRate, years)
+          {projectHoldingPeriods(baseline, annualRate).map(({ years, value: projected, change }) => {
             return (
               <tr key={years}>
                 <th scope="row">{years} {years === 1 ? 'year' : 'years'}</th>
                 <td>{money(projected, currency)}</td>
-                <td className={projected >= baseline ? 'pom-gain' : 'pom-loss'}>{signedMoney(projected - baseline, currency)}</td>
+                <td className={projected >= baseline ? 'pom-gain' : 'pom-loss'}>{signedMoney(change, currency)}</td>
               </tr>
             )
           })}
@@ -153,9 +151,11 @@ function investmentRead(card: Card): { label: string; body: string; tone: string
 
 function ValueLab() {
   const data = useDataset()
-  const [tab, setTab] = useState<'collection' | 'watch'>('collection')
-  const [annualRate, setAnnualRate] = useState(DEFAULT_ANNUAL_RATE)
+  const saved = useSaved()
+  const [tab, setTab] = useState<'collection' | 'saved' | 'watch'>('collection')
+  const [annualRate, setAnnualRate] = useState(NEUTRAL_ANNUAL_RATE)
   const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
+  const [savedBaseline, setSavedBaseline] = useState('')
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
   const [manualWatchBaseline, setManualWatchBaseline] = useState('')
   if (!data) return null
@@ -165,10 +165,46 @@ function ValueLab() {
     .map((watch) => watch.dossierId ? byId.get(watch.dossierId) : null)
     .filter((card): card is Card => Boolean(card))
   const exactPomEstimates = exactPomCards.filter((card) => card.computed.estimate.value != null).length
-  const forecastReady = data.cards.filter((card) => card.computed.estimate.value != null).length
+  const estimateReady = data.cards.filter((card) => card.computed.estimate.value != null).length
+  const priceAnchor = (card: Card) => card.computed.estimate.value
+    ?? card.retail.current_msrp_usd
+    ?? card.retail.msrp_history.at(-1)?.price_usd
+    ?? null
+  const aboveThousand = data.cards.filter((card) => (priceAnchor(card) ?? 0) > 1_000).length
+  const withoutPriceAnchor = data.cards.filter((card) => priceAnchor(card) == null).length
   const sortedCards = [...data.cards].sort((a, b) =>
     `${a.identity.brand} ${a.identity.reference}`.localeCompare(`${b.identity.brand} ${b.identity.reference}`))
   const selectedCard = byId.get(selectedId) ?? sortedCards[0]
+  const savedCards = saved.ids
+    .map((id) => byId.get(id))
+    .filter((card): card is Card => Boolean(card))
+  const savedSummary = summarizeCollectionEstimates(savedCards.map((card) => ({
+    id: card.id,
+    estimate: card.computed.estimate.value,
+  })))
+  const missingSavedCards = savedSummary.missing_ids
+    .map((id) => byId.get(id))
+    .filter((card): card is Card => Boolean(card))
+  const pricedSavedCards = savedCards.filter((card) => card.computed.estimate.value != null)
+  const savedEstimateDates = pricedSavedCards
+    .map((card) => card.computed.estimate.as_of)
+    .filter((date): date is string => Boolean(date))
+    .sort()
+  const savedEstimateDateRange = savedEstimateDates.length === 0
+    ? null
+    : savedEstimateDates[0] === savedEstimateDates.at(-1)
+      ? savedEstimateDates[0]
+      : `${savedEstimateDates[0]}–${savedEstimateDates.at(-1)}`
+  const savedConfidenceTiers = [...new Set(pricedSavedCards
+    .map((card) => card.computed.confidence.tier)
+    .filter((tier): tier is string => Boolean(tier)))].sort().join('/')
+  const savedCompCount = pricedSavedCards.reduce((sum, card) => sum + card.computed.estimate.n, 0)
+  const savedMaxWindowMonths = Math.max(0, ...pricedSavedCards
+    .map((card) => card.computed.estimate.window_months ?? 0))
+  const enteredSavedBaseline = Number(savedBaseline)
+  const savedScenarioBaseline = enteredSavedBaseline > 0
+    ? enteredSavedBaseline
+    : savedSummary.evidence_total
   const enteredWatchBaseline = Number(manualWatchBaseline)
   const watchBaseline = enteredWatchBaseline > 0
     ? enteredWatchBaseline
@@ -198,6 +234,8 @@ function ValueLab() {
       <div className="pom-lab-tabs" role="tablist" aria-label="Value lab mode">
         <button type="button" role="tab" aria-selected={tab === 'collection'} aria-controls="pom-collection-panel"
           onClick={() => setTab('collection')}>UNCLE POM'S 14</button>
+        <button type="button" role="tab" aria-selected={tab === 'saved'} aria-controls="pom-saved-panel"
+          onClick={() => setTab('saved')}>MY SAVED · {savedCards.length}</button>
         <button type="button" role="tab" aria-selected={tab === 'watch'} aria-controls="pom-watch-panel"
           onClick={() => setTab('watch')}>TRY YOUR WATCH · {data.count}</button>
       </div>
@@ -232,6 +270,92 @@ function ValueLab() {
             VALUE AFTER t YEARS = STARTING VALUE × (1 + ANNUAL RATE)<sup>t</sup> · {money(basketBaseline, 'THB')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup>
           </p>
         </div>
+      ) : tab === 'saved' ? (
+        <div className="pom-lab-panel" id="pom-saved-panel" role="tabpanel">
+          {savedCards.length === 0 ? (
+            <div className="pom-saved-empty">
+              <span className="mono">YOUR COLLECTION IS EMPTY</span>
+              <h3>Save a few watches. Bring them back here.</h3>
+              <p>Open a dossier and tap SAVE. Your set stays in this browser; the value lab reads it without an account.</p>
+              <Link to="/register">CHOOSE FROM THE REGISTER →</Link>
+            </div>
+          ) : (
+            <>
+              <div className="pom-value-status">
+                <div>
+                  <span className="mono">PUBLISHABLE ESTIMATE COVERAGE</span>
+                  <strong>{savedSummary.priced_count}/{savedSummary.count}</strong>
+                  <p>Each priced watch clears the same three-comparable-sales gate as its dossier.</p>
+                </div>
+                <div className="pom-value-refusal">
+                  <span className="mono">EVIDENCE-DERIVED COLLECTION TOTAL</span>
+                  <strong>{savedSummary.evidence_total != null ? money(savedSummary.evidence_total, 'USD') : '—'}</strong>
+                  <p>{savedSummary.complete
+                    ? 'Every saved watch clears the gate. This is the sum of their current publishable estimates.'
+                    : `${savedSummary.missing_ids.length} saved watch${savedSummary.missing_ids.length === 1 ? '' : 'es'} still need enough sales. Known priced subset: ${money(savedSummary.known_subtotal, 'USD')}; not a collection total.`}</p>
+                  <small className="pom-value-source mono">{savedSummary.priced_count > 0
+                    ? `SOURCE: DOSSIER ESTIMATORS · ${savedCompCount} COMPS · WINDOWS ≤${savedMaxWindowMonths}M · CONFIDENCE ${savedConfidenceTiers || 'UNKNOWN'} · COMPONENTS AS OF ${savedEstimateDateRange ?? 'UNKNOWN'}`
+                    : 'SOURCE: NO SAVED REFERENCE CLEARS THE ESTIMATE GATE'}</small>
+                </div>
+              </div>
+
+              <div className="pom-saved-list" aria-label="Saved collection valuation coverage">
+                <div className="pom-saved-list-head mono">
+                  <span>YOUR SAVED REFERENCES</span>
+                  <Link to="/saved">OPEN MY SAVED →</Link>
+                </div>
+                {savedCards.map((card) => (
+                  <Link key={card.id} to={`/w/${card.id}`} className="pom-saved-row">
+                    <span>
+                      <strong>{card.identity.name}</strong>
+                      <small className="mono">{card.identity.brand.toUpperCase()} · {card.identity.reference}</small>
+                    </span>
+                    <span className="pom-saved-value mono">
+                      <strong>{card.computed.estimate.value != null
+                        ? money(card.computed.estimate.value, 'USD')
+                        : 'NEEDS 3 COMPS'}</strong>
+                      <small>{card.computed.estimate.value != null
+                        ? `${card.computed.estimate.n} COMPS · ${card.computed.estimate.window_months ?? '—'}M · TIER ${card.computed.confidence.tier ?? '—'} · AS OF ${card.computed.estimate.as_of ?? '—'}`
+                        : 'ESTIMATE GATE CLOSED'}</small>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+
+              {missingSavedCards.length > 0 && (
+                <p className="pom-saved-gap mono">
+                  MISSING ESTIMATE: {missingSavedCards.map((card) => `${card.identity.brand} ${card.identity.reference}`).join(' · ')}
+                </p>
+              )}
+
+              <div className="pom-lab-controls">
+                <label className="pom-baseline-field">
+                  <span>Current collection value · USD</span>
+                  <input type="number" min="1" step="100" inputMode="numeric" value={savedBaseline}
+                    placeholder={savedSummary.evidence_total?.toString() ?? 'Enter your current appraisal total'}
+                    onChange={(event) => setSavedBaseline(event.target.value)} />
+                  <small>{enteredSavedBaseline > 0
+                    ? 'Using your number. The system cannot verify a user-entered appraisal.'
+                    : savedSummary.evidence_total != null
+                      ? 'Using the sum of every saved watch’s publishable estimate until you enter your own total.'
+                      : 'No total is inferred from a partial subset. Enter a current appraisal to run the arithmetic.'}</small>
+                </label>
+                <RateControl id="pom-saved-rate" value={annualRate} onChange={setAnnualRate} context={overallIndex} />
+              </div>
+
+              {savedScenarioBaseline != null && savedScenarioBaseline > 0 ? (
+                <>
+                  <ProjectionTable baseline={savedScenarioBaseline} annualRate={annualRate} currency="USD" />
+                  <p className="pom-formula mono">
+                    SCENARIO ONLY · {money(savedScenarioBaseline, 'USD')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup> · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED
+                  </p>
+                </>
+              ) : (
+                <p className="pom-projection-refusal">Enter a current collection value to run the scenario. The system refuses to add a priced subset to unpriced watches and call the result a total.</p>
+              )}
+            </>
+          )}
+        </div>
       ) : (
         <div className="pom-lab-panel" id="pom-watch-panel" role="tabpanel">
           <div className="pom-watch-picker">
@@ -246,14 +370,19 @@ function ValueLab() {
                 </option>
               ))}
             </select>
-            <p className="mono">COVERAGE TARGET: EVERY CITED REFERENCE ABOVE $1,000 · {data.count} REFERENCES TODAY · {forecastReady} WITH PUBLISHABLE MARKET ESTIMATES · MORE ARRIVE WITH SOURCED SALES</p>
+            <p className="mono">TODAY: {data.count} REFERENCES · {aboveThousand} WITH A PRICE ANCHOR ABOVE $1,000 · {estimateReady} WITH PUBLISHABLE MARKET ESTIMATES · {withoutPriceAnchor} STILL NEED A PUBLIC PRICE ANCHOR · TARGET: EVERY CITED REFERENCE ABOVE $1,000</p>
           </div>
 
           <div className="pom-watch-evidence">
             <div className="pom-watch-title">
               <span className="mono">{selectedCard.identity.brand} · {selectedCard.identity.reference}</span>
               <h3>{selectedCard.identity.name}</h3>
-              <Link to={`/w/${selectedCard.id}`}>OPEN DOSSIER →</Link>
+              <div className="pom-watch-actions">
+                <Link to={`/w/${selectedCard.id}`}>OPEN DOSSIER →</Link>
+                <button type="button" aria-pressed={saved.has(selectedCard.id)} onClick={() => saved.toggle(selectedCard.id)}>
+                  {saved.has(selectedCard.id) ? '★ IN MY SAVED' : '☆ ADD TO MY SAVED'}
+                </button>
+              </div>
             </div>
             <dl>
               <div><dt>Market estimate</dt><dd>{selectedCard.computed.estimate.value != null ? money(selectedCard.computed.estimate.value, 'USD') : '—'}</dd></div>

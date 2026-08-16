@@ -77,12 +77,21 @@ console.log("✓ Data refusal count follows the publishable-estimate gate");
 // dossier buttons must never point at invented or renamed card ids.
 const pomPageSrc = readFileSync(join(ROOT, "src/pages/Pom.tsx"), "utf8");
 const pomDataSrc = readFileSync(join(ROOT, "src/lib/pom.ts"), "utf8");
-assert.match(pomPageSrc, /const HORIZONS = \[1, 2, 3, 10, 20\] as const/,
+const valueLabSrc = readFileSync(join(ROOT, "src/lib/value-lab.ts"), "utf8");
+assert.match(valueLabSrc, /HOLDING_PERIODS = \[1, 2, 3, 10, 20\] as const/,
   'Pom value lab must publish the five requested holding periods');
-assert.ok(pomPageSrc.includes('Math.pow(1 + annualRate / 100, years)'),
+assert.ok(valueLabSrc.includes('Math.pow(1 + annualRate / 100, years)'),
   'Pom projection must use explicit annual compounding');
 assert.ok(pomPageSrc.includes('computed.estimate.value'),
   'Pom value lab must distinguish a computed estimate from a user scenario');
+assert.ok(pomPageSrc.includes("setTab('saved')") && pomPageSrc.includes('summarizeCollectionEstimates'),
+  'Pom value lab must let a visitor model the browser-local saved collection');
+assert.ok(pomPageSrc.includes('savedSummary.evidence_total') && pomPageSrc.includes('not a collection total'),
+  'Pom must refuse to promote a priced subset into a collection valuation');
+assert.ok(pomPageSrc.includes('SOURCE: DOSSIER ESTIMATORS') && pomPageSrc.includes('COMPONENTS AS OF'),
+  'Pom collection totals must disclose source, confidence tier, and component date');
+assert.ok(pomPageSrc.includes('NEUTRAL_ANNUAL_RATE'),
+  'Pom must default growth to the neutral assumption');
 const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
 assert.equal(Math.round(compoundBenchmark), 26_533,
   '20-year 5% compound benchmark must remain stable');
@@ -93,7 +102,7 @@ const pomDossierIds = [...pomDataSrc.matchAll(/dossierId:\s*'([^']+)'/g)].map((m
 const deadPomDossiers = pomDossierIds.filter((id) => !publicCardIds.has(id));
 assert.deepEqual(deadPomDossiers, [],
   `Pom dossier links missing from public data: ${deadPomDossiers.join(', ')}`);
-console.log("✓ Pom value lab horizons, compounding, estimate gate, and dossier links hold");
+console.log("✓ Pom value lab horizons, saved collection gate, compounding, and dossier links hold");
 
 // ─── week-one anti-regression: home banner is load-bearing ──────────────────
 assert.ok(homeSrc.includes('timepop-hero'),
