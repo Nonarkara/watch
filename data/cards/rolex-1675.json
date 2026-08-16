@@ -45,6 +45,14 @@
         "url": "https://www.phillips.com/detail/rolex/NY080124",
         "condition": "Mark 0 matte dial, 1967, full set",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2024-12-07",
+        "price_usd": 22860,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/211599",
+        "condition": "Circa 1972 stainless-steel Mark 2 matte dial with matching Oyster bracelet",
+        "box_papers": null
       }
     ],
     "listing_observations": []
@@ -83,6 +91,7 @@
     "curated_date": "2026-07-31",
     "sources": [
       "https://onlineonly.christies.com/s/christies-watches-online-time-autumn/rolex-gmt-master-ref-1675-1/33900",
+      "https://www.phillips.com/detail/rolex/211599",
       "https://www.phillips.com/auction/NY080119",
       "https://www.rescapement.com/blog/brando-gmt-sells-for-1952-million-and-other-results-from-phillips-game-changers"
     ]

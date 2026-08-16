@@ -107,6 +107,24 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     "126610LN comps must point to three distinct source records");
 }
 
+// 10b. Three more ordinary Rolex references clear the same gate using exact-reference,
+// completed USD sales. The 1675 deliberately excludes gold and special-provenance variants.
+for (const expected of [
+  { file: "rolex-116610lv-hulk.json", n: 3, value: 21590, window: 60, asOf: "2026-06-12" },
+  { file: "rolex-5513.json", n: 3, value: 13970, window: 60, asOf: "2025-12-17" },
+  { file: "rolex-1675.json", n: 3, value: 22860, window: 120, asOf: "2024-12-07" },
+]) {
+  const card = JSON.parse(readFileSync(new URL(`../data/cards/${expected.file}`, import.meta.url), "utf8"));
+  const comps = card.market_evidence.comps.filter((c) => c.comparable !== false);
+  const estimate = marketEstimate(comps, BUILD);
+  assert.equal(estimate.n, expected.n, `${card.id} must retain three comparable USD sales`);
+  assert.equal(estimate.value, expected.value, `${card.id} estimate must be the three-sale median`);
+  assert.equal(estimate.window_months, expected.window, `${card.id} must disclose its evidence window`);
+  assert.equal(estimate.as_of, expected.asOf);
+  assert.equal(new Set(comps.map((c) => c.url)).size, expected.n,
+    `${card.id} comps must point to three distinct source records`);
+}
+
 // 11. Screen exposure changes attention pressure, never scarcity.
 const withScreen = { ...shared, screen_sightings: { sightings: [{
   media_type: "film", match_level: "exact_reference", matched_card_ids: [fixture.id],
