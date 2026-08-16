@@ -5073,6 +5073,17 @@ main.shell { padding-top: var(--space-md); }
   font-weight: 700;
   margin: 2px 0;
 }
+.swb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.marketplace-deep-link-note,
+.pom-deep-link-note {
+  color: var(--coral);
+  font-size: var(--text-micro);
+  margin-top: var(--space-sm);
+}
 
 .venue-filters-bar {
   display: flex;

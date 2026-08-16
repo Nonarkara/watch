@@ -12,8 +12,8 @@
 // The page never asks how the watches were paid for. It scores what is
 // public, the same way the rest of the site does.
 
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import HeroBanner from '../components/HeroBanner.tsx'
 import { useDataset } from '../lib/dataset-context.ts'
 import { useSaved } from '../lib/saved-store.ts'
@@ -152,12 +152,28 @@ function investmentRead(card: Card): { label: string; body: string; tone: string
 function ValueLab() {
   const data = useDataset()
   const saved = useSaved()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [tab, setTab] = useState<'collection' | 'saved' | 'watch'>('collection')
   const [annualRate, setAnnualRate] = useState(NEUTRAL_ANNUAL_RATE)
   const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
   const [savedBaseline, setSavedBaseline] = useState('')
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
   const [manualWatchBaseline, setManualWatchBaseline] = useState('')
+
+  const requestedWatchId = searchParams.get('watch')
+  useEffect(() => {
+    if (!data || !requestedWatchId) return
+    if (data.cards.some((card) => card.id === requestedWatchId)) {
+      setSelectedId(requestedWatchId)
+      setManualWatchBaseline('')
+    }
+    setTab('watch')
+    const frame = window.requestAnimationFrame(() => {
+      if (window.location.hash === '#value-lab') document.getElementById('value-lab')?.scrollIntoView()
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [data, requestedWatchId])
+
   if (!data) return null
 
   const byId = new Map(data.cards.map((card) => [card.id, card]))
@@ -175,6 +191,7 @@ function ValueLab() {
   const sortedCards = [...data.cards].sort((a, b) =>
     `${a.identity.brand} ${a.identity.reference}`.localeCompare(`${b.identity.brand} ${b.identity.reference}`))
   const selectedCard = byId.get(selectedId) ?? sortedCards[0]
+  const invalidRequestedWatch = requestedWatchId != null && !byId.has(requestedWatchId)
   const savedCards = saved.ids
     .map((id) => byId.get(id))
     .filter((card): card is Card => Boolean(card))
@@ -218,6 +235,25 @@ function ValueLab() {
       : selectedCard.identity.brand === 'Patek Philippe' ? 'patek_index' : 'watchcharts_overall')) ?? overallIndex
   const read = investmentRead(selectedCard)
 
+  const setWatchQuery = (watchId: string | null) => {
+    const next = new URLSearchParams(searchParams)
+    if (watchId) next.set('watch', watchId)
+    else next.delete('watch')
+    setSearchParams(next, { replace: true })
+  }
+
+  const openMode = (mode: 'collection' | 'saved' | 'watch') => {
+    setTab(mode)
+    setWatchQuery(mode === 'watch' ? selectedCard.id : null)
+  }
+
+  const chooseWatch = (watchId: string) => {
+    setSelectedId(watchId)
+    setManualWatchBaseline('')
+    setTab('watch')
+    setWatchQuery(watchId)
+  }
+
   return (
     <section className="pom-lab" id="value-lab" aria-labelledby="pom-lab-title">
       <div className="pom-lab-head">
@@ -233,11 +269,11 @@ function ValueLab() {
 
       <div className="pom-lab-tabs" role="tablist" aria-label="Value lab mode">
         <button type="button" role="tab" aria-selected={tab === 'collection'} aria-controls="pom-collection-panel"
-          onClick={() => setTab('collection')}>UNCLE POM'S 14</button>
+          onClick={() => openMode('collection')}>UNCLE POM'S 14</button>
         <button type="button" role="tab" aria-selected={tab === 'saved'} aria-controls="pom-saved-panel"
-          onClick={() => setTab('saved')}>MY SAVED · {savedCards.length}</button>
+          onClick={() => openMode('saved')}>MY SAVED · {savedCards.length}</button>
         <button type="button" role="tab" aria-selected={tab === 'watch'} aria-controls="pom-watch-panel"
-          onClick={() => setTab('watch')}>TRY YOUR WATCH · {data.count}</button>
+          onClick={() => openMode('watch')}>TRY YOUR WATCH · {data.count}</button>
       </div>
 
       {tab === 'collection' ? (
@@ -360,16 +396,18 @@ function ValueLab() {
         <div className="pom-lab-panel" id="pom-watch-panel" role="tabpanel">
           <div className="pom-watch-picker">
             <label htmlFor="pom-watch-select">Pick a reference in the register</label>
-            <select id="pom-watch-select" value={selectedCard.id} onChange={(event) => {
-              setSelectedId(event.target.value)
-              setManualWatchBaseline('')
-            }}>
+            <select id="pom-watch-select" value={selectedCard.id} onChange={(event) => chooseWatch(event.target.value)}>
               {sortedCards.map((card) => (
                 <option value={card.id} key={card.id}>
                   {card.identity.brand} · {card.identity.reference} · {card.identity.name}{card.computed.estimate.value != null ? ' · ESTIMATE READY' : ''}
                 </option>
               ))}
             </select>
+            {invalidRequestedWatch && (
+              <p className="pom-deep-link-note mono" role="status">
+                “{requestedWatchId}” IS NOT IN THIS BUILD · SHOWING {selectedCard.identity.brand.toUpperCase()} {selectedCard.identity.reference}
+              </p>
+            )}
             <p className="mono">TODAY: {data.count} REFERENCES · {aboveThousand} WITH A PRICE ANCHOR ABOVE $1,000 · {estimateReady} WITH PUBLISHABLE MARKET ESTIMATES · {withoutPriceAnchor} STILL NEED A PUBLIC PRICE ANCHOR · TARGET: EVERY CITED REFERENCE ABOVE $1,000</p>
           </div>
 
@@ -379,6 +417,7 @@ function ValueLab() {
               <h3>{selectedCard.identity.name}</h3>
               <div className="pom-watch-actions">
                 <Link to={`/w/${selectedCard.id}`}>OPEN DOSSIER →</Link>
+                <Link to={`/marketplaces?watch=${encodeURIComponent(selectedCard.id)}`}>MODEL SELLING COSTS →</Link>
                 <button type="button" aria-pressed={saved.has(selectedCard.id)} onClick={() => saved.toggle(selectedCard.id)}>
                   {saved.has(selectedCard.id) ? '★ IN MY SAVED' : '☆ ADD TO MY SAVED'}
                 </button>

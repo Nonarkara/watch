@@ -187,6 +187,8 @@ export default function Dossier() {
           >
             {copied ? '✓ COPIED' : '⎘ COPY LINK'}
           </button>
+          <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS →</Link>
+          <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS →</Link>
           <Link to="/saved" className="dsr-action dsr-action-ghost mono">OPEN MY SAVED →</Link>
         </div>
 

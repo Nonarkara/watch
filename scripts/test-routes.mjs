@@ -84,7 +84,7 @@ assert.ok(valueLabSrc.includes('Math.pow(1 + annualRate / 100, years)'),
   'Pom projection must use explicit annual compounding');
 assert.ok(pomPageSrc.includes('computed.estimate.value'),
   'Pom value lab must distinguish a computed estimate from a user scenario');
-assert.ok(pomPageSrc.includes("setTab('saved')") && pomPageSrc.includes('summarizeCollectionEstimates'),
+assert.ok((pomPageSrc.includes("setTab('saved')") || pomPageSrc.includes("openMode('saved')")) && pomPageSrc.includes('summarizeCollectionEstimates'),
   'Pom value lab must let a visitor model the browser-local saved collection');
 assert.ok(pomPageSrc.includes('savedSummary.evidence_total') && pomPageSrc.includes('not a collection total'),
   'Pom must refuse to promote a priced subset into a collection valuation');
@@ -92,6 +92,10 @@ assert.ok(pomPageSrc.includes('SOURCE: DOSSIER ESTIMATORS') && pomPageSrc.includ
   'Pom collection totals must disclose source, confidence tier, and component date');
 assert.ok(pomPageSrc.includes('NEUTRAL_ANNUAL_RATE'),
   'Pom must default growth to the neutral assumption');
+assert.ok(pomPageSrc.includes("searchParams.get('watch')") && pomPageSrc.includes("setTab('watch')"),
+  'a valid ?watch deep link must open the single-reference value lab');
+assert.ok(pomPageSrc.includes('/marketplaces?watch='),
+  'the value lab must carry its selected reference into selling-cost math');
 const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
 assert.equal(Math.round(compoundBenchmark), 26_533,
   '20-year 5% compound benchmark must remain stable');
@@ -187,6 +191,11 @@ const grailStories = publicData.cards.filter((c) => grailTiers.has(c.identity.ti
 assert.ok(grailStories >= 10,
   `grail pool by tier should be a real set, got ${grailStories}`);
 const dossierSrc = readFileSync(join(ROOT, "src/pages/Dossier.tsx"), "utf8");
+const marketplaceSrc = readFileSync(join(ROOT, "src/pages/Marketplaces.tsx"), "utf8");
+assert.ok(dossierSrc.includes('/pom?watch=') && dossierSrc.includes('/marketplaces?watch='),
+  'a dossier must carry its reference into both collector calculators');
+assert.ok(marketplaceSrc.includes("searchParams.get('watch')") && marketplaceSrc.includes('/pom?watch='),
+  'the fee lab must accept and preserve a selected reference');
 assert.ok(dossierSrc.includes('(b.comp_summary?.n ?? 0) - (a.comp_summary?.n ?? 0)'),
   'Dossier related sort must parenthesize both n counts');
 assert.ok(!dossierSrc.includes('b.comp_summary?.n ?? 0 - (a.comp_summary?.n ?? 0)'),

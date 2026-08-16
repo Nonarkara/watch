@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import {
   feeRuleLabel,
@@ -12,6 +12,7 @@ import { usd } from '../lib/format.ts'
 
 export default function Marketplaces() {
   const data = useDataset()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [selectedId, setSelectedId] = useState('')
   const [regionFilter, setRegionFilter] = useState('ALL')
   const [typeFilter, setTypeFilter] = useState('ALL')
@@ -23,6 +24,13 @@ export default function Marketplaces() {
   )
 
   const selectedCard = useMemo(() => cards.find((c) => c.id === selectedId), [cards, selectedId])
+  const requestedWatchId = searchParams.get('watch')
+  const invalidRequestedWatch = requestedWatchId != null && cards.length > 0 && !cards.some((card) => card.id === requestedWatchId)
+
+  useEffect(() => {
+    if (!requestedWatchId || !cards.some((card) => card.id === requestedWatchId)) return
+    setSelectedId(requestedWatchId)
+  }, [cards, requestedWatchId])
 
   const filteredVenues = useMemo(() => {
     let list = filterVenues(GLOBAL_VENUES, regionFilter, typeFilter)
@@ -51,6 +59,14 @@ export default function Marketplaces() {
 
   if (!data) return null
 
+  const chooseWatch = (watchId: string) => {
+    setSelectedId(watchId)
+    const next = new URLSearchParams(searchParams)
+    if (watchId) next.set('watch', watchId)
+    else next.delete('watch')
+    setSearchParams(next, { replace: true })
+  }
+
   return (
     <>
       <p className="eyebrow">GLOBAL DIRECTORY & VERIFIED FEE LAB</p>
@@ -73,7 +89,7 @@ export default function Marketplaces() {
           <select
             className="sel field"
             value={selectedId}
-            onChange={(e) => setSelectedId(e.target.value)}
+            onChange={(e) => chooseWatch(e.target.value)}
             aria-label="Choose a watch reference"
           >
             <option value="">CHOOSE A WATCH REFERENCE…</option>
@@ -84,6 +100,12 @@ export default function Marketplaces() {
             ))}
           </select>
         </div>
+
+        {invalidRequestedWatch && (
+          <p className="marketplace-deep-link-note mono" role="status">
+            “{requestedWatchId}” IS NOT IN THIS BUILD · CHOOSE A REFERENCE TO KEEP FEE MATH HONEST
+          </p>
+        )}
 
         {selectedCard && (
           <div className="selected-watch-banner">
@@ -96,9 +118,14 @@ export default function Marketplaces() {
                   : 'NO MARKET BASELINE · FEE MATH STAYS OFF'}
               </p>
             </div>
-            <Link to={`/w/${selectedCard.id}`} className="btn secondary">
-              OPEN DOSSIER →
-            </Link>
+            <div className="swb-actions">
+              <Link to={`/pom?watch=${encodeURIComponent(selectedCard.id)}#value-lab`} className="btn secondary">
+                MODEL HOLDING PERIODS →
+              </Link>
+              <Link to={`/w/${selectedCard.id}`} className="btn secondary">
+                OPEN DOSSIER →
+              </Link>
+            </div>
           </div>
         )}
       </div>
