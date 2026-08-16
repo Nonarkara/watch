@@ -34,6 +34,14 @@ export interface NetProjectionRow extends ProjectionRow {
   break_even_annual_rate: number
 }
 
+export interface NetSaleOutcome {
+  gross_value: number
+  exit_fee: number
+  ownership_cost: number
+  net_proceeds: number
+  net_change: number
+}
+
 export function summarizeCollectionEstimates(items: CollectionEstimateInput[]): CollectionEstimateSummary {
   let pricedCount = 0
   let knownSubtotal = 0
@@ -72,12 +80,35 @@ export function projectHoldingPeriods(
   })
 }
 
+export function netSaleOutcome(
+  grossValue: number,
+  costBasis: number,
+  ownershipCost: number,
+  fee: SellerFeeAssumption,
+): NetSaleOutcome {
+  const gross = Math.max(0, Math.round(Number.isFinite(grossValue) ? grossValue : 0))
+  const startingCost = Math.max(0, Math.round(Number.isFinite(costBasis) ? costBasis : 0))
+  const heldCost = Math.max(0, Math.round(Number.isFinite(ownershipCost) ? ownershipCost : 0))
+  const sellerFeeRate = Math.max(0, Number.isFinite(fee.seller_fee_pct) ? Number(fee.seller_fee_pct) / 100 : 0)
+  const sellerFlatFee = Math.max(0, Number.isFinite(fee.seller_flat_fee_usd) ? Number(fee.seller_flat_fee_usd) : 0)
+  const exitFee = Math.min(gross, Math.round(gross * sellerFeeRate + sellerFlatFee))
+  const netProceeds = gross - exitFee - heldCost
+  return {
+    gross_value: gross,
+    exit_fee: exitFee,
+    ownership_cost: heldCost,
+    net_proceeds: netProceeds,
+    net_change: netProceeds - startingCost,
+  }
+}
+
 /**
  * Apply one disclosed seller-fee schedule and one user-entered annual cost to
  * the gross compound scenario. This models arithmetic, not future demand.
  */
 export function projectNetHoldingPeriods(
-  baseline: number,
+  marketBaseline: number,
+  costBasis: number,
   annualRate: number,
   annualOwnershipCost: number,
   fee: SellerFeeAssumption,
@@ -87,28 +118,26 @@ export function projectNetHoldingPeriods(
   const sellerFeeRate = Math.max(0, Number.isFinite(fee.seller_fee_pct) ? Number(fee.seller_fee_pct) / 100 : 0)
   const sellerFlatFee = Math.max(0, Number.isFinite(fee.seller_flat_fee_usd) ? Number(fee.seller_flat_fee_usd) : 0)
   const sellerKeeps = Math.max(0, 1 - sellerFeeRate)
-  const startingValue = Math.round(baseline)
+  const currentMarketValue = Math.round(marketBaseline)
+  const startingCost = Math.max(0, Math.round(Number.isFinite(costBasis) ? costBasis : marketBaseline))
 
-  return projectHoldingPeriods(baseline, annualRate, periods).map((row) => {
-    const grossValue = Math.round(row.value)
-    const exitFee = Math.min(grossValue, Math.round(grossValue * sellerFeeRate + sellerFlatFee))
-    const ownershipCost = Math.round(safeAnnualCost * row.years)
-    const netProceeds = grossValue - exitFee - ownershipCost
+  return projectHoldingPeriods(marketBaseline, annualRate, periods).map((row) => {
+    const outcome = netSaleOutcome(row.value, startingCost, safeAnnualCost * row.years, fee)
     const requiredGross = sellerKeeps > 0
-      ? (startingValue + ownershipCost + sellerFlatFee) / sellerKeeps
+      ? (startingCost + outcome.ownership_cost + sellerFlatFee) / sellerKeeps
       : Number.POSITIVE_INFINITY
-    const breakEvenAnnualRate = Number.isFinite(requiredGross) && startingValue > 0
-      ? (Math.pow(requiredGross / startingValue, 1 / row.years) - 1) * 100
+    const breakEvenAnnualRate = Number.isFinite(requiredGross) && currentMarketValue > 0
+      ? (Math.pow(requiredGross / currentMarketValue, 1 / row.years) - 1) * 100
       : Number.POSITIVE_INFINITY
 
     return {
       ...row,
-      value: grossValue,
-      change: grossValue - startingValue,
-      exit_fee: exitFee,
-      ownership_cost: ownershipCost,
-      net_proceeds: netProceeds,
-      net_change: netProceeds - startingValue,
+      value: outcome.gross_value,
+      change: outcome.gross_value - currentMarketValue,
+      exit_fee: outcome.exit_fee,
+      ownership_cost: outcome.ownership_cost,
+      net_proceeds: outcome.net_proceeds,
+      net_change: outcome.net_change,
       break_even_annual_rate: breakEvenAnnualRate,
     }
   })

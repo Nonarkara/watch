@@ -21,6 +21,7 @@ import type { Card, ContextIndex } from '../lib/data.ts'
 import { POM_AGGREGATE, POM_BIO, POM_COLLECTION, type PomAxisTier, type PomWatch } from '../lib/pom.ts'
 import {
   NEUTRAL_ANNUAL_RATE,
+  netSaleOutcome,
   projectHoldingPeriods,
   projectNetHoldingPeriods,
   summarizeCollectionEstimates,
@@ -90,23 +91,28 @@ function ProjectionTable({ baseline, annualRate, currency }: {
   )
 }
 
-function NetProjectionTable({ baseline, annualRate, annualOwnershipCost, fee }: {
+function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCost, fee }: {
   baseline: number
+  costBasis: number
   annualRate: number
   annualOwnershipCost: number
   fee: { seller_fee_pct: number | null; seller_flat_fee_usd: number | null }
 }) {
-  const rows = projectNetHoldingPeriods(baseline, annualRate, annualOwnershipCost, fee)
+  const rows = projectNetHoldingPeriods(baseline, costBasis, annualRate, annualOwnershipCost, fee)
+  const today = netSaleOutcome(baseline, costBasis, 0, fee)
+  const alreadyAboveCost = today.net_change >= 0
   const firstNetPositive = rows.find((row) => row.net_change >= 0)
   const longestHorizon = rows.at(-1)!
   return (
     <>
-      <div className="pom-net-read" data-positive={Boolean(firstNetPositive)}>
+      <div className="pom-net-read" data-positive={alreadyAboveCost || Boolean(firstNetPositive)}>
         <span className="mono">MODEL READ · ASSUMPTIONS, NOT A FORECAST</span>
-        <strong>{firstNetPositive
+        <strong>{alreadyAboveCost
+          ? 'Already above net cost basis at today’s value'
+          : firstNetPositive
           ? `Net break-even appears by year ${firstNetPositive.years}`
           : `Still below net break-even after ${longestHorizon.years} years`}</strong>
-        <p>{annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve · selected verified seller fee applied at exit.</p>
+        <p>Today after the selected seller fee: {signedMoney(today.net_change, 'USD')} vs cost basis, before tax and past ownership costs. Future model: {annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve.</p>
       </div>
       <div className="pom-projection-wrap">
         <table className="pom-projection-table pom-net-table" aria-label="Net sale outcome after verified seller fees and user-declared ownership costs">
@@ -117,8 +123,8 @@ function NetProjectionTable({ baseline, annualRate, annualOwnershipCost, fee }: 
             <th>Exit fee</th>
             <th>Ownership costs</th>
             <th>Net sale outcome</th>
-            <th>Net vs start</th>
-            <th>Growth needed to break even</th>
+            <th>Net vs cost basis</th>
+            <th>Annual change at break-even</th>
           </tr>
         </thead>
         <tbody>
@@ -216,7 +222,8 @@ function ValueLab() {
   const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
   const [savedBaseline, setSavedBaseline] = useState('')
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
-  const [manualWatchBaseline, setManualWatchBaseline] = useState('')
+  const [manualWatchValue, setManualWatchValue] = useState('')
+  const [purchaseCostBasis, setPurchaseCostBasis] = useState('')
   const [exitVenueId, setExitVenueId] = useState('chrono24')
   const [annualOwnershipCost, setAnnualOwnershipCost] = useState('')
 
@@ -225,7 +232,8 @@ function ValueLab() {
     if (!data || !requestedWatchId) return
     if (data.cards.some((card) => card.id === requestedWatchId)) {
       setSelectedId(requestedWatchId)
-      setManualWatchBaseline('')
+      setManualWatchValue('')
+      setPurchaseCostBasis('')
     }
     setTab('watch')
     const frame = window.requestAnimationFrame(() => {
@@ -282,10 +290,14 @@ function ValueLab() {
   const savedScenarioBaseline = enteredSavedBaseline > 0
     ? enteredSavedBaseline
     : savedSummary.evidence_total
-  const enteredWatchBaseline = Number(manualWatchBaseline)
-  const watchBaseline = enteredWatchBaseline > 0
-    ? enteredWatchBaseline
+  const enteredWatchValue = Number(manualWatchValue)
+  const watchBaseline = enteredWatchValue > 0
+    ? enteredWatchValue
     : selectedCard.computed.estimate.value
+  const enteredCostBasis = Number(purchaseCostBasis)
+  const watchCostBasis = enteredCostBasis > 0
+    ? enteredCostBasis
+    : watchBaseline
   const basketBaseline = Number(pomBaseline) > 0
     ? Number(pomBaseline)
     : POM_AGGREGATE.article_value_mid_thb
@@ -314,7 +326,8 @@ function ValueLab() {
 
   const chooseWatch = (watchId: string) => {
     setSelectedId(watchId)
-    setManualWatchBaseline('')
+    setManualWatchValue('')
+    setPurchaseCostBasis('')
     setTab('watch')
     setWatchQuery(watchId)
   }
@@ -505,23 +518,53 @@ function ValueLab() {
           </div>
 
           <div className="pom-lab-controls">
-            <label className="pom-baseline-field">
-              <span>Your starting value · USD</span>
-              <input type="number" min="1" step="100" inputMode="numeric" value={manualWatchBaseline}
-                placeholder={selectedCard.computed.estimate.value?.toString() ?? 'Enter purchase price'}
-                onChange={(event) => setManualWatchBaseline(event.target.value)} />
-              <small>{enteredWatchBaseline > 0 ? 'Using your number.' : selectedCard.computed.estimate.value != null
-                ? `Using the ${selectedCard.computed.estimate.method?.replaceAll('_', ' ')} estimate until you enter your own value.`
-                : 'No estimate exists. Enter a purchase price to run arithmetic without claiming a market valuation.'}</small>
-            </label>
+            <div className="pom-baseline-field pom-watch-basis-fields">
+              <label>
+                <span>Current market value · USD</span>
+                <input type="number" min="1" step="100" inputMode="numeric" value={manualWatchValue}
+                  placeholder={selectedCard.computed.estimate.value?.toString() ?? 'Enter current value'}
+                  onChange={(event) => setManualWatchValue(event.target.value)} />
+                <small>{enteredWatchValue > 0 ? 'USER APPRAISAL · using your current value.' : selectedCard.computed.estimate.value != null
+                  ? `DOSSIER ESTIMATE · ${selectedCard.computed.estimate.n} comps · tier ${selectedCard.computed.confidence.tier ?? '—'} · as of ${selectedCard.computed.estimate.as_of ?? '—'}.`
+                  : 'No estimate exists. Enter a current appraisal to run arithmetic without claiming a market valuation.'}</small>
+              </label>
+              <label>
+                <span>What you paid · USD (optional)</span>
+                <input type="number" min="1" step="100" inputMode="numeric" value={purchaseCostBasis}
+                  placeholder={watchBaseline?.toString() ?? 'Enter purchase price'}
+                  onChange={(event) => setPurchaseCostBasis(event.target.value)} />
+                <small>{enteredCostBasis > 0
+                  ? 'USER COST BASIS · used for net gain and break-even.'
+                  : 'Blank means a neutral purchase today at the current value. It does not assume an old purchase price.'}</small>
+              </label>
+            </div>
             <RateControl id="pom-watch-rate" value={annualRate} onChange={setAnnualRate} context={watchIndex} />
           </div>
 
-          {watchBaseline != null && watchBaseline > 0 ? (
+          {watchBaseline != null && watchBaseline > 0 && watchCostBasis != null && watchCostBasis > 0 ? (
             <>
+              <div className="pom-basis-snapshot" aria-label="Current value and owner cost basis">
+                <div>
+                  <span className="mono">CURRENT VALUE BASIS</span>
+                  <strong>{money(watchBaseline, 'USD')}</strong>
+                  <small>{enteredWatchValue > 0
+                    ? 'USER APPRAISAL'
+                    : `${selectedCard.computed.estimate.n} COMPS · TIER ${selectedCard.computed.confidence.tier ?? '—'} · AS OF ${selectedCard.computed.estimate.as_of ?? '—'}`}</small>
+                </div>
+                <div>
+                  <span className="mono">YOUR COST BASIS</span>
+                  <strong>{money(watchCostBasis, 'USD')}</strong>
+                  <small>{enteredCostBasis > 0 ? 'USER INPUT' : 'NEUTRAL DEFAULT · CURRENT VALUE'}</small>
+                </div>
+                <div data-positive={watchBaseline >= watchCostBasis}>
+                  <span className="mono">MARK-TO-MARKET</span>
+                  <strong>{signedMoney(watchBaseline - watchCostBasis, 'USD')}</strong>
+                  <small>BEFORE SELLING FEES AND FUTURE OWNERSHIP COSTS</small>
+                </div>
+              </div>
               <ProjectionTable baseline={watchBaseline} annualRate={annualRate} currency="USD" />
               <p className="pom-formula mono">
-                SCENARIO ONLY · {money(watchBaseline, 'USD')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup> · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED
+                FUTURE GROSS VALUE STARTS FROM TODAY’S {money(watchBaseline, 'USD')} VALUE · COST BASIS {money(watchCostBasis, 'USD')} IS USED ONLY FOR INVESTMENT GAIN AND BREAK-EVEN · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED HERE
               </p>
             </>
           ) : (
@@ -556,20 +599,20 @@ function ValueLab() {
               </label>
             </div>
 
-            {selectedExitScenario?.fee_rule && watchBaseline != null && watchBaseline > 0 ? (
+            {selectedExitScenario?.fee_rule && watchBaseline != null && watchBaseline > 0 && watchCostBasis != null && watchCostBasis > 0 ? (
               <>
                 <div className="pom-net-source">
                   <strong className="mono">{selectedExitScenario.venue.name.toUpperCase()} · {sellerFeeLabel(selectedExitScenario.fee_rule)}</strong>
-                  <span className="mono">SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED · CHECKED {selectedExitScenario.fee_rule.checked_date} · OWNERSHIP COST: USER ASSUMPTION {money(ownershipCost, 'USD')}/YR</span>
+                  <span className="mono">SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED · CHECKED {selectedExitScenario.fee_rule.checked_date} · COST BASIS: {enteredCostBasis > 0 ? `USER INPUT ${money(watchCostBasis, 'USD')}` : `NEUTRAL DEFAULT ${money(watchCostBasis, 'USD')}`} · OWNERSHIP COST: USER ASSUMPTION {money(ownershipCost, 'USD')}/YR</span>
                   <span className="mono">ONLY THE SELLER FEE ENTERS THIS NET-OUTCOME MODEL · ANY BUYER FEE SHOWN ON THE VENUE PAGE IS NOT DEDUCTED HERE</span>
                   <span>{selectedExitScenario.fee_rule.sources.map((source, index) => <span key={source.url}>
                     {index > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
                   </span>)}</span>
                 </div>
-                <NetProjectionTable baseline={watchBaseline} annualRate={annualRate}
+                <NetProjectionTable baseline={watchBaseline} costBasis={watchCostBasis} annualRate={annualRate}
                   annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
                 <p className="pom-formula mono">
-                  NET SALE OUTCOME = GROSS SCENARIO − VERIFIED SELLER FEE − ({money(ownershipCost, 'USD')} × YEARS HELD) · TAX, INFLATION, PURCHASE FEES, CONDITION AND NEGOTIATED PRICE STILL EXCLUDED
+                  NET SALE OUTCOME = GROSS SCENARIO − VERIFIED SELLER FEE − ({money(ownershipCost, 'USD')} × YEARS HELD) · NET VS COST BASIS = NET SALE OUTCOME − {money(watchCostBasis, 'USD')} · TAX, INFLATION, PURCHASE FEES, CONDITION AND NEGOTIATED PRICE STILL EXCLUDED
                 </p>
               </>
             ) : (

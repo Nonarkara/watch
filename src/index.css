@@ -2998,6 +2998,10 @@ main.shell { padding-top: var(--space-md); }
 .pom-baseline-field > span, .pom-rate-label label, .pom-watch-picker > label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .pom-baseline-field input { width: 100%; margin: 10px 0 8px; padding: 10px 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 18px; }
 .pom-baseline-field small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; }
+.pom-watch-basis-fields { display: grid; gap: 16px; }
+.pom-watch-basis-fields label { display: block; }
+.pom-watch-basis-fields label + label { padding-top: 16px; border-top: 1px solid var(--neutral-line); }
+.pom-watch-basis-fields label > span { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .pom-rate-label { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .pom-rate-label output { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--coral); }
 .pom-rate-control input[type="range"] { width: 100%; margin: 14px 0 10px; accent-color: var(--coral); }
@@ -3018,6 +3022,13 @@ main.shell { padding-top: var(--space-md); }
 .pom-gain { color: var(--teal-2); font-weight: 700; }
 .pom-loss { color: var(--coral); font-weight: 700; }
 .pom-formula { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--yellow); background: var(--paper-2); font-size: 9px; line-height: 1.5; color: var(--dim); overflow-wrap: anywhere; }
+.pom-basis-snapshot { display: grid; grid-template-columns: 1fr; margin: 0 0 18px; border: 1px solid var(--ink); font-variant-numeric: tabular-nums; }
+.pom-basis-snapshot > div { min-width: 0; padding: 14px 16px; border-bottom: 1px solid var(--ink); }
+.pom-basis-snapshot > div:last-child { border-bottom: 0; background: var(--paper-2); }
+.pom-basis-snapshot span, .pom-basis-snapshot small { display: block; color: var(--dim); font-size: 8px; line-height: 1.45; letter-spacing: .08em; }
+.pom-basis-snapshot strong { display: block; margin: 5px 0; font-family: var(--font-display); font-size: 24px; line-height: 1; }
+.pom-basis-snapshot > div:last-child strong { color: var(--coral); }
+.pom-basis-snapshot > div[data-positive="true"] strong { color: var(--teal-2); }
 .pom-watch-picker { padding: 18px; border: 1px solid var(--ink); background: var(--yellow); color: var(--ink); }
 .pom-watch-picker select { width: 100%; margin-top: 10px; padding: 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; }
 .pom-watch-picker p { margin: 10px 0 0; font-size: 9px; letter-spacing: .08em; }
@@ -3111,6 +3122,9 @@ main.shell { padding-top: var(--space-md); }
   .pom-value-status > div:last-child { border-right: 0; }
   .pom-watch-evidence { grid-template-columns: .8fr 1.2fr; }
   .pom-watch-title { border-right: 1px solid var(--ink); border-bottom: 0; }
+  .pom-basis-snapshot { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pom-basis-snapshot > div { border-right: 1px solid var(--ink); border-bottom: 0; }
+  .pom-basis-snapshot > div:last-child { border-right: 0; }
 }
 @media (min-width: 920px) {
   .pom-lab-controls { grid-template-columns: .9fr 1.1fr; }

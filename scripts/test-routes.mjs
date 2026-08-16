@@ -98,10 +98,13 @@ assert.ok(pomPageSrc.includes('/marketplaces?watch='),
   'the value lab must carry its selected reference into selling-cost math');
 assert.ok(pomPageSrc.includes('projectNetHoldingPeriods') && pomPageSrc.includes('SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED'),
   'single-watch projections must expose net exit math only through a verified fee schedule');
-assert.ok(pomPageSrc.includes('OWNERSHIP COST: USER ASSUMPTION') && pomPageSrc.includes('Growth needed to break even'),
+assert.ok(pomPageSrc.includes('OWNERSHIP COST: USER ASSUMPTION') && pomPageSrc.includes('Annual change at break-even'),
   'net outcomes must label user costs and show the break-even growth requirement');
 assert.ok(pomPageSrc.includes('Net break-even appears by year') && pomPageSrc.includes('ASSUMPTIONS, NOT A FORECAST'),
   'net outcomes must turn the table into an explicit, bounded model read');
+assert.ok(pomPageSrc.includes('Current market value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
+  && pomPageSrc.includes('Net vs cost basis'),
+  'single-watch math must keep current valuation separate from owner cost basis');
 const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
 assert.equal(Math.round(compoundBenchmark), 26_533,
   '20-year 5% compound benchmark must remain stable');

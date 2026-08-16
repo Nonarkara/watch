@@ -43,6 +43,8 @@ Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F
 
 **Personal value lab (browser-private).** `/pom#value-lab` has three modes: Uncle Pom's reported 2018 basket, the visitor's `watch.saved` set, and one reference from the register. A system-derived saved-collection total exists only when every saved watch has a publishable estimate; a priced subset is shown but never promoted into a total. Otherwise the visitor must enter an appraisal baseline. All five holding periods are scenario arithmetic, default growth is neutral 0%, and the total names its component source, confidence tier, and as-of date.
 
+For a single watch, current value and owner cost basis are separate inputs. Future gross value compounds from the current market value; net gain and break-even compare sale proceeds with what the owner paid. If cost basis is blank, the neutral default is a purchase today at today’s value. Never let a historical purchase price silently replace the present valuation baseline.
+
 **Venue fee lab.** `/marketplaces` and each dossier’s venue tab preserve the global directory, but only checked official fee schedules may produce arithmetic. Every scenario starts from the single dossier estimate and names its comp count, confidence tier, estimate date, fee source, and fee check date. A venue multiplier is never a quote; MSRP is never a resale baseline. Unverified venues stay searchable with fee math visibly off.
 
 When two sightings map to the same reference (e.g. Milgauss 116400GV on White Lotus and A Man in Full), show the dossier portrait once. The second card says the portrait is shared — never paste the same photo as if it were two different stills.
