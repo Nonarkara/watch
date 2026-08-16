@@ -11,13 +11,15 @@ import TransactionGraphic from '../components/TransactionGraphic.tsx'
 import CitedIn from '../components/CitedIn.tsx'
 import Cite from '../components/Cite.tsx'
 
+import { getVenueValuations } from '../lib/venues.ts'
+
 export default function Dossier() {
   const { id } = useParams()
   const data = useDataset()
   const c = data?.cards.find((x) => x.id === id)
   // Must sit above the early returns: a conditional hook changes hook order when
   // navigating from a found card to a missing one, and React throws.
-  const [view, setView] = useState<'evidence' | 'story'>('evidence')
+  const [view, setView] = useState<'evidence' | 'venues' | 'story'>('evidence')
   // Compare and Saved don't depend on data — they read from localStorage-backed
   // contexts mounted in App.tsx. Calling them before the !data guard is safe
   // and keeps the hook order stable.
@@ -208,6 +210,10 @@ export default function Dossier() {
           className={'dsr-tab' + (view === 'evidence' ? ' on' : '')} onClick={() => setView('evidence')}>
           EVIDENCE
         </button>
+        <button type="button" role="tab" aria-selected={view === 'venues'}
+          className={'dsr-tab' + (view === 'venues' ? ' on' : '')} onClick={() => setView('venues')}>
+          MARKETPLACES & VENUES
+        </button>
         <button type="button" role="tab" aria-selected={view === 'story'}
           className={'dsr-tab' + (view === 'story' ? ' on' : '')} onClick={() => setView('story')}>
           STORY & PROVENANCE
@@ -361,6 +367,46 @@ export default function Dossier() {
       )}
 
       </>}
+
+      {view === 'venues' && (
+        <section className="sect dossier-venues-section">
+          <div className="section-rule">
+            <h2>Global Marketplaces & Platform Valuations</h2>
+            <span className="mono micro dim">32 PLATFORMS & AUCTION HOUSES WORLDWIDE</span>
+          </div>
+          <p className="lede dim" style={{ marginBottom: 'var(--space-md)' }}>
+            Real-time estimated clearing tags, cash buyouts, and certified retail premiums for {c.identity.brand} {c.identity.name} ({c.identity.reference}) across global marketplaces, fine auction houses, and dealer networks.
+          </p>
+
+          <div className="dossier-venue-grid">
+            {getVenueValuations(c).map((q) => (
+              <div key={q.venue.id} className="dossier-venue-card">
+                <div className="dvc-head">
+                  <div>
+                    <span className="eyebrow">{q.venue.region.toUpperCase()} · {q.venue.country.toUpperCase()}</span>
+                    <h4>{q.venue.name}</h4>
+                  </div>
+                  <span className="vc-type-tag mono micro">{q.venue.type.toUpperCase()}</span>
+                </div>
+                <div className="dvc-price-row">
+                  <span className="lab mono micro">ESTIMATED TAG</span>
+                  <span className="val mono">{q.estimated_price ? usd(q.estimated_price) : 'N/A'}</span>
+                </div>
+                <div className="dvc-details mono micro">
+                  <span>Seller Net: <strong>{q.net_seller_payout ? usd(q.net_seller_payout) : 'N/A'}</strong></span>
+                  <span>Buyer Cost: <strong>{q.total_buyer_cost ? usd(q.total_buyer_cost) : 'N/A'}</strong></span>
+                </div>
+                <div className="dvc-footer">
+                  <span className="dvc-bias mono micro amber">{q.bias_label}</span>
+                  <a href={`${q.venue.website_url}?q=${encodeURIComponent(`${c.identity.brand} ${c.identity.reference}`)}`} target="_blank" rel="noreferrer" className="src-a mono micro">
+                    SEARCH {q.venue.name.toUpperCase()} ↗
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {view === 'story' && <>
       {c.provenance_events.length > 0 && (

@@ -33,6 +33,7 @@ const Bible = lazy(() => import('./pages/Bible.tsx'))
 const Pom = lazy(() => import('./pages/Pom.tsx'))
 const Saved = lazy(() => import('./pages/Saved.tsx'))
 const Labs = lazy(() => import('./pages/Labs.tsx'))
+const Marketplaces = lazy(() => import('./pages/Marketplaces.tsx'))
 
 /** /guides and /guides/:slug were folded into /bible. Old URLs still resolve
  *  via this lightweight redirect so external links and search results don't
@@ -79,6 +80,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="pom" element={<Suspense fallback={<RouteFallback />}><Pom /></Suspense>} />
           <Route path="saved" element={<Suspense fallback={<RouteFallback />}><Saved /></Suspense>} />
           <Route path="labs" element={<Suspense fallback={<RouteFallback />}><Labs /></Suspense>} />
+          <Route path="marketplaces" element={<Suspense fallback={<RouteFallback />}><Marketplaces /></Suspense>} />
+          <Route path="venues" element={<Suspense fallback={<RouteFallback />}><Marketplaces /></Suspense>} />
           <Route path="guides" element={<GuidesRedirect />} />
           <Route path="guides/:slug" element={<GuidesRedirect />} />
         </Route>

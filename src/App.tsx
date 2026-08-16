@@ -18,6 +18,7 @@ import { SearchPalette } from './lib/SearchPalette.tsx'
 const NAV = [
   { to: '/register', label: 'Objects' },
   { to: '/brands', label: 'Brands' },
+  { to: '/marketplaces', label: 'Marketplaces' },
   { to: '/screen', label: 'On Screen' },
   { to: '/watchmaking', label: 'Watchmaking' },
   { to: '/bible', label: 'Bible' },
@@ -29,6 +30,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/': 'Time Pop — Watches, Stories & Screen',
   '/register': 'Object Archive — Time Pop',
   '/brands': 'Brand Directory — Time Pop',
+  '/marketplaces': 'Global Marketplaces & Venues — Time Pop',
+  '/venues': 'Global Marketplaces & Venues — Time Pop',
   '/photos': 'Rolex Object Atlas — Time Pop',
   '/screen': 'Watches on Screen — Time Pop',
   '/economy': 'Attention, Supply & Price — Time Pop',

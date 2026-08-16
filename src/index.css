@@ -4848,3 +4848,152 @@ main.shell { padding-top: var(--space-md); }
     color: var(--sky);
   }
 }
+
+/* ── Global Marketplaces & Venue Directory Styles ── */
+.venue-card-selector-panel {
+  background: var(--paper-2);
+  border: var(--border);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.selected-watch-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  background: var(--bg);
+  border: var(--border);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+.swb-info h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 700;
+  margin: 2px 0;
+}
+
+.venue-filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+  border-block: var(--border);
+  padding: var(--space-sm) 0;
+}
+.vf-search {
+  flex: 1 1 300px;
+}
+.vf-selects {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.mini-sel {
+  min-height: 38px;
+  font-size: var(--text-micro);
+}
+
+.venues-grid, .dossier-venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.venue-card, .dossier-venue-card {
+  border: var(--border);
+  background: var(--bg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.vc-top, .dvc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--space-xs);
+}
+.vc-top h3, .dvc-head h4 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.vc-type-tag {
+  border: 1px solid var(--rule);
+  padding: 2px 6px;
+  color: var(--dim);
+  font-size: 9px;
+  white-space: nowrap;
+}
+.vc-desc {
+  font-size: var(--text-micro);
+  color: var(--dim);
+  line-height: 1.45;
+}
+
+.vc-quote-box {
+  background: var(--paper-2);
+  border: var(--border);
+  border-left: 3px solid var(--amber);
+  padding: 10px 12px;
+  margin: 6px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.vcq-row, .dvc-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.vcq-row .val, .dvc-price-row .val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amber);
+}
+.vcq-sub, .dvc-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--dim);
+}
+.vcq-bias, .dvc-bias {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.vc-specs {
+  border-top: var(--border);
+  padding-top: var(--space-xs);
+}
+.vcs-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+  font-size: var(--text-micro);
+}
+.vcs-row dt {
+  color: var(--dim);
+}
+.vcs-row dd {
+  font-weight: 500;
+}
+
+.vc-actions, .dvc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  border-top: var(--border);
+}
+
