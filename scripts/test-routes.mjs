@@ -138,6 +138,29 @@ assert.deepEqual(inventedInterest, [],
   "Google Trends interest must stay in 0–100 when present");
 console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of})`);
 
+// Saved is the collector's private view of the public attention snapshot.
+// The set and its prior-day rank history must stay on-device, while its
+// browse count must follow the build instead of drifting as the archive grows.
+const savedSrc = readFileSync(join(ROOT, "src/pages/Saved.tsx"), "utf8");
+const globalCss = readFileSync(join(ROOT, "src/index.css"), "utf8");
+assert.ok(savedSrc.includes('loadMarketTrends') && savedSrc.includes('compareSavedAttention'),
+  'Saved must join local watch ids to the daily public-attention snapshot');
+assert.ok(savedSrc.includes("watch.attention.history.v1"),
+  'Saved attention history must use an explicit browser-local storage key');
+assert.ok(savedSrc.includes('BROWSE THE {data.count} OBJECTS'),
+  'Saved empty-state archive count must come from the live dataset');
+assert.ok(!savedSrc.includes('BROWSE THE 261 OBJECTS'),
+  'Saved must not preserve the stale 261-object literal');
+assert.ok(savedSrc.includes('ATTENTION ≠ PRICE'),
+  'Saved pulse must visibly distinguish attention from price evidence');
+console.log('✓ Saved pulse is private, evidence-labelled, and count-safe');
+
+assert.match(globalCss, /\.cite-source-link\s*\{[^}]*pointer-events:\s*none;/s,
+  'hidden citation links must not intercept clicks on nearby dossier controls');
+assert.match(globalCss, /\.cite:hover \.cite-source-link,[^}]*pointer-events:\s*auto;/s,
+  'citation links must become interactive with the visible citation popover');
+console.log('✓ hidden citation popovers cannot steal dossier action clicks');
+
 // ─── catalog picks: grow / precise / interesting without inventing comps ───
 assert.ok(homeSrc.includes('media.length > 0'),
   'Home ticker must prefer photographed cards within each brand');
