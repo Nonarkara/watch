@@ -3037,10 +3037,11 @@ main.shell { padding-top: var(--space-md); }
 .pom-watch-search button { padding: 8px 12px; border-left: 0; font-size: 9px; letter-spacing: .08em; cursor: pointer; }
 .pom-watch-search button:active, .pom-watch-scopes button:active { transform: scale(.97); }
 .pom-watch-scopes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 8px; }
-.pom-watch-scopes button { min-width: 0; min-height: 40px; padding: 7px 5px; border: 1px solid var(--ink); border-right: 0; background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 8px; line-height: 1.25; letter-spacing: .04em; cursor: pointer; }
+.pom-watch-scopes button { min-width: 0; min-height: 40px; padding: 7px 5px; border: 1px solid var(--ink); border-right: 0; background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 9px; line-height: 1.25; letter-spacing: .04em; cursor: pointer; }
 .pom-watch-scopes button:last-child { border-right: 1px solid var(--ink); }
 .pom-watch-scopes button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.pom-watch-result { padding: 8px 10px; border-right: 1px solid var(--ink); border-left: 1px solid var(--ink); background: var(--paper-2); overflow-wrap: anywhere; }
+.pom-watch-result { padding: 8px 10px; border: 1px solid var(--ink); background: var(--paper-2); overflow-wrap: anywhere; }
+.pom-watch-empty { margin: 8px 0 0; padding: 10px 12px; border: 1px solid var(--coral); background: var(--paper); color: var(--coral); font-size: 9px; line-height: 1.5; letter-spacing: .04em; }
 .pom-watch-picker select { width: 100%; margin-top: 10px; padding: 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; }
 .pom-watch-picker p { margin: 10px 0 0; font-size: 9px; letter-spacing: .08em; }
 .pom-watch-evidence { display: grid; grid-template-columns: 1fr; margin-top: 18px; border: 1px solid var(--ink); }

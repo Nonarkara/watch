@@ -109,8 +109,10 @@ assert.ok(pomPageSrc.includes('OWNER SCENARIO · LIVE') && pomPageSrc.includes('
   && pomPageSrc.includes('ScenarioCurve'),
   'owner scenario must expose the same gross, net, and cost-basis rows as a live time curve');
 assert.ok(pomPageSrc.includes('Search watch references') && pomPageSrc.includes("watchScope === 'anchored'")
-  && pomPageSrc.includes('DATA BUILD {data.built}'),
+  && pomPageSrc.includes('BUILD {data.built}'),
   'the 302-reference picker must support search and dataset-derived evidence scopes');
+assert.ok(pomPageSrc.includes('pom-watch-empty') && pomPageSrc.includes('NO REFERENCE MATCHES'),
+  'the picker must name the no-match state and explain the selected watch is unchanged');
 const compoundBenchmark = 10_000 * Math.pow(1.05, 20);
 assert.equal(Math.round(compoundBenchmark), 26_533,
   '20-year 5% compound benchmark must remain stable');

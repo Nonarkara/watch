@@ -563,8 +563,9 @@ function ValueLab() {
             <label htmlFor="pom-watch-select">Pick a reference in the register</label>
             <div className="pom-watch-search">
               <input type="search" aria-label="Search watch references" value={watchSearch}
-                placeholder="Brand, reference, name or nickname"
-                onChange={(event) => setWatchSearch(event.target.value)} />
+                placeholder="Brand, reference, name, nickname, or collection"
+                onChange={(event) => setWatchSearch(event.target.value)}
+                onKeyDown={(event) => { if (event.key === 'Escape' && watchSearch) { event.preventDefault(); setWatchSearch('') } }} />
               {watchSearch && <button type="button" onClick={() => setWatchSearch('')} aria-label="Clear watch search">CLEAR</button>}
             </div>
             <div className="pom-watch-scopes" role="group" aria-label="Reference evidence filter">
@@ -573,7 +574,9 @@ function ValueLab() {
               <button type="button" aria-pressed={watchScope === 'ready'} onClick={() => setWatchScope('ready')}>ESTIMATE READY · {estimateReady}</button>
             </div>
             <p className="pom-watch-result mono" role="status" aria-live="polite">
-              {visibleCards.length} SHOWN · {watchScope === 'all' ? 'ALL REFERENCES' : watchScope === 'anchored' ? 'PRICE ANCHOR ABOVE $1,000' : 'PUBLISHABLE MARKET ESTIMATE'}{normalizedWatchSearch ? ` · MATCHING “${watchSearch.trim()}”` : ''} · DATA BUILD {data.built}
+              {visibleCards.length} OF {data.count} SHOWN
+              {watchScope === 'anchored' ? ' · OVER $1K' : watchScope === 'ready' ? ' · ESTIMATE READY' : ''}
+              {normalizedWatchSearch ? ` · MATCHING “${watchSearch.trim()}”` : ''} · BUILD {data.built}
             </p>
             <select id="pom-watch-select" value={visibleSelection} disabled={visibleCards.length === 0}
               onChange={(event) => chooseWatch(event.target.value)}>
@@ -588,6 +591,11 @@ function ValueLab() {
                 </option>
               ))}
             </select>
+            {visibleCards.length === 0 && normalizedWatchSearch && (
+              <p className="pom-watch-empty mono" role="status">
+                NO REFERENCE MATCHES “{watchSearch.trim()}”. THE SELECTED WATCH, ITS EVIDENCE, AND THE URL ARE UNCHANGED. CLEAR THE SEARCH OR PICK A WIDER SCOPE.
+              </p>
+            )}
             {invalidRequestedWatch && (
               <p className="pom-deep-link-note mono" role="status">
                 “{requestedWatchId}” IS NOT IN THIS BUILD · SHOWING {selectedCard.identity.brand.toUpperCase()} {selectedCard.identity.reference}
