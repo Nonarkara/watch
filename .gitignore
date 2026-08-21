@@ -14,3 +14,8 @@ _shared
 # data pipeline runtime state (fetch mtimes, dry-run artefacts)
 data/.state/
 .cache/
+
+# env files
+.env
+.env.*
+!.env.example
