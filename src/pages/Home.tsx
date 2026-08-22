@@ -278,7 +278,7 @@ export default function Home() {
                     <span className="trending-now-rank mono">{String(row.rank).padStart(2, '0')}</span>
                     <span className="trending-now-media">
                       {media
-                        ? <img src={media.url} alt="" loading="lazy" />
+                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="trending-now-body">
@@ -327,7 +327,7 @@ export default function Home() {
                     <span className="market-trends-rank mono">{String(row.rank).padStart(2, '0')}</span>
                     <span className="market-trends-media">
                       {media
-                        ? <img src={media.url} alt="" loading="lazy" />
+                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="market-trends-body">

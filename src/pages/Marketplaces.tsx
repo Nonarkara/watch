@@ -137,6 +137,7 @@ export default function Marketplaces() {
             type="text"
             className="inp field"
             placeholder="Search venue name, city, country..."
+            aria-label="Search venues by name, city, or country"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -145,6 +146,7 @@ export default function Marketplaces() {
         <div className="vf-selects">
           <select
             className="sel field mini-sel"
+            aria-label="Filter by region"
             value={regionFilter}
             onChange={(e) => setRegionFilter(e.target.value)}
           >
@@ -158,6 +160,7 @@ export default function Marketplaces() {
 
           <select
             className="sel field mini-sel"
+            aria-label="Filter by venue type"
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
           >

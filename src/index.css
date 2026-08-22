@@ -32,6 +32,14 @@
   --navy: #11364B;
   --navy-2: #0B2331;
   --navy-pale: #DDE7EE;
+  /* --navy as TEXT. --navy is a dark hue that vanishes on the dark canvas
+     (1.4:1). Every rule that colours *type* navy uses this token instead;
+     it flips to --sky in dark mode (10:1 on #0A0A0A). --navy itself stays
+     for plates and borders, which want to remain dark in both themes.
+     Enforced by scripts/test-css-theme.mjs — a raw navy value used as a
+     text colour fails the build, with one allow-list entry
+     (`.screen-card-image-tag` keeps navy on its yellow tag in both themes). */
+  --navy-ink: var(--navy);
   --teal: #55B8B1;
   --teal-2: #3A9C95;
   --teal-pale: #DDEEEF;
@@ -69,6 +77,7 @@
   --coral-2: #F08776;
   --yellow-2: #FFD25E;
   --navy-2: #1B4F6A;
+  --navy-ink: var(--sky);
   --coral-pale: #4A1F1B;
   --yellow-pale: #3A2E15;
   --navy-pale: #1A2A36;
@@ -92,11 +101,23 @@
     --coral-2: #F08776;
     --yellow-2: #FFD25E;
     --navy-2: #1B4F6A;
+    --navy-ink: var(--sky);
     --coral-pale: #4A1F1B;
     --yellow-pale: #3A2E15;
     --navy-pale: #1A2A36;
     --teal-pale: #18302E;
   }
+}
+
+/* Dark mode: no image multiplies. `mix-blend-mode: multiply` makes a white
+   product-photo background disappear into white paper — good in light mode,
+   but multiply × a near-black canvas = black, and the watch vanishes. Ten
+   rules set multiply; four had been patched back one class at a time and six
+   (the dossier hero among them) were missed. One rule here covers every img
+   now and every img added later. Enforced by scripts/test-css-theme.mjs. */
+:root[data-theme="dark"] img { mix-blend-mode: normal; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) img { mix-blend-mode: normal; }
 }
 /* Design tokens lock the dashboard shell (height:100dvh; overflow:hidden).
    Do NOT write `overflow: visible` then `overflow-x: hidden` — Lightning CSS
@@ -124,6 +145,21 @@ body {
 }
 #root { min-height: 100%; }
 a { color: inherit; text-decoration: none; }
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--amber);
+  color: var(--paper);
+  padding: 8px 16px;
+  z-index: 9999;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 
 .shell { max-width: var(--shell); margin: 0 auto; padding-left: calc(var(--pad) + var(--sal)); padding-right: calc(var(--pad) + var(--sar)); }
@@ -308,7 +344,7 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .scarcity-score > span { display: block; }
 
 /* ── Register controls ── */
-.controls { display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-md); }
+.controls { display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-sm); }
 .controls-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
 .inp, .sel { min-height: var(--tap-min); background: var(--bg); color: var(--fg); border: var(--border); padding: 0 var(--space-md); font: inherit; }
 .inp { flex: 1 1 200px; }
@@ -321,7 +357,7 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .chip { display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0 var(--space-md); border: var(--border); color: var(--dim); font-size: var(--text-micro); font-weight: 500; letter-spacing: 0.01em; }
 .chip.on { color: var(--bg); background: var(--fg); border-color: var(--fg); }
 .chip:disabled { opacity: 0.4; cursor: not-allowed; }
-.count-line { color: var(--dim); font-size: var(--text-micro); }
+.count-line { color: var(--dim); font-size: var(--text-micro); margin-top: 2px; }
 
 /* ── Ledger ── */
 .lhead { display: none; }
@@ -465,7 +501,7 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .dsr-verdict-state { font-size: 9px; letter-spacing: 0.14em; text-align: right; font-weight: 700; }
 .dsr-verdict-row--coral.dsr-verdict-row--strong .dsr-verdict-state { color: var(--coral); }
 .dsr-verdict-row--yellow.dsr-verdict-row--strong .dsr-verdict-state { color: var(--yellow-2); }
-.dsr-verdict-row--navy.dsr-verdict-row--strong .dsr-verdict-state { color: var(--navy); }
+.dsr-verdict-row--navy.dsr-verdict-row--strong .dsr-verdict-state { color: var(--navy-ink); }
 .dsr-verdict-row--teal.dsr-verdict-row--strong .dsr-verdict-state { color: var(--teal); }
 .dsr-verdict-row--neutral .dsr-verdict-state { color: var(--dim); }
 .dsr-verdict-row--weak .dsr-verdict-state { color: var(--dim); opacity: 0.5; }
@@ -521,7 +557,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .ladder-row:last-child { border-bottom: none; }
 
 /* ── Footer ── */
-.ftr { border-top: var(--border); padding: var(--space-lg) 0 calc(var(--space-xl) + var(--sab)); }
+.ftr { border-top: var(--border); padding: var(--space-lg) 0 calc(var(--space-xl) + var(--sab) + 64px); }
 .ftr p { margin-bottom: var(--space-sm); }
 .ftr .micro.dim { max-width: 72ch; }
 .ftr-links { display: flex; flex-wrap: wrap; gap: var(--space-md); }
@@ -795,7 +831,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   font-weight: 800;
   line-height: 0.88;
   letter-spacing: -0.03em;
-  color: var(--navy);
+  color: var(--navy-ink);
   margin: 8px 0 12px;
   text-wrap: balance;
 }
@@ -803,8 +839,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .timepop-hero-copy .hero-actions { margin-top: 16px; gap: 10px; }
 .timepop-hero-copy .btn.secondary {
   background: transparent;
-  color: var(--navy);
-  border: 1px solid var(--navy);
+  color: var(--navy-ink);
+  border: 1px solid var(--navy-ink);
 }
 
 .hero-ledger {
@@ -864,7 +900,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   line-height: 1.05;
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums;
-  color: var(--navy);
+  color: var(--navy-ink);
   white-space: nowrap;
   /* 5-digit numbers (like 262) still need to fit; clip rather than ellipsis
      so the digits stay readable when the meta slot is narrow. */
@@ -905,28 +941,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 
 .btn.secondary {
   background: transparent;
-  color: var(--navy);
-  border: 1px solid var(--navy);
-}
-/* --navy on the dark canvas is 1.56:1 — the button reads as an empty outline
-   with nothing in it. --sky keeps the same blue identity and clears 10:1
-   (§11.10). Scoped globally rather than per-page because .btn.secondary is
-   also the escape link on the error boundary, which is the worst possible
-   place to hide a way out. Covers the .timepop-hero-copy and
-   .labs-hero-actions copies of this rule too — they set the same --navy. */
-:root[data-theme="dark"] .btn.secondary,
-:root[data-theme="dark"] .timepop-hero-copy .btn.secondary,
-:root[data-theme="dark"] .labs-hero-actions .btn.secondary {
-  color: var(--sky);
-  border-color: var(--sky);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .btn.secondary,
-  :root:not([data-theme="light"]) .timepop-hero-copy .btn.secondary,
-  :root:not([data-theme="light"]) .labs-hero-actions .btn.secondary {
-    color: var(--sky);
-    border-color: var(--sky);
-  }
+  color: var(--navy-ink);
+  border: 1px solid var(--navy-ink);
 }
 /* Was an offset "sticker shadow" (a solid coral rectangle behind the panel) --
    the trading-card-pop-art tell. A plain hairline card reads calmer and still
@@ -945,7 +961,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   font-size: var(--text-display);
   font-weight: 700;
   line-height: 1.05;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 .screen-caption { margin-top: 10px; line-height: 1.4; }
 .screen-rights { margin-top: 6px; line-height: 1.35; max-width: 42ch; }
@@ -1077,7 +1093,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 /* Strength colors: STRONG = full hue, NEUTRAL = pale, WEAK = dim. */
 .rax--strong.rax--coral .rax-value, .rax--strong.rax--coral .rax-bar-fill { color: var(--coral); }
 .rax--strong.rax--yellow .rax-value, .rax--strong.rax--yellow .rax-bar-fill { color: var(--yellow-2); }
-.rax--strong.rax--navy .rax-value, .rax--strong.rax--navy .rax-bar-fill { color: var(--navy); }
+.rax--strong.rax--navy .rax-value, .rax--strong.rax--navy .rax-bar-fill { color: var(--navy-ink); }
 .rax--strong.rax--teal .rax-value, .rax--strong.rax--teal .rax-bar-fill { color: var(--teal); }
 .rax--neutral.rax--coral .rax-value, .rax--neutral.rax--coral .rax-bar-fill { color: var(--coral-pale); }
 .rax--neutral.rax--yellow .rax-value, .rax--neutral.rax--yellow .rax-bar-fill { color: var(--yellow-pale); }
@@ -1113,8 +1129,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .screen-card-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 12px; gap: 6px; color: var(--dim); font-size: var(--text-micro); letter-spacing: .04em; }
 .screen-card-empty .mono { color: var(--dim); }
 .screen-policy { border: 1px solid var(--amber); border-left-width: 2px; padding: 12px 16px; margin: 0 0 24px; background: var(--paper-2); max-width: 92ch; }
-.screen-policy p { color: var(--navy); margin: 0; font-weight: 500; }
-.screen-still-withheld-note { margin: -8px 0 12px; padding: 8px 10px; border-left: 2px solid var(--amber); background: var(--paper-2); color: var(--navy); line-height: 1.4; }
+.screen-policy p { color: var(--navy-ink); margin: 0; font-weight: 500; }
+.screen-still-withheld-note { margin: -8px 0 12px; padding: 8px 10px; border-left: 2px solid var(--amber); background: var(--paper-2); color: var(--navy-ink); line-height: 1.4; }
 .brand-region-tag { color: var(--amber); border: 1px solid var(--amber); padding: 1px 6px; margin-left: 6px; font-size: var(--text-micro); letter-spacing: .08em; }
 .asia-spotlight { padding: 0 0 64px; border-bottom: 1px solid var(--rule); }
 .asia-spotlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
@@ -1311,7 +1327,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .cmp-verdict-state { font-size: 8.5px; letter-spacing: 0.12em; font-weight: 700; padding-left: 6px; }
 .cmp-verdict-row--coral.cmp-verdict-row--strong .cmp-verdict-state { color: var(--coral); }
 .cmp-verdict-row--yellow.cmp-verdict-row--strong .cmp-verdict-state { color: var(--yellow-2); }
-.cmp-verdict-row--navy.cmp-verdict-row--strong .cmp-verdict-state { color: var(--navy); }
+.cmp-verdict-row--navy.cmp-verdict-row--strong .cmp-verdict-state { color: var(--navy-ink); }
 .cmp-verdict-row--teal.cmp-verdict-row--strong .cmp-verdict-state { color: var(--teal); }
 .cmp-verdict-row--neutral .cmp-verdict-state { color: var(--dim); }
 .cmp-verdict-row--weak .cmp-verdict-state { color: var(--dim); opacity: 0.55; }
@@ -1321,8 +1337,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .cmp-col:last-child { border-bottom: 0; }
 }
 
-/* The dock is fixed, so the page needs room to finish above it. */
-.ftr { padding-bottom: calc(var(--space-xl) + var(--sab) + 64px); }
 
 /* ── Dossier: decision data first, catalogue reading behind a tab ──
    The object and the identity share the top row so the fold carries the watch,
@@ -1330,7 +1344,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .dsr-top { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); align-items: start; margin-bottom: var(--space-lg); }
 .dsr-top .dossier-object, .dsr-top .dossier-empty { margin: 0; }
 .dsr-top .masthead { margin-bottom: 0; }
-.dsr-tabs { display: flex; gap: var(--space-lg); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-lg); }
+.dsr-tabs { display: flex; gap: var(--space-lg); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-md); }
 .dsr-tab {
   min-height: var(--tap-min); padding: 0 0 var(--space-sm); margin-bottom: -1px;
   font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: .06em;
@@ -1387,7 +1401,6 @@ details.why summary { min-height: 20px; }
 main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) + 60px); }
 .sect { margin: var(--space-lg) 0; }
 .sect-h { padding-bottom: 6px; margin-bottom: 10px; }
-.dsr-tabs { margin-bottom: var(--space-md); }
 .honest { padding: 12px 14px; }
 .spec-row { padding: 6px 0; }
 .sales-table th { padding: 6px var(--space-md) 6px 0; }
@@ -1395,12 +1408,10 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .timeline { gap: var(--space-md); }
 
 /* Register: the controls block was three stacked rows of air. */
-.controls { gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-sm); }
 .card-grid-view { margin-top: var(--space-sm); }
 .reg-card { padding: 12px; }
 .rc-media { margin-bottom: 10px; }
 .rc-data { margin-top: 10px; }
-.count-line { margin-top: 2px; }
 
 /* Specification lives with the identity, filling the column beside the object
    instead of leaving air there and repeating itself lower down the page. */
@@ -1476,14 +1487,14 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .spotlight-row { margin: 64px 0 24px; }
 .spotlight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
 .spotlight-card { display: grid; grid-template-rows: auto auto auto auto auto; gap: 8px; padding: 12px; background: var(--paper-2); border: 1px solid var(--rule); }
-.spotlight-card:hover { border-color: var(--navy); }
+.spotlight-card:hover { border-color: var(--navy-ink); }
 .spotlight-media { display: block; width: 100%; aspect-ratio: 4/3; background: var(--canvas); border: 1px solid var(--rule); overflow: hidden; }
 .spotlight-media img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
 .spotlight-id { display: flex; flex-direction: column; gap: 2px; }
 .spotlight-name { font-family: var(--font-display); font-size: var(--text-body); font-weight: 600; letter-spacing: -.025em; color: var(--fg); }
 .spotlight-stats { font-size: var(--text-micro); color: var(--dim); letter-spacing: .04em; }
 .spotlight-read { font-size: var(--text-micro); color: var(--amber); letter-spacing: .06em; margin-top: 4px; }
-.spotlight-card:hover .spotlight-read { color: var(--navy); }
+.spotlight-card:hover .spotlight-read { color: var(--navy-ink); }
 
 .lookbook-stat { font-size: var(--text-micro); color: var(--dim); letter-spacing: .06em; padding: 10px 0 0; border-top: 1px solid var(--rule); margin-top: 14px; }
 
@@ -1584,7 +1595,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 }
 
 .brand-list { display: flex; flex-direction: column; gap: 14px; }
-.brand-row { background: var(--paper-2); border: 1px solid var(--rule); padding: 18px 20px; display: grid; grid-template-rows: auto auto auto auto auto; gap: 10px; }
+.brand-row { background: var(--paper-2); border: 1px solid var(--rule); padding: 18px 20px; }
 .brand-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .brand-row-head h2 { font-family: var(--font-display); font-size: var(--text-body); font-weight: 600; letter-spacing: -.025em; margin: 0; }
 .brand-row-head h2 a { color: var(--fg); }
@@ -1606,7 +1617,10 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .brand-coverage-fill { background: var(--amber); height: 100%; }
 .brand-references { display: flex; gap: 6px; flex-wrap: wrap; }
 .brand-ref-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; background: var(--canvas); border: 1px solid var(--rule); font-size: var(--text-micro); color: var(--fg); }
-.brand-ref-pill:hover { background: var(--navy); color: var(--bg); border-color: var(--navy); }
+/* On hover the pill flips to a navy plate. In dark mode the plate is
+   --navy-ink (sky) so the --bg (near-black) text keeps its contrast
+   — navy plate with --bg text would be 2.5:1 and fail. */
+.brand-ref-pill:hover { background: var(--navy-ink); color: var(--bg); border-color: var(--navy-ink); }
 .brand-ref-pill:hover .dim { color: var(--bg); }
 .brand-ref-pill .dim { font-size: var(--text-micro); }
 .brand-ref-more { font-style: italic; color: var(--amber); }
@@ -1622,7 +1636,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .data-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 24px 0; border-top: var(--border); border-left: var(--border); }
 .data-card { padding: 18px 20px; border-right: var(--border); border-bottom: var(--border); display: flex; flex-direction: column; gap: 4px; }
 .data-card .eyebrow { color: var(--amber); }
-.data-card strong { font-family: var(--font-mono); font-size: var(--text-body); font-weight: 500; line-height: 1; color: var(--navy); }
+.data-card strong { font-family: var(--font-mono); font-size: var(--text-body); font-weight: 500; line-height: 1; color: var(--navy-ink); }
 .data-card .dim { font-size: var(--text-micro); }
 
 /* ── Data: every dossier, moving only when the reader changes the question ── */
@@ -2319,9 +2333,9 @@ main.shell { padding-top: var(--space-md); }
   line-height: 1.25;
   max-width: 48ch;
   margin: 4px 0 10px;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
-.wmp-time-lead .wmp-h2 { color: var(--navy); }
+.wmp-time-lead .wmp-h2 { color: var(--navy-ink); }
 
 /* parts list — the new AnatomyCard uses <figure>, not <li> */
 .wmp-parts { list-style: none; padding: 0; margin: 12px 0 8px; display: grid; gap: 0; }
@@ -2798,7 +2812,7 @@ main.shell { padding-top: var(--space-md); }
 .callout { padding: 18px 22px; margin: 24px 0; border-left: 3px solid; background: var(--surface); max-width: 64ch; }
 .callout--good { border-color: var(--teal); }
 .callout--bad { border-color: var(--coral); }
-.callout--note { border-color: var(--navy); }
+.callout--note { border-color: var(--navy-ink); }
 .callout strong { display: block; margin-bottom: 6px; }
 .callout ul { margin: 8px 0 0 0; padding-left: 20px; }
 .callout li { margin-bottom: 4px; }
@@ -3445,7 +3459,7 @@ main.shell { padding-top: var(--space-md); }
 .bible-stats-num {
   font-family: var(--font-mono);
   font-size: 28px; font-weight: 500; line-height: 1;
-  letter-spacing: -0.03em; color: var(--navy);
+  letter-spacing: -0.03em; color: var(--navy-ink);
   font-variant-numeric: tabular-nums;
 }
 .bible-stats-label {
@@ -3477,12 +3491,6 @@ main.shell { padding-top: var(--space-md); }
 }
 
 .bible-list { display: flex; flex-direction: column; gap: 0; padding: 0; }
-.bible-card {
-  display: grid; gap: 0;
-  border-top: 1px solid var(--rule);
-  padding: 24px 0;
-}
-.bible-card:last-child { border-bottom: 1px solid var(--rule); }
 
 .bible-card-head { display: grid; grid-template-columns: 1fr; gap: 18px; }
 @media (min-width: 720px) { .bible-card-head { grid-template-columns: 100px 1fr; gap: 24px; } }
@@ -3516,7 +3524,7 @@ main.shell { padding-top: var(--space-md); }
   border: 1px solid var(--ink); background: var(--paper-2);
   font-family: var(--font-mono); text-transform: uppercase;
 }
-.chip-era { border-color: var(--navy); color: var(--navy); }
+.chip-era { border-color: var(--navy-ink); color: var(--navy-ink); }
 .chip-subject { border-color: var(--coral); color: var(--coral); }
 
 .bible-card-footer-row {
@@ -3543,7 +3551,7 @@ main.shell { padding-top: var(--space-md); }
   list-style: none; padding: 8px 0 0; margin: 0;
   display: flex; flex-wrap: wrap; gap: 4px 12px;
 }
-.bible-dossier-list a { color: var(--navy); text-decoration: none; }
+.bible-dossier-list a { color: var(--navy-ink); text-decoration: none; }
 .bible-dossier-list a:hover { text-decoration: underline; color: var(--coral); }
 
 .bible-empty {
@@ -3761,7 +3769,7 @@ main.shell { padding-top: var(--space-md); }
 .featured-dossier-name { font-family: var(--font-display); font-size: clamp(20px, 1.8vw, 24px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 2px 0 4px; }
 .featured-dossier-deck { font-family: var(--font-essay); font-size: 14px; line-height: 1.55; margin: 0; max-width: 56ch; }
 .featured-dossier-meta { font-size: 10px; letter-spacing: 0.1em; color: var(--dim); margin-top: 6px; }
-.featured-dossier-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--navy); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ink); }
+.featured-dossier-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--navy-ink); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ink); }
 @media (min-width: 720px) { .featured-dossiers-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .featured-dossiers-grid { grid-template-columns: 2fr 1fr 1fr; } .featured-dossier--lead .featured-dossier-img { aspect-ratio: 16 / 10; } }
 
@@ -3777,7 +3785,7 @@ main.shell { padding-top: var(--space-md); }
 .related-watch-source { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
 .related-watch-name { font-family: var(--font-display); font-size: clamp(15px, 1.3vw, 17px); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
 .related-watch-nick { font-size: 12px; color: var(--dim); font-style: italic; }
-.related-watch-price { font-size: 11px; letter-spacing: 0.08em; color: var(--navy); margin-top: 4px; }
+.related-watch-price { font-size: 11px; letter-spacing: 0.08em; color: var(--navy-ink); margin-top: 4px; }
 .related-watch-cta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--coral); margin-top: auto; padding-top: 8px; border-top: 1px solid var(--ink); }
 @media (min-width: 600px) { .related-watches-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 900px) { .related-watches-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -3829,7 +3837,7 @@ main.shell { padding-top: var(--space-md); }
 .srch-row-source { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
 .srch-row-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.2; color: var(--ink); }
 .srch-row-nick { font-style: italic; color: var(--dim); }
-.srch-row-tier { font-size: 10px; letter-spacing: 0.1em; color: var(--navy); margin-top: 2px; }
+.srch-row-tier { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-ink); margin-top: 2px; }
 .srch-more { padding: 12px 16px; font-size: 11px; color: var(--dim); margin: 0; text-align: center; border-top: 1px solid var(--rule); }
 .srch-foot { display: flex; gap: 16px; padding: 8px 14px; border-top: 1px solid var(--ink); font-size: 10px; color: var(--dim); }
 
@@ -3862,7 +3870,7 @@ main.shell { padding-top: var(--space-md); }
   font-size: clamp(52px, 12vw, 104px);
   line-height: 0.88;
   letter-spacing: -0.08em;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 .saved-pulse-deck {
   max-width: 30ch;
@@ -4016,7 +4024,7 @@ main.shell { padding-top: var(--space-md); }
 .saved-cell-source { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
 .saved-cell-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.2; }
 .saved-cell-nick { font-size: 12px; color: var(--dim); font-style: italic; }
-.saved-cell-tier { font-size: 10px; letter-spacing: 0.1em; color: var(--navy); }
+.saved-cell-tier { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-ink); }
 .saved-cell-price { font-size: 11px; letter-spacing: 0.08em; color: var(--coral); margin-top: 4px; }
 @media (min-width: 600px) { .saved-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 900px) { .saved-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -4031,7 +4039,7 @@ main.shell { padding-top: var(--space-md); }
 .what-changed-source { font-size: 10px; letter-spacing: 0.12em; color: var(--coral); }
 .what-changed-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--ink); text-decoration: none; }
 .what-changed-name:hover { text-decoration: underline; }
-.what-changed-meta { font-size: 10px; letter-spacing: 0.1em; color: var(--navy); }
+.what-changed-meta { font-size: 10px; letter-spacing: 0.1em; color: var(--navy-ink); }
 .what-changed-open { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--coral); text-decoration: none; padding: 4px 8px; border: 1px solid var(--coral); }
 .what-changed-open:hover { background: var(--coral); color: var(--paper); }
 @media (max-width: 720px) {
@@ -4059,7 +4067,7 @@ main.shell { padding-top: var(--space-md); }
   background: transparent; border: 1px solid var(--ink);
 }
 .theme-toggle[data-pref="light"] .theme-toggle-dot { background: var(--amber); border-color: var(--amber); }
-.theme-toggle[data-pref="dark"] .theme-toggle-dot { background: var(--navy); border-color: var(--navy); }
+.theme-toggle[data-pref="dark"] .theme-toggle-dot { background: var(--navy); border-color: var(--navy-ink); }
 
 /* ── /bible: sub-tab nav (BOOKS · READER · WHY) ──────────────────────────── */
 .bible-tabs { display: flex; flex-wrap: wrap; gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin: 32px 0 0; }
@@ -4090,7 +4098,7 @@ main.shell { padding-top: var(--space-md); }
 .bible-card-line a:hover { text-decoration: underline; }
 .bible-card-cites { margin-top: 4px; }
 .bible-dossier-list { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
-.bible-dossier-list a { color: var(--navy); text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+.bible-dossier-list a { color: var(--navy-ink); text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 .bible-dossier-list a:hover { color: var(--coral); text-decoration: underline; }
 
 /* ── /bible: reader cards (3 anti-marketing essays as collapsibles) ────── */
@@ -4122,7 +4130,7 @@ main.shell { padding-top: var(--space-md); }
 .reader-card--coral { border-left: 3px solid var(--coral); }
 .reader-card--yellow { border-left: 3px solid var(--yellow); }
 .reader-card--navy { border-left: 3px solid var(--navy); }
-.reader-card--navy .reader-card-title { color: var(--navy); }
+.reader-card--navy .reader-card-title { color: var(--navy-ink); }
 
 /* ── Labs page ────────────────────────────────────────────────────────────
    Workshop with the collage turned up. Banner-alt is the unused sibling of
@@ -4157,7 +4165,7 @@ main.shell { padding-top: var(--space-md); }
   max-width: 34rem;
   padding: 18px 20px 16px;
   background: var(--canvas);
-  border: 1px solid var(--navy);
+  border: 1px solid var(--navy-ink);
   align-self: end;
 }
 .labs-hero-eyebrow {
@@ -4181,7 +4189,7 @@ main.shell { padding-top: var(--space-md); }
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.03em;
-  color: var(--navy);
+  color: var(--navy-ink);
   margin: 8px 0 12px;
   text-wrap: balance;
 }
@@ -4200,8 +4208,8 @@ main.shell { padding-top: var(--space-md); }
 }
 .labs-hero-actions .btn.secondary {
   background: transparent;
-  color: var(--navy);
-  border: 1px solid var(--navy);
+  color: var(--navy-ink);
+  border: 1px solid var(--navy-ink);
 }
 .labs-hero-ledger {
   position: relative;
@@ -4245,15 +4253,6 @@ main.shell { padding-top: var(--space-md); }
   .labs-hero-stats { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Dark mode: --navy (#11364B) on --canvas (#0A0A0A) is 1.56:1, so the H1 is
-   effectively invisible. --sky keeps the blue the design wants and clears
-   10:1 (§11.10). The secondary button is fixed globally at .btn.secondary. */
-:root[data-theme="dark"] .labs-hero-title { color: var(--sky); }
-:root[data-theme="dark"] .labs-hero-copy { border-color: var(--sky); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .labs-hero-title { color: var(--sky); }
-  :root:not([data-theme="light"]) .labs-hero-copy { border-color: var(--sky); }
-}
 
 .labs-intro .lede { max-width: 68ch; margin-bottom: var(--space-md); }
 .labs-art-note {
@@ -4528,7 +4527,7 @@ main.shell { padding-top: var(--space-md); }
 .spotlight-verdict-state { font-size: 9px; letter-spacing: 0.14em; text-align: right; font-weight: 700; }
 .spotlight-verdict-row--coral.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--coral); }
 .spotlight-verdict-row--yellow.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--yellow-2); }
-.spotlight-verdict-row--navy.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--navy); }
+.spotlight-verdict-row--navy.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--navy-ink); }
 .spotlight-verdict-row--teal.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--teal); }
 .spotlight-verdict-row--neutral .spotlight-verdict-state { color: var(--dim); }
 .spotlight-verdict-row--weak .spotlight-verdict-state { color: var(--dim); opacity: 0.5; }
@@ -5108,37 +5107,6 @@ main.shell { padding-top: var(--space-md); }
   .hot-col:last-child { border-bottom: 0; }
 }
 
-/* Dark mode: navy-as-text fails on black — sky carries the formal role. */
-:root[data-theme="dark"] .data-card strong,
-:root[data-theme="dark"] .screen-policy p,
-:root[data-theme="dark"] .screen-still-withheld-note,
-:root[data-theme="dark"] .bible-dossier-list a,
-:root[data-theme="dark"] .chip-era,
-:root[data-theme="dark"] .featured-dossier-cta,
-:root[data-theme="dark"] .related-watch-price,
-:root[data-theme="dark"] .srch-row-tier,
-:root[data-theme="dark"] .saved-cell-tier,
-:root[data-theme="dark"] .what-changed-meta,
-:root[data-theme="dark"] .wmp-time-lead .wmp-h2,
-:root[data-theme="dark"] .reader-card--navy .reader-card-title {
-  color: var(--sky);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .data-card strong,
-  :root:not([data-theme="light"]) .screen-policy p,
-  :root:not([data-theme="light"]) .screen-still-withheld-note,
-  :root:not([data-theme="light"]) .bible-dossier-list a,
-  :root:not([data-theme="light"]) .chip-era,
-  :root:not([data-theme="light"]) .featured-dossier-cta,
-  :root:not([data-theme="light"]) .related-watch-price,
-  :root:not([data-theme="light"]) .srch-row-tier,
-  :root:not([data-theme="light"]) .saved-cell-tier,
-  :root:not([data-theme="light"]) .what-changed-meta,
-  :root:not([data-theme="light"]) .wmp-time-lead .wmp-h2,
-  :root:not([data-theme="light"]) .reader-card--navy .reader-card-title {
-    color: var(--sky);
-  }
-}
 
 /* ── Global Marketplaces & Venue Directory Styles ── */
 .venue-card-selector-panel {

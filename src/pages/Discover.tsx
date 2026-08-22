@@ -51,7 +51,7 @@ export default function Discover() {
           <h1 className="pagetitle">Watch Roulette & Vibe Matcher</h1>
           <p className="lede">Spin through reference dossiers, explore scarcity mechanics, and discover horological objects without financial noise.</p>
         </div>
-        <button type="button" className="btn" onClick={spinRoulette}>
+        <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette to discover a random watch">
           🎲 SPIN ROULETTE →
         </button>
       </div>
@@ -149,7 +149,7 @@ export default function Discover() {
         <footer className="discovery-foot">
           <span className="mono micro dim">{(card.meta.sources ?? []).length} SOURCES · {(card.provenance_events ?? []).length} SOURCED EVENTS</span>
           <div style={{ display: 'flex', gap: '12px' }}>
-            <button type="button" className="btn" onClick={spinRoulette}>SPIN AGAIN 🎲</button>
+            <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette again">SPIN AGAIN 🎲</button>
             <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>
           </div>
         </footer>

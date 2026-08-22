@@ -153,15 +153,17 @@ export default function Register() {
             {SORTS.map((s) => <option key={s.k} value={s.k}>SORT · {s.label}</option>)}
           </select>
 
-          <div className="register-view-toggle">
+          <div className="register-view-toggle" role="group" aria-label="View mode">
             <button
               className={`chip ${viewMode === 'grid' ? 'on' : ''}`}
+              aria-pressed={viewMode === 'grid'}
               onClick={() => setViewMode('grid')}
             >
               VISUAL CARDS
             </button>
             <button
               className={`chip ${viewMode === 'table' ? 'on' : ''}`}
+              aria-pressed={viewMode === 'table'}
               onClick={() => setViewMode('table')}
             >
               LEDGER TABLE

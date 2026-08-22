@@ -70,6 +70,7 @@ export default function App() {
       <SavedProvider>
       <SearchPalette />
       <RecentlyViewedTracker />
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" end className="wordmark" aria-label="Time Pop — home">
@@ -89,7 +90,7 @@ export default function App() {
             <SavedBadge />
             <ThemeToggle />
           </div>
-          <nav className="nav">
+          <nav className="nav" aria-label="Main navigation">
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.to === '/'}
                 className={({ isActive }) => 'nav-a mono' + (isActive ? ' on' : '')}>
@@ -99,11 +100,11 @@ export default function App() {
           </nav>
         </div>
       </header>
-      <main className="shell">
+      <main className="shell" id="main-content">
         {err ? (
-          <p className="boot mono">DATASET FAILED TO LOAD — {err}. Time Pop refuses to render placeholder data.</p>
+          <p className="boot mono" role="alert">DATASET FAILED TO LOAD — {err}. Time Pop refuses to render placeholder data.</p>
         ) : !data ? (
-          <p className="boot mono">LOADING TIME POP…</p>
+          <p className="boot mono" role="status" aria-live="polite">LOADING TIME POP…</p>
         ) : (
           <ErrorBoundary key={pathname}>
             <Outlet />

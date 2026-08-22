@@ -211,15 +211,18 @@ export default function Dossier() {
       </div>
 
       <div className="dsr-tabs" role="tablist" aria-label="Dossier view">
-        <button type="button" role="tab" aria-selected={view === 'evidence'}
+        <button type="button" role="tab" id="tab-evidence" aria-selected={view === 'evidence'}
+          aria-controls="panel-evidence"
           className={'dsr-tab' + (view === 'evidence' ? ' on' : '')} onClick={() => setView('evidence')}>
           EVIDENCE
         </button>
-        <button type="button" role="tab" aria-selected={view === 'venues'}
+        <button type="button" role="tab" id="tab-venues" aria-selected={view === 'venues'}
+          aria-controls="panel-venues"
           className={'dsr-tab' + (view === 'venues' ? ' on' : '')} onClick={() => setView('venues')}>
           WHERE TO BUY & SELL
         </button>
-        <button type="button" role="tab" aria-selected={view === 'story'}
+        <button type="button" role="tab" id="tab-story" aria-selected={view === 'story'}
+          aria-controls="panel-story"
           className={'dsr-tab' + (view === 'story' ? ' on' : '')} onClick={() => setView('story')}>
           STORY & PROVENANCE
         </button>

@@ -8,6 +8,7 @@
 // or keyboard focus shows the source below the number. Works without JS.
 
 import { type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
 interface CiteProps {
   /** Short label for the cited source. e.g. "5-signal Scarcity Index" */
@@ -29,7 +30,7 @@ export default function Cite({ source, detail, href, children }: CiteProps) {
         <span className="cite-source-eyebrow mono">SOURCE</span>
         <span className="cite-source-name">{source}</span>
         {detail && <span className="cite-source-detail">{detail}</span>}
-        {href && <a className="cite-source-link mono" href={href}>HOW THIS IS COMPUTED →</a>}
+        {href && <Link className="cite-source-link mono" to={href}>HOW THIS IS COMPUTED →</Link>}
       </span>
     </span>
   )

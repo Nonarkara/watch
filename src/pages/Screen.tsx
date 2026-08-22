@@ -267,11 +267,11 @@ export default function Screen() {
         </p>
       </aside>
 
-      <div className="screen-controls">
+      <div className="screen-controls" role="group" aria-label="Filter by media type">
         {(['all', 'film', 'television', 'other'] as Filter[]).map((value) => (
-          <button className={`chip ${filter === value ? 'on' : ''}`} key={value} onClick={() => setFilter(value)}>{value.toUpperCase()}</button>
+          <button className={`chip ${filter === value ? 'on' : ''}`} key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{value.toUpperCase()}</button>
         ))}
-        <button className={`chip ${exactOnly ? 'on' : ''}`} onClick={() => setExactOnly(!exactOnly)}>EXACT REFERENCE ONLY</button>
+        <button className={`chip ${exactOnly ? 'on' : ''}`} aria-pressed={exactOnly} onClick={() => setExactOnly(!exactOnly)}>EXACT REFERENCE ONLY</button>
         <span className="mono micro dim">{sightings.length} SHOWN</span>
       </div>
 
