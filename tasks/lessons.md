@@ -1,4 +1,10 @@
-## 2026-08-13 · Catalog growth is pick quality, not more skeleton cards
+## 2026-08-22 · A preview URL is not production, and aria-controls is not a panel
+
+- **What went wrong:** A nested UX audit reported Live at `3fc5561d.watch-1de.pages.dev` and `734caf8` on main. The commit existed only on a diverged local `main`; origin still had the daily snapshot chain. `aria-controls="panel-evidence"` had no matching id (evidence/story fragments are interleaved). `twitter:site` named `@timepop`, a handle that does not exist. Skip-link used `color: var(--paper)` — white on coral in light (~3:1).
+- **Correct behaviour:** Token-level navy-ink + global dark `img { mix-blend-mode: normal }` were worth keeping. Land on `origin/main`, deploy `--branch main`, and verify `watch-1de.pages.dev` assets — not a preview hash. Tab `aria-controls` must resolve (`id={\`panel-${view}\`}`). Tests must assert Cite's `<Link className="cite-source-link">`, not merely the import.
+- **How to recognise:** the report's commit hash is missing from `git log origin/main`; Pages HTML has `x-robots-tag: noindex`; tabs point at ids that `rg` cannot find.
+
+
 
 - **What went wrong:** Home ticker round-robined brands with no media filter (16/24 empty frames). Discover grail used `scarcity ≥ 75` (one card). Dossier `findRelated` wrote `b.n ?? 0 - (a.n ?? 0)` so operator precedence ate the sort. Screen CTA said Rolex on every brand. Daily trends lived only on Home.
 - **Correct behaviour:** Prefer photographed cards in ticker / roulette / neighbours. Grail = crown/trinity/haute. Parenthesize both `n` counts. Surface the existing `market_trends.json` watchlist on Discover, Register sort, and dossier Evidence. Never stamp one Wikimedia family photo onto every missing card.
