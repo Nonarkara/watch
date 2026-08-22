@@ -228,6 +228,7 @@ export default function Dossier() {
         </button>
       </div>
 
+      <div role="tabpanel" id={`panel-${view}`} aria-labelledby={`tab-${view}`}>
       {view === 'evidence' && <>
       <div className="metric-strip">
         <div className="mcell">
@@ -530,6 +531,7 @@ export default function Dossier() {
         </p>
       )}
       </>}
+      </div>
 
       {!c.comp_summary && (
         <section className="sect">

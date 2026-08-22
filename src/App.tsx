@@ -68,9 +68,9 @@ export default function App() {
     <DataContext.Provider value={data}>
       <CompareProvider>
       <SavedProvider>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <SearchPalette />
       <RecentlyViewedTracker />
-      <a href="#main-content" className="skip-link">Skip to content</a>
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" end className="wordmark" aria-label="Time Pop — home">
