@@ -1,13 +1,19 @@
 // Invariant self-check — smallest thing that fails if the index math breaks.
 // Run: node scripts/test-invariants.mjs
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { computeAll, marketEstimate } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 import { validateSightings } from "./validate_sightings.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
+
+// Curated image assignments — checked by invariant 13 below.
+const IMAGES_FILE = new URL("../data/shared/images.json", import.meta.url);
+const images = existsSync(IMAGES_FILE)
+  ? JSON.parse(readFileSync(IMAGES_FILE, "utf8"))
+  : {};
 const shared = {
   cpi: { series: "CPIAUCSL", observations: { "2021-07": 272.184, "2025-07": 322.132, "2026-07": 330.0, "2026-06": 329.5 } },
   brand_production: { testbrand: { annual_units: 50000, source_url: "https://example.com", year: 2025 } },
@@ -201,3 +207,26 @@ const BANDS = { bands: [
   assert.match(bR.basis, /retail/);
 }
 console.log("✓ price-band invariants hold");
+
+// 13. Image fallback invariant — no URL in images.json should be shared by 3+
+// different cards. A URL used by 2 cards is fine (a single photo legitimately
+// covers a two-config Rolex family). 3+ means the same generic photo is
+// standing in for unrelated watches, which is the "Certina shows a Patek" lie.
+{
+  const urlCounts = new Map();
+  for (const [id, entry] of Object.entries(images)) {
+    if (!entry?.file) continue;
+    const u = entry.file;
+    if (!urlCounts.has(u)) urlCounts.set(u, []);
+    urlCounts.get(u).push(id);
+  }
+  const offenders = [...urlCounts.entries()]
+    .filter(([, ids]) => ids.length >= 3)
+    .map(([u, ids]) => ({ url: u, count: ids.length, sample: ids.slice(0, 5) }));
+  if (offenders.length) {
+    const detail = offenders.map((o) =>
+      `  ${o.count}x  ${o.url.slice(0, 100)}\n    used by: ${o.sample.join(', ')}`).join('\n');
+    assert.fail(`images.json has ${offenders.length} URL(s) used by 3+ cards. Each is a "Certina shows a Patek" lie. Re-run scripts/fix_fallback_images.mjs to repair.\n${detail}`);
+  }
+}
+console.log("✓ no image fallback URL is shared by 3+ cards");
