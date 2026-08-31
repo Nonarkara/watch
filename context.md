@@ -18,6 +18,14 @@ Free, highly detailed, AI-curated + human-verified living archive for luxury and
 
 Every published number is a **pure function of on-card raw evidence + committed shared snapshots**. Nothing hand-entered in `computed`. Cards refuse to estimate below 3 comps and degrade honestly (reason codes, never fake numbers).
 
+**Market-evidence intake.** `npm run data:market:harvest` discovers completed Phillips watch
+auctions, saves compressed raw responses locally, parses all lots, exact-matches them to dossiers,
+deduplicates against existing comps, and writes a manifest plus `data/market/review-queue.json`.
+Every harvested lot must become ready-for-review, quarantined, duplicate, or failed. Scraping never
+changes a valuation. `data:market:promote` moves one human-reviewed realized USD sale into one card;
+comparable promotion is blocked for material mismatches, named provenance, special signatures,
+charity lots, non-USD prices, missing detail evidence, and ambiguous references.
+
 ```
 data/cards/*.json          raw cards
 data/shared/               cpi, brand_production, screen_sightings, images

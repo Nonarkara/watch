@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "run_id": "phillips-2026-08-31T17-43-46-087Z",
+  "started_at": "2026-08-31T17:43:46.087Z",
+  "source": "Phillips public watch auction results",
+  "source_url": "https://www.phillips.com/features/watches",
+  "policy": "Discovery is automatic. Only exact-reference, realized USD sales can reach ready_for_review. Promotion remains a separate human decision.",
+  "options": {
+    "max_auctions": 12,
+    "max_details": 60,
+    "brand": null,
+    "dry_run": false
+  },
+  "requests": [
+    {
+      "url": "https://www.phillips.com/features/watches",
+      "sha256": "7bea6f476342665ab76ac144b4f28de8b734ad9cad66ebae0d6263e70d77209a",
+      "path": "data/.harvest/phillips/2026-08-31/discovery-watches-7bea6f476342.html.gz",
+      "elapsed_ms": 100,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/CH080326",
+      "sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
+      "path": "data/.harvest/phillips/2026-08-31/auction-CH080326-e28ee73b2a85.html.gz",
+      "elapsed_ms": 697,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/HK080326",
+      "sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
+      "path": "data/.harvest/phillips/2026-08-31/auction-HK080326-5e04b26dc4e7.html.gz",
+      "elapsed_ms": 502,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/NY080426",
+      "sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
+      "path": "data/.harvest/phillips/2026-08-31/auction-NY080426-918626c8e1de.html.gz",
+      "elapsed_ms": 487,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/CH080426",
+      "sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
+      "path": "data/.harvest/phillips/2026-08-31/auction-CH080426-3e35ab785287.html.gz",
+      "elapsed_ms": 379,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/HK080426",
+      "sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
+      "path": "data/.harvest/phillips/2026-08-31/auction-HK080426-aee6153a025d.html.gz",
+      "elapsed_ms": 398,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/NY080226",
+      "sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
+      "path": "data/.harvest/phillips/2026-08-31/auction-NY080226-8519ce1058d3.html.gz",
+      "elapsed_ms": 352,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/NY080126",
+      "sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
+      "path": "data/.harvest/phillips/2026-08-31/auction-NY080126-dc4f4ca3318c.html.gz",
+      "elapsed_ms": 174,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/HK080226",
+      "sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
+      "path": "data/.harvest/phillips/2026-08-31/auction-HK080226-bf2e9a9dfe31.html.gz",
+      "elapsed_ms": 1736,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/auctions/auction/CH080226",
+      "sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
+      "path": "data/.harvest/phillips/2026-08-31/auction-CH080226-1b6f1821daa7.html.gz",
+      "elapsed_ms": 1681,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/rolex/234075",
+      "sha256": "2fefb9bf015569171756ec5dc6dd2598a8ff279fa794d1d97da2f315121904c1",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-234075-2fefb9bf0155.html.gz",
+      "elapsed_ms": 754,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/richard-mille/231511",
+      "sha256": "7538efd03dd8f619256f49b46a21cdb4090a5217ec655b58536123b531d849b0",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-231511-7538efd03dd8.html.gz",
+      "elapsed_ms": 1165,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/patek-philippe/233465",
+      "sha256": "13a5bcdcd6f40f0c86899eb251a2366c404c866a4fc90fa0e2c242dda0e6e2c6",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233465-13a5bcdcd6f4.html.gz",
+      "elapsed_ms": 641,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/rolex/233230",
+      "sha256": "d8e57fade806181e03cce3adadc62b131780f1575f1b95daf830298b51b59ed4",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233230-d8e57fade806.html.gz",
+      "elapsed_ms": 617,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/rolex/231653",
+      "sha256": "de67e41020d473f9efb70a674c172c2548736209dda592c2d554cf321f776649",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-231653-de67e41020d4.html.gz",
+      "elapsed_ms": 613,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/rolex/233480",
+      "sha256": "75dd9687cbb19bfae5d39a0d0cbfd6f8e70cfef21f813b4395fa311f34d8cf39",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233480-75dd9687cbb1.html.gz",
+      "elapsed_ms": 653,
+      "error": null
+    },
+    {
+      "url": "https://www.phillips.com/detail/rolex/232835",
+      "sha256": "b8b3367236111965efd50a5dbc07d3e9c7669de552ce38b8e418a2b41f9f88a5",
+      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-232835-b8b336723611.html.gz",
+      "elapsed_ms": 586,
+      "error": null
+    }
+  ],
+  "auctions": [
+    {
+      "code": "CH080326",
+      "name": "Phillips Watches Online Auction: The Geneva Sessions, Fall 2026",
+      "start_date": "2026-09-04",
+      "end_date": "2026-09-11",
+      "location": "Geneva",
+      "source_url": "https://www.phillips.com/auctions/auction/CH080326",
+      "source_sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
+      "raw": {
+        "sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
+        "path": "data/.harvest/phillips/2026-08-31/auction-CH080326-e28ee73b2a85.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "HK080326",
+      "name": "Phillips Watches Online Auction: The Hong Kong Sessions, Fall 2026",
+      "start_date": "2026-09-17",
+      "end_date": "2026-09-24",
+      "location": "Hong Kong",
+      "source_url": "https://www.phillips.com/auctions/auction/HK080326",
+      "source_sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
+      "raw": {
+        "sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
+        "path": "data/.harvest/phillips/2026-08-31/auction-HK080326-5e04b26dc4e7.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "NY080426",
+      "name": "Phillips Watches Online: The New York Sessions Fall 2026",
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-09",
+      "location": "New York",
+      "source_url": "https://www.phillips.com/auctions/auction/NY080426",
+      "source_sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
+      "raw": {
+        "sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
+        "path": "data/.harvest/phillips/2026-08-31/auction-NY080426-918626c8e1de.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "CH080426",
+      "name": "The Geneva Watch Auction: XXIV",
+      "start_date": "2026-11-07",
+      "end_date": "2026-11-08",
+      "location": "Geneva",
+      "source_url": "https://www.phillips.com/auctions/auction/CH080426",
+      "source_sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
+      "raw": {
+        "sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
+        "path": "data/.harvest/phillips/2026-08-31/auction-CH080426-3e35ab785287.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "HK080426",
+      "name": "The Hong Kong Watch Auction: XXIII",
+      "start_date": "2026-11-21",
+      "end_date": "2026-11-22",
+      "location": "Hong Kong",
+      "source_url": "https://www.phillips.com/auctions/auction/HK080426",
+      "source_sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
+      "raw": {
+        "sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
+        "path": "data/.harvest/phillips/2026-08-31/auction-HK080426-aee6153a025d.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "NY080226",
+      "name": "The New York Watch Auction: XV",
+      "start_date": "2026-12-05",
+      "end_date": "2026-12-06",
+      "location": "New York",
+      "source_url": "https://www.phillips.com/auctions/auction/NY080226",
+      "source_sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
+      "raw": {
+        "sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
+        "path": "data/.harvest/phillips/2026-08-31/auction-NY080226-8519ce1058d3.html.gz"
+      },
+      "lots": 0,
+      "completed": false,
+      "has_results": false
+    },
+    {
+      "code": "NY080126",
+      "name": "The New York Watch Auction: XIV",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-14",
+      "location": "New York",
+      "source_url": "https://www.phillips.com/auctions/auction/NY080126",
+      "source_sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
+      "raw": {
+        "sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
+        "path": "data/.harvest/phillips/2026-08-31/auction-NY080126-dc4f4ca3318c.html.gz"
+      },
+      "lots": 156,
+      "completed": true,
+      "has_results": true
+    },
+    {
+      "code": "HK080226",
+      "name": "The Hong Kong Watch Auction: XXII",
+      "start_date": "2026-05-30",
+      "end_date": "2026-05-31",
+      "location": "Hong Kong",
+      "source_url": "https://www.phillips.com/auctions/auction/HK080226",
+      "source_sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
+      "raw": {
+        "sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
+        "path": "data/.harvest/phillips/2026-08-31/auction-HK080226-bf2e9a9dfe31.html.gz"
+      },
+      "lots": 294,
+      "completed": true,
+      "has_results": true
+    },
+    {
+      "code": "CH080226",
+      "name": "The Geneva Watch Auction: XXIII",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-10",
+      "location": "Geneva",
+      "source_url": "https://www.phillips.com/auctions/auction/CH080226",
+      "source_sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
+      "raw": {
+        "sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
+        "path": "data/.harvest/phillips/2026-08-31/auction-CH080226-1b6f1821daa7.html.gz"
+      },
+      "lots": 225,
+      "completed": true,
+      "has_results": true
+    }
+  ],
+  "failures": [],
+  "finished_at": "2026-08-31T17:43:57.684Z",
+  "duration_ms": 11597,
+  "summary": {
+    "harvested": 675,
+    "ready_for_review": 3,
+    "quarantined": 671,
+    "duplicate": 1,
+    "failed": 0,
+    "reasons": {
+      "no_exact_card": 638,
+      "non_usd_sale": 517,
+      "missing_reference": 142,
+      "material_mismatch": 3,
+      "no_realized_price": 2,
+      "already_on_card": 1
+    }
+  }
+}

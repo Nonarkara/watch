@@ -47,6 +47,27 @@ export function lastFetched(key) {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const nextRequestAt = new Map();
+
+async function waitForRateSlot(url, rateLimitMs) {
+  if (!rateLimitMs) return;
+  const origin = new URL(url).origin;
+  const now = Date.now();
+  const slot = Math.max(now, nextRequestAt.get(origin) ?? now);
+  nextRequestAt.set(origin, slot + rateLimitMs);
+  if (slot > now) await sleep(slot - now);
+}
+
+function retryDelay(res, baseDelayMs, attempt) {
+  const retryAfter = res?.headers?.get('retry-after');
+  if (retryAfter) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds)) return Math.min(seconds * 1000, 120_000);
+    const at = new Date(retryAfter).getTime();
+    if (Number.isFinite(at)) return Math.min(Math.max(0, at - Date.now()), 120_000);
+  }
+  return baseDelayMs * Math.pow(2, attempt);
+}
 
 /**
  * Fetch a URL with retry + backoff. Designed for slow-moving sources (auction
@@ -56,7 +77,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  *   - maxRetries (default 4): retry budget for 429/5xx
  *   - baseDelayMs (default 1500): initial backoff; doubles each retry
  *   - rateLimitMs (default 0): minimum delay between successful calls (sequential)
+ *   - timeoutMs (default 30000): abort a hung request
  *   - userAgent (default WATCH)
+ *   - headers: additional request headers
  *   - onRetry(reason, attempt): optional callback
  */
 export async function fetchWithRetry(url, opts = {}) {
@@ -64,17 +87,22 @@ export async function fetchWithRetry(url, opts = {}) {
     maxRetries = 4,
     baseDelayMs = 1500,
     rateLimitMs = 0,
+    timeoutMs = 30_000,
     userAgent = 'WATCH research collector/1.0 (+https://watch.nonarkara.org)',
+    headers = {},
     onRetry = null,
   } = opts;
 
   let lastErr = null;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    if (rateLimitMs && attempt > 0) await sleep(rateLimitMs);
+    await waitForRateSlot(url, rateLimitMs);
     try {
-      const res = await fetch(url, { headers: { 'user-agent': userAgent } });
+      const res = await fetch(url, {
+        headers: { 'user-agent': userAgent, ...headers },
+        signal: AbortSignal.timeout(timeoutMs),
+      });
       if (res.status === 429 || (res.status >= 500 && res.status <= 599)) {
-        const delay = baseDelayMs * Math.pow(2, attempt);
+        const delay = retryDelay(res, baseDelayMs, attempt);
         if (onRetry) onRetry(`HTTP ${res.status}`, attempt, delay);
         lastErr = new Error(`HTTP ${res.status}`);
         if (attempt === maxRetries) break;

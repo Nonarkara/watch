@@ -36,6 +36,8 @@ npm install
 npm run data:catalog # rebuild the user-supplied Rolex catalog snapshot
 npm run data:screen  # rebuild the canonical screen snapshot from committed sources
 npm run data:screen:harvest # refresh the Watch-ID Rolex source snapshot (network)
+npm run data:market:harvest # discover Phillips results and build a review queue
+npm run data:market:promote -- --id=phillips:<lot> --decision=comparable --dry-run
 npm run data:build  # validate cards and rebuild public/data.json
 npm test            # deterministic index invariants
 npm run data:audit  # coverage report plus identity-integrity assertions
@@ -43,6 +45,13 @@ npm run lint
 npm run build
 npm run dev
 ```
+
+The market harvester keeps compressed raw pages under ignored `data/.harvest/`, writes a request
+manifest to `data/market/harvest-manifest.json`, and sends every parsed lot to one of four states:
+ready for review, quarantined, duplicate, or failed. It never edits a dossier. Promotion is a
+separate one-record command after a person checks reference, material, dial, condition, provenance,
+and accessories. Non-USD results remain quarantined until the schema can preserve source currency
+and source-backed exchange rates.
 
 The production site is deployed to Cloudflare Pages at
 [watch-1de.pages.dev](https://watch-1de.pages.dev/). The custom domain remains the intended canonical URL once its DNS record is active.

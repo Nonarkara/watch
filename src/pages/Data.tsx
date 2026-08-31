@@ -56,6 +56,14 @@ export default function Data() {
       cmd: 'npm run data:cpi',
     },
     {
+      key: 'phillips-watch-results',
+      label: 'Phillips watch auction results',
+      url: 'https://www.phillips.com/features/watches',
+      file: 'data/market/review-queue.json',
+      expected: 'realized lots; exact-reference USD matches enter human review only',
+      cmd: 'npm run data:market:harvest',
+    },
+    {
       key: 'rolex-catalog-tsv',
       label: 'Rolex catalog (TSV, user-supplied)',
       url: null,
@@ -361,6 +369,9 @@ export default function Data() {
               const rec = state?.[s.key]
               const lastFetched = rec?.last_attempt?.slice(0, 10) ?? '—'
               const status = rec?.last_status ?? '—'
+              const statusDetail = s.key === 'phillips-watch-results' && rec
+                ? `${status} · ${rec.ready_for_review ?? 0} REVIEW / ${rec.quarantined ?? 0} HELD`
+                : status
               return (
                 <tr key={s.key}>
                   <td>
@@ -369,7 +380,7 @@ export default function Data() {
                       : s.label}
                   </td>
                   <td>{lastFetched}</td>
-                  <td>{status}</td>
+                  <td>{statusDetail}</td>
                   <td className="dim">{s.file}</td>
                   <td><code>{s.cmd}</code></td>
                 </tr>
@@ -448,6 +459,8 @@ export default function Data() {
           <li><code>npm run data:sightings:validate</code> · invariant gate for sightings JSON</li>
           <li><code>npm run data:status</code> · one-screen freshness + reachability check (use <code>--offline</code> to skip the HEAD probes)</li>
           <li><code>npm run data:screen:harvest</code> · re-pull the Watch-ID Rolex index, preserving curated fields</li>
+          <li><code>npm run data:market:harvest</code> · discover Phillips results, snapshot raw pages, and rebuild the human review queue</li>
+          <li><code>npm run data:market:promote -- --id=phillips:&lt;lot&gt; --decision=comparable --dry-run</code> · preview one reviewed sale before it can enter a dossier</li>
           <li><code>npm run data:cpi</code> · refresh FRED CPIAUCSL snapshot</li>
           <li><code>npm run data:catalog</code> · rebuild <code>rolex_catalog.json</code> from the committed TSV</li>
           <li><code>npm test</code> · invariant self-check (runs the test suite offline, with <code>WATCH_TEST_NETWORK=1</code> for the network-touching fetch test)</li>

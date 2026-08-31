@@ -8,7 +8,7 @@
 //
 // Designed for the data:audit npm script. Honest, terse, no editorialising.
 
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -23,6 +23,8 @@ const screen = JSON.parse(readFileSync(join(sharedDir, 'screen_sightings.json'),
 const watchid = JSON.parse(readFileSync(join(sharedDir, 'watch_id_rolex.json'), 'utf8'))
 const catalog = JSON.parse(readFileSync(join(sharedDir, 'rolex_catalog.json'), 'utf8'))
 const publicData = JSON.parse(readFileSync(publicDir, 'utf8'))
+const marketQueuePath = join(ROOT, 'data/market/review-queue.json')
+const marketQueue = existsSync(marketQueuePath) ? JSON.parse(readFileSync(marketQueuePath, 'utf8')) : null
 
 // Build per-card metrics from the PUBLIC dataset (what the site actually ships).
 // The PUBLIC dataset is what the public sees — a card with an image in shared/images.json
@@ -131,6 +133,10 @@ lines.push(`  Unique matched cards via screen: ${new Set(screen.sightings.flatMa
 lines.push(hr)
 head('HARVEST SOURCES')
 lines.push(`  Watch-ID Rolex harvest (data/shared/watch_id_rolex.json): ${watchid.count} sightings — source for the Rolex subset of the canonical screen data.`)
+if (marketQueue) {
+  const s = marketQueue.summary
+  lines.push(`  Phillips market intake (data/market/review-queue.json): ${s.harvested} lots — ${s.ready_for_review} ready, ${s.quarantined} quarantined, ${s.duplicate} duplicate, ${s.failed} failed.`)
+}
 
 lines.push(hr)
 head('HARD-CODED ASSERTS')
