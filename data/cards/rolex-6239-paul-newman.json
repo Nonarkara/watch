@@ -8,9 +8,20 @@
     "nickname": "Paul Newman",
     "collection": "Daytona",
     "tier": "crown",
-    "produced": { "start_year": 1963, "end_year": 1969, "discontinued": true },
-    "movement": { "caliber": "722 (Valjoux 72 base)", "type": "manual chronograph" },
-    "case": { "diameter_mm": 37, "material": "stainless steel", "bezel": "steel tachymeter" },
+    "produced": {
+      "start_year": 1963,
+      "end_year": 1969,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "722 (Valjoux 72 base)",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 37,
+      "material": "stainless steel",
+      "bezel": "steel tachymeter"
+    },
     "one_liner": "The exotic-dial 6239 that became the most famous chronograph in collecting after Newman's own example sold for $17.75 million."
   },
   "retail": {
@@ -19,20 +30,59 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2017-10-26", "price_usd": 17752500, "venue": "phillips", "url": "https://www.phillips.com/detail/PAUL-NEWMAN/NY080117/8", "condition": null, "box_papers": null },
-      { "date": "2024-06", "price_usd": 431800, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080124/20", "condition": null, "box_papers": null },
-      { "date": "2025-06", "price_usd": 419100, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/218255", "condition": null, "box_papers": "full_set" }
+      {
+        "date": "2017-10-26",
+        "price_usd": 17752500,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/PAUL-NEWMAN/NY080117/8",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2024-06",
+        "price_usd": 431800,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/NY080124/20",
+        "condition": null,
+        "box_papers": null
+      },
+      {
+        "date": "2025-06",
+        "price_usd": 419100,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/218255",
+        "condition": null,
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 57150,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232835",
+        "condition": "Circa 1966, Switzerland; Stainless steel; Rare Jumbo Logo dial configuration; the matched dossier is specifically the Paul Newman dial, so this sale must not move that estimate.",
+        "box_papers": null,
+        "comparable": false
+      }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
   "provenance_events": [
-    { "date": "2017-10-26", "person_or_event": "Paul Newman auction", "description": "Paul Newman's own exotic-dial 6239, given to him by Joanne Woodward, sells for $17,752,500 including premium at Phillips New York — the world record for any wristwatch at auction at the time.", "source_url": "https://www.phillips.com/article/18461746/paul-newmans-paul-newman-rolex-daytona-sets-record-fetches-17-dollars-8-cents-million" }
+    {
+      "date": "2017-10-26",
+      "person_or_event": "Paul Newman auction",
+      "description": "Paul Newman's own exotic-dial 6239, given to him by Joanne Woodward, sells for $17,752,500 including premium at Phillips New York — the world record for any wristwatch at auction at the time.",
+      "source_url": "https://www.phillips.com/article/18461746/paul-newmans-paul-newman-rolex-daytona-sets-record-fetches-17-dollars-8-cents-million"
+    }
   ],
   "narrative": {
     "story": "The 6239 introduced the Daytona name in 1963 and moved the tachymeter from the dial to the bezel. A slow-selling 'exotic' dial option — Art Deco numerals, blocked subdials, a contrasting outer track — was later nicknamed for Paul Newman, who wore one given to him by Joanne Woodward. When Newman's actual watch sold at Phillips New York in October 2017, it set the record for any wristwatch at auction and repriced the entire exotic-dial market.",

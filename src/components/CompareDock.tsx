@@ -20,6 +20,8 @@ export default function CompareDock() {
   return (
     <div
       className={'cdock' + (over ? ' over' : '') + (empty ? ' idle' : '')}
+      role="complementary"
+      aria-label="Comparison shelf"
       onDragOver={(e) => { e.preventDefault(); setOver(true) }}
       onDragLeave={() => setOver(false)}
       onDrop={(e) => {
@@ -38,7 +40,7 @@ export default function CompareDock() {
             return (
               <span className="cslot" key={id}>
                 <span className="cslot-t">{c ? `${c.identity.brand} ${c.identity.reference}` : id}</span>
-                <button type="button" aria-label={`Remove ${c?.identity.reference ?? id}`} onClick={() => remove(id)}>×</button>
+                 <button type="button" aria-label={`Remove ${c?.identity.reference ?? id}`} onClick={() => remove(id)} style={{ minWidth: 44, minHeight: 44 }}>×</button>
               </span>
             )
           })}

@@ -3,6 +3,7 @@ import {
   classifyLot, discoverPhillipsAuctionCodes, normalizeReference, parseMoney,
   parsePhillipsAuctionPage, parsePhillipsDetailPage, summarizeRecords,
 } from './lib/market-harvest.mjs';
+import { publicMarketIntake } from './lib/market-intake.mjs';
 
 const tile = ({ id, lot, brand, reference, model, sold }) => `
 <a href="/detail/${brand.toLowerCase()}/${id}">
@@ -60,7 +61,7 @@ assert.equal(unknown.status, 'quarantined');
 assert(unknown.reasons.includes('no_realized_price'));
 assert(unknown.reasons.includes('no_exact_card'));
 
-const duplicateKeys = { urls: new Set([parsed.lots[0].source_url]), values: new Set() };
+const duplicateKeys = { urls: new Set([`rolex-5513|${parsed.lots[0].source_url}`]), values: new Set() };
 assert.equal(classifyLot(parsed.lots[0], index, duplicateKeys, detail).status, 'duplicate');
 
 const summary = summarizeRecords([ready, nonUsd, unknown]);
@@ -68,5 +69,18 @@ assert.equal(summary.harvested, summary.ready_for_review + summary.quarantined +
   'every record lands in exactly one terminal intake state');
 assert.equal(summary.ready_for_review, 1);
 assert.equal(summary.quarantined, 2);
+
+const publicQueue = publicMarketIntake({
+  generated_at: '2026-09-06T00:00:00.000Z',
+  source: 'Phillips public watch auction results',
+  source_url: 'https://www.phillips.com/features/watches',
+  limitation: 'Review queue only.',
+  summary,
+  records: [ready, nonUsd, unknown],
+});
+assert.equal(publicQueue.records.length, 2, 'public intake includes exact-card candidates, not the unmatched archive');
+assert.equal(publicQueue.summary.exact_card_candidates, 2);
+assert.equal(publicQueue.records[0].detail.description, undefined, 'raw marketing copy stays out of the public snapshot');
+assert.equal(publicQueue.records[0].realized, 13970);
 
 console.log('✓ market harvest parser, trust boundary, dedupe, and conservation law');

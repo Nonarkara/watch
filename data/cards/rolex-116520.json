@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Daytona",
     "tier": "crown",
-    "produced": { "start_year": 2000, "end_year": 2016, "discontinued": true },
-    "movement": { "caliber": "4130", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "engraved steel tachymeter" },
+    "produced": {
+      "start_year": 2000,
+      "end_year": 2016,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "4130",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "engraved steel tachymeter"
+    },
     "one_liner": "The first Daytona with Rolex's own chronograph movement, produced 2000-2016."
   },
   "retail": {
@@ -18,12 +29,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 25400,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/231653",
+        "condition": "Circa 2007, Switzerland; Stainless steel; Accompanied by a Rolex warranty dated May 1, 2007 and stamped Hartgers Jeweler, green leather Rolex presentation box, wax tag, original invoice, 2015 Rolex International Service Guarantee and invoice, service pouch, product literature, and outer packaging; Ordinary black-dial steel reference; full set, original-owner history, 2015 service, and very-good condition disclosed.",
+        "box_papers": "full_set"
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

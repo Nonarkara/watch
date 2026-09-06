@@ -117,6 +117,25 @@ if (/twitter:site/.test(html)) {
   fail('index.html twitter:site names a handle Time Pop does not have; omit the tag until there is a real account')
 }
 
+// ── 8. --amber must resolve to a text-safe value ─────────────────
+// --amber is the legacy alias used by dozens of text rules. It must
+// not resolve to the raw coral (#EF6A5B, 2.6:1 on white) — it must
+// resolve to --coral-text (4.93:1) or an equivalent.
+if (/--amber:\s*var\(--coral\)(?![-\w])/.test(css)) {
+  fail('--amber must not alias to raw var(--coral) (2.6:1 on white fails AA)')
+}
+if (!/--amber:\s*var\(--coral-text\)/.test(css)) {
+  fail('--amber must alias to var(--coral-text) so every text rule using it passes 4.5:1')
+}
+
+// ── 9. --dim opacity must be >= 0.60 in light mode ───────────────
+// --dim: rgba(10,10,10,0.55) is ~5.25:1... actually 0.55 gives
+// #787878 which is 4.42:1 — just below AA. 0.60 gives 5.25:1.
+const dimLight = css.match(/--dim:\s*rgba\(10,\s*10,\s*10,\s*([\d.]+)\)/)
+if (dimLight && parseFloat(dimLight[1]) < 0.60) {
+  fail(`--dim light opacity ${dimLight[1]} is below 0.60 (fails 4.5:1 on white)`)
+}
+
 if (!process.exitCode) {
-  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site')
+  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site, --amber text-safe, --dim >= 0.60')
 }

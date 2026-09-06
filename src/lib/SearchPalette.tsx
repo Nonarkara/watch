@@ -83,10 +83,11 @@ export function SearchPalette() {
     }
   }
 
+  const listboxId = 'srch-listbox'
   if (!open) return null
   return (
     <div className="srch-bk" onClick={() => setOpen(false)} role="presentation">
-      <div className="srch" onClick={(e) => e.stopPropagation()} role="dialog" aria-label="Search the register">
+      <div className="srch" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Search the register">
         <div className="srch-input-row">
           <span className="srch-kbd mono">⌘K</span>
           <input
@@ -97,15 +98,21 @@ export function SearchPalette() {
             onKeyDown={onKey}
             autoFocus
             aria-label="Search"
+            role="combobox"
+            aria-expanded={open}
+            aria-controls={listboxId}
+            aria-haspopup="listbox"
+            aria-activedescendant={visible[hi] ? `srch-opt-${visible[hi].card.id}` : undefined}
+            aria-autocomplete="list"
           />
           <button type="button" className="srch-close mono" onClick={() => setOpen(false)} aria-label="Close search">ESC</button>
         </div>
-        <div className="srch-results">
+        <div className="srch-results" id={listboxId} role="listbox" aria-label="Search results">
           {!q && (
-            <p className="srch-hint mono">START TYPING — {all.length} REFERENCES IN THE REGISTER</p>
+            <p className="srch-hint mono" role="status">START TYPING — {all.length} REFERENCES IN THE REGISTER</p>
           )}
           {q && visible.length === 0 && (
-            <p className="srch-hint mono">NO MATCHES FOR “{q}” — TRY A BRAND OR REFERENCE</p>
+            <p className="srch-hint mono" role="status">NO MATCHES FOR "{q}" — TRY A BRAND OR REFERENCE</p>
           )}
           {visible.map((r, i) => {
             const c = r.card
@@ -114,18 +121,21 @@ export function SearchPalette() {
               <button
                 type="button"
                 key={c.id}
+                id={`srch-opt-${c.id}`}
+                role="option"
+                aria-selected={i === hi}
                 className={'srch-row' + (i === hi ? ' on' : '')}
                 onMouseEnter={() => setHi(i)}
                 onClick={() => { nav(`/w/${c.id}`); setOpen(false); setQ('') }}
               >
                 <span className="srch-row-img">
                   {m
-                    ? <img src={m.url} alt="" />
+                    ? <img src={m.url} alt="" loading="lazy" decoding="async"  width={56} height={56} />
                     : <span className="srch-row-img-empty mono">—</span>}
                 </span>
                 <span className="srch-row-body">
                   <span className="srch-row-source mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
-                  <span className="srch-row-name">{c.identity.name}{c.identity.nickname ? <span className="srch-row-nick"> “{c.identity.nickname}”</span> : null}</span>
+                  <span className="srch-row-name">{c.identity.name}{c.identity.nickname ? <span className="srch-row-nick"> "{c.identity.nickname}"</span> : null}</span>
                   <span className="srch-row-tier mono">{TIER_LABEL[c.identity.tier]}</span>
                 </span>
               </button>

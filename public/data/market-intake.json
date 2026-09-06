@@ -1,0 +1,737 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-05T17:14:54.282Z",
+  "source": "Phillips public watch auction results",
+  "source_url": "https://www.phillips.com/features/watches",
+  "limitation": "This is an intake queue, not published market evidence. Exact reference is necessary but not sufficient: a person must still check material, dial, condition, provenance, and whether the lot is an ordinary example.",
+  "summary": {
+    "harvested": 675,
+    "ready_for_review": 0,
+    "quarantined": 671,
+    "duplicate": 1,
+    "failed": 0,
+    "reasons": {
+      "no_exact_card": 638,
+      "non_usd_sale": 517,
+      "missing_reference": 142,
+      "material_mismatch": 3,
+      "no_realized_price": 2,
+      "already_on_card": 1
+    },
+    "observed_this_run": 111,
+    "retained_history": 564,
+    "promoted": 3,
+    "exact_card_candidates": 37
+  },
+  "records": [
+    {
+      "source_id": "phillips:233465",
+      "card_id": "patek-5711-1a",
+      "brand": "Patek Philippe",
+      "reference": "5711/1A-010",
+      "model": "Nautilus “Eric Clapton\"",
+      "realized": 266700,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/233465",
+      "status": "duplicate",
+      "reasons": [
+        "already_on_card"
+      ],
+      "observed_this_run": false,
+      "detail": {
+        "year": "2018, Switzerland",
+        "material": "Stainless steel",
+        "box_papers": "full_set",
+        "special_flags": [
+          "celebrity_or_named_provenance"
+        ]
+      },
+      "review": null
+    },
+    {
+      "source_id": "phillips:231511",
+      "card_id": "richardmille-rm011",
+      "brand": "Richard Mille",
+      "reference": "RM011",
+      "model": "RM011 AO RG-CA R. Grosjean",
+      "realized": 254000,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/richard-mille/231511",
+      "status": "quarantined",
+      "reasons": [
+        "material_mismatch"
+      ],
+      "observed_this_run": false,
+      "detail": {
+        "year": "Circa 2014, Switzerland",
+        "material": "18K pink gold, NTPT carbon",
+        "box_papers": "papers_only",
+        "special_flags": []
+      },
+      "review": null
+    },
+    {
+      "source_id": "phillips:231653",
+      "card_id": "rolex-116520",
+      "brand": "Rolex",
+      "reference": "116520",
+      "model": "Cosmograph Daytona",
+      "realized": 25400,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/rolex/231653",
+      "status": "promoted",
+      "reasons": [],
+      "observed_this_run": true,
+      "detail": {
+        "year": "Circa 2007, Switzerland",
+        "material": "Stainless steel",
+        "box_papers": "full_set",
+        "special_flags": []
+      },
+      "review": {
+        "decision": "comparable",
+        "note": "Ordinary black-dial steel reference; full set, original-owner history, 2015 service, and very-good condition disclosed.",
+        "reviewed_at": "2026-09-05T17:14:44.635Z"
+      }
+    },
+    {
+      "source_id": "phillips:233480",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520",
+      "model": "Cosmograph Daytona \"New-Old-Stock\"",
+      "realized": 60960,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/rolex/233480",
+      "status": "promoted",
+      "reasons": [],
+      "observed_this_run": true,
+      "detail": {
+        "year": "Circa 1998, Switzerland",
+        "material": "Stainless steel",
+        "box_papers": "box_only",
+        "special_flags": []
+      },
+      "review": {
+        "decision": "variant",
+        "note": "Factory-stickered new-old-stock, unworn, complete-set example; condition premium makes it non-comparable to an ordinary 16520.",
+        "reviewed_at": "2026-09-05T17:14:48.821Z"
+      }
+    },
+    {
+      "source_id": "phillips:234075",
+      "card_id": "rolex-1680-red",
+      "brand": "Rolex",
+      "reference": "1680",
+      "model": "Submariner, \"Meters First\"",
+      "realized": 120650,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/rolex/234075",
+      "status": "quarantined",
+      "reasons": [
+        "material_mismatch"
+      ],
+      "observed_this_run": true,
+      "detail": {
+        "year": "Circa 1969, Switzerland",
+        "material": "18K yellow gold",
+        "box_papers": null,
+        "special_flags": []
+      },
+      "review": null
+    },
+    {
+      "source_id": "phillips:233230",
+      "card_id": "rolex-6239-paul-newman",
+      "brand": "Rolex",
+      "reference": "6239",
+      "model": "Cosmograph Daytona “Paul Newman”",
+      "realized": 1079500,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/rolex/233230",
+      "status": "quarantined",
+      "reasons": [
+        "material_mismatch"
+      ],
+      "observed_this_run": true,
+      "detail": {
+        "year": "Circa 1967, Switzerland",
+        "material": "18K yellow gold",
+        "box_papers": null,
+        "special_flags": []
+      },
+      "review": null
+    },
+    {
+      "source_id": "phillips:232835",
+      "card_id": "rolex-6239-paul-newman",
+      "brand": "Rolex",
+      "reference": "6239",
+      "model": "Cosmograph Daytona “Jumbo Logo”",
+      "realized": 57150,
+      "currency": "USD",
+      "sale_date": "2026-06-13",
+      "source_url": "https://www.phillips.com/detail/rolex/232835",
+      "status": "promoted",
+      "reasons": [],
+      "observed_this_run": true,
+      "detail": {
+        "year": "Circa 1966, Switzerland",
+        "material": "Stainless steel",
+        "box_papers": null,
+        "special_flags": []
+      },
+      "review": {
+        "decision": "variant",
+        "note": "Rare Jumbo Logo dial configuration; the matched dossier is specifically the Paul Newman dial, so this sale must not move that estimate.",
+        "reviewed_at": "2026-09-05T17:14:54.282Z"
+      }
+    },
+    {
+      "source_id": "phillips:233155",
+      "card_id": "lange-saxonia-thin-205-086",
+      "brand": "A. Lange & Söhne",
+      "reference": "205.086",
+      "model": "Saxonia Thin, Copper-blue gold flux dial",
+      "realized": 190500,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/a.-lange-&-söhne/233155",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:225391",
+      "card_id": "lange-1815-chronograph-414-028",
+      "brand": "A. Lange & Söhne",
+      "reference": "414.028",
+      "model": "1815 Chronograph",
+      "realized": 444500,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/a.-lange-&-söhne/225391",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:230419",
+      "card_id": "ap-5402st",
+      "brand": "Audemars Piguet",
+      "reference": "5402ST",
+      "model": "Royal Oak “A Series”",
+      "realized": 584200,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/audemars-piguet/230419",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:232322",
+      "card_id": "patek-5711-1a",
+      "brand": "Patek Philippe",
+      "reference": "5711/1A-010",
+      "model": "Nautilus",
+      "realized": 952500,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/232322",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:233622",
+      "card_id": "patek-philippe-5968g-001",
+      "brand": "Patek Philippe",
+      "reference": "5968G-001",
+      "model": "Aquanaut Chronograph",
+      "realized": 1016000,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/233622",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:234227",
+      "card_id": "rolex-1016",
+      "brand": "Rolex",
+      "reference": "1016",
+      "model": "Explorer",
+      "realized": 88900,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/234227",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:233264",
+      "card_id": "rolex-116500ln",
+      "brand": "Rolex",
+      "reference": "116500LN",
+      "model": "Cosmograph Daytona",
+      "realized": 241300,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/233264",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:232316",
+      "card_id": "rolex-116520",
+      "brand": "Rolex",
+      "reference": "116520",
+      "model": "Cosmograph Daytona",
+      "realized": 177800,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/232316",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:233254",
+      "card_id": "rolex-116520",
+      "brand": "Rolex",
+      "reference": "116520",
+      "model": "Cosmograph Daytona",
+      "realized": 279400,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/233254",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:234092",
+      "card_id": "rolex-116520",
+      "brand": "Rolex",
+      "reference": "116520",
+      "model": "Cosmograph Daytona, \"Panna Dial\"",
+      "realized": 406400,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/234092",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:232849",
+      "card_id": "rolex-116610ln",
+      "brand": "Rolex",
+      "reference": "116610LN",
+      "model": "Submariner “GIGN”",
+      "realized": 355600,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/232849",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:233554",
+      "card_id": "rolex-124270",
+      "brand": "Rolex",
+      "reference": "124270",
+      "model": "Explorer",
+      "realized": 53340,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/233554",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:232493",
+      "card_id": "rolex-124300",
+      "brand": "Rolex",
+      "reference": "124300",
+      "model": "Oyster Perpetual 41",
+      "realized": 82550,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/232493",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:234020",
+      "card_id": "rolex-1601",
+      "brand": "Rolex",
+      "reference": "1601",
+      "model": "Datejust, Red Jasper in pink gold",
+      "realized": 508000,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/234020",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:233555",
+      "card_id": "rolex-16570",
+      "brand": "Rolex",
+      "reference": "16570",
+      "model": "Explorer II",
+      "realized": 88900,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/233555",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:230149",
+      "card_id": "rolex-16710",
+      "brand": "Rolex",
+      "reference": "16710",
+      "model": "GMT-Master II",
+      "realized": 139700,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/230149",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:232191",
+      "card_id": "rolex-1675",
+      "brand": "Rolex",
+      "reference": "1675",
+      "model": "GMT-Master \"Tropical MK III\"",
+      "realized": 698500,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/232191",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:224820",
+      "card_id": "rolex-5513",
+      "brand": "Rolex",
+      "reference": "5513",
+      "model": "Submariner “MilSub”",
+      "realized": 1397000,
+      "currency": "HKD",
+      "sale_date": "2026-05-30",
+      "source_url": "https://www.phillips.com/detail/rolex/224820",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:231276",
+      "card_id": "patek-philippe-5168g-001",
+      "brand": "Patek Philippe",
+      "reference": "5168G-001",
+      "model": "Aquanaut",
+      "realized": 95250,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/231276",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:229224",
+      "card_id": "patek-5711-1a",
+      "brand": "Patek Philippe",
+      "reference": "5711/1A-010",
+      "model": "Nautilus",
+      "realized": 88900,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/patek-philippe/229224",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": false,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226538",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520",
+      "model": "Cosmograph Daytona \"Porcelain\" Dial",
+      "realized": 139700,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226538",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226535",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520",
+      "model": "Cosmograph Daytona",
+      "realized": 35560,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226535",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226537",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520",
+      "model": "Cosmograph Daytona \"High Serif\"",
+      "realized": 46990,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226537",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226539",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520 inside caseback stamped 16500",
+      "model": "Cosmograph Daytona \"Patrizzi Dial\"",
+      "realized": 45720,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226539",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226536",
+      "card_id": "rolex-16520",
+      "brand": "Rolex",
+      "reference": "16520, inside caseback stamped 16500",
+      "model": "Cosmograph Daytona \"4-liner\"",
+      "realized": 38100,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226536",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:226541",
+      "card_id": "rolex-16600",
+      "brand": "Rolex",
+      "reference": "16600",
+      "model": "Sea-Dweller",
+      "realized": 10160,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/226541",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:213790",
+      "card_id": "rolex-1675",
+      "brand": "Rolex",
+      "reference": "1675",
+      "model": "GMT-Master",
+      "realized": 24130,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/213790",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:231522",
+      "card_id": "rolex-1803",
+      "brand": "Rolex",
+      "reference": "1803",
+      "model": "Day-Date",
+      "realized": 33020,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/231522",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:227996",
+      "card_id": "rolex-6239-paul-newman",
+      "brand": "Rolex",
+      "reference": "6239",
+      "model": "Cosmograph Daytona \"Jumbo Logo\"",
+      "realized": 63500,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/227996",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    },
+    {
+      "source_id": "phillips:229798",
+      "card_id": "rolex-6239-paul-newman",
+      "brand": "Rolex",
+      "reference": "6239 inside caseback stamped 6238",
+      "model": "Cosmograph \"Double Swiss Underline\"",
+      "realized": 190500,
+      "currency": "CHF",
+      "sale_date": "2026-05-09",
+      "source_url": "https://www.phillips.com/detail/rolex/229798",
+      "status": "quarantined",
+      "reasons": [
+        "non_usd_sale"
+      ],
+      "observed_this_run": true,
+      "detail": null,
+      "review": null
+    }
+  ]
+}

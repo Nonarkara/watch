@@ -53,7 +53,7 @@ function BookCard({ book }: { book: BibleBook }) {
   return (
     <article className={'bible-card' + (hasCover ? '' : ' bible-card--no-cover')}>
       <div className="bible-card-row">
-        {hasCover && <img src={book.cover} alt="" loading="lazy" className="bible-card-cover" />}
+        {hasCover && <img src={book.cover} alt="" loading="lazy" decoding="async" className="bible-card-cover"  width={400} height={300} />}
         <div className="bible-card-meta">
           <h3 className="bible-card-title">{book.title}</h3>
           <p className="bible-card-author">{book.authors.join(', ')} <span className="dim mono">· {book.year} · {book.publisher}</span></p>

@@ -6,6 +6,8 @@ import {
   netSaleOutcome,
   projectHoldingPeriods,
   projectNetHoldingPeriods,
+  requiredGrossValueForNetTarget,
+  requiredReturnSnapshot,
   summarizeCollectionEstimates,
 } from '../src/lib/value-lab.ts'
 
@@ -49,7 +51,8 @@ assert.equal(Math.round(net[0].exit_fee), 683)
 assert.equal(net[0].ownership_cost, 200)
 assert.equal(net[0].net_proceeds, 9_617)
 assert.equal(net[0].net_change, -383)
-assert.equal(Number(net[0].break_even_annual_rate.toFixed(2)), 9.09)
+assert.equal(Number(net[0].break_even_annual_rate.toFixed(2)), 9.1)
+assert.equal(net[0].break_even_gross_value, 10_910)
 assert.equal(net[4].ownership_cost, 4_000)
 assert.equal(Math.round(net[4].net_proceeds), 20_808)
 assert.ok(net.every((row) => row.value - row.exit_fee - row.ownership_cost === row.net_proceeds),
@@ -82,5 +85,34 @@ assert.deepEqual(netSaleOutcome(12_000, 10_000, 0, {
   net_proceeds: 11_220,
   net_change: 1_220,
 }, 'today settlement must expose whether the owner is already above net cost basis')
+
+assert.equal(requiredGrossValueForNetTarget(10_000, 200, {
+  seller_fee_pct: 6.5,
+  seller_flat_fee_usd: null,
+}), 10_910, 'required gross must clear the target after whole-dollar fee rounding')
+
+const required = requiredReturnSnapshot(10_000, 10_000, 3, 5, 200, {
+  seller_fee_pct: 6.5,
+  seller_flat_fee_usd: null,
+})
+assert.deepEqual({
+  years: required.years,
+  target_annual_return: required.target_annual_return,
+  target_net_value: required.target_net_value,
+  break_even_gross_value: required.break_even_gross_value,
+  target_gross_value: required.target_gross_value,
+}, {
+  years: 3,
+  target_annual_return: 5,
+  target_net_value: 11_576,
+  break_even_gross_value: 11_337,
+  target_gross_value: 13_023,
+})
+assert.equal(Number(required.break_even_annual_rate.toFixed(2)), 4.27)
+assert.equal(Number(required.target_annual_rate.toFixed(2)), 9.2)
+assert.ok(netSaleOutcome(required.target_gross_value, 10_000, 600, {
+  seller_fee_pct: 6.5,
+  seller_flat_fee_usd: null,
+}).net_proceeds >= required.target_net_value, 'reverse target must conserve through the forward net-sale model')
 
 console.log('✓ value lab keeps evidence, gross scenarios, and net exit math separate')

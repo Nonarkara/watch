@@ -1,134 +1,86 @@
 {
   "schema_version": 1,
-  "run_id": "phillips-2026-08-31T17-43-46-087Z",
-  "started_at": "2026-08-31T17:43:46.087Z",
+  "run_id": "phillips-2026-09-05T17-14-01-059Z",
+  "started_at": "2026-09-05T17:14:01.059Z",
   "source": "Phillips public watch auction results",
   "source_url": "https://www.phillips.com/features/watches",
   "policy": "Discovery is automatic. Only exact-reference, realized USD sales can reach ready_for_review. Promotion remains a separate human decision.",
   "options": {
     "max_auctions": 12,
     "max_details": 60,
-    "brand": null,
-    "dry_run": false
+    "brand": "Rolex",
+    "dry_run": false,
+    "refresh": false
   },
   "requests": [
     {
       "url": "https://www.phillips.com/features/watches",
-      "sha256": "7bea6f476342665ab76ac144b4f28de8b734ad9cad66ebae0d6263e70d77209a",
-      "path": "data/.harvest/phillips/2026-08-31/discovery-watches-7bea6f476342.html.gz",
-      "elapsed_ms": 100,
+      "sha256": "05f15c52cfe892ce706f6c412fec02d602a878b87dbdc97b8ccbfe459d16bfb5",
+      "path": "data/.harvest/phillips/2026-09-05/discovery-watches-05f15c52cfe8.html.gz",
+      "elapsed_ms": 1994,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/CH080326",
-      "sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
-      "path": "data/.harvest/phillips/2026-08-31/auction-CH080326-e28ee73b2a85.html.gz",
-      "elapsed_ms": 697,
+      "sha256": "fefc049c060974818f3ed5385419a73444c2cabc0b96dbaf205ae542c742097f",
+      "path": "data/.harvest/phillips/2026-09-05/auction-CH080326-fefc049c0609.html.gz",
+      "elapsed_ms": 2067,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/HK080326",
-      "sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
-      "path": "data/.harvest/phillips/2026-08-31/auction-HK080326-5e04b26dc4e7.html.gz",
-      "elapsed_ms": 502,
+      "sha256": "52f464c88b8ec10d5532b2fa0a39af5365f52305d6dd8634e72d4be096298ec9",
+      "path": "data/.harvest/phillips/2026-09-05/auction-HK080326-52f464c88b8e.html.gz",
+      "elapsed_ms": 618,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/NY080426",
-      "sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
-      "path": "data/.harvest/phillips/2026-08-31/auction-NY080426-918626c8e1de.html.gz",
-      "elapsed_ms": 487,
+      "sha256": "6819cbc87b1e28811b0674ffe1f2298034ed7b6e94cf795e5996ed8fac88524b",
+      "path": "data/.harvest/phillips/2026-09-05/auction-NY080426-6819cbc87b1e.html.gz",
+      "elapsed_ms": 523,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/CH080426",
-      "sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
-      "path": "data/.harvest/phillips/2026-08-31/auction-CH080426-3e35ab785287.html.gz",
-      "elapsed_ms": 379,
+      "sha256": "ac68298ab003d54176a0ddf3bef2aa116c79d037f6e6685d7e7f2a41ae1f2ce7",
+      "path": "data/.harvest/phillips/2026-09-05/auction-CH080426-ac68298ab003.html.gz",
+      "elapsed_ms": 516,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/HK080426",
-      "sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
-      "path": "data/.harvest/phillips/2026-08-31/auction-HK080426-aee6153a025d.html.gz",
-      "elapsed_ms": 398,
+      "sha256": "b7bb920fb8e9f34bf87e5bed6e4af37519279a31fd6099e8e006cf85d8a1e157",
+      "path": "data/.harvest/phillips/2026-09-05/auction-HK080426-b7bb920fb8e9.html.gz",
+      "elapsed_ms": 379,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/NY080226",
-      "sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
-      "path": "data/.harvest/phillips/2026-08-31/auction-NY080226-8519ce1058d3.html.gz",
-      "elapsed_ms": 352,
+      "sha256": "f5f8a6d73f5a7e99fbd03addf34f5a4ac82181466f8cfdf2e8227cf8e4befdf3",
+      "path": "data/.harvest/phillips/2026-09-05/auction-NY080226-f5f8a6d73f5a.html.gz",
+      "elapsed_ms": 386,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/NY080126",
-      "sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
-      "path": "data/.harvest/phillips/2026-08-31/auction-NY080126-dc4f4ca3318c.html.gz",
-      "elapsed_ms": 174,
+      "sha256": "a8b0d70e1ae4705f499baf66e92f99bcf0f1ed52c19d16bd2d3ec42ca28d91e9",
+      "path": "data/.harvest/phillips/2026-09-05/auction-NY080126-a8b0d70e1ae4.html.gz",
+      "elapsed_ms": 867,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/HK080226",
-      "sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
-      "path": "data/.harvest/phillips/2026-08-31/auction-HK080226-bf2e9a9dfe31.html.gz",
-      "elapsed_ms": 1736,
+      "sha256": "8ac32435d0ebdb6af99452baf48b57b2168da62d8487cb696ec89838e38cd709",
+      "path": "data/.harvest/phillips/2026-09-05/auction-HK080226-8ac32435d0eb.html.gz",
+      "elapsed_ms": 1386,
       "error": null
     },
     {
       "url": "https://www.phillips.com/auctions/auction/CH080226",
-      "sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
-      "path": "data/.harvest/phillips/2026-08-31/auction-CH080226-1b6f1821daa7.html.gz",
-      "elapsed_ms": 1681,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/rolex/234075",
-      "sha256": "2fefb9bf015569171756ec5dc6dd2598a8ff279fa794d1d97da2f315121904c1",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-234075-2fefb9bf0155.html.gz",
-      "elapsed_ms": 754,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/richard-mille/231511",
-      "sha256": "7538efd03dd8f619256f49b46a21cdb4090a5217ec655b58536123b531d849b0",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-231511-7538efd03dd8.html.gz",
-      "elapsed_ms": 1165,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/patek-philippe/233465",
-      "sha256": "13a5bcdcd6f40f0c86899eb251a2366c404c866a4fc90fa0e2c242dda0e6e2c6",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233465-13a5bcdcd6f4.html.gz",
-      "elapsed_ms": 641,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/rolex/233230",
-      "sha256": "d8e57fade806181e03cce3adadc62b131780f1575f1b95daf830298b51b59ed4",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233230-d8e57fade806.html.gz",
-      "elapsed_ms": 617,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/rolex/231653",
-      "sha256": "de67e41020d473f9efb70a674c172c2548736209dda592c2d554cf321f776649",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-231653-de67e41020d4.html.gz",
-      "elapsed_ms": 613,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/rolex/233480",
-      "sha256": "75dd9687cbb19bfae5d39a0d0cbfd6f8e70cfef21f813b4395fa311f34d8cf39",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-233480-75dd9687cbb1.html.gz",
-      "elapsed_ms": 653,
-      "error": null
-    },
-    {
-      "url": "https://www.phillips.com/detail/rolex/232835",
-      "sha256": "b8b3367236111965efd50a5dbc07d3e9c7669de552ce38b8e418a2b41f9f88a5",
-      "path": "data/.harvest/phillips/2026-08-31/detail-phillips-232835-b8b336723611.html.gz",
-      "elapsed_ms": 586,
+      "sha256": "6b9fd20fd1463e0b380ce710b9830dc63723015efef714caaa59ecb3afab6de3",
+      "path": "data/.harvest/phillips/2026-09-05/auction-CH080226-6b9fd20fd146.html.gz",
+      "elapsed_ms": 1177,
       "error": null
     }
   ],
@@ -140,13 +92,13 @@
       "end_date": "2026-09-11",
       "location": "Geneva",
       "source_url": "https://www.phillips.com/auctions/auction/CH080326",
-      "source_sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
+      "source_sha256": "fefc049c060974818f3ed5385419a73444c2cabc0b96dbaf205ae542c742097f",
       "raw": {
-        "sha256": "e28ee73b2a859d5bf9da13c7034cb3a208a35d6430d011652de319e5861e8256",
-        "path": "data/.harvest/phillips/2026-08-31/auction-CH080326-e28ee73b2a85.html.gz"
+        "sha256": "fefc049c060974818f3ed5385419a73444c2cabc0b96dbaf205ae542c742097f",
+        "path": "data/.harvest/phillips/2026-09-05/auction-CH080326-fefc049c0609.html.gz"
       },
-      "lots": 0,
-      "completed": false,
+      "lots": 98,
+      "completed": true,
       "has_results": false
     },
     {
@@ -156,10 +108,10 @@
       "end_date": "2026-09-24",
       "location": "Hong Kong",
       "source_url": "https://www.phillips.com/auctions/auction/HK080326",
-      "source_sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
+      "source_sha256": "52f464c88b8ec10d5532b2fa0a39af5365f52305d6dd8634e72d4be096298ec9",
       "raw": {
-        "sha256": "5e04b26dc4e708a50ae74ecb37761fedffc801bbded4ad8f26c62d832755a593",
-        "path": "data/.harvest/phillips/2026-08-31/auction-HK080326-5e04b26dc4e7.html.gz"
+        "sha256": "52f464c88b8ec10d5532b2fa0a39af5365f52305d6dd8634e72d4be096298ec9",
+        "path": "data/.harvest/phillips/2026-09-05/auction-HK080326-52f464c88b8e.html.gz"
       },
       "lots": 0,
       "completed": false,
@@ -172,10 +124,10 @@
       "end_date": "2026-10-09",
       "location": "New York",
       "source_url": "https://www.phillips.com/auctions/auction/NY080426",
-      "source_sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
+      "source_sha256": "6819cbc87b1e28811b0674ffe1f2298034ed7b6e94cf795e5996ed8fac88524b",
       "raw": {
-        "sha256": "918626c8e1de9fc9312e17e5b367ceefc5676cf6e45181301e1de05b948960a2",
-        "path": "data/.harvest/phillips/2026-08-31/auction-NY080426-918626c8e1de.html.gz"
+        "sha256": "6819cbc87b1e28811b0674ffe1f2298034ed7b6e94cf795e5996ed8fac88524b",
+        "path": "data/.harvest/phillips/2026-09-05/auction-NY080426-6819cbc87b1e.html.gz"
       },
       "lots": 0,
       "completed": false,
@@ -188,10 +140,10 @@
       "end_date": "2026-11-08",
       "location": "Geneva",
       "source_url": "https://www.phillips.com/auctions/auction/CH080426",
-      "source_sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
+      "source_sha256": "ac68298ab003d54176a0ddf3bef2aa116c79d037f6e6685d7e7f2a41ae1f2ce7",
       "raw": {
-        "sha256": "3e35ab78528735d4148f334cd36ec2d0fcdc54d77aa50f43c90c2e2d0fb592cb",
-        "path": "data/.harvest/phillips/2026-08-31/auction-CH080426-3e35ab785287.html.gz"
+        "sha256": "ac68298ab003d54176a0ddf3bef2aa116c79d037f6e6685d7e7f2a41ae1f2ce7",
+        "path": "data/.harvest/phillips/2026-09-05/auction-CH080426-ac68298ab003.html.gz"
       },
       "lots": 0,
       "completed": false,
@@ -204,10 +156,10 @@
       "end_date": "2026-11-22",
       "location": "Hong Kong",
       "source_url": "https://www.phillips.com/auctions/auction/HK080426",
-      "source_sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
+      "source_sha256": "b7bb920fb8e9f34bf87e5bed6e4af37519279a31fd6099e8e006cf85d8a1e157",
       "raw": {
-        "sha256": "aee6153a025d824e3e48efa2244599cd9d3102aa5a32160517c2b45d5ab23d35",
-        "path": "data/.harvest/phillips/2026-08-31/auction-HK080426-aee6153a025d.html.gz"
+        "sha256": "b7bb920fb8e9f34bf87e5bed6e4af37519279a31fd6099e8e006cf85d8a1e157",
+        "path": "data/.harvest/phillips/2026-09-05/auction-HK080426-b7bb920fb8e9.html.gz"
       },
       "lots": 0,
       "completed": false,
@@ -220,10 +172,10 @@
       "end_date": "2026-12-06",
       "location": "New York",
       "source_url": "https://www.phillips.com/auctions/auction/NY080226",
-      "source_sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
+      "source_sha256": "f5f8a6d73f5a7e99fbd03addf34f5a4ac82181466f8cfdf2e8227cf8e4befdf3",
       "raw": {
-        "sha256": "8519ce1058d3ffb769c93495d1c634ce006240104012806b3e5247a0353c6f82",
-        "path": "data/.harvest/phillips/2026-08-31/auction-NY080226-8519ce1058d3.html.gz"
+        "sha256": "f5f8a6d73f5a7e99fbd03addf34f5a4ac82181466f8cfdf2e8227cf8e4befdf3",
+        "path": "data/.harvest/phillips/2026-09-05/auction-NY080226-f5f8a6d73f5a.html.gz"
       },
       "lots": 0,
       "completed": false,
@@ -236,10 +188,10 @@
       "end_date": "2026-06-14",
       "location": "New York",
       "source_url": "https://www.phillips.com/auctions/auction/NY080126",
-      "source_sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
+      "source_sha256": "a8b0d70e1ae4705f499baf66e92f99bcf0f1ed52c19d16bd2d3ec42ca28d91e9",
       "raw": {
-        "sha256": "dc4f4ca3318ca9c2c638a36596962212cc06353408c3b618bc89b4038282406b",
-        "path": "data/.harvest/phillips/2026-08-31/auction-NY080126-dc4f4ca3318c.html.gz"
+        "sha256": "a8b0d70e1ae4705f499baf66e92f99bcf0f1ed52c19d16bd2d3ec42ca28d91e9",
+        "path": "data/.harvest/phillips/2026-09-05/auction-NY080126-a8b0d70e1ae4.html.gz"
       },
       "lots": 156,
       "completed": true,
@@ -252,10 +204,10 @@
       "end_date": "2026-05-31",
       "location": "Hong Kong",
       "source_url": "https://www.phillips.com/auctions/auction/HK080226",
-      "source_sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
+      "source_sha256": "8ac32435d0ebdb6af99452baf48b57b2168da62d8487cb696ec89838e38cd709",
       "raw": {
-        "sha256": "bf2e9a9dfe31294da57dbc86baaf7e5f478ca55240b77d69443fca7cacc641e3",
-        "path": "data/.harvest/phillips/2026-08-31/auction-HK080226-bf2e9a9dfe31.html.gz"
+        "sha256": "8ac32435d0ebdb6af99452baf48b57b2168da62d8487cb696ec89838e38cd709",
+        "path": "data/.harvest/phillips/2026-09-05/auction-HK080226-8ac32435d0eb.html.gz"
       },
       "lots": 294,
       "completed": true,
@@ -268,10 +220,10 @@
       "end_date": "2026-05-10",
       "location": "Geneva",
       "source_url": "https://www.phillips.com/auctions/auction/CH080226",
-      "source_sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
+      "source_sha256": "6b9fd20fd1463e0b380ce710b9830dc63723015efef714caaa59ecb3afab6de3",
       "raw": {
-        "sha256": "1b6f1821daa775f03e7a55fd60e99c541c406df3d55f4002ec3fbcb65588d408",
-        "path": "data/.harvest/phillips/2026-08-31/auction-CH080226-1b6f1821daa7.html.gz"
+        "sha256": "6b9fd20fd1463e0b380ce710b9830dc63723015efef714caaa59ecb3afab6de3",
+        "path": "data/.harvest/phillips/2026-09-05/auction-CH080226-6b9fd20fd146.html.gz"
       },
       "lots": 225,
       "completed": true,
@@ -279,8 +231,8 @@
     }
   ],
   "failures": [],
-  "finished_at": "2026-08-31T17:43:57.684Z",
-  "duration_ms": 11597,
+  "finished_at": "2026-09-05T17:14:11.055Z",
+  "duration_ms": 9996,
   "summary": {
     "harvested": 675,
     "ready_for_review": 3,
@@ -294,6 +246,22 @@
       "material_mismatch": 3,
       "no_realized_price": 2,
       "already_on_card": 1
+    },
+    "observed_this_run": 111,
+    "retained_history": 564
+  },
+  "observed_summary": {
+    "harvested": 111,
+    "ready_for_review": 3,
+    "quarantined": 108,
+    "duplicate": 0,
+    "failed": 0,
+    "reasons": {
+      "non_usd_sale": 85,
+      "no_exact_card": 83,
+      "material_mismatch": 2,
+      "missing_reference": 1,
+      "no_realized_price": 1
     }
   }
 }

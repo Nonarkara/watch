@@ -7,9 +7,11 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isDryRun } from './lib/fetch.mjs';
 import { validateCard } from './validate_card.mjs';
+import { writePublicMarketIntake } from './lib/market-intake.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const QUEUE_FILE = join(ROOT, 'data/market/review-queue.json');
+const PUBLIC_FILE = join(ROOT, 'public/data/market-intake.json');
 const TODAY = new Date().toISOString().slice(0, 10);
 
 function arg(name) {
@@ -94,4 +96,5 @@ writeFileSync(cardTmp, JSON.stringify(card, null, 2) + '\n');
 writeFileSync(queueTmp, JSON.stringify(queue, null, 2) + '\n');
 renameSync(cardTmp, cardFile);
 renameSync(queueTmp, QUEUE_FILE);
+writePublicMarketIntake(queue, PUBLIC_FILE);
 console.log(`✓ promoted one reviewed sale; run npm run data:build to recompute the masked dataset`);

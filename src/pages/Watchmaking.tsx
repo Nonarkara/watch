@@ -37,7 +37,7 @@ function ArtifactFigure({ a, tall, className }: { a: WatchmakingArtifact; tall?:
   return (
     <figure className={`wmp-figure${tall ? ' tall' : ''}${className ? ' ' + className : ''}`}>
       <a href={a.source_url} target="_blank" rel="noreferrer" className="wmp-figure-media">
-        <img src={a.local} alt={a.caption} loading="lazy" />
+        <img src={a.local} alt={a.caption} loading="lazy" decoding="async"  width={400} height={300} />
       </a>
       <figcaption>
         <span className="wmp-figure-cap">{a.caption}</span>
@@ -67,7 +67,7 @@ function RailCard({ a }: { a: WatchmakingArtifact }) {
   return (
     <a className="wmp-rail-card" href={a.source_url} target="_blank" rel="noreferrer">
       <span className="wmp-rail-img">
-        <img src={a.local} alt={a.caption} loading="lazy" />
+        <img src={a.local} alt={a.caption} loading="lazy" decoding="async"  width={400} height={300} />
       </span>
       <span className="wmp-rail-body">
         {year && <span className="wmp-rail-year mono">{year}</span>}
@@ -575,7 +575,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
       </p>
       <div className="wmp-parts">
         {mainspring && <figure className="wmp-part">
-          <img src={mainspring.local} alt={mainspring.caption} loading="lazy" />
+          <img src={mainspring.local} alt={mainspring.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">MAINSPRING</strong>
             <p>{mainspring.caption}</p>
@@ -583,7 +583,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
           </figcaption>
         </figure>}
         {barrel && <figure className="wmp-part">
-          <img src={barrel.local} alt={barrel.caption} loading="lazy" />
+          <img src={barrel.local} alt={barrel.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">GOING BARREL</strong>
             <p>{barrel.caption}</p>
@@ -591,7 +591,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
           </figcaption>
         </figure>}
         {lever && <figure className="wmp-part">
-          <img src={lever.local} alt={lever.caption} loading="lazy" />
+          <img src={lever.local} alt={lever.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">LEVER ESCAPEMENT</strong>
             <p>{lever.caption}</p>
@@ -599,7 +599,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
           </figcaption>
         </figure>}
         {pallet && <figure className="wmp-part">
-          <img src={pallet.local} alt={pallet.caption} loading="lazy" />
+          <img src={pallet.local} alt={pallet.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">PALLET FORK</strong>
             <p>{pallet.caption}</p>
@@ -607,7 +607,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
           </figcaption>
         </figure>}
         {balance && <figure className="wmp-part">
-          <img src={balance.local} alt={balance.caption} loading="lazy" />
+          <img src={balance.local} alt={balance.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">BALANCE WHEEL</strong>
             <p>{balance.caption}</p>
@@ -615,7 +615,7 @@ function AnatomyCard({ shots }: { shots: WatchmakingArtifact[] }) {
           </figcaption>
         </figure>}
         {jewels && <figure className="wmp-part">
-          <img src={jewels.local} alt={jewels.caption} loading="lazy" />
+          <img src={jewels.local} alt={jewels.caption} loading="lazy" decoding="async"  width={400} height={300} />
           <figcaption>
             <strong className="mono">JEWELS</strong>
             <p>{jewels.caption}</p>

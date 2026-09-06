@@ -12,12 +12,14 @@ import {
   normalizeBrand, parsePhillipsAuctionPage, parsePhillipsDetailPage, sha256,
   summarizeRecords,
 } from './lib/market-harvest.mjs';
+import { writePublicMarketIntake } from './lib/market-intake.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DISCOVERY_URL = 'https://www.phillips.com/features/watches';
 const OUT_DIR = join(ROOT, 'data/market');
 const QUEUE_FILE = join(OUT_DIR, 'review-queue.json');
 const MANIFEST_FILE = join(OUT_DIR, 'harvest-manifest.json');
+const PUBLIC_FILE = join(ROOT, 'public/data/market-intake.json');
 const SNAPSHOT_ROOT = join(ROOT, 'data/.harvest/phillips');
 const TODAY = new Date().toISOString().slice(0, 10);
 const SOURCE_KEY = 'phillips-watch-results';
@@ -33,6 +35,7 @@ const maxAuctions = Number(argValue('max-auctions', '12'));
 const maxDetails = Number(argValue('max-details', '60'));
 const brandFilter = argValue('brand');
 const dryRun = isDryRun();
+const refresh = process.argv.includes('--refresh');
 
 if (!Number.isInteger(maxAuctions) || maxAuctions < 1 || maxAuctions > 50) {
   throw new Error('--max-auctions must be an integer from 1 to 50');
@@ -71,6 +74,11 @@ async function getText(url, kind, key) {
 
 const cardIndex = loadCardIndex(ROOT);
 const compKeys = existingCompKeys(cardIndex);
+let previous = null;
+if (existsSync(QUEUE_FILE)) {
+  try { previous = JSON.parse(readFileSync(QUEUE_FILE, 'utf8')); } catch { /* a broken prior queue should not poison new evidence */ }
+}
+const previousById = new Map((previous?.records ?? []).map((record) => [record.source_id, record]));
 const run = {
   schema_version: 1,
   run_id: `phillips-${new Date().toISOString().replace(/[:.]/g, '-')}`,
@@ -78,7 +86,7 @@ const run = {
   source: 'Phillips public watch auction results',
   source_url: DISCOVERY_URL,
   policy: 'Discovery is automatic. Only exact-reference, realized USD sales can reach ready_for_review. Promotion remains a separate human decision.',
-  options: { max_auctions: maxAuctions, max_details: maxDetails, brand: brandFilter ?? null, dry_run: dryRun },
+  options: { max_auctions: maxAuctions, max_details: maxDetails, brand: brandFilter ?? null, dry_run: dryRun, refresh },
   requests: [],
   auctions: [],
   failures: [],
@@ -118,14 +126,17 @@ if (!parsedLots.length) {
   throw new Error('no completed auction results parsed; committed queue was not touched');
 }
 
+const details = new Map((previous?.records ?? [])
+  .filter((record) => record.detail)
+  .map((record) => [record.source_id, record.detail]));
 const eligibleForDetail = parsedLots.filter((lot) => {
   if (!lot.realized || lot.currency !== 'USD' || !lot.reference_key) return false;
   if (brandFilter && normalizeBrand(lot.brand) !== normalizeBrand(brandFilter)) return false;
+  if (!refresh && details.has(lot.source_id)) return false;
   return cardIndex.byIdentity.has(`${normalizeBrand(lot.brand)}|${lot.reference_key}`);
 }).slice(0, maxDetails);
 
-console.log(`[phillips] enriching ${eligibleForDetail.length} exact-reference USD matches`);
-const details = new Map();
+console.log(`[phillips] enriching ${eligibleForDetail.length} new or refreshed exact-reference USD matches`);
 for (const [index, lot] of eligibleForDetail.entries()) {
   const key = lot.source_id.replace(':', '-');
   const fetched = await getText(lot.source_url, 'detail', key);
@@ -140,23 +151,40 @@ for (const [index, lot] of eligibleForDetail.entries()) {
   }
 }
 
-let records = parsedLots.map((lot) => classifyLot(lot, cardIndex, compKeys, details.get(lot.source_id) ?? null));
-if (brandFilter) records = records.filter((record) => normalizeBrand(record.brand) === normalizeBrand(brandFilter));
+run.finished_at = new Date().toISOString();
+let observedRecords = parsedLots.map((lot) => {
+  const prior = previousById.get(lot.source_id);
+  const record = classifyLot(lot, cardIndex, compKeys, details.get(lot.source_id) ?? null);
+  return {
+    ...record,
+    first_seen_at: prior?.first_seen_at ?? previous?.generated_at ?? run.finished_at,
+    last_seen_at: run.finished_at,
+    observed_this_run: true,
+    ...(prior?.review ? { review: prior.review } : {}),
+  };
+});
+if (brandFilter) observedRecords = observedRecords.filter((record) => normalizeBrand(record.brand) === normalizeBrand(brandFilter));
+const observedIds = new Set(observedRecords.map((record) => record.source_id));
+const retainedRecords = (previous?.records ?? [])
+  .filter((record) => !observedIds.has(record.source_id))
+  .map((prior) => ({
+    ...classifyLot(prior, cardIndex, compKeys, prior.detail ?? null),
+    first_seen_at: prior.first_seen_at ?? previous.generated_at,
+    last_seen_at: prior.last_seen_at ?? previous.generated_at,
+    observed_this_run: false,
+    ...(prior.review ? { review: prior.review } : {}),
+  }));
+const records = [...observedRecords, ...retainedRecords];
 records.sort((a, b) => `${b.sale_date ?? ''}|${a.brand ?? ''}|${a.reference ?? ''}`.localeCompare(`${a.sale_date ?? ''}|${b.brand ?? ''}|${b.reference ?? ''}`));
 
-const summary = summarizeRecords(records);
-run.finished_at = new Date().toISOString();
+const summary = {
+  ...summarizeRecords(records),
+  observed_this_run: observedRecords.length,
+  retained_history: retainedRecords.length,
+};
 run.duration_ms = new Date(run.finished_at) - new Date(run.started_at);
 run.summary = summary;
-
-let previous = null;
-if (existsSync(QUEUE_FILE)) {
-  try { previous = JSON.parse(readFileSync(QUEUE_FILE, 'utf8')); } catch { /* a broken prior queue should not poison new evidence */ }
-}
-const priorReview = new Map((previous?.records ?? []).filter((r) => r.review).map((r) => [r.source_id, r.review]));
-for (const record of records) {
-  if (priorReview.has(record.source_id)) record.review = priorReview.get(record.source_id);
-}
+run.observed_summary = summarizeRecords(observedRecords);
 
 const queue = {
   schema_version: 1,
@@ -178,5 +206,6 @@ if (dryRun) {
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(QUEUE_FILE, JSON.stringify(queue, null, 2) + '\n');
 writeFileSync(MANIFEST_FILE, JSON.stringify(run, null, 2) + '\n');
+writePublicMarketIntake(queue, PUBLIC_FILE);
 recordFetch(SOURCE_KEY, { last_status: run.failures.length ? 'partial' : 'ok', ...summary, failures: run.failures.length });
-console.log('[phillips] ✓ data/market/review-queue.json + harvest-manifest.json');
+console.log('[phillips] ✓ retained review queue + manifest + public evidence waiting room');

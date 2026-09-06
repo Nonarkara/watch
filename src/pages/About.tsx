@@ -259,8 +259,8 @@ export default function About() {
               src="/about/founder-2005.jpg"
               alt="The founder, 30 July 2005, in front of Taywin mall in Bangkok. A TAG Heuer Aquaracer 300M is on the wrist."
               className="founder-photo"
-              loading="lazy"
-            />
+              loading="lazy" decoding="async"
+             width={480} height={640} />
             <p className="founder-photo-caption">
               BANGKOK · 30 JULY 2005 · THE DAY THE MIT ADMISSION LETTER ARRIVED
             </p>
@@ -272,8 +272,8 @@ export default function About() {
               src="/about/founder-watch-closeup.jpg"
               alt="Close-up of the TAG Heuer Aquaracer 300M dial — black sunray brushed with horizontal grooves, applied luminous indices, flat date window at 3 o'clock, black aluminum dive bezel on a brushed steel case."
               className="founder-photo-closeup"
-              loading="lazy"
-            />
+              loading="lazy" decoding="async"
+             width={400} height={300} />
             <p className="founder-photo-caption founder-photo-caption--two">
               THE SAME WATCH · 20 YEARS ON · STILL RUNNING ON THE ORIGINAL QUARTZ
             </p>
@@ -517,7 +517,7 @@ export default function About() {
           <article className="pop-culture-card">
             <div className="pop-culture-img">
               <img src="/img/pop-culture/death-note-speedmaster.jpg"
-                   alt="Pop-art manga panel: a Speedmaster with the words 'This watch is the Moonwatch' in a manga speech bubble" loading="lazy" />
+                   alt="Pop-art manga panel: a Speedmaster with the words 'This watch is the Moonwatch' in a manga speech bubble" loading="lazy" decoding="async"  width={640} height={360} />
             </div>
             <div className="pop-culture-meta">
               <p className="pop-culture-source mono">DEATH NOTE · 2003-2006 · TSUGUMI OHBA × TAKESHI OBATA</p>
@@ -537,7 +537,7 @@ export default function About() {
           <article className="pop-culture-card">
             <div className="pop-culture-img">
               <img src="/img/pop-culture/lupin-iii-seiko-6139.jpg"
-                   alt="Pop-art: Lupin III silhouette in tuxedo and top hat with a Seiko 6139 chronograph — Cagliostro" loading="lazy" />
+                   alt="Pop-art: Lupin III silhouette in tuxedo and top hat with a Seiko 6139 chronograph — Cagliostro" loading="lazy" decoding="async"  width={640} height={360} />
             </div>
             <div className="pop-culture-meta">
               <p className="pop-culture-source mono">LUPIN THE THIRD: CASTLE OF CAGLIASTRO · 1979 · DIR. HAYAO MIYAZAKI</p>
@@ -559,7 +559,7 @@ export default function About() {
           <article className="pop-culture-card">
             <div className="pop-culture-img">
               <img src="/img/pop-culture/city-hunter-seiko-6309.jpg"
-                   alt="Pop-art: Ryo Saeba silhouette on a Hong Kong rooftop with a Seiko 6309 diver" loading="lazy" />
+                   alt="Pop-art: Ryo Saeba silhouette on a Hong Kong rooftop with a Seiko 6309 diver" loading="lazy" decoding="async"  width={640} height={360} />
             </div>
             <div className="pop-culture-meta">
               <p className="pop-culture-source mono">CITY HUNTER · 1985-1991 · TSUKASA HOJO</p>
@@ -580,7 +580,7 @@ export default function About() {
           <article className="pop-culture-card">
             <div className="pop-culture-img">
               <img src="/img/pop-culture/initial-d-synchronize.jpg"
-                   alt="Pop-art: a large analog chronograph with a tarmac strip and the words 'Let's synchronize watches'" loading="lazy" />
+                   alt="Pop-art: a large analog chronograph with a tarmac strip and the words 'Let's synchronize watches'" loading="lazy" decoding="async"  width={640} height={360} />
             </div>
             <div className="pop-culture-meta">
               <p className="pop-culture-source mono">INITIAL D · 1995-2013 · SHIGENO SHUICHI</p>
@@ -602,7 +602,7 @@ export default function About() {
           <article className="pop-culture-card">
             <div className="pop-culture-img">
               <img src="/img/pop-culture/snoopy-speedmaster.jpg"
-                   alt="Pop-art: Snoopy on his doghouse with an Omega Speedmaster, the Silver Snoopy Award" loading="lazy" />
+                   alt="Pop-art: Snoopy on his doghouse with an Omega Speedmaster, the Silver Snoopy Award" loading="lazy" decoding="async"  width={640} height={360} />
             </div>
             <div className="pop-culture-meta">
               <p className="pop-culture-source mono">PEANUTS · 1969 · CHARLES M. SCHULZ · OMEGA × NASA, 1970-</p>
@@ -906,7 +906,7 @@ export default function About() {
           {HISTORY_PIECES.map((piece, i) => (
             <article className="history-card" key={i}>
               <div className="history-frame">
-                <img src={`/img/illustration-${['vintage-1960', '1972-royaloak', '1969-chrono', '1950-tank'][i]}.png`} alt={piece.title} loading="lazy" className="history-img" />
+                <img src={`/img/illustration-${['vintage-1960', '1972-royaloak', '1969-chrono', '1950-tank'][i]}.png`} alt={piece.title} loading="lazy" decoding="async" className="history-img"  width={400} height={300} />
                 <span className="frame-id mono">{['1962', '1972', '1969', '1954'][i]}</span>
               </div>
               <h3>{piece.title}</h3>

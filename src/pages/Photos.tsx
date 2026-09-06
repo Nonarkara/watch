@@ -96,7 +96,7 @@ export default function Photos() {
           return (
             <article className="catalog-card" key={record.id}>
               <a href={record.source_url} target="_blank" rel="noreferrer" className="catalog-image">
-                <img src={record.image_url} alt={`${record.name}, configuration ${record.configuration_reference}`} loading="lazy" />
+                <img src={record.image_url} alt={`${record.name}, configuration ${record.configuration_reference}`} loading="lazy" decoding="async"  width={400} height={300} />
                 <span className="catalog-no mono">{String(index + 1).padStart(2, '0')}</span>
               </a>
               <div className="catalog-copy">

@@ -59,8 +59,7 @@ export default function ArtBand({
         src={work.local}
         alt={work.caption}
         style={{ objectPosition: work.focus }}
-        loading="lazy"
-        decoding="async"
+        loading="lazy" decoding="async"
         width={work.width}
         height={work.height}
       />
@@ -96,8 +95,7 @@ export function ArtPlate({ id }: { id: string }) {
         <img
           src={work.local}
           alt={work.caption}
-          loading="lazy"
-          decoding="async"
+          loading="lazy" decoding="async"
           width={work.width}
           height={work.height}
         />

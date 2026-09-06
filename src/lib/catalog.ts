@@ -124,13 +124,22 @@ export interface MarketTrendsSnapshot {
 }
 
 let trendsCache: Promise<MarketTrendsSnapshot | null> | null = null
+let trendsCacheFailed = false
 
 export function loadMarketTrends(): Promise<MarketTrendsSnapshot | null> {
+  if (trendsCacheFailed) {
+    trendsCacheFailed = false
+    trendsCache = null
+  }
   trendsCache ??= fetch('/data/market_trends.json')
     .then((response) => {
       if (!response.ok) return null
       return response.json() as Promise<MarketTrendsSnapshot>
     })
     .catch(() => null)
+    .then((data) => {
+      if (data === null) { trendsCacheFailed = true; trendsCache = null }
+      return data
+    })
   return trendsCache
 }

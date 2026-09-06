@@ -71,7 +71,7 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
       <div className="spotlight-grid">
         <a className="spotlight-photo" href={m?.source_url ?? `/w/${c.id}`} target={m?.source_url ? '_blank' : undefined} rel={m?.source_url ? 'noreferrer' : undefined}>
           {m
-            ? <img src={m.url} alt={c.identity.name} loading="lazy" />
+            ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={640} height={380} />
             : <span className="dim">NO CC PHOTO</span>}
           {m && (
             <span className="spotlight-photo-cap mono">

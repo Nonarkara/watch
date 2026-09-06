@@ -52,26 +52,29 @@ export default function Discover() {
           <p className="lede">Spin through reference dossiers, explore scarcity mechanics, and discover horological objects without financial noise.</p>
         </div>
         <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette to discover a random watch">
-          🎲 SPIN ROULETTE →
+          <span aria-hidden="true">🎲</span> SPIN ROULETTE →
         </button>
       </div>
 
       {/* Vibe Selector Chips */}
-      <div className="chips" style={{ marginBottom: '24px' }}>
+      <div className="chips" style={{ marginBottom: '24px' }} role="group" aria-label="Filter by vibe">
         <button
           className={`chip ${filterVibe === 'all' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'all'}
           onClick={() => { setFilterVibe('all'); setIndex(0) }}
         >
           ANY VIBE ({cards.length})
         </button>
         <button
           className={`chip ${filterVibe === 'grail' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'grail'}
           onClick={() => { setFilterVibe('grail'); setIndex(0) }}
         >
           GRAILS · CROWN / TRINITY / HAUTE
         </button>
         <button
           className={`chip ${filterVibe === 'watching' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'watching'}
           onClick={() => { setFilterVibe('watching'); setIndex(0) }}
           disabled={watchingIds.size === 0}
         >
@@ -79,28 +82,31 @@ export default function Discover() {
         </button>
         <button
           className={`chip ${filterVibe === 'understated' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'understated'}
           onClick={() => { setFilterVibe('understated'); setIndex(0) }}
         >
-          🌿 UNDERSTATED DAILY
+          UNDERSTATED DAILY
         </button>
         <button
           className={`chip ${filterVibe === 'chronograph' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'chronograph'}
           onClick={() => { setFilterVibe('chronograph'); setIndex(0) }}
         >
-          ⏱️ CHRONOGRAPHS
+          CHRONOGRAPHS
         </button>
         <button
           className={`chip ${filterVibe === 'diver' ? 'on' : ''}`}
+          aria-pressed={filterVibe === 'diver'}
           onClick={() => { setFilterVibe('diver'); setIndex(0) }}
         >
-          🌊 DIVERS
+          DIVERS
         </button>
       </div>
 
       <article className="discovery-card">
         {card.media[0] ? (
           <div className="photo-thumb-wrap" style={{ height: '300px' }}>
-            <img src={card.media[0].url} alt={card.identity.name} className="photo-img" />
+            <img src={card.media[0].url} alt={card.identity.name} className="photo-img" loading="eager" decoding="async" fetchPriority="high" width={400} height={300} />
             <span className="tier-badge mono">SOURCE-LINKED</span>
           </div>
         ) : <div className="empty-photo"><strong>IMAGE NOT YET SOURCED</strong><span>The dossier stays honest instead.</span></div>}
@@ -149,7 +155,7 @@ export default function Discover() {
         <footer className="discovery-foot">
           <span className="mono micro dim">{(card.meta.sources ?? []).length} SOURCES · {(card.provenance_events ?? []).length} SOURCED EVENTS</span>
           <div style={{ display: 'flex', gap: '12px' }}>
-            <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette again">SPIN AGAIN 🎲</button>
+            <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette again">SPIN AGAIN <span aria-hidden="true">🎲</span></button>
             <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>
           </div>
         </footer>

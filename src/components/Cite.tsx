@@ -7,7 +7,7 @@
 // Cite is not a tooltip library — it is a single static popover. Mouse-over
 // or keyboard focus shows the source below the number. Works without JS.
 
-import { type ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
 interface CiteProps {
@@ -22,11 +22,12 @@ interface CiteProps {
 }
 
 export default function Cite({ source, detail, href, children }: CiteProps) {
+  const tipId = useId()
   return (
-    <span className="cite">
+    <span className="cite" tabIndex={0} aria-describedby={tipId}>
       <span className="cite-value">{children}</span>
       <span className="cite-marker" aria-hidden="true">†</span>
-      <span className="cite-source" role="tooltip">
+      <span className="cite-source" role="tooltip" id={tipId}>
         <span className="cite-source-eyebrow mono">SOURCE</span>
         <span className="cite-source-name">{source}</span>
         {detail && <span className="cite-source-detail">{detail}</span>}

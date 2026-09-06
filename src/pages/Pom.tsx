@@ -24,6 +24,7 @@ import {
   netSaleOutcome,
   projectHoldingPeriods,
   projectNetHoldingPeriods,
+  requiredReturnSnapshot,
   summarizeCollectionEstimates,
   type NetProjectionRow,
   type NetSaleOutcome,
@@ -216,6 +217,96 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
         </table>
       </div>
     </>
+  )
+}
+
+function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, fee }: {
+  baseline: number
+  costBasis: number
+  annualRate: number
+  annualOwnershipCost: number
+  fee: { seller_fee_pct: number | null; seller_flat_fee_usd: number | null }
+}) {
+  const [years, setYears] = useState(3)
+  const [targetReturn, setTargetReturn] = useState('5')
+  const targetAnnualReturn = Number.isFinite(Number(targetReturn)) ? Number(targetReturn) : 0
+  const required = requiredReturnSnapshot(
+    baseline,
+    costBasis,
+    years,
+    targetAnnualReturn,
+    annualOwnershipCost,
+    fee,
+  )
+  const today = netSaleOutcome(baseline, costBasis, 0, fee)
+  const scenario = projectNetHoldingPeriods(
+    baseline,
+    costBasis,
+    annualRate,
+    annualOwnershipCost,
+    fee,
+    [years],
+  )[0]
+  const clearsTarget = scenario.net_proceeds >= required.target_net_value
+  const rateGap = required.target_annual_rate - annualRate
+
+  return (
+    <section className="pom-decision" aria-labelledby="pom-decision-title">
+      <div className="pom-decision-head">
+        <div>
+          <span className="mono">DECISION SHEET · REVERSE THE QUESTION</span>
+          <h4 id="pom-decision-title">What must this watch do?</h4>
+        </div>
+        <p>Choose a holding period and the annual net return you want on what you paid. Time Pop works backward through the selected costs. This is a threshold, not a prediction.</p>
+      </div>
+      <div className="pom-decision-controls">
+        <label>
+          <span>Decision horizon</span>
+          <select value={years} onChange={(event) => setYears(Number(event.target.value))}>
+            {[1, 2, 3, 10, 20].map((period) => <option value={period} key={period}>{period} {period === 1 ? 'year' : 'years'}</option>)}
+          </select>
+          <small>USER ASSUMPTION · how long you might hold it.</small>
+        </label>
+        <label>
+          <span>Desired annual net return</span>
+          <input type="number" min="-20" max="50" step="0.5" inputMode="decimal" value={targetReturn}
+            onChange={(event) => setTargetReturn(event.target.value)} />
+          <small>USER TARGET · measured against your cost basis after the modeled fee and ownership reserve.</small>
+        </label>
+      </div>
+      <div className="pom-decision-read" data-clears={clearsTarget}>
+        <span className="mono">YOUR {annualRate.toFixed(1)}% GROSS SCENARIO</span>
+        <strong>{clearsTarget
+          ? `Clears your ${targetAnnualReturn.toFixed(1)}% net target in year ${years}`
+          : `Does not clear your ${targetAnnualReturn.toFixed(1)}% net target in year ${years}`}</strong>
+        <p>{clearsTarget
+          ? `Modeled net proceeds are ${money(scenario.net_proceeds, 'USD')}, ${signedMoney(scenario.net_proceeds - required.target_net_value, 'USD')} against the target.`
+          : `The market scenario needs ${Math.max(0, rateGap).toFixed(1)} percentage points more annual growth, or lower costs, to reach the target.`}</p>
+      </div>
+      <div className="pom-decision-grid">
+        <div>
+          <span className="mono">SELL AT TODAY’S VALUE</span>
+          <strong>{money(today.net_proceeds, 'USD')}</strong>
+          <small>{signedMoney(today.net_change, 'USD')} VS YOUR COST BASIS · VERIFIED FEE</small>
+        </div>
+        <div>
+          <span className="mono">BREAK-EVEN IN {years}Y</span>
+          <strong>{money(required.break_even_gross_value, 'USD')}</strong>
+          <small>{Number.isFinite(required.break_even_annual_rate) ? `${required.break_even_annual_rate.toFixed(1)}% MARKET CAGR REQUIRED` : 'RATE CANNOT BE COMPUTED'}</small>
+        </div>
+        <div>
+          <span className="mono">YOUR NET TARGET IN {years}Y</span>
+          <strong>{money(required.target_net_value, 'USD')}</strong>
+          <small>{targetAnnualReturn.toFixed(1)}%/YR ON {money(costBasis, 'USD')} · USER TARGET</small>
+        </div>
+        <div>
+          <span className="mono">SALE PRICE NEEDED</span>
+          <strong>{money(required.target_gross_value, 'USD')}</strong>
+          <small>{Number.isFinite(required.target_annual_rate) ? `${required.target_annual_rate.toFixed(1)}% MARKET CAGR FROM TODAY` : 'RATE CANNOT BE COMPUTED'}</small>
+        </div>
+      </div>
+      <p className="pom-decision-foot mono">BASELINE: DOSSIER ESTIMATE OR USER APPRAISAL · COST BASIS, HORIZON, OWNERSHIP RESERVE AND TARGET: USER INPUTS · EXIT FEE: VERIFIED SOURCE ABOVE · TAX, INFLATION, PURCHASE FEES AND CONDITION CHANGES EXCLUDED</p>
+    </section>
   )
 }
 
@@ -724,6 +815,8 @@ function ValueLab() {
                     {index > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
                   </span>)}</span>
                 </div>
+                <DecisionSheet baseline={watchBaseline} costBasis={watchCostBasis} annualRate={annualRate}
+                  annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
                 <NetProjectionTable baseline={watchBaseline} costBasis={watchCostBasis} annualRate={annualRate}
                   annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
                 <p className="pom-formula mono">
@@ -804,7 +897,7 @@ function WatchCard({ watch }: { watch: PomWatch }) {
   return (
     <article className="pom-card" id={`pom-${watch.position}`}>
       <div className="pom-card-image">
-        <img src={watch.image} alt={`${watch.brand} ${watch.reference} — pop-art portrait`} loading="lazy" />
+        <img src={watch.image} alt={`${watch.brand} ${watch.reference} — pop-art portrait`} loading="lazy" decoding="async"  width={400} height={300} />
         <span className="pom-card-pos">{String(watch.position).padStart(2, '0')}</span>
       </div>
       <div className="pom-card-body">

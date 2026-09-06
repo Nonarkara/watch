@@ -70,7 +70,7 @@ export default function Dossier() {
       <div className="dsr-top">
       {c.media[0] ? (
         <figure className="dossier-object">
-          <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={c.identity.name} /></a>
+          <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} decoding="async" fetchPriority="high" width={600} height={450} /></a>
           <figcaption className="mono micro">
             {c.media[0].match === 'exact_reference' ? 'THIS REFERENCE' : 'RELATED CONFIGURATION'}
             {c.media[0].configuration_reference ? ` · ${c.media[0].configuration_reference}` : ''}
@@ -160,7 +160,7 @@ export default function Dossier() {
             onClick={() => compare.toggle(c.id)}
             aria-pressed={inCompare}
             disabled={!inCompare && compare.full}
-            title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (3 max)' : 'Add to compare set'}
+            title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (4 max)' : 'Add to compare set'}
           >
             {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ ADD TO COMPARE'}
           </button>
@@ -176,6 +176,7 @@ export default function Dossier() {
           <button
             type="button"
             className="dsr-action dsr-action-ghost mono"
+            aria-live="polite"
             onClick={() => {
               const url = `${window.location.origin}/w/${c.id}`
               navigator.clipboard?.writeText(url).then(
@@ -187,6 +188,7 @@ export default function Dossier() {
           >
             {copied ? '✓ COPIED' : '⎘ COPY LINK'}
           </button>
+          <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
           <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS →</Link>
           <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS →</Link>
           <Link to="/saved" className="dsr-action dsr-action-ghost mono">OPEN MY SAVED →</Link>
@@ -210,19 +212,33 @@ export default function Dossier() {
       </div>
       </div>
 
-      <div className="dsr-tabs" role="tablist" aria-label="Dossier view">
+      <div className="dsr-tabs" role="tablist" aria-label="Dossier view" onKeyDown={(e) => {
+        const tabs = ['evidence', 'venues', 'story'] as const
+        const idx = tabs.indexOf(view)
+        let next: typeof view | null = null
+        if (e.key === 'ArrowRight') next = tabs[(idx + 1) % tabs.length]
+        else if (e.key === 'ArrowLeft') next = tabs[(idx + tabs.length - 1) % tabs.length]
+        else if (e.key === 'Home') next = tabs[0]
+        else if (e.key === 'End') next = tabs[tabs.length - 1]
+        if (next) {
+          e.preventDefault()
+          setView(next)
+          // focus moves with selection — tablist pattern
+          requestAnimationFrame(() => document.getElementById(`tab-${next}`)?.focus())
+        }
+      }}>
         <button type="button" role="tab" id="tab-evidence" aria-selected={view === 'evidence'}
-          aria-controls="panel-evidence"
+          aria-controls="panel-evidence" tabIndex={view === 'evidence' ? 0 : -1}
           className={'dsr-tab' + (view === 'evidence' ? ' on' : '')} onClick={() => setView('evidence')}>
           EVIDENCE
         </button>
         <button type="button" role="tab" id="tab-venues" aria-selected={view === 'venues'}
-          aria-controls="panel-venues"
+          aria-controls="panel-venues" tabIndex={view === 'venues' ? 0 : -1}
           className={'dsr-tab' + (view === 'venues' ? ' on' : '')} onClick={() => setView('venues')}>
           WHERE TO BUY & SELL
         </button>
         <button type="button" role="tab" id="tab-story" aria-selected={view === 'story'}
-          aria-controls="panel-story"
+          aria-controls="panel-story" tabIndex={view === 'story' ? 0 : -1}
           className={'dsr-tab' + (view === 'story' ? ' on' : '')} onClick={() => setView('story')}>
           STORY & PROVENANCE
         </button>
@@ -663,7 +679,7 @@ function RelatedWatches({ current, all }: { current: Card; all: Card[] }) {
           return (
             <Link key={r.id} to={`/w/${r.id}`} className="related-watch">
               <span className="related-watch-img">
-                {m ? <img src={m.url} alt={r.identity.name} loading="lazy" />
+                {m ? <img src={m.url} alt={r.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                   : <span className="related-watch-img-empty mono">NO PHOTO</span>}
               </span>
               <span className="related-watch-body">

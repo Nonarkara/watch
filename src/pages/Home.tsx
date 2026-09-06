@@ -211,8 +211,9 @@ export default function Home() {
           alt="Pop-art collage of iconic watches and film moments — Bond, McQueen, Marty McFly, and more"
           width={1600}
           height={900}
-          decoding="async"
-          fetchPriority="high"
+           decoding="async"
+           loading="eager"
+           fetchPriority="high"
         />
         <div className="timepop-hero-copy">
           <p className="eyebrow">TIME POP · A LIVING ARCHIVE OF WATCHES</p>
@@ -278,7 +279,7 @@ export default function Home() {
                     <span className="trending-now-rank mono">{String(row.rank).padStart(2, '0')}</span>
                     <span className="trending-now-media">
                       {media
-                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" />
+                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" decoding="async"  width={400} height={300} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="trending-now-body">
@@ -327,7 +328,7 @@ export default function Home() {
                     <span className="market-trends-rank mono">{String(row.rank).padStart(2, '0')}</span>
                     <span className="market-trends-media">
                       {media
-                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" />
+                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" decoding="async"  width={400} height={300} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="market-trends-body">
@@ -392,7 +393,7 @@ export default function Home() {
             return (
               <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
                 <span className="ticker-thumb">
-                  {m ? <img src={m.url} alt={c.identity.name} loading="lazy" /> : <span className="dim">—</span>}
+                  {m ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} /> : <span className="dim">—</span>}
                 </span>
                 <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
                 <span className="ticker-ref">{c.identity.reference}</span>
@@ -440,7 +441,7 @@ export default function Home() {
               <Link key={c.id} to={`/w/${c.id}`} className="asia-spotlight-card">
                 <span className="asia-spotlight-media">
                   {c.media[0]
-                    ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                    ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                     : <span className="dim">NO PHOTO YET</span>}
                 </span>
                 <span className="asia-spotlight-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
@@ -479,7 +480,7 @@ export default function Home() {
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
                   <span className="hot-col-media">
                     {c.media[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                       : <span className="dim">—</span>}
                   </span>
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
@@ -496,7 +497,7 @@ export default function Home() {
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
                   <span className="hot-col-media">
                     {c.media[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                       : <span className="dim">—</span>}
                   </span>
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>

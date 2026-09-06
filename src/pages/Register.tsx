@@ -172,13 +172,14 @@ export default function Register() {
         </div>
 
         <div className="chips" role="group" aria-label="Filter by region">
-          <button className={'chip' + (region === 'all' ? ' on' : '')} onClick={() => { setRegion('all'); setBrand('all') }}>All regions</button>
+          <button className={'chip' + (region === 'all' ? ' on' : '')} aria-pressed={region === 'all'} onClick={() => { setRegion('all'); setBrand('all') }}>All regions</button>
           {REGION_ORDER.map((r) => {
             const n = cards.filter((c) => BRAND_REGION[c.identity.brand] === r).length
             return (
               <button
                 key={r}
                 className={'chip' + (region === r ? ' on' : '')}
+                aria-pressed={region === r}
                 onClick={() => { setRegion(r); setBrand('all') }}
                 title={`${n} references from ${REGION_LABEL[r]}-headquartered brands`}
               >{REGION_LABEL[r].toUpperCase()} · {n}</button>
@@ -186,14 +187,14 @@ export default function Register() {
           })}
         </div>
         <div className="chips" role="group" aria-label="Filter by tier">
-          <button className={'chip' + (tier === 'all' ? ' on' : '')} onClick={() => setTier('all')}>All</button>
+          <button className={'chip' + (tier === 'all' ? ' on' : '')} aria-pressed={tier === 'all'} onClick={() => setTier('all')}>All</button>
           {TIER_ORDER.map((t) => (
-            <button key={t} className={'chip' + (tier === t ? ' on' : '')} onClick={() => setTier(t)}>
+            <button key={t} className={'chip' + (tier === t ? ' on' : '')} aria-pressed={tier === t} onClick={() => setTier(t)}>
               {TIER_LABEL[t]}
             </button>
           ))}
         </div>
-        <p className="count-line mono">{rows.length} OF {cards.length} REFERENCES</p>
+        <p className="count-line mono" role="status" aria-live="polite" aria-atomic="true">{rows.length} OF {cards.length} REFERENCES</p>
       </div>
 
       {viewMode === 'grid' ? (
@@ -223,17 +224,18 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
   const delta = premium.value
   const trendRank = watchingRank.get(c.id) ?? null
   return (
-    <Link
-      to={`/w/${c.id}`}
+    <div
       className={'reg-card' + (inSet ? ' picked' : '') + (trendRank != null ? ' has-trend' : '')}
       draggable
       onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
     >
-      <div className="rc-media">
-        {c.media[0]
-          ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" className="photo-img" />
-          : <span className="rc-media-empty mono">NO IMAGE</span>}
-      </div>
+      <Link to={`/w/${c.id}`} className="rc-media-link">
+        <div className="rc-media">
+          {c.media[0]
+            ? <img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} loading="lazy" decoding="async" className="photo-img" width={400} height={300} />
+            : <span className="rc-media-empty mono">NO IMAGE</span>}
+        </div>
+      </Link>
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
         {trendRank != null && (
@@ -249,21 +251,25 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
         className={'rc-pick mono' + (inSet ? ' on' : '')}
         aria-pressed={inSet}
         aria-label={inSet ? `Remove ${c.identity.reference} from comparison` : `Add ${c.identity.reference} to comparison`}
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(c.id) }}
+        onClick={() => toggle(c.id)}
       >{inSet ? 'COMPARING' : 'COMPARE'}</button>
-      <div className="rc-name">{c.identity.name}</div>
-      <div className="rc-sub mono">
-        {c.identity.reference}{c.identity.nickname ? ` · ${c.identity.nickname}` : ''}
-      </div>
+      <Link to={`/w/${c.id}`} className="rc-name-link">
+        <div className="rc-name">{c.identity.name}</div>
+        <div className="rc-sub mono">
+          {c.identity.reference}{c.identity.nickname ? ` · ${c.identity.nickname}` : ''}
+        </div>
+      </Link>
       <TrendSpark sales={c.notable_sales ?? []} />
-      <dl className="rc-data">
-        <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
-        <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
-          {delta != null ? pct(delta) : dash}</dd></div>
-        <div><dt>Scarcity</dt><dd>{scarcity.value}<span className="dim">/100</span></dd></div>
-        <div><dt>Collect</dt><dd>{collectibility.value}<span className="dim">/100</span></dd></div>
-      </dl>
-    </Link>
+      <Link to={`/w/${c.id}`} className="rc-data-link">
+        <dl className="rc-data">
+          <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
+          <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
+            {delta != null ? pct(delta) : dash}</dd></div>
+          <div><dt>Scarcity</dt><dd>{scarcity.value}<span className="dim">/100</span></dd></div>
+          <div><dt>Collect</dt><dd>{collectibility.value}<span className="dim">/100</span></dd></div>
+        </dl>
+      </Link>
+    </div>
   )
 }
 

@@ -157,7 +157,7 @@ export default function Brands() {
               <Link key={g.brand} to={`/register?brand=${encodeURIComponent(g.brand)}`} className={`brand-spotlight brand-spotlight--${hueForBrand(g.brand)}`}>
                 <span className="brand-spotlight-media">
                   {g.mostPopular?.media?.[0]
-                    ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" />
+                    ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async"  width={400} height={200} />
                     : <span className="dim">NO PHOTO YET</span>}
                 </span>
                 <span className="brand-spotlight-id">
@@ -179,9 +179,9 @@ export default function Brands() {
       </section>
 
       <div className="brand-tier-chips" role="group" aria-label="Filter brands by tier">
-        <button className={'chip' + (tierFilter === 'all' ? ' on' : '')} onClick={() => setTierFilter('all')}>All {groups.length}</button>
+        <button className={'chip' + (tierFilter === 'all' ? ' on' : '')} aria-pressed={tierFilter === 'all'} onClick={() => setTierFilter('all')}>All {groups.length}</button>
         {(Object.keys(TIER_BLURB) as Card['identity']['tier'][]).map((t) => (
-          <button key={t} className={'chip' + (tierFilter === t ? ' on' : '')} onClick={() => setTierFilter(t)}>
+          <button key={t} className={'chip' + (tierFilter === t ? ' on' : '')} aria-pressed={tierFilter === t} onClick={() => setTierFilter(t)}>
             {TIER_LABEL[t]}
           </button>
         ))}
@@ -213,7 +213,7 @@ export default function Brands() {
                   <Link to={`/w/${g.mostPopular.id}`} className="brand-pick">
                     <span className="brand-pick-thumb">
                       {g.mostPopular.media[0]
-                        ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" />
+                        ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async"  width={72} height={72} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="brand-pick-body">
@@ -230,7 +230,7 @@ export default function Brands() {
                   <Link to={`/w/${g.contrast.id}`} className="brand-pick brand-pick--alt">
                     <span className="brand-pick-thumb">
                       {g.contrast.media[0]
-                        ? <img src={g.contrast.media[0].url} alt={g.contrast.identity.name} loading="lazy" />
+                        ? <img src={g.contrast.media[0].url} alt={g.contrast.identity.name} loading="lazy" decoding="async"  width={72} height={72} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="brand-pick-body">

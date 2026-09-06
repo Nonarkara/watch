@@ -230,7 +230,7 @@ export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
   const card = matches.length === 1 ? matches[0] : null;
   if (card && lot.sale_date && lot.realized) {
     const valueKey = `${card.id}|${lot.sale_date}|${lot.venue}|${lot.realized}`;
-    if (existingKeys.urls.has(lot.source_url) || existingKeys.values.has(valueKey)) {
+    if (existingKeys.urls.has(`${card.id}|${lot.source_url}`) || existingKeys.values.has(valueKey)) {
       return { ...lot, card_id: card.id, status: 'duplicate', reasons: ['already_on_card'], detail };
     }
   }
@@ -253,7 +253,7 @@ export function existingCompKeys(cardIndex) {
   const values = new Set();
   for (const card of cardIndex.cards) {
     for (const comp of card.comps) {
-      if (comp.url) urls.add(comp.url);
+      if (comp.url) urls.add(`${card.id}|${comp.url}`);
       if (comp.date && comp.venue && comp.price_usd) values.add(`${card.id}|${comp.date}|${comp.venue}|${comp.price_usd}`);
     }
   }

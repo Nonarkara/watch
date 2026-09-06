@@ -1,7 +1,7 @@
 // Invariant self-check — smallest thing that fails if the index math breaks.
 // Run: node scripts/test-invariants.mjs
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { computeAll, marketEstimate } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 import { validateSightings } from "./validate_sightings.mjs";
@@ -230,3 +230,31 @@ console.log("✓ price-band invariants hold");
   }
 }
 console.log("✓ no image fallback URL is shared by 3+ cards");
+
+// 14. Cross-brand dup2 invariant — a photo of one brand must not stand
+// in for a DIFFERENT brand (the JLC-perpetual-on-Lange lie). Same-brand
+// family shares are allowed; cross-brand 2-shares are not.
+{
+  const brandForCard = new Map();
+  const cardFiles = readdirSync(new URL('../data/cards', import.meta.url)).filter(f => f.endsWith('.json'));
+  for (const cf of cardFiles) {
+    const c = JSON.parse(readFileSync(new URL('../data/cards/' + cf, import.meta.url), 'utf8'));
+    brandForCard.set(c.id, c.identity.brand);
+  }
+  const urlBrand = new Map();
+  for (const [id, entry] of Object.entries(images)) {
+    if (!entry?.file) continue;
+    const u = entry.file;
+    const brand = brandForCard.get(id) ?? 'unknown';
+    if (!urlBrand.has(u)) urlBrand.set(u, new Set());
+    urlBrand.get(u).add(brand);
+  }
+  const crossBrand = [...urlBrand.entries()]
+    .filter(([, brands]) => brands.size > 1)
+    .map(([u, brands]) => ({ url: u, brands: [...brands] }));
+  if (crossBrand.length) {
+    const detail = crossBrand.map(o => `  ${o.url.slice(0, 90)} — brands: ${o.brands.join(', ')}`).join('\n');
+    assert.fail(`images.json has cross-brand image shares (one brand's photo standing in for another). Re-run scripts/fix_fallback_images.mjs to repair.\n${detail}`);
+  }
+}
+console.log("✓ no cross-brand image shares in images.json");

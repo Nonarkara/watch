@@ -154,7 +154,7 @@ export default function Saved() {
                         <span className="saved-pulse-rank mono">{row.current_rank ?? '—'}</span>
                         <span className="saved-pulse-image">
                           {media
-                            ? <img src={media.url} alt="" loading="lazy" />
+                            ? <img src={media.url} alt="" loading="lazy" decoding="async"  width={400} height={300} />
                             : <span className="mono">NO PHOTO</span>}
                         </span>
                         <span className="saved-pulse-object">
@@ -190,7 +190,7 @@ export default function Saved() {
                 <Link key={c.id} to={`/w/${c.id}`} className="saved-cell">
                   <span className="saved-cell-img">
                     {m
-                      ? <img src={m.url} alt={c.identity.name} loading="lazy" />
+                      ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                       : <span className="saved-cell-img-empty mono">NO PHOTO</span>}
                   </span>
                   <span className="saved-cell-body">
@@ -232,7 +232,7 @@ export default function Saved() {
                 <Link key={c.id} to={`/w/${c.id}`} className="saved-cell">
                   <span className="saved-cell-img">
                     {m
-                      ? <img src={m.url} alt={c.identity.name} loading="lazy" />
+                      ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                       : <span className="saved-cell-img-empty mono">NO PHOTO</span>}
                   </span>
                   <span className="saved-cell-body">

@@ -148,7 +148,9 @@ export default function Labs() {
           aria-hidden="true"
           width={1600}
           height={900}
-          decoding="async"
+           decoding="async"
+           loading="eager"
+           fetchPriority="high"
         />
         <div className="labs-hero-copy">
           <p className="labs-hero-eyebrow mono">LABS · WHERE THE COLLAGE GETS LOUD</p>
@@ -212,8 +214,7 @@ export default function Labs() {
               <img
                 src={c.art.src}
                 alt={c.art.alt}
-                loading="lazy"
-                decoding="async"
+                loading="lazy" decoding="async"
                 width={1024}
                 height={768}
               />

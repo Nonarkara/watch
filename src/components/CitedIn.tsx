@@ -21,7 +21,7 @@ export default function CitedIn({ watchId }: Props) {
           <li key={b.id} className="cited-in-item">
             <div className="cited-in-cover" aria-hidden="true">
               {b.cover
-                ? <img src={b.cover} alt="" loading="lazy" />
+                ? <img src={b.cover} alt="" loading="lazy" decoding="async"  width={56} height={78} />
                 : <span className="cited-in-cover-fallback mono">{b.year}</span>
               }
             </div>

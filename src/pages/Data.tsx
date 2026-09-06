@@ -15,6 +15,57 @@ type DataState = {
 
 type FetchState = Record<string, DataState>
 
+type MarketIntakeRecord = {
+  source_id: string
+  card_id: string
+  brand: string
+  reference: string | null
+  model: string | null
+  realized: number | null
+  currency: string | null
+  sale_date: string | null
+  source_url: string
+  status: string
+  reasons: string[]
+  observed_this_run: boolean | null
+  detail: { year: string | null; material: string | null; box_papers: string | null } | null
+}
+
+type MarketIntake = {
+  generated_at: string
+  source: string
+  source_url: string
+  limitation: string
+  summary: {
+    harvested: number
+    ready_for_review: number
+    quarantined: number
+    duplicate: number
+    exact_card_candidates: number
+    observed_this_run?: number
+    retained_history?: number
+  }
+  records: MarketIntakeRecord[]
+}
+
+const INTAKE_REASON: Record<string, string> = {
+  detail_not_fetched: 'needs detail page',
+  material_mismatch: 'material mismatch',
+  detail_reference_mismatch: 'reference mismatch',
+  non_usd_sale: 'non-USD result',
+  already_on_card: 'already published',
+  celebrity_or_named_provenance: 'special provenance',
+  charity_sale: 'charity result',
+  unique_or_prototype: 'unique or prototype',
+  special_signature: 'special signature',
+  military_issue: 'military issue',
+}
+
+function intakeMoney(value: number | null, currency: string | null): string {
+  if (value == null || !currency) return '—'
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value)
+}
+
 /**
  * Public-facing view of the data pipeline. Shows when each upstream source was
  * last harvested, what the current data files contain, and which collector
@@ -28,12 +79,17 @@ type FetchState = Record<string, DataState>
 export default function Data() {
   const data = useDataset()
   const [state, setState] = useState<FetchState | null>(null)
+  const [marketIntake, setMarketIntake] = useState<MarketIntake | null>(null)
 
   useEffect(() => {
     fetch('/data/fetch-state.json')
       .then((r) => r.ok ? r.json() : {})
       .then((j) => setState(j ?? {}))
       .catch(() => setState({}))
+    fetch('/data/market-intake.json')
+      .then((r) => r.ok ? r.json() : null)
+      .then((j) => setMarketIntake(j))
+      .catch(() => setMarketIntake(null))
   }, [])
 
   if (!data) return null
@@ -89,6 +145,10 @@ export default function Data() {
     ['Sourced provenance', cardStats.withProvenance],
     ['Retail history', cardStats.withMsrp],
   ] as const
+  const visibleIntake = marketIntake?.records
+    .filter((record) => record.status === 'ready_for_review' || record.status === 'quarantined')
+    .sort((a, b) => Number(b.status === 'ready_for_review') - Number(a.status === 'ready_for_review'))
+    .slice(0, 8) ?? []
 
   return (
     <>
@@ -151,6 +211,48 @@ export default function Data() {
       </section>
 
       <EvidenceField cards={data.cards} built={data.built} />
+
+      {marketIntake && (
+        <section className="data-intake" aria-labelledby="data-intake-title">
+          <div className="data-intake-head">
+            <div>
+              <span className="eyebrow">EVIDENCE WAITING ROOM · HUMAN GATE</span>
+              <h2 id="data-intake-title">The scraper found it. We have not called it a comp.</h2>
+            </div>
+            <p>Exact reference is only the first test. A sale waits here until a person checks material, dial, condition, provenance and whether the lot is an ordinary example. “Ready” means ready to inspect—not ready to move a valuation.</p>
+          </div>
+          <div className="data-intake-stats" aria-label="Phillips market evidence intake status">
+            <div><strong>{marketIntake.summary.harvested}</strong><span className="mono">ARCHIVED RESULTS</span></div>
+            <div><strong>{marketIntake.summary.exact_card_candidates}</strong><span className="mono">EXACT-CARD CANDIDATES</span></div>
+            <div><strong>{marketIntake.summary.ready_for_review}</strong><span className="mono">READY TO INSPECT</span></div>
+            <div><strong>{marketIntake.summary.quarantined}</strong><span className="mono">HELD WITH A REASON</span></div>
+          </div>
+          <div className="data-intake-ledger">
+            {visibleIntake.map((record) => (
+              <article key={record.source_id} className="data-intake-row" data-status={record.status}>
+                <div className="data-intake-object">
+                  <span className="mono">{record.brand} · REF. {record.reference ?? '—'}</span>
+                  <strong>{record.model ?? 'Untitled auction lot'}</strong>
+                  <small>{[record.detail?.year, record.detail?.material, record.detail?.box_papers?.replace('_', ' ')].filter(Boolean).join(' · ') || 'DETAIL CHECK PENDING'}</small>
+                </div>
+                <div className="data-intake-price">
+                  <strong>{intakeMoney(record.realized, record.currency)}</strong>
+                  <small className="mono">REALIZED {record.sale_date ?? 'DATE MISSING'}</small>
+                </div>
+                <div className="data-intake-state">
+                  <span className="mono">{record.status === 'ready_for_review' ? 'READY · NOT YET A COMP' : 'HELD'}</span>
+                  <small>{record.reasons.length ? record.reasons.map((reason) => INTAKE_REASON[reason] ?? reason.replaceAll('_', ' ')).join(' · ') : 'Exact reference and automated risk checks passed.'}</small>
+                </div>
+                <div className="data-intake-links mono">
+                  <Link to={`/w/${record.card_id}`}>DOSSIER →</Link>
+                  <a href={record.source_url} target="_blank" rel="noreferrer">SOURCE ↗</a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="data-intake-foot mono">SOURCE: <a href={marketIntake.source_url} target="_blank" rel="noreferrer">PHILLIPS PUBLIC AUCTION RESULTS ↗</a> · EVIDENCE TIER: PRIMARY SALE RECORD · QUEUE GENERATED {marketIntake.generated_at.slice(0, 10)} · SHOWING {visibleIntake.length} OF {marketIntake.summary.exact_card_candidates} EXACT-CARD CANDIDATES · {marketIntake.summary.retained_history ?? 0} RECORDS RETAINED FROM EARLIER RUNS</p>
+        </section>
+      )}
 
       <section className="what-changed" aria-label="What changed in this build">
         <div className="section-rule">

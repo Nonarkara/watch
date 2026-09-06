@@ -37,6 +37,15 @@
         "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
         "condition": "16520 Zenith Daytona, 1990s",
         "box_papers": null
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 60960,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/233480",
+        "condition": "Circa 1998, Switzerland; Stainless steel; Accompanied by a Rolex warranty, green leather Rolex presentation box, leather wallet, numbered hang tag and chronometer hang tag, wax seal, product literature, and outer packaging; Factory-stickered new-old-stock, unworn, complete-set example; condition premium makes it non-comparable to an ordinary 16520.",
+        "box_papers": "box_only",
+        "comparable": false
       }
     ],
     "listing_observations": []

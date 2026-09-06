@@ -320,7 +320,7 @@ export default function Screen() {
                     className="screen-card-image-link"
                     aria-label={`Open image source for ${item.watch}`}
                   >
-                    <img src={watchMedia.url} alt={watchMedia.caption ?? `${item.watch} — ${item.title}`} loading="lazy" className="screen-card-image" />
+                    <img src={watchMedia.url} alt={watchMedia.caption ?? `${item.watch} — ${item.title}`} loading="lazy" decoding="async" className="screen-card-image"  width={400} height={300} />
                     <span className="screen-card-image-credit mono">
                       {isInContext ? 'STILL' : 'WATCH PORTRAIT'} · {watchMedia.credit?.toUpperCase() ?? 'SOURCE'}
                     </span>

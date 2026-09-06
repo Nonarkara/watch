@@ -139,7 +139,7 @@ export default function Compare() {
                 <div className="cmp-col-head">
                   <span className="cmp-media">
                     {c.media?.[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" />
+                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
                       : <span className="rc-media-empty mono">NO IMAGE</span>}
                   </span>
                   <Link to={`/w/${c.id}`} className="cmp-brand">{c.identity.brand}</Link>
