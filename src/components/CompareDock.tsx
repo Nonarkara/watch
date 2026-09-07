@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useCompare } from '../lib/compare-store.ts'
 import { COMPARE_MAX } from '../lib/compare-config.ts'
@@ -7,11 +7,19 @@ import { useDataset } from '../lib/dataset-context.ts'
 /** Drop target for dragging a reference down out of the register, and the shelf that
  *  holds the current comparison set. Hidden on the compare page itself. */
 export default function CompareDock() {
-  const { ids, add, remove, clear } = useCompare()
+  const { ids, add, remove, clear, full } = useCompare()
   const data = useDataset()
   const nav = useNavigate()
   const { pathname } = useLocation()
   const [over, setOver] = useState(false)
+  const [blocked, setBlocked] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const flashBlocked = useCallback(() => {
+    setBlocked(true)
+    if (timer.current) clearTimeout(timer.current)
+    timer.current = setTimeout(() => setBlocked(false), 1500)
+  }, [])
 
   if (pathname === '/compare') return null
   const byId = new Map((data?.cards ?? []).map((c) => [c.id, c]))
@@ -19,7 +27,7 @@ export default function CompareDock() {
 
   return (
     <div
-      className={'cdock' + (over ? ' over' : '') + (empty ? ' idle' : '')}
+      className={'cdock' + (over ? ' over' : '') + (empty ? ' idle' : '') + (blocked ? ' blocked' : '')}
       role="complementary"
       aria-label="Comparison shelf"
       onDragOver={(e) => { e.preventDefault(); setOver(true) }}
@@ -27,7 +35,9 @@ export default function CompareDock() {
       onDrop={(e) => {
         e.preventDefault(); setOver(false)
         const id = e.dataTransfer.getData('text/watch-id')
-        if (id) add(id)
+        if (!id) return
+        if (full && !ids.includes(id)) { flashBlocked(); return }
+        add(id)
       }}
     >
       <div className="shell cdock-in">

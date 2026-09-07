@@ -1,4 +1,4 @@
-// Compare — a side-by-side matrix of up to 3 references. Each column has a
+// Compare — a side-by-side matrix of up to 4 references. Each column has a
 // 4-axes verdict at the top (Rarity / Demand / Story / Resell), so the
 // buyer reads the whole column in 5 seconds before scrolling. Below, the
 // rows answer the questions a buyer or seller actually asks, in the order

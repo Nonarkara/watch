@@ -1271,6 +1271,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 }
 .cdock.idle { opacity: .72; }
 .cdock.over { background: var(--paper-2); border-top-color: var(--amber); }
+.cdock.blocked { border-top-color: var(--coral-text); animation: cdock-flash 1.5s ease-out; }
+@keyframes cdock-flash { 0% { background: color-mix(in srgb, var(--coral-text) 12%, var(--bg)); } 100% { background: color-mix(in srgb, var(--bg) 96%, transparent); } }
 .cdock-in { display: flex; align-items: center; gap: var(--space-md); min-height: 56px; flex-wrap: wrap; padding-block: 8px; }
 .cdock-lab { font-size: var(--text-micro); letter-spacing: .06em; color: var(--dim); white-space: nowrap; }
 .cdock-slots { display: flex; gap: var(--space-xs); flex: 1 1 auto; flex-wrap: wrap; }
