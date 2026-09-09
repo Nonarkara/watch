@@ -242,3 +242,33 @@
   Where possible, encode the constraint in the code shape itself — an unused prop, a
   type that can't render an image, a test that fails on the pattern — so the regression
   is structurally harder to reintroduce, not just discouraged.
+
+## 2026-09-09 · A checked-out local `main` silently rots while `origin/main` moves on
+
+- **What went wrong:** resuming this session found `main` and `origin/main` diverged
+  4-vs-28 commits. Local `main` still held `734caf8` — the exact broken commit the
+  2026-08-22 lesson above already diagnosed (bad skip-link contrast, invented
+  `twitter:site`, dangling `aria-controls`) — because a prior session checked out
+  `main`, made a "checkpoint before checking out main" commit, and never fetched again.
+  Meanwhile `origin/main` kept moving via a daily cron (`data: daily market-attention
+  snapshot`, 18 commits) plus the *actual* fix for the same audit, landed properly.
+  A naive `git merge --ff-only fix/theme-audit-followup` from the stale local `main`
+  would have failed loudly (good) — but a careless `git push --force` to "resolve" that
+  failure would have overwritten 18 days of real snapshot data and the correct audit
+  fix with the already-superseded broken one.
+- **Correct behaviour:** `git fetch origin` first, always, before any merge/push
+  decision on a long-lived branch — local `main` is not a trustworthy reference until
+  it's been diffed against `origin/main`. When they diverge, diff each side's *unique*
+  commits against the other's tip (`git diff origin/main main`) before assuming either
+  is safe to discard — don't reset on branch-name authority alone. Here, every unique
+  line in local `main` was independently verifiable as wrong (grep the guard test, read
+  the existing lesson log, check the shipped contrast value) before `git reset --hard
+  origin/main` ran. Then rebase the feature branch onto the *corrected* origin/main,
+  not onto the stale local one, and re-run the full test suite post-rebase before
+  touching `main` again.
+- **How to recognise:** `git status -sb` after a session resume shows `...diverged,
+  N and M different commits` on a branch you didn't expect to have local-only work on.
+  Two commits with the identical message on both sides of a diverge (`chore: gitignore
+  .env` appearing twice with different hashes) is the tell that both sides indepedently
+  redid the same work — read `tasks/lessons.md` on `origin/main`'s side before trusting
+  either.
