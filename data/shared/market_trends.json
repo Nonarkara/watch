@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-09-08",
-  "built_at": "2026-09-08T11:13:51.406Z",
+  "as_of": "2026-09-09",
+  "built_at": "2026-09-09T11:18:40.409Z",
   "count": 20,
   "sources": [
     {
@@ -24,30 +24,30 @@
   "trending": [
     {
       "rank": 1,
-      "id": "grand-seiko",
-      "label": "Grand Seiko",
-      "card_id": "grand-seiko-sbga405",
-      "trends_query": "Grand Seiko",
-      "wikipedia_title": "Grand_Seiko",
+      "id": "cartier-tank",
+      "label": "Cartier Tank",
+      "card_id": "cartier-tank-must-wsta0041",
+      "trends_query": "Cartier Tank",
+      "wikipedia_title": "Cartier_Tank",
       "wiki_note": null,
       "trends": {
-        "interest": 48,
-        "momentum": -2.9,
-        "points": 168,
+        "interest": 13,
+        "momentum": -3.3,
+        "points": 154,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 132,
-        "prior_views": 102,
-        "week_views": 836,
-        "dod_pct": 29.4,
+        "last_day": "20260908",
+        "last_views": 78,
+        "prior_views": 52,
+        "week_views": 496,
+        "dod_pct": 50,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 58.02
+      "score": 98.6
     },
     {
       "rank": 2,
@@ -58,85 +58,31 @@
       "wikipedia_title": "G-Shock",
       "wiki_note": null,
       "trends": {
-        "interest": 28,
-        "momentum": 9,
+        "interest": 38,
+        "momentum": -14.9,
         "points": 162,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 299,
-        "prior_views": 269,
-        "week_views": 2136,
-        "dod_pct": 11.2,
+        "last_day": "20260908",
+        "last_views": 408,
+        "prior_views": 299,
+        "week_views": 2288,
+        "dod_pct": 36.5,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 33.88
+      "score": 60.71
     },
     {
       "rank": 3,
-      "id": "omega-speedmaster",
-      "label": "Omega Speedmaster",
-      "card_id": "omega-105-012",
-      "trends_query": "Omega Speedmaster",
-      "wikipedia_title": "Omega_Speedmaster",
-      "wiki_note": null,
-      "trends": {
-        "interest": 39,
-        "momentum": -4.5,
-        "points": 165,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 248,
-        "prior_views": 219,
-        "week_views": 1798,
-        "dod_pct": 13.2,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": 24.3
-    },
-    {
-      "rank": 4,
-      "id": "patek-nautilus",
-      "label": "Patek Nautilus",
-      "card_id": "patek-5711-1a",
-      "trends_query": "Patek Nautilus",
-      "wikipedia_title": "Patek_Philippe",
-      "wiki_note": "Brand-level article — no dedicated Nautilus pageviews series",
-      "trends": {
-        "interest": 8,
-        "momentum": -0.7,
-        "points": 116,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 781,
-        "prior_views": 756,
-        "week_views": 5660,
-        "dod_pct": 3.3,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": 8.79
-    },
-    {
-      "rank": 5,
-      "id": "rolex-daytona",
-      "label": "Rolex Daytona",
-      "card_id": "rolex-116500ln",
-      "trends_query": "Rolex Daytona",
-      "wikipedia_title": "Rolex_Daytona",
+      "id": "rolex-submariner",
+      "label": "Rolex Submariner",
+      "card_id": "rolex-126610ln",
+      "trends_query": "Rolex Submariner",
+      "wikipedia_title": "Rolex_Submariner",
       "wiki_note": null,
       "trends": {
         "interest": null,
@@ -144,72 +90,177 @@
         "reason": "trends_unavailable"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 41,
-        "prior_views": 38,
-        "week_views": 308,
-        "dod_pct": 7.9,
+        "last_day": "20260908",
+        "last_views": 169,
+        "prior_views": 135,
+        "week_views": 1223,
+        "dod_pct": 25.2,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 3.12
+      "score": 52.63
+    },
+    {
+      "rank": 4,
+      "id": "tag-aquaracer",
+      "label": "TAG Aquaracer",
+      "card_id": "tagheuer-aquaracer-way101a",
+      "trends_query": "TAG Heuer Aquaracer",
+      "wikipedia_title": "TAG_Heuer",
+      "wiki_note": null,
+      "trends": {
+        "interest": 2,
+        "momentum": -4.3,
+        "points": 53,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 403,
+        "prior_views": 367,
+        "week_views": 2916,
+        "dod_pct": 9.8,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 17.91
+    },
+    {
+      "rank": 5,
+      "id": "rolex-gmt-pepsi",
+      "label": "Rolex GMT Pepsi",
+      "card_id": "rolex-126710blro-pepsi",
+      "trends_query": "Rolex Pepsi",
+      "wikipedia_title": "Rolex_GMT_Master_II",
+      "wiki_note": null,
+      "trends": {
+        "interest": null,
+        "momentum": null,
+        "reason": "trends_unavailable"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 83,
+        "prior_views": 79,
+        "week_views": 779,
+        "dod_pct": 5.1,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 12.12
     },
     {
       "rank": 6,
-      "id": "paul-newman",
-      "label": "Paul Newman Daytona",
-      "card_id": "rolex-6239-paul-newman",
-      "trends_query": "Paul Newman Daytona",
-      "wikipedia_title": "Rolex_Daytona",
+      "id": "seiko-alpinist",
+      "label": "Seiko Alpinist",
+      "card_id": "seiko-sarb017-alpinist",
+      "trends_query": "Seiko Alpinist",
+      "wikipedia_title": "Seiko",
       "wiki_note": null,
       "trends": {
-        "interest": 0,
-        "momentum": null,
-        "points": 6,
+        "interest": 13,
+        "momentum": -1,
+        "points": 137,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 41,
-        "prior_views": 38,
-        "week_views": 308,
-        "dod_pct": 7.9,
+        "last_day": "20260908",
+        "last_views": 562,
+        "prior_views": 538,
+        "week_views": 4316,
+        "dod_pct": 4.5,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 3.12
+      "score": 10.75
     },
     {
       "rank": 7,
-      "id": "ap-royal-oak",
-      "label": "AP Royal Oak",
-      "card_id": "ap-15202st",
-      "trends_query": "Audemars Royal Oak",
-      "wikipedia_title": "Royal_Oak_(watch)",
+      "id": "omega-speedmaster",
+      "label": "Omega Speedmaster",
+      "card_id": "omega-105-012",
+      "trends_query": "Omega Speedmaster",
+      "wikipedia_title": "Omega_Speedmaster",
       "wiki_note": null,
       "trends": {
-        "interest": 6,
-        "momentum": 1.7,
-        "points": 106,
+        "interest": 24,
+        "momentum": 29.1,
+        "points": 165,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 1,
-        "prior_views": 1,
-        "week_views": 17,
-        "dod_pct": 0,
+        "last_day": "20260908",
+        "last_views": 222,
+        "prior_views": 248,
+        "week_views": 1770,
+        "dod_pct": -10.5,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 2
+      "score": 10.45
     },
     {
       "rank": 8,
+      "id": "omega-seamaster",
+      "label": "Omega Seamaster",
+      "card_id": "omega-seamaster-300m",
+      "trends_query": "Omega Seamaster",
+      "wikipedia_title": "Omega_Seamaster",
+      "wiki_note": null,
+      "trends": {
+        "interest": 19,
+        "momentum": -1.6,
+        "points": 162,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 115,
+        "prior_views": 112,
+        "week_views": 956,
+        "dod_pct": 2.7,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 5.86
+    },
+    {
+      "rank": 9,
+      "id": "fp-journe",
+      "label": "F.P. Journe",
+      "card_id": "f-p-journe-chronometre-souverain",
+      "trends_query": "FP Journe",
+      "wikipedia_title": "F.P._Journe",
+      "wiki_note": null,
+      "trends": {
+        "interest": 2,
+        "momentum": 2.3,
+        "points": 44,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 1,
+        "prior_views": 0,
+        "week_views": 3,
+        "dod_pct": null,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 2.6
+    },
+    {
+      "rank": 10,
       "id": "rolex-datejust",
       "label": "Rolex Datejust",
       "card_id": "rolex-126334",
@@ -222,10 +273,10 @@
         "reason": "trends_unavailable"
       },
       "wikipedia": {
-        "last_day": "20260907",
+        "last_day": "20260908",
         "last_views": 95,
         "prior_views": 95,
-        "week_views": 793,
+        "week_views": 782,
         "dod_pct": 0,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
@@ -233,7 +284,61 @@
       "score": 1.98
     },
     {
-      "rank": 9,
+      "rank": 11,
+      "id": "tudor-bb58",
+      "label": "Tudor Black Bay 58",
+      "card_id": "tudor-bb58-79030n",
+      "trends_query": "Tudor Black Bay",
+      "wikipedia_title": "Tudor_(watch)",
+      "wiki_note": null,
+      "trends": {
+        "interest": 35,
+        "momentum": 1.6,
+        "points": 156,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 0,
+        "prior_views": 0,
+        "week_views": 2,
+        "dod_pct": null,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 1.6
+    },
+    {
+      "rank": 12,
+      "id": "ap-royal-oak",
+      "label": "AP Royal Oak",
+      "card_id": "ap-15202st",
+      "trends_query": "Audemars Royal Oak",
+      "wikipedia_title": "Royal_Oak_(watch)",
+      "wiki_note": null,
+      "trends": {
+        "interest": 3,
+        "momentum": 1,
+        "points": 108,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 0,
+        "prior_views": 1,
+        "week_views": 14,
+        "dod_pct": -100,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": 0.5
+    },
+    {
+      "rank": 13,
       "id": "jlc-reverso",
       "label": "JLC Reverso",
       "card_id": "jlc-reverso-classic-q3858520",
@@ -249,96 +354,18 @@
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 3,
-        "prior_views": 1,
+        "last_day": "20260908",
+        "last_views": 1,
+        "prior_views": 3,
         "week_views": 11,
-        "dod_pct": 200,
+        "dod_pct": -66.7,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": 1.6
+      "score": -0.7
     },
     {
-      "rank": 10,
-      "id": "fp-journe",
-      "label": "F.P. Journe",
-      "card_id": "f-p-journe-chronometre-souverain",
-      "trends_query": "FP Journe",
-      "wikipedia_title": "F.P._Journe",
-      "wiki_note": null,
-      "trends": {
-        "interest": 1,
-        "momentum": 1.1,
-        "points": 38,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 0,
-        "prior_views": 0,
-        "week_views": 2,
-        "dod_pct": null,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": 1.1
-    },
-    {
-      "rank": 11,
-      "id": "rolex-submariner",
-      "label": "Rolex Submariner",
-      "card_id": "rolex-126610ln",
-      "trends_query": "Rolex Submariner",
-      "wikipedia_title": "Rolex_Submariner",
-      "wiki_note": null,
-      "trends": {
-        "interest": null,
-        "momentum": null,
-        "reason": "trends_unavailable"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 135,
-        "prior_views": 137,
-        "week_views": 1231,
-        "dod_pct": -1.5,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": -0.87
-    },
-    {
-      "rank": 12,
-      "id": "tudor-bb58",
-      "label": "Tudor Black Bay 58",
-      "card_id": "tudor-bb58-79030n",
-      "trends_query": "Tudor Black Bay",
-      "wikipedia_title": "Tudor_(watch)",
-      "wiki_note": null,
-      "trends": {
-        "interest": 26,
-        "momentum": -1.7,
-        "points": 152,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 0,
-        "prior_views": 0,
-        "week_views": 4,
-        "dod_pct": null,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": -1.7
-    },
-    {
-      "rank": 13,
+      "rank": 14,
       "id": "rolex-explorer",
       "label": "Rolex Explorer",
       "card_id": "rolex-124270",
@@ -351,18 +378,18 @@
         "reason": "trends_unavailable"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 21,
-        "prior_views": 32,
-        "week_views": 208,
-        "dod_pct": -34.4,
+        "last_day": "20260908",
+        "last_views": 16,
+        "prior_views": 21,
+        "week_views": 185,
+        "dod_pct": -23.8,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -4.16
+      "score": -1.27
     },
     {
-      "rank": 14,
+      "rank": 15,
       "id": "cartier-santos",
       "label": "Cartier Santos",
       "card_id": "cartier-santos-wssa0018",
@@ -370,26 +397,53 @@
       "wikipedia_title": "Cartier",
       "wiki_note": "Brand-level article — Santos shares Cartier pageviews",
       "trends": {
-        "interest": 35,
-        "momentum": -5,
-        "points": 157,
+        "interest": 45,
+        "momentum": -7.1,
+        "points": 156,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 13,
-        "prior_views": 14,
-        "week_views": 137,
-        "dod_pct": -7.1,
+        "last_day": "20260908",
+        "last_views": 17,
+        "prior_views": 13,
+        "week_views": 131,
+        "dod_pct": 30.8,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -4.35
+      "score": -3.84
     },
     {
-      "rank": 15,
+      "rank": 16,
+      "id": "grand-seiko",
+      "label": "Grand Seiko",
+      "card_id": "grand-seiko-sbga405",
+      "trends_query": "Grand Seiko",
+      "wikipedia_title": "Grand_Seiko",
+      "wiki_note": null,
+      "trends": {
+        "interest": 54,
+        "momentum": -4.4,
+        "points": 169,
+        "window": "US · now 7-d · hourly",
+        "source": "Google Trends (unofficial explore API)",
+        "geo": "US"
+      },
+      "wikipedia": {
+        "last_day": "20260908",
+        "last_views": 118,
+        "prior_views": 132,
+        "week_views": 846,
+        "dod_pct": -10.6,
+        "source": "Wikimedia Pageviews API",
+        "project": "en.wikipedia"
+      },
+      "score": -23.52
+    },
+    {
+      "rank": 17,
       "id": "tissot-prx",
       "label": "Tissot PRX",
       "card_id": "tissot-prx-t137-407",
@@ -397,58 +451,58 @@
       "wikipedia_title": "Tissot",
       "wiki_note": null,
       "trends": {
-        "interest": 27,
-        "momentum": -1.6,
-        "points": 151,
+        "interest": 37,
+        "momentum": -4.3,
+        "points": 155,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 356,
-        "prior_views": 370,
-        "week_views": 2620,
-        "dod_pct": -3.8,
+        "last_day": "20260908",
+        "last_views": 302,
+        "prior_views": 356,
+        "week_views": 2636,
+        "dod_pct": -15.2,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -6.65
+      "score": -32.22
     },
     {
-      "rank": 16,
-      "id": "seiko-alpinist",
-      "label": "Seiko Alpinist",
-      "card_id": "seiko-sarb017-alpinist",
-      "trends_query": "Seiko Alpinist",
-      "wikipedia_title": "Seiko",
-      "wiki_note": null,
+      "rank": 18,
+      "id": "patek-nautilus",
+      "label": "Patek Nautilus",
+      "card_id": "patek-5711-1a",
+      "trends_query": "Patek Nautilus",
+      "wikipedia_title": "Patek_Philippe",
+      "wiki_note": "Brand-level article — no dedicated Nautilus pageviews series",
       "trends": {
-        "interest": 13,
-        "momentum": -1.2,
-        "points": 141,
+        "interest": 4,
+        "momentum": -0.4,
+        "points": 117,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 538,
-        "prior_views": 591,
-        "week_views": 4348,
-        "dod_pct": -9,
+        "last_day": "20260908",
+        "last_views": 645,
+        "prior_views": 781,
+        "week_views": 5574,
+        "dod_pct": -17.4,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -16.47
+      "score": -32.39
     },
     {
-      "rank": 17,
-      "id": "rolex-gmt-pepsi",
-      "label": "Rolex GMT Pepsi",
-      "card_id": "rolex-126710blro-pepsi",
-      "trends_query": "Rolex Pepsi",
-      "wikipedia_title": "Rolex_GMT_Master_II",
+      "rank": 19,
+      "id": "rolex-daytona",
+      "label": "Rolex Daytona",
+      "card_id": "rolex-116500ln",
+      "trends_query": "Rolex Daytona",
+      "wikipedia_title": "Rolex_Daytona",
       "wiki_note": null,
       "trends": {
         "interest": null,
@@ -456,96 +510,42 @@
         "reason": "trends_unavailable"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 79,
-        "prior_views": 87,
-        "week_views": 781,
-        "dod_pct": -9.2,
+        "last_day": "20260908",
+        "last_views": 33,
+        "prior_views": 41,
+        "week_views": 298,
+        "dod_pct": -19.5,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -16.5
-    },
-    {
-      "rank": 18,
-      "id": "omega-seamaster",
-      "label": "Omega Seamaster",
-      "card_id": "omega-seamaster-300m",
-      "trends_query": "Omega Seamaster",
-      "wikipedia_title": "Omega_Seamaster",
-      "wiki_note": null,
-      "trends": {
-        "interest": 36,
-        "momentum": -3.6,
-        "points": 163,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 112,
-        "prior_views": 123,
-        "week_views": 963,
-        "dod_pct": -8.9,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": -19.35
-    },
-    {
-      "rank": 19,
-      "id": "tag-aquaracer",
-      "label": "TAG Aquaracer",
-      "card_id": "tagheuer-aquaracer-way101a",
-      "trends_query": "TAG Heuer Aquaracer",
-      "wikipedia_title": "TAG_Heuer",
-      "wiki_note": null,
-      "trends": {
-        "interest": 2,
-        "momentum": 4,
-        "points": 43,
-        "window": "US · now 7-d · hourly",
-        "source": "Google Trends (unofficial explore API)",
-        "geo": "US"
-      },
-      "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 367,
-        "prior_views": 480,
-        "week_views": 2819,
-        "dod_pct": -23.5,
-        "source": "Wikimedia Pageviews API",
-        "project": "en.wikipedia"
-      },
-      "score": -40.43
+      "score": -37.47
     },
     {
       "rank": 20,
-      "id": "cartier-tank",
-      "label": "Cartier Tank",
-      "card_id": "cartier-tank-must-wsta0041",
-      "trends_query": "Cartier Tank",
-      "wikipedia_title": "Cartier_Tank",
+      "id": "paul-newman",
+      "label": "Paul Newman Daytona",
+      "card_id": "rolex-6239-paul-newman",
+      "trends_query": "Paul Newman Daytona",
+      "wikipedia_title": "Rolex_Daytona",
       "wiki_note": null,
       "trends": {
-        "interest": 25,
-        "momentum": -1.2,
-        "points": 150,
+        "interest": 0,
+        "momentum": null,
+        "points": 6,
         "window": "US · now 7-d · hourly",
         "source": "Google Trends (unofficial explore API)",
         "geo": "US"
       },
       "wikipedia": {
-        "last_day": "20260907",
-        "last_views": 52,
-        "prior_views": 71,
-        "week_views": 480,
-        "dod_pct": -26.8,
+        "last_day": "20260908",
+        "last_views": 33,
+        "prior_views": 41,
+        "week_views": 298,
+        "dod_pct": -19.5,
         "source": "Wikimedia Pageviews API",
         "project": "en.wikipedia"
       },
-      "score": -53.08
+      "score": -37.47
     }
   ]
 }
