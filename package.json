@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "node scripts/build_rolex_catalog.mjs && node scripts/build_screen_sightings.mjs && node scripts/build_indices.mjs && tsc -b && vite build",
     "lint": "oxlint",
+    "test:security": "node scripts/test-security.mjs",
+    "posttest": "npm run test:security",
     "preview": "vite preview",
     "data:build": "node scripts/build_indices.mjs",
     "data:catalog": "node scripts/build_rolex_catalog.mjs",

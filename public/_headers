@@ -2,6 +2,13 @@
 # so the edge must revalidate it — a cached index.html or data.json paired with fresh JS shows
 # stale numbers, which this project treats as a correctness bug.
 
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://nonarkara.org/_shared/lib/visitor-tracking.js 'sha256-HLf4MsjhZKOGrDuc5MyiKyVkpdSZo453AaOehf2544c=' 'sha256-Nx4W0bPS7gcozJWspTA9Hjogcx+iTUQvWzIYrbCPsDA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://nonarkara.org; frame-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
 /
   Cache-Control: public, max-age=0, must-revalidate
 

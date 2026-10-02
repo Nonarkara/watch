@@ -57,6 +57,10 @@ export default function App() {
   const [data, setData] = useState<Dataset | null>(null)
   const [err, setErr] = useState<string | null>(null)
   const { pathname } = useLocation()
+  const retryDataset = () => {
+    setErr(null)
+    loadDataset().then(setData, (e) => setErr(String(e)))
+  }
 
   useEffect(() => { loadDataset().then(setData, (e) => setErr(String(e))) }, [])
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
@@ -102,7 +106,10 @@ export default function App() {
       </header>
       <main className="shell" id="main-content">
         {err ? (
-          <p className="boot mono" role="alert">DATASET FAILED TO LOAD — {err}. Time Pop refuses to render placeholder data.</p>
+          <div className="boot mono" role="alert">
+            <p>The watch data could not load. Please retry.</p>
+            <button type="button" onClick={retryDataset}>Retry loading data</button>
+          </div>
         ) : !data ? (
           <p className="boot mono" role="status" aria-live="polite">LOADING TIME POP…</p>
         ) : (

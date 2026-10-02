@@ -160,9 +160,27 @@ export const REGION_LABEL: Record<'asia' | 'europe' | 'americas', string> = {
 
 let cache: Promise<Dataset> | null = null;
 export function loadDataset(): Promise<Dataset> {
-  cache ??= fetch('/data.json').then((r) => {
+  cache ??= fetch('/data.json', { signal: AbortSignal.timeout(15000) }).then((r) => {
     if (!r.ok) throw new Error(`data.json ${r.status}`);
     return r.json();
+  }).then((value: unknown) => {
+    if (!value || typeof value !== 'object') throw new Error('Invalid dataset');
+    const dataset = value as Dataset;
+    if (!Array.isArray(dataset.cards) || dataset.count !== dataset.cards.length
+      || !/^\d{4}-\d{2}-\d{2}$/.test(dataset.built)
+      || !Array.isArray(dataset.market_context?.indices)) throw new Error('Invalid dataset structure');
+    const ids = new Set<string>();
+    for (const card of dataset.cards) {
+      if (!card || typeof card.id !== 'string' || !/^[a-z0-9-]+$/.test(card.id) || ids.has(card.id)
+        || typeof card.identity?.brand !== 'string' || !card.computed?.estimate
+        || !Array.isArray(card.media) || !Array.isArray(card.provenance_events)
+        || !Array.isArray(card.screen_events)) throw new Error('Invalid dossier structure');
+      ids.add(card.id);
+    }
+    return dataset;
+  }).catch((error: unknown) => {
+    cache = null;
+    throw error;
   });
   return cache;
 }

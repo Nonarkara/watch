@@ -2,11 +2,21 @@
 // Run: node scripts/test-invariants.mjs
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
-import { computeAll, marketEstimate } from "./lib/indices.mjs";
+import { computeAll, marketEstimate, priceChange } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 import { validateSightings } from "./validate_sightings.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
+// Identical historical sales cannot become both ends of a one-year trend.
+const historicalOnly = [100, 200, 300].map((price_usd, i) => ({
+  date: `2025-0${6 - i}-01`, price_usd,
+}));
+assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
+  observations: { "2026-09": 110, "2025-09": 100 },
+}).nominal_pct, null, "overlapping cohorts must refuse a trend");
+const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
+assert.equal(newmanCard.market_evidence.comps.find((c) => c.price_usd === 17752500).comparable, false,
+  "celebrity-owned lot must remain outside ordinary valuation");
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
 
 // Curated image assignments — checked by invariant 13 below.

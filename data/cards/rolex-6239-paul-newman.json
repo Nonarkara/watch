@@ -35,8 +35,9 @@
         "price_usd": 17752500,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/PAUL-NEWMAN/NY080117/8",
-        "condition": null,
-        "box_papers": null
+        "condition": "Paul Newman's personally owned watch; unique celebrity provenance, excluded from ordinary exotic-dial reference valuation.",
+        "box_papers": null,
+        "comparable": false
       },
       {
         "date": "2024-06",

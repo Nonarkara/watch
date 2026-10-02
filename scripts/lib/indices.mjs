@@ -115,7 +115,9 @@ export function priceChange(comps, buildDate, years, cpi) {
   const thenOffset = years * 12;
   let now = [], then = [], nowMonths = 0, thenMonths = 0;
   for (const m of nowWindows) {
-    now = compsInWindow(comps, buildDate, m);
+    // Keep current observations after the historical endpoint, even when
+    // widening. Reusing a sale in both cohorts cannot measure a market move.
+    now = compsInWindow(comps, buildDate, Math.min(m, thenOffset));
     if (now.length >= 3) { nowMonths = m; break; }
   }
   // The "then" window is `years` ago, but we widen if needed.

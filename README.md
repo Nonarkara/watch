@@ -5,15 +5,16 @@ objects, understand the economics of scarcity, compare references, learn through
 more transparent handovers when a watch needs a new custodian.
 
 The public site is designed to refuse false precision: no market estimate is published without at
-least three verified sales in a 36-month window. Missing evidence renders as a reason, never a guess.
+least three comparable cited sales. Evidence windows widen from 12 months to all time on file;
+older windows are disclosed and must be read as historical evidence. Missing evidence renders as a reason.
 
 ## What ships
 
-- 261 unique reference dossiers across five collecting tiers
+- 302 unique reference dossiers across five collecting tiers
 - Deterministic scarcity, collectibility, liquidity, price-change, and confidence metrics
 - A searchable register, comparison table, starter paths, and playful discovery mode
 - A scarcity-economics explainer grounded in the published dataset
-- An 80-record, source-linked Rolex object atlas with catalog prices kept out of market estimates
+- A source-linked Rolex object atlas with catalog prices kept out of market estimates
 - A 31-sighting Rolex screen register with exact/family and reported/tentative evidence labels
 - A demand-side screen-attention signal that cannot alter the scarcity score
 - A responsible rehoming-brief builder; the site does not broker transactions

@@ -4,7 +4,14 @@ import { readFileSync } from "node:fs";
 const TIERS = ["trinity", "crown", "haute", "core", "attainable"];
 const VENUES = ["phillips", "christies", "sothebys", "antiquorum", "bonhams", "ebay", "other_auction"];
 const BOX = ["full_set", "box_only", "papers_only", "watch_only", null];
-const isUrl = (u) => typeof u === "string" && /^https?:\/\/.+\..+/.test(u);
+const isUrl = (u) => {
+  if (typeof u !== "string") return false;
+  try {
+    const parsed = new URL(u);
+    return ["https:", "http:"].includes(parsed.protocol) && Boolean(parsed.hostname)
+      && !parsed.username && !parsed.password;
+  } catch { return false; }
+};
 // YYYY alone is legal for provenance/waitlist dates — honest when only the year is known.
 const isDate = (d) => typeof d === "string" && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(d) && !isNaN(new Date(d));
 
@@ -39,7 +46,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   for (const [i, c] of (ev.comps || []).entries()) {
     req(isDate(c.date), `comps[${i}].date must be YYYY-MM-DD`);
     req(new Date(c.date) <= new Date(buildDate), `comps[${i}].date in the future`);
-    req(typeof c.price_usd === "number" && c.price_usd > 0, `comps[${i}].price_usd > 0`);
+    req(Number.isFinite(c.price_usd) && c.price_usd > 0, `comps[${i}].price_usd must be finite and > 0`);
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
     req(BOX.includes(c.box_papers ?? null), `comps[${i}].box_papers invalid`);

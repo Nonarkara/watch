@@ -416,7 +416,9 @@ const sightings = [...ICONS, ...enrichedRolex]
 const screenTitles = new Set(sightings.map((s) => `${s.media_type}:${s.title}`))
 
 const snapshot = {
-  collected: new Date().toISOString().slice(0, 10),
+  // Rebuilding committed sources does not refresh their evidence age.
+  collected: rolex.collected,
+  built_at: new Date().toISOString().slice(0, 10),
   source_url: 'https://www.watch-id.com/brands/rolex',
   editorial_url: TEDDY,
   count: sightings.length,
