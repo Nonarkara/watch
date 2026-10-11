@@ -8,6 +8,10 @@ logs
 .worktrees/
 _shared
 
+# local archive of unreferenced working files (AI banner generations, etc.)
+# Kept on disk, never shipped: public/ is served verbatim by Cloudflare Pages.
+archive/
+
 # local symlink to /Users/nonarkara/Projects/_shared (design tokens)
 _shared
 
