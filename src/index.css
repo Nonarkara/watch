@@ -5387,7 +5387,7 @@ main.shell { padding-top: var(--space-md); }
   padding: var(--space-sm);
   border-right: var(--border);
   border-bottom: var(--border);
-  color: var(--text);
+  color: var(--ink);
   text-decoration: none;
 }
 .dossier-pending-links a:hover,

@@ -280,3 +280,22 @@ const dumpsInPublic = publicFiles
 assert.deepEqual(dumpsInPublic, [],
   `unreferenced working-file dumps must not live in public/:\n  ${dumpsInPublic.join("\n  ")}\n  → move to the gitignored archive/ so the files survive but never ship`);
 console.log(`✓ served tree is clean (${publicFiles.length} files, no OS metadata or working dumps)`);
+
+// ─── every var() in index.css must resolve ───────────────────────────────────
+// A bare var(--x) with no definition anywhere silently becomes invalid at
+// render time (the property is dropped, the element inherits). One such typo
+// shipped: .dossier-pending-links a used var(--text) instead of var(--ink).
+// This fails on undefined vars; var(--x, fallback) is safe and is skipped.
+const indexCss = readFileSync(join(ROOT, "src/index.css"), "utf8");
+const tokenPath = join(ROOT, "_shared/design-tokens/dr-non-brand.css");
+const tokenCss = existsSync(tokenPath) ? readFileSync(tokenPath, "utf8") : "";
+const definedVars = new Set(
+  [...indexCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1])
+    .concat([...tokenCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1])));
+// capture var(--x) NOT followed by a comma (i.e. no inline fallback)
+const bareUndefined = [...new Set(
+  [...indexCss.matchAll(/var\(\s*(--[a-z0-9-]+)\s*\)/g)].map((m) => m[1]))]
+  .filter((v) => !definedVars.has(v));
+assert.deepEqual(bareUndefined, [],
+  `index.css consumes CSS vars that are defined nowhere:\n  ${bareUndefined.join("\n  ")}\n  → check the token name (house token is --ink, not --text); a bare var() with no definition is dropped at render time`);
+console.log(`✓ every bare var() in index.css resolves (${definedVars.size} tokens defined${tokenCss ? " incl. shared design tokens" : ""})`);
