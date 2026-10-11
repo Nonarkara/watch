@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import {
   advanceAttentionHistory,
   attentionAgeDays,
@@ -47,3 +48,23 @@ assert.equal(parseAttentionHistory({ nope: true }), null)
 assert.deepEqual(parseAttentionHistory(nextVisit), nextVisit)
 
 console.log('✓ saved attention pulse preserves private daily rank history')
+
+// ─── honest envelope: a stale harvest must say so ────────────────────────────
+// The Sep–Oct 2026 GitHub Actions billing outage stopped the daily harvest for
+// nine days and the site kept printing "AS OF <date>" as if it were current.
+// Every surface that shows the attention snapshot must also show its age, and
+// Home must be able to mark the snapshot stale. This is a disclosure test, not
+// a styling test: the age string has to exist on both pages.
+const homeSrc = readFileSync(new URL('../src/pages/Home.tsx', import.meta.url), 'utf8')
+const savedSrc = readFileSync(new URL('../src/pages/Saved.tsx', import.meta.url), 'utf8')
+assert.ok(homeSrc.includes('attentionAgeDays'),
+  'Home must compute the attention snapshot age with attentionAgeDays')
+assert.ok(homeSrc.includes('trendStale'),
+  'Home must be able to mark the attention snapshot stale')
+assert.ok(/STALE/.test(homeSrc) && /trendAge/.test(homeSrc),
+  'Home must render the stale marker and the age value, not just compute them')
+assert.ok(savedSrc.includes('attentionAgeDays') && /\$\{trendAge\} DAY/.test(savedSrc),
+  'Saved must keep disclosing the attention snapshot age')
+assert.equal(attentionAgeDays('2026-08-16', new Date('2026-08-25T12:00:00Z')), 9,
+  'a nine-day-old snapshot must report nine days, so the UI can label it stale')
+console.log('✓ stale attention snapshots disclose their age on Home and Saved')

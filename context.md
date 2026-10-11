@@ -43,7 +43,10 @@ Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F
 
 **Hero banner is load-bearing.** `public/img/hero/time-pop-banner.png` is the Time Pop brand surface on the home fold (and OG share image). Composition (Grok 4.5 audit 2026-08-03): banner = oversized full-bleed *ground* via `.timepop-hero` (not `HeroBanner`, which intentionally renders no image); cream slab = thesis + CTAs; 8-cell ledger = floor with live counts (invented prices hard-coded 0). Do not demote the banner to a sibling column or replace the ledger with a second proof ribbon.
 
-**Live URL (2026-08-10):** production serves at `https://watch-1de.pages.dev` until `watch.nonarkara.org` is attached. Canonical + OG tags follow the live Pages URL so share previews resolve.
+**Live URL (2026-10-11):** production is served at the custom domain `https://watch.nonarkara.org`
+(Cloudflare Pages project `watch`; the fallback `watch-1de.pages.dev` still resolves). Canonical +
+OG tags, `public/sitemap.xml`, and crawler user-agents all follow the custom domain so share
+previews and search resolve to one host.
 
 **Market attention (daily).** `npm run data:trends` harvests Google Trends (US, unofficial) + Wikimedia Pageviews for a curated watchlist (`data/shared/trend_watchlist.json`) into `public/data/market_trends.json`. Home shows the ranked band under the hero. Discover exposes it as WATCHING TODAY. Register can sort by it. A matching dossier Evidence tab says the card is in public attention. Attention ≠ price — limitation is on the face of the UI. GitHub Action `daily-market-trends.yml` refreshes at 06:15 UTC.
 

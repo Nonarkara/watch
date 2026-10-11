@@ -54,5 +54,7 @@ separate one-record command after a person checks reference, material, dial, con
 and accessories. Non-USD results remain quarantined until the schema can preserve source currency
 and source-backed exchange rates.
 
-The production site is deployed to Cloudflare Pages at
-[watch-1de.pages.dev](https://watch-1de.pages.dev/). The custom domain remains the intended canonical URL once its DNS record is active.
+The production site is deployed to Cloudflare Pages and served at the custom domain
+[watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
+at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the
+custom domain.

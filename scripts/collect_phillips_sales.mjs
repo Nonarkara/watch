@@ -49,7 +49,7 @@ const fetchOpts = {
   baseDelayMs: 1200,
   rateLimitMs: 350,
   timeoutMs: 45_000,
-  userAgent: 'TimePopResearchBot/1.0 (+https://watch-1de.pages.dev; public auction evidence)',
+  userAgent: 'TimePopResearchBot/1.0 (+https://watch.nonarkara.org; public auction evidence)',
   onRetry: (reason, attempt, delay) => console.warn(`[phillips] retry ${attempt + 1}: ${reason} (${delay}ms)`),
 };
 

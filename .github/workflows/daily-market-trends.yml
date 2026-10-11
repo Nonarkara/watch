@@ -19,14 +19,28 @@ jobs:
   harvest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '24'
           cache: npm
       - run: npm ci
       - name: Harvest Google Trends + Wikipedia
         run: npm run data:trends
+      - name: Report snapshot age
+        # A missed run (billing, outage, upstream block) used to leave the site
+        # serving a stale rank list with no trace in the Actions UI. Print the
+        # snapshot age on every run so a drift is visible even when the harvest
+        # itself succeeds.
+        run: |
+          node -e '
+            const s = require("./public/data/market_trends.json");
+            const age = Math.round((Date.now() - Date.parse(s.as_of)) / 86400000);
+            const line = `market_trends as_of=${s.as_of} (${age} day(s) old) rows=${s.count}`;
+            console.log(line);
+            require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### Market attention\n${line}\n`);
+            if (age > 2) { console.log("::warning::attention snapshot is more than two days old"); }
+          '
       - name: Invariant tests
         run: npm test
       - name: Commit snapshot if changed

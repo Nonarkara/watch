@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadRolexCatalog, loadScreenSightings, loadMarketTrends, type RolexCatalog, type ScreenSnapshot, type MarketTrendsSnapshot } from '../lib/catalog.ts'
 import { BRAND_REGION, type Card } from '../lib/data.ts'
+import { attentionAgeDays } from '../lib/attention-pulse.ts'
 import ArtBand from '../components/ArtBand.tsx'
 import Spotlight from '../components/Spotlight.tsx'
 import { ARTICLES } from './GuideArticles.tsx'
@@ -99,6 +100,12 @@ export default function Home() {
   // Top 5 trending refs for the "TRENDING NOW" strip — same data, smaller
   // sampler. The full list sits below as a deeper read.
   const topTrending = useMemo(() => trending.slice(0, 5), [trending])
+  // Honest envelope: the attention snapshot is a daily harvest, so a visitor
+  // arriving after a missed run (a GitHub Actions outage did exactly this in
+  // Sep–Oct 2026) must be told the signal is stale rather than reading "AS OF"
+  // as if it were today. Same helper /saved already uses.
+  const trendAge = trends ? attentionAgeDays(trends.as_of) : null
+  const trendStale = trendAge != null && trendAge >= 2
   const withComps = cards.filter((card) => card.comp_summary).length
   const withMedia = cards.filter((card) => card.media.length).length
   const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
@@ -262,7 +269,9 @@ export default function Home() {
               TRENDING NOW
             </span>
             <span className="trending-now-meta mono">
-              AS OF {trends.as_of} · PUBLIC ATTENTION, NOT PRICE ·{' '}
+              AS OF {trends.as_of}
+              {trendAge != null && <> · {trendStale ? 'STALE' : 'FRESH'} {trendAge}D</>}
+              {' · '}PUBLIC ATTENTION, NOT PRICE ·{' '}
               <Link to="#trending-full">SEE ALL {trends.trending.filter((r) => cardById.has(r.card_id)).length} →</Link>
             </span>
           </div>
@@ -308,6 +317,7 @@ export default function Home() {
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
               AS OF {trends.as_of} · GOOGLE TRENDS + WIKIPEDIA · DAILY
+              {trendAge != null && <> · {trendStale ? `STALE ${trendAge}D` : `${trendAge}D OLD`}</>}
             </span>
           </div>
           <p className="market-trends-lede">

@@ -27,7 +27,7 @@ const OUT = join(ROOT, 'public/data/market_trends.json')
 const SHARED_OUT = join(ROOT, 'data/shared/market_trends.json')
 const COOKIE = join(ROOT, '.cache/gt.cookies')
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-const WIKI_UA = 'TimePopBot/1.0 (https://watch-1de.pages.dev; market-attention research)'
+const WIKI_UA = 'TimePopBot/1.0 (https://watch.nonarkara.org; market-attention research)'
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms))
