@@ -255,3 +255,28 @@ const registerSrc = readFileSync(join(ROOT, "src/pages/Register.tsx"), "utf8");
 assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('WATCHING TODAY'),
   'Register must sort today\'s attention watchlist first when asked');
 console.log('✓ ticker / grail / related / attention wiring holds');
+
+// ─── served-tree hygiene: public/ ships verbatim, so it must be clean ─────────
+// Cloudflare Pages serves whatever vite copies out of public/. Gitignore does
+// NOT keep a file off the CDN (see vault lesson: untracked files in public/
+// still ship). Two .DS_Store files leaked to the live site this way. This guard
+// fails the build if OS metadata or an unreferenced working-file dump reappears
+// in the tree that ships. Keep working files in the gitignored archive/.
+function walkPublic(dir) {
+  return readdirSync(dir).flatMap((f) => {
+    const p = join(dir, f);
+    return statSync(p).isDirectory() ? walkPublic(p) : [p];
+  });
+}
+const publicFiles = walkPublic(join(ROOT, "public"));
+const junkInPublic = publicFiles
+  .map((p) => p.replace(`${ROOT}public/`, ''))
+  .filter((p) => p.split('/').some((seg) => seg === '.DS_Store' || seg === 'Thumbs.db'));
+assert.deepEqual(junkInPublic, [],
+  `OS metadata files must not ship from public/:\n  ${junkInPublic.join("\n  ")}\n  → delete them; they are served verbatim to every visitor`);
+const dumpsInPublic = publicFiles
+  .map((p) => p.replace(`${ROOT}public/`, ''))
+  .filter((p) => /chatGPT banners|(^|\/)archive(\/|$)/i.test(p));
+assert.deepEqual(dumpsInPublic, [],
+  `unreferenced working-file dumps must not live in public/:\n  ${dumpsInPublic.join("\n  ")}\n  → move to the gitignored archive/ so the files survive but never ship`);
+console.log(`✓ served tree is clean (${publicFiles.length} files, no OS metadata or working dumps)`);
