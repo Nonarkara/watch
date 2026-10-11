@@ -194,7 +194,15 @@ const inventedInterest = trends.trending.filter((row) =>
   row.trends?.interest != null && (row.trends.interest < 0 || row.trends.interest > 100));
 assert.deepEqual(inventedInterest, [],
   "Google Trends interest must stay in 0–100 when present");
-console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of})`);
+// Watchdog: the daily harvest runs on GitHub Actions, which has been blocked
+// by a billing limit — a blocked run never executes its own age-report step,
+// so nothing else warns that the snapshot is rotting. The site discloses
+// staleness to visitors; this is the signal for the operator. Threshold is
+// deliberately generous (7d) so it fires only on a real outage, not a weekend.
+const snapshotAge = Math.floor((Date.now() - Date.parse(trends.as_of + "T00:00:00Z")) / 86_400_000);
+assert.ok(snapshotAge <= 7,
+  `market_trends snapshot is ${snapshotAge}d old (as_of ${trends.as_of})\n  → the daily harvest has not run in over a week; refresh with: npm run data:trends`);
+console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of}, ${snapshotAge}d old)`);
 
 // Saved is the collector's private view of the public attention snapshot.
 // The set and its prior-day rank history must stay on-device, while its
@@ -288,7 +296,13 @@ console.log(`✓ served tree is clean (${publicFiles.length} files, no OS metada
 // This fails on undefined vars; var(--x, fallback) is safe and is skipped.
 const indexCss = readFileSync(join(ROOT, "src/index.css"), "utf8");
 const tokenPath = join(ROOT, "_shared/design-tokens/dr-non-brand.css");
-const tokenCss = existsSync(tokenPath) ? readFileSync(tokenPath, "utf8") : "";
+// index.css line 1 imports this file through the _shared symlink, which points
+// at ../_shared and is gitignored. If it is missing, 15 tokens (the type scale,
+// the --space-* scale, the saturation ramp) have no definition and fail open.
+// Name the real fix here instead of leaving the next agent to infer it.
+assert.ok(existsSync(tokenPath),
+  `missing design tokens at _shared/design-tokens/dr-non-brand.css\n  → restore the symlink: ln -s /Users/nonarkara/Projects/_shared _shared`);
+const tokenCss = readFileSync(tokenPath, "utf8");
 const definedVars = new Set(
   [...indexCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1])
     .concat([...tokenCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1])));
@@ -298,4 +312,4 @@ const bareUndefined = [...new Set(
   .filter((v) => !definedVars.has(v));
 assert.deepEqual(bareUndefined, [],
   `index.css consumes CSS vars that are defined nowhere:\n  ${bareUndefined.join("\n  ")}\n  → check the token name (house token is --ink, not --text); a bare var() with no definition is dropped at render time`);
-console.log(`✓ every bare var() in index.css resolves (${definedVars.size} tokens defined${tokenCss ? " incl. shared design tokens" : ""})`);
+console.log(`✓ every bare var() in index.css resolves (${definedVars.size} tokens defined incl. shared design tokens)`);
