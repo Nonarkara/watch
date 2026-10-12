@@ -2809,6 +2809,10 @@ main.shell { padding-top: var(--space-md); }
   padding: 12px;
   text-align: center;
   border: 1px solid var(--rule);
+  /* The hatch is the print-catalog convention for "no plate exists" and is the
+     second gradient the house law allows: a neutral texture carrying the
+     refusal (honesty ladder — missing data is drawn, never hidden), not a
+     decorative color wash. Like .art-band-scrim, do not replicate elsewhere. */
   background: repeating-linear-gradient(
     45deg,
     transparent,
@@ -3919,6 +3923,11 @@ main.shell { padding-top: var(--space-md); }
 
 /* ── Search palette (modal) ──────────────────────────────────────────────── */
 .srch-bk { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: flex-start; justify-content: center; z-index: 9999; padding-top: 12vh; }
+/* .srch is the one soft drop-shadow the house law allows (§11.10-style named
+   exemption): a modal floating over a dimmed backdrop needs depth separation
+   that a hard offset block cannot give without reading as a misprint. It is
+   elevation, not decoration — like .art-band-scrim and .art-withheld-plate,
+   do not replicate on cards or sections. */
 .srch { width: min(640px, 92vw); background: var(--bg); border: 2px solid var(--ink); box-shadow: 0 16px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; max-height: 80vh; }
 .srch-input-row { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--ink); }
 .srch-kbd { font-size: 11px; color: var(--dim); border: 1px solid var(--rule); padding: 2px 6px; }

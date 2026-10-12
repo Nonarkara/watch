@@ -3,7 +3,8 @@
 # stale numbers, which this project treats as a correctness bug.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://nonarkara.org/_shared/lib/visitor-tracking.js 'sha256-HLf4MsjhZKOGrDuc5MyiKyVkpdSZo453AaOehf2544c=' 'sha256-Nx4W0bPS7gcozJWspTA9Hjogcx+iTUQvWzIYrbCPsDA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://nonarkara.org; frame-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://nonarkara.org/_shared/lib/visitor-tracking.js 'sha256-HLf4MsjhZKOGrDuc5MyiKyVkpdSZo453AaOehf2544c=' 'sha256-Nx4W0bPS7gcozJWspTA9Hjogcx+iTUQvWzIYrbCPsDA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://nonarkara.org https://script.google.com https://ipapi.co; frame-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin

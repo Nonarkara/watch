@@ -15,6 +15,23 @@ assert.match(headers, /frame-ancestors 'none'/);
 const scriptPolicy = headers.match(/script-src ([^;]+)/)[1];
 assert(!scriptPolicy.includes('unsafe-inline') && !scriptPolicy.includes('unsafe-eval'));
 
+// HSTS must be present: the domain 301s to HTTPS, but without HSTS a returning
+// visitor can be downgraded on the first hop of an unsecured network.
+assert.match(headers, /Strict-Transport-Security:\s*max-age=\d{5,}/,
+  'HSTS missing from _headers — returning visitors get no TLS pinning');
+
+// The canonical tracker (index.html imports it from nonarkara.org on load)
+// POSTs to Google Apps Script and geo-enriches via ipapi.co. If connect-src
+// does not allow those two origins the import succeeds and every ping fails
+// silently — which is exactly what shipped for months. Keep the CSP and the
+// tracker's actual endpoints in one contract.
+const connectPolicy = headers.match(/connect-src ([^;]+)/)[1];
+for (const origin of ['https://script.google.com', 'https://ipapi.co', 'https://nonarkara.org']) {
+  assert(connectPolicy.includes(origin),
+    `connect-src must allow ${origin} — the canonical visitor tracker pings it and the failure is silent`);
+}
+console.log('✓ CSP hashes, HSTS, tracker endpoints, unsafe source rejection, and dataset retry boundary');
+
 const fixture = JSON.parse(readFileSync(new URL('./fixtures/test-card.json', import.meta.url), 'utf8'));
 fixture.market_evidence.comps[0].url = 'https://user:password@example.com/lot';
 fixture.market_evidence.comps[1].price_usd = Infinity;
