@@ -277,11 +277,18 @@ function walkPublic(dir) {
   });
 }
 const publicFiles = walkPublic(join(ROOT, "public"));
+// The junk CLASS, not the two instances history produced: OS metadata at any
+// depth (.DS_Store, Thumbs.db, AppleDouble ._resource-forks), plus the files
+// editors and merge tools drop beside real ones (*.bak, *.orig, *.rej, ~,
+// *.swp). public/ ships verbatim, so anything in this class reaches every
+// visitor.
+const JUNK_EXACT = new Set(['.DS_Store', 'Thumbs.db', 'desktop.ini']);
+const JUNK_MATCH = /^\._|^\.~|\.(bak|orig|rej|swp|swpx)$|~$/i;
 const junkInPublic = publicFiles
   .map((p) => p.replace(`${ROOT}public/`, ''))
-  .filter((p) => p.split('/').some((seg) => seg === '.DS_Store' || seg === 'Thumbs.db'));
+  .filter((p) => p.split('/').some((seg) => JUNK_EXACT.has(seg) || JUNK_MATCH.test(seg)));
 assert.deepEqual(junkInPublic, [],
-  `OS metadata files must not ship from public/:\n  ${junkInPublic.join("\n  ")}\n  → delete them; they are served verbatim to every visitor`);
+  `OS metadata / editor / merge-tool files must not ship from public/:\n  ${junkInPublic.join("\n  ")}\n  → delete them; they are served verbatim to every visitor`);
 const dumpsInPublic = publicFiles
   .map((p) => p.replace(`${ROOT}public/`, ''))
   .filter((p) => /chatGPT banners|(^|\/)archive(\/|$)/i.test(p));

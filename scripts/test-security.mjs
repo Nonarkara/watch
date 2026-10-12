@@ -30,7 +30,6 @@ for (const origin of ['https://script.google.com', 'https://ipapi.co', 'https://
   assert(connectPolicy.includes(origin),
     `connect-src must allow ${origin} — the canonical visitor tracker pings it and the failure is silent`);
 }
-console.log('✓ CSP hashes, HSTS, tracker endpoints, unsafe source rejection, and dataset retry boundary');
 
 const fixture = JSON.parse(readFileSync(new URL('./fixtures/test-card.json', import.meta.url), 'utf8'));
 fixture.market_evidence.comps[0].url = 'https://user:password@example.com/lot';
@@ -54,4 +53,4 @@ try {
   assert.equal((await loadDataset()).count, dataset.count, 'invalid response must not permanently poison the retry cache');
   assert.equal(requests, 2);
 } finally { globalThis.fetch = originalFetch; }
-console.log('✓ CSP hashes, unsafe source rejection, and dataset retry boundary');
+console.log('✓ CSP hashes, HSTS, tracker endpoints, unsafe source rejection, and dataset retry boundary');
