@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "RM 035",
     "tier": "haute",
-    "produced": { "start_year": 2011, "end_year": null, "discontinued": false },
-    "movement": { "caliber": "RM035", "type": "manual" },
-    "case": { "diameter_mm": 42.7, "material": "aluminum-magnesium-copper alloy or titanium", "bezel": "tonneau, matching case material" },
+    "produced": {
+      "start_year": 2011,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "RM035",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 42.7,
+      "material": "aluminum-magnesium-copper alloy or titanium",
+      "bezel": "tonneau, matching case material"
+    },
     "one_liner": "A daily-wear complement to the ultralight RM 027 tourbillon Nadal wore in competition, built to Richard Mille's Chronofiable durability certification."
   },
   "retail": {
@@ -18,12 +29,34 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 190500,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/richard-mille/234006",
+        "box_papers": null,
+        "condition": "similar reference: Richard Mille RM035 AL ALMG · RM035 \"Baby Nadal\"",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Richard Mille",
+          "harvested_reference": "RM035 AL ALMG",
+          "harvested_model": "RM035 \"Baby Nadal\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix RM035 (RM035 AL ALMG vs RM 035)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

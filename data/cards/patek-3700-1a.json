@@ -46,6 +46,40 @@
         "condition": "3700/11 yellow gold/stainless steel \"Jumbo\" two-tone",
         "box_papers": null,
         "comparable": false
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 355600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233442",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/11 · Nautilus “Jumbo” Tiffany & Co.",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/11",
+          "harvested_model": "Nautilus “Jumbo” Tiffany & Co.",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)"
+        }
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 228600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/232963",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/11 · Nautilus “Jumbo”",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/11",
+          "harvested_model": "Nautilus “Jumbo”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)"
+        }
       }
     ],
     "listing_observations": []

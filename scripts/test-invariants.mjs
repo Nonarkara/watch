@@ -123,6 +123,45 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     "126610LN comps must point to three distinct source records");
 }
 
+// 10b. Fuzzy-matched Phillips comps route correctly: every fuzzy match is
+// comparable:false (so the market estimate ignores it), carries a condition
+// that names the harvested reference (so the dossier can show *why* it's
+// excluded), and uses a phillips.com URL that points to a real lot. The
+// fuzzy-matches.json file is the single source of truth for what's been
+// promoted from the harvest queue.
+{
+  const { readdirSync, existsSync } = await import("node:fs");
+  const matchesFile = new URL("../data/market/fuzzy-matches.json", import.meta.url);
+  if (!existsSync(matchesFile)) {
+    // No fuzzy-matches.json means the harvest hasn't been promoted yet;
+    // the silent skip is fine, the next pipeline run will materialise it.
+  } else {
+    const matches = JSON.parse(readFileSync(matchesFile, "utf8"));
+    assert.ok(matches.matches.length > 0, "fuzzy-matches.json should have at least one promotion");
+    // Re-read every touched card and assert the promoted comps are honest.
+    const cardFiles = readdirSync(new URL("../data/cards", import.meta.url))
+      .filter((name) => name.endsWith(".json"));
+    let promotedComps = 0;
+    for (const file of cardFiles) {
+      const card = JSON.parse(readFileSync(new URL(`../data/cards/${file}`, import.meta.url), "utf8"));
+      const fuzzy = (card.market_evidence?.comps ?? []).filter((c) => c.fuzzy_match);
+      for (const c of fuzzy) {
+        promotedComps++;
+        assert.equal(c.comparable, false,
+          `${file} fuzzy comp must be comparable:false so the estimate ignores it`);
+        assert.ok(/^https:\/\/www\.phillips\.com\/detail\//.test(c.url ?? ""),
+          `${file} fuzzy comp URL must point to a real Phillips lot page`);
+        assert.ok(typeof c.condition === "string" && /similar reference/.test(c.condition),
+          `${file} fuzzy comp must carry a 'similar reference:' condition`);
+        assert.ok(c.fuzzy_match.harvested_reference && c.fuzzy_match.match_level,
+          `${file} fuzzy comp must preserve the harvested reference + match level`);
+      }
+    }
+    assert.equal(promotedComps, matches.matches.length,
+      `every fuzzy match in fuzzy-matches.json must land on a card (got ${promotedComps} comps, ${matches.matches.length} matches)`);
+  }
+}
+
 // 10b. Three more ordinary Rolex references clear the same gate using exact-reference,
 // completed USD sales. The 1675 deliberately excludes gold and special-provenance variants.
 for (const expected of [

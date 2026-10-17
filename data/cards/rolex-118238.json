@@ -8,9 +8,20 @@
     "nickname": "President",
     "collection": "Day-Date",
     "tier": "crown",
-    "produced": { "start_year": 2000, "end_year": 2019, "discontinued": true },
-    "movement": { "caliber": "3155", "type": "automatic" },
-    "case": { "diameter_mm": 36, "material": "18k yellow gold", "bezel": "fluted yellow gold" },
+    "produced": {
+      "start_year": 2000,
+      "end_year": 2019,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3155",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 36,
+      "material": "18k yellow gold",
+      "bezel": "fluted yellow gold"
+    },
     "one_liner": "The Day-Date 36 in yellow gold with the double-quickset caliber 3155, produced 2000-2019."
   },
   "retail": {
@@ -18,12 +29,34 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 203200,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/231963",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 18238 · Day-Date “Malachite”",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "18238",
+          "harvested_model": "Day-Date “Malachite”",
+          "match_level": "ref_substring",
+          "match_score": 0.7,
+          "match_reason": "ref substring (18238 vs 118238)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

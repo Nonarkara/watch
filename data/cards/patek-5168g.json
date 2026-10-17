@@ -35,7 +35,25 @@
     "current_msrp_usd": 63306
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 203200,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/234115",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5168G-010 · Aquanaut \"Tiffany & Co.\"",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5168G-010",
+          "harvested_model": "Aquanaut \"Tiffany & Co.\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 5168G (5168G-010 vs 5168G)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

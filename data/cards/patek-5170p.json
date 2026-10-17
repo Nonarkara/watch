@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Complications",
     "tier": "trinity",
-    "produced": { "start_year": 2017, "end_year": 2019, "discontinued": true },
-    "movement": { "caliber": "CH 29-535 PS", "type": "manual" },
-    "case": { "diameter_mm": 39.4, "material": "platinum", "bezel": "concave, polished" },
+    "produced": {
+      "start_year": 2017,
+      "end_year": 2019,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "CH 29-535 PS",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 39.4,
+      "material": "platinum",
+      "bezel": "concave, polished"
+    },
     "one_liner": "The platinum finale of the 5170 line — Patek's in-house manual chronograph with a blue dial and baguette diamond markers."
   },
   "retail": {
@@ -18,12 +29,34 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 127000,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233467",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5170P-010",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5170P-010",
+          "harvested_model": null,
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 5170P (5170P-010 vs 5170P-001)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

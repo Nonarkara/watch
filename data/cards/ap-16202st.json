@@ -35,7 +35,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 127000,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/audemars-piguet/233468",
+        "box_papers": null,
+        "condition": "similar reference: Audemars Piguet 16202BC.OO.1240BC.02 · Royal Oak “Jumbo” Extra-Thin",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Audemars Piguet",
+          "harvested_reference": "16202BC.OO.1240BC.02",
+          "harvested_model": "Royal Oak “Jumbo” Extra-Thin",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 16202 (16202BC.OO.1240BC.02 vs 16202ST)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

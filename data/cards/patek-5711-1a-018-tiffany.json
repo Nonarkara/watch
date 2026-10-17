@@ -51,6 +51,40 @@
         "url": "https://www.sothebys.com/en/auctions/ecatalogue/lot.sothebys.hk24010.html",
         "condition": "Olive green dial, 2021, full set",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 266700,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/231655",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/1A-014 · Nautilus",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/1A-014",
+          "harvested_model": "Nautilus",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/1A-014 vs 5711/1A-018)"
+        }
+      },
+      {
+        "date": "2026-06-13",
+        "price_usd": 546100,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233456",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/1P-001 · Nautilus \"40th Anniversary, Factory Double-Sealed\"",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/1P-001",
+          "harvested_model": "Nautilus \"40th Anniversary, Factory Double-Sealed\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/1P-001 vs 5711/1A-018)"
+        }
       }
     ],
     "listing_observations": []

@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Royal Oak",
     "tier": "trinity",
-    "produced": { "start_year": 2017, "end_year": 2022, "discontinued": true },
-    "movement": { "caliber": "2385", "type": "automatic chronograph" },
-    "case": { "diameter_mm": 41, "material": "stainless steel", "bezel": "octagonal with eight hexagonal screws" },
+    "produced": {
+      "start_year": 2017,
+      "end_year": 2022,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "2385",
+      "type": "automatic chronograph"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel",
+      "bezel": "octagonal with eight hexagonal screws"
+    },
     "one_liner": "The 2017 Royal Oak chronograph refresh whose silver-and-black panda dial became the collected configuration."
   },
   "retail": {
@@ -18,12 +29,34 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 177800,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/audemars-piguet/233269",
+        "box_papers": null,
+        "condition": "similar reference: Audemars Piguet 26331BA.OO.1220BA.02 · Royal Oak Chronograph 41MM “Limited Edition of 125”",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Audemars Piguet",
+          "harvested_reference": "26331BA.OO.1220BA.02",
+          "harvested_model": "Royal Oak Chronograph 41MM “Limited Edition of 125”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 26331 (26331BA.OO.1220BA.02 vs 26331ST)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

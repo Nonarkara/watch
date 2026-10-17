@@ -35,7 +35,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 419100,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233459",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3940G-029 · \"Saatchi Edition\"",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3940G-029",
+          "harvested_model": "\"Saatchi Edition\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 3940G (3940G-029 vs 3940G-025)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

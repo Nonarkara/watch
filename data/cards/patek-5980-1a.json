@@ -29,7 +29,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 101600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/231654",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5980/1A-014 · Nautilus Chronograph",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5980/1A-014",
+          "harvested_model": "Nautilus Chronograph",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 59801 (5980/1A-014 vs 5980/1A)"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
