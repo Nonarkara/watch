@@ -239,7 +239,7 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
         {trendRank != null && (
-          <span className="rc-trend-badge mono" title="In today's public-attention watchlist — Wikipedia + Google Trends, not price">
+          <span className="rc-trend-badge mono" title="In today's public-attention watchlist — Wikipedia pageviews; Google Trends when connected, not price">
             <span className="rc-trend-badge-dot" aria-hidden="true">●</span>
             TODAY #{trendRank}
           </span>

@@ -1,4 +1,5 @@
 import type { ScreenEvent } from './data.ts'
+import { pickFresher, type TrendsOrigin } from './live-trends.ts'
 
 export interface RolexCatalogRecord {
   id: string
@@ -121,6 +122,20 @@ export interface MarketTrendsSnapshot {
   method: string
   limitation: string
   trending: MarketTrendRow[]
+  collector?: string
+  /** Newest day the pageview counts cover (YYYYMMDD); Wikimedia lags a few days. */
+  data_through?: string | null
+  /** Which copy the page is showing: the daily Cloudflare cron (live) or the one baked into the build. */
+  origin?: TrendsOrigin
+}
+
+function fetchJson(url: string, timeoutMs = 10000): Promise<unknown> {
+  const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null
+  const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs) : null
+  return fetch(url, ctrl ? { signal: ctrl.signal } : undefined)
+    .then((response) => (response.ok ? response.json() : null))
+    .catch(() => null)
+    .finally(() => { if (timer) clearTimeout(timer) })
 }
 
 let trendsCache: Promise<MarketTrendsSnapshot | null> | null = null
@@ -131,10 +146,15 @@ export function loadMarketTrends(): Promise<MarketTrendsSnapshot | null> {
     trendsCacheFailed = false
     trendsCache = null
   }
-  trendsCache ??= fetch('/data/market_trends.json')
-    .then((response) => {
-      if (!response.ok) return null
-      return response.json() as Promise<MarketTrendsSnapshot>
+  // Live first (/live/, refreshed daily by the Cloudflare cron), build copy as
+  // the floor. The fresher valid snapshot wins; see live-trends.ts.
+  trendsCache ??= Promise.all([
+    fetchJson('/live/market_trends.json', 3000),
+    fetchJson('/data/market_trends.json'),
+  ])
+    .then(([live, build]) => {
+      const { snapshot, origin } = pickFresher<MarketTrendsSnapshot>(live, build)
+      return snapshot && origin ? { ...snapshot, origin } : null
     })
     .catch(() => null)
     .then((data) => {

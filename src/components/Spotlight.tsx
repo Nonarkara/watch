@@ -92,7 +92,7 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
           <p className="spotlight-oneliner">{c.identity.one_liner}</p>
 
           {trend && (
-            <p className="spotlight-trend mono" title="Wikipedia pageviews + Google Trends, not price">
+            <p className="spotlight-trend mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
               <span className="spotlight-trend-pulse" aria-hidden="true">●</span>
               <strong>RANK {trend.rank} IN PUBLIC ATTENTION TODAY</strong>
               <span className="dim"> · not price</span>

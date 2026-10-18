@@ -152,6 +152,10 @@ try {
   const state = JSON.parse(readFileSync(join(ROOT, "data/.state/fetch-state.json"), "utf8"));
   writeFileSync(join(ROOT, "public/data/fetch-state.json"), JSON.stringify(state, null, 2));
 } catch {
-  // No fetch state yet — write an empty object so the /data page doesn't 404.
-  writeFileSync(join(ROOT, "public/data/fetch-state.json"), "{}");
+  // No local fetch state (fresh clone, other machine). Keep the committed copy
+  // instead of blanking it, so a clean-clone build doesn't erase the /data
+  // page's source freshness. Only write {} when there is nothing at all.
+  if (!existsSync(join(ROOT, "public/data/fetch-state.json"))) {
+    writeFileSync(join(ROOT, "public/data/fetch-state.json"), "{}");
+  }
 }

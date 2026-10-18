@@ -1,3 +1,4 @@
+import { sourceLine } from '../lib/live-trends.ts'
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
@@ -138,7 +139,7 @@ export default function Saved() {
               <div className="saved-pulse-meta mono">
                 <span>AS OF {trends.as_of}</span>
                 <span>{trendAge == null ? 'AGE UNKNOWN' : `${trendAge} DAY${trendAge === 1 ? '' : 'S'} OLD`}</span>
-                <span>GOOGLE TRENDS + WIKIPEDIA</span>
+                <span>{sourceLine(trends.sources)}</span>
                 <strong>ATTENTION ≠ PRICE</strong>
               </div>
 

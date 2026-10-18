@@ -1,11 +1,15 @@
-# Daily market-attention harvest for Time Pop home.
-# Pulls Google Trends (US) + Wikipedia pageviews, writes public/data/market_trends.json,
-# commits when the ranked list changes, then Cloudflare Pages picks up the push.
-name: Daily market trends
+# Manual-only market-attention harvest for Time Pop.
+# Pulls Google Trends (US) + Wikipedia pageviews into public/data/market_trends.json
+# and commits when the ranked list changes.
+#
+# The daily schedule is retired (2026-10-18): GitHub Actions is budget-blocked on
+# purpose, and the Pages project "watch" has no Git integration, so a pushed
+# snapshot never reached the site without a manual deploy anyway. The daily
+# refresh now runs as the Cloudflare Worker cron in worker/live/ (see
+# docs/LIVE-PIPELINE.md). This file stays for a deliberate manual run.
+name: Market trends (manual)
 
 on:
-  schedule:
-    - cron: '15 6 * * *' # 06:15 UTC ≈ 13:15 ICT
   workflow_dispatch:
 
 permissions:
