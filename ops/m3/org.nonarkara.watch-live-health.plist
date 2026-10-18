@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>org.nonarkara.watch-live-health</string>
+  <key>ProgramArguments</key>
+  <array><string>/bin/bash</string><string>__HOME__/bin/watch-live-health.sh</string></array>
+  <key>StartInterval</key><integer>300</integer>
+  <key>RunAtLoad</key><true/>
+  <key>LowPriorityIO</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>Nice</key><integer>10</integer>
+  <key>StandardOutPath</key><string>__HOME__/Library/Logs/watch-live-health.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/Library/Logs/watch-live-health.err.log</string>
+</dict>
+</plist>

@@ -1,0 +1,16 @@
+# Rendered into wrangler.toml by ops/install-live.sh (needs Non's go).
+name = "watch-live"
+main = "index.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+# One run a day. Workers Free allows 5 cron triggers per account.
+crons = ["40 6 * * *"]
+
+[[kv_namespaces]]
+binding = "WATCH_LIVE"
+id = "__KV_ID__"
+
+[observability]
+enabled = true

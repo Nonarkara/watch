@@ -89,7 +89,7 @@ export default function Dossier() {
         <p className="mast-line">{c.identity.one_liner}</p>
 
       {trendHit && (
-        <p className="dsr-trending mono" title="Wikipedia pageviews + Google Trends, not price">
+        <p className="dsr-trending mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
           <span className="dsr-trending-pulse" aria-hidden="true">●</span>
           <strong>RANK {trendHit.rank} TODAY</strong>
           <span className="dim"> · in public attention, not price</span>
@@ -504,7 +504,7 @@ export default function Dossier() {
       {trendHit && (
         <section className="sect">
           <h2 className="sect-h"><span>In public attention</span><span className="mono">RANK {trendHit.rank} TODAY</span></h2>
-          <p>People are looking this one up today — Wikipedia pageviews and Google Trends, not grey-market price.</p>
+          <p>People are looking this one up today — Wikipedia pageviews (and Google Trends when connected), not grey-market price.</p>
           <p className="micro dim">
             {trendHit.wikipedia.dod_pct != null
               ? `Wikipedia ${trendHit.wikipedia.dod_pct > 0 ? '+' : ''}${trendHit.wikipedia.dod_pct}% day-over-day`

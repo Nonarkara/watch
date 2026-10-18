@@ -1,3 +1,4 @@
+import { sourceLine } from '../lib/live-trends.ts'
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
@@ -316,14 +317,14 @@ export default function Home() {
           <div className="section-rule">
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
-              AS OF {trends.as_of} · GOOGLE TRENDS + WIKIPEDIA · DAILY
+              AS OF {trends.as_of} · {trends.origin === 'live' ? 'LIVE DAILY' : 'BUILD SNAPSHOT'}
               {trendAge != null && <> · {trendStale ? `STALE ${trendAge}D` : `${trendAge}D OLD`}</>}
             </span>
           </div>
           <p className="market-trends-lede">
-            What people are looking up — not what is selling. Ranked from Google Trends
-            (US search interest, last 7 days) and Wikipedia pageviews (day-over-day change).
-            Relative Trends scores stay relative; Wikipedia counts are absolute.
+            What people are looking up — not what is selling. Ranked from Wikipedia pageviews
+            (day-over-day change) and, when it is connected, Google Trends (US search interest,
+            last 7 days). Relative Trends scores stay relative; Wikipedia counts are absolute.
           </p>
           <ol className="market-trends-list">
             {trending.map((row) => {
@@ -375,8 +376,10 @@ export default function Home() {
             })}
           </ol>
           <p className="market-trends-foot mono micro">
-            SOURCES · GOOGLE TRENDS US (UNOFFICIAL) · WIKIMEDIA PAGEVIEWS ·{' '}
-            {trends.sources.filter((s) => s.status === 'ok').map((s) => s.label.toUpperCase()).join(' · ')}
+            SOURCES · {sourceLine(trends.sources)}
+            {trends.data_through && ` · PAGEVIEWS TO ${trends.data_through.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')}`}
+            {trends.sources.some((s) => s.id === 'google_trends' && s.status === 'ok') && ' · GOOGLE TRENDS IS AN UNOFFICIAL ENDPOINT'}
+            {' · '}{trends.origin === 'live' ? 'REFRESHED DAILY BY CLOUDFLARE CRON' : 'COPY BAKED INTO THIS BUILD'}
             {' · '}NOT PRICE · NOT SELL-THROUGH ·{' '}
             <Link to="/methodology">METHOD →</Link>
           </p>
