@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { collectAttention, nextHealth, healthStatus, rankScore, MAX_ROWS } from '../worker/live/attention.mjs'
-import { runCollector } from '../worker/live/index.mjs'
+import worker, { runCollector } from '../worker/live/index.mjs'
 import { handleLive } from '../functions/live/[[path]].js'
 import { pickFresher, isUsableSnapshot, sourceLine } from '../src/lib/live-trends.ts'
 
@@ -120,6 +120,19 @@ function memoryKV(seed = {}) {
   assert.equal((await r.json()).status, 'stale')
   r = await handleLive({ path: '../secrets', env: { WATCH_LIVE: kv } })
   assert.equal(r.status, 404)
+
+  r = await worker.fetch(new Request('https://watch-live.example/health'), {})
+  assert.equal(r.status, 503)
+  assert.equal((await r.json()).status, 'not_connected')
+  r = await worker.fetch(new Request('https://watch-live.example/health'), { WATCH_LIVE: { async get() { throw new Error('kv down') } } })
+  assert.equal(r.status, 503)
+  assert.equal((await r.json()).reason, 'kv_read_failed')
+  r = await worker.fetch(new Request('https://watch-live.example/run'), { WATCH_LIVE: kv })
+  assert.equal(r.status, 404)
+  const routes = JSON.parse(readFileSync(new URL('../public/_routes.json', import.meta.url), 'utf8'))
+  assert.equal(routes.version, 1)
+  assert.deepEqual(routes.include, ['/live/*'], 'Functions may run only on /live/*, never on static pages')
+  assert.deepEqual(routes.exclude, [])
 }
 
 // 6. Frontend chooser: fresher valid snapshot wins; junk falls back; source

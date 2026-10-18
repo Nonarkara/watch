@@ -34,8 +34,25 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url)
     if (url.pathname !== '/health') return new Response('not found', { status: 404 })
-    const [health, snapshot] = await Promise.all([env.WATCH_LIVE.get('health', 'json'), env.WATCH_LIVE.get('attention:latest', 'json')])
-    const s = healthStatus(health, snapshot)
-    return Response.json({ ...s, ...(health || {}), snapshot_built_at: snapshot?.built_at ?? null }, { status: s.status === 'ok' ? 200 : 503, headers: { 'cache-control': 'no-store' } })
+    const kv = env?.WATCH_LIVE
+    if (!kv) {
+      return Response.json(
+        { status: 'not_connected', reason: 'kv_binding_missing' },
+        { status: 503, headers: { 'cache-control': 'no-store' } },
+      )
+    }
+    try {
+      const [health, snapshot] = await Promise.all([kv.get('health', 'json'), kv.get('attention:latest', 'json')])
+      const s = healthStatus(health, snapshot)
+      return Response.json(
+        { ...s, ...(health || {}), snapshot_built_at: snapshot?.built_at ?? null },
+        { status: s.status === 'ok' ? 200 : 503, headers: { 'cache-control': 'no-store' } },
+      )
+    } catch {
+      return Response.json(
+        { status: 'not_connected', reason: 'kv_read_failed' },
+        { status: 503, headers: { 'cache-control': 'no-store' } },
+      )
+    }
   },
 }
