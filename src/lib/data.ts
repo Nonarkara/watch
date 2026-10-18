@@ -3,9 +3,23 @@
 
 export interface MsrpEntry { effective_year: number; price_usd: number; source_url: string }
 export interface Sale { date: string; price_usd: number; venue: string; url: string; box_papers: string | null }
-/** A real, cited sale of a different configuration (special dial, celebrity provenance,
- *  charity lot). Shown as evidence, never fed to the estimator. */
-export interface VariantSale { date: string; price_usd: number; venue: string; url: string; condition: string }
+/** The provenance of an FX conversion, attached to a variant sale whose hammer was
+ *  struck outside the USD sales venues. `rate_date` is the business day the ECB
+ *  actually published the rate, which is not always the sale date (weekends). */
+export interface FxConversion {
+  from: string;
+  rate: number;
+  rate_date: string;
+  provider: string;
+  note: string;
+  original_realized: number;
+  original_currency: string;
+  original_display: string;
+}
+/** A real, cited sale of a different configuration (special dial, celebrity
+ *  provenance, charity lot, or a neighbouring reference in the same family).
+ *  Shown as evidence, never fed to the estimator. */
+export interface VariantSale { date: string; price_usd: number; venue: string; url: string; condition: string; fx_conversion?: FxConversion }
 export interface ProvenanceEvent { date: string; person_or_event: string; description: string; source_url: string }
 
 export interface Estimate {

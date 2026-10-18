@@ -8,9 +8,20 @@
     "nickname": "FOIS",
     "collection": "Speedmaster Professional",
     "tier": "core",
-    "produced": { "start_year": 2012, "end_year": 2020, "discontinued": true },
-    "movement": { "caliber": "1861", "type": "manual chronograph" },
-    "case": { "diameter_mm": 39.7, "material": "stainless steel", "bezel": "black anodized aluminum, tachymeter" },
+    "produced": {
+      "start_year": 2012,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "1861",
+      "type": "manual chronograph"
+    },
+    "case": {
+      "diameter_mm": 39.7,
+      "material": "stainless steel",
+      "bezel": "black anodized aluminum, tachymeter"
+    },
     "one_liner": "A 39.7mm tribute to the CK2998 that Wally Schirra wore aboard Mercury-Atlas 8 in October 1962, marketed by Omega as the actual first Omega worn in space, five years before Buzz Aldrin's Moonwatch."
   },
   "retail": {
@@ -18,17 +29,56 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-09",
+        "price_usd": 35889,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/omega/191586",
+        "box_papers": null,
+        "condition": "similar reference: Omega 311.32.42.30.04.001 · Speedmaster Alaska Project · hammer CHF27,940 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Omega",
+          "harvested_reference": "311.32.42.30.04.001",
+          "harvested_model": "Speedmaster Alaska Project",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 31132 (311.32.42.30.04.001 vs 311.32.40.30.01.001)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "112"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 27940,
+          "original_currency": "CHF",
+          "original_display": "CHF27,940"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
   "provenance_events": [
-    { "date": "1962-10-03", "person_or_event": "Wally Schirra / Mercury-Atlas 8", "description": "Wally Schirra wears his personal Omega Speedmaster ref CK2998 aboard Mercury-Atlas 8 (Sigma 7), making it the first Omega worn in space, five years before the Moonwatch story of Buzz Aldrin on the lunar surface.", "source_url": "https://monochrome-watches.com/omega-speedmaster-first-omega-in-space-fois-discontinued-tribute/" }
+    {
+      "date": "1962-10-03",
+      "person_or_event": "Wally Schirra / Mercury-Atlas 8",
+      "description": "Wally Schirra wears his personal Omega Speedmaster ref CK2998 aboard Mercury-Atlas 8 (Sigma 7), making it the first Omega worn in space, five years before the Moonwatch story of Buzz Aldrin on the lunar surface.",
+      "source_url": "https://monochrome-watches.com/omega-speedmaster-first-omega-in-space-fois-discontinued-tribute/"
+    }
   ],
   "narrative": {
     "story": "Wally Schirra wore his own Omega Speedmaster ref CK2998 on his wrist during Mercury-Atlas 8 on October 3, 1962, three years before Omega's Speedmaster was formally qualified by NASA for spaceflight and five years before the Apollo 11 Moonwatch story took over the marketing narrative. Omega introduced the First Omega in Space in 2012 as a faithful-dimension tribute: a 39.7mm case matching the CK2998, a hand-wound Caliber 1861 chronograph, a matte black dial, a black anodized aluminum tachymeter bezel, and a sapphire crystal in place of the original's Hesalite. Each caseback carries a unique serial number and the inscription 'THE FIRST OMEGA IN SPACE' with the mission date, though Omega never stated a fixed edition size before discontinuing the reference in late 2020.",

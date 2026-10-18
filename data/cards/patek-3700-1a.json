@@ -80,6 +80,122 @@
           "match_score": 0.8,
           "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)"
         }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 226908,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233191",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/1 · Nautilus “Jumbo” · hammer HK$1,778,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/1",
+          "harvested_model": "Nautilus “Jumbo”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/1 vs 3700/1A)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "1020"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 1778000,
+          "original_currency": "HKD",
+          "original_display": "HK$1,778,000"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 121558,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233256",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/11 · Nautilus “Jumbo” · hammer HK$952,500 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/11",
+          "harvested_model": "Nautilus “Jumbo”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "918"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 952500,
+          "original_currency": "HKD",
+          "original_display": "HK$952,500"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 97246,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/232323",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/11 · Nautilus · hammer HK$762,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/11",
+          "harvested_model": "Nautilus",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "1021"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 762000,
+          "original_currency": "HKD",
+          "original_display": "HK$762,000"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 187601,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/229801",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 3700/11 · Nautilus \"Jumbo\" · hammer CHF146,050 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "3700/11",
+          "harvested_model": "Nautilus \"Jumbo\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 37001 (3700/11 vs 3700/1A)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "218"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 146050,
+          "original_currency": "CHF",
+          "original_display": "CHF146,050"
+        }
       }
     ],
     "listing_observations": []

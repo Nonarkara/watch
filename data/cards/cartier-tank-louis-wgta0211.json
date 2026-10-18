@@ -52,6 +52,122 @@
           "match_score": 0.8,
           "match_reason": "ref shares 5-char prefix WGTA0 (WGTA0175 vs WGTA0211)"
         }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 32415,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/cartier/233436",
+        "box_papers": null,
+        "condition": "similar reference: Cartier WGTA0058 · Tank Louis Cartier · hammer HK$254,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Cartier",
+          "harvested_reference": "WGTA0058",
+          "harvested_model": "Tank Louis Cartier",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix WGTA0 (WGTA0058 vs WGTA0211)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "1068"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 254000,
+          "original_currency": "HKD",
+          "original_display": "HK$254,000"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 30795,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/cartier/233842",
+        "box_papers": null,
+        "condition": "similar reference: Cartier WGTA0074 · Tank Chinoise · hammer HK$241,300 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Cartier",
+          "harvested_reference": "WGTA0074",
+          "harvested_model": "Tank Chinoise",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix WGTA0 (WGTA0074 vs WGTA0211)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "839"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 241300,
+          "original_currency": "HKD",
+          "original_display": "HK$241,300"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 38899,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/cartier/233435",
+        "box_papers": null,
+        "condition": "similar reference: Cartier WGTA0121 · Tank Louis Cartier “Europe Edition” · hammer HK$304,800 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Cartier",
+          "harvested_reference": "WGTA0121",
+          "harvested_model": "Tank Louis Cartier “Europe Edition”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix WGTA0 (WGTA0121 vs WGTA0211)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "1067"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 304800,
+          "original_currency": "HKD",
+          "original_display": "HK$304,800"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 97246,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/cartier/234219",
+        "box_papers": null,
+        "condition": "similar reference: Cartier WGTA0235 · Tank à Guichets Privé · hammer HK$762,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Cartier",
+          "harvested_reference": "WGTA0235",
+          "harvested_model": "Tank à Guichets Privé",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix WGTA0 (WGTA0235 vs WGTA0211)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "837"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 762000,
+          "original_currency": "HKD",
+          "original_display": "HK$762,000"
+        }
       }
     ],
     "listing_observations": []

@@ -159,6 +159,39 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     }
     assert.equal(promotedComps, matches.matches.length,
       `every fuzzy match in fuzzy-matches.json must land on a card (got ${promotedComps} comps, ${matches.matches.length} matches)`);
+
+    // 10c. An FX-converted comp must carry its own provenance. A converted row
+    // without {from, rate, rate_date, provider, original_display} reads on the
+    // dossier as a native USD sale, which it is not. The ECB publishes on
+    // business days only, so rate_date is frequently the day *before* sale_date —
+    // the test asserts rate_date is on or before the sale, not equal to it.
+    let fxRows = 0;
+    for (const file of cardFiles) {
+      const card = JSON.parse(readFileSync(new URL(`../data/cards/${file}`, import.meta.url), "utf8"));
+      for (const c of (card.market_evidence?.comps ?? [])) {
+        if (!c.fx_conversion) continue;
+        fxRows++;
+        const fx = c.fx_conversion;
+        assert.ok(fx.from && fx.original_currency && fx.original_display,
+          `${file} fx comp must name the source currency and the original hammer display`);
+        assert.equal(fx.from, fx.original_currency,
+          `${file} fx comp from/original_currency must agree`);
+        assert.ok(Number.isFinite(fx.rate) && fx.rate > 0,
+          `${file} fx comp must carry a positive numeric rate`);
+        assert.ok(/central bank|ecb/i.test(fx.provider),
+          `${file} fx comp must name a central-bank rate provider, got "${fx.provider}"`);
+        assert.ok(fx.rate_date <= c.date,
+          `${file} fx rate_date ${fx.rate_date} must be on or before the sale date ${c.date}`);
+        // The USD figure must actually be the converted hammer, not a rounding
+        // of the original — this catches a hardcoded or mis-copied rate.
+        const expected = Math.round(fx.original_realized * fx.rate);
+        assert.equal(c.price_usd, expected,
+          `${file} fx comp price_usd must equal original_realized × rate`);
+        assert.ok(!c.fuzzy_match || c.comparable === false,
+          `${file} an fx-converted comp must never be comparable`);
+      }
+    }
+    assert.ok(fxRows > 0, "at least one fx-converted comp must be on file (the HKD/CHF lots)");
   }
 }
 

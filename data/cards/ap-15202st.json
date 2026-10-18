@@ -35,7 +35,66 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-30",
+        "price_usd": 113454,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/audemars-piguet/232555",
+        "box_papers": null,
+        "condition": "similar reference: Audemars Piguet 15202IP.OO.1240IP.01 · Royal Oak “Jumbo Extra-thin” · hammer HK$889,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Audemars Piguet",
+          "harvested_reference": "15202IP.OO.1240IP.01",
+          "harvested_model": "Royal Oak “Jumbo Extra-thin”",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 15202 (15202IP.OO.1240IP.01 vs 15202ST)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "1055"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 889000,
+          "original_currency": "HKD",
+          "original_display": "HK$889,000"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 130505,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/audemars-piguet/229381",
+        "box_papers": null,
+        "condition": "similar reference: Audemars Piguet 15202IP · Royal Oak · hammer CHF101,600 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Audemars Piguet",
+          "harvested_reference": "15202IP",
+          "harvested_model": "Royal Oak",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 15202 (15202IP vs 15202ST)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "170"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 101600,
+          "original_currency": "CHF",
+          "original_display": "CHF101,600"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

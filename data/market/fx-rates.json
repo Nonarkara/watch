@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-10-18T02:19:32.760Z",
+  "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+  "method": "ECB reference rate for the last business day on or before the sale date. Frankfurter returns the last published business day, which is recorded verbatim as rate_date.",
+  "rates": [
+    {
+      "requested_date": "2026-05-30",
+      "rate_date": "2026-05-29",
+      "rate": 0.12762,
+      "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)"
+    },
+    {
+      "requested_date": "2026-05-09",
+      "rate_date": "2026-05-08",
+      "rate": 1.2845,
+      "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)"
+    }
+  ]
+}

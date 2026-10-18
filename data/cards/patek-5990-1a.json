@@ -37,6 +37,35 @@
         "url": "https://www.phillips.com/detail/patek-philippe/CH080124/32",
         "condition": "2019, full set, certificate of origin, presentation box",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 130505,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/232271",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5990/1A-001 · Nautilus Travel Time Chronograph · hammer CHF101,600 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5990/1A-001",
+          "harvested_model": "Nautilus Travel Time Chronograph",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 59901 (5990/1A-001 vs 5990/1A)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "201"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 101600,
+          "original_currency": "CHF",
+          "original_display": "CHF101,600"
+        }
       }
     ],
     "listing_observations": []

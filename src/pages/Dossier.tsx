@@ -370,9 +370,14 @@ export default function Dossier() {
           <h2 className="sect-h"><span>Variant sales — not used in the estimate</span><span className="mono">{c.variant_sales.length} EXCLUDED</span></h2>
           <p className="honest" style={{ marginBottom: 'var(--space-md)' }}>
             These are real, cited sales of a different configuration — a special-signed dial, a
-            celebrity-owned example, a charity lot. They price a different object than this
-            reference, so the register shows them as evidence and keeps them out of the market
-            estimate. Averaging them in would inflate the number for every ordinary example.
+            celebrity-owned example, a charity lot, or a neighbouring reference in the same family.
+            They price a different object than this reference, so the register shows them as evidence
+            and keeps them out of the market estimate. Averaging them in would inflate the number for
+            every ordinary example. {c.variant_sales.some((s) => s.fx_conversion) && (
+              <>Where the hammer was struck outside New York, the USD figure is converted at the
+              European Central Bank reference rate for the last business day on or before the sale
+              date; the original currency price is shown beside it.</>
+            )}
           </p>
           <table className="sales-table">
             <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Why excluded</th><th>Source</th></tr></thead>
@@ -381,7 +386,18 @@ export default function Dossier() {
                 <tr key={i}>
                   <td className="mono">{s.date}</td>
                   <td>{VENUE_LABEL[s.venue] ?? s.venue}</td>
-                  <td className="num">{usd(s.price_usd)}</td>
+                  <td className="num">
+                    {usd(s.price_usd)}
+                    {s.fx_conversion && (
+                      <span
+                        className="micro dim mono"
+                        style={{ display: 'block', fontWeight: 400 }}
+                        title={`Converted at the ECB reference rate on ${s.fx_conversion.rate_date}: 1 ${s.fx_conversion.from} = ${s.fx_conversion.rate} USD. ${s.fx_conversion.provider}`}
+                      >
+                        ≈ {s.fx_conversion.original_display}
+                      </span>
+                    )}
+                  </td>
                   <td className="dim">{s.condition}</td>
                   <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer">record ↗</a></td>
                 </tr>

@@ -46,6 +46,35 @@
           "match_score": 0.7,
           "match_reason": "ref substring (18238 vs 118238)"
         }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 61589,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/230039",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 118239 · Day-Date Meteorite Dial · hammer HK$482,600 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "118239",
+          "harvested_model": "Day-Date Meteorite Dial",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 11823 (118239 vs 118238)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "886"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 482600,
+          "original_currency": "HKD",
+          "original_display": "HK$482,600"
+        }
       }
     ],
     "listing_observations": []

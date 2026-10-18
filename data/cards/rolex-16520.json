@@ -46,6 +46,35 @@
         "condition": "Circa 1998, Switzerland; Stainless steel; Accompanied by a Rolex warranty, green leather Rolex presentation box, leather wallet, numbered hang tag and chronometer hang tag, wax seal, product literature, and outer packaging; Factory-stickered new-old-stock, unworn, complete-set example; condition premium makes it non-comparable to an ordinary 16520.",
         "box_papers": "box_only",
         "comparable": false
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 261010,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/230329",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 16520, caseback stamped 16500 · Cosmograph Daytona \"prototype dial\" · hammer CHF203,200 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "16520, caseback stamped 16500",
+          "harvested_model": "Cosmograph Daytona \"prototype dial\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 16520 (16520, caseback stamped 16500 vs 16520)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "114"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 203200,
+          "original_currency": "CHF",
+          "original_display": "CHF203,200"
+        }
       }
     ],
     "listing_observations": []

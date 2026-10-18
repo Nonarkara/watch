@@ -32,6 +32,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/brands': 'Brand Directory — Time Pop',
   '/marketplaces': 'Global Marketplaces & Venues — Time Pop',
   '/venues': 'Global Marketplaces & Venues — Time Pop',
+  '/auction': 'Auction Census — Time Pop',
+  '/auction-census': 'Auction Census — Time Pop',
   '/photos': 'Rolex Object Atlas — Time Pop',
   '/screen': 'Watches on Screen — Time Pop',
   '/economy': 'Attention, Supply & Price — Time Pop',
@@ -137,6 +139,7 @@ export default function App() {
             <NavLink to="/saved">MY SAVED</NavLink>
             <NavLink to="/glossary">GLOSSARY</NavLink>
             <NavLink to="/data">DATA</NavLink>
+            <NavLink to="/auction">AUCTION CENSUS</NavLink>
             <NavLink to="/discover">DISCOVER</NavLink>
             <NavLink to="/compare">COMPARE</NavLink>
             <NavLink to="/signals">SCARCITY</NavLink>

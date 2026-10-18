@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Submariner",
     "tier": "crown",
-    "produced": { "start_year": 1988, "end_year": 2010, "discontinued": true },
-    "movement": { "caliber": "3135", "type": "automatic" },
-    "case": { "diameter_mm": 40, "material": "stainless steel", "bezel": "black aluminum insert" },
+    "produced": {
+      "start_year": 1988,
+      "end_year": 2010,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3135",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 40,
+      "material": "stainless steel",
+      "bezel": "black aluminum insert"
+    },
     "one_liner": "The aluminum-bezel Submariner Date of 1988-2010, the longest-serving modern Sub."
   },
   "retail": {
@@ -18,12 +29,46 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-30",
+        "price_usd": 21070,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232324",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 16610LV · Submariner, “Kermit, Flat 4 MK I\" · hammer HK$165,100 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "16610LV",
+          "harvested_model": "Submariner, “Kermit, Flat 4 MK I\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 16610 (16610LV vs 16610)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "948"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 165100,
+          "original_currency": "HKD",
+          "original_display": "HK$165,100"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

@@ -1,0 +1,850 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-18T02:24:21.299Z",
+  "source": "Phillips public watch auction results",
+  "source_url": "https://www.phillips.com/features/watches",
+  "harvest_date": "2026-09-05T17:14:54.282Z",
+  "method": "Lots parsed from Phillips public watch auction results public auction results pages. USD values for non-USD sales are converted at the European Central Bank reference rate for the last business day on or before the sale date (see data/market/fx-rates.json).",
+  "limitation": "This is the shape of three auction rooms, not the whole secondary market. Phillips selects consignments; absence from these three sales is not evidence a reference does not trade. Catalogue coverage counts only lots whose normalised brand + reference matches a card we hold exactly — near-miss references are reported separately and are not counted as covered.",
+  "totals": {
+    "auctions": 3,
+    "lots": 675,
+    "priced_lots": 673,
+    "value_usd": 223480216,
+    "lots_converted_from_other_currency": 517,
+    "unconverted_lots": 0,
+    "brands_seen": 98,
+    "brands_in_register": 54
+  },
+  "coverage": {
+    "lots_matching_a_card": 37,
+    "lots_matching_a_card_pct": 5.5,
+    "value_matching_a_card_usd": 3890096,
+    "value_matching_a_card_pct": 1.7,
+    "note": "Exact brand + reference match only. The fuzzy matcher finds a further set of near-miss references; those are real sales of a neighbouring reference and are deliberately not counted here."
+  },
+  "auctions": [
+    {
+      "code": "CH080226",
+      "name": "The Geneva Watch Auction: XXIII",
+      "venue": "phillips",
+      "date": "2026-05-09",
+      "lots": 225,
+      "priced_lots": 224,
+      "value_usd": 96140967,
+      "currencies": [
+        "CHF"
+      ]
+    },
+    {
+      "code": "HK080226",
+      "name": "The Hong Kong Watch Auction: XXII",
+      "venue": "phillips",
+      "date": "2026-05-30",
+      "lots": 294,
+      "priced_lots": 293,
+      "value_usd": 51532049,
+      "currencies": [
+        "HKD"
+      ]
+    },
+    {
+      "code": "NY080126",
+      "name": "The New York Watch Auction: XIV",
+      "venue": "phillips",
+      "date": "2026-06-13",
+      "lots": 156,
+      "priced_lots": 156,
+      "value_usd": 75807200,
+      "currencies": [
+        "USD"
+      ]
+    }
+  ],
+  "brands": [
+    {
+      "brand": "Patek Philippe",
+      "brand_key": "patekphilippe",
+      "lots": 185,
+      "priced_lots": 185,
+      "value_usd": 76198085,
+      "cards_in_register": 25
+    },
+    {
+      "brand": "F.P. Journe",
+      "brand_key": "fpjourne",
+      "lots": 41,
+      "priced_lots": 41,
+      "value_usd": 56062434,
+      "cards_in_register": 6
+    },
+    {
+      "brand": "Rolex",
+      "brand_key": "rolex",
+      "lots": 111,
+      "priced_lots": 110,
+      "value_usd": 17375362,
+      "cards_in_register": 46
+    },
+    {
+      "brand": "Audemars Piguet",
+      "brand_key": "audemarspiguet",
+      "lots": 48,
+      "priced_lots": 48,
+      "value_usd": 7224548,
+      "cards_in_register": 10
+    },
+    {
+      "brand": "Cartier",
+      "brand_key": "cartier",
+      "lots": 36,
+      "priced_lots": 35,
+      "value_usd": 6141136,
+      "cards_in_register": 12
+    },
+    {
+      "brand": "Louis Richard",
+      "brand_key": "louisrichard",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 5488412,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Voutilainen",
+      "brand_key": "voutilainen",
+      "lots": 4,
+      "priced_lots": 4,
+      "value_usd": 5245100,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Richard Mille",
+      "brand_key": "richardmille",
+      "lots": 11,
+      "priced_lots": 11,
+      "value_usd": 5002258,
+      "cards_in_register": 4
+    },
+    {
+      "brand": "Akrivia",
+      "brand_key": "akrivia",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 3853500,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Louis Audemars & Co",
+      "brand_key": "louisaudemarsandco",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 3231802,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Vacheron Constantin",
+      "brand_key": "vacheronconstantin",
+      "lots": 29,
+      "priced_lots": 29,
+      "value_usd": 3112856,
+      "cards_in_register": 9
+    },
+    {
+      "brand": "A. Lange & Söhne",
+      "brand_key": "alangeandsohne",
+      "lots": 27,
+      "priced_lots": 27,
+      "value_usd": 2750885,
+      "cards_in_register": 7
+    },
+    {
+      "brand": "Urban Jürgensen",
+      "brand_key": "urbanjurgensen",
+      "lots": 7,
+      "priced_lots": 7,
+      "value_usd": 2539864,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Roger Smith",
+      "brand_key": "rogersmith",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 2132736,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Greubel Forsey X Philippe Dufour X Michel Boulanger",
+      "brand_key": "greubelforseyxphilippedufourxmichelboulanger",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 2120710,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "De Bethune",
+      "brand_key": "debethune",
+      "lots": 12,
+      "priced_lots": 12,
+      "value_usd": 1953498,
+      "cards_in_register": 1
+    },
+    {
+      "brand": "Agassiz Watch Co.",
+      "brand_key": "agassizwatchco",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 1876012,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Paul Ditisheim",
+      "brand_key": "paulditisheim",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 1631315,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Philippe Dufour",
+      "brand_key": "philippedufour",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 1207477,
+      "cards_in_register": 1
+    },
+    {
+      "brand": "Breguet",
+      "brand_key": "breguet",
+      "lots": 13,
+      "priced_lots": 13,
+      "value_usd": 1159383,
+      "cards_in_register": 2
+    },
+    {
+      "brand": "Dino & Roberto Falcone",
+      "brand_key": "dinoandrobertofalcone",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 1141921,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Greubel Forsey",
+      "brand_key": "greubelforsey",
+      "lots": 4,
+      "priced_lots": 4,
+      "value_usd": 1114148,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Haldimann",
+      "brand_key": "haldimann",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 871120,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Golay Fils & Stahl",
+      "brand_key": "golayfilsandstahl",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 831971,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Charles Frodsham",
+      "brand_key": "charlesfrodsham",
+      "lots": 3,
+      "priced_lots": 3,
+      "value_usd": 769981,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Daniel Roth",
+      "brand_key": "danielroth",
+      "lots": 5,
+      "priced_lots": 5,
+      "value_usd": 757771,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "AUFFRET PARIS",
+      "brand_key": "auffretparis",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 734092,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Vianney Halter",
+      "brand_key": "vianneyhalter",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 657609,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Oscillon",
+      "brand_key": "oscillon",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 632102,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Piaget",
+      "brand_key": "piaget",
+      "lots": 7,
+      "priced_lots": 7,
+      "value_usd": 574778,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Jaeger-LeCoultre",
+      "brand_key": "jaegerlecoultre",
+      "lots": 8,
+      "priced_lots": 8,
+      "value_usd": 531251,
+      "cards_in_register": 7
+    },
+    {
+      "brand": "Krayon",
+      "brand_key": "krayon",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 510467,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Cartier New York",
+      "brand_key": "cartiernewyork",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 502440,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Karl Geitz",
+      "brand_key": "karlgeitz",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 456768,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Lederer",
+      "brand_key": "lederer",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 440455,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Omega",
+      "brand_key": "omega",
+      "lots": 7,
+      "priced_lots": 7,
+      "value_usd": 408194,
+      "cards_in_register": 16
+    },
+    {
+      "brand": "Victor Kullberg",
+      "brand_key": "victorkullberg",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 342576,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "MB&F",
+      "brand_key": "mbandf",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 299488,
+      "cards_in_register": 2
+    },
+    {
+      "brand": "Franck Muller",
+      "brand_key": "franckmuller",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 280354,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Blancpain",
+      "brand_key": "blancpain",
+      "lots": 4,
+      "priced_lots": 4,
+      "value_usd": 276144,
+      "cards_in_register": 2
+    },
+    {
+      "brand": "Robert Pennington & Richard Pendleton",
+      "brand_key": "robertpenningtonandrichardpendleton",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 261010,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Grönefeld",
+      "brand_key": "gronefeld",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 244697,
+      "cards_in_register": 1
+    },
+    {
+      "brand": "J. W. Benson",
+      "brand_key": "jwbenson",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 228384,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "IWC",
+      "brand_key": "iwc",
+      "lots": 4,
+      "priced_lots": 4,
+      "value_usd": 211438,
+      "cards_in_register": 11
+    },
+    {
+      "brand": "Ludovic Ballouard X Atelier Blandenier",
+      "brand_key": "ludovicballouardxatelierblandenier",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 195758,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Harry Winston",
+      "brand_key": "harrywinston",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 194493,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Chopard",
+      "brand_key": "chopard",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 162077,
+      "cards_in_register": 2
+    },
+    {
+      "brand": "Moritz Grossmann",
+      "brand_key": "moritzgrossmann",
+      "lots": 3,
+      "priced_lots": 3,
+      "value_usd": 154416,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Grand Seiko",
+      "brand_key": "grandseiko",
+      "lots": 3,
+      "priced_lots": 3,
+      "value_usd": 152149,
+      "cards_in_register": 13
+    },
+    {
+      "brand": "Zenith",
+      "brand_key": "zenith",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 149849,
+      "cards_in_register": 7
+    },
+    {
+      "brand": "Yosuke Sekiguchi",
+      "brand_key": "yosukesekiguchi",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 145870,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Universal Genève",
+      "brand_key": "universalgeneve",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 145361,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Parmigiani Fleurier",
+      "brand_key": "parmigianifleurier",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 142628,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Attributed to Piguet Meylan",
+      "brand_key": "attributedtopiguetmeylan",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 136145,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Girard Perregaux",
+      "brand_key": "girardperregaux",
+      "lots": 5,
+      "priced_lots": 5,
+      "value_usd": 128211,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Bulgari",
+      "brand_key": "bulgari",
+      "lots": 3,
+      "priced_lots": 3,
+      "value_usd": 123309,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Fridlander",
+      "brand_key": "fridlander",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 122349,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Konstantin Chaykin",
+      "brand_key": "konstantinchaykin",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 121558,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Armin Strom",
+      "brand_key": "arminstrom",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 113454,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Hublot",
+      "brand_key": "hublot",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 105350,
+      "cards_in_register": 2
+    },
+    {
+      "brand": "Ilbery",
+      "brand_key": "ilbery",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 102404,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Credor",
+      "brand_key": "credor",
+      "lots": 5,
+      "priced_lots": 5,
+      "value_usd": 101547,
+      "cards_in_register": 1
+    },
+    {
+      "brand": "Bovet",
+      "brand_key": "bovet",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 97246,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Chaumet",
+      "brand_key": "chaumet",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 92985,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Charles Gretton",
+      "brand_key": "charlesgretton",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 91354,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Nicole Nielsen & Co for W. Lister & Sons",
+      "brand_key": "nicolenielsenandcoforwlisterandsons",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 89143,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Casio",
+      "brand_key": "casio",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 81039,
+      "cards_in_register": 19
+    },
+    {
+      "brand": "Andersen Geneve",
+      "brand_key": "andersengeneve",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 79934,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Jaquet Droz",
+      "brand_key": "jaquetdroz",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 76176,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "H. Moser & Cie",
+      "brand_key": "hmoserandcie",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 71314,
+      "cards_in_register": 4
+    },
+    {
+      "brand": "Lang & Heyne",
+      "brand_key": "langandheyne",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 65253,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Cartier Paris",
+      "brand_key": "cartierparis",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 63210,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Swiss",
+      "brand_key": "swiss",
+      "lots": 4,
+      "priced_lots": 4,
+      "value_usd": 62662,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "MING",
+      "brand_key": "ming",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 56727,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Roger Dubuis",
+      "brand_key": "rogerdubuis",
+      "lots": 2,
+      "priced_lots": 2,
+      "value_usd": 56727,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "L. Leroy",
+      "brand_key": "lleroy",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 52202,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Tiffany & Co.",
+      "brand_key": "tiffanyandco",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 48623,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Barraud",
+      "brand_key": "barraud",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 45382,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Romain Gauthier",
+      "brand_key": "romaingauthier",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 44450,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Gutkaes, Dresden",
+      "brand_key": "gutkaesdresden",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 42414,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Juvet",
+      "brand_key": "juvet",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 38899,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Pierre Kunz",
+      "brand_key": "pierrekunz",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 35889,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Urwerk",
+      "brand_key": "urwerk",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 35889,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "J.N. Shapiro",
+      "brand_key": "jnshapiro",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 34036,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Laurent Ferrier",
+      "brand_key": "laurentferrier",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 30795,
+      "cards_in_register": 1
+    },
+    {
+      "brand": "Paul Gerber",
+      "brand_key": "paulgerber",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 30795,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "West End Watch Co.",
+      "brand_key": "westendwatchco",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 29174,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Jean-Pierre Hagmann",
+      "brand_key": "jeanpierrehagmann",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 20260,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Hautlence",
+      "brand_key": "hautlence",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 19576,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "RESERVOIR",
+      "brand_key": "reservoir",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 19449,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Ulysse Nardin",
+      "brand_key": "ulyssenardin",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 16208,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Arnold & Son",
+      "brand_key": "arnoldandson",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 11345,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Panerai",
+      "brand_key": "panerai",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 11345,
+      "cards_in_register": 5
+    },
+    {
+      "brand": "Gérald Genta",
+      "brand_key": "geraldgenta",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 11021,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Longines",
+      "brand_key": "longines",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 9788,
+      "cards_in_register": 4
+    },
+    {
+      "brand": "Corum",
+      "brand_key": "corum",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 9725,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "MIH",
+      "brand_key": "mih",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 8914,
+      "cards_in_register": 0
+    },
+    {
+      "brand": "Otsuka Lotec",
+      "brand_key": "otsukalotec",
+      "lots": 1,
+      "priced_lots": 1,
+      "value_usd": 6807,
+      "cards_in_register": 0
+    }
+  ]
+}

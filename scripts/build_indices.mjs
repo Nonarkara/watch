@@ -93,9 +93,16 @@ for (const f of files) {
   const notable = [...comps].sort((a, b) => b.price_usd - a.price_usd).slice(0, 5)
     .map(({ date, price_usd, venue, url, box_papers }) => ({ date, price_usd, venue, url, box_papers: box_papers ?? null }));
   // Real, cited sales of a different configuration — shown, never averaged.
+  // The fx_conversion block rides along so the reader can see the hammer price
+  // in the currency it was actually struck in, plus the ECB rate used. A
+  // converted row without its provenance would read as a native USD sale, which
+  // it is not.
   const variants = card.market_evidence.comps.filter((c) => !isComparable(c))
     .sort((a, b) => b.price_usd - a.price_usd)
-    .map(({ date, price_usd, venue, url, condition }) => ({ date, price_usd, venue, url, condition }));
+    .map(({ date, price_usd, venue, url, condition, fx_conversion }) => ({
+      date, price_usd, venue, url, condition,
+      ...(fx_conversion ? { fx_conversion } : {}),
+    }));
 
   published.push({
     id: card.id,

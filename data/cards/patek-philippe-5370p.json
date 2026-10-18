@@ -35,7 +35,37 @@
     "current_msrp_usd": 215000
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-09",
+        "price_usd": 228384,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/229326",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5370P-011 · hammer CHF177,800 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5370P-011",
+          "harvested_model": null,
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 5370P (5370P-011 vs 5370P-001)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "168"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 177800,
+          "original_currency": "CHF",
+          "original_display": "CHF177,800"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {

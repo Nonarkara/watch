@@ -33,22 +33,18 @@ for (const m of MATCHES.matches) {
   card.market_evidence.comps.push({
     date: m.sale_date,
     price_usd: m.realized,
-    // All matches in fuzzy-matches.json come from the Phillips harvest, so
-    // the venue is phillips by construction. Hardcoding it here keeps the
-    // validator's VENUES allow-list happy without copying a derived field.
     venue: 'phillips',
     url: m.source_url,
     box_papers: null,
-    // The condition carries the "why excluded" string the build script maps
-    // to the variant-sales table. For a fuzzy ref match, that string is the
-    // harvested reference itself — "Patek 3700/11 sold while this card is
-    // 3700/1A". Honest about the gap, and lets a reader follow the original
-    // Phillips URL to see the actual dial / case / lot notes.
-    condition: `similar reference: ${m.harvested_brand} ${m.harvested_reference}${m.harvested_model ? ` · ${m.harvested_model}` : ''}`,
-    // Fuzzy matches price a *similar but not identical* reference, so they
-    // are real and shown but excluded from the comparable comps that drive
-    // the market estimate. Same routing the build uses for charity lots
-    // and celebrity-owned examples.
+    // The condition is the "why excluded" string the build script maps to the
+    // variant-sales table. It names the harvested reference, and for a
+    // converted lot it also names the currency the hammer was struck in.
+    condition: [
+      `similar reference: ${m.harvested_brand} ${m.harvested_reference}${m.harvested_model ? ` · ${m.harvested_model}` : ''}`,
+      ...(m.original_currency ? [`hammer ${m.original_display} in ${m.original_currency}`] : []),
+    ].join(' · '),
+    // Real and cited, but it prices a similar-but-not-identical reference, so
+    // it is shown and never averaged into the market estimate.
     comparable: false,
     fuzzy_match: {
       harvested_brand: m.harvested_brand,
@@ -57,7 +53,20 @@ for (const m of MATCHES.matches) {
       match_level: m.match_level,
       match_score: m.match_score,
       match_reason: m.match_reason,
+      auction_name: m.auction_name,
+      lot_number: m.lot_number,
     },
+    // Present only for HKD/CHF lots. Names the rate, the business day the ECB
+    // actually published it, and the provider, so the conversion is auditable
+    // from the card alone without opening the harvest queue.
+    ...(m.fx_conversion ? {
+      fx_conversion: {
+        ...m.fx_conversion,
+        original_realized: m.original_realized,
+        original_currency: m.original_currency,
+        original_display: m.original_display,
+      },
+    } : {}),
   });
   added++;
   touched.add(m.card_id);

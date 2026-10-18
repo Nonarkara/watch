@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Luminor Due",
     "tier": "core",
-    "produced": { "start_year": 2019, "end_year": 2020, "discontinued": true },
-    "movement": { "caliber": "P.900", "type": "automatic" },
-    "case": { "diameter_mm": 42, "material": "titanium", "bezel": "fixed bezel" },
+    "produced": {
+      "start_year": 2019,
+      "end_year": 2020,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "P.900",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 42,
+      "material": "titanium",
+      "bezel": "fixed bezel"
+    },
     "one_liner": "Panerai's slimmed-down 42mm titanium Luminor Due with a blue dial, part of a 2019 six-reference Due refresh."
   },
   "retail": {
@@ -18,12 +29,46 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-30",
+        "price_usd": 11345,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/panerai/233633",
+        "box_papers": null,
+        "condition": "similar reference: Panerai PAM00671 · Luminor Submersible 1950 3 Days Automatic Bronzo · hammer HK$88,900 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Panerai",
+          "harvested_reference": "PAM00671",
+          "harvested_model": "Luminor Submersible 1950 3 Days Automatic Bronzo",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix PAM00 (PAM00671 vs PAM00927)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "960"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 88900,
+          "original_currency": "HKD",
+          "original_display": "HK$88,900"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

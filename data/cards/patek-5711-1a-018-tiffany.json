@@ -85,6 +85,122 @@
           "match_score": 0.8,
           "match_reason": "ref shares 5-char prefix 57111 (5711/1P-001 vs 5711/1A-018)"
         }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 859010,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/234084",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/111P-001 · Nautilus · hammer HK$6,731,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/111P-001",
+          "harvested_model": "Nautilus",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/111P-001 vs 5711/1A-018)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "925"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 6731000,
+          "original_currency": "HKD",
+          "original_display": "HK$6,731,000"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 244697,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/230485",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/1A-014 · Nautilus \"Green Dial\" · hammer CHF190,500 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/1A-014",
+          "harvested_model": "Nautilus \"Green Dial\"",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/1A-014 vs 5711/1A-018)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "53"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 190500,
+          "original_currency": "CHF",
+          "original_display": "CHF190,500"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 505708,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/231944",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/1P-010 · Nautilus · hammer CHF393,700 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/1P-010",
+          "harvested_model": "Nautilus",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/1P-010 vs 5711/1A-018)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "169"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 393700,
+          "original_currency": "CHF",
+          "original_display": "CHF393,700"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 212071,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/229225",
+        "box_papers": null,
+        "condition": "similar reference: Patek Philippe 5711/1R-001 · Nautilus · hammer CHF165,100 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Patek Philippe",
+          "harvested_reference": "5711/1R-001",
+          "harvested_model": "Nautilus",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 57111 (5711/1R-001 vs 5711/1A-018)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "79"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 165100,
+          "original_currency": "CHF",
+          "original_display": "CHF165,100"
+        }
       }
     ],
     "listing_observations": []

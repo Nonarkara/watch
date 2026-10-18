@@ -8,9 +8,20 @@
     "nickname": null,
     "collection": "Explorer",
     "tier": "crown",
-    "produced": { "start_year": 2010, "end_year": 2021, "discontinued": true },
-    "movement": { "caliber": "3132", "type": "automatic" },
-    "case": { "diameter_mm": 39, "material": "stainless steel", "bezel": "smooth steel" },
+    "produced": {
+      "start_year": 2010,
+      "end_year": 2021,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "3132",
+      "type": "automatic"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "stainless steel",
+      "bezel": "smooth steel"
+    },
     "one_liner": "The Explorer at 39mm, produced 2010-2021 in two distinct dial marks."
   },
   "retail": {
@@ -18,12 +29,46 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [],
+    "comps": [
+      {
+        "date": "2026-05-30",
+        "price_usd": 19449,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232334",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 14270 · Explorer · hammer HK$152,400 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "14270",
+          "harvested_model": "Explorer",
+          "match_level": "ref_substring",
+          "match_score": 0.7,
+          "match_reason": "ref substring (14270 vs 214270)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "950"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 152400,
+          "original_currency": "HKD",
+          "original_display": "HK$152,400"
+        }
+      }
+    ],
     "listing_observations": []
   },
   "scarcity_inputs": {
     "brand_production_est": null,
-    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "limited_edition": {
+      "is_limited": false,
+      "stated_size": null,
+      "source_url": null
+    },
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },

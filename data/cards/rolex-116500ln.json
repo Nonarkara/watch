@@ -72,6 +72,93 @@
         "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
         "condition": "116500LN, 2021, full set",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 45382,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232325",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 116509-0044 · Cosmograph Daytona · hammer HK$355,600 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "116509-0044",
+          "harvested_model": "Cosmograph Daytona",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 11650 (116509-0044 vs 116500LN)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "856"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 355600,
+          "original_currency": "HKD",
+          "original_display": "HK$355,600"
+        }
+      },
+      {
+        "date": "2026-05-30",
+        "price_usd": 48623,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232327",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 116509-0064 · Cosmograph Daytona · hammer HK$381,000 in HKD",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "116509-0064",
+          "harvested_model": "Cosmograph Daytona",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 11650 (116509-0064 vs 116500LN)",
+          "auction_name": "The Hong Kong Watch Auction: XXII",
+          "lot_number": "952"
+        },
+        "fx_conversion": {
+          "from": "HKD",
+          "rate": 0.12762,
+          "rate_date": "2026-05-29",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 381000,
+          "original_currency": "HKD",
+          "original_display": "HK$381,000"
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "price_usd": 73409,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/229296",
+        "box_papers": null,
+        "condition": "similar reference: Rolex 116509 · Cosmograph Daytona · hammer CHF57,150 in CHF",
+        "comparable": false,
+        "fuzzy_match": {
+          "harvested_brand": "Rolex",
+          "harvested_reference": "116509",
+          "harvested_model": "Cosmograph Daytona",
+          "match_level": "ref_prefix",
+          "match_score": 0.8,
+          "match_reason": "ref shares 5-char prefix 11650 (116509 vs 116500LN)",
+          "auction_name": "The Geneva Watch Auction: XXIII",
+          "lot_number": "78"
+        },
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "note": "Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.",
+          "original_realized": 57150,
+          "original_currency": "CHF",
+          "original_display": "CHF57,150"
+        }
       }
     ],
     "listing_observations": []
