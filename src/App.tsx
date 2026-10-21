@@ -120,6 +120,7 @@ export default function App() {
           </ErrorBoundary>
         )}
       </main>
+      <CompareDock />
       <footer className="ftr">
         <div className="shell">
           <p className="mono micro">
@@ -152,7 +153,6 @@ export default function App() {
           </p>
         </div>
       </footer>
-      <CompareDock />
       </SavedProvider>
       </CompareProvider>
     </DataContext.Provider>

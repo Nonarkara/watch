@@ -1283,6 +1283,19 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .cdock-clear { font-size: var(--text-micro); letter-spacing: .06em; color: var(--dim); border-bottom: 1px solid var(--line); }
 .cdock .btn:disabled { opacity: .38; cursor: not-allowed; }
 
+/* Reserve space in document flow for the fixed dock so the last line of any
+   page (e.g. /'s research-ledger, /register's pagination, the footer link
+   row) can be scrolled into view instead of being clipped under the dock.
+   The dock is `min-height:56px` + `padding-block:8px × 2` +
+   `padding-bottom:var(--sab)` ≈ 97px on desktop, ~93px on mobile. We pick
+   112px / 100px with extra slack so even a slot-wrapped dock never sits on
+   top of content. The footer keeps its own pad-bottom for /compare (no dock
+   there, so no spacer either). */
+.cdock-spacer { height: 112px; }
+@media (max-width: 719px) {
+  .cdock-spacer { height: 100px; }
+}
+
 .cmp-head { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: flex-end; justify-content: space-between; }
 .cmp-head-tools { display: flex; align-items: center; gap: var(--space-md); padding-bottom: var(--space-md); }
 .cmp-wrap { overflow-x: auto; margin: var(--space-lg) calc(-1 * var(--pad)) 0; padding: 0 var(--pad); }
