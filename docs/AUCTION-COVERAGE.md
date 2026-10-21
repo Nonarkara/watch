@@ -3,6 +3,74 @@
 Status: the `8a8d29a` census is published. The 5.5% headline is honest.
 What follows is the strategic memo on closing it.
 
+## Correction (2026-10-21): the first version of this memo was wrong
+
+The first draft of this document recommended a **Voutilainen Vingt-6** card on the
+reasoning that one card would "catch every Voutilainen lot in this census and the
+next."
+
+**That was false, and it was checked rather than assumed.** The four Voutilainen
+lots are:
+
+| Lot | Model as published | Realized |
+| ---: | --- | ---: |
+| 9 | Vingt-8 Inversé | $1,155,700 |
+| 82 | Observatoire | $1,041,400 |
+| 105 | Masterpiece Chronograph II "Number 1 of 10" | $1,841,500 |
+| 140 | Vingt-8 ISO | $1,206,500 |
+
+There is no Vingt-6 among them. A Vingt-6 card would have closed **zero** of the
+four. The card that was actually built is the **Vingt-8 ISO**, which closes lot 140.
+
+More important than the wrong model name is *why the guess was available at all*.
+
+## The gap is structural, not a card shortage
+
+142 of the 675 lots — **$98.0M, 43.9% of the census's value** — publish **no
+reference number at all**. The haute-horlogerie tier does not issue them. Phillips
+prints a model name instead: `Vingt-8 ISO`, `Chronomètre Souverain`,
+`Observatoire`. Our register keyed identity on `brand + reference`, so for that
+entire tier the coverage figure was structurally blind.
+
+Of those 142, **119 carry a usable model name**, and those 119 are $169.1M of
+original-currency value. The largest single block is F.P. Journe: 39 lots,
+$108.1M, no references published.
+
+So the honest reading of "5.5% coverage" is not *"we hold 5.5% of the market."*
+It is: **our matching rule only ever worked for the tier that publishes reference
+numbers** — Rolex, Patek, Audemars Piguet, Cartier. The number was measuring our
+matching rule, not the market.
+
+## Fix shipped: a second exact-identity channel, opt-in per card
+
+`build_auction_census.mjs` now matches a lot on either of two exact identities:
+
+1. **brand + published reference number** — the traditional channel (37 lots).
+2. **brand + published model name** — tried *only* where the lot published no
+   reference at all (1 lot so far).
+
+Both are exact identities. Neither is a near-miss, and the fuzzy / FX channels
+still count for nothing here.
+
+The model-name channel is **opt-in per card** via a new
+`identity.published_model_name` field, holding the string the maker or the auction
+house actually prints. It is deliberately **not** inferred from `identity.name`.
+The first implementation did infer it, and immediately produced a false positive:
+`Rolex model="Day-Date" → rolex-1803`, because "Day-Date" is Rolex's *line*, not a
+model. Inferring identity from a display name is the same class of error as the
+Levenshtein matcher that was rejected earlier. Cards must now say so explicitly,
+and `validate_card.mjs` rejects a malformed value.
+
+Result after the fix:
+
+| Metric | Before | After |
+| --- | --- | --- |
+| Lots matching a card | 37 (5.5%) | **38 (5.6%)** |
+| Value matching a card | $3.89M (1.7%) | **$5.10M (2.3%)** |
+| — by reference number | 37 lots / $3.89M | 37 lots / $3.89M |
+| — by published model name | *(channel did not exist)* | 1 lot / $1.21M |
+| Lots with no published reference | *(unreported)* | **142 = 43.9% of value** |
+
 ## What the gap actually is
 
 `public/data/auction_census.json` reports, across three Phillips rooms (Geneva XXIII,
@@ -13,13 +81,16 @@ Hong Kong XXII, New York XIV, May–June 2026):
 | Lots | 675 |
 | Hammer total (USD) | $223.5M |
 | Brands seen at auction | 98 |
-| Brands in our register | 54 |
-| Lots matching a register card (exact brand + reference) | 37 |
-| Lots-matching-card percentage | **5.5%** |
-| Value matching a card | $3.89M |
-| Value-matching percentage | **1.7%** |
+| Brands in our register | 55 |
+| Lots matching a register card (exact identity) | 38 |
+| Lots-matching-card percentage | **5.6%** |
+| Value matching a card | $5.10M |
+| Value-matching percentage | **2.3%** |
+| Lots publishing no reference number | **142 (43.9% of value)** |
+| Lots publishing neither reference nor model | 23 ($2.38M) |
 
-The 1.7% figure is published. The 5.5% is the headline. Neither is faked.
+The 2.3% figure is published. The 5.6% is the headline. Neither is faked, and the
+reason the number is low is now published next to it.
 
 ## Where the gap sits
 
@@ -31,7 +102,7 @@ That gap is concentrated at the top — the largest zero-card brands by value:
 | Rank | Brand | Lots | Value (USD) | Avg/lot | Notes |
 | ---: | --- | ---: | ---: | ---: | --- |
 | 1 | Louis Richard | 2 | $5.49M | $2.74M | Two lots; both are individual commissions |
-| 2 | Voutilainen | 4 | $5.25M | $1.31M | Vingt-6 / 28SC / TMU series, all in platinum or precious metal |
+| 2 | Voutilainen | 4 | $5.25M | $1.31M | **Now 1 card** (Vingt-8 ISO, closes lot 140) |
 | 3 | Akrivia | 1 | $3.85M | $3.85M | Single AK-07 prototype Akrivia chronometer lot |
 | 4 | Louis Audemars & Co | 1 | $3.23M | $3.23M | Singular 1920s twin-barrel pocket watch |
 | 5 | Urban Jürgensen | 7 | $2.54M | $0.36M | Reference set across two centuries |
@@ -50,29 +121,44 @@ Under-carded but already in the register:
 
 | Brand | Lots | Cards | Ratio | Comment |
 | --- | ---: | ---: | ---: | --- |
-| F.P. Journe | 41 | 6 | 6.8× | CS, CB, RS, TN, Octa CS 40mm, Élégante — already strong; gap-fill the most-cited variants |
+| F.P. Journe | 41 | 6 | 6.8× | 39 of the 41 lots publish **no reference** — this brand needs model-name opt-ins before more cards help |
 | De Bethune | 12 | 1 | 12× | Only `db28`; could use DB25, DB27, DB28GS |
 
-## Strategic priorities — by dollar-of-coverage-per-card
+## Strategic priorities, revised
 
-If the goal is **to raise the 5.5% figure as honestly as possible** with one card
-added in each priority slot, the highest-leverage brands are:
+The original priority list assumed "add a card" was the lever everywhere. It is
+not. The revised order accounts for the two different problems:
 
-1. **Voutilainen — Vingt-6 (or 28SC) reference** — 4 lots, $5.25M. One card catches
-   every Voutilainen lot in this census and the next.
-2. **F.P. Journe — Chronomètre Souverain holocene (CS Platinum, CS Ruthenium,
-   or Quantième Perpétuel)** — close to half of the 41 F.P. Journe lots are CS
-   variants; adding one more CS spec catches multiple lots.
-3. **Louis Richard — one of the two lots** — both lots are signed and dated;
-   1 of them, carded, would catch the brand for the next census.
-4. **Urban Jürgensen — Copenhagen Five Minutes Repeater (or telescopic escapement era)** — 7 lots;
-   the brand is a quality-and-quantity play.
-5. **De Bethune — DB25 or DB27** — a second card that catches the rest of the 12 lots.
+**First — finish the model-name channel.** This is the highest-leverage work in the
+whole project and it is not "add cards":
 
-The "$5.49M Louis Richard both-lots" and "$3.85M single Akrivia" cases are also
-high-leverage for absolute value, but the reference delta between the two Louis
-Richard lots is unclear from census alone — they may be serial variants of the same
-movement, in which case one reference = two lots.
+1. **F.P. Journe** — 39 lots, $108.1M, no references. Needs `published_model_name`
+   on the cards whose model name is genuinely 1:1 (`Chronomètre à Résonance`).
+   *Deliberately not done in this pass:* `Chronomètre Souverain` names a whole
+   family (CS platinum, CS ruthenium, and more) that are different objects with
+   different values. One opt-in would sweep them all into one card. That is a
+   near-miss wearing an identity's clothes, and it is the exact mistake the
+   Day-Date false positive was. It needs per-material opt-ins with cited model
+   strings, not one blanket entry.
+2. **Philippe Dufour** — 1 lot, $9.46M, no reference.
+3. **Cartier** — 9 lots, $5.19M, no reference (the house splits "Cartier" /
+   "Cartier New York" / "Cartier Paris" in the feed, which also needs splitting).
+
+**Second — add cards where the model name is already 1:1:**
+
+4. **Voutilainen Vingt-8 Inversé** — closes lot 9 ($1,155,700). 26 made across
+   three metals (10 tantalum, 8 titanium, 8 platinum), so one model name covers
+   the family honestly.
+5. **Voutilainen Observatoire** — closes lot 82 ($1,041,400).
+6. **De Bethune DB25 / DB27** — a second card against 12 lots.
+7. **Akrivia AK-07** — 1 lot, $3.85M, and the whole brand is one reference.
+
+**Not on the list:** the `Masterpiece Chronograph II "Number 1 of 10"` lot. That is
+a numbered individual piece, the same category as the co-signed lot: the register
+tracks references, not unique commissions.
+
+The remaining zero-card brands are mostly lower-volume and lower-dollar, and would
+be tackled in a second pass, one card at a time, brand by brand.
 
 ## What "honesty" demands at each step
 
@@ -110,29 +196,32 @@ When the new card lands:
 
 ## Execution plan, ordered
 
-1. **Voutilainen (Vingt-6) — first card.** 4 lots, ~$5.25M. Single biggest
-   *low-card-count* dollar delta.
-2. **F.P. Journe CS platinum / Ruthenium — gap-fill.** Closes ~10–15 of the
-   41 lots if the reference spelling matches what Phillips used.
-3. **Louis Richard — one of the two lots.** High average dollar value; low number
-   of cards (1) needed to start covering.
-4. **De Bethune — DB25 (or DB27 if DB25 lots are not seen in census).** One card,
-   12 lots at auction this round.
-5. **Akrivia AK-07** — 1 lot at $3.85M, the only Akrivia lot in the census. The
-   brand has very few production refs, so this is high-leverage.
+1. **Voutilainen Vingt-8 ISO — DONE** (`voutilainen-vingt-8-iso`). Closes Phillips
+   lot 140, $1,206,500. First card to carry `published_model_name`.
+2. **F.P. Journe per-material model-name opt-ins.** The single biggest pool
+   ($108.1M across 39 lots). Must be done per material/variant with cited model
+   strings — one blanket `Chronomètre Souverain` opt-in is a near-miss.
+3. **Voutilainen Vingt-8 Inversé** — closes lot 9, $1,155,700.
+4. **Voutilainen Observatoire** — closes lot 82, $1,041,400.
+5. **De Bethune DB25 or DB27** — 12 lots, 1 card today.
+6. **Akrivia AK-07** — 1 lot, $3.85M, and the brand is a single reference.
 
-These five priority cards, if built, would push coverage from 5.5% → ~14% by
-our exact-match rule and from 1.7% → ~4–5% by value. The remaining zero-card
-brands are mostly lower-volume and lower-dollar, and would be tackled in a
-second pass (one card at a time, character by character).
+Items 1 and 2 alone would take the headline from 5.6% to roughly 9% without
+adding a single card beyond the one already built — because they make the
+existing six F.P. Journe cards visible to a matching rule that could not see
+them at all.
 
 ## What is NOT in scope here
 
-- The matching algorithm is conservative on purpose. It catches the cases it
-  catches and refuses the rest. Loosening it would inflate the 5.5% headline
-  with fuzzy matches we already publish as `comparable:false` variant sales.
-  That count is in `public/data/auction_census.json` and we keep it separate.
-- The Live attention pipeline (commit 68b6027) is a separate project. The
+- The matching algorithm stays conservative on purpose. It catches the cases it
+  catches and refuses the rest. Loosening it would inflate the headline with fuzzy
+  matches we already publish as `comparable:false` variant sales. That count is in
+  `public/data/auction_census.json` and we keep it separate.
+- The model-name channel is opt-in and is not inferred from a display name. The
+  first implementation inferred it and produced a false positive on
+  `Rolex model="Day-Date"`; that is recorded above so it does not get "simplified"
+  back in later.
+- The Live attention pipeline (commit `68b6027`) is a separate project. The
   auction census is a manual-review pipeline that runs on the M5 after approval,
   same as every other cited dataset.
 - Re-running the harvest on the next Phillips sale (the August 2026 cycle) is
@@ -140,7 +229,8 @@ second pass (one card at a time, character by character).
 
 ## The gap stays visible
 
-Per the honesty law: the Auction Census page on the live site publishes the
-5.5% number as the headline. The new cards above, once built, raise that number.
-Until they are built, the page must say "1.7% of value" plainly, and we do not
-estimate the rest.
+Per the honesty law: the Auction Census page publishes the headline, publishes
+the by-reference / by-model-name split, and publishes the
+"142 lots published no reference at all" figure next to them. A reader can see
+exactly why the number is low and what would move it. Until those cards exist,
+the page says so plainly, and we do not estimate the rest.

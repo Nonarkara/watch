@@ -39,6 +39,29 @@ export function normalizeReference(value = '') {
   return decodeHtml(value).toUpperCase().split(/;|\binside\b/i)[0].replace(/[^A-Z0-9]/g, '');
 }
 
+/**
+ * Normalise a published *model name* to the same key space as a reference.
+ *
+ * The haute-horlogerie tier does not publish reference numbers. Phillips prints
+ * "Vingt-8 ISO" on the Voutilainen lot, "Chronometre Souverain" on the F.P. Journe
+ * lots, "Observatoire" on the Louis Richard — none of them carry a ref. Those lots
+ * are exactly identifiable too: the maker publishes the model name instead of a
+ * number, so brand + model name is an *exact identity*, not a near-miss.
+ *
+ * Same discipline as normalizeReference: strip punctuation, uppercase, drop the
+ * quote and parenthesis decorations the catalogue adds around editions
+ * ("Masterpiece Chronograph II “Number 1 of 10”"). Kept in the same A-Z0-9 key
+ * space so the two channels cannot be confused with one another.
+ */
+export function normalizeModelName(value = '') {
+  return decodeHtml(value)
+    .replace(/[“”„‟]/g, '"')   // curly quotes → straight
+    .replace(/["'«»‘’]/g, ' ')  // edition/quote marks become a space
+    .replace(/[()\[\]{}]/g, ' ') // parentheticals are decoration, drop the brackets
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, '');
+}
+
 function classText(block, fragment) {
   const pattern = new RegExp(`<[^>]+class="[^"]*${fragment}[^"]*"[^>]*>([\\s\\S]*?)<\\/[^>]+>`, 'i');
   return cleanText(block.match(pattern)?.[1] ?? '');

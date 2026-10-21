@@ -43,12 +43,29 @@ interface Census {
     unconverted_lots: number
     brands_seen: number
     brands_in_register: number
+    lots_with_no_published_reference: number
+    lots_publishing_neither_reference_nor_model: number
+    value_with_no_published_reference_usd: number
+    value_publishing_neither_reference_nor_model_usd: number
   }
   coverage: {
     lots_matching_a_card: number
     lots_matching_a_card_pct: number
     value_matching_a_card_usd: number
     value_matching_a_card_pct: number
+    by_reference: {
+      lots: number
+      value_usd: number
+      value_pct: number
+      meaning: string
+    }
+    by_model_name: {
+      lots: number
+      value_usd: number
+      value_pct: number
+      cards_in_channel: number
+      meaning: string
+    }
     note: string
   }
   auctions: CensusAuction[]
@@ -119,6 +136,50 @@ export default function AuctionCensus() {
           against our 101.025, a Nautilus 3700/11 against our 3700/1A. Those appear on the dossier as
           variant sales with the caveat attached, and they are deliberately not counted in the coverage
           figure above. {coverage.note}
+        </p>
+
+        <p className="honest">
+          <strong>And here is the part that is the matcher&apos;s fault, not the market&apos;s.</strong>{' '}
+          {totals.lots_with_no_published_reference} of these {totals.lots} lots publish
+          no reference number at all — {usdFull(totals.value_with_no_published_reference_usd)}, or{' '}
+          {((100 * totals.value_with_no_published_reference_usd) / totals.value_usd).toFixed(1)}% of the
+          money here. That is not a gap in the market; it is a gap in the tier. Rolex, Patek, Audemars
+          Piguet and Cartier publish a reference number. The independent haute-horlogerie makers do
+          not: Voutilainen, F.P. Journe, Louis Richard and Akrivia identify a watch by its{' '}
+          <em>name</em>. An earlier build of this page matched on reference only, so the whole
+          independent tier was invisible to the coverage line — the number was measuring our matcher,
+          not the market.
+        </p>
+      </section>
+
+      <section className="sect">
+        <div className="section-rule">
+          <h2>How a lot counts as covered.</h2>
+          <span className="sticker-inline mono">TWO EXACT-IDENTITY CHANNELS · NEITHER IS A NEAR-MISS</span>
+        </div>
+        <dl className="census-channels">
+          <div>
+            <dt>Brand + published reference number</dt>
+            <dd>
+              <strong>{coverage.by_reference.lots}</strong> lots ·{' '}
+              {usdFull(coverage.by_reference.value_usd)} · {coverage.by_reference.value_pct}% of value
+            </dd>
+            <p>{coverage.by_reference.meaning}</p>
+          </div>
+          <div>
+            <dt>Brand + published model name</dt>
+            <dd>
+              <strong>{coverage.by_model_name.lots}</strong> lots ·{' '}
+              {usdFull(coverage.by_model_name.value_usd)} · {coverage.by_model_name.value_pct}% of
+              value · {coverage.by_model_name.cards_in_channel} card opted in
+            </dd>
+            <p>{coverage.by_model_name.meaning}</p>
+          </div>
+        </dl>
+        <p className="census-channels-foot mono micro">
+          {totals.lots_publishing_neither_reference_nor_model} LOTS PUBLISH NEITHER A REFERENCE NOR A
+          MODEL NAME — {usdFull(totals.value_publishing_neither_reference_nor_model_usd)} WITH NOTHING
+          TO MATCH AGAINST. WE REFUSE TO GUESS THOSE.
         </p>
       </section>
 

@@ -5462,3 +5462,33 @@ main.shell { padding-top: var(--space-md); }
   .timepop-hero-bg { display: none; }
   .timepop-hero-copy { background: white; border: 1px solid var(--neutral-line); }
 }
+
+/* ── Auction census — the two exact-identity channels ────────────────────────
+   The coverage number on /auction is only honest if the reader can see WHY it
+   is low. 142 of 675 lots publish no reference number at all, which is a fact
+   about the tier, not about our coverage. These two rows are that disclosure,
+   so they get their own frame instead of being buried in the footnote. */
+.census-channels {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  border-top: var(--border); border-left: var(--border);
+  margin: var(--space-md) 0 0;
+}
+.census-channels > div {
+  border-bottom: var(--border); border-right: var(--border);
+  padding: 16px var(--pad);
+}
+.census-channels dt {
+  font-family: var(--font-mono); font-size: var(--text-micro);
+  letter-spacing: .06em; text-transform: uppercase; color: var(--amber);
+}
+.census-channels dd {
+  margin: 6px 0 0; font-family: var(--font-mono);
+  font-size: var(--text-body); color: var(--fg);
+}
+.census-channels dd strong { font-size: 1.35em; }
+.census-channels p {
+  margin: 10px 0 0; color: var(--dim); font-size: var(--text-body);
+  line-height: 1.5; max-width: 72ch;
+}
+.census-channels-foot { margin-top: 12px; color: var(--dim); letter-spacing: .04em; }
+@media (min-width: 880px) { .census-channels { grid-template-columns: repeat(2, 1fr); } }

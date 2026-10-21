@@ -26,6 +26,15 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   const idn = card.identity || {};
   req(typeof idn.brand === "string" && idn.brand, "identity.brand required");
   req(typeof idn.reference === "string" && idn.reference, "identity.reference required");
+  // Opt-in for the model-name identity channel used by the auction census.
+  // Must be the string the maker or auction house actually prints as the model
+  // name. It is never inferred from identity.name: "Day-Date" is a Rolex line,
+  // not a model, and letting a display name stand in for a published model name
+  // would turn a family-name match into a fake exact identity.
+  if (idn.published_model_name != null) {
+    req(typeof idn.published_model_name === "string" && idn.published_model_name.trim().length >= 2,
+      "identity.published_model_name, when present, must be a non-empty string of at least 2 characters");
+  }
   req(TIERS.includes(idn.tier), `identity.tier must be one of ${TIERS.join("|")}`);
   req(idn.produced && Number.isInteger(idn.produced.start_year), "identity.produced.start_year required");
   req(typeof idn.produced?.discontinued === "boolean", "identity.produced.discontinued must be boolean");
