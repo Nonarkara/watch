@@ -69,7 +69,11 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
 
   const s = card.scarcity_inputs || {};
   req(s.limited_edition && typeof s.limited_edition.is_limited === "boolean", "scarcity_inputs.limited_edition.is_limited");
-  if (s.limited_edition?.stated_size != null) req(isUrl(s.limited_edition.source_url), "limited_edition with stated_size needs source_url");
+  // is_limited alone adds up to 12 of 25 scarcity points (indices.mjs), so an
+  // uncited flag silently moves a published score. Cite it or leave it false.
+  if (s.limited_edition?.stated_size != null || s.limited_edition?.is_limited === true) {
+    req(isUrl(s.limited_edition.source_url), "limited_edition that is limited (or states a size) needs source_url");
+  }
   for (const [i, w] of (s.waitlist_evidence || []).entries())
     req(isDate(w.date) && isUrl(w.source_url), `waitlist_evidence[${i}] needs date + source_url`);
 

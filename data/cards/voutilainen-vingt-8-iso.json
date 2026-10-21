@@ -6,7 +6,7 @@
     "reference": "Vingt-8 ISO",
     "published_model_name": "Vingt-8 ISO",
     "name": "Vingt-8 ISO",
-    "nickname": "The thirteen-minute hand",
+    "nickname": null,
     "collection": "Vingt-8",
     "tier": "haute",
     "produced": {
@@ -21,9 +21,9 @@
     "case": {
       "diameter_mm": 39,
       "material": "18k white gold",
-      "bezel": "polished, slim caseband"
+      "bezel": "not described by Phillips"
     },
-    "one_liner": "The Vingt-8 ISO keeps Voutilainen's calibre 28 and its double-wheel direct-impulse escapement, then breaks the one rule the dial exists to keep: the minute hand turns thirteen times an hour instead of once, so reading the time stops being reflex and starts being a decision."
+    "one_liner": "The Vingt-8 ISO keeps Voutilainen's calibre 28 but changes how the dial is read: the hour hand turns once every twelve hours while the minute hand turns thirteen times an hour, so the time comes from the two hands' relation to each other, not from a glance."
   },
   "retail": {
     "msrp_history": [],
@@ -36,16 +36,16 @@
         "price_usd": 1206500,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/voutilainen/228975",
-        "condition": "Phillips New York Watch Auction: XIV, lot 140. Circa 2017, 18k white gold, movement no. 28ISO-2, in-house cal. 28 with 35 jewels, 39mm. Phillips records this as likely the second Vingt-8 ISO ever made and the second offered by the house. Hammer USD 950,000; sold price is hammer plus the 27% buyer's premium. Certificate booklet dated February 2017, fitted box, extra crocodile strap.",
+        "condition": "Phillips New York Watch Auction: XIV (sale held 13-14 June 2026), lot 140. Circa 2017, 18k white gold, movement no. 28ISO-2, in-house cal. 28 with 35 jewels, 39mm. Phillips: likely the 2nd Vingt-8 ISO ever made and the 2nd sold by Phillips. Sold for USD 1,206,500 as published by Phillips; estimate USD 100,000-200,000. Accompanied by certificate booklet dated February 2017, warranty/service booklet, additional crocodile strap, box guarantee and fitted Vichard presentation box.",
         "box_papers": "full_set"
       }
     ],
     "listing_observations": []
   },
   "scarcity_inputs": {
-    "brand_production_est": 67,
+    "brand_production_est": null,
     "limited_edition": {
-      "is_limited": true,
+      "is_limited": false,
       "stated_size": null,
       "source_url": null
     },
@@ -55,26 +55,26 @@
   "provenance_events": [
     {
       "date": "2017",
-      "person_or_event": "Voutilainen introduces the Vingt-8 ISO",
-      "description": "Kari Voutilainen introduces the Vingt-8 ISO, an offbeat reinterpretation of his 2011 flagship. Phillips records that the rotating display required a newly configured movement, slightly thicker than the standard calibre 28.",
+      "person_or_event": "This Vingt-8 ISO is made (circa 2017)",
+      "description": "Phillips dates lot 140 to circa 2017 and records that the ISO's rotating display required a newly configured movement, slightly thicker than the standard Caliber 28.",
       "source_url": "https://www.phillips.com/article/168911101/kari-voutilainen-interview-masterpiece-chronograph-ii-observatoire-vingt-8-iso-vingt-8-inverse-phillips-new-york-june-2026"
     },
     {
       "date": "2017-02",
       "person_or_event": "Certificate booklet dated February 2017",
-      "description": "The Phillips lot offered in New York in June 2026 carries a Voutilainen certificate booklet dated February 2017 and movement number 28ISO-2, which Phillips reads as likely the second ISO Voutilainen built. The watch was fresh to the auction market.",
+      "description": "The Phillips lot offered in New York in June 2026 carries a Voutilainen certificate booklet dated February 2017 and movement number 28ISO-2, which Phillips reads as likely the second ISO Voutilainen built.",
       "source_url": "https://www.phillips.com/detail/voutilainen/228975"
     },
     {
       "date": "2026-06-13",
       "person_or_event": "Phillips New York Watch Auction: XIV, lot 140",
-      "description": "The Vingt-8 ISO offered as lot 140 sold for USD 1,206,500 against an estimate of USD 100,000-200,000, after 20 bids. The over-estimate reflects the reference's standing rather than its condition; Phillips describes the dial as pristine and the case as unpolished.",
+      "description": "The Vingt-8 ISO offered as lot 140 sold for USD 1,206,500 against an estimate of USD 100,000-200,000, about six times the high estimate. The sale was held 13-14 June 2026; Phillips calls this likely the 2nd Vingt-8 ISO ever made and the 2nd sold by the house.",
       "source_url": "https://www.phillips.com/detail/voutilainen/228975"
     }
   ],
   "narrative": {
-    "story": "Every watch hands you the time for free. The Vingt-8 ISO is the rare one that charges for it. Kari Voutilainen took the thinking behind Daniel Kahneman's two-system model of the mind - System 1 doing something without effort, System 2 doing something that requires thought - and built it into a movement. The hour hand turns once every twelve hours as it always should. The minute hand turns thirteen times an hour instead of once. On the hour the two hands lie on top of each other; at the half hour they sit exactly opposite; at the quarter hours they are ninety degrees apart. Nothing is hidden and nothing is broken. The wearer simply cannot read it without deciding to read it.\n\nThe mechanics are Voutilainen's own. The calibre 28 is the movement he designed to carry the company after 2011, built around a double-wheel direct-impulse escapement: two escape wheels push the balance directly, with no lever and no lubricating oil on the escapement. The balance is oversized at 13.6mm and free-sprung, carrying rose-gold regulating weights, and its spring mixes a Breguet overcoil on the outside with the little-known Grossmann curve on the inside. The ISO needed a reconfigured, slightly thicker movement to drive its rotating chapter ring, and the watch Phillips sold in New York in June 2026 carried 35 jewels.\n\nThat sale is also the argument about how scarce this is. The watch was the second ISO Phillips has ever offered, and the movement number 28ISO-2 indicates it is likely the second one Voutilainen made. It carried an estimate of USD 100,000 to 200,000 and made USD 1,206,500. Voutilainen completed 67 watches in total across 2021 with roughly thirty people on the bench.",
-    "collector_notes": "There is no public retail price for the ISO. Voutilainen sells a small number of pieces a year and does not publish a list, so this register carries an empty MSRP history rather than a borrowed one. The only sale on file is the Phillips New York lot. An enlarged 44mm ISO in rose gold exists as a unique piece, but that is a bespoke one-off and is not the same reference.",
+    "story": "The Vingt-8 ISO changes what a dial asks of you. Phillips says its display takes inspiration from the psychologist Daniel Kahneman's account of two ways the brain forms thoughts: System 1, fast and intuitive, and System 2, slow and deliberate. Reading a regular watch is System 1. The ISO is built to make the wearer engage with time differently. The hour hand turns at the normal 12-hour speed while the minute hand turns 13 times every hour. At the full hour the two hands overlap; at every half hour they sit exactly opposite; at the quarter hours they are 90 degrees apart. The time is read from the hands in relation to each other, not against the minute scale on the outer ring.\n\nThe movement is Voutilainen's own. Phillips describes the Caliber 28 as using two escape wheels that deliver direct impulses to a sizeable balance wheel, reducing friction compared with a traditional Swiss lever escapement. European Watch describes a free-sprung balance with a Breguet overcoil and a Grossman spiral. The rotating display needed a newly configured movement, slightly thicker than the standard Caliber 28; the watch Phillips sold carries 35 jewels.\n\nThe sale is the evidence about how rare it is. Phillips calls lot 140 likely the 2nd Vingt-8 ISO ever made, judging from its movement number, 28ISO-2, and only the 2nd sold by Phillips. It carried an estimate of USD 100,000 to 200,000 and sold for USD 1,206,500. Phillips also says the St-Sulpice manufacture still produces fewer than 60 pieces per year.",
+    "collector_notes": "No retail price is on file for the ISO, so this register carries an empty MSRP history rather than a borrowed one. The only sale on file is the Phillips New York lot, one data point, so no market value is computed. Scarcity here rests on the brand-level production figure alone (fewer than 60 pieces a year, per Phillips); the register has no evidence that the ISO is a numbered or limited edition.",
     "starter_alternative": null
   },
   "meta": {
@@ -83,7 +83,6 @@
     "sources": [
       "https://www.phillips.com/detail/voutilainen/228975",
       "https://www.phillips.com/article/168911101/kari-voutilainen-interview-masterpiece-chronograph-ii-observatoire-vingt-8-iso-vingt-8-inverse-phillips-new-york-june-2026",
-      "https://www.hodinkee.com/articles/kari-voutilainen-vingt-8-20th-anniversary-2022",
       "https://www.europeanwatch.com/blog/kari-voutilainen-vingt-8-iso-review"
     ]
   }
