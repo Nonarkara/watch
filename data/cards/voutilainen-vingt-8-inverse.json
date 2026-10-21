@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "voutilainen-vingt-8-inverse",
+  "identity": {
+    "brand": "Voutilainen",
+    "reference": "Vingt-8 Inversé",
+    "published_model_name": "Vingt-8 Inversé",
+    "name": "Vingt-8 Inversé",
+    "nickname": "Twenty-six, then nothing",
+    "collection": "Vingt-8",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2019,
+      "end_year": null,
+      "end_year_note": "Voutilainen discontinued the Vingt-8 Inverse after a run of 26 pieces and has never published the year it stopped. Phillips states only that the reference is discontinued; the last dated example on record here was made in 2020.",
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "28Pi-5 (cal. 28, 32 jewels)",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "platinum, also issued in tantalum and titanium",
+      "bezel": "open dial, movement displayed dial-side"
+    },
+    "one_liner": "Voutilainen turned his own movement back to front: the escapement and balance that the Vingt-8 hides behind a caseback sit on top of the dial instead, which cost the calibre an indirect gear train so the hands could still run clockwise. Twenty-six were made, in three metals that have almost no resale market between them."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 1155700,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/voutilainen/230868",
+        "condition": "Phillips New York Watch Auction: XIV, lot 9. 2020, platinum, 39mm diameter, manual-winding in-house cal. 28 with 32 jewels, movement no. 28Pi-5, case, dial, movement and buckle signed. One of only eight examples produced in platinum. Estimate USD 100,000-200,000; hammer USD 910,000; sold USD 1,155,700 (hammer plus the 27% buyer's premium) after 15 bids. Accompanied by fitted box, Guarantee dated December 2020, servicing history booklet, polishing cloth and outer packaging. Phillips notes the watch has not been tested for timekeeping accuracy and may require a service at the buyer's expense. Phillips catalogue preface: property of the family of the original owner.",
+        "box_papers": "full_set"
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": 26,
+    "limited_edition": {
+      "is_limited": true,
+      "stated_size": 26,
+      "source_url": "https://www.phillips.com/detail/voutilainen/230868"
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2019",
+      "person_or_event": "Grand Prix d'Horlogerie de Genève, Men's Watch Prize",
+      "description": "The Vingt-8 Inversé was introduced in 2019 and received the Men's Watch Prize at the Grand Prix d'Horlogerie de Genève the same year.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/230868"
+    },
+    {
+      "date": "2020-12",
+      "person_or_event": "Guarantee dated December 2020",
+      "description": "The example sold in New York in 2026 was guaranteed in December 2020 and comes with its servicing history booklet, placing it among the first pieces off the line rather than at the end of the run.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/230868"
+    },
+    {
+      "date": "2026-06-13",
+      "person_or_event": "Phillips New York Watch Auction: XIV, lot 9",
+      "description": "Movement no. 28Pi-5, one of eight platinum examples, was sold for USD 1,155,700 after 15 bids — roughly five to six times the top of its estimate. Phillips records it as part of a season in which independent watchmaking was the leading story of the sale.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/230868"
+    }
+  ],
+  "narrative": {
+    "story": "The Vingt-8 shows you a dial and hides its movement. The Inversé swaps the two and dares you to read it.\n\nKari Voutilainen introduced the Vingt-8 in 2011 around a calibre 28 he designed himself, and put the escapement and its oversized balance under a caseback where you could admire them in private. In 2019 he reversed the whole thing for the Vingt-8 Inversé: the movement is displayed on the dial side, the part you normally hide is the part you cannot avoid, and the watch asks whether that still counts as a watch.\n\nIt very nearly did not work. Turning the calibre over would have reversed the direction the gears turned, and a watch whose hands run anticlockwise is not a watch. Voutilainen re-engineered it around an indirect gear train at the centre of the dial — visible, because everything is visible here — so the hands would still travel clockwise the way a wrist expects. The centre of the dial is therefore a mechanical answer to a mechanical objection, and it is the best part of the watch.\n\nThere were twenty-six. Ten in tantalum, eight in titanium, eight in platinum. No steel, no gold, no two configurations the secondary market has ever learned to price. Then it was discontinued.\n\nIt won the Men's Watch Prize at the Grand Prix d'Horlogerie de Genève in the year it launched. The platinum example Phillips sold in New York in June 2026 was guaranteed in December 2020, carries movement number 28Pi-5, and made $1,155,700 after fifteen bids against a top estimate of $200,000. Phillips put it down as property of the original owner's family, and flagged that it had not been tested for timekeeping and may want a service.\n\nOne of eight. None of the other seven will be easy to find, and none of the eighteen non-platinum pieces has an obvious buyer waiting for it. That asymmetry is the actual investment story: the metal is the scarce part, and the market has not yet learned to separate the two.",
+    "collector_notes": "Two cautions sit on this dossier on purpose. First, the seller is the original owner's family, so provenance is a single line rather than a chain; second, Phillips states the watch was not tested for timekeeping accuracy and may require a service at the buyer's expense. Neither is a defect. Both change what the number means, and a $1.16M hammer-adjacent result on an untested, family-held example is not the same as a result on a serviced, documented one.\n\nNo maker list price is on file. The run is documented and the metals are documented; the price Voutilainen charged is not, and an aggregator's asking price is not entered as one.\n\nThe tantalum example Phillips offered for Geneva in November 2026 is described in the house's own catalogue note as a unique commission engraved '1/1', with its ring and hand colours specified for that watch. That is a one-off, not a ninth platinum piece, and it is not what this card represents.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-mcode-coverage",
+    "curated_date": "2026-10-21",
+    "sources": [
+      "https://www.phillips.com/detail/voutilainen/230868",
+      "https://www.phillips.com/press/release/-phillips-announces-highlights-from-the-geneva-watch-auction-xxiv",
+      "https://barringtonwatchwinders.com/en-us/blogs/barrington-watch-winders-articles/four-kari-voutilainen-watches-surpass-1-million-at-phillips-new-york-auction"
+    ]
+  }
+}

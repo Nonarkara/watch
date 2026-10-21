@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "akrivia-ak-06",
+  "identity": {
+    "brand": "Akrivia",
+    "reference": "AK-06",
+    "published_model_name": "AK-06",
+    "name": "AK-06",
+    "nickname": "A hundred hours, with the dial taken off",
+    "collection": "AK-06",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2017,
+      "end_year": null,
+      "discontinued": false
+    },
+    "movement": {
+      "caliber": "AK-06",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 41,
+      "material": "stainless steel, also issued in titanium, 18k 5N rose gold and platinum",
+      "bezel": "26-part case, sapphire front and back, 3 ATM"
+    },
+    "one_liner": "Rexhep Rexhepi's first watch without a tourbillon, and the one where he opened the dial up so the argument would be visible: a hundred-hour reserve in a single jewelled barrel, told by an indicator you wind by hand."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      {
+        "date": "2026-05-09",
+        "price_usd": 3853500,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/akrivia/226172",
+        "condition": "Phillips Geneva Watch Auction: XXIII, lot 36. Stainless steel, 41mm diameter, manual-winding in-house calibre AK-06, movement no. 03. Sold for CHF 3,000,000 (converted at the ECB reference rate for 2026-05-08, the last business day on or before the sale). Phillips describes the lot as an extraordinary and superbly crafted stainless steel wristwatch with power reserve and zero-reset seconds, and records the case, dial and movement as signed. The hammer price and bid count are not published on the lot page and are not stated here.",
+        "box_papers": null
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": 50,
+    "limited_edition": {
+      "is_limited": true,
+      "stated_size": 50,
+      "source_url": "https://www.ssongwatches.com/products/akrivia-ak-06-steel"
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2017",
+      "person_or_event": "Baselworld debut",
+      "description": "AkriviA unveiled the AK-06 at Baselworld 2017, the first timepiece from Rexhep Rexhepi's workshop to venture beyond the tourbillon. Contemporary coverage recorded availability from September 2017 in steel, titanium, 18k 5N rose gold and platinum, with a stated list price of CHF 79,000 for the steel version.",
+      "source_url": "https://thewatchobserver.ouest-france.fr/actualites-montres/akrivia-ak-06-un-plaisir-tres-exclusif-1420/"
+    },
+    {
+      "date": "2026-05-09",
+      "person_or_event": "Phillips Geneva Watch Auction: XXIII, lot 36",
+      "description": "Movement no. 03 was offered in stainless steel and realised CHF 3,000,000. It is the highest price recorded for the model in this register's evidence, and the first AK-06 the register has held at all — the brand had no card before this one. Phillips does not publish the hammer price or the bid count for this lot, so neither is claimed here.",
+      "source_url": "https://www.phillips.com/detail/akrivia/226172"
+    }
+  ],
+  "narrative": {
+    "story": "Rexhep Rexhepi built AkriviA on tourbillons. The AK-06 is the first watch he made without one, and the reason is not that he lost interest in complications. It is that a hundred hours of power reserve is worth looking at.\n\nSo he cut the dial away. The steel version carries a hand-hammered grey open-work dial with a power-reserve indicator at 12 o'clock, and the whole display is a spectacle when you wind the crown or set the time. Underneath it, calibre AK-06 — developed, decorated and assembled in house — holds 100 hours on a single jewelled barrel. Two hundred and sixty-seven components in the movement, hand-finished to Geneva standards including anglage on parts that are never seen.\n\nThere is a second idea in the crown. Pull it and two things happen together: the balance stops, and the seconds hand resets to zero. Set the time without the escapement juddering against a running seconds hand. Rexhep Rexhepi calls the balance variable inertia — 10.5mm, free-sprung, four adjustable weights — and it beats at 18,000 vph with a Breguet overcoil.\n\nThe case is 26 parts, sapphire front and back, 3 ATM, 41mm across and 9.9mm thick. It was offered in steel, titanium, 18k 5N rose gold and platinum. A dealer account of the steel version records the run as fifty pieces split evenly between steel and titanium. AkriviA does not publish a run size on its own page, so this dossier carries the dealer's figure and names it as the dealer's figure.\n\nThe watch that came to Geneva in May 2026 was movement number 03, in steel. It made CHF 3,000,000.",
+    "collector_notes": "The only sourced retail figure in the evidence is CHF 79,000 for the steel version, published at debut in 2017. It is left in the notes rather than converted into the structured MSRP history, because that history stores USD and the only defensible conversion would need a 2017 reference rate that this register has not fetched and will not borrow from a different year. The gap is deliberate: an absent number the register can explain beats a present number it cannot defend.\n\nThe maker's own product page states 28 jewels for the movement; Rexhep Rexhepi's page states 39 olive-domed and flat jewels, which counts the case jewels as well as the movement's. The dossier carries the movement figure.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-mcode-coverage",
+    "curated_date": "2026-10-21",
+    "sources": [
+      "https://www.phillips.com/detail/akrivia/226172",
+      "https://maj.akrivia.com/watch/ak-06/",
+      "https://www.rexheprexhepi.com/collections/ak-06-acier",
+      "https://thewatchobserver.ouest-france.fr/actualites-montres/akrivia-ak-06-un-plaisir-tres-exclusif-1420/",
+      "https://www.ssongwatches.com/products/akrivia-ak-06-steel"
+    ]
+  }
+}

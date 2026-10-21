@@ -340,3 +340,72 @@ console.log("✓ no image fallback URL is shared by 3+ cards");
   }
 }
 console.log("✓ no cross-brand image shares in images.json");
+
+// 15. Model-name channel guard — a published model name may not be a LINE.
+// The auction census matches a lot on brand + published model name when the
+// reference channel cannot, because the haute-horlogerie tier publishes names
+// instead of reference numbers. Exact normalised equality already stops a
+// declared name sweeping variants ("Day-Date II" ≠ "Day-Date"). What it cannot
+// stop is a bare name that is itself a family: "Day-Date" spans refs 1803–2286
+// and roughly $10k–$2M, so one card claiming it would be a near-miss wearing an
+// identity's clothes. That mistake was made once already, when the first
+// implementation inferred the model name from identity.name and swept a
+// Rolex lot into the 1803 card. Two rules hold the line now:
+//
+//   a) no declared model name may be a known line name (committed list), and
+//   b) two cards of the same brand may not claim the same model name, which
+//      would make the channel double-assign one lot to two references.
+//
+// The list lives in scripts/model-name-family-guard.json with its reason.
+const guard = JSON.parse(readFileSync(new URL('./model-name-family-guard.json', import.meta.url), 'utf8'));
+const watchedLineNames = guard.family_names.length;
+{
+  const banned = new Set(guard.family_names.map((n) => n.toUpperCase().replace(/[^A-Z0-9]/g, '')));
+  const norm = (s) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const cardFiles = readdirSync(new URL('../data/cards', import.meta.url)).filter((f) => f.endsWith('.json'));
+
+  // How many distinct cards does each brand hold under each collection name? A
+  // collection that appears more than once is holding several different models,
+  // so the collection NAME is a family and must never be claimed as a model name.
+  // A collection with one card is that maker's single reference, and for a small
+  // independent the collection genuinely is the model — AkriviA's AK-06 is both.
+  const collectionWidth = new Map();
+  for (const cf of cardFiles) {
+    const card = JSON.parse(readFileSync(new URL('../data/cards/' + cf, import.meta.url), 'utf8'));
+    const c = card.identity?.collection;
+    if (typeof c !== 'string' || !c.trim()) continue;
+    const k = `${card.identity.brand.toUpperCase()}|${norm(c)}`;
+    collectionWidth.set(k, (collectionWidth.get(k) ?? 0) + 1);
+  }
+
+  const offenders = [];
+  const claims = new Map(); // `${brand}|${model}` -> [card ids]
+  for (const cf of cardFiles) {
+    const card = JSON.parse(readFileSync(new URL('../data/cards/' + cf, import.meta.url), 'utf8'));
+    const pmn = card.identity?.published_model_name;
+    if (typeof pmn !== 'string' || !pmn.trim()) continue;
+    const key = norm(pmn);
+    if (banned.has(key)) {
+      offenders.push(`  ${card.id} — published_model_name "${pmn}" is a LINE, not a model`);
+      continue;
+    }
+    const collection = card.identity?.collection;
+    if (typeof collection === 'string' && collection.trim() && norm(collection) === key) {
+      const width = collectionWidth.get(`${card.identity.brand.toUpperCase()}|${key}`) ?? 1;
+      if (width > 1) {
+        offenders.push(`  ${card.id} — published_model_name "${pmn}" is its collection name, and ${width} cards sit under that collection, so it names a family of models, not one watch`);
+      }
+    }
+    const claimKey = `${card.identity.brand.toUpperCase()}|${key}`;
+    if (!claims.has(claimKey)) claims.set(claimKey, []);
+    claims.get(claimKey).push(card.id);
+  }
+  const doubleClaimed = [...claims.entries()].filter(([, ids]) => ids.length > 1);
+  for (const [, ids] of doubleClaimed) {
+    offenders.push(`  ${ids.join(' + ')} — two cards of one brand claim the same published model name`);
+  }
+  if (offenders.length) {
+    assert.fail(`published_model_name channel guard failed. A line name claimed as a model name would sweep a family of watches into one reference and call it an exact identity.\n${offenders.join('\n')}\nIf a name really is a specific model, remove it from scripts/model-name-family-guard.json and say why in that file's _why field.`);
+  }
+}
+console.log(`✓ model-name channel declares no line names and no double claims (${watchedLineNames} line names watched)`);

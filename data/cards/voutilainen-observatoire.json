@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "voutilainen-observatoire",
+  "identity": {
+    "brand": "Voutilainen",
+    "reference": "Observatoire",
+    "published_model_name": "Observatoire",
+    "name": "Observatoire",
+    "nickname": "Fifty observatory movements, found on a shelf",
+    "collection": "Observatoire",
+    "tier": "haute",
+    "produced": {
+      "start_year": 2007,
+      "end_year": 2011,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "Peseux 260",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 39,
+      "material": "18k white gold, also issued in stainless steel and platinum",
+      "bezel": "tear-drop lugs"
+    },
+    "one_liner": "Kari Voutilainen found a batch of observatory-grade Peseux calibres that had been fabricated but never assembled, and built his first watch around them. About fifty exist. It won the Grand Prix d'Horlogerie de Genève in the year it launched, and it was gone by 2011."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      {
+        "date": "2026-06-13",
+        "price_usd": 1041400,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/voutilainen/230872",
+        "condition": "Phillips New York Watch Auction: XIV, lot 82. 2009, Switzerland, case no. C260101, 18k white gold, 39mm diameter, manual-winding Peseux calibre 260 with 21 jewels, crocodile strap and 18k white gold Voutilainen buckle; case, dial, movement and clasp signed. Estimate USD 100,000-200,000. Phillips describes it as a superb and extremely rare white gold wristwatch with observatory grade movement and guilloché dial, accompanied by certificate and presentation box.",
+        "box_papers": "full_set"
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": 50,
+    "limited_edition": {
+      "is_limited": true,
+      "stated_size": 50,
+      "source_url": "https://www.phillips.com/detail/voutilainen/230872"
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "2007",
+      "person_or_event": "Grand Prix d'Horlogerie de Genève, Best Men's Watch",
+      "description": "The Observatoire was introduced in 2007 and awarded Best Men's Watch at the Grand Prix d'Horlogerie de Genève that same year. It was Voutilainen's first watch built around a movement he had not designed himself, and the only one of its kind.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/190421"
+    },
+    {
+      "date": "2011",
+      "person_or_event": "Replaced by the Vingt-8",
+      "description": "The Observatoire was discontinued in 2011 and replaced by the Vingt-8, which carried Voutilainen's own in-house calibre 28. The model ran for roughly four years and approximately fifty pieces were made.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/190421"
+    },
+    {
+      "date": "2026-06-13",
+      "person_or_event": "Phillips New York Watch Auction: XIV, lot 82",
+      "description": "Case no. C260101, a 2009 white gold example, was sold for USD 1,041,400 against an estimate of USD 100,000-200,000.",
+      "source_url": "https://www.phillips.com/detail/voutilainen/230872"
+    }
+  ],
+  "narrative": {
+    "story": "Voutilainen spent his career building movements. The Observatoire is the exception, and that is the whole story.\n\nThe occasion was luck rather than design. Kari Voutilainen came across a group of Peseux calibres that had been fabricated but never assembled — observatory-grade movements, mid-twentieth century, of a quality that was never going to be put on sale to the public. They were components, not watches. He decided to build a small series around them.\n\nWhat came out was a 38-to-39mm dress watch with tear-drop lugs, a gold guilloché dial, a free-sprung Glycydur balance and gold hands, on a movement of 30mm and 21 jewels that he did not design and could not have designed: a regulator-grade calibre for measuring time, repurposed to tell it. Phillips records that only around 3,300 examples of that movement were ever made and that it was never available for public purchase, which is precisely the point of finding one on a shelf.\n\nIt won Best Men's Watch at the Grand Prix d'Horlogerie de Genève in 2007, the year it launched. It ran for about four years and roughly fifty pieces, in white gold, stainless steel and platinum, and then Voutilainen did the sensible thing and put his own calibre 28 inside a new watch — the Vingt-8 — which is where the rest of this register's Voutilainen cards come from.\n\nThe New York example that sold in June 2026 is case C260101, a 2009 watch in white gold. It made $1,041,400 against an estimate of $100,000 to $200,000.",
+    "collector_notes": "Two measurement conventions exist for the case and this dossier does not paper over them. Examples from 2008 are published at 38mm — including Voutilainen's own authorised retailer, whose spec sheet lists a 38.00mm case and a 30.00mm movement. The 2009 example recorded here measures 39mm. The dossier carries 39mm because that is the measurement on the lot on file; a collector comparing an earlier example should expect the 38mm figure instead.\n\nOnly one dated sale is imported here. Phillips has offered the Observatoire repeatedly — an 18k white gold 2008 example at USD 215,900 in New York, and a stainless steel 2009 example at CHF 381,000 in its Decade One sale — but those sale dates are not in this register's harvest, so those figures are named and left out rather than dated approximately.\n\nNo maker list price is on file. Marketplace asking prices for the Observatoire cluster between roughly USD 61,000 and USD 75,000, but an aggregator's asking price is not a published MSRP and is not entered as one.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-mcode-coverage",
+    "curated_date": "2026-10-21",
+    "sources": [
+      "https://www.phillips.com/detail/voutilainen/230872",
+      "https://www.phillips.com/detail/voutilainen/190421",
+      "https://salondeshorlogers.ch/timepiece/voutilainen/past-collection/observatoire/"
+    ]
+  }
+}

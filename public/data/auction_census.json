@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T11:20:33.766Z",
+  "generated_at": "2026-10-21T16:18:52.981Z",
   "source": "Phillips public watch auction results",
   "source_url": "https://www.phillips.com/features/watches",
   "harvest_date": "2026-09-05T17:14:54.282Z",
@@ -14,17 +14,17 @@
     "lots_converted_from_other_currency": 517,
     "unconverted_lots": 0,
     "brands_seen": 98,
-    "brands_in_register": 55,
+    "brands_in_register": 57,
     "lots_with_no_published_reference": 142,
     "lots_publishing_neither_reference_nor_model": 23,
     "value_with_no_published_reference_usd": 98048289,
     "value_publishing_neither_reference_nor_model_usd": 2384725
   },
   "coverage": {
-    "lots_matching_a_card": 38,
-    "lots_matching_a_card_pct": 5.6,
-    "value_matching_a_card_usd": 5096596,
-    "value_matching_a_card_pct": 2.3,
+    "lots_matching_a_card": 46,
+    "lots_matching_a_card_pct": 6.8,
+    "value_matching_a_card_usd": 17806518,
+    "value_matching_a_card_pct": 8,
     "by_reference": {
       "lots": 37,
       "value_usd": 3890096,
@@ -32,10 +32,10 @@
       "meaning": "Brand + published reference number matched a card. The traditional channel, and the only one that worked for most of the register until this build."
     },
     "by_model_name": {
-      "lots": 1,
-      "value_usd": 1206500,
-      "value_pct": 0.5,
-      "cards_in_channel": 1,
+      "lots": 9,
+      "value_usd": 13916422,
+      "value_pct": 6.2,
+      "cards_in_channel": 8,
       "meaning": "Brand + published model name matched a card, used only where the lot published no reference number. A card opts into this channel by declaring identity.published_model_name — the string the maker or auction house actually prints. It is never inferred from the display name, because a display name is often a family name (\"Day-Date\" is a Rolex line, not a model). Voutilainen, F.P. Journe, Louis Richard, Akrivia and most of the independent tier identify their watches by name rather than by ref, so without this channel the coverage figure could not see them at all."
     },
     "note": "Both channels are exact identity matches, never near-misses. The fuzzy matcher finds a further set of near-miss references and the FX matcher converts other currencies; those two sets are real sales of neighbouring references and are deliberately not counted here."
@@ -125,7 +125,7 @@
       "lots": 2,
       "priced_lots": 2,
       "value_usd": 5488412,
-      "cards_in_register": 0
+      "cards_in_register": 1
     },
     {
       "brand": "Voutilainen",
@@ -133,7 +133,7 @@
       "lots": 4,
       "priced_lots": 4,
       "value_usd": 5245100,
-      "cards_in_register": 1
+      "cards_in_register": 3
     },
     {
       "brand": "Richard Mille",
@@ -149,7 +149,7 @@
       "lots": 1,
       "priced_lots": 1,
       "value_usd": 3853500,
-      "cards_in_register": 0
+      "cards_in_register": 1
     },
     {
       "brand": "Louis Audemars & Co",

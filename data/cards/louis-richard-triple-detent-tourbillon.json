@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "louis-richard-triple-detent-tourbillon",
+  "identity": {
+    "brand": "Louis Richard",
+    "reference": "Triple Detent Constant Force",
+    "published_model_name": "Triple Detent Constant Force One Minute Tourbillon Chronometer",
+    "name": "Triple Detent Constant Force Tourbillon Chronometer",
+    "nickname": "The only one known",
+    "collection": "Triple Detent",
+    "tier": "trinity",
+    "produced": {
+      "start_year": 1860,
+      "end_year": 1860,
+      "discontinued": true
+    },
+    "movement": {
+      "caliber": "12",
+      "type": "manual"
+    },
+    "case": {
+      "diameter_mm": 56,
+      "material": "18k yellow gold",
+      "bezel": "hinged front bezel with constant-force spiral"
+    },
+    "one_liner": "A pocket chronometer that puts a tourbillon regulator behind a constant-force escapement — and is believed to be the only watch ever made to combine the two. Circa 1860, 56mm yellow gold, movement no. 12, ex-Harlow Shapley."
+  },
+  "retail": {
+    "msrp_history": [],
+    "current_msrp_usd": null
+  },
+  "market_evidence": {
+    "comps": [
+      {
+        "date": "2026-05-09",
+        "price_usd": 5096896,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/louis-richard/232871",
+        "comparable": false,
+        "condition": "Phillips Geneva Watch Auction: XXIII, lot 108. Circa 1860, 18k yellow gold, 56mm, movement no. 12, case no. 11846 12, dial and movement signed, movement further engraved 'Invenit et Fecit'. Hammer CHF 3,200,000; sold CHF 3,968,000 (converted at the ECB reference rate for 2026-05-08) after 46 bids. Provenance: Sotheby's New York, 30 October 1990, lot 448; thence by descent from Harlow Shapley, Director of the Harvard College Observatory. Marked NOT COMPARABLE because Phillips describes it as the only known example in the history of watchmaking: one sale is a data point, not a price series, and nothing may be estimated from it. Literature: Revue Française de l'Horlogerie Ancienne no. 8 (1980), pp. 52-60.",
+        "box_papers": null
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": 1,
+    "limited_edition": {
+      "is_limited": true,
+      "stated_size": 1,
+      "source_url": "https://www.phillips.com/detail/louis-richard/232871"
+    },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [
+    {
+      "date": "1839",
+      "person_or_event": "Société d'Émulation gold medal",
+      "description": "Louis Jean Richard, born in Le Locle in 1812, earned a gold medal from the Société d'Émulation for a chronometer with free escapement and constant force. He bought astronomical instruments in Paris to conduct his own celestial observations and regulated his watches by stellar movement; his workshop was fitted with an ice chamber and an oven to test performance at extreme temperatures.",
+      "source_url": "https://www.phillips.com/detail/louis-richard/232871"
+    },
+    {
+      "date": "1851",
+      "person_or_event": "Great Exhibition, Crystal Palace, London",
+      "description": "Richard exhibited a marine chronometer at the Great Exhibition of 1851 and was awarded an A Prize Medal.",
+      "source_url": "https://www.phillips.com/detail/louis-richard/232871"
+    },
+    {
+      "date": "1990-10-30",
+      "person_or_event": "Sotheby's New York, lot 448",
+      "description": "The watch last appeared at auction at Sotheby's New York on 30 October 1990, lot 448. Phillips records that it subsequently belonged to Harlow Shapley, Director of the Harvard College Observatory and Emeritus Professor of Astronomy at Harvard, president of eight national scientific organizations, author of Of Stars and Men, and laureate of the Pius XI Prize for Science and Humanity.",
+      "source_url": "https://www.phillips.com/detail/louis-richard/232871"
+    },
+    {
+      "date": "2026-05-09",
+      "person_or_event": "Phillips Geneva Watch Auction: XXIII, lot 108",
+      "description": "The watch sold for CHF 3,968,000 after 46 bids. Phillips describes it as the only known example combining Richard's constant force escapement with a tourbillon regulator, and notes that a separate finely finished regulator by Richard dated 1842 is preserved at the Musée International d'Horlogerie. The tourbillon frame is released by a latch and a slide lever between 5 and 6 o'clock, and an A-M lever (arrêt-marche) locks the third wheel so the carriage can be removed for adjustment without releasing the mainspring.",
+      "source_url": "https://www.phillips.com/detail/louis-richard/232871"
+    }
+  ],
+  "narrative": {
+    "story": "Two ideas that were never married, married in one watch.\n\nThe constant-force escapement, by Phillips's account of Richard, ensures the balance receives the same push through the whole mainspring run instead of more at the top and less at the bottom. The tourbillon cancels the gravitational error a balance picks up as it rotates. Do both and the arithmetic gets very good indeed. Almost nobody did both. Phillips describes this watch as the only known example in the history of watchmaking that combines Richard's constant force escapement with a tourbillon regulator.\n\nRichard built it in the 1840s, in Le Locle, at the height of nineteenth-century chronometry. The movement carries a three-arm bimetallic compensation balance with gold timing screws, free-sprung and fitted with a helical hairspring. The carriage is half polished and half matte, and its three detents do what detents have always done: rest, impulse, disengagement. Fourteen large ruby jewels, frosted gilt plates, a matte steel bridge. The movement is engraved Invenit et Fecit — he invented it and he made it.\n\nThe engineering detail worth stopping on is the A-M lever. Arrêt-marche, stop and go, marked A through M on a second lever beneath the hinged front bezel. It locks the tooth of the third wheel so the tourbillon carriage can be lifted out for adjustment without letting the mainspring run down. In a lever-escapement watch, servicing meant releasing the spring. Here, the watch can be regulated while it stays going.\n\nIt surfaced once before, at Sotheby's New York in 1990. After that it belonged to an astronomer. Harlow Shapley ran the Harvard College Observatory, spent a career measuring how far away things were, and wrote five books and nearly five hundred papers, among them Of Stars and Men. He sold it in Geneva in May 2026 after 46 bids, and the price was CHF 3,968,000.",
+    "collector_notes": "There is no market for this object in the ordinary sense and the register does not pretend otherwise. One watch, one known example, one sale in living memory. The comp on this dossier is marked not comparable on purpose: a unique object cannot establish a range, and nothing is estimated from it. The comparable figure is deliberately absent rather than borrowed from a neighbouring pocket chronometer.\n\nThe reference reads 'Triple Detent Constant Force' because Richard published no reference numbers and this is the name the auction house prints. There is no retail price, no catalogue, no production run — the register carries an empty MSRP history rather than inventing one.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "agent-mcode-coverage",
+    "curated_date": "2026-10-21",
+    "sources": [
+      "https://www.phillips.com/detail/louis-richard/232871"
+    ]
+  }
+}

@@ -61,15 +61,61 @@ model. Inferring identity from a display name is the same class of error as the
 Levenshtein matcher that was rejected earlier. Cards must now say so explicitly,
 and `validate_card.mjs` rejects a malformed value.
 
-Result after the fix:
+## Result after the fix, and after the first pass (2026-10-21)
 
-| Metric | Before | After |
+| Metric | Start of the fix | After the first pass |
 | --- | --- | --- |
-| Lots matching a card | 37 (5.5%) | **38 (5.6%)** |
-| Value matching a card | $3.89M (1.7%) | **$5.10M (2.3%)** |
-| — by reference number | 37 lots / $3.89M | 37 lots / $3.89M |
-| — by published model name | *(channel did not exist)* | 1 lot / $1.21M |
+| Lots matching a card | 37 (5.5%) | **46 (6.8%)** |
+| Value matching a card | $3.89M (1.7%) | **$17.81M (8.0%)** |
+| — by reference number | 37 lots / $3.89M | 37 lots / $3.89M (1.7%) |
+| — by published model name | *(channel did not exist)* | **9 lots / $13.92M (6.2%)** |
+| Brands in register | 54 | 57 |
 | Lots with no published reference | *(unreported)* | **142 = 43.9% of value** |
+
+The model-name channel is where the movement came from: nine lots and $13.9M,
+against one lot and $1.2M the moment it shipped. Six of those nine came from
+**cards that already existed** and only needed an opt-in — the register was
+holding references it simply could not be seen holding.
+
+### What the first pass built
+
+| Card | Basis | Lot | Realized |
+| --- | --- | --- | ---: |
+| `voutilainen-vingt-8-iso` | new card | NY XIV lot 140 | $1,206,500 |
+| `louis-richard-triple-detent-tourbillon` | new card | CH XXIII lot 108 | $5,096,896 |
+| `akrivia-ak-06` | new card | CH XXIII lot 36 | $3,853,500 |
+| `voutilainen-observatoire` | new card | NY XIV lot 82 | $1,041,400 |
+| `voutilainen-vingt-8-inverse` | new card | NY XIV lot 9 | $1,155,700 |
+| `journe-resonance` | opt-in only | CH XXIII lot 906, HK XXII lot 1064 | $1,258,200 |
+| `f-p-journe-chronometre-souverain` | opt-in only | HK XXII lot 1001 | $660,000 |
+| `mbf-lmx` | opt-in only | HK XXII lot 987 | $518,000 |
+
+### The second correction: "AK-07" was also wrong
+
+An earlier draft of this document named **Akrivia AK-07** as a target. The lot is
+**AK-06** — movement no. 03, stainless steel, the first AkriviA without a
+tourbillon. Two separate model-name guesses in this document were wrong before
+any lot was read: Vingt-6, and AK-7. Both were plausible-sounding and both would
+have closed nothing. The rule adopted after that: **read the lot before naming it
+in a plan.**
+
+### The F.P. Journe reality check
+
+The largest single pool in the census is F.P. Journe: 39 lots, $108.1M, no
+references published. It was tempting to assume per-material opt-ins would sweep
+it up. Reading the 39 lots shows they are **35 distinct model names**, not one:
+`Chronomètre à Résonance "Souscription..."`, `"Pisa"`, `"Parking..."`,
+`"RQ 40MM"`, `Tourbillon Souverain Anniversaire`, `Tourbillon Souverain
+"Ruthenium"`, `Octa Calendrier`, `Octa Réserve de Marche "Souscription..."`,
+`Octa Divine`, `Centigraphe Souverain`, and more. Quoted and material qualifiers
+normalise into their own buckets, so only the two bare `Chronomètre à Résonance`
+lots were safely claimable.
+
+That is the honest yield: **2 lots, $1.26M**, from a brand that looked like
+$108.1M. The remaining $106.8M is not one missing opt-in. It is a catalogue the
+register does not hold — roughly thirty-five distinct limited and commissioned
+references, most of them individually named pieces. Building it means building a
+dozen-plus cards with per-lot research, not flipping a switch.
 
 ## What the gap actually is
 

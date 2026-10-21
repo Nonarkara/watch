@@ -38,8 +38,22 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   req(TIERS.includes(idn.tier), `identity.tier must be one of ${TIERS.join("|")}`);
   req(idn.produced && Number.isInteger(idn.produced.start_year), "identity.produced.start_year required");
   req(typeof idn.produced?.discontinued === "boolean", "identity.produced.discontinued must be boolean");
-  if (idn.produced?.discontinued) req(Number.isInteger(idn.produced.end_year), "discontinued needs end_year");
-  else req(idn.produced?.end_year == null, "in-production card must have end_year null");
+  if (idn.produced?.discontinued) {
+    // A discontinued reference whose end year the maker never published is a real
+    // state, not a missing answer — Voutilainen discontinued the Vingt-8 Inversé
+    // without dating it, and Phillips only says so. Forcing an invented year
+    // would put a falsehood in the structured layer; forbidding the card would
+    // throw away a documented fact. So a null end_year is allowed here ONLY when
+    // the card explains the gap in produced.end_year_note, which puts the
+    // admission in the data rather than in a commit message.
+    if (!Number.isInteger(idn.produced.end_year)) {
+      req(idn.produced.end_year === null, "produced.end_year must be an integer or null, never a placeholder");
+      req(typeof idn.produced.end_year_note === "string" && idn.produced.end_year_note.trim().length >= 12,
+        "discontinued with no end_year must carry produced.end_year_note explaining that the maker published no date");
+    } else {
+      req(idn.produced.end_year >= idn.produced.start_year, "produced.end_year must not precede start_year");
+    }
+  } else req(idn.produced?.end_year == null, "in-production card must have end_year null");
 
   const r = card.retail || {};
   req(Array.isArray(r.msrp_history), "retail.msrp_history must be an array");
