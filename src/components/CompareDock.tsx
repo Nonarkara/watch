@@ -25,15 +25,7 @@ export default function CompareDock() {
   const byId = new Map((data?.cards ?? []).map((c) => [c.id, c]))
   const empty = ids.length === 0
 
-  // The dock is `position: fixed; bottom: 0`, so anything in normal flow
-  // above it gets covered. The spacer below is a sister element that
-  // lives inside the document flow (it is mounted BEFORE <footer> in App.tsx)
-  // and reserves the dock's height, so the page can always scroll past
-  // the dock to reveal the last line of content. Without it the home page's
-  // research-ledger / the footer's link row disappear under the dock.
   return (
-    <>
-      <div className="cdock-spacer" aria-hidden="true" />
     <div
       className={'cdock' + (over ? ' over' : '') + (empty ? ' idle' : '') + (blocked ? ' blocked' : '')}
       role="complementary"
@@ -73,6 +65,5 @@ export default function CompareDock() {
         )}
       </div>
     </div>
-    </>
   )
 }

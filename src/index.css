@@ -205,6 +205,7 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 .wordmark {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: 12px;
   text-decoration: none;
   color: var(--ink);
@@ -576,11 +577,11 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .ladder-row:last-child { border-bottom: none; }
 
 /* ── Footer ── */
-.ftr { border-top: var(--border); padding: var(--space-lg) 0 calc(var(--space-xl) + var(--sab) + 64px); }
+.ftr { border-top: var(--border); padding: var(--space-lg) 0 calc(var(--space-xl) + var(--sab)); }
 .ftr p { margin-bottom: var(--space-sm); }
 .ftr .micro.dim { max-width: 72ch; }
-.ftr-links { display: flex; flex-wrap: wrap; gap: var(--space-md); }
-.ftr-links a { color: var(--dim); border-bottom: 1px solid transparent; }
+.ftr-links { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+.ftr-links a { color: var(--dim); border-bottom: 1px solid transparent; display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ── Reduced motion: this site animates almost nothing by design ── */
 * { transition: none; }
@@ -1262,8 +1263,13 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .reg-card { cursor: grab; }
 .reg-card:active { cursor: grabbing; }
 
+/* sticky, not fixed: the dock is the LAST element in the document (after the
+   footer), so it pins to the bottom of the viewport while you scroll and sits
+   in normal flow below the footer when you reach the end. A fixed bar covers
+   the footer by however tall it is, and it grows (57px empty, 131px with four
+   watches); in-flow it can never cover anything, with no number to keep right. */
 .cdock {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-drawer);
+  position: sticky; bottom: 0; z-index: var(--z-drawer);
   border-top: 1px solid var(--rule);
   background: color-mix(in srgb, var(--bg) 96%, transparent);
   backdrop-filter: saturate(1.4) blur(8px);
@@ -1282,19 +1288,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .cdock-actions { display: flex; align-items: center; gap: var(--space-sm); }
 .cdock-clear { font-size: var(--text-micro); letter-spacing: .06em; color: var(--dim); border-bottom: 1px solid var(--line); }
 .cdock .btn:disabled { opacity: .38; cursor: not-allowed; }
-
-/* Reserve space in document flow for the fixed dock so the last line of any
-   page (e.g. /'s research-ledger, /register's pagination, the footer link
-   row) can be scrolled into view instead of being clipped under the dock.
-   The dock is `min-height:56px` + `padding-block:8px × 2` +
-   `padding-bottom:var(--sab)` ≈ 97px on desktop, ~93px on mobile. We pick
-   112px / 100px with extra slack so even a slot-wrapped dock never sits on
-   top of content. The footer keeps its own pad-bottom for /compare (no dock
-   there, so no spacer either). */
-.cdock-spacer { height: 112px; }
-@media (max-width: 719px) {
-  .cdock-spacer { height: 100px; }
-}
 
 .cmp-head { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: flex-end; justify-content: space-between; }
 .cmp-head-tools { display: flex; align-items: center; gap: var(--space-md); padding-bottom: var(--space-md); }
@@ -3913,12 +3906,15 @@ main.shell { padding-top: var(--space-md); }
 .srch-btn {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--paper); color: var(--ink);
-  border: 0; padding: 0 10px; height: 32px;
+  border: 0; padding: 0 10px; height: 44px; min-width: 44px; justify-content: center;
   font-size: 11px; letter-spacing: 0.08em;
   cursor: pointer; transition: background 120ms ease;
   font-family: var(--font-mono);
 }
 .srch-btn:hover { background: var(--paper-2); }
+@media (hover: hover) and (pointer: fine) {
+  .srch-btn { height: 32px; }
+}
 .srch-btn-text { font-weight: 700; }
 .srch-btn-kbd { font-size: 9px; color: var(--dim); border: 1px solid var(--rule); padding: 1px 4px; }
 @media (max-width: 720px) { .srch-btn-text { display: none; } .srch-btn-kbd { display: none; } }
@@ -4177,11 +4173,14 @@ main.shell { padding-top: var(--space-md); }
   display: inline-flex; align-items: center; justify-content: center; gap: 0;
   background: var(--paper); color: var(--ink);
   border: 0;
-  padding: 0; width: 36px; height: 32px;
+  padding: 0; width: 44px; height: 44px;
   cursor: pointer; position: relative;
   transition: background 120ms ease;
 }
 .theme-toggle:hover { background: var(--paper-2); }
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle { width: 36px; height: 32px; }
+}
 .theme-toggle-icon { font-size: 16px; line-height: 1; }
 .theme-toggle-dot {
   position: absolute; right: 6px; bottom: 6px;

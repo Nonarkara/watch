@@ -136,54 +136,52 @@ if (dimLight && parseFloat(dimLight[1]) < 0.60) {
   fail(`--dim light opacity ${dimLight[1]} is below 0.60 (fails 4.5:1 on white)`)
 }
 
-// ── 10. compare-dock overlap guard ────────────────────────────────────
-// `.cdock` is `position: fixed; bottom: 0` with `min-height: 56px` + the
-// safe-area padding. Without a spacer in document flow, the last line of
-// any page (e.g. /'s research-ledger, the footer link row) gets clipped
-// under the dock. The spacer is a sister div mounted BEFORE <footer> in
-// App.tsx; it takes the dock height so the user can always scroll past
-// the overlap zone. On /compare the dock is null, so the spacer must
-// also be null. (GHSA-era shrinkage: dock height + footer padding →
-// research-ledger last row clipped. 2026-10-21.)
-import { readFileSync as _read } from 'node:fs'
-const dockSrc = _read(new URL('../src/components/CompareDock.tsx', import.meta.url), 'utf8')
-if (!/className="cdock-spacer"/.test(dockSrc)) {
-  fail('CompareDock.tsx must render a <div className="cdock-spacer"> in its fragment so the dock has a flow reserve')
+// ── 10. the compare dock must never cover the footer ──────────────────
+// The dock grows with its contents (57px empty, 71px with four watches on a
+// phone, 131px with four on desktop) and the footer is always the last thing
+// in the document. Three approaches were tried and measured in a real layout:
+//   - a hard-coded "+ 64px" footer reserve left the last link row 19px UNDER
+//     a populated desktop dock (the original bug, never actually fixed);
+//   - a `.cdock-spacer` placed in flow BEFORE the footer changed clearance by
+//     0px (a flow element before the last element cannot protect it) and just
+//     added ~100px of dead space above every footer;
+//   - a JS-published height works, but needs a ResizeObserver and a CSS var.
+// The robust fix has no number and no JS: the dock is `position: sticky` and
+// rendered AFTER the footer, so it pins to the viewport bottom while scrolling
+// and takes real space below the footer at the end of the page. A fixed bar
+// covers the footer by however tall it is; an in-flow one cannot.
+const cdockRule = css.match(/\n\.cdock\s*\{[^}]*\}/)
+if (!cdockRule || !/position:\s*sticky/.test(cdockRule[0]) || /position:\s*fixed/.test(cdockRule[0])) {
+  fail('.cdock must be position: sticky, not fixed: a fixed bar covers the footer by its own height, which varies 57-131px')
 }
-if (!/aria-hidden/.test(dockSrc) || !/(cdock-spacer[^>]*aria-hidden|aria-hidden[^>]*cdock-spacer)/.test(dockSrc)) {
-  fail('CompareDock.tsx cdock-spacer must carry aria-hidden (decorative spacer, not a focusable landmark)')
+const dockAt = appSrc.indexOf('<CompareDock')
+const footerAt = appSrc.indexOf('<footer')
+if (dockAt < 0 || footerAt < 0 || dockAt < footerAt) {
+  fail('App.tsx must render <CompareDock /> AFTER <footer> so the sticky dock sits below the footer in flow')
 }
-if (!/\/compare['"]\)\s*return\s*null/.test(dockSrc)) {
-  fail('CompareDock.tsx must early-return null when pathname === "/compare" so the spacer is also gone on that page')
+const ftrPad = (css.match(/\n\.ftr\s*\{[^}]*\}/) || [''])[0]
+if (/padding:[^;]*\+\s*\d+px\s*\)/.test(ftrPad) || /cdock-h/.test(css)) {
+  fail('.ftr must not reserve the dock with a hard-coded px number or a published height; the sticky dock needs no reserve')
 }
-
-// App.tsx must place <CompareDock /> BEFORE <footer> so the spacer flows
-// between <main> and <footer>, pushing the footer down by the dock's
-// height. The footer is the last thing the document extends; placing the
-// dock after it would put the spacer at document end with no flow gain.
-const compDockIdx = appSrc.indexOf('<CompareDock')
-const footerIdx = appSrc.indexOf('<footer')
-if (compDockIdx < 0 || footerIdx < 0) {
-  fail('App.tsx must contain both <CompareDock /> and <footer>; one is missing')
-} else if (compDockIdx > footerIdx) {
-  fail('App.tsx must render <CompareDock /> BEFORE <footer> so the spacer pushes the footer down by the dock height')
+if (/\.cdock-spacer/.test(css) || /cdock-spacer/.test(readFileSync(new URL('../src/components/CompareDock.tsx', import.meta.url), 'utf8'))) {
+  fail('.cdock-spacer is a placebo (measured: removing it changes footer clearance by 0px); do not reintroduce it')
 }
 
-// The .cdock-spacer rule must reserve a real height. A 0-height spacer
-// is the original bug in disguise. Accept either a calc(...) reservation
-// or a literal pixel height >= 80px desktop / >= 70px mobile (matches
-// the dock min-height + padding-block + safe-area at the densest layout).
-const desktopH = css.match(/\.cdock-spacer\s*\{[^}]*height:\s*(?:\(calc\([^)]+\)\)|(\d+)px)/)
-const desktopPx = desktopH && desktopH[1] ? parseInt(desktopH[1], 10) : (desktopH ? 'calc' : null)
-if (!desktopH || (typeof desktopPx === 'number' && desktopPx < 80)) {
-  fail(`.cdock-spacer must reserve a real desktop height (calc(...) or >= 80px); found: ${desktopH && desktopH[0].slice(0, 60)}`)
-}
-const mobileRule = css.match(/@media\s*\(max-width:\s*719px\)\s*\{\s*\.cdock-spacer\s*\{[^}]*height:\s*(?:\(calc\([^)]+\)\)|(\d+)px)/)
-const mobilePx = mobileRule && mobileRule[1] ? parseInt(mobileRule[1], 10) : (mobileRule ? 'calc' : null)
-if (!mobileRule || (typeof mobilePx === 'number' && mobilePx < 70)) {
-  fail(`.cdock-spacer must define a mobile height under @media (max-width: 719px); phones are 24-34px smaller so the desktop calc is overkill`)
+// ── 11. header + footer controls are 44px phone targets (§11.8.2) ──────
+// Measured at 375px: all 18 footer links were 18px tall, the search button
+// 28x32, the theme toggle 36x32, the wordmark 36px. Base CSS is phone-first;
+// only fine-pointer desktops may relax the two header buttons to 32px.
+const rule = (sel) => (css.match(new RegExp('\\n' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{[^}]*\\}')) || [''])[0]
+const need44 = [
+  ['.ftr-links a', /min-height:\s*44px/],
+  ['.wordmark', /min-height:\s*44px/],
+  ['.srch-btn', /height:\s*44px/],
+  ['.theme-toggle', /height:\s*44px/],
+]
+for (const [sel, re] of need44) {
+  if (!re.test(rule(sel))) fail(`${sel} must be a 44px phone target in its base rule (relax only inside a fine-pointer media query)`)
 }
 
 if (!process.exitCode) {
-  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site, --amber text-safe, --dim >= 0.60, compare-dock spacer present, mobile spacer present, <CompareDock /> precedes <footer>')
+  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site, --amber text-safe, --dim >= 0.60, compare dock sticky and after the footer, no placebo spacer, header/footer controls 44px')
 }
