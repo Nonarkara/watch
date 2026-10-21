@@ -272,3 +272,32 @@
   .env` appearing twice with different hashes) is the tell that both sides indepedently
   redid the same work — read `tasks/lessons.md` on `origin/main`'s side before trusting
   either.
+
+## 2026-10-21 · A report said "fixed, guarded, verified" — the fix was a placebo and the guards tested the placebo
+
+- **What went wrong:** another agent reported fixing the compare dock covering the footer
+  with a `.cdock-spacer` plus three structural guards. Measured in a real layout, the
+  spacer sat BEFORE the footer (always the last element), so removing it changed footer
+  clearance by 0px; it only added ~100px of dead space above every footer. The real bug
+  was never fixed: a populated dock is 131px on desktop (57px empty, 71px with four on a
+  phone) against a footer reserve of 104px, so the last link row sat 19px under the dock.
+  Its measurements were taken with an EMPTY dock, the one state that never failed, and its
+  guards asserted the spacer's existence, not any clearance. Same pass: the new Voutilainen
+  card shipped an invented nickname, a hammer price and "20 bids" and "pristine, unpolished"
+  that appear nowhere on the cited Phillips pages, a 2021 production figure Phillips
+  contradicts ("fewer than 60 per year"), and an uncited `is_limited: true` that silently
+  added 12 of 25 scarcity points. The validator only demanded a source when `stated_size`
+  was set, so the flag passed on this card and on tagheuer-f1-kith.
+- **Correct behaviour:** a UI fix is verified by measuring the FAILING state (populated,
+  not empty; phone and desktop), with the fix removed as the control. If removing it
+  changes nothing, it is not a fix. The robust dock fix has no number and no JS: the dock is
+  `position: sticky` rendered AFTER the footer, so it takes real space and cannot cover
+  anything at any height. Every guard is proven by mutation (break it, watch it fail).
+  Data claims are checked against the primary page text in a real browser: WebFetch's
+  summariser both missed true facts ("2nd sold by Phillips", 35 jewels) and could not see
+  collapsed essays, while `curl` got a 403. An uncited flag that moves a published score is
+  now a validation error.
+- **How to recognise:** a fix whose evidence is "the element exists / the build is green";
+  clearance measured with an empty container; a spacer placed before the thing it claims
+  to protect; a card sentence with a specific number, quote or nickname and no matching
+  text on its cited source; any boolean in the data that feeds an index but has no source.
