@@ -2,14 +2,69 @@
 // frontend's live-vs-build chooser. No network: every fetch is mocked.
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { collectAttention, nextHealth, healthStatus, rankScore, MAX_ROWS } from '../worker/live/attention.mjs'
+import { collectAttention, nextHealth, healthStatus, rankScore, MAX_ROWS, wikiViews } from '../worker/live/attention.mjs'
 import worker, { runCollector } from '../worker/live/index.mjs'
-import { handleLive } from '../functions/live/[[path]].js'
+import { handleLive, onRequestGet } from '../functions/live/[[path]].js'
 import { pickFresher, isUsableSnapshot, sourceLine } from '../src/lib/live-trends.ts'
 
 const watchlist = JSON.parse(readFileSync(new URL('../data/shared/trend_watchlist.json', import.meta.url), 'utf8'))
 const cards = new Set(JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8')).cards.map((c) => c.id))
 const NOW = new Date('2026-10-18T06:40:00Z')
+
+// Untrusted upstream JSON must not turn missing values, duplicate dates or
+// multi-day gaps into valid daily demand signals.
+{
+  const read = (payload) => wikiViews('Rolex', {
+    now: NOW,
+    fetchImpl: async () => ({ ok: true, json: async () => payload }),
+  })
+  for (const payload of [null, { items: {} }, { items: [null] },
+    { items: [{ timestamp: '2026101600', views: -1 }] },
+    { items: [{ timestamp: '2026101600', views: null }] },
+    { items: [{ timestamp: '2026101600', views: '100' }] },
+    { items: [{ timestamp: '2026103200', views: 100 }] },
+    { items: [{ timestamp: '2026101800', views: 100 }] },
+    { items: Array(9).fill({ timestamp: '2026101600', views: 100 }) },
+    { items: Array(2).fill({ timestamp: '2026101600', views: 100 }) },
+  ]) assert.equal((await read(payload)).ok, false, 'malformed upstream series must degrade to a reason')
+  assert.equal((await read({ items: [
+    { timestamp: '2026101500', views: 100 }, { timestamp: '2026101700', views: 120 },
+  ] })).reason, 'nonconsecutive_days')
+  const unordered = await read({ items: [
+    { timestamp: '2026101700', views: 120 }, { timestamp: '2026101600', views: 100 },
+  ] })
+  assert.equal(unordered.dod_pct, 20, 'daily change follows dates, not response order')
+}
+
+// Queries cannot fragment the cache for an invariant public snapshot. Cache
+// hits must serve the next query without touching KV again.
+{
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'caches')
+  const entries = new Map()
+  const pending = []
+  let reads = 0
+  Object.defineProperty(globalThis, 'caches', { configurable: true, value: { default: {
+    async match(key) { return entries.get(key.url)?.clone() },
+    async put(key, response) { entries.set(key.url, response) },
+  } } })
+  try {
+    const env = { WATCH_LIVE: { async get(key) {
+      reads++
+      return key === 'attention:latest' ? { built_at: NOW.toISOString(), trending: [] } : null
+    } } }
+    for (const query of ['?cachebust=1', '?cachebust=2']) {
+      const result = await onRequestGet({ request: new Request(`https://watch.example/live/market_trends.json${query}`),
+        env, params: { path: ['market_trends.json'] }, waitUntil(promise) { pending.push(promise) } })
+      assert.equal(result.status, 200)
+      await Promise.all(pending)
+    }
+    assert.equal(reads, 2, 'only the first request may read the two KV keys')
+    assert.deepEqual([...entries.keys()], ['https://watch.example/live/market_trends.json'])
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'caches', original)
+    else delete globalThis.caches
+  }
+}
 
 function wikiResponse(views) {
   return { ok: true, status: 200, json: async () => ({ items: views.map((v, i) => ({ timestamp: `202610${String(10 + i).padStart(2, '0')}00`, views: v })) }) }

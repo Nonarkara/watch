@@ -43,16 +43,33 @@ export async function wikiViews(title, { fetchImpl, now = new Date(), days = 8 }
   if (!res.ok) return { ok: false, reason: `http_${res.status}` }
   let items
   try {
-    items = (await res.json()).items || []
+    items = (await res.json())?.items
   } catch {
     return { ok: false, reason: 'bad_json' }
   }
-  const series = items
-    .map((it) => ({ day: String(it.timestamp).slice(0, 8), views: Number(it.views) }))
-    .filter((p) => Number.isFinite(p.views))
+  if (!Array.isArray(items) || items.length > days) return { ok: false, reason: 'invalid_series' }
+  const seen = new Set()
+  const series = []
+  for (const item of items) {
+    const stamp = String(item?.timestamp ?? '')
+    const day = stamp.slice(0, 8)
+    const date = new Date(`${day.slice(0, 4)}-${day.slice(4, 6)}-${day.slice(6, 8)}T00:00:00Z`)
+    if (!/^\d{8}00$/.test(stamp) || !Number.isFinite(date.getTime()) || ymd(date) !== day
+      || day < ymd(start) || day > ymd(end) || seen.has(day)
+      || !Number.isSafeInteger(item?.views) || item.views < 0) {
+      return { ok: false, reason: 'invalid_series' }
+    }
+    seen.add(day)
+    series.push({ day, views: item.views })
+  }
+  series.sort((a, b) => a.day.localeCompare(b.day))
   if (series.length < 2) return { ok: false, reason: 'insufficient_days' }
   const last = series[series.length - 1]
   const prev = series[series.length - 2]
+  if (new Date(`${last.day.slice(0, 4)}-${last.day.slice(4, 6)}-${last.day.slice(6, 8)}T00:00:00Z`) -
+    new Date(`${prev.day.slice(0, 4)}-${prev.day.slice(4, 6)}-${prev.day.slice(6, 8)}T00:00:00Z`) !== 86400000) {
+    return { ok: false, reason: 'nonconsecutive_days' }
+  }
   const week = series.reduce((s, x) => s + x.views, 0)
   const dod = prev.views > 0 ? ((last.views - prev.views) / prev.views) * 100 : null
   return {

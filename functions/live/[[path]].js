@@ -41,14 +41,19 @@ export async function handleLive({ path, env, now = new Date() }) {
 export async function onRequestGet(context) {
   const { request, env, params } = context
   const path = Array.isArray(params.path) ? params.path.join('/') : String(params.path || '')
+  // Query strings do not affect these public snapshots. Share one cache key
+  // per route so cache-busting query parameters cannot multiply KV reads.
+  const cacheUrl = new URL(request.url)
+  cacheUrl.search = ''
+  const cacheKey = new Request(cacheUrl.toString(), { method: 'GET' })
   const cache = typeof caches !== 'undefined' ? caches.default : null
   if (cache) {
-    const hit = await cache.match(request)
+    const hit = await cache.match(cacheKey)
     if (hit) return hit
   }
   const res = await handleLive({ path, env })
   if (cache && res.headers.get('cache-control')?.startsWith('public')) {
-    context.waitUntil(cache.put(request, res.clone()))
+    context.waitUntil(cache.put(cacheKey, res.clone()))
   }
   return res
 }
