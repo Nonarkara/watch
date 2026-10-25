@@ -66,8 +66,13 @@ const NOW = new Date('2026-10-18T06:40:00Z')
   }
 }
 
-function wikiResponse(views) {
-  return { ok: true, status: 200, json: async () => ({ items: views.map((v, i) => ({ timestamp: `202610${String(10 + i).padStart(2, '0')}00`, views: v })) }) }
+function wikiResponse(views, endDay) {
+  const end = new Date(`${endDay.slice(0, 4)}-${endDay.slice(4, 6)}-${endDay.slice(6, 8)}T00:00:00Z`)
+  return { ok: true, status: 200, json: async () => ({ items: views.map((v, i) => {
+    const date = new Date(end)
+    date.setUTCDate(date.getUTCDate() - (views.length - 1 - i))
+    return { timestamp: date.toISOString().slice(0, 10).replaceAll('-', '') + '00', views: v }
+  }) }) }
 }
 function mockFetch({ fail = new Set(), status = 500 } = {}) {
   const calls = []
@@ -75,7 +80,7 @@ function mockFetch({ fail = new Set(), status = 500 } = {}) {
     calls.push({ url, ua: init?.headers?.['User-Agent'] })
     const title = decodeURIComponent(url.split('/user/')[1].split('/daily/')[0])
     if (fail.has(title) || fail.has('*')) return { ok: false, status, json: async () => ({}) }
-    return wikiResponse([100, 110, 120, 130, 140, 150, 160, 200])
+    return wikiResponse([100, 110, 120, 130, 140, 150, 160, 200], url.split('/').at(-1))
   }
   fn.calls = calls
   return fn
@@ -199,9 +204,20 @@ function memoryKV(seed = {}) {
   assert.equal(pickFresher({ ...live, built_at: '2020-01-01T00:00:00Z' }, build).origin, 'build', 'stale KV never hides a newer deploy')
   assert.equal(pickFresher('<!doctype html>', build).origin, 'build', 'SPA fallback HTML is not a snapshot')
   assert.equal(pickFresher({ ...live, trending: [] }, build).origin, 'build')
+  for (const badRows of [[null], [{ ...live.trending[0], score: Infinity }],
+    [{ ...live.trending[0], wikipedia: { last_views: -1, dod_pct: null } }],
+    [{ ...live.trending[0], card_id: 'javascript:alert(1)' }],
+    [live.trending[0], live.trending[0]],
+  ]) {
+    assert.equal(pickFresher({ ...live, trending: badRows }, build).origin, 'build',
+      'a newer timestamp cannot make malformed live rows outrank the valid build')
+  }
+  assert.equal(isUsableSnapshot({ ...live, sources: [null] }), false)
+  assert.equal(isUsableSnapshot({ ...live, as_of: '2026-02-31' }), false)
+  assert.equal(isUsableSnapshot({ ...live, count: 999 }), false, 'displayed signal count must match usable rows')
   assert.equal(pickFresher(null, null).snapshot, null)
   assert.equal(sourceLine(live.sources), 'WIKIMEDIA PAGEVIEWS + GOOGLE TRENDS NOT CONNECTED')
-  assert.equal(sourceLine(build.sources), 'GOOGLE TRENDS + WIKIMEDIA PAGEVIEWS')
+  assert.equal(sourceLine([{ label: 'Google Trends', status: 'ok' }, { label: 'Wikimedia Pageviews', status: 'ok' }]), 'GOOGLE TRENDS + WIKIMEDIA PAGEVIEWS')
   assert.equal(sourceLine([]), 'SOURCES NOT LISTED')
 }
 

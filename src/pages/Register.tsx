@@ -121,21 +121,10 @@ export default function Register() {
           <div className="pop-panel">
             <span className="bubble-kicker mono">THE HONEST PLOT</span>
             <strong>{data?.count ?? '—'} references</strong>
-            <span>{data ? `${data.cards.filter((c) => c.comp_summary).length} with cited comps · ${data.cards.length - data.cards.filter((c) => c.comp_summary).length} refused to estimate` : ''}</span>
+            <span>{data ? `${data.cards.filter((c) => c.comp_summary).length} with cited sales · ${data.cards.filter((c) => c.computed.estimate.value == null).length} without publishable estimates` : ''}</span>
           </div>
         }
       />
-
-      <div className="page-head">
-        <div>
-          <p className="eyebrow">The Register</p>
-          <h1 className="pagetitle">Every reference, with its evidence</h1>
-        </div>
-        <p className="lede">
-          Market figures come from verified public sales; the indices are computed, sourced, and
-          show their own limits. Where evidence is thin, the register says so instead of guessing.
-        </p>
-      </div>
 
       <div className="controls">
         <div className="controls-row">

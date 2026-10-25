@@ -1,5 +1,6 @@
 @import url('../../_shared/design-tokens/dr-non-brand.css');
 @import 'tailwindcss';
+@import './fonts.css';
 
 /* ── WATCH project overrides ────────────────────────────────────────────────
    Tokens assume an app-shell dashboard (overflow:hidden, no selection).
@@ -53,11 +54,12 @@
   --amber: var(--coral-text);     /* legacy alias — text-safe (4.93:1 on white, 7.95 on dark) */
   --neutral-pale: #F4F4F2;
   --neutral-line: #D5D5D0;
-  /* Type system unchanged: Archivo / Spectral / IBM Plex Mono. */
-  --font-body: 'Archivo', system-ui, sans-serif;
-  --font-display: 'Archivo', system-ui, sans-serif;
+  /* Palette contextual type: object labels and controls use Jost; sustained
+     reading keeps Spectral. Data uses tabular figures, without a third face. */
+  --font-body: 'Jost', 'Trebuchet MS', sans-serif;
+  --font-display: 'Jost', 'Trebuchet MS', sans-serif;
   --font-essay: 'Spectral', 'Georgia', serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: 'Jost', 'Trebuchet MS', sans-serif;
   --shell: 1240px;
   --pad: 20px;
 }
@@ -1275,7 +1277,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   backdrop-filter: saturate(1.4) blur(8px);
   padding-bottom: var(--sab);
 }
-.cdock.idle { opacity: .72; }
+.cdock.idle { position: static; opacity: .72; }
 .cdock.over { background: var(--paper-2); border-top-color: var(--amber); }
 .cdock.blocked { border-top-color: var(--coral-text); animation: cdock-flash 1.5s ease-out; }
 @keyframes cdock-flash { 0% { background: color-mix(in srgb, var(--coral-text) 12%, var(--bg)); } 100% { background: color-mix(in srgb, var(--bg) 96%, transparent); } }
@@ -3188,7 +3190,7 @@ main.shell { padding-top: var(--space-md); }
 .pom-decision-grid { display: grid; grid-template-columns: 1fr; }
 .pom-decision-grid > div { min-width: 0; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
 .pom-decision-grid > div:last-child { border-bottom: 0; }
-.pom-decision-grid span, .pom-decision-grid small { display: block; color: var(--dim); font-size: 8px; line-height: 1.45; letter-spacing: .07em; }
+.pom-decision-grid span, .pom-decision-grid small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; letter-spacing: .03em; }
 .pom-decision-grid strong { display: block; margin: 5px 0; font-family: var(--font-display); font-size: 23px; line-height: 1; }
 .pom-decision-foot { margin: 0; padding: 11px 18px; border-top: 1px solid var(--ink); background: var(--paper-2); color: var(--dim); font-size: 8px; line-height: 1.5; overflow-wrap: anywhere; }
 .pom-net-read { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6px 18px; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
@@ -3344,7 +3346,7 @@ main.shell { padding-top: var(--space-md); }
 .pom-card-tip { border-top: 1px dashed var(--rule); padding-top: 8px; font-family: var(--font-essay); font-size: 13px; line-height: 1.5; margin: 0; }
 .pom-tip-kicker { display: block; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; color: var(--coral-text); text-transform: uppercase; margin-bottom: 4px; }
 .pom-card-axes { display: flex; flex-wrap: wrap; gap: 4px; }
-.pom-card-axes .score-axis { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.4; border: 1px solid var(--ink); background: var(--paper-2); }
+.pom-card-axes .score-axis { display: inline-flex; flex-wrap: wrap; max-width: 100%; min-width: 0; align-items: center; gap: 6px; padding: 3px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.4; border: 1px solid var(--ink); background: var(--paper-2); }
 .pom-card-axes .score-axis strong { display: inline-block; }
 .pom-card-actions { display: flex; gap: 8px; }
 .pom-card-actions a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 12px; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); background: var(--paper-2); }
@@ -3917,7 +3919,16 @@ main.shell { padding-top: var(--space-md); }
 }
 .srch-btn-text { font-weight: 700; }
 .srch-btn-kbd { font-size: 9px; color: var(--dim); border: 1px solid var(--rule); padding: 1px 4px; }
-@media (max-width: 720px) { .srch-btn-text { display: none; } .srch-btn-kbd { display: none; } }
+@media (max-width: 720px) {
+  .hdr-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'wordmark cluster' 'nav nav'; gap: 8px 12px; align-items: center; }
+  .hdr-in > .wordmark { grid-area: wordmark; gap: 8px; }
+  .hdr-in > .hdr-cluster { grid-area: cluster; justify-self: end; }
+  .hdr-in > .nav { grid-area: nav; row-gap: 0; }
+  .wm-main { font-size: clamp(22px, 6vw, 30px); }
+  .wm-logo { width: 32px; height: 32px; }
+  .srch-btn-text { display: inline; }
+  .srch-btn-kbd { display: none; }
+}
 /* Saved badge — fits inside the right-cluster chip. Coral square + count. */
 .saved-badge {
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;

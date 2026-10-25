@@ -20,6 +20,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { collectAttention, MIN_SIGNAL_ROWS } from '../worker/live/attention.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const WATCHLIST = join(ROOT, 'data/shared/trend_watchlist.json')
@@ -196,6 +197,19 @@ async function main() {
     }
     return true
   })
+
+  // The same validated, official-source path used by the Worker is also a
+  // manual recovery route when Google's unofficial endpoint is unavailable.
+  if (process.argv.includes('--wikipedia-only')) {
+    const { snapshot, signalRows, total } = await collectAttention({
+      watchlist: { ...watchlist, items }, pauseMs: 350, collector: 'manual-wikimedia',
+    })
+    if (signalRows < MIN_SIGNAL_ROWS) throw new Error(`Only ${signalRows}/${total} usable Wikimedia rows; kept prior snapshot`)
+    mkdirSync(dirname(OUT), { recursive: true })
+    for (const file of [OUT, SHARED_OUT]) writeFileSync(file, JSON.stringify(snapshot, null, 2) + '\n')
+    console.log(`✓ ${signalRows}/${total} Wikimedia rows · Google Trends not connected · ${snapshot.as_of}`)
+    return
+  }
 
   console.log(`Harvesting market attention for ${items.length} watchlist rows…`)
 

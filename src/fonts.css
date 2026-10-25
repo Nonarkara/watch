@@ -1,0 +1,10 @@
+/* Jost: Owen Earl / indestructible type*, SIL OFL 1.1.
+   Self-hosted variable face: the object archive stays readable when Google
+   Fonts is unavailable. Full licence: /fonts/Jost-OFL.txt. */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/jost-variable.woff2') format('woff2');
+}

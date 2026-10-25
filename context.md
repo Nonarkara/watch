@@ -39,7 +39,17 @@ scripts/test-invariants.mjs
 
 ## Product and design law — Time Pop pop-art (named folly)
 
-Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F6F0E5`, navy `#11364B`, coral accent `#EF6A5B` (CSS `--amber` maps to coral so existing rules keep working). Zero border-radius except true circles. No Inter/Roboto/etc. Archivo + Spectral + IBM Plex Mono. Halftone and offset color blocks are selective — one gesture per section.
+Time Pop is a civic research instrument wearing refined pop art: warm canvas `#F6F0E5`, navy `#11364B`, coral accent `#EF6A5B` (CSS `--amber` maps to coral so existing rules keep working). Zero border-radius except true circles. No Inter/Roboto/etc. Jost + Spectral. Halftone and offset color blocks are selective — one gesture per section.
+
+**Typography receipt (2026-10-25).** A collector reads a name, compares reference numbers and prices,
+then opens the evidence. Jost's geometric labels follow the object-catalogue register, with tabular
+figures for comparison; Spectral carries sustained reading. Jost is a self-hosted variable font
+(100–900, SIL OFL 1.1, licence under `public/fonts/`); Spectral has a Georgia fallback. The legacy
+`--font-mono` role uses Jost with tabular figures, not a third loaded family. This is not a code editor.
+Palette's contextual-type and Bauhaus method inform the choice; its colour-field layout does not
+belong in a watch archive. Keep the existing object-first composition rather than recasting every
+dossier as an oversized typographic poster. Prove phone, tablet, desktop, enlarged text and font
+failure against real labels and evidence. Automated proof does not constitute a human usability study.
 
 **Named law exemptions (exhaustive, 2026-10-12).** Three deviations from the no-gradient / no-drop-shadow core are deliberate and load-bearing; each is commented at its rule in `src/index.css`: `.art-band-scrim` (dark-to-transparent legibility scrim over the art-band painting), `.art-withheld-plate` (neutral print-catalog hatch that *draws* a missing image instead of hiding the refusal), and `.srch` (one soft elevation shadow on the search-palette modal over its dimmed backdrop). Nothing else may use a gradient or a soft shadow — especially not cards or sections.
 
