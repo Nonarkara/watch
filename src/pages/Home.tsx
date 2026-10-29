@@ -112,7 +112,7 @@ export default function Home() {
   const brandCount = useMemo(() => new Set(cards.map((c) => c.identity.brand)).size, [cards])
   const compCount = useMemo(() => cards.reduce((n, c) => n + (c.comp_summary?.n ?? 0), 0), [cards])
   const eventCount = useMemo(() => cards.reduce((n, c) => n + c.provenance_events.length, 0), [cards])
-  const stills = screen?.sightings.filter((s) => s.media).length ?? 0
+  const stills = screen ? screen.sightings.filter((s) => s.media).length : null  // null = not loaded yet; never render a loading state as 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const ticker = useMemo(() => tasteOfRegister(cards), [cards])
   const asiaPicks = useMemo(() => cards.filter((c) =>
@@ -202,7 +202,7 @@ export default function Home() {
       {/* Conservation: first fold = brand banner + thesis + eight ledger facts;
           invented prices = 0. Banner is full-bleed ground. Copy is cream slab.
           Ledger is the floor. Do not demote the banner to HeroBanner (no image). */}
-      <section className="timepop-hero" aria-label="Time Pop — home">
+      <div className="timepop-hero-stage">
         <img
           className="timepop-hero-bg"
           src="/img/hero/time-pop-banner.png"
@@ -213,6 +213,7 @@ export default function Home() {
            loading="eager"
            fetchPriority="high"
         />
+        <section className="timepop-hero" aria-label="Time Pop — home">
         <div className="timepop-hero-copy">
           <p className="eyebrow">TIME POP · A LIVING ARCHIVE OF WATCHES</p>
           <h1 className="timepop-title">Watches,<br />on their own terms.</h1>
@@ -234,7 +235,7 @@ export default function Home() {
             <div title={`${withComps} references with sale evidence`}><dt>With comps</dt><dd>{withComps}</dd></div>
             <div title={`${compCount} verified sales on file`}><dt>Verified sales</dt><dd>{compCount}</dd></div>
             <div title={`${eventCount} sourced story events`}><dt>Story</dt><dd>{eventCount}</dd></div>
-            <div title={`${stills} credited screen stills`}><dt>On screen</dt><dd>{stills}</dd></div>
+            <div title={stills === null ? 'loading' : `${stills} credited screen stills`}><dt>On screen</dt><dd>{stills ?? '—'}</dd></div>
             <div title={`${withMedia} references with curated photography`}><dt>Photographed</dt><dd>{withMedia}</dd></div>
             <div className="hero-ledger-zero" title="No invented prices. The register refuses to estimate without evidence."><dt>Invented</dt><dd>0</dd></div>
           </dl>
@@ -243,7 +244,8 @@ export default function Home() {
             <Link to="/methodology">METHODOLOGY →</Link>
           </p>
         </aside>
-      </section>
+        </section>
+      </div>
 
       {/* State the subject first; keep all four evidence commitments nearby. */}
       <div className="home-why-band" aria-label="What these numbers rest on">
@@ -404,7 +406,12 @@ export default function Home() {
             return (
               <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
                 <span className="ticker-thumb">
-                  {m ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} /> : <span className="dim">—</span>}
+                  {/* The alt is empty on purpose: the cell states the brand,
+                      the reference and the name as text two lines below, so
+                      the picture is decorative here — and the browser laying
+                      the alt text out inside a 130x70 crop is how the name
+                      used to get sliced in half. */}
+                  {m ? <img src={m.url} alt="" loading="lazy" decoding="async"  width={400} height={300} /> : <span className="dim">—</span>}
                 </span>
                 <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
                 <span className="ticker-ref">{c.identity.reference}</span>
@@ -632,7 +639,7 @@ export default function Home() {
           <p><span>Verified comp coverage</span><strong>{withComps} / {data.count}</strong></p>
           <p><span>Reference-matched catalog media</span><strong>{withMedia} / {data.count}</strong></p>
           <p><span>Story events</span><strong>{eventCount} / —</strong></p>
-          <p><span>On-screen stills with credits</span><strong>{stills} / {screen?.count ?? '—'}</strong></p>
+          <p><span>On-screen stills with credits</span><strong>{stills ?? '—'} / {screen?.count ?? '—'}</strong></p>
           <p className="crossed"><span>Hype premium</span><strong>AWAITING A VALID COHORT</strong></p>
         </div>
       </section>

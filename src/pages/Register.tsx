@@ -115,7 +115,6 @@ export default function Register() {
             guessing.
           </>
         }
-        primary={{ to: '#ledger', label: 'BROWSE THE REGISTER' }}
         secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
         meta={
           <div className="pop-panel">

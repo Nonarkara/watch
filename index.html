@@ -25,6 +25,18 @@
     <meta name="twitter:image" content="https://watch.nonarkara.org/img/hero/time-pop-banner.png" />
     <meta name="twitter:title" content="Time Pop" />
     <meta name="twitter:description" content="Watches as objects and co-stars: sourced dossiers, credited film stills, scarcity without the hype." />
+    <!--
+      The dataset is 1.6 MB and the app is a single-page app: without this the
+      fetch cannot start until the module bundle has downloaded and React has
+      mounted, so the reader stares at "LOADING TIME POP…" for the whole of
+      that. Measured on this build, the fetch started at 250 ms and the real
+      page painted at 482 ms — after the browser had already fired `load`.
+
+      `as="fetch"` with `crossorigin="anonymous"` is what makes the preload
+      and the app's own `fetch('/data.json')` share one cache entry, so the
+      bytes are downloaded once and used twice, not twice.
+    -->
+    <link rel="preload" as="fetch" crossorigin="anonymous" href="/data.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="/fonts/jost-variable.woff2" as="font" type="font/woff2" crossorigin />

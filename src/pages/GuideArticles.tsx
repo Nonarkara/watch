@@ -389,6 +389,10 @@ const ARTICLE_03: ArticleMeta = {
         are you walking.&rdquo;
       </p>
 
+      {/* Seven columns of reference data cannot fit a phone. The table keeps
+          its width and the reader scrolls the table — not the page. Same
+          idiom as .cmp-wrap on the compare page. */}
+      <div className="pick-table-wrap">
       <table className="pick-table">
         <thead>
           <tr><th>Watch</th><th>Price</th><th>What it teaches</th><th>Rarity</th><th>Demand</th><th>Provenance</th><th>Resellability</th></tr>
@@ -423,6 +427,7 @@ const ARTICLE_03: ArticleMeta = {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <p className="dim micro">Scores derived from the dossier pages for each watch: Time Pop computes Rarity from a 5-signal index, Demand from a 5-component index, Provenance from sourced events, Resellability from a 4-signal index (liquidity, venue diversity, sale recency, confidence). See the methodology page for the formulas.</p>
 

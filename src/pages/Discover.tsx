@@ -105,7 +105,7 @@ export default function Discover() {
 
       <article className="discovery-card">
         {card.media[0] ? (
-          <div className="photo-thumb-wrap" style={{ height: '300px' }}>
+          <div className="photo-thumb-wrap">
             <img src={card.media[0].url} alt={card.identity.name} className="photo-img" loading="eager" decoding="async" fetchPriority="high" width={400} height={300} />
             <span className="tier-badge mono">SOURCE-LINKED</span>
           </div>

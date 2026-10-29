@@ -122,7 +122,7 @@ export default function App() {
       </main>
       <footer className="ftr">
         <div className="shell">
-          <p className="mono micro">
+          <p className="ftr-meta mono micro">
             {data ? `${data.count} REFERENCES · DATA BUILT ${data.built} · METHODOLOGY V${data.methodology_version}` : ''}
           </p>
           <p className="micro dim">

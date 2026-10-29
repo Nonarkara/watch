@@ -212,8 +212,12 @@ export default function Brands() {
                 {g.mostPopular && (
                   <Link to={`/w/${g.mostPopular.id}`} className="brand-pick">
                     <span className="brand-pick-thumb">
+                      {/* alt is empty on purpose: the model's name is the
+                          line under the thumbnail, and the browser laying the
+                          alt text out inside a 72x72 frame is how the name
+                          used to be sliced. */}
                       {g.mostPopular.media[0]
-                        ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async"  width={72} height={72} />
+                        ? <img src={g.mostPopular.media[0].url} alt="" loading="lazy" decoding="async"  width={72} height={72} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="brand-pick-body">
@@ -230,7 +234,7 @@ export default function Brands() {
                   <Link to={`/w/${g.contrast.id}`} className="brand-pick brand-pick--alt">
                     <span className="brand-pick-thumb">
                       {g.contrast.media[0]
-                        ? <img src={g.contrast.media[0].url} alt={g.contrast.identity.name} loading="lazy" decoding="async"  width={72} height={72} />
+                        ? <img src={g.contrast.media[0].url} alt="" loading="lazy" decoding="async"  width={72} height={72} />
                         : <span className="dim">—</span>}
                     </span>
                     <span className="brand-pick-body">

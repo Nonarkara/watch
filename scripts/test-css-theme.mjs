@@ -167,21 +167,40 @@ if (/\.cdock-spacer/.test(css) || /cdock-spacer/.test(readFileSync(new URL('../s
   fail('.cdock-spacer is a placebo (measured: removing it changes footer clearance by 0px); do not reintroduce it')
 }
 
-// ── 11. header + footer controls are 44px phone targets (§11.8.2) ──────
-// Measured at 375px: all 18 footer links were 18px tall, the search button
-// 28x32, the theme toggle 36x32, the wordmark 36px. Base CSS is phone-first;
-// only fine-pointer desktops may relax the two header buttons to 32px.
+// ── 11. touch targets, as amended by §11.12 (MSH) ───────────────────────
+// Isolated primary actions (search, theme, wordmark) are 44px+ phone targets
+// and take their height from ONE token, --hdr-row, so the masthead cannot grow
+// a second opinion. A dense group of text controls (the footer link list)
+// keeps label-plus-padding boxes: >=32px, never 44. 44px slabs around one-word
+// labels are the spatial hallucination §11.12 exists to kill.
 const rule = (sel) => (css.match(new RegExp('\\n' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{[^}]*\\}')) || [''])[0]
-const need44 = [
-  ['.ftr-links a', /min-height:\s*44px/],
-  ['.wordmark', /min-height:\s*44px/],
-  ['.srch-btn', /height:\s*44px/],
-  ['.theme-toggle', /height:\s*44px/],
-]
-for (const [sel, re] of need44) {
-  if (!re.test(rule(sel))) fail(`${sel} must be a 44px phone target in its base rule (relax only inside a fine-pointer media query)`)
+const hdrRow = css.match(/:root\s*\{\s*--hdr-row:\s*(\d+)px/)
+if (!hdrRow || +hdrRow[1] < 44) fail('--hdr-row base (phone) must be >= 44px: it is the touch target of the isolated header actions')
+for (const sel of ['.wordmark', '.srch-btn', '.theme-toggle']) {
+  if (!/min-height:\s*var\(--hdr-row\)/.test(rule(sel))) fail(`${sel} must take its height from var(--hdr-row), not a private number`)
 }
+const ftrA = rule('.ftr-links a')
+const ftrMin = ftrA.match(/min-height:\s*(\d+)px/)
+if (!ftrMin || +ftrMin[1] < 32 || +ftrMin[1] > 40) fail('.ftr-links a is a dense text group: min-height must be 32-40px (WCAG 2.2 floor 24, MSH forbids 44px slabs)')
+
+// ── 12. the masthead is one definition, in flow, and every grid is valid ──
+// MiniMax's accreted header re-declared .hdr-in three times and made it
+// sticky (30% of a phone, permanently). And ten rows were written as
+// repeat(auto-fill, minmax(min-content, 1fr)): browsers reject auto-repeat
+// over an intrinsic minimum, so every chip row silently collapsed to full-width
+// stacked slabs while the page "looked" intact in a source scan.
+if ((css.match(/\n\.hdr-in\s*\{/g) || []).length !== 1) fail('.hdr-in must be declared exactly once (re-declaration is how the masthead ballooned)')
+if (/\n\.hdr\s*\{[^}]*position:\s*sticky/.test(css)) fail('.hdr must not be sticky: pinned chrome is a permanent screen cost (§11.12 tell 1)')
+const badRepeat = css.match(/repeat\(\s*auto-(?:fill|fit)\s*,\s*minmax\(\s*(?:min|max)-content/)
+if (badRepeat) fail(`invalid grid: ${badRepeat[0]}… — auto-repeat needs a fixed track size; this is silently ignored and stacks every item full width`)
+
+// ── 13. a loading state is never rendered as a count of zero ─────────────
+// Home printed "ON SCREEN 0" until the sightings file arrived: a fabricated
+// number that reads as a finding. Unloaded is null and renders as an em dash.
+const homeSrc = readFileSync(new URL('../src/pages/Home.tsx', import.meta.url), 'utf8')
+if (/const stills\s*=[^\n]*\?\?\s*0/.test(homeSrc)) fail('Home `stills` must be null until sightings load, not `?? 0` (renders a loading state as a measured zero)')
+if (!/\{stills \?\? '—'\}/.test(homeSrc)) fail('Home must render unloaded stills as an em dash')
 
 if (!process.exitCode) {
-  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site, --amber text-safe, --dim >= 0.60, compare dock sticky and after the footer, no placebo spacer, header/footer controls 44px')
+  console.log('✓ theme guards hold: global img blend reset present, no raw navy text, --navy-ink defined in all scopes, skip-link wired with ink-on-coral, Cite uses SPA Link, dossier tabpanels resolve, no fake twitter:site, --amber text-safe, --dim >= 0.60, compare dock sticky and after the footer, no placebo spacer, header actions on one --hdr-row token, footer links dense 32px, masthead single/in-flow, no invalid auto-repeat grids')
 }

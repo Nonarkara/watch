@@ -50,10 +50,7 @@ export default function ArtBand({
   if (!work) return null
 
   return (
-    <aside
-      className={`art-band art-band--${height} art-band--${tint}`}
-      aria-label={`${work.artwork} by ${work.artist}, ${work.year}`}
-    >
+    <div className={`art-band-stage art-band--${height} art-band--${tint}`}>
       <img
         className="art-band-img"
         src={work.local}
@@ -65,6 +62,10 @@ export default function ArtBand({
       />
       <div className="art-band-scrim" aria-hidden="true" />
 
+      <aside
+        className="art-band"
+        aria-label={`${work.artwork} by ${work.artist}, ${work.year}`}
+      >
       <div className="art-band-body">
         {eyebrow && <p className="art-band-eyebrow mono">{eyebrow}</p>}
         {line && <p className="art-band-line">{line}</p>}
@@ -80,7 +81,8 @@ export default function ArtBand({
         {work.artist.toUpperCase()} · {work.artwork.toUpperCase()}, {work.year.toUpperCase()} ·{' '}
         {work.collection.toUpperCase()} · {work.license.toUpperCase()} ↗
       </a>
-    </aside>
+      </aside>
+    </div>
   )
 }
 

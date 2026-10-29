@@ -80,6 +80,26 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 
 **Watchmaking artifacts** live in `public/img/watchmaking/` + `public/data/watchmaking_artifacts.json`. Wikimedia Commons only: CC0 / Public Domain / CC BY / CC BY-SA (no NC/ND). Every figure shows artist + licence + Commons link.
 
+## Design Read — Mondrian register (2026-10-29)
+
+**Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
+(3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
+their content, one flat colour block per fold (yellow = where you are, in the nav; navy =
+the counter-field plates: hero ledger, footer facts), one coral strip at the very top.
+**Reference:** Mondrian, *Composition II in Red, Blue, and Yellow* (1930): few cells, unequal,
+every rule runs to another rule or the edge. **Not** a template: no radius, no shadow, no
+gradient.
+
+**MSH measured, not asserted (390 x 844 / 1440 x 900):** masthead one definition, in flow,
+104px = 11.6% desktop / 121px = 14.3% phone (was 156px / 17.4% and 253px / 30%, sticky);
+nav is a ruled 4 x 2 / 8 x 1 table whose phone tracks are unequal so no label clips; the
+register is 72 screens on a phone (was 183) via a two-column ruled grid; dense chip groups
+32px, isolated actions 44px from one token (`--hdr-row`). Probe: `scripts/spatial/msh-probe.js`
+(no baseline, no waivers). The MiniMax gate (`scripts/spatial/spatial-*.mjs`,
+`design/spatial-baseline.json`, `.github/workflows/spatial-law.yml`) is NOT shipped: its
+baseline stores self-written waiver reasons, which §11.12(b) forbids, and it was never
+validated end to end.
+
 ## Anti-Regression
 
 - Home hero pop-art banner (`/img/hero/time-pop-banner.png`) — keep; named brand surface.

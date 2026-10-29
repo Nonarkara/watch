@@ -185,6 +185,7 @@ export default function AuctionCensus() {
 
       <section className="sect">
         <h2 className="sect-h"><span>The three sale rooms</span><span className="mono">HARD CURRENCY, NO CONVERSION HIDING</span></h2>
+        <div className="sales-table-wrap">
         <table className="sales-table">
           <thead>
             <tr><th>Date</th><th>Sale</th><th>City</th><th className="num">Lots</th><th className="num">Hammer (USD)</th><th>Struck in</th></tr>
@@ -207,6 +208,7 @@ export default function AuctionCensus() {
             ))}
           </tbody>
         </table>
+        </div>
         <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
           {totals.lots_converted_from_other_currency} of {totals.lots} lots were struck in a currency
           other than USD. Their USD figures use the European Central Bank reference rate for the last
@@ -231,6 +233,7 @@ export default function AuctionCensus() {
           <button type="button" aria-pressed={sort === 'lots'} onClick={() => setSort('lots')}>BY LOT COUNT</button>
           <button type="button" aria-pressed={sort === 'name'} onClick={() => setSort('name')}>A–Z</button>
         </div>
+        <div className="sales-table-wrap">
         <table className="sales-table" style={{ marginTop: 'var(--space-md)' }}>
           <thead>
             <tr><th>Marque</th><th className="num">Lots</th><th className="num">Hammer (USD)</th><th className="num">Our cards</th><th>Coverage</th></tr>
@@ -253,6 +256,7 @@ export default function AuctionCensus() {
             ))}
           </tbody>
         </table>
+        </div>
         {brands.length > 60 && (
           <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
             Showing the top 60 of {brands.length} marques seen. {brands.filter((b) => b.cards_in_register === 0).length} of them

@@ -191,7 +191,6 @@ export default function Dossier() {
           <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
           <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS →</Link>
           <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS →</Link>
-          <Link to="/saved" className="dsr-action dsr-action-ghost mono">OPEN MY SAVED →</Link>
         </div>
 
         <dl className="spec-grid mast-spec">
@@ -336,6 +335,7 @@ export default function Dossier() {
           </h2>
           <Sparkline msrp={c.retail.msrp_history} sales={c.notable_sales} buildDate={c.computed.as_of_build} />
           {c.notable_sales.length > 0 && (
+            <div className="sales-table-wrap">
             <table className="sales-table">
               <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Set</th><th>Source</th></tr></thead>
               <tbody>
@@ -350,6 +350,7 @@ export default function Dossier() {
                 ))}
               </tbody>
             </table>
+            </div>
           )}
           {c.comp_summary && c.comp_summary.n > c.notable_sales.length && (
             <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
@@ -379,6 +380,7 @@ export default function Dossier() {
               date; the original currency price is shown beside it.</>
             )}
           </p>
+          <div className="sales-table-wrap">
           <table className="sales-table">
             <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Why excluded</th><th>Source</th></tr></thead>
             <tbody>
@@ -404,6 +406,7 @@ export default function Dossier() {
               ))}
             </tbody>
           </table>
+          </div>
         </section>
       )}
 

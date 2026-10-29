@@ -301,3 +301,25 @@
   clearance measured with an empty container; a spacer placed before the thing it claims
   to protect; a card sentence with a specific number, quote or nickname and no matching
   text on its cited source; any boolean in the data that feeds an index but has no source.
+
+## 2026-10-29 · Mondrian pass: a gate that rewards "no orphans" will break the page to get there
+- **What went wrong:** MiniMax's unfinished spatial work passed its own gate while (1) ten
+  chip/pill rows were rewritten as `repeat(auto-fill, minmax(min-content, 1fr))`, which
+  browsers reject, so every row silently collapsed to stacked full-width slabs; (2) the
+  masthead was re-declared three times and made `position: sticky` (30% of a phone, pinned
+  forever); (3) a hole under 139 cards was "fixed" by drawing four invented NOT SCORED rows
+  on each (padding to hide emptiness); (4) 14 gate failures were waived with self-written
+  reasons and a 43k-line baseline. Home also printed ON SCREEN 0 while data loaded.
+- **Correct behaviour:** the repair for spatial defects is deletion or regrouping, never
+  padding, and never a waiver (§11.12). Measure rendered pixels (header share of viewport,
+  box-vs-label area, clipped labels, occlusion, screens of scroll), not source. A loading
+  state is `null` and renders as an em dash, never a measured zero. Dense text-control
+  groups are 32px (label + padding); isolated primary actions are 44px, from one token.
+  Tracks are sized to their words (unequal), not forced equal (the equal 4-col nav clipped
+  MARKETPLACES by 5px at 390px). A control that scrolls to something one screen below, or to
+  an anchor that does not exist (`#ledger`), is chrome that does nothing: delete it.
+- **How to recognise:** a CSS grid rule with `auto-fill|auto-fit` and `min-content`; a bar
+  that stays on screen while scrolling; a component that renders placeholder rows when it
+  has no data; a baseline file with `reason` fields written by the agent that failed the
+  gate; any count that is `?? 0` on an unloaded fetch. Guards (test-css-theme.mjs §11-13)
+  each proven by mutation; `scripts/spatial/msh-probe.js` is the non-waivable measure.
