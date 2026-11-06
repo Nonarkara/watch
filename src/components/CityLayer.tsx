@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { readCityModel, type CityModel } from '../lib/city-model.ts';
 
 /**
  * THE NIGHT CITY — the page's background, drawn from the city's own blocks.
@@ -25,19 +26,7 @@ import { useEffect, useRef } from 'react';
  * is a background; it is never in the way of the work.
  */
 
-export type CityModel = {
-  slug: string;
-  name: string;
-  where: string;
-  origin: [number, number];
-  radius: number;
-  camera: {
-    from: { eye: [number, number, number]; look: [number, number, number] };
-    to: { eye: [number, number, number]; look: [number, number, number] };
-  };
-  buildings: { r: [number, number][]; h: number; l: number; s: number }[];
-  roads: { k: string; w: number; r: [number, number][] }[];
-};
+export type { CityModel } from '../lib/city-model.ts';
 
 type Vec3 = [number, number, number];
 /** A point in camera space: x right, y up, z into the screen. */
@@ -104,12 +93,14 @@ const LAMP = 'rgba(255,255,255,0.42)';
 
 export default function CityLayer({
   city,
-  className,
+  className = 'city-layer',
   opacity = 1,
+  route,
 }: {
   city: string;
   className?: string;
   opacity?: number;
+  route?: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const modelRef = useRef<CityModel | null>(null);
@@ -123,19 +114,25 @@ export default function CityLayer({
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    const reduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reduced = motion.matches;
+    const controller = new AbortController();
+    modelRef.current = null;
+    frameRef.current = 0;
+    canvas.dataset.state = 'loading';
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    fetch(`/data/city/${city}.json`)
+    fetch(`/data/city/${encodeURIComponent(city)}.json`, { signal: controller.signal })
       .then((r) => (r.ok ? r.json() : null))
-      .then((m: CityModel | null) => {
-        if (!alive || !m) return;
+      .then((value: unknown) => {
+        const m = readCityModel(value, city);
+        if (!alive) return;
+        if (!m) { canvas.dataset.state = 'unavailable'; return; }
         modelRef.current = m;
+        canvas.dataset.state = 'ready';
         draw();
       })
-      .catch(() => { /* the page is fine without the city */ });
+      .catch(() => { if (alive) canvas.dataset.state = 'unavailable'; });
 
     function size() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -163,6 +160,7 @@ export default function CityLayer({
     }
 
     function draw() {
+      if (!alive || document.hidden) return;
       const model = modelRef.current;
       if (!model) return;
       const w = canvas!.clientWidth;
@@ -173,12 +171,26 @@ export default function CityLayer({
 
     function onScroll() {
       progressRef.current = progress();
-      if (reduced) return;
+      if (reduced || document.hidden) return;
       if (frameRef.current) return;
       frameRef.current = requestAnimationFrame(() => {
         frameRef.current = 0;
         draw();
       });
+    }
+    function onResize() { size(); draw(); }
+    function onMotionChange() {
+      reduced = motion.matches;
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      frameRef.current = 0;
+      onScroll();
+      draw();
+    }
+    function onVisibility() {
+      if (document.hidden && frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = 0;
+      } else if (!document.hidden) { onScroll(); draw(); }
     }
 
     size();
@@ -186,19 +198,28 @@ export default function CityLayer({
     draw();
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => { size(); draw(); });
+    window.addEventListener('resize', onResize);
+    document.addEventListener('visibilitychange', onVisibility);
+    motion.addEventListener('change', onMotionChange);
     return () => {
       alive = false;
+      controller.abort();
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      document.removeEventListener('visibilitychange', onVisibility);
+      motion.removeEventListener('change', onMotionChange);
+      frameRef.current = 0;
+      modelRef.current = null;
     };
-  }, [city, opacity]);
+  }, [city, opacity, route]);
 
   return (
     <canvas
       ref={canvasRef}
       className={className}
       aria-hidden="true"
+      data-city={city}
       style={{ opacity, position: 'fixed', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
     />
   );

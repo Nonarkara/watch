@@ -1,0 +1,14 @@
+name = "watch-live"
+main = "index.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+crons = ["40 6 * * *"]
+
+[[kv_namespaces]]
+binding = "WATCH_LIVE"
+id = "813faab6e98c4c7695a3aa1e1474c46a"
+
+[observability]
+enabled = true

@@ -102,6 +102,23 @@ validated end to end.
 
 ## Anti-Regression
 
+### Operability recovery — 2026-11-06
+
+Grid remains the Mondrian column/modular register: object → evidence → action.
+Jost/Spectral and earned artwork remain protected. City geometry now uses closed
+OSM building ways only; positive heights require traceable `height` / `building:height`
+tags. Unknown heights stay flat, including legacy models. Raw Overpass captures live
+under ignored `data/.harvest/city/`. Lights, road widths and camera paths are illustrative,
+not evidence of access. Keep the opaque theme-aware reading ground and masthead above
+main content so city imagery cannot erase text or intercept the city menu.
+
+Proof: `npm test`, `scripts/verify-city.mjs` (switching, cleanup, keyboard,
+reduced motion, malformed geometry isolation), and `scripts/verify-experience.mjs`
+(16 phone/tablet/desktop route checks, enlarged text, font failure and an executable
+oversized-header falsifier). These are bounded proofs, not a claim every journey is tested.
+Attention KV and daily Worker cron are provisioned; see `docs/LIVE-PIPELINE.md`.
+MiniMax's untracked waiver gate remains deliberately excluded.
+
 - Home hero pop-art banner (`/img/hero/time-pop-banner.png`) — keep; named brand surface.
 - Labs workshop art (`/img/hero/time-pop-banner-alt.png` + `/img/labs/*.jpg`) — Labs-only mood plates; do not demote to text-only cards or reuse as Screen stills.
 - Honesty ladder: no market price without ≥3 sourced comps; missing data renders "—" + reason.

@@ -22,7 +22,7 @@
     "data:screen:harvest": "node scripts/collect_watch_id.mjs",
     "data:market:harvest": "node scripts/collect_phillips_sales.mjs",
     "data:market:promote": "node scripts/promote_market_sale.mjs",
-    "test": "node scripts/test-invariants.mjs && node scripts/test-routes.mjs && node scripts/test-evidence-field.mjs && node scripts/test-attention-pulse.mjs && node scripts/test-value-lab.mjs && node scripts/test-venues.mjs && node scripts/test-css-theme.mjs && node scripts/test-market-harvest.mjs && node scripts/test-live-pipeline.mjs",
+    "test": "node scripts/test-invariants.mjs && node scripts/test-routes.mjs && node scripts/test-evidence-field.mjs && node scripts/test-attention-pulse.mjs && node scripts/test-value-lab.mjs && node scripts/test-venues.mjs && node scripts/test-css-theme.mjs && node scripts/test-market-harvest.mjs && node scripts/test-live-pipeline.mjs && node scripts/test-city.mjs",
     "data:audit": "node scripts/audit.mjs",
     "data:sightings:validate": "node scripts/validate_sightings.mjs",
     "data:cpi": "node scripts/collect-cpi.mjs",

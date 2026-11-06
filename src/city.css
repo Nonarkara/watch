@@ -17,6 +17,12 @@
 .hdr,
 main.shell,
 .ftr { position: relative; z-index: 1; }
+.hdr { z-index: 2; }
+
+/* One reading ground for every route, including transparent filters and data
+   labels. The city remains visible through the existing gutters; text never
+   borrows contrast from whatever building happens to pass behind it. */
+main.shell { background-color: var(--paper); background-clip: content-box; }
 
 /* The city control. One word, in the masthead, where a control belongs. */
 .city-toggle { position: relative; }

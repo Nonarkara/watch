@@ -29,9 +29,13 @@ export function useCity(): [CitySummary, (slug: string) => void, CitySummary[]] 
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
         if (!alive || !d || !Array.isArray(d.cities) || !d.cities.length) return;
-        setCities(d.cities);
-        const saved = localStorage.getItem(STORAGE_KEY);
-        const pick = d.cities.find((c: CitySummary) => c.slug === saved) || d.cities[0];
+        const valid = d.cities.filter((c: CitySummary) => c && typeof c.slug === 'string'
+          && /^[a-z0-9-]+$/.test(c.slug) && ['name', 'where', 'country'].every((key) => typeof c[key as keyof CitySummary] === 'string'));
+        if (!valid.length) return;
+        setCities(valid);
+        let saved: string | null = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch { /* restricted storage still allows city selection */ }
+        const pick = valid.find((c: CitySummary) => c.slug === saved) || valid.find((c: CitySummary) => c.slug === FALLBACK.slug) || valid[0];
         setCurrent(pick);
       })
       .catch(() => { /* Bangkok stands */ });
@@ -65,11 +69,13 @@ export function CityToggle({
     const away = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
-    document.addEventListener('mousedown', away);
+    const key = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setOpen(false); ref.current?.querySelector('button')?.focus(); }
+    };
+    document.addEventListener('pointerdown', away);
     document.addEventListener('keydown', key);
     return () => {
-      document.removeEventListener('mousedown', away);
+      document.removeEventListener('pointerdown', away);
       document.removeEventListener('keydown', key);
     };
   }, [open]);
@@ -82,20 +88,22 @@ export function CityToggle({
         type="button"
         className="city-toggle-btn mono"
         aria-expanded={open}
-        aria-haspopup="listbox"
+        aria-controls="city-options"
         onClick={() => setOpen((v) => !v)}
         title={`The page stands in ${current.name}. Change the city.`}
       >
         {current.name.toUpperCase()}
       </button>
       {open && (
-        <ul className="city-toggle-menu" role="listbox" aria-label="City">
+        <ul className="city-toggle-menu" id="city-options" aria-label="City">
           {cities.map((c) => (
-            <li key={c.slug} role="option" aria-selected={c.slug === current.slug}>
+            <li key={c.slug}>
               <button
                 type="button"
                 className={'city-toggle-item mono' + (c.slug === current.slug ? ' on' : '')}
-                onClick={() => { onPick(c.slug); setOpen(false); }}
+                aria-pressed={c.slug === current.slug}
+                aria-label={`Choose ${c.name}`}
+                onClick={() => { onPick(c.slug); setOpen(false); ref.current?.querySelector('button')?.focus(); }}
               >
                 {c.name.toUpperCase()}
                 <span className="dim"> · {c.where.toUpperCase()}</span>

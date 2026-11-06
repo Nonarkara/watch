@@ -80,7 +80,7 @@ export default function App() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <SearchPalette />
       <RecentlyViewedTracker />
-      <CityLayer city={city.slug} />
+      <CityLayer city={city.slug} route={pathname} />
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" end className="wordmark" aria-label="Time Pop — home">
@@ -138,6 +138,7 @@ export default function App() {
             >
               © OpenStreetMap CONTRIBUTORS
             </a>
+            {' · UNKNOWN HEIGHTS FLAT · LIGHTS AND ROAD WIDTHS ILLUSTRATIVE · CAMERA VIEWPOINT IS NOT VERIFIED ACCESS'}
           </p>
           <p className="micro dim">
             Every number on this site traces to a cited public source or is computed from cited evidence — the

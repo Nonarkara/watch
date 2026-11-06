@@ -1,0 +1,7 @@
+name = "watch"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[[kv_namespaces]]
+binding = "WATCH_LIVE"
+id = "813faab6e98c4c7695a3aa1e1474c46a"

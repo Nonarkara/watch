@@ -1,6 +1,9 @@
 # Live pipeline: what refreshes itself, what is a snapshot, and why
 
-Status: built, not installed. Installing needs Non's go (see "Install" below).
+Status (2026-11-06): KV provisioned and seeded with 20/20 Wikimedia rows;
+`watch-live` Worker deployed with the daily cron. The Pages binding is declared
+in the root `wrangler.toml`. M3 monitoring is not installed. A deployed schedule
+is not proof of a completed scheduled run; check health after the next 06:40 UTC run.
 
 ## The short version
 
@@ -60,12 +63,14 @@ the M3 nothing. Deploying from the M3 would also mean building the site there, a
 clean-clone build there could ship a tree that differs from what is live. `worker/live/run-local.mjs`
 can still run on any Mac as a manual fallback; it refuses to run when free swap is under 512 MB.
 
-## Install (needs Non's go)
+## Installation / recovery
 
-1. On the M5, from the repo root: `ops/install-live.sh` (creates KV `watch-live`, deploys the
+1. Initial provisioning only: `ops/install-live.sh` (creates KV `watch-live`, deploys the
    Worker with its cron, seeds KV once, writes `wrangler.toml` files). Commit the two
    `wrangler.toml` files.
-2. Deploy the site (separate go): `npm run build && npx wrangler pages deploy dist --branch main`.
+   For the existing installation, use `wrangler deploy --config worker/live/wrangler.toml`;
+   do not create a second namespace.
+2. Deploy the site: `npm run deploy`.
 3. Check: `curl -s https://watch.nonarkara.org/live/health.json` shows `"status":"ok"`.
 4. On the M3 (separate go): `ops/m3/install-health-agent.sh`, with `WATCH_ALERT_CMD` set in the
    plist if alerts should reach Telegram.

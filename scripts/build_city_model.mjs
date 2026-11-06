@@ -19,13 +19,15 @@
  * The model is deliberately small. The camera flies from an aerial view
  * down to the street, so what matters is the block you are standing in and
  * the silhouette of the city around it — not every rooftop in the
- * municipality. Rings are simplified to metres, heights are derived where
- * OpenStreetMap has no height tag, and the result is one file per city that
+ * municipality. Rings are simplified to metres, missing heights remain flat,
+ * and the result is one file per city that
  * the page fetches when the layer asks for it.
  */
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gzipSync } from 'node:zlib';
+import { explicitHeight, isBuildingWay } from '../src/lib/city-model.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -42,6 +44,7 @@ const arg = (n, d) => {
   return v && !v.startsWith('--') ? v : true;
 };
 const radiusM = Number(arg('radius', 1500));
+if (!Number.isFinite(radiusM) || radiusM < 100 || radiusM > 3000) throw new Error('--radius must be between 100 and 3000 metres');
 const only = argv.filter((a) => !a.startsWith('--') && argv[argv.indexOf(a) - 1] !== '--radius');
 
 /**
@@ -116,29 +119,7 @@ function orient(ring) {
 
 /* ── heights ────────────────────────────────────────────────────────────── */
 
-/** Default height in metres by building type, where OpenStreetMap has none. */
-const BY_TYPE = {
-  house: 6.5, detached: 6.5, bungalow: 3.5, hut: 3, shed: 3, garage: 3, carport: 3,
-  apartments: 21, residential: 15, dormitory: 18, hotel: 28, retail: 9, commercial: 11,
-  office: 34, skyscraper: 90, tower: 70, industrial: 11, warehouse: 9, church: 14,
-  school: 9, college: 12, university: 16, hospital: 20, kindergarten: 5, civic: 12,
-  yes: 9,
-};
-
-function heightOf(tags) {
-  const h = tags.height ?? tags['building:height'];
-  if (h) {
-    const n = parseFloat(String(h).split(';')[0]);
-    if (Number.isFinite(n) && n > 0 && n < 600) return n;
-  }
-  const lv = tags['building:levels'] ?? tags['building:level'];
-  if (lv) {
-    const n = parseFloat(String(lv).split(';')[0]);
-    if (Number.isFinite(n) && n > 0 && n < 180) return n * 3.2 + 1.2;
-  }
-  const type = tags.building || 'yes';
-  return BY_TYPE[type] ?? 9;
-}
+// No floor-count or building-type fallback: only explicit source heights.
 
 /* ── the fetch ──────────────────────────────────────────────────────────── */
 
@@ -150,13 +131,18 @@ async function overpass(city) {
     (city.lat + dLat).toFixed(5), (city.lon + dLon).toFixed(5),
   ].join(',');
   const query = `[out:json][timeout:180];(way["building"](${bbox});way["highway"](${bbox}););out geom;`;
-  const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
+  const endpoints = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+      const url = `${endpoints[(attempt - 1) % endpoints.length]}?data=${encodeURIComponent(query)}`;
+      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' }, signal: AbortSignal.timeout(60000) });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
+      if (!Array.isArray(json.elements) || json.remark) throw new Error('incomplete Overpass response');
+      const archive = join(ROOT, 'data/.harvest/city');
+      mkdirSync(archive, { recursive: true });
+      writeFileSync(join(archive, `${city.slug}.json.gz`), gzipSync(JSON.stringify(json)));
       return { elements: json.elements || [], ways: json.ways || [] };
     } catch (err) {
       if (attempt === 3) throw err;
@@ -224,6 +210,7 @@ function build(city, raw) {
   const out = [];
   const seen = new Set();
   for (const el of raw.elements || []) {
+    if (!isBuildingWay(el)) continue;
     const geom = el.geometry;
     if (!Array.isArray(geom) || geom.length < 3) continue;
     const tags = el.tags || {};
@@ -245,11 +232,13 @@ function build(city, raw) {
     if (seen.has(key)) continue;
     seen.add(key);
 
-    const h = heightOf(tags);
+    const height = explicitHeight(tags);
     const seed = hash32(city.slug + ':' + key);
     out.push({
       r: orient(ring).map(([x, y]) => [Math.round(x * 10) / 10, Math.round(y * 10) / 10]),
-      h: Math.round(h * 10) / 10,
+      h: Math.round((height.height ?? 0) * 10) / 10,
+      osm_id: el.id,
+      height_source: height.source,
       // How lit this building is: 0 is a dark shell, 1 is every window on.
       l: ((seed % 1000) / 1000),
       s: seed,
@@ -305,6 +294,7 @@ async function main() {
     process.exit(1);
   }
   const index = [];
+  let failures = 0;
   for (const city of wanted) {
     process.stdout.write(`· ${city.name} (${city.where}) … `);
     const t0 = Date.now();
@@ -313,6 +303,7 @@ async function main() {
       raw = await overpass(city);
     } catch (err) {
       console.log(`FAILED — ${err.message}`);
+      failures++;
       continue;
     }
     const buildings = build(city, raw);
@@ -362,6 +353,7 @@ async function main() {
     writeFileSync(indexFile, JSON.stringify({ built_at: new Date().toISOString(), cities: merged }, null, 1));
     console.log(`\n✓ ${index.length} city model(s) → public/data/city/`);
   }
+  if (failures) process.exitCode = 1;
 }
 
 main().catch((err) => {
