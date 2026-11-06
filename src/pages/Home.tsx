@@ -79,6 +79,14 @@ function topScreenPicks(snapshot: ScreenSnapshot | null, limit = 5): { title: st
     }))
 }
 
+function ReferencePhoto({ card, className = 'ticker-thumb' }: { card: Card; className?: string }) {
+  const media = card.media.find(image => image.match === 'exact_reference')
+  const [failed, setFailed] = useState(false)
+  if (!media || failed) return <span className={`${className} reference-photo-missing ticker-photo-status mono`}>PHOTO UNVERIFIED</span>
+  return <span className={`${className} reference-photo`} data-reference={card.id}><img src={media.url} alt="" loading="lazy"
+    decoding="async" width={400} height={300} onError={() => setFailed(true)} /></span>
+}
+
 export default function Home() {
   const data = useDataset()
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
@@ -296,18 +304,13 @@ export default function Home() {
             {topTrending.map((row) => {
               const card = cardById.get(row.card_id)
               if (!card) return null
-              const media = card.media[0]
               const dod = row.wikipedia.dod_pct
               const interest = row.trends.interest
               return (
                 <li key={row.id}>
                   <Link to={`/w/${row.card_id}`} className="trending-now-cell">
                     <span className="trending-now-rank mono">{String(row.rank).padStart(2, '0')}</span>
-                    <span className="trending-now-media">
-                      {media
-                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" decoding="async"  width={400} height={300} />
-                        : <span className="dim">—</span>}
-                    </span>
+                    <ReferencePhoto card={card} className="trending-now-media" />
                     <span className="trending-now-body">
                       <span className="trending-now-brand mono">{card.identity.brand.toUpperCase()}</span>
                       <span className="trending-now-name">{row.label}</span>
@@ -348,7 +351,6 @@ export default function Home() {
           <ol className="market-trends-list">
             {trending.map((row) => {
               const card = cardById.get(row.card_id)!
-              const media = card.media[0]
               const dod = row.wikipedia.dod_pct
               const mom = row.trends.momentum
               const interest = row.trends.interest
@@ -356,11 +358,7 @@ export default function Home() {
                 <li key={row.id}>
                   <Link to={`/w/${row.card_id}`} className="market-trends-row">
                     <span className="market-trends-rank mono">{String(row.rank).padStart(2, '0')}</span>
-                    <span className="market-trends-media">
-                      {media
-                        ? <img src={media.url} alt={`${card.identity.brand} ${card.identity.name}`} loading="lazy" decoding="async"  width={400} height={300} />
-                        : <span className="dim">—</span>}
-                    </span>
+                    <ReferencePhoto card={card} className="market-trends-media" />
                     <span className="market-trends-body">
                       <span className="market-trends-label">{row.label}</span>
                       <span className="market-trends-meta mono">
@@ -422,17 +420,9 @@ export default function Home() {
         </div>
         <div className="ticker-strip">
           {ticker.map((c) => {
-            const m = c.media[0]
             return (
               <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
-                <span className="ticker-thumb">
-                  {/* The alt is empty on purpose: the cell states the brand,
-                      the reference and the name as text two lines below, so
-                      the picture is decorative here — and the browser laying
-                      the alt text out inside a 130x70 crop is how the name
-                      used to get sliced in half. */}
-                  {m ? <img src={m.url} alt="" loading="lazy" decoding="async"  width={400} height={300} /> : <span className="dim">—</span>}
-                </span>
+                <ReferencePhoto card={c} />
                 <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
                 <span className="ticker-ref">{c.identity.reference}</span>
                 <span className="ticker-name">{c.identity.name}</span>
@@ -443,6 +433,7 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="home-entry-grid">
       {brassTacks.length > 0 && (
         <section className="starter-row" aria-label="Five fully-stocked dossiers to start with">
           <div className="section-rule">
@@ -477,18 +468,15 @@ export default function Home() {
           <div className="asia-spotlight-grid">
             {asiaPicks.map((c) => (
               <Link key={c.id} to={`/w/${c.id}`} className="asia-spotlight-card">
-                <span className="asia-spotlight-media">
-                  {c.media[0]
-                    ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
-                    : <span className="dim">NO PHOTO YET</span>}
-                </span>
+                <ReferencePhoto card={c} className="asia-spotlight-media" />
                 <span className="asia-spotlight-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                 <span className="asia-spotlight-name">{c.identity.name}</span>
                 {c.identity.nickname && <span className="asia-spotlight-nick">“{c.identity.nickname}”</span>}
                 <span className="asia-spotlight-tier mono">{c.identity.tier.toUpperCase()}</span>
               </Link>
             ))}
-            <Link to="/register?region=asia" className="asia-spotlight-card asia-spotlight-all">
+          </div>
+            <Link to="/register?region=asia" className="asia-spotlight-all">
               <span className="asia-spotlight-all-eyebrow mono">FILTER</span>
               <span className="asia-spotlight-all-title">SEE ALL ASIA</span>
               <span className="asia-spotlight-all-body">
@@ -496,9 +484,9 @@ export default function Home() {
               </span>
               <span className="asia-spotlight-all-link mono">→ REGISTER (REGION: ASIA)</span>
             </Link>
-          </div>
         </section>
       )}
+      </div>
 
       {/* "What's hot" — two parallel 4-up rows. One for the Thai/SEA market
           (the brand owners, the local dealers, the collectors in Bangkok
@@ -516,11 +504,7 @@ export default function Home() {
             <div className="hot-col-grid">
               {thaiPicks.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <span className="hot-col-media">
-                    {c.media[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
-                      : <span className="dim">—</span>}
-                  </span>
+                  <ReferencePhoto card={c} className="hot-col-media" />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>
@@ -533,11 +517,7 @@ export default function Home() {
             <div className="hot-col-grid">
               {globalHot.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <span className="hot-col-media">
-                    {c.media[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
-                      : <span className="dim">—</span>}
-                  </span>
+                  <ReferencePhoto card={c} className="hot-col-media" />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>

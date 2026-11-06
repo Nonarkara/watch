@@ -22,7 +22,7 @@ visible; reading content stays on opaque theme-aware paper.
 ## Executable evidence
 
 `npm run verify:home` uses a real browser at 375×844, 390×844, 639×900, 640×900,
-768×900, 1024×900, 1280×720 and 1440×900. Set `WATCH_BROWSER_BIN` when
+768×900, 1024×900, 1280×720, 1440×900 and 1728×900. Set `WATCH_BROWSER_BIN` when
 agent-browser is not on PATH. `WATCH_BEFORE_URL` optionally records the old site;
 `WATCH_PROOF_DIR` selects the screenshot and JSON receipt directory.
 
@@ -38,3 +38,22 @@ same width gate. Tests also open the commitments and check the dark footer.
 These checks do not certify every user journey, every image source, or human
 usability. Independent pixel review remains required; geometry receipts are not
 permission to waive a visual defect.
+
+## Screenshot regression: middle-page proximity
+
+The owner rejected the middle section after the first geometry pass. Section-height
+budgets alone missed five short dossiers stretched to the entire shell, counts
+stranded on the right, and the Asia filter orphaned below a four-up list.
+
+The dossier and Asia regions now share two independently sized working columns
+from 960px; their source order stays unchanged on phone. Counts sit within 24px
+of the actual name text (not merely its stretched DOM box). The Asia filter sits
+outside the reference grid as its attached footer. Archive names wrap; all sampled
+Home thumbnails require explicit reference matching. Missing/failed photos become text, not empty
+frames. Source media remains in the dossiers; this sampler does not pretend a
+brand headquarters or logo is a watch.
+
+The browser gate measures the actual name ink with a Range, checks desktop column
+width and shared row, and restores the expanding middle track to prove proximity
+fails. It verifies archive image metadata and dispatches an image failure to test
+the honest fallback. Capture `middle-*.png`, not only the first screen.
