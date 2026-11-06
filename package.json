@@ -28,7 +28,9 @@
     "data:cpi": "node scripts/collect-cpi.mjs",
     "data:trends": "node scripts/collect_market_trends.mjs",
     "data:status": "node scripts/data-status.mjs",
-    "live:run": "node worker/live/run-local.mjs"
+    "live:run": "node worker/live/run-local.mjs",
+    "data:city": "node scripts/build_city_model.mjs",
+    "deploy": "npm run build && npm test && npx wrangler pages deploy dist --project-name watch --branch main"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

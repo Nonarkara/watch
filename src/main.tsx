@@ -2,6 +2,8 @@ import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+// The city's backdrop. It comes after index.css so it wins where it means to.
+import './city.css'
 import App from './App.tsx'
 import Home from './pages/Home.tsx'
 

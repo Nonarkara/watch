@@ -1,0 +1,58 @@
+/* ══ THE NIGHT CITY ══════════════════════════════════════════════════════
+   The page stands in a real city, at night, and the scroll is the camera:
+   from high above the skyline, tilting down, down to the pavement.
+
+   The city is drawn in greyscale with white lights, so the site's own
+   colours — coral, yellow, teal — are the only colour on the page and they
+   carry against it. The layer is a background: it never takes a click, and
+   a reader who asked for less motion gets one still frame and no movement.
+
+   The camera path and the model's geometry live in the city files; this is
+   only the layer that holds them.
+   ══════════════════════════════════════════════════════════════════════ */
+.city-layer {
+  z-index: 0;
+}
+/* The work sits above the city, never under it. */
+.hdr,
+main.shell,
+.ftr { position: relative; z-index: 1; }
+
+/* The city control. One word, in the masthead, where a control belongs. */
+.city-toggle { position: relative; }
+.city-toggle-btn {
+  display: inline-flex; align-items: center; height: 32px;
+  padding: 0 10px;
+  background: transparent; color: var(--ink);
+  border: 0; border-left: 1px solid var(--ink);
+  font-size: 10px; letter-spacing: 0.1em; font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.city-toggle-btn:hover { background: var(--surface); }
+.city-toggle-menu {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+  margin: 0; padding: 0; list-style: none;
+  background: var(--paper); border: var(--mg-rule-heavy) solid var(--ink);
+  min-width: 220px;
+}
+.city-toggle-item {
+  display: block; width: 100%; text-align: left;
+  padding: 9px 12px;
+  background: transparent; color: var(--ink); border: 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px; letter-spacing: 0.08em; cursor: pointer;
+}
+.city-toggle-item:last-child { border-bottom: 0; }
+.city-toggle-item:hover { background: var(--surface); }
+.city-toggle-item.on { background: var(--mg-warm); }
+
+/* The city's licence: OpenStreetMap's data is ODbL and asks to be credited.
+   The credit sits on the plate that already says what the site is. */
+.ftr-meta a,
+.ftr-credit {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ftr-credit { color: var(--sky); }

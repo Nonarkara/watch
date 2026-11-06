@@ -6,6 +6,8 @@ import { CompareProvider } from './lib/compare-context.tsx'
 import { SavedProvider } from './lib/saved-context.tsx'
 import { useRecentlyViewed } from './lib/recently-viewed.ts'
 import CompareDock from './components/CompareDock.tsx'
+import CityLayer from './components/CityLayer.tsx'
+import { CityToggle, useCity } from './components/CityToggle.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
 import SavedBadge from './components/SavedBadge.tsx'
 import ThemeToggle from './components/ThemeToggle.tsx'
@@ -58,6 +60,7 @@ const PAGE_TITLES: Record<string, string> = {
 export default function App() {
   const [data, setData] = useState<Dataset | null>(null)
   const [err, setErr] = useState<string | null>(null)
+  const [city, setCity, cities] = useCity()
   const { pathname } = useLocation()
   const retryDataset = () => {
     setErr(null)
@@ -77,6 +80,7 @@ export default function App() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <SearchPalette />
       <RecentlyViewedTracker />
+      <CityLayer city={city.slug} />
       <header className="hdr">
         <div className="shell hdr-in">
           <NavLink to="/" end className="wordmark" aria-label="Time Pop — home">
@@ -95,6 +99,7 @@ export default function App() {
             </button>
             <SavedBadge />
             <ThemeToggle />
+            <CityToggle current={city} cities={cities} onPick={setCity} />
           </div>
           <nav className="nav" aria-label="Main navigation">
             {NAV.map((n) => (
@@ -124,6 +129,15 @@ export default function App() {
         <div className="shell">
           <p className="ftr-meta mono micro">
             {data ? `${data.count} REFERENCES · DATA BUILT ${data.built} · METHODOLOGY V${data.methodology_version}` : ''}
+            {' · CITY '}
+            <a
+              href="https://www.openstreetmap.org/copyright"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="ftr-credit"
+            >
+              © OpenStreetMap CONTRIBUTORS
+            </a>
           </p>
           <p className="micro dim">
             Every number on this site traces to a cited public source or is computed from cited evidence — the

@@ -1,0 +1,61 @@
+{
+ "built_at": "2026-11-05T15:44:55.101Z",
+ "cities": [
+  {
+   "slug": "bangkok",
+   "name": "Bangkok",
+   "country": "Thailand",
+   "where": "Sukhumvit",
+   "origin": [
+    13.7337,
+    100.561
+   ],
+   "radius": 1500,
+   "buildings": 8578,
+   "bytes": 1147467,
+   "source": "OpenStreetMap via Overpass · Bangkok Sukhumvit · r=1500m"
+  },
+  {
+   "slug": "tokyo",
+   "name": "Tokyo",
+   "country": "Japan",
+   "where": "Shibuya Crossing",
+   "origin": [
+    35.6595,
+    139.7005
+   ],
+   "radius": 1500,
+   "buildings": 21468,
+   "bytes": 2820691,
+   "source": "OpenStreetMap via Overpass · Tokyo Shibuya Crossing · r=1500m"
+  },
+  {
+   "slug": "new-york",
+   "name": "New York",
+   "country": "United States",
+   "where": "Midtown Manhattan",
+   "origin": [
+    40.7549,
+    -73.984
+   ],
+   "radius": 1500,
+   "buildings": 9046,
+   "bytes": 1545314,
+   "source": "OpenStreetMap via Overpass · New York Midtown Manhattan · r=1500m"
+  },
+  {
+   "slug": "london",
+   "name": "London",
+   "country": "United Kingdom",
+   "where": "The City",
+   "origin": [
+    51.5136,
+    -0.0984
+   ],
+   "radius": 1500,
+   "buildings": 12304,
+   "bytes": 2268241,
+   "source": "OpenStreetMap via Overpass · London The City · r=1500m"
+  }
+ ]
+}
