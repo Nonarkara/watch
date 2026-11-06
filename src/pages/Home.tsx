@@ -8,6 +8,7 @@ import { attentionAgeDays } from '../lib/attention-pulse.ts'
 import ArtBand from '../components/ArtBand.tsx'
 import Spotlight from '../components/Spotlight.tsx'
 import { ARTICLES } from './GuideArticles.tsx'
+import './home.css'
 
 /**
  * Pick a cross-section of references that gives a reader the depth of the
@@ -83,6 +84,14 @@ export default function Home() {
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
   const [screen, setScreen] = useState<ScreenSnapshot | null>(null)
   const [trends, setTrends] = useState<MarketTrendsSnapshot | null>(null)
+  const [attentionOpen, setAttentionOpen] = useState(false)
+  const [attentionRequest, setAttentionRequest] = useState(0)
+  useEffect(() => {
+    if (!attentionRequest) return
+    const summary = document.querySelector<HTMLDetailsElement>('#trending-full')?.querySelector('summary')
+    summary?.scrollIntoView({ block: 'start', behavior: 'instant' })
+    summary?.focus({ preventScroll: true })
+  }, [attentionRequest])
   useEffect(() => {
     Promise.all([loadRolexCatalog(), loadScreenSightings(), loadMarketTrends()]).then(([c, s, t]) => {
       setCatalog(c)
@@ -198,7 +207,7 @@ export default function Home() {
   ]
 
   return (
-    <>
+    <div className="home-page">
       {/* Conservation: first fold = brand banner + thesis + eight ledger facts;
           invented prices = 0. Banner is full-bleed ground. Copy is cream slab.
           Ledger is the floor. Do not demote the banner to HeroBanner (no image). */}
@@ -248,12 +257,15 @@ export default function Home() {
       </div>
 
       {/* State the subject first; keep all four evidence commitments nearby. */}
+      <details className="home-commitments">
+      <summary>What these numbers rest on <span className="dim">Sources, images and the honesty ladder</span></summary>
       <div className="home-why-band" aria-label="What these numbers rest on">
         <span className="home-why-band-item"><span className="home-why-num mono">01</span><span className="home-why-text">Every number is cited or refused.</span></span>
         <span className="home-why-band-item"><span className="home-why-num mono">02</span><span className="home-why-text">No invented prices. The ladder publishes what it has and declines what it does not.</span></span>
         <span className="home-why-band-item"><span className="home-why-num mono">03</span><span className="home-why-text">Every image links to its source and license.</span></span>
         <span className="home-why-band-item"><span className="home-why-num mono">04</span><span className="home-why-text">The catalogue rebuilds on the live build — every count is computed, never faked.</span></span>
       </div>
+      </details>
 
       {topTrending.length > 0 && trends && (
         // "TRENDING NOW" — a 5-up horizontal strip placed right after the hero.
@@ -273,7 +285,11 @@ export default function Home() {
               AS OF {trends.as_of}
               {trendAge != null && <> · {trendStale ? 'STALE' : 'FRESH'} {trendAge}D</>}
               {' · '}PUBLIC ATTENTION, NOT PRICE ·{' '}
-              <Link to="#trending-full">SEE ALL {trends.trending.filter((r) => cardById.has(r.card_id)).length} →</Link>
+              <Link to="#trending-full" onClick={(event) => {
+                event.preventDefault()
+                setAttentionOpen(true)
+                setAttentionRequest(request => request + 1)
+              }}>SEE RANKING & SOURCES →</Link>
             </span>
           </div>
           <ol className="trending-now-strip">
@@ -313,7 +329,10 @@ export default function Home() {
       )}
 
       {trending.length > 0 && trends && (
-        <section id="trending-full" className="market-trends" aria-label="Trending in public attention">
+        <details id="trending-full" className="home-attention-details" open={attentionOpen}
+          onToggle={(event) => setAttentionOpen(event.currentTarget.open)}>
+        <summary>Attention ranking and sources <span className="dim">{trending.length} references · not sales evidence</span></summary>
+        <section className="market-trends" aria-label="Trending in public attention">
           <div className="section-rule">
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
@@ -384,6 +403,7 @@ export default function Home() {
             <Link to="/methodology">METHOD →</Link>
           </p>
         </section>
+        </details>
       )}
 
       {brassTacks[0] && (
@@ -643,6 +663,6 @@ export default function Home() {
           <p className="crossed"><span>Hype premium</span><strong>AWAITING A VALID COHORT</strong></p>
         </div>
       </section>
-    </>
+    </div>
   )
 }

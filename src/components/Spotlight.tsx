@@ -116,6 +116,9 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
             </ol>
           </div>
 
+        </div>
+      </div>
+      <div className="spotlight-reading">
           <p className="spotlight-story">
             {c.narrative.story.length > 280
               ? c.narrative.story.slice(0, 280).replace(/\s+\S*$/, '') + '…'
@@ -126,7 +129,6 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
             <Link to={`/w/${c.id}`} className="spotlight-cta spotlight-cta--primary">OPEN THE DOSSIER →</Link>
             <Link to="/compare" className="spotlight-cta spotlight-cta--ghost">COMPARE WITH ANOTHER</Link>
           </div>
-        </div>
       </div>
     </section>
   )

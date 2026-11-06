@@ -11,6 +11,7 @@
     "posttest": "npm run test:security",
     "preview": "vite preview",
     "verify:experience": "node scripts/verify-experience.mjs",
+    "verify:home": "node scripts/verify-home-geometry.mjs",
     "data:build": "node scripts/build_indices.mjs",
     "data:sitemap": "node scripts/build_sitemap.mjs",
     "data:census": "node scripts/build_auction_census.mjs",

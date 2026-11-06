@@ -703,7 +703,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    this one ends on a plate. */
 .ftr-meta {
   background: var(--mg-counter);
-  color: var(--paper);
+  color: #FFFFFF;
   padding: 10px 14px;
   margin: 0 0 var(--space-lg);
   display: block;

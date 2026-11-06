@@ -102,6 +102,15 @@ validated end to end.
 
 ## Anti-Regression
 
+Home geometry repair: `src/pages/home.css` deliberately replaces inflated
+full-width stat tiles and repeated card framing with an aligned editorial column
+grid. Art → reading/action band → natural-width facts. Commitments and detailed
+attention remain in named disclosures; ranking opens and focuses its result.
+Spotlight narrative/actions sit below the photo/verdict group, not beside a tall
+empty image column. Preserve this composition, not the legacy oversized rules
+in index.css. Proof and content-specific budgets: `docs/HOME-GEOMETRY.md` and
+`npm run verify:home`. The city, art, palette, Jost/Spectral and all content remain.
+
 ### Operability recovery — 2026-11-06
 
 Grid remains the Mondrian column/modular register: object → evidence → action.
