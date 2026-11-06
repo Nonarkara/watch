@@ -1,0 +1,77 @@
+
+/* ── The tracks that hold a scrolling row ─────────────────────────────────
+   `minmax(0, 1fr)`, not `1fr`: a track keeps its content's minimum width, and
+   a row that scrolls sideways has a minimum of the whole row. With a `1fr`
+   track the brand row blew the page out by the width of its pills.
+
+   These live here, with the rows that need them, and not in index.css: the
+   fix belongs to the rule that caused it.
+   ─────────────────────────────────────────────────────────────────────── */
+.brand-row { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) {
+  .brand-row { grid-template-columns: 220px minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+}
+@media (min-width: 1024px) {
+  .brand-row { grid-template-columns: 240px 360px minmax(0, 1fr); }
+}
+/* ── Rows that do not strand one item ─────────────────────────────────────
+   A row of chips, pills or tags that breaks and leaves ONE item alone on
+   its last line is a hole in the row, not rhythm: the reader is handed a
+   last item with nothing beside it. It is the same law as a grid whose
+   column count does not divide its item count — the last cell sits by
+   itself in an empty row.
+
+   The site's own answer already exists, used by the Rolex sub-tabs: the row
+   does not break, it SCROLLS sideways. Every item stays reachable, the row
+   is one line, and nothing is stranded. The row scrolls only when it does
+   not fit, so at the widths where the row fits nothing changes at all.
+   ─────────────────────────────────────────────────────────────────────── */
+.chips,
+.glossary-chips,
+.brand-tier-chips,
+.screen-controls,
+.bible-card-tags,
+.brand-references,
+.rolex-subtabs,
+.market-chart-legend,
+.labs-card-sources,
+.bible-dossier-list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chips::-webkit-scrollbar,
+.glossary-chips::-webkit-scrollbar,
+.brand-tier-chips::-webkit-scrollbar,
+.screen-controls::-webkit-scrollbar,
+.bible-card-tags::-webkit-scrollbar,
+.brand-references::-webkit-scrollbar,
+.rolex-subtabs::-webkit-scrollbar,
+.market-chart-legend::-webkit-scrollbar,
+.labs-card-sources::-webkit-scrollbar,
+.bible-dossier-list::-webkit-scrollbar { display: none; }
+.chips > *,
+.glossary-chips > *,
+.brand-tier-chips > *,
+.screen-controls > *,
+.bible-card-tags > *,
+.brand-references > *,
+.rolex-subtabs > *,
+.market-chart-legend > *,
+.labs-card-sources > *,
+.bible-dossier-list > * { flex: 0 0 auto; }
+
+/* The four axes of a dossier card. Four items, so the columns must be two
+   or four — never three, which would leave RESELLABILITY alone on a row of
+   its own. Two under the card's own width, four when the card is wide
+   enough for the labels to sit side by side. */
+.pom-card-axes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+.pom-card-axes .score-axis { min-width: 0; }
+@media (min-width: 1100px) {
+  .pom-card-axes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

@@ -2,8 +2,10 @@ import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
-// The city's backdrop. It comes after index.css so it wins where it means to.
+// The city's backdrop, then the rules for rows that must not strand an item.
+// Both come after index.css so they win where they mean to.
 import './city.css'
+import './rows.css'
 import App from './App.tsx'
 import Home from './pages/Home.tsx'
 
