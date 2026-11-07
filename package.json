@@ -31,6 +31,13 @@
     "data:status": "node scripts/data-status.mjs",
     "live:run": "node worker/live/run-local.mjs",
     "data:city": "node scripts/build_city_model.mjs",
+    "spatial:copy": "node scripts/spatial/make-measure-copy.mjs",
+    "spatial:prerender": "node scripts/spatial/prerender.mjs",
+    "spatial:gate": "npm run spatial:copy && npm run spatial:prerender && node scripts/spatial/spatial-check.mjs --dir .spatial-dist --baseline design/spatial-baseline.json",
+    "spatial:report": "npm run spatial:copy && npm run spatial:prerender && node scripts/spatial/spatial-check.mjs --dir .spatial-dist --baseline design/spatial-baseline.json --report",
+    "spatial:falsify": "node scripts/spatial/spatial-falsify.mjs .spatial-dist",
+    "spatial:probe": "node scripts/spatial/run-probe.mjs",
+    "spatial:verify": "node scripts/spatial/verify.mjs",
     "deploy": "npm run build && npm test && npx wrangler pages deploy dist --project-name watch --branch main"
   },
   "dependencies": {

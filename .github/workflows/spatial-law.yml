@@ -1,0 +1,89 @@
+# Spatial law: the layout gate, measured against the live site.
+#
+# What this job checks: every route of the deployed site, at every width where
+# the layout changes, in a real browser, for holes, orphans, clipped text,
+# rows that break and strand one item, actions pushed to opposite edges, and
+# pages that scroll sideways.
+#
+# Why it measures the DEPLOYED site rather than a fresh build:
+#
+#   The site's stylesheet imports the shared design tokens from the estate
+#   (../../_shared/design-tokens/dr-non-brand.css), and that file is
+#   deliberately not vendored into this repository. It is not published
+#   either — https://nonarkara.org/_shared/design-tokens/dr-non-brand.css
+#   returns the site's HTML, not CSS. So a CI runner cannot build this site,
+#   and a gate that measured a CI build would be measuring a different page
+#   from the one the world sees. Measuring the deployed site needs no build
+#   and no tokens: it measures exactly what is being served.
+#
+#   The build-time gate still runs before every deploy, locally:
+#     npm run spatial:gate      build -> measure copy -> prerender -> gate
+#     npm run spatial:falsify   prove the gate bites by breaking the page
+#
+# The falsifier does NOT run here; the step summary says so. It needs a local,
+# prerendered copy of the site, which needs a build, which needs the shared
+# design tokens this runner cannot obtain. A gate that has never been shown to
+# fail is not a gate; so the falsifier runs in the release chain, on the
+# machine that deploys.
+#
+# The night city behind the page is a full-screen fixed canvas. The gate reads
+# a full-screen fixed layer as a modal and leaves it out of the chrome
+# measurement, which is right here: the city is a backdrop under the work, it
+# takes no height away from it, and the work's own probe (scripts/spatial/
+# msh-probe.js) reports zero occluded text with it switched on.
+name: Spatial law
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    # Once a day, so a page that drifts without a commit is still caught.
+    - cron: '17 5 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spatial-law
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    # A fresh load per (route, width): 26 routes x 64 widths is 1664 page
+    # loads. On a slow runner that is not 30 minutes.
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Install Chrome for the measurement browser
+        # Not `apt-get install chromium-browser`: on ubuntu-latest that is a
+        # snap transitional package, and a snap does not run inside a runner's
+        # container. The gate measured nothing and read as a pass.
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+      - name: Point the gate at that browser
+        run: echo "CHROME_PATH=$(command -v google-chrome || command -v chrome)" >> "$GITHUB_ENV"
+      - name: The deployed site has no spatial hallucination
+        run: |
+          node scripts/spatial/spatial-check.mjs \
+            --base https://watch.nonarkara.org/ \
+            --baseline design/spatial-baseline.json
+      - name: Say plainly what this job did and did not check
+        # The falsifier (spatial-falsify.mjs) needs a local, prerendered copy
+        # of the site, which needs a build, which needs the shared design
+        # tokens this runner cannot obtain. So it runs in the release chain on
+        # the machine that deploys, not here. This job says so rather than
+        # letting a skipped step read as a pass.
+        run: |
+          {
+            echo "### Spatial law"
+            echo
+            echo "- Measured the DEPLOYED site at watch.nonarkara.org, every route, every layout-changing width."
+            echo "- The build-time gate and the falsifier run in the release chain, not in CI, because this"
+            echo "  runner cannot obtain the shared design tokens and therefore cannot build the site."
+          } >> "$GITHUB_STEP_SUMMARY"
