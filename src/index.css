@@ -271,8 +271,10 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
    phone and ~96px on a desktop, and it scrolls away with the page. Chrome
    that follows you down a page has to earn the pixels on every screen; a name
    and a menu do not. */
-:root { --hdr-row: 44px; --hdr-cell: 34px; }
-@media (min-width: 880px) { :root { --hdr-row: 56px; --hdr-cell: 40px; } }
+/* A phone tap is 44px. The nav cells were 34px and the cluster buttons
+   32px: twelve controls under the floor. The floor is the floor. */
+:root { --hdr-row: 44px; --hdr-cell: 44px; }
+@media (min-width: 880px) { :root { --hdr-row: 56px; --hdr-cell: 44px; } }
 
 .hdr {
   background: var(--bg);
@@ -399,7 +401,7 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 /* ── Home ── */
 .home-hero { padding: var(--space-lg) 0 var(--space-xl); border-bottom: var(--border); }
 .home-title { max-width: 760px; font-family: var(--font-display); font-size: var(--text-display); line-height: 1.08; margin: var(--space-sm) 0 var(--space-md); }
-.home-lede { max-width: 68ch; line-height: 1.55; color: var(--dim); }
+.home-lede { max-width: 62ch; line-height: 1.55; color: var(--dim); }
 .home-proof { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-xl); margin-top: var(--space-lg); color: var(--dim); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; }
 .home-proof strong { color: var(--fg); font-size: var(--text-body); margin-right: var(--space-xs); }
 .purpose-section { margin: var(--space-xl) 0; }
@@ -511,9 +513,9 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 @media (min-width: 880px) {
   :root { --pad: 24px; }
   .purpose-grid { grid-template-columns: 1fr 1fr; }
-  .feature-readings { grid-template-columns: repeat(3, 1fr); }
+  .feature-readings { grid-template-columns: 1.4fr 1fr 1fr; }
   .discover-head { flex-direction: row; justify-content: space-between; align-items: flex-end; }
-  .discovery-grid { grid-template-columns: repeat(3, 1fr); }
+  .discovery-grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .discovery-grid > section { border-right: var(--border); border-bottom: none; }
   .discovery-grid > section:last-child { border-right: none; }
   .discovery-foot { flex-direction: row; justify-content: space-between; align-items: center; }
@@ -736,8 +738,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 /* ── Economy Page Styles ── */
 .econ-sim-card {
   border: var(--border);
-  background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(8px);
+  background: var(--surface);
   padding: var(--space-xl);
   margin: var(--space-xl) 0;
 }
@@ -830,7 +831,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 
 /* Lightbox Modal */
 .lightbox-backdrop {
-  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85);
   z-index: 999; display: flex; align-items: center; justify-content: center; padding: var(--space-md);
 }
 .lightbox-content {
@@ -852,7 +853,14 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    clamped to two lines and the sub-line always occupies one, because a card that
    grows with its title is what makes a grid look accidental. Cards share hairlines
    instead of floating in gutters. */
-.register-view-toggle { display: flex; gap: var(--space-xs); align-items: center; }
+.register-view-toggle {
+  display: flex; gap: var(--space-xs); align-items: center;
+  /* The two chips need 229px and the column they sit in is 203px. A grid
+     item's minimum is its content's minimum, so the item overflowed its
+     track and the second chip stuck out past the page. The chips wrap
+     inside the track instead. */
+  min-width: 0; flex-wrap: wrap; justify-content: flex-end;
+}
 .card-grid-view {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 0; margin-top: var(--space-lg);
@@ -1076,9 +1084,13 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   overflow-wrap: anywhere;
   hyphens: auto;
 }
+/* ONE NUMBER LEADS. Eight figures at one size in eight equal cells is the
+   equal-weight mush the law names: the squint finds no winner. The
+   register's own count is the fact the page is about, so it leads; the
+   other seven are the evidence for it, and they step down a size. */
 .hero-ledger-grid dd {
   font-family: var(--font-mono);
-  font-size: 26px;
+  font-size: 21px;
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -.03em;
@@ -1090,6 +1102,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   overflow: hidden;
   text-overflow: clip;
 }
+.hero-ledger-grid > div:first-child dd { font-size: 29px; line-height: 1; }
 .hero-ledger-zero dd { color: var(--coral); }
 .hero-art-credit {
   padding: 6px var(--pad) 8px;
@@ -1113,13 +1126,15 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
      digit. */
   .hero-ledger-grid { grid-template-columns: repeat(4, 1fr); }
   .hero-ledger-grid dd { font-size: 22px; }
+  .hero-ledger-grid > div:first-child dd { font-size: 31px; }
   .hero-ledger-grid dt { font-size: 10px; }
 }
 
 @media (min-width: 1100px) {
   /* On wider viewports the meta slot can carry the 8-across density. */
   .hero-ledger-grid { grid-template-columns: repeat(4, 1fr); }
-  .hero-ledger-grid dd { font-size: 24px; }
+  .hero-ledger-grid dd { font-size: 23px; }
+  .hero-ledger-grid > div:first-child dd { font-size: 33px; }
 }
 
 .btn.secondary {
@@ -1422,8 +1437,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .cdock {
   position: sticky; bottom: 0; z-index: var(--z-drawer);
   border-top: 1px solid var(--rule);
-  background: color-mix(in srgb, var(--bg) 96%, transparent);
-  backdrop-filter: saturate(1.4) blur(8px);
+  background: var(--bg);
   padding-bottom: var(--sab);
 }
 .cdock.idle { position: static; opacity: .72; }
@@ -3072,7 +3086,8 @@ main.shell { padding-top: var(--space-md); }
 .guide-body strong { color: var(--ink); font-weight: 600; }
 .guide-body em { font-style: italic; color: var(--coral-2); }
 /* Callouts inside an article: good/bad/note. The color comes from the hue. */
-.callout { padding: 18px 22px; margin: 24px 0; border-left: 3px solid; background: var(--surface); max-width: 64ch; }
+.callout { padding: 18px 22px; margin: 24px 0; border-left: 1px solid; background: var(--surface); max-width: 64ch; }
+.callout-kind { display: block; font-size: 10px; letter-spacing: 0.14em; margin-bottom: 6px; color: var(--dim); }
 .callout--good { border-color: var(--teal-text); }
 .callout--bad { border-color: var(--coral-text); }
 .callout--note { border-color: var(--navy-ink); }
@@ -4867,6 +4882,7 @@ main.shell { padding-top: var(--space-md); }
 }
 .spotlight-cta {
   display: inline-flex; align-items: center; padding: 10px 16px;
+  min-height: 44px;
   background: var(--bg); color: var(--ink);
   border-right: 1px solid var(--ink);
   text-decoration: none; font-size: 11px; letter-spacing: 0.1em;

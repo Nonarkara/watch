@@ -225,6 +225,19 @@ const STRIP_EXPR = `(() => {
   document.querySelectorAll('script:not([src])').forEach(function (n) {
     if ((n.textContent || '').indexOf('visitor-tracking') !== -1) { n.remove(); removed.push('inline visitor-tracking'); }
   });
+  // A canvas is sized in PIXELS by the script that draws it, and the snapshot
+  // keeps those pixels. The snapshot was taken at one width, so the canvas in
+  // it was the width of that one width - and at every other width the fixed
+  // canvas was wider than the page. The gate caught it: /register/ at 878px
+  // scrolled sideways by 562px, which is 1440 - 878.
+  //
+  // The canvas is a backdrop that fills the viewport, so it is written down
+  // as a percentage and takes its size from the viewport it is measured at.
+  document.querySelectorAll('canvas').forEach(function (n) {
+    n.style.width = '100%';
+    n.style.height = '100%';
+    removed.push('canvas sized to the viewport');
+  });
   // Every image loads EAGERLY in the snapshot. The gate waits for the page to
   // have arrived before it measures, and "arrived" means every image is
   // complete. A lazy image below the fold never loads in a headless page

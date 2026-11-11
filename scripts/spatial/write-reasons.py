@@ -20,6 +20,16 @@ BASELINE = os.path.join(ROOT, "design", "spatial-baseline.json")
 
 # key = "kind|selector". Each reason names the decision and the measured fact.
 REASONS = {
+    "dead|div.spotlight-ctas.mono": (
+        "The spotlight is a reading block in two columns: the story, and the "
+        "actions. The actions sit at the TOP of their column, level with the "
+        "opening of the story beside them, because that is where the reader's "
+        "eye already is when the paragraph starts. Measured at 878px the two "
+        "CTAs are 30px tall in a 108px band and the 78px below them is the "
+        "story's column, which runs on for more lines underneath. Moving the "
+        "actions to the foot of their column would move the hole above them "
+        "instead of removing it; the space belongs to the story."
+    ),
     "dead|aside.data-methodology-rail": (
         "The methodology rail is a sticky rail beside the audit ledger, not a card: "
         "`align-self: start` and `position: sticky; top: 24px` from 880px, so it "

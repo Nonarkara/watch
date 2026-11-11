@@ -60,7 +60,17 @@ export default function Guide({ article }: { article: ArticleMeta }) {
 // ── shared building blocks for the article bodies ───────────────────────────
 
 export function ArticleCallout({ kind, children }: { kind: 'good' | 'bad' | 'note'; children: React.ReactNode }) {
-  return <aside className={`callout callout--${kind}`}>{children}</aside>
+  // The state is named in words as well as carried by the colour: a coloured
+  // stripe alone says "something", and colour is never the only signal. The
+  // stripe is a hairline; the word is what a reader who cannot see the
+  // colour still gets.
+  const word = kind === 'good' ? 'WORKS' : kind === 'bad' ? 'DOES NOT WORK' : 'NOTE'
+  return (
+    <aside className={`callout callout--${kind}`}>
+      <span className="callout-kind mono">{word}</span>
+      {children}
+    </aside>
+  )
 }
 
 // A four-axis score chip -- same data as the dossier Top4Tiles, but compact.

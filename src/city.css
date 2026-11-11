@@ -27,7 +27,9 @@ main.shell { background-color: var(--paper); background-clip: content-box; }
 /* The city control. One word, in the masthead, where a control belongs. */
 .city-toggle { position: relative; }
 .city-toggle-btn {
-  display: inline-flex; align-items: center; height: 32px;
+  /* A phone tap is 44px. This one was 32px: a control a thumb cannot hit
+     on the way to the search box. */
+  display: inline-flex; align-items: center; height: 44px;
   padding: 0 10px;
   background: transparent; color: var(--ink);
   border: 0; border-left: 1px solid var(--ink);
