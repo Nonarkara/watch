@@ -133,7 +133,7 @@ assert.ok(pomPageSrc.includes('Net break-even appears by year') && pomPageSrc.in
 assert.ok(pomPageSrc.includes('Your starting value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
   && pomPageSrc.includes('Net vs cost basis'),
   'single-watch math must keep current valuation separate from owner cost basis');
-assert.ok(pomPageSrc.includes('OWNER SCENARIO · LIVE') && pomPageSrc.includes('YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS')
+assert.ok(pomPageSrc.includes('OWNER SCENARIO · ASSUMPTIONS') && pomPageSrc.includes('USD · AXIS LABELS ROUNDED')
   && pomPageSrc.includes('ScenarioCurve'),
   'owner scenario must expose the same gross, net, and cost-basis rows as a live time curve');
 assert.ok(pomPageSrc.includes('Search watch references') && pomPageSrc.includes("watchScope === 'anchored'")

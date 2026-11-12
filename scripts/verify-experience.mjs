@@ -74,6 +74,24 @@ try {
           return compact && oldFails;
         })()`), `decision controls and four results must fit one view from the decision heading at ${width}`)
         browser('scrollintoview', '.pom-decision')
+        if (width === 390) {
+          const chart = evaluate(`(() => {
+            const chart=document.querySelector('.pom-scenario-chart'), svg=chart.querySelector('svg');
+            const labels=[...svg.querySelectorAll('text')].map(e=>e.textContent);
+            const styles=['gross','net','cost'].map(key=>getComputedStyle(svg.querySelector('.pom-scenario-'+key)).strokeDasharray);
+            const table=document.querySelector('.pom-net-table');
+            const net=[...table.tBodies[0].rows].map(row=>row.cells[4].textContent);
+            const shown=[...chart.querySelectorAll('.pom-scenario-milestones strong')].map(e=>e.textContent);
+            return labels.slice(-4).join(',')==='0y,3y,10y,20y' && new Set(labels.slice(0,-4)).size===3 &&
+              new Set(styles).size===3 && shown.slice(1).every((value,i)=>value===net[i+2]) &&
+              !document.querySelector('.pom-net-breakdown').open;
+          })()`)
+          assert(chart, 'chart labels, stroke keys and exact net readouts must match the detailed ledger')
+          browser('click', '.pom-net-breakdown summary')
+          assert(evaluate("document.querySelector('.pom-net-breakdown').open && document.querySelector('.pom-net-table').tBodies[0].rows.length===5"))
+          browser('click', '.pom-net-breakdown summary')
+          browser('scrollintoview', '.pom-decision')
+        }
       }
       const proof = evaluate(`({width:innerWidth, documentWidth:document.documentElement.scrollWidth,
         heading:document.querySelector('main h1').textContent,

@@ -3479,26 +3479,28 @@ main.shell { padding-top: var(--space-md); }
 .pom-scenario-head > small { font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; }
 .pom-scenario-chart svg { display: block; width: 100%; height: auto; border-top: 1px solid var(--neutral-line); border-bottom: 1px solid var(--neutral-line); background: var(--surface); }
 .pom-scenario-grid { stroke: var(--neutral-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.pom-scenario-cost { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+.pom-scenario-axis { fill: var(--ink); font-family: var(--font-mono); font-size: 24px; }
+.pom-scenario-cost { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 1 4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .pom-scenario-gross, .pom-scenario-net { fill: none; stroke-width: 3; vector-effect: non-scaling-stroke; }
 .pom-scenario-gross { stroke: var(--coral); }
-.pom-scenario-net { stroke: var(--teal-2); }
+.pom-scenario-net { stroke: var(--teal-2); stroke-dasharray: 6 3; }
 .pom-scenario-point { stroke: var(--surface); stroke-width: 2; vector-effect: non-scaling-stroke; transition: transform 180ms ease-out; }
 .pom-scenario-point--gross { fill: var(--coral); }
 .pom-scenario-point--net { fill: var(--teal-2); }
 .pom-scenario-milestones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--neutral-line); }
 .pom-scenario-milestones > span { min-width: 0; padding: 9px 8px; border-right: 1px solid var(--neutral-line); }
 .pom-scenario-milestones > span:last-child { border-right: 0; }
-.pom-scenario-milestones small, .pom-scenario-milestones strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pom-scenario-milestones small, .pom-scenario-milestones strong { display: block; overflow-wrap: anywhere; }
 .pom-scenario-milestones small { color: var(--dim); font-size: 8px; letter-spacing: .06em; }
 .pom-scenario-milestones strong { margin-top: 3px; font-family: var(--font-mono); font-size: 11px; }
 .pom-scenario-legend { display: grid; gap: 7px; padding: 12px 18px; color: var(--dim); font-size: 8px; line-height: 1.4; letter-spacing: .05em; }
 .pom-scenario-legend > span { display: flex; min-width: 0; align-items: center; gap: 7px; overflow-wrap: anywhere; }
 .pom-scenario-swatch { display: inline-block; width: 18px; height: 3px; flex: none; background: var(--ink); }
 .pom-scenario-swatch--gross { background: var(--coral); }
-.pom-scenario-swatch--net { background: var(--teal-2); }
-.pom-scenario-swatch--cost { height: 1px; background: var(--ink); }
+.pom-scenario-swatch--net { height: 0; background: none; border-top: 3px dashed var(--teal-2); }
+.pom-scenario-swatch--cost { height: 0; background: none; border-top: 2px dotted var(--ink); }
 .pom-net-table { min-width: 900px; }
+.pom-net-breakdown summary { display: list-item; padding: 8px 12px; min-height: 32px; cursor: pointer; }
 .pom-net-table strong { font-weight: 800; }
 @media (max-width: 620px) {
   .pom-net-head,

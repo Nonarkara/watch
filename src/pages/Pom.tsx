@@ -111,12 +111,18 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
   const spread = Math.max(1, rawMax - rawMin)
   const domainMin = rawMin - spread * 0.12
   const domainMax = rawMax + spread * 0.12
-  const chartWidth = 720
-  const chartHeight = 220
-  const insetX = 18
-  const insetY = 16
-  const x = (years: number) => insetX + (years / 20) * (chartWidth - insetX * 2)
-  const y = (value: number) => insetY + ((domainMax - value) / (domainMax - domainMin)) * (chartHeight - insetY * 2)
+  const chartWidth = 640
+  const chartHeight = 250
+  const left = 110
+  const right = 595
+  const top = 26
+  const bottom = 205
+  const x = (years: number) => left + (years / 20) * (right - left)
+  const y = (value: number) => top + ((domainMax - value) / (domainMax - domainMin)) * (bottom - top)
+  const ticks = spread < 4 ? [rawMin] : [rawMin, (rawMin + rawMax) / 2, rawMax]
+  const compact = new Intl.NumberFormat('en-US', { notation: 'compact', maximumSignificantDigits: 3 })
+  const compactTicks = ticks.map(value => compact.format(value))
+  const useCompactTicks = new Set(compactTicks).size === ticks.length
   const line = (key: 'gross' | 'net') => points.map((point, index) =>
     `${index === 0 ? 'M' : 'L'} ${x(point.years).toFixed(2)} ${y(point[key]).toFixed(2)}`).join(' ')
   const milestones = points.filter((point) => [0, 3, 10, 20].includes(point.years))
@@ -125,21 +131,28 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
   return (
     <div className="pom-scenario-chart" role="img" aria-label={`Owner scenario from a starting value of ${money(baseline, 'USD')} to ${money(last.gross, 'USD')} gross and ${money(last.net, 'USD')} net after 20 years, compared with a ${money(costBasis, 'USD')} cost basis.`}>
       <div className="pom-scenario-head">
-        <span className="mono">OWNER SCENARIO · LIVE</span>
+        <span className="mono">OWNER SCENARIO · ASSUMPTIONS</span>
         <strong>{money(last.net, 'USD')} NET AT 20Y</strong>
         <small className={last.netChange >= 0 ? 'pom-gain' : 'pom-loss'}>{signedMoney(last.netChange, 'USD')} VS COST BASIS</small>
       </div>
       <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} aria-hidden="true">
-        {[0.25, 0.5, 0.75].map((ratio) => (
-          <line key={ratio} className="pom-scenario-grid" x1={insetX} x2={chartWidth - insetX}
-            y1={insetY + ratio * (chartHeight - insetY * 2)} y2={insetY + ratio * (chartHeight - insetY * 2)} />
+        {ticks.map((value, index) => (
+          <g key={value}>
+            <line className="pom-scenario-grid" x1={left} x2={right} y1={y(value)} y2={y(value)} />
+            <text className="pom-scenario-axis" x={left - 8} y={y(value)} textAnchor="end" dominantBaseline="middle">
+              {useCompactTicks ? compactTicks[index] : Math.round(value).toLocaleString('en-US')}
+            </text>
+          </g>
         ))}
         {[0, 3, 10, 20].map((years) => (
-          <line key={years} className="pom-scenario-grid" x1={x(years)} x2={x(years)} y1={insetY} y2={chartHeight - insetY} />
+          <g key={years}>
+            <line className="pom-scenario-grid" x1={x(years)} x2={x(years)} y1={top} y2={bottom} />
+            <text className="pom-scenario-axis" x={x(years)} y={chartHeight - 12} textAnchor="middle">{years}y</text>
+          </g>
         ))}
-        <line className="pom-scenario-cost" x1={insetX} x2={chartWidth - insetX} y1={y(costBasis)} y2={y(costBasis)} />
         <path className="pom-scenario-gross" d={line('gross')} />
         <path className="pom-scenario-net" d={line('net')} />
+        <line className="pom-scenario-cost" x1={left} x2={right} y1={y(costBasis)} y2={y(costBasis)} />
         {milestones.flatMap((point) => ([
           <circle key={`gross-${point.years}`} className="pom-scenario-point pom-scenario-point--gross" r="6"
             style={{ transform: `translate(${x(point.years)}px, ${y(point.gross)}px)` }} />,
@@ -150,7 +163,7 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
       <div className="pom-scenario-milestones">
         {milestones.map((point) => (
           <span key={point.years}>
-            <small className="mono">{point.years === 0 ? 'START' : `${point.years}Y NET`}</small>
+            <small className="mono">{point.years === 0 ? 'SELL NOW · NET' : `${point.years}Y NET`}</small>
             <strong>{money(point.net, 'USD')}</strong>
           </span>
         ))}
@@ -159,7 +172,7 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
         <span><i className="pom-scenario-swatch pom-scenario-swatch--gross" />GROSS · STARTING VALUE COMPOUNDED</span>
         <span><i className="pom-scenario-swatch pom-scenario-swatch--net" />NET · AFTER VERIFIED FEE + YOUR COSTS</span>
         <span><i className="pom-scenario-swatch pom-scenario-swatch--cost" />COST BASIS</span>
-        <span>PLOT RANGE {money(rawMin, 'USD')}–{money(rawMax, 'USD')} · YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS</span>
+        <span>USD · AXIS LABELS ROUNDED · SELECTED NET VALUES ABOVE</span>
       </div>
     </div>
   )
@@ -189,7 +202,9 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
         <p>At the starting value after the selected seller fee: {signedMoney(today.net_change, 'USD')} vs cost basis, before tax and past ownership costs. Future model: {annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve.</p>
       </div>
       <ScenarioCurve baseline={baseline} costBasis={costBasis} rows={rows} today={today} />
-      <div className="pom-projection-wrap">
+      <details className="pom-net-breakdown">
+        <summary>Full breakdown · all five holding periods</summary>
+        <div className="pom-projection-wrap" tabIndex={0} role="region" aria-label="Scrollable net sale breakdown">
         <table className="pom-projection-table pom-net-table" aria-label="Net sale outcome after verified seller fees and user-declared ownership costs">
         <thead>
           <tr>
@@ -216,7 +231,8 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
           ))}
         </tbody>
         </table>
-      </div>
+        </div>
+      </details>
     </>
   )
 }
