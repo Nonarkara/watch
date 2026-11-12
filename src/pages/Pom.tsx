@@ -1026,9 +1026,17 @@ export default function Pom() {
 
       <p className="crumb"><Link to="/">← HOME</Link></p>
 
-      <section className="pom-bio">
-        <div className="pom-bio-text">
-          <h2>A well-respected figure in Thailand. The watches are public record.</h2>
+      <section className="pom-bio" aria-labelledby="pom-collection-source">
+        <h2 id="pom-collection-source" className="sect-h">The collection at a glance</h2>
+        <dl className="pom-bio-facts">
+          <div><dt>Reported source</dt><dd><a href={POM_BIO.article_url} target="_blank" rel="noreferrer">Voice TV / CSI LA</a>{' · '}<time dateTime={POM_BIO.article_date}>{POM_BIO.article_date}</time></dd></div>
+          <div><dt>Watches</dt><dd>{POM_AGGREGATE.count}</dd></div>
+          <div><dt>Brands</dt><dd>{POM_AGGREGATE.brands}</dd></div>
+          <div><dt>Strong rarity or demand</dt><dd>{strongCount} of {POM_AGGREGATE.count}</dd></div>
+          <div><dt>Dossiers in the register</dt><dd>{POM_AGGREGATE.has_dossier}</dd></div>
+        </dl>
+        <details className="pom-bio-text">
+          <summary>About Uncle Pom and the collection</summary>
           <p>
             {POM_BIO.full_name} is a Thai public figure: a former army officer, former
             Deputy Prime Minister of Thailand, and former Minister of Defence. The
@@ -1044,26 +1052,7 @@ export default function Pom() {
             these {POM_AGGREGATE.count} watches mean to their owner, the four axes below
             tell a reader what the watch on the wrist can do — and what it cannot.
           </p>
-        </div>
-        <aside className="pom-bio-aside" aria-label="The collection at a glance">
-          <h3>The collection, at a glance</h3>
-          <dl>
-            <dt>Source</dt>
-            <dd>
-              <a href={POM_BIO.article_url} target="_blank" rel="noreferrer">Voice TV / CSI LA</a>
-              {' · '}
-              {POM_BIO.article_date}
-            </dd>
-            <dt>Watches</dt>
-            <dd>{POM_AGGREGATE.count}</dd>
-            <dt>Brands</dt>
-            <dd>{POM_AGGREGATE.brands}</dd>
-            <dt>Strong axes</dt>
-            <dd>{strongCount} of {POM_AGGREGATE.count} watches score STRONG on Rarity or Demand</dd>
-            <dt>Dossiers linked</dt>
-            <dd>{POM_AGGREGATE.has_dossier} in our register</dd>
-          </dl>
-        </aside>
+        </details>
       </section>
 
       <ValueLab />

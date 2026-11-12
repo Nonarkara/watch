@@ -3321,17 +3321,18 @@ main.shell { padding-top: var(--space-md); }
    ledger of 14 watches in price order, each with brand+reference,
    short caption, and the 4-axis chips. */
 .pom-page { max-width: 1240px; margin: 0 auto; padding: 56px 28px 80px; }
-.pom-bio { display: grid; grid-template-columns: 1fr; gap: 28px; margin: 32px 0 40px; }
-.pom-bio-text { min-width: 0; }
-.pom-bio-text h2 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; max-width: 32ch; }
-.pom-bio-text p { font-family: var(--font-essay); font-size: 17px; line-height: 1.6; margin: 0 0 16px; max-width: 64ch; overflow-wrap: break-word; }
-.pom-bio-aside { border: 2px solid var(--ink); padding: 20px 22px; background: var(--surface); min-width: 0; }
-.pom-bio-aside h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 12px; color: var(--coral-text); }
-.pom-bio-aside dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-family: var(--font-mono); font-size: 12px; }
-.pom-bio-aside dt { color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; align-self: center; }
-.pom-bio-aside dd { margin: 0; min-width: 0; word-break: break-word; }
+.pom-bio { margin: 20px 0 24px; }
+.pom-bio-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; margin: 0; }
+.pom-bio-facts > div:first-child { grid-column: 1 / -1; }
+.pom-bio-facts dt { color: var(--dim); font-size: var(--text-micro); }
+.pom-bio-facts dd { margin: 0; overflow-wrap: anywhere; }
+.pom-bio-facts a { text-decoration: underline; text-underline-offset: 0.15em; }
+.pom-bio-text { margin-top: 8px; border-top: 1px solid var(--rule); }
+.pom-bio-text summary { width: fit-content; min-height: 32px; padding-block: 6px; cursor: pointer; }
+.pom-bio-text p { font-family: var(--font-essay); font-size: 17px; line-height: 1.6; margin: 0 0 12px; max-width: 64ch; overflow-wrap: break-word; }
 @media (min-width: 880px) {
-  .pom-bio { grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: start; }
+  .pom-bio-facts { grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)); }
+  .pom-bio-facts > div:first-child { grid-column: auto; }
 }
 
 /* Value Lab — the collection is the worked example; My Saved joins the
