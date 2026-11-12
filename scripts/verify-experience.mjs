@@ -215,6 +215,32 @@ try {
       proofs.push({ name, ...proof, screenshot })
     }
   }
+  for (const [width, height, id] of [[320, 720, 'rolex-5513'], [390, 844, 'rolex-116500ln']]) {
+    browser('set', 'viewport', String(width), String(height))
+    browser('open', base + '/w/' + id)
+    browser('wait', '.dsr-action-save')
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const top = document.querySelector('.dsr-top'), action = top.querySelector('.dsr-action-save');
+      const photo = top.querySelector('figure'), verdict = top.querySelector('.dsr-verdict');
+      const bar = top.querySelector('.dsr-actions'), parent = bar.parentElement;
+      const fits = () => action.getBoundingClientRect().bottom <= innerHeight;
+      const current = fits() && photo.querySelector('img').getBoundingClientRect().height > 100 &&
+        photo.querySelector('figcaption').textContent.includes('PHOTO:') &&
+        !!photo.querySelector('figcaption a[aria-label="Photo source"][href]') &&
+        document.documentElement.scrollWidth <= innerWidth + 1;
+      verdict.after(bar);
+      const oldFails = !fits();
+      parent.append(bar);
+      return current && oldFails;
+    })`), `portrait and Save must fit on the first screen at ${width}, unlike the old order`)
+    if (width === 320) {
+      assert(evaluate("document.querySelector('.dossier-object img').alt.startsWith('Related configuration for ')"))
+      browser('click', '.dossier-photo-note > summary')
+      assert(evaluate("document.querySelector('.dossier-photo-note[open] span').textContent.includes('1953')"))
+      browser('click', '.dossier-photo-note > summary')
+    }
+    browser('screenshot', join(out, `dossier-first-action-${width}.png`))
+  }
   browser('open', base + '/w/rolex-116610lv-hulk')
   browser('wait', '.dsr-estimate-refusal')
   assert(evaluate(`document.querySelector('.dsr-estimate-refusal').textContent.includes('Market estimate') &&

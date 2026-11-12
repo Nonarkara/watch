@@ -70,14 +70,14 @@ export default function Dossier() {
       <div className={c.media[0] ? 'dsr-top' : 'dsr-top dsr-top--no-portrait'}>
       {c.media[0] ? (
         <figure className="dossier-object">
-          <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} decoding="async" fetchPriority="high" width={600} height={450} /></a>
+          <img src={c.media[0].url} alt={`${c.media[0].match === 'exact_reference' ? '' : 'Related configuration for '}${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} decoding="async" fetchPriority="high" width={600} height={450} />
           <figcaption className="mono micro">
             {c.media[0].match === 'exact_reference' ? 'THIS REFERENCE' : 'RELATED CONFIGURATION'}
             {c.media[0].configuration_reference ? ` · ${c.media[0].configuration_reference}` : ''}
-            {c.media[0].caption && <><br /><span>{c.media[0].caption}</span></>}
             <br />
             {c.media[0].credit ? `PHOTO: ${c.media[0].credit.toUpperCase()}` : c.media[0].rights_status}
-            {c.media[0].license ? ` · ${c.media[0].license.toUpperCase()}` : ''} · SOURCE ↗
+            {c.media[0].license ? ` · ${c.media[0].license.toUpperCase()}` : ''} · <a href={c.media[0].source_url} target="_blank" rel="noreferrer" aria-label="Photo source">SOURCE ↗</a>
+            {c.media[0].caption && <details className="dossier-photo-note"><summary>Photo notes</summary><span>{c.media[0].caption}</span></details>}
           </figcaption>
         </figure>
       ) : null}
@@ -104,6 +104,49 @@ export default function Dossier() {
           )}
         </p>
       )}
+        <div className="dsr-actions">
+          <div className="dsr-action-group" role="group" aria-label="Collection actions">
+          <button
+            type="button"
+            className={'dsr-action mono' + (inCompare ? ' on' : '')}
+            onClick={() => compare.toggle(c.id)}
+            aria-pressed={inCompare}
+            disabled={!inCompare && compare.full}
+            title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (4 max)' : 'Add to compare set'}
+          >
+            {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ ADD TO COMPARE'}
+          </button>
+          <button
+            type="button"
+            className={'dsr-action dsr-action-save mono' + (isSaved ? ' on' : '')}
+            onClick={() => saved.toggle(c.id)}
+            aria-pressed={isSaved}
+            title={isSaved ? 'Remove from your saved set' : 'Save to your watchlist'}
+          >
+            {isSaved ? '★ SAVED' : '☆ SAVE'}
+          </button>
+          <button
+            type="button"
+            className="dsr-action dsr-action-ghost mono"
+            aria-live="polite"
+            onClick={() => {
+              const url = `${window.location.origin}/w/${c.id}`
+              navigator.clipboard?.writeText(url).then(
+                () => { setCopied(true); setTimeout(() => setCopied(false), 2000) },
+                () => { setCopied(false) }
+              )
+            }}
+            title="Copy link to this dossier"
+          >
+            {copied ? '✓ COPIED' : '⎘ COPY LINK'}
+          </button>
+          <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
+          </div>
+          <div className="dsr-action-group dsr-action-group--models" role="group" aria-label="Modeling tools">
+            <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS{'\u00a0'}→</Link>
+            <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS{'\u00a0'}→</Link>
+          </div>
+        </div>
         </div>
 
       <div className="dsr-verdict" aria-label="Five-second verdict">
@@ -159,50 +202,6 @@ export default function Dossier() {
           </li>
         </ol>
       </div>
-
-        <div className="dsr-actions">
-          <div className="dsr-action-group" role="group" aria-label="Collection actions">
-          <button
-            type="button"
-            className={'dsr-action mono' + (inCompare ? ' on' : '')}
-            onClick={() => compare.toggle(c.id)}
-            aria-pressed={inCompare}
-            disabled={!inCompare && compare.full}
-            title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (4 max)' : 'Add to compare set'}
-          >
-            {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ ADD TO COMPARE'}
-          </button>
-          <button
-            type="button"
-            className={'dsr-action dsr-action-save mono' + (isSaved ? ' on' : '')}
-            onClick={() => saved.toggle(c.id)}
-            aria-pressed={isSaved}
-            title={isSaved ? 'Remove from your saved set' : 'Save to your watchlist'}
-          >
-            {isSaved ? '★ SAVED' : '☆ SAVE'}
-          </button>
-          <button
-            type="button"
-            className="dsr-action dsr-action-ghost mono"
-            aria-live="polite"
-            onClick={() => {
-              const url = `${window.location.origin}/w/${c.id}`
-              navigator.clipboard?.writeText(url).then(
-                () => { setCopied(true); setTimeout(() => setCopied(false), 2000) },
-                () => { setCopied(false) }
-              )
-            }}
-            title="Copy link to this dossier"
-          >
-            {copied ? '✓ COPIED' : '⎘ COPY LINK'}
-          </button>
-          <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
-          </div>
-          <div className="dsr-action-group dsr-action-group--models" role="group" aria-label="Modeling tools">
-            <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS{'\u00a0'}→</Link>
-            <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS{'\u00a0'}→</Link>
-          </div>
-        </div>
 
         <dl className="spec-grid mast-spec">
           {c.computed.market_band.band && (

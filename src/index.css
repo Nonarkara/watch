@@ -1623,6 +1623,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .dsr-top .dossier-object { padding: 14px; }
 .dsr-top .dossier-object img { height: min(46vw, 300px); }
 .dsr-top .dossier-object figcaption { padding-top: 10px; line-height: 1.5; }
+.dossier-photo-note > summary { cursor: pointer; min-block-size: 32px; align-content: center; }
 .masthead .mast-line { margin-top: 10px; max-width: 56ch; }
 .dsr-top.dsr-top--no-portrait { grid-template-columns: minmax(0, 1fr); }
 .dsr-photo-status { margin: 8px 0 0; color: var(--dim); }
@@ -1633,7 +1634,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
     column-gap: 24px; align-items: start;
   }
   .dsr-top--no-portrait .dsr-verdict { margin-top: 0; }
-  .dsr-top--no-portrait .dsr-actions,
   .dsr-top--no-portrait .mast-spec { grid-column: 1 / -1; }
 }
 .pagetitle { margin: 6px 0 10px; }
