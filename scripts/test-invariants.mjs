@@ -156,6 +156,20 @@ unexplained.market_evidence.comps.at(-1).condition = null;
 assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).length > 0,
   "comparable:false without a reason must fail validation");
 
+const repeatedLot = structuredClone(fixture);
+const firstLot = repeatedLot.market_evidence.comps[0];
+firstLot.url = "https://www.phillips.com/detail/rolex/NY080124/14";
+repeatedLot.market_evidence.comps.push({
+  ...firstLot, url: "https://phillips.com/detail/rolex/NY080124/14/?utm_source=newsletter#details",
+});
+assert.ok(validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")));
+repeatedLot.market_evidence.comps.at(-1).url = "https://www.phillips.com/detail/rolex/NY080124/15";
+assert.ok(!validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")),
+  "different lots may have the same date and price");
+firstLot.url = "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex/a/5556-54121.s";
+repeatedLot.market_evidence.comps.at(-1).url = firstLot.url + "?ic4=GalleryView&utm_source=newsletter#details";
+assert.ok(validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")));
+
 // 10. Windowing: comp dated after buildDate is ignored, not counted
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });

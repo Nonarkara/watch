@@ -1,5 +1,6 @@
 // Card validator — the invariant gate. Importable + CLI: node scripts/validate_card.mjs data/cards/x.json
 import { readFileSync } from "node:fs";
+import { phillipsLotKeys } from "./lib/market-harvest.mjs";
 
 const TIERS = ["trinity", "crown", "haute", "core", "attainable"];
 const VENUES = ["phillips", "christies", "sothebys", "antiquorum", "bonhams", "ebay", "other_auction"];
@@ -70,6 +71,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
     req(typeof ev.comparable_dial === "string" && ev.comparable_dial.trim() === ev.comparable_dial &&
       ev.comparable_dial.length > 0, "market_evidence.comparable_dial must be a non-empty, trimmed string");
   }
+  const seenSaleKeys = new Set();
   for (const [i, c] of (ev.comps || []).entries()) {
     if (typeof ev.comparable_dial === "string" && c.comparable !== false) {
       req(typeof c.dial === "string" && c.dial.trim().toLowerCase() === ev.comparable_dial.toLowerCase(),
@@ -80,6 +82,21 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
     req(Number.isFinite(c.price_usd) && c.price_usd > 0, `comps[${i}].price_usd must be finite and > 0`);
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
+    if (isUrl(c.url)) {
+      const url = new URL(c.url);
+      url.hash = "";
+      for (const key of [...url.searchParams.keys()]) {
+        if (/^utm_/i.test(key) || (/(^|\.)ha\.com$/i.test(url.hostname) && /^ic\d+$/i.test(key))) {
+          url.searchParams.delete(key);
+        }
+      }
+      url.searchParams.sort();
+      url.pathname = url.pathname.replace(/\/$/, "");
+      for (const key of [url.href, ...phillipsLotKeys(c)]) {
+        req(!seenSaleKeys.has(key), `comps[${i}].url repeats an auction lot already on this card`);
+        seenSaleKeys.add(key);
+      }
+    }
     if (c.date_source_url !== undefined) req(isUrl(c.date_source_url), `comps[${i}].date_source_url must be a URL`);
     req(BOX.includes(c.box_papers ?? null), `comps[${i}].box_papers invalid`);
     req(c.comparable === undefined || typeof c.comparable === "boolean", `comps[${i}].comparable must be boolean`);
