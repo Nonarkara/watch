@@ -162,9 +162,15 @@ function verifyMarket() {
     assert(evaluate(`document.fonts.ready.then(() => {
       const rows = [...document.querySelectorAll('.brand-row')];
       return rows.length > 0 && document.documentElement.scrollWidth === innerWidth &&
+        document.querySelector('#brand-tier').getBoundingClientRect().bottom < innerHeight &&
         rows.every(row => row.scrollWidth <= row.clientWidth + 1) &&
         [...document.querySelectorAll('.brand-pick-thumb')].every(thumb => thumb.querySelector('img'));
     })`), 'Brand names and references must fit without empty model frames at 239px')
+    const allBrands = evaluate("document.querySelectorAll('.brand-row').length")
+    browser('select', '#brand-tier', 'trinity')
+    const trinityBrands = evaluate("document.querySelectorAll('.brand-row').length")
+    assert(trinityBrands > 0 && trinityBrands < allBrands &&
+      evaluate("document.querySelector('.brand-directory-controls [role=status]').textContent") === `${trinityBrands} brands`)
   } finally {
     browser('close')
     session = mainSession

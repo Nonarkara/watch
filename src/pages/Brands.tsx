@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { TIER_LABEL, BRAND_REGION, REGION_LABEL, type Card } from '../lib/data.ts'
-import HeroBanner from '../components/HeroBanner.tsx'
 
 type BrandGroup = {
   brand: string
@@ -109,45 +108,29 @@ export default function Brands() {
 
   return (
     <>
-      <HeroBanner
-        hue="navy"
-        size="lg"
-        eyebrow={`DIRECTORY · ${groups.length} BRANDS · ${data.count} REFERENCES`}
-        title={<>A directory of<br />brands we cover.</>}
-        subtitle={
-          <>
-            Every dossier on Time Pop belongs to a brand. Each row pairs a brand wordmark
-            with the brand's most-cited reference, the dossier's evidence coverage, and the
-            tier breakdown. Click a wordmark to open the brand-filtered register; click
-            a model to open the dossier.
-          </>
-        }
-        primary={{ to: '#ledger', label: 'SEE THE BRANDS' }}
-        secondary={{ to: '/register', label: `BROWSE ALL ${data.count} OBJECTS` }}
-        meta={
-          <div className="pop-panel brand-stat-panel">
-            <span className="bubble-kicker mono">READ THIS LIKE A LEDGER</span>
-            <strong>{groups.length} brands, {data.count} references</strong>
-            <span>
-              {groups.filter((g) => g.withImage === g.cards.length).length} fully photographed ·
-              {' '}{groups.filter((g) => g.withComps > 0).length} with sale evidence ·
-              {' '}{groups.filter((g) => g.withProvenance > 0).length} with story
-            </span>
-          </div>
-        }
-      />
+      <p className="eyebrow">{groups.length} BRANDS · {data.count} REFERENCES</p>
+      <h1 className="pagetitle">Brand directory</h1>
+      <p className="lede">Find a maker and see what the archive can document.</p>
 
-      <Link to="/" className="crumb">← HOME</Link>
+      <div id="ledger" className="brand-directory-controls" tabIndex={-1}>
+        <label htmlFor="brand-tier">Filter by tier</label>
+        <select id="brand-tier" value={tierFilter} onChange={(event) => setTierFilter(event.target.value as typeof tierFilter)}>
+          <option value="all">All tiers</option>
+          {(Object.keys(TIER_BLURB) as Card['identity']['tier'][]).map((tier) => (
+            <option key={tier} value={tier}>{TIER_LABEL[tier]}</option>
+          ))}
+        </select>
+        <span className="mono micro" role="status">{filtered.length} brands</span>
+        <Link className="src-a" to="/register">All references →</Link>
+      </div>
 
-      {/* "Most-covered brands" — a 3-up row of the brands with the most
-          references, each anchored by its most-collected piece. This is the
-          visual directory before the alphabetical list — like the front
-          display window of a museum before the long gallery. */}
-      <section className="brand-spotlight-row" aria-label="Most-covered brands">
-        <div className="section-rule">
-          <h2>The most-covered brands.</h2>
-          <span className="sticker-inline mono">BY REFERENCE COUNT · TOP 3</span>
-        </div>
+      <details className="brand-spotlight-row">
+        <summary>Three most-covered brands</summary>
+        <p className="micro dim">
+          Across the directory: {groups.filter((g) => g.withImage === g.cards.length).length} brands fully photographed ·
+          {' '}{groups.filter((g) => g.withComps > 0).length} with sale evidence ·
+          {' '}{groups.filter((g) => g.withProvenance > 0).length} with provenance.
+        </p>
         <div className="brand-spotlight-grid">
           {groups
             .slice()
@@ -155,11 +138,9 @@ export default function Brands() {
             .slice(0, 3)
             .map((g) => (
               <Link key={g.brand} to={`/register?brand=${encodeURIComponent(g.brand)}`} className={`brand-spotlight brand-spotlight--${hueForBrand(g.brand)}`}>
-                <span className="brand-spotlight-media">
-                  {g.mostPopular?.media?.[0]
-                    ? <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async"  width={400} height={200} />
-                    : <span className="dim">NO PHOTO YET</span>}
-                </span>
+                {g.mostPopular?.media?.[0] && <span className="brand-spotlight-media">
+                  <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async" width={120} height={120} />
+                </span>}
                 <span className="brand-spotlight-id">
                   <span className="brand-spotlight-name">{g.brand}</span>
                   <span className="brand-spotlight-count mono">
@@ -176,16 +157,7 @@ export default function Brands() {
               </Link>
             ))}
         </div>
-      </section>
-
-      <div className="brand-tier-chips" role="group" aria-label="Filter brands by tier">
-        <button className={'chip' + (tierFilter === 'all' ? ' on' : '')} aria-pressed={tierFilter === 'all'} onClick={() => setTierFilter('all')}>All {groups.length}</button>
-        {(Object.keys(TIER_BLURB) as Card['identity']['tier'][]).map((t) => (
-          <button key={t} className={'chip' + (tierFilter === t ? ' on' : '')} aria-pressed={tierFilter === t} onClick={() => setTierFilter(t)}>
-            {TIER_LABEL[t]}
-          </button>
-        ))}
-      </div>
+      </details>
 
       <div className="brand-list">
         {filtered.map((g) => {

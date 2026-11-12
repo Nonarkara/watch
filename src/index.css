@@ -1952,24 +1952,23 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 }
 
 /* ── BRANDS DIRECTORY ───────────────────────────────────────────────────── */
-.brand-stat-panel strong { font-family: var(--font-display); font-size: var(--text-display); line-height: 1.05; }
-.brand-tier-chips { display: flex; gap: 8px; margin: 28px 0 18px; flex-wrap: wrap; }
-/* Most-covered brands row — a 3-up vitrine before the alphabetical list. */
-.brand-spotlight-row { margin: var(--space-xl) 0 var(--space-lg); }
-.brand-spotlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--ink); }
+.brand-directory-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-block: var(--space-sm); scroll-margin-top: 80px; }
+.brand-directory-controls select { min-block-size: 32px; max-inline-size: 100%; background: var(--paper); color: var(--ink); border: var(--border); padding-inline: var(--space-sm); }
+.brand-spotlight-row { margin-block: var(--space-sm); max-inline-size: 48rem; }
+.brand-spotlight-row summary { cursor: pointer; min-block-size: 32px; padding-block: var(--space-xs); }
+.brand-spotlight-grid { border: 1px solid var(--ink); }
 .brand-spotlight {
-  display: grid; grid-template-rows: 200px auto auto;
-  border-right: 1px solid var(--ink);
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  border-bottom: 1px solid var(--ink);
   background: var(--bg);
   text-decoration: none; color: var(--fg);
   transition: background 120ms ease;
 }
-.brand-spotlight:last-child { border-right: 0; }
+.brand-spotlight:last-child { border-bottom: 0; }
 .brand-spotlight:hover { background: var(--paper-2); }
 .brand-spotlight-media {
-  display: block; width: 100%; height: 200px; overflow: hidden;
-  background: var(--paper-2);
-  border-bottom: 1px solid var(--ink);
+  display: block; inline-size: min(100%, 100px); aspect-ratio: 1;
+  margin: var(--space-sm); background: var(--paper-2);
 }
 .brand-spotlight-media img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
 :root[data-theme="dark"] .brand-spotlight-media img { mix-blend-mode: normal; }
@@ -2005,10 +2004,10 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .brand-spotlight-most-ref {
   font-size: 10px; letter-spacing: 0.06em; color: var(--dim);
 }
-@media (max-width: 880px) {
-  .brand-spotlight-grid { grid-template-columns: 1fr; }
-  .brand-spotlight { border-right: 0; border-bottom: 1px solid var(--ink); }
-  .brand-spotlight:last-child { border-bottom: 0; }
+@media (min-width: 480px) {
+  .brand-spotlight { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+  .brand-spotlight:has(.brand-spotlight-media) { grid-template-columns: 116px repeat(2, minmax(0, 1fr)); }
+  .brand-spotlight-id { border-bottom: 0; }
 }
 
 .brand-list { display: flex; flex-direction: column; gap: 14px; }
@@ -3947,8 +3946,8 @@ main.shell { padding-top: var(--space-md); }
 .brand-wm--coral .brand-wm-name { color: var(--ink); }
 .brand-wm--yellow { background: color-mix(in srgb, var(--yellow) 20%, var(--paper-2)); color: var(--ink); }
 .brand-wm--yellow .brand-wm-name { color: var(--ink); }
-.brand-wm--navy { background: color-mix(in srgb, var(--navy) 18%, var(--paper-2)); color: var(--paper); }
-.brand-wm--navy .brand-wm-name, .brand-wm--navy .brand-wm-count { color: var(--paper); }
+.brand-wm--navy { background: color-mix(in srgb, var(--navy) 18%, var(--paper-2)); color: var(--ink); }
+.brand-wm--navy .brand-wm-count { color: var(--ink); }
 .brand-wm--teal { background: color-mix(in srgb, var(--teal) 18%, var(--paper-2)); color: var(--ink); }
 .brand-wm--teal .brand-wm-name { color: var(--ink); }
 .brand-wm--sky { background: color-mix(in srgb, var(--sky) 18%, var(--paper-2)); color: var(--ink); }
