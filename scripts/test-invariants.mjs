@@ -16,6 +16,13 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
   observations: { "2026-09": 110, "2025-09": 100 },
 }).nominal_pct, null, "overlapping cohorts must refuse a trend");
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
+const tiffanyCard = JSON.parse(readFileSync(new URL("../data/cards/patek-5711-1a-018-tiffany.json", import.meta.url), "utf8"));
+for (const suffix of ["/NY080121/1T", "hk24010.html"]) {
+  assert.equal(tiffanyCard.market_evidence.comps.find(sale => sale.url.endsWith(suffix))?.comparable,
+    false, "Tiffany charity and olive-green rows must not count as ordinary Tiffany Blue sales");
+}
+assert.ok(newmanCard.market_evidence.comps.some(sale => sale.url.endsWith("/lot-6460427") &&
+  sale.price_usd === 226800 && sale.dial === "Paul Newman exotic" && sale.comparable !== false));
 const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
 const daytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116500ln.json", import.meta.url), "utf8"));
 const daytonaComps = daytona.market_evidence.comps.filter((sale) => sale.comparable !== false);
