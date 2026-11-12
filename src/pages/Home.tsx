@@ -87,6 +87,18 @@ function ReferencePhoto({ card, className = 'ticker-thumb' }: { card: Card; clas
     decoding="async" width={400} height={300} onError={() => setFailed(true)} /></span>
 }
 
+function ArchiveReference({ card }: { card: Card }) {
+  return (
+    <Link to={`/w/${card.id}`} className="ticker-cell">
+      <ReferencePhoto card={card} />
+      <span className="ticker-brand">{card.identity.brand.toUpperCase()}</span>
+      <span className="ticker-ref">{card.identity.reference}</span>
+      <span className="ticker-name">{card.identity.name}</span>
+      {card.comp_summary && <span className="ticker-evidence mono">{card.comp_summary.n} COMPS</span>}
+    </Link>
+  )
+}
+
 export default function Home() {
   const data = useDataset()
   const [catalog, setCatalog] = useState<RolexCatalog | null>(null)
@@ -132,9 +144,17 @@ export default function Home() {
   const stills = screen ? screen.sightings.filter((s) => s.media).length : null  // null = not loaded yet; never render a loading state as 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const ticker = useMemo(() => tasteOfRegister(cards), [cards])
-  const asiaPicks = useMemo(() => cards.filter((c) =>
-    BRAND_REGION[c.identity.brand] === 'asia' && c.media.length > 0
-  ).slice(0, 4), [cards])
+  const archiveLead = ticker.slice(0, 1)
+  const archivePhoto = ticker.slice(1).find((c) => c.media.some((image) => image.match === 'exact_reference')) ?? ticker[1]
+  if (archivePhoto) archiveLead.push(archivePhoto)
+  const archiveMore = ticker.filter((c) => !archiveLead.includes(c))
+  const asiaPicks = useMemo(() => {
+    const byMaker = new Map<string, Card>()
+    for (const c of tasteOfRegister(cards.filter((card) => BRAND_REGION[card.identity.brand] === 'asia'))) {
+      if (!byMaker.has(c.identity.brand)) byMaker.set(c.identity.brand, c)
+    }
+    return [...byMaker.values()].slice(0, 4)
+  }, [cards])
   const brassTacks = useMemo(() => {
     // For buyers: a couple of fully-stocked dossiers worth starting with.
     const withProvenanceAndComps = cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
@@ -417,21 +437,19 @@ export default function Home() {
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
-          <p className="ticker-meta mono">{ticker.length} references · {brandCount} brands · last build {data.built}</p>
+          <p className="ticker-meta mono">{ticker.length} selected · register: {brandCount} brands · built {data.built}</p>
         </div>
-        <div className="ticker-strip">
-          {ticker.map((c) => {
-            return (
-              <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
-                <ReferencePhoto card={c} />
-                <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
-                <span className="ticker-ref">{c.identity.reference}</span>
-                <span className="ticker-name">{c.identity.name}</span>
-                {c.comp_summary && <span className="ticker-evidence mono">{c.comp_summary.n} COMPS</span>}
-              </Link>
-            )
-          })}
+        <div className="archive-lead">
+          {archiveLead.map((c) => <ArchiveReference key={c.id} card={c} />)}
         </div>
+        {archiveMore.length > 0 && (
+          <details className="archive-more">
+            <summary>{archiveMore.length} more references</summary>
+            <div className="archive-list">
+              {archiveMore.map((c) => <ArchiveReference key={c.id} card={c} />)}
+            </div>
+          </details>
+        )}
       </section>
 
       <div className="home-entry-grid">
@@ -461,10 +479,10 @@ export default function Home() {
       )}
 
       {asiaPicks.length > 0 && (
-        <section className="asia-spotlight" aria-label="Asian-market references">
+        <section className="asia-spotlight" aria-label="References from Asian watchmakers">
           <div className="section-rule">
             <h2>Asia on Time Pop.</h2>
-            <span className="sticker-inline mono">JDM · HK AD QUEUES · TOKYO INDEPENDENTS</span>
+            <span className="sticker-inline mono">MAKERS IN THE REGISTER</span>
           </div>
           <div className="asia-spotlight-grid">
             {asiaPicks.map((c) => (

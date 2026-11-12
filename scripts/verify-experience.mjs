@@ -175,6 +175,43 @@ try {
           browser('click', '.register-view-toggle button:first-child')
         }
       }
+      if (name === 'home') {
+        const archive = evaluate(`(() => {
+          const section = document.querySelector('.reference-ticker');
+          const lead = section.querySelector('.archive-lead');
+          const details = section.querySelector('details');
+          const fits = [...lead.children].every(link => {
+            const r = link.getBoundingClientRect(), parent = lead.getBoundingClientRect();
+            return r.left >= parent.left - 1 && r.right <= parent.right + 1 && link.scrollWidth <= link.clientWidth + 1;
+          });
+          const ids = [...section.querySelectorAll('.ticker-cell')].map(a => a.getAttribute('href'));
+          const makers = [...document.querySelectorAll('.asia-spotlight-id')].map(el => el.textContent.split(' · ')[0]);
+          return { fits, ids, makers, height: section.getBoundingClientRect().height,
+            leadCount: lead.children.length, closed: !details.open,
+            clipped: lead.scrollWidth > lead.clientWidth + 1 };
+        })()`)
+        assert(archive.closed && archive.leadCount === 2 && archive.fits && !archive.clipped,
+          `Home archive must show two complete references without a clipped rail at ${width}`)
+        assert(archive.ids.length === new Set(archive.ids).size && archive.ids.length > archive.leadCount,
+          'The archive disclosure must preserve unique additional references')
+        assert(archive.makers.length === 4 && new Set(archive.makers).size === 4, 'Asia shelf must represent four distinct makers')
+        if (width === 390) {
+          assert(archive.height <= 232, `Archive sampler and disclosure exceed their phone budget: ${archive.height}px`)
+          const oldFixedTracksClip = evaluate(`(() => {
+            const lead = document.querySelector('.archive-lead');
+            const previous = lead.style.gridTemplateColumns;
+            lead.style.gridTemplateColumns = '164px 164px';
+            const clips = lead.scrollWidth > lead.clientWidth + 1;
+            lead.style.gridTemplateColumns = previous;
+            return clips;
+          })()`)
+          assert(oldFixedTracksClip, 'The former fixed-width archive tracks must fail the phone fit check')
+          browser('click', '.archive-more summary')
+          assert(evaluate("document.querySelector('.archive-more').open"), 'Remaining archive references must open')
+          browser('press', 'Enter')
+          assert(!evaluate("document.querySelector('.archive-more').open"), 'Archive disclosure must close by keyboard')
+        }
+      }
       if (name === 'data') {
         browser('wait', '.data-intake-price small')
         const intakeDates = evaluate(`[...document.querySelectorAll('.data-intake-price small')].map(e=>e.textContent)`)
