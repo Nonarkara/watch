@@ -260,7 +260,7 @@ assert.ok(!dossierSrc.includes('EXPLORE ROLEX ON SCREEN'),
 assert.ok(dossierSrc.includes('loadMarketTrends') && dossierSrc.includes('In public attention'),
   'Dossier evidence tab must surface today\'s attention when the card is on the watchlist');
 const registerSrc = readFileSync(join(ROOT, "src/pages/Register.tsx"), "utf8");
-assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('WATCHING TODAY'),
+assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('ATTENTION RANK'),
   'Register must sort today\'s attention watchlist first when asked');
 console.log('✓ ticker / grail / related / attention wiring holds');
 

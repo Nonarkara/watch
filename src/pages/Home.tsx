@@ -142,6 +142,7 @@ export default function Home() {
       .sort((a, b) => b.comp_summary!.n - a.comp_summary!.n)
       .slice(0, 5)
   }, [cards])
+  const spotlightTrend = trends?.trending.find(row => row.card_id === brassTacks[0]?.id)
 
   // Thai/SEA picks: cards that Thai collectors cite most, weighted by
   // (region, dossier completeness, media). Surfaced as a separate section
@@ -283,11 +284,11 @@ export default function Home() {
         // the one signal that has actual data (wiki day-over-day %, or "—" if
         // the day was flat). 5 not 8 because the strip has to read at a glance
         // and stay above the fold on tablet.
-        <section className="trending-now" aria-label="Trending now — top 5 in public attention">
+        <section className="trending-now" aria-label="Top five in the public attention snapshot">
           <div className="trending-now-head">
             <span className="trending-now-eyebrow mono">
               <span className="trending-now-dot" aria-hidden="true">●</span>
-              TRENDING NOW
+              ATTENTION RANKING
             </span>
             <span className="trending-now-meta mono">
               AS OF {trends.as_of}
@@ -339,7 +340,7 @@ export default function Home() {
           <div className="section-rule">
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
-              AS OF {trends.as_of} · {trends.origin === 'live' ? 'LIVE DAILY' : 'BUILD SNAPSHOT'}
+              AS OF {trends.as_of} · {trends.origin === 'live' ? 'FEED SNAPSHOT' : 'BUNDLED SNAPSHOT'}
               {trendAge != null && <> · {trendStale ? `STALE ${trendAge}D` : `${trendAge}D OLD`}</>}
             </span>
           </div>
@@ -409,7 +410,7 @@ export default function Home() {
           card={brassTacks[0]}
           eyebrow="FEATURED DOSSIER · STORY-RICH"
           reason={`${brassTacks[0].comp_summary?.n ?? 0} cited comps · ${brassTacks[0].provenance_events.length} sourced events`}
-          trend={trends?.trending?.find((row) => row.card_id === brassTacks[0].id) ?? null}
+          trend={spotlightTrend && trends ? { ...spotlightTrend, snapshotDate: trends.as_of } : null}
         />
       )}
 

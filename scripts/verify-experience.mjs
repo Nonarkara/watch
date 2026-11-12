@@ -610,6 +610,15 @@ try {
     return contrast && pulse.textContent.includes('BUNDLED SNAPSHOT') &&
       pulse.textContent.includes('AS OF ') && !pulse.textContent.toLowerCase().includes('today');
   })()`), 'a bundled snapshot must be dated and both source bands readable in light and dark')
+  browser('open', base + '/register')
+  browser('wait', '.rc-trend-badge')
+  assert(evaluate(`document.querySelector('.count-line').textContent.includes('ATTENTION AS OF 2026-11-06') &&
+    document.querySelector('.rc-trend-badge').textContent.includes('RANK #') &&
+    getComputedStyle(document.querySelector('.rc-trend-badge-dot')).animationName==='none'`))
+  browser('open', base + '/w/rolex-116500ln')
+  browser('wait', '.dsr-trending')
+  assert(evaluate(`document.querySelector('.dsr-trending strong').textContent.includes('2026-11-06') &&
+    getComputedStyle(document.querySelector('.dsr-trending-pulse')).animationName==='none'`))
   browser('network', 'unroute', '**/live/market_trends.json')
   browser('open', base + '/compare')
   browser('wait', 'select[aria-label="Add a reference"]')

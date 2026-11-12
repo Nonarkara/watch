@@ -26,7 +26,7 @@ export default function Dossier() {
   const compare = useCompare()
   const saved = useSaved()
   const [copied, setCopied] = useState(false)
-  const [trendHit, setTrendHit] = useState<MarketTrendRow | null>(null)
+  const [trendHit, setTrendHit] = useState<(MarketTrendRow & { snapshotDate: string }) | null>(null)
 
   useEffect(() => {
     if (c) document.title = `${c.identity.brand} ${c.identity.reference} — Time Pop`
@@ -38,7 +38,8 @@ export default function Dossier() {
     setTrendHit(null)
     loadMarketTrends().then((snap) => {
       if (cancelled || !id || !snap?.trending) return
-      setTrendHit(snap.trending.find((row) => row.card_id === id) ?? null)
+      const row = snap.trending.find((item) => item.card_id === id)
+      setTrendHit(row ? { ...row, snapshotDate: snap.as_of } : null)
     }).catch(() => { if (!cancelled) setTrendHit(null) })
     return () => { cancelled = true }
   }, [id])
@@ -97,7 +98,7 @@ export default function Dossier() {
       {trendHit && (
         <p className="dsr-trending mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
           <span className="dsr-trending-pulse" aria-hidden="true">●</span>
-          <strong>RANK {trendHit.rank} TODAY</strong>
+          <strong>RANK {trendHit.rank} · {trendHit.snapshotDate}</strong>
           <span className="dim"> · in public attention, not price</span>
           {trendHit.wikipedia.dod_pct != null && (
             <span className="dim"> · wiki {trendHit.wikipedia.dod_pct > 0 ? '+' : ''}{trendHit.wikipedia.dod_pct}%</span>
@@ -530,8 +531,8 @@ export default function Dossier() {
       {view === 'evidence' && (starter) && <>
       {trendHit && (
         <section className="sect">
-          <h2 className="sect-h"><span>In public attention</span><span className="mono">RANK {trendHit.rank} TODAY</span></h2>
-          <p>People are looking this one up today — Wikipedia pageviews (and Google Trends when connected), not grey-market price.</p>
+          <h2 className="sect-h"><span>In public attention</span><span className="mono">RANK {trendHit.rank} · {trendHit.snapshotDate}</span></h2>
+          <p>This snapshot ranks Wikipedia pageviews and Google Trends when connected. It does not measure resale prices.</p>
           <p className="micro dim">
             {trendHit.wikipedia.dod_pct != null
               ? `Wikipedia ${trendHit.wikipedia.dod_pct > 0 ? '+' : ''}${trendHit.wikipedia.dod_pct}% day-over-day`

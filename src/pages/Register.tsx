@@ -11,7 +11,7 @@ type SortKey = 'collectibility' | 'scarcity' | 'trending' | 'market_desc' | 'mar
 const SORTS: { k: SortKey; label: string }[] = [
   { k: 'collectibility', label: 'COLLECTIBILITY' },
   { k: 'scarcity', label: 'SCARCITY' },
-  { k: 'trending', label: 'WATCHING TODAY' },
+  { k: 'trending', label: 'ATTENTION RANK' },
   { k: 'market_desc', label: 'MARKET ↓' },
   { k: 'market_asc', label: 'MARKET ↑' },
   { k: 'delta', label: 'VS RETAIL' },
@@ -31,11 +31,13 @@ export default function Register() {
   const [sort, setSort] = useState<SortKey>('collectibility')
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
   const [watchingRank, setWatchingRank] = useState<Map<string, number>>(new Map())
+  const [attentionDate, setAttentionDate] = useState<string | null>(null)
 
   useEffect(() => {
     loadMarketTrends().then((snap) => {
       if (!snap?.trending) return
       setWatchingRank(new Map(snap.trending.map((row) => [row.card_id, row.rank])))
+      setAttentionDate(snap.as_of)
     }).catch(() => {})
   }, [])
 
@@ -171,13 +173,13 @@ export default function Register() {
             </button>
           ))}
         </div>
-        <p className="count-line mono" role="status" aria-live="polite" aria-atomic="true">{rows.length} OF {cards.length} REFERENCES</p>
+        <p className="count-line mono" role="status" aria-live="polite" aria-atomic="true">{rows.length} OF {cards.length} REFERENCES{attentionDate && (sort === 'trending' || viewMode === 'grid') ? ` · ATTENTION AS OF ${attentionDate}` : ''}</p>
       </div>
 
       {viewMode === 'grid' ? (
         <div className="card-grid-view">
           {rows.map((c) => (
-            <VisualCard key={c.id} c={c} watchingRank={watchingRank} />
+            <VisualCard key={c.id} c={c} watchingRank={watchingRank} attentionDate={attentionDate} />
           ))}
         </div>
       ) : (
@@ -194,7 +196,7 @@ export default function Register() {
   )
 }
 
-function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, number> }) {
+function VisualCard({ c, watchingRank, attentionDate }: { c: Card; watchingRank: Map<string, number>; attentionDate: string | null }) {
   const { has, toggle } = useCompare()
   const [photoUnavailable, setPhotoUnavailable] = useState(false)
   const photo = c.media.find(item => item.match === 'exact_reference') ?? c.media[0]
@@ -223,9 +225,9 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
         {trendRank != null && (
-          <span className="rc-trend-badge mono" title="In today's public-attention watchlist — Wikipedia pageviews; Google Trends when connected, not price">
+          <span className="rc-trend-badge mono" title={`Public attention as of ${attentionDate ?? 'date unavailable'} · not price`}>
             <span className="rc-trend-badge-dot" aria-hidden="true">●</span>
-            TODAY #{trendRank}
+            RANK #{trendRank}
           </span>
         )}
         <span className="rc-conf mono">{confidence.tier ?? dash}</span>

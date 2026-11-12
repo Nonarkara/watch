@@ -33,11 +33,8 @@ interface SpotlightProps {
   eyebrow: string
   /** Short callout for the featured reason. */
   reason: string
-  /** If the featured card is also in today's public-attention list, the
-   *  MarketTrendRow so the Spotlight can show a "RANK #N TODAY" line
-   *  between the oneliner and the 5-second verdict. Optional — most
-   *  Spotlights (Screen, Bible) won't have trend data. */
-  trend?: MarketTrendRow | null
+  /** Optional public-attention observation and its snapshot date. */
+  trend?: (MarketTrendRow & { snapshotDate: string }) | null
 }
 
 export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightProps) {
@@ -96,7 +93,7 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
           {trend && (
             <p className="spotlight-trend mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
               <span className="spotlight-trend-pulse" aria-hidden="true">●</span>
-              <strong>RANK {trend.rank} IN PUBLIC ATTENTION TODAY</strong>
+              <strong>ATTENTION RANK {trend.rank} · {trend.snapshotDate}</strong>
               <span className="dim"> · not price</span>
               {trend.wikipedia.dod_pct != null && (
                 <span className="dim"> · wiki {trend.wikipedia.dod_pct > 0 ? '+' : ''}{trend.wikipedia.dod_pct}%</span>

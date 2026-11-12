@@ -623,14 +623,6 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .dsr-trending-pulse {
   color: var(--coral-text);
   font-size: 10px;
-  animation: trending-pulse 2.4s ease-in-out infinite;
-}
-@keyframes trending-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .dsr-trending-pulse { animation: none; }
 }
 .dsr-verdict-eyebrow {
   display: block; padding: 6px 12px;
@@ -941,8 +933,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .rc-trend-down { color: var(--dim); }
 .rc-trend-flat { color: var(--dim); }
 
-/* "TODAY #N" badge — small coral chip on Register cards that are in
-   today's public-attention watchlist. Sits between the brand and the
+/* Attention rank badge for cards in the latest available snapshot.
+   Sits between the brand and the
    confidence tier on the rc-id row. Mirrors the Dossier and Spotlight
    trend callouts so the same idea reads the same way everywhere. */
 .rc-trend-badge {
@@ -958,14 +950,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .rc-trend-badge-dot {
   color: var(--coral-text);
   font-size: 7px;
-  animation: rc-trend-pulse 2.4s ease-in-out infinite;
-}
-@keyframes rc-trend-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .rc-trend-badge-dot { animation: none; opacity: 1; }
 }
 
 /* ── Institutional skin ───────────────────────────────────────────────────
@@ -4928,14 +4912,6 @@ main.shell { padding-top: var(--space-md); }
   color: var(--coral-text);
   font-size: 9px;
   margin-right: 5px;
-  animation: spotlight-trend-pulse 2.4s ease-in-out infinite;
-}
-@keyframes spotlight-trend-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .spotlight-trend-pulse { animation: none; }
 }
 .spotlight-verdict {
   margin-top: 14px;
@@ -5304,14 +5280,6 @@ main.shell { padding-top: var(--space-md); }
 .trending-now-dot {
   color: var(--coral-text);
   font-size: 9px;
-  animation: trending-now-pulse 2.4s ease-in-out infinite;
-}
-@keyframes trending-now-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .trending-now-dot { animation: none; opacity: 1; }
 }
 .trending-now-meta {
   color: var(--dim);
