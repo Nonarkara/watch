@@ -3610,6 +3610,10 @@ main.shell { padding-top: var(--space-md); }
 .pom-chart-legend { display: flex; flex-wrap: wrap; gap: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--dim); margin: 12px 0 0; }
 .pom-chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .pom-legend-swatch { display: inline-block; width: 12px; height: 12px; border: 1px solid var(--ink); }
+@media (max-width: 360px) {
+  .pom-chart-legend { display: block; }
+  .pom-chart-legend > span { display: flex; width: fit-content; margin-block: 3px; }
+}
 @media (min-width: 720px) {
   .pom-chart-bar { grid-template-columns: 140px 1fr; gap: 20px; }
 }

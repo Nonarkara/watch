@@ -983,11 +983,13 @@ function WatchCard({ watch }: { watch: PomWatch }) {
             {watch.tip}
           </p>
         )}
-        <div className="pom-card-axes">
-          <AxisChip axis="rarity" value={watch.rarity} />
-          <AxisChip axis="demand" value={watch.demand} />
-          <AxisChip axis="provenance" value={watch.provenance} />
-          <AxisChip axis="resellability" value={watch.resellability} />
+        <div className="pom-score-track">
+          <div className="pom-card-axes">
+            <AxisChip axis="rarity" value={watch.rarity} />
+            <AxisChip axis="demand" value={watch.demand} />
+            <AxisChip axis="provenance" value={watch.provenance} />
+            <AxisChip axis="resellability" value={watch.resellability} />
+          </div>
         </div>
         <div className="pom-card-actions">
           {watch.dossierId

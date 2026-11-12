@@ -67,7 +67,7 @@
 }
 
 /* Use the card's text scale, not the viewport, to fit all four scores. */
-.pom-card-body { container: pom-scores / inline-size; }
+.pom-score-track { container: pom-scores / inline-size; }
 .pom-card-axes {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
