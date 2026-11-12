@@ -23,12 +23,21 @@ trackedLot.market_evidence.comps.push({
 });
 assert.ok(validateCard(trackedLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")),
   "tracked URLs must not let the same lot appear as both a comp and an observation");
-const published6265 = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8"))
-  .cards.find((card) => card.id === steel6265.id);
+const publicCards = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8")).cards;
+const published6265 = publicCards.find((card) => card.id === steel6265.id);
 assert.equal(published6265.lot_observations.length, 4);
 assert.deepEqual(published6265.lot_observations.map((row) => row.currency), ["USD", "CHF", "CHF", "CHF"]);
 assert.equal(published6265.comp_summary, null);
 assert.equal(published6265.computed.estimate.value, null, "observed lots cannot create a valuation");
+const laterJumbo = publicCards.find((card) => card.id === "patek-3700-11");
+const earlierJumbo = publicCards.find((card) => card.id === "patek-3700-1a");
+assert.deepEqual(laterJumbo.lot_observations.map((row) => [row.date, row.currency, row.amount]), [
+  ["2026-06-14", "USD", 228600], ["2026-06-13", "USD", 355600],
+  ["2026-05-31", "HKD", 762000], ["2026-05-30", "HKD", 952500], ["2026-05-10", "CHF", 146050],
+]);
+assert.equal(laterJumbo.comp_summary, null);
+assert.equal(laterJumbo.computed.estimate.value, null);
+assert.equal(earlierJumbo.lot_observations, undefined, "later Nautilus lots must not attach to the 3700/1A");
 // Identical historical sales cannot become both ends of a one-year trend.
 const historicalOnly = [100, 200, 300].map((price_usd, i) => ({
   date: `2025-0${6 - i}-01`, price_usd,

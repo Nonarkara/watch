@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T21:05:29.991Z",
+  "generated_at": "2026-11-12T22:05:25.779Z",
   "source": "Phillips public watch auction results",
   "source_url": "https://www.phillips.com/features/watches",
   "harvest_date": "2026-09-05T17:14:54.282Z",
@@ -22,14 +22,14 @@
     "value_publishing_neither_reference_nor_model_usd": 2384725
   },
   "coverage": {
-    "lots_matching_a_card": 50,
-    "lots_matching_a_card_pct": 7.4,
-    "value_matching_a_card_usd": 18189985,
-    "value_matching_a_card_pct": 8.1,
+    "lots_matching_a_card": 55,
+    "lots_matching_a_card_pct": 8.1,
+    "value_matching_a_card_usd": 19180590,
+    "value_matching_a_card_pct": 8.6,
     "by_reference": {
-      "lots": 41,
-      "value_usd": 4273563,
-      "value_pct": 1.9,
+      "lots": 46,
+      "value_usd": 5264168,
+      "value_pct": 2.4,
       "meaning": "Brand + published reference number matched a card. The traditional channel, and the only one that worked for most of the register until this build."
     },
     "by_model_name": {
@@ -86,7 +86,7 @@
       "lots": 185,
       "priced_lots": 185,
       "value_usd": 76198085,
-      "cards_in_register": 25
+      "cards_in_register": 26
     },
     {
       "brand": "F.P. Journe",

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "patek-3700-11",
+  "identity": {
+    "brand": "Patek Philippe",
+    "reference": "3700/11",
+    "name": "Nautilus Jumbo",
+    "nickname": null,
+    "collection": "Nautilus",
+    "tier": "trinity",
+    "produced": { "start_year": 1981, "end_year": 1990, "discontinued": true },
+    "movement": { "caliber": "28-255 C", "type": "automatic" },
+    "case": { "diameter_mm": 42, "material": "Steel, yellow gold, or two-tone (examples shown)", "bezel": "Octagonal" },
+    "one_liner": "The later Nautilus Jumbo with a more tapered bracelet than the 3700/1."
+  },
+  "retail": { "msrp_history": [], "current_msrp_usd": null },
+  "market_evidence": {
+    "comps": [],
+    "lot_observations": [
+      {
+        "date": "2026-06-14", "amount": 228600, "currency": "USD", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/232963",
+        "date_source_url": "https://www.phillips.com/auction/NY080126/overview",
+        "configuration": "Yellow gold; original owner's family, certificate and box."
+      },
+      {
+        "date": "2026-06-13", "amount": 355600, "currency": "USD", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233442",
+        "date_source_url": "https://www.phillips.com/auction/NY080126/overview",
+        "configuration": "Steel, Tiffany & Co. retailer signature; archive extract."
+      },
+      {
+        "date": "2026-05-31", "amount": 762000, "currency": "HKD", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/232323",
+        "date_source_url": "https://www.phillips.com/auction/HK080226/overview",
+        "configuration": "Steel and yellow gold, matte black dial; travel pouch."
+      },
+      {
+        "date": "2026-05-30", "amount": 952500, "currency": "HKD", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/233256",
+        "date_source_url": "https://www.phillips.com/auction/HK080226/overview",
+        "configuration": "Service-sealed steel, Type 3 serif dial."
+      },
+      {
+        "date": "2026-05-10", "amount": 146050, "currency": "CHF", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/229801",
+        "date_source_url": "https://www.phillips.com/auction/CH080226/overview",
+        "configuration": "Yellow gold, North American import mark; archive extract."
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 3700/11 kept the original Jumbo's case shape and automatic calibre while narrowing the bracelet toward the clasp. Phillips catalogues put the transition from the earlier 3700/1 around 1981–82.",
+    "collector_notes": "Check metal, dial, bracelet and paperwork before comparing prices. A retailer-signed steel example, a service-sealed example and a gold watch from the original owner's family do not form one price series.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "codex",
+    "curated_date": "2026-11-13",
+    "sources": [
+      "https://www.phillips.com/detail/patek-philippe/232963",
+      "https://www.phillips.com/detail/patek-philippe/233442",
+      "https://www.phillips.com/detail/patek-philippe/232323",
+      "https://www.phillips.com/detail/patek-philippe/233256",
+      "https://www.phillips.com/detail/patek-philippe/229801"
+    ]
+  }
+}
