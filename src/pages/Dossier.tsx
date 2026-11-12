@@ -197,7 +197,7 @@ export default function Dossier() {
             >
               <span className="dsr-verdict-val mono">{c.computed.resellability.value != null ? String(c.computed.resellability.value) : '—'}</span>
             </Cite>
-            <span className="dsr-verdict-cap mono">{c.computed.resellability.tier === 'Unknown' ? 'NEVER TRADED' : `${c.computed.resellability.tier.toUpperCase()} · ${c.computed.resellability.sales_per_year}/YR`}</span>
+            <span className="dsr-verdict-cap mono">{c.computed.resellability.tier === 'Unknown' ? 'NO COMPS' : `${c.computed.resellability.tier.toUpperCase()} · ${c.computed.resellability.sales_per_year}/YR`}</span>
             <span className="dsr-verdict-state mono">{resellClass(c).toUpperCase()}</span>
           </li>
         </ol>
@@ -637,11 +637,11 @@ function storyClass(c: Card): 'strong' | 'neutral' | 'weak' {
   if (n >= 1) return 'neutral'
   return 'weak'
 }
-function resellClass(c: Card): 'strong' | 'neutral' | 'weak' {
+function resellClass(c: Card): 'strong' | 'neutral' | 'unknown' {
   const t = c.computed.resellability.tier
   if (t === 'High') return 'strong'
   if (t === 'Medium' || t === 'Low') return 'neutral'
-  return 'weak'
+  return 'unknown'
 }
 
 type EvidenceMeasure = { id: string; available: boolean; content: ReactNode }

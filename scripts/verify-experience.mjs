@@ -211,6 +211,11 @@ try {
         }
       }
       if (name === 'dossier-gap') {
+        assert(evaluate(`(() => {
+          const row=document.querySelector('.dsr-verdict-row--teal');
+          return row.querySelector('.dsr-verdict-cap').textContent==='NO COMPS' &&
+            row.querySelector('.dsr-verdict-state').textContent==='UNKNOWN';
+        })()`), 'missing comparable sales must not imply a weak score or that the watch never traded')
         const geometry = evaluate(`(() => {
           const top=document.querySelector('.dsr-top'), heading=top.querySelector('h1');
           const note=top.querySelector('.dsr-photo-status'), action=top.querySelector('.dsr-action-save');

@@ -91,7 +91,7 @@ export function marketEstimate(comps, buildDate) {
   const n = eligible.length;
   return { value: null, n, window_months: null, as_of: null, method: null,
     reason: n === 0 ? "no_comps" : "insufficient_comps",
-    limitation: `Only ${n} verified sale${n === 1 ? '' : 's'} on file. Add at least ${3 - n} more comp (Phillips, Christie's, Sotheby's, Bonhams) for an estimate.` };
+    limitation: `${n === 0 ? 'No comparable sales' : `Only ${n} comparable sale${n === 1 ? '' : 's'}`} on file. An estimate requires at least three.` };
 }
 
 // (b) Premium to retail %
@@ -302,13 +302,13 @@ export function marketBand(card, estimate, bandFramework) {
 // Composite of four observable signals: how often it trades, how many venues have
 // seen it, how recent the most recent sale is, and the data confidence tier.
 // Pure function of inputs; no estimation, no opinion. Returns null when the
-// underlying comp set is empty (cannot resell-proof what has never traded).
+// underlying comparable sale set is empty.
 export function resellabilityIndex(comps, buildDate, confidence) {
   if (!comps.length) {
     return { value: null, tier: "Unknown", k_of: [0, 4],
       sales_per_year: 0, venues: 0, recency_days: null, confidence: confidence?.tier ?? null,
       reason: "no_comps",
-      limitation: "No verified sales on file. Resellability is not estimated without at least one tracked venue sale." };
+      limitation: "No comparable sales on file. Other documented sales may be shown as context without contributing to this score." };
   }
   // liquidity rate, log-saturated: 12+ sales/yr = full 30
   const win24 = compsInWindow(comps, buildDate, 24);

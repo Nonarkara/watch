@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import type { Card } from '../lib/data.ts'
 import type { MarketTrendRow } from '../lib/catalog.ts'
 
-type Strength = 'strong' | 'neutral' | 'weak'
+type Strength = 'strong' | 'neutral' | 'weak' | 'unknown'
 
 function classify(v: number | null, strong: number, weak: number): Strength {
   if (v == null) return 'weak'
@@ -24,6 +24,7 @@ const STRENGTH_LABEL: Record<Strength, string> = {
   strong: 'STRONG',
   neutral: 'NEUTRAL',
   weak: 'WEAK',
+  unknown: 'UNKNOWN',
 }
 
 interface SpotlightProps {
@@ -51,7 +52,7 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
   const resell: Strength =
     resellability.tier === 'High' ? 'strong' :
     resellability.tier === 'Medium' ? 'neutral' :
-    resellability.tier === 'Low' ? 'neutral' : 'weak'
+    resellability.tier === 'Low' ? 'neutral' : 'unknown'
 
   // 5-second verdict: one line per axis with strength symbol + value + caption.
   const verdict = [

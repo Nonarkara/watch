@@ -11,7 +11,7 @@ import { COMPARE_MAX } from '../lib/compare-config.ts'
 import { TIER_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 
-type Strength = 'strong' | 'neutral' | 'weak'
+type Strength = 'strong' | 'neutral' | 'weak' | 'unknown'
 
 function rarityClass(c: Card): Strength {
   const v = c.computed.scarcity.value
@@ -37,13 +37,14 @@ function resellClass(c: Card): Strength {
   const t = c.computed.resellability.tier
   if (t === 'High') return 'strong'
   if (t === 'Medium' || t === 'Low') return 'neutral'
-  return 'weak'
+  return 'unknown'
 }
 
 const STRENGTH_LABEL: Record<Strength, string> = {
   strong: 'STRONG',
   neutral: 'NEUTRAL',
   weak: 'WEAK',
+  unknown: 'UNKNOWN',
 }
 
 /** Rows are the questions a buyer or seller actually asks, in the order they ask them.

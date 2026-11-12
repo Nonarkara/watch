@@ -663,7 +663,8 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .dsr-verdict-row--yellow.dsr-verdict-row--strong .dsr-verdict-state { color: var(--yellow-text); }
 .dsr-verdict-row--navy.dsr-verdict-row--strong .dsr-verdict-state { color: var(--navy-ink); }
 .dsr-verdict-row--teal.dsr-verdict-row--strong .dsr-verdict-state { color: var(--teal-text); }
-.dsr-verdict-row--neutral .dsr-verdict-state { color: var(--dim); }
+.dsr-verdict-row--neutral .dsr-verdict-state,
+.dsr-verdict-row--unknown .dsr-verdict-state { color: var(--dim); }
 .dsr-verdict-row--weak .dsr-verdict-state { color: var(--dim); opacity: 0.5; }
 @media (min-width: 880px) { .spec-grid { grid-template-columns: 1fr 1fr; column-gap: var(--space-xl); } }
 
@@ -1570,7 +1571,8 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .cmp-verdict-row--yellow.cmp-verdict-row--strong .cmp-verdict-state { color: var(--yellow-text); }
 .cmp-verdict-row--navy.cmp-verdict-row--strong .cmp-verdict-state { color: var(--navy-ink); }
 .cmp-verdict-row--teal.cmp-verdict-row--strong .cmp-verdict-state { color: var(--teal-text); }
-.cmp-verdict-row--neutral .cmp-verdict-state { color: var(--dim); }
+.cmp-verdict-row--neutral .cmp-verdict-state,
+.cmp-verdict-row--unknown .cmp-verdict-state { color: var(--dim); }
 .cmp-verdict-row--weak .cmp-verdict-state { color: var(--dim); opacity: 0.55; }
 @media (max-width: 880px) {
   .cmp-vitrine { grid-template-columns: 1fr; }
@@ -4949,7 +4951,8 @@ main.shell { padding-top: var(--space-md); }
 .spotlight-verdict-row--yellow.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--yellow-text); }
 .spotlight-verdict-row--navy.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--navy-ink); }
 .spotlight-verdict-row--teal.spotlight-verdict-row--strong .spotlight-verdict-state { color: var(--teal-text); }
-.spotlight-verdict-row--neutral .spotlight-verdict-state { color: var(--dim); }
+.spotlight-verdict-row--neutral .spotlight-verdict-state,
+.spotlight-verdict-row--unknown .spotlight-verdict-state { color: var(--dim); }
 .spotlight-verdict-row--weak .spotlight-verdict-state { color: var(--dim); opacity: 0.5; }
 .spotlight-story {
   font-family: var(--font-essay); font-size: 14px; line-height: 1.55;
