@@ -250,7 +250,7 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       <TrendSpark sales={c.notable_sales ?? []} />
       <Link to={`/w/${c.id}`} className="rc-data-link">
         <dl className="rc-data">
-          <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
+          <div><dt>{estimate.value != null && estimate.stale ? 'Historical' : 'Market'}</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
           <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
             {delta != null ? pct(delta) : dash}</dd></div>
           <div><dt>Scarcity</dt><dd>{scarcity.value}<span className="dim">/100</span></dd></div>
@@ -271,7 +271,11 @@ function Row({ c }: { c: Card }) {
         <span className="l-ref mono">{c.identity.reference}</span>
         {c.identity.nickname && <span className="l-nick"> “{c.identity.nickname}”</span>}
       </span>
-      <span className="l-price">{estimate.value != null ? usd(estimate.value) : <span className="dim">{dash}</span>}</span>
+      <span className="l-price" data-estimate={estimate.value == null ? 'missing' : estimate.stale ? 'historical' : 'recent'}>
+        {estimate.value != null
+          ? <>{estimate.stale && <abbr title="Historical estimate" aria-label="Historical estimate">Hist.</abbr>}{usd(estimate.value)}</>
+          : <span className="dim">{dash}</span>}
+      </span>
       <span className="l-num hide-m">{delta != null ? <span className={delta < 0 ? 'neg' : ''}>{pct(delta)}</span> : <span className="dim">{dash}</span>}</span>
       <span className="l-num hide-m">{scarcity.value} <span className="dim micro">{scarcity.tier?.toUpperCase()}</span></span>
       <span className="l-num hide-m">{collectibility.value}</span>

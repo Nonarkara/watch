@@ -119,6 +119,21 @@ try {
       if (name === 'register') {
         const coverage = evaluate("fetch('/data.json').then(r=>r.json()).then(d=>({refused:d.cards.filter(c=>c.computed.estimate.value==null).length,text:document.querySelector('.pop-panel').textContent}))")
         assert(coverage.text.includes(`${coverage.refused} without publishable estimates`), 'Register must count the estimate gate, not sale coverage')
+        if (width === 390 || width === 1024) {
+          const search = 'input[aria-label="Search the register"]'
+          browser('fill', search, '116710BLNR')
+          assert(evaluate("document.querySelector('.rc-data dt').textContent==='Historical'"))
+          browser('click', '.register-view-toggle button:last-child')
+          assert(evaluate(`(() => {
+            const price=document.querySelector('.lrow[href="/w/rolex-116710blnr-batman"] .l-price');
+            return price.dataset.estimate==='historical' && price.querySelector('abbr').title==='Historical estimate' &&
+              price.scrollWidth<=price.clientWidth+1 && document.documentElement.scrollWidth<=innerWidth;
+          })()`), 'historical estimate must fit the ledger price cell with its marker')
+          browser('fill', search, '116400GV')
+          assert(evaluate("document.querySelector('.lrow .l-price').dataset.estimate==='recent' && !document.querySelector('.lrow .l-price abbr')"))
+          browser('fill', search, '')
+          browser('click', '.register-view-toggle button:first-child')
+        }
       }
       if (name === 'data') {
         browser('wait', '.data-intake-price small')
