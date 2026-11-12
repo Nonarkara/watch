@@ -183,7 +183,7 @@ export default function Saved() {
           <section className="sect">
             <div className="saved-grid">
             {cards.map((c) => {
-              const m = c.media[0]
+              const m = c.media.find(image => image.match === 'exact_reference')
               const est = c.computed.estimate.value
               const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
               const trend = trendByCard.get(c.id)
@@ -201,7 +201,7 @@ export default function Saved() {
                     <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
                     {trend && <span className="saved-cell-pulse mono">TODAY #{trend.rank} · {trendSignal(trend)}</span>}
                     <span className="saved-cell-price mono">
-                      {est != null ? usd(est)
+                      {est != null ? <>{usd(est)}<small className="saved-price-date dim">{c.computed.estimate.stale ? 'Historical · ' : ''}{c.computed.estimate.as_of ?? 'date unverified'}</small></>
                         : msrp != null ? `${usd(msrp)} RETAIL`
                         : 'NO ESTIMATE'}
                     </span>
@@ -226,7 +226,7 @@ export default function Saved() {
           </p>
           <div className="saved-grid">
             {recentCards.map((c) => {
-              const m = c.media[0]
+              const m = c.media.find(image => image.match === 'exact_reference')
               const est = c.computed.estimate.value
               const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
               return (
@@ -242,7 +242,7 @@ export default function Saved() {
                     {c.identity.nickname && <span className="saved-cell-nick">“{c.identity.nickname}”</span>}
                     <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
                     <span className="saved-cell-price mono">
-                      {est != null ? usd(est)
+                      {est != null ? <>{usd(est)}<small className="saved-price-date dim">{c.computed.estimate.stale ? 'Historical · ' : ''}{c.computed.estimate.as_of ?? 'date unverified'}</small></>
                         : msrp != null ? `${usd(msrp)} RETAIL`
                         : 'NO ESTIMATE'}
                     </span>

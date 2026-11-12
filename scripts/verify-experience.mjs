@@ -387,6 +387,30 @@ try {
   assert(evaluate("document.querySelector('#pom-saved-panel .pom-value-status').textContent.includes('1/2') && document.querySelector('.pom-saved-gap').textContent.includes('not in this build') && !document.querySelector('#pom-saved-panel .pom-history-toggle')"))
   browser('fill', '#pom-saved-start', '18000')
   assert(evaluate("document.querySelector('#pom-saved-panel .pom-formula').textContent.includes('USER-ENTERED START · $18,000')"))
+  browser('open', base + '/compare')
+  browser('wait', 'select[aria-label="Add a reference"]')
+  for (const id of ['rolex-116500ln','casio-ae-1200','patek-5712-1a','lange-odysseus-363-179'])
+    browser('select', 'select[aria-label="Add a reference"]', id)
+  for (const [width,height] of [[390,844],[1024,900],[1440,900]]) {
+    browser('set','viewport',String(width),String(height))
+    evaluate('window.scrollTo(0,0)')
+    const compare = evaluate(`(() => {
+      const receipt=document.querySelector('.cmp-price-receipt'), cols=[...document.querySelectorAll('.cmp-col')];
+      return {rows:receipt.tBodies[0].rows.length, text:receipt.textContent, bottom:receipt.getBoundingClientRect().bottom,
+        width:document.documentElement.scrollWidth, distinct:new Set(cols.map(c=>Math.round(c.getBoundingClientRect().left))).size,
+        overflow:cols.some(c=>c.scrollWidth>c.clientWidth+1),
+        exactPhotos:!cols.find(c=>c.querySelector('a[href="/w/patek-5712-1a"]')).querySelector('img') &&
+          !!cols.find(c=>c.querySelector('a[href="/w/rolex-116500ln"]')).querySelector('img'),
+        dates:[...receipt.querySelectorAll('.cmp-price-date')].every(e=>getComputedStyle(e).whiteSpace==='nowrap')};
+    })()`)
+    assert(compare.rows===4 && compare.text.includes('Historical · 3 sales · 2024-12-13') && compare.text.includes('No estimate') &&
+      compare.bottom<=height && compare.width<=width+1 && !compare.overflow && compare.exactPhotos && compare.dates &&
+      compare.distinct===(width===1440?4:width===1024?2:1), JSON.stringify(compare))
+    browser('screenshot',join(out,`compare-receipt-${width}.png`))
+  }
+  browser('open', base + '/saved')
+  browser('wait', '.saved-price-date')
+  assert(evaluate("document.querySelector('.saved-price-date').textContent.includes('Historical · 2024-12-13')"))
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')
