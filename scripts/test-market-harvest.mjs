@@ -173,10 +173,17 @@ assert.equal(publicQueue.records[0].detail.description, undefined, 'raw marketin
 assert.equal(publicQueue.records[0].realized, 13970);
 assert.equal(publicQueue.records[0].sale_date, null);
 assert.equal(publicQueue.records[0].auction_date, '2026-06-13');
-const fxLot = { currency: 'HKD', realized: 100000, sale_date: '2026-06-13' };
-const fx = { original_currency: 'HKD', original_realized: 100000, realized: 12762, sale_date: '2026-06-13' };
+const fxLot = { source_id: 'phillips:102', currency: 'HKD', realized: 100000, sale_date: '2026-06-13' };
+const fx = { source_id: fxLot.source_id, currency: 'USD', original_currency: 'HKD', original_realized: 100000,
+  realized: 12762, sale_date: '2026-06-13',
+  fx_conversion: { from: 'HKD', rate: 0.12762, rate_date: '2026-06-12', provider: 'ECB via Frankfurter' } };
 assert.equal(matchingConvertedUsd(fxLot, fx), 12762);
 assert.equal(matchingConvertedUsd(fxLot, { ...fx, original_realized: 110000 }), null);
 assert.equal(matchingConvertedUsd(fxLot, { ...fx, sale_date: '2026-06-12' }), null);
+assert.equal(matchingConvertedUsd(fxLot, { ...fx, realized: 12763 }), null, 'reject a tampered USD result');
+assert.equal(matchingConvertedUsd(fxLot, { ...fx, source_id: 'phillips:103' }), null, 'never transfer a conversion between lots');
+for (const invalid of [{ rate_date: '2026-06-14' }, { rate_date: '2026-02-30' }, { from: 'CHF' }, { provider: '' }]) {
+  assert.equal(matchingConvertedUsd(fxLot, { ...fx, fx_conversion: { ...fx.fx_conversion, ...invalid } }), null);
+}
 
 console.log('✓ market harvest parser, trust boundary, dedupe, and conservation law');

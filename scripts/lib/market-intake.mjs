@@ -3,9 +3,16 @@ import { dirname } from 'node:path';
 
 export function matchingConvertedUsd(lot, conversion) {
   if (!conversion || !lot.currency || !lot.sale_date || !(lot.realized > 0)) return null;
-  return conversion.original_currency === lot.currency && conversion.original_realized === lot.realized &&
-    (conversion.fx_conversion?.reference_date ?? conversion.sale_date) === lot.sale_date &&
-    Number.isFinite(conversion.realized) && conversion.realized > 0 ? conversion.realized : null;
+  const fx = conversion.fx_conversion;
+  if (conversion.source_id !== lot.source_id || conversion.currency !== 'USD' ||
+      conversion.original_currency !== lot.currency || conversion.original_realized !== lot.realized ||
+      fx?.from !== lot.currency || (fx.reference_date ?? conversion.sale_date) !== lot.sale_date ||
+      !Number.isFinite(fx.rate) || fx.rate <= 0 || typeof fx.provider !== 'string' || !fx.provider.trim() ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(fx.rate_date ?? '') || fx.rate_date > lot.sale_date) return null;
+  const rateDate = new Date(fx.rate_date);
+  if (!Number.isFinite(rateDate.getTime()) || rateDate.toISOString().slice(0, 10) !== fx.rate_date) return null;
+  const expected = Math.round(lot.realized * fx.rate);
+  return Number.isSafeInteger(expected) && expected > 0 && conversion.realized === expected ? expected : null;
 }
 
 /**
