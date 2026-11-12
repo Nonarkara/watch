@@ -1375,6 +1375,12 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .orbit { width: 168px; aspect-ratio: 1; border: 1px solid var(--rule); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; transform: none; }
 .orbit span { font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: .9; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .orbit small { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--dim); }
+@media (max-width: 360px) {
+  .pressure-lab { grid-template-columns: minmax(0, 1fr); }
+  .lab-controls, .pressure-result { padding: 12px; min-width: 0; }
+  .lab-controls input { min-width: 0; }
+  .pressure-result .orbit { width: min(168px, 100%); }
+}
 .attention-list { border-top: 1px solid var(--rule); }
 .attention-list > a { display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: var(--border); padding: 14px 0; }
 .attention-list > a:hover { background: var(--paper-2); }

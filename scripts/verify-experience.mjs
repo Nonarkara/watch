@@ -8,7 +8,7 @@ import { join } from 'node:path'
 const base = process.env.WATCH_TEST_URL || 'http://127.0.0.1:4178'
 const out = process.env.WATCH_PROOF_DIR || '/tmp/watch-experience-proof'
 const binary = process.env.WATCH_BROWSER_BIN || 'agent-browser'
-const session = `watch-proof-${process.pid}`
+let session = `watch-proof-${process.pid}`
 mkdirSync(out, { recursive: true })
 function browser(...args) {
   const raw = execFileSync(binary, ['--session', session, '--json', ...args], { encoding: 'utf8', timeout: 60000 })
@@ -18,6 +18,45 @@ function browser(...args) {
 }
 function evaluate(code) { return browser('eval', code).result }
 const proofs = []
+function verifyMarket() {
+  const mainSession = session
+  session += '-market'
+  try {
+    for (const width of [239, 390, 1024, 1440]) {
+      browser('set', 'viewport', String(width), '900')
+      browser('open', base + '/economy')
+      browser('wait', '.market-chart svg')
+      browser('scrollintoview', '.market-chart')
+      browser('wait', '--fn', 'Math.abs(document.querySelector(".market-chart svg").viewBox.baseVal.width - document.querySelector(".market-chart svg").clientWidth) <= 1')
+      const market = evaluate(`(() => {
+        const chart = document.querySelector('.market-chart'), svg = chart.querySelector('svg');
+        const legend = chart.querySelector('.market-chart-legend');
+        return {
+          count: chart.querySelectorAll('.market-chart-sources:not(.market-chart-outliers) a').length,
+          dots: svg.querySelectorAll('circle').length,
+          outliers: chart.querySelectorAll('.market-chart-outliers li').length,
+          line: !!svg.querySelector('path'), invalid: svg.innerHTML.includes('NaN'),
+          overflow: document.documentElement.scrollWidth > innerWidth + 1 || legend.scrollWidth > legend.clientWidth + 1
+        };
+      })()`)
+      assert(market.dots >= 4 && market.dots + market.outliers === market.count && !market.line &&
+        !market.invalid && !market.overflow, JSON.stringify({ width, ...market }))
+      if (width === 390) {
+        browser('click', '.market-chart-sources:not(.market-chart-outliers) summary')
+        assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
+      }
+    }
+    browser('open', base + '/about#the-market')
+    browser('wait', '#the-market .market-toggle button')
+    browser('click', '#the-market .market-toggle button:last-child')
+    browser('wait', '#the-market svg[aria-label^="All observed"]')
+    assert(evaluate("document.querySelector('#the-market .market-toggle button:last-child').getAttribute('aria-pressed') === 'true'"))
+  } finally {
+    browser('close')
+    session = mainSession
+  }
+}
+verifyMarket()
 try {
   for (const [width, height] of [[390, 844], [1024, 900], [1440, 900], [1280, 720]]) {
     browser('set', 'viewport', String(width), String(height))
@@ -795,38 +834,6 @@ try {
   browser('click','.saved-badge')
   browser('wait','--url','**/saved')
   browser('set','viewport','390','900')
-  for (const width of [390, 1024, 1440]) {
-    browser('set', 'viewport', String(width), '900')
-    browser('open', base + '/economy')
-    browser('wait', '.market-chart svg')
-    browser('wait', '--fn', `(() => {
-      const svg = document.querySelector('.market-chart svg');
-      return svg && Math.abs(svg.viewBox.baseVal.width - svg.clientWidth) <= 1;
-    })()`)
-    const market = evaluate(`(() => {
-      const chart = document.querySelector('.market-chart');
-      const svg = chart.querySelector('svg');
-      const dots = svg.querySelectorAll('circle').length;
-      const outliers = chart.querySelectorAll('.market-chart-outliers li').length;
-      return {
-        count: chart.querySelectorAll('.market-chart-sources:not(.market-chart-outliers) a').length,
-        dots, outliers, line: !!svg.querySelector('path'), invalid: svg.innerHTML.includes('NaN'),
-        viewportMatches: Math.abs(svg.viewBox.baseVal.width - svg.clientWidth) <= 1,
-        overflow: document.documentElement.scrollWidth > innerWidth + 1
-      };
-    })()`)
-    assert(market.dots >= 4 && market.dots + market.outliers === market.count && !market.line &&
-      !market.invalid && market.viewportMatches && !market.overflow, JSON.stringify(market))
-    if (width === 390) {
-      browser('click', '.market-chart-sources:not(.market-chart-outliers) summary')
-      assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
-    }
-  }
-  browser('open', base + '/about#the-market')
-  browser('wait', '#the-market .market-toggle button')
-  browser('click', '#the-market .market-toggle button:last-child')
-  assert(evaluate(`document.querySelector('#the-market .market-toggle button:last-child').getAttribute('aria-pressed') === 'true' &&
-    document.querySelector('#the-market svg[aria-label^="All observed"]') !== null`))
   for (const width of [239, 240, 241, 318, 319, 320]) {
     browser('set', 'viewport', String(width), '844')
     browser('open', base + '/')

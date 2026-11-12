@@ -33,7 +33,6 @@
 .bible-card-tags,
 .brand-references,
 .rolex-subtabs,
-.market-chart-legend,
 .labs-card-sources,
 .bible-dossier-list {
   flex-wrap: nowrap;
@@ -48,7 +47,6 @@
 .bible-card-tags::-webkit-scrollbar,
 .brand-references::-webkit-scrollbar,
 .rolex-subtabs::-webkit-scrollbar,
-.market-chart-legend::-webkit-scrollbar,
 .labs-card-sources::-webkit-scrollbar,
 .bible-dossier-list::-webkit-scrollbar { display: none; }
 .chips > *,
@@ -58,7 +56,6 @@
 .bible-card-tags > *,
 .brand-references > *,
 .rolex-subtabs > *,
-.market-chart-legend > *,
 .labs-card-sources > *,
 .bible-dossier-list > * { flex: 0 0 auto; }
 @media (max-width: 879px) {
