@@ -84,6 +84,20 @@ function verifyMarket() {
     verifyCompactMark(true, false)
     browser('set', 'viewport', '280', '900')
     verifyCompactMark(false, false)
+    browser('set', 'viewport', '239', '844')
+    browser('open', base + '/register')
+    browser('wait', '.reg-card')
+    const registerBefore = evaluate("document.querySelector('.register-controls .count-line').textContent")
+    assert(evaluate(`(() => {
+      const search = document.querySelector('input[aria-label="Search the register"]');
+      return document.documentElement.scrollWidth <= innerWidth + 1 && search.getBoundingClientRect().bottom <= innerHeight;
+    })()`), 'Register search and narrow result cards must fit')
+    browser('select', '.register-filter-selects select:first-child', 'asia')
+    browser('wait', '--fn', 'new URLSearchParams(location.search).get("region") === "asia"')
+    const registerAsia = evaluate("document.querySelector('.register-controls .count-line').textContent")
+    browser('select', '.register-filter-selects select:nth-child(2)', 'attainable')
+    const registerTier = evaluate("document.querySelector('.register-controls .count-line').textContent")
+    assert(registerBefore !== registerAsia && registerAsia !== registerTier, 'Both narrow filters must change Register results')
   } finally {
     browser('close')
     session = mainSession

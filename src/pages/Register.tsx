@@ -18,6 +18,9 @@ const SORTS: { k: SortKey; label: string }[] = [
   { k: 'newest', label: 'NEWEST' },
   { k: 'az', label: 'A–Z' },
 ]
+const COMPACT_TIER_LABEL: Record<Card['identity']['tier'], string> = {
+  trinity: 'Trinity', crown: 'Crown', haute: 'Haute', core: 'Core', attainable: 'Attainable',
+}
 
 export default function Register() {
   const data = useDataset()
@@ -118,7 +121,7 @@ export default function Register() {
 
       <div className="controls register-controls">
         <div className="controls-row">
-          <input className="inp" type="search" placeholder="Search brand, reference, nickname…"
+          <input className="inp" type="search" placeholder="Brand, ref., nickname"
             value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search the register" />
           <select className="sel" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Filter by brand">
             <option value="all">ALL BRANDS</option>
@@ -150,7 +153,19 @@ export default function Register() {
           </div>
         </div>
 
-        <div className="chips" role="group" aria-label="Filter by region">
+        <div className="register-filter-selects" role="group" aria-label="Region and tier filters">
+          <select className="sel" aria-label="Filter by region" value={region}
+            onChange={(e) => { setRegion(e.target.value as typeof region); setBrand('all') }}>
+            <option value="all">ALL REGIONS</option>
+            {REGION_ORDER.map((r) => <option key={r} value={r}>{REGION_LABEL[r]}</option>)}
+          </select>
+          <select className="sel" aria-label="Filter by tier" value={tier}
+            onChange={(e) => setTier(e.target.value as typeof tier)}>
+            <option value="all">ALL TIERS</option>
+            {TIER_ORDER.map((t) => <option key={t} value={t} title={TIER_LABEL[t]}>{COMPACT_TIER_LABEL[t]}</option>)}
+          </select>
+        </div>
+        <div className="chips register-filter-chips" role="group" aria-label="Filter by region">
           <button className={'chip' + (region === 'all' ? ' on' : '')} aria-pressed={region === 'all'} onClick={() => { setRegion('all'); setBrand('all') }}>All regions</button>
           {REGION_ORDER.map((r) => {
             const n = cards.filter((c) => BRAND_REGION[c.identity.brand] === r).length
@@ -165,7 +180,7 @@ export default function Register() {
             )
           })}
         </div>
-        <div className="chips" role="group" aria-label="Filter by tier">
+        <div className="chips register-filter-chips" role="group" aria-label="Filter by tier">
           <button className={'chip' + (tier === 'all' ? ' on' : '')} aria-pressed={tier === 'all'} onClick={() => setTier('all')}>All</button>
           {TIER_ORDER.map((t) => (
             <button key={t} className={'chip' + (tier === t ? ' on' : '')} aria-pressed={tier === t} onClick={() => setTier(t)}>
