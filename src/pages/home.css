@@ -228,12 +228,14 @@
   .home-page .spotlight-verdict-state { overflow-wrap: anywhere; }
   .home-page .trending-now-cell {
     grid-template-columns: auto minmax(0, 1fr);
-    gap: 8px; align-items: start; padding: 8px; min-height: 0;
+    gap: 4px 8px; align-items: center; padding: 8px; min-height: 0;
   }
-  .home-page .trending-now-cell:has(.reference-photo) {
-    grid-template-columns: auto 40px minmax(0, 1fr);
-  }
-  .home-page .trending-now-rank { font-size: 24px; }
-  .home-page .trending-now-media.reference-photo { width: 40px; height: 40px; }
+  .home-page .trending-now-body { display: contents; }
+  .home-page .trending-now-rank { grid-area: 1 / 1; font-size: 24px; }
+  .home-page .trending-now-brand { grid-area: 1 / 2; }
+  .home-page .trending-now-name { grid-area: 2 / 1 / auto / -1; }
+  .home-page .trending-now-signal { grid-area: 3 / 1 / auto / -1; }
+  .home-page .trending-now-cell:has(.reference-photo) .trending-now-name { grid-column: 2; }
+  .home-page .trending-now-media.reference-photo { grid-area: 2 / 1; width: 40px; height: 40px; }
   .home-page .trending-now-media.reference-photo-missing { display: none; }
 }
