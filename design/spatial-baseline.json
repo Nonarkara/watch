@@ -13243,14 +13243,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2193,
-            "detail": "aside.data-methodology-rail leaves 2193px empty beneath it in a 3121px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13987,14 +13980,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14018,14 +14004,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14049,14 +14028,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14080,14 +14052,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40385,14 +40350,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40416,14 +40374,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40447,14 +40398,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
