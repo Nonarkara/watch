@@ -110,7 +110,7 @@ export default function Brands() {
     <>
       <p className="eyebrow">{groups.length} BRANDS · {data.count} REFERENCES</p>
       <h1 className="pagetitle">Brand directory</h1>
-      <p className="lede">Find a maker and see what the archive can document.</p>
+      <p className="lede">Find a maker or <Link className="src-a" to="/register">browse all references →</Link></p>
 
       <div id="ledger" className="brand-directory-controls" tabIndex={-1}>
         <label htmlFor="brand-tier">Filter by tier</label>
@@ -121,7 +121,6 @@ export default function Brands() {
           ))}
         </select>
         <span className="mono micro" role="status">{filtered.length} brands</span>
-        <Link className="src-a" to="/register">All references →</Link>
       </div>
 
       <details className="brand-spotlight-row">

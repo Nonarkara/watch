@@ -183,6 +183,21 @@ function verifyMarket() {
     const trinityBrands = evaluate("document.querySelectorAll('.brand-row').length")
     assert(trinityBrands > 0 && trinityBrands < allBrands &&
       evaluate("document.querySelector('.brand-directory-controls [role=status]').textContent") === `${trinityBrands} brands`)
+    browser('open', base + '/resources')
+    browser('wait', '.res-row')
+    assert(evaluate(`document.fonts.ready.then(() => document.documentElement.scrollWidth === innerWidth &&
+      [...document.querySelectorAll('.res-row')].every(row =>
+        row.firstElementChild.getBoundingClientRect().bottom <= row.lastElementChild.getBoundingClientRect().top))`),
+    'Narrow resource ratings must follow their names rather than squeeze the text')
+    browser('open', base + '/watchmaking')
+    browser('wait', '.wmp-time-rail summary')
+    browser('focus', '.wmp-time-rail summary')
+    browser('press', 'Enter')
+    assert(evaluate(`(() => {
+      const sources = document.querySelector('.wmp-time-rail');
+      return sources.open && sources.querySelectorAll('.wmp-rail-card').length === 7 &&
+        sources.scrollHeight <= sources.clientHeight + 1 && document.documentElement.scrollWidth === innerWidth;
+    })()`), 'The seven Watchmaking artifacts must open without their own scroll pane')
   } finally {
     browser('close')
     session = mainSession
