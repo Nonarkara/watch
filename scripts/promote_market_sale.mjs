@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { isDryRun } from './lib/fetch.mjs';
 import { validateCard } from './validate_card.mjs';
 import { writePublicMarketIntake } from './lib/market-intake.mjs';
-import { existingCompKeys, matchesExistingComp, resolvePromotionDate } from './lib/market-harvest.mjs';
+import { comparableDialIssue, existingCompKeys, matchesExistingComp, resolvePromotionDate } from './lib/market-harvest.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const QUEUE_FILE = join(ROOT, 'data/market/review-queue.json');
@@ -51,6 +51,8 @@ if (decision === 'variant' && record.reasons.some((reason) => fatalVariantReason
 
 const cardFile = join(ROOT, 'data/cards', `${record.card_id}.json`);
 const card = JSON.parse(readFileSync(cardFile, 'utf8'));
+const dialIssue = comparableDialIssue(card.market_evidence.comparable_dial, record.detail.dial);
+if (decision === 'comparable' && dialIssue) throw new Error(`${id} cannot be promoted as comparable: ${dialIssue}`);
 const verifiedDate = resolvePromotionDate(record, { date: arg('sale-date'), source: arg('date-source') });
 const duplicate = matchesExistingComp({ ...record, sale_date: verifiedDate.date, sale_date_basis: 'reviewed' }, record.card_id,
   existingCompKeys({ cards: [{ id: record.card_id, comps: card.market_evidence.comps }] }));
@@ -69,6 +71,7 @@ const comp = {
   auction_code: record.auction_code,
   lot_number: record.lot_number,
 };
+if (record.detail.dial) comp.dial = record.detail.dial;
 if (decision === 'variant') comp.comparable = false;
 
 card.market_evidence.comps.push(comp);

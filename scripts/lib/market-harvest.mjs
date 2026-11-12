@@ -200,6 +200,7 @@ export function parsePhillipsDetailPage(html) {
     reference,
     reference_key: normalizeReference(reference),
     material,
+    dial: detailValue(html, 'Dial'),
     year,
     accessories,
     box_papers: inferBoxPapers(accessories ?? ''),
@@ -221,6 +222,7 @@ export function loadCardIndex(root) {
       reference: card.identity.reference,
       reference_key: normalizeReference(card.identity.reference),
       material: card.identity.case?.material ?? null,
+      comparable_dial: card.market_evidence?.comparable_dial ?? null,
       comps: card.market_evidence?.comps ?? [],
     });
   }
@@ -319,11 +321,19 @@ export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
     const cardMaterial = materialFamily(card.material ?? '');
     const lotMaterial = materialFamily(detail?.material ?? '');
     if (cardMaterial && lotMaterial && cardMaterial !== lotMaterial) reasons.push('material_mismatch');
+    const dialIssue = comparableDialIssue(card.comparable_dial, detail?.dial);
+    if (dialIssue) reasons.push(dialIssue);
     if (detail?.special_flags?.length) reasons.push(...detail.special_flags);
   }
 
   if (card && lot.currency === 'USD' && lot.realized && detail && reasons.length === 0) status = 'ready_for_review';
   return { ...lot, card_id: card?.id ?? null, status, reasons: [...new Set(reasons)], detail };
+}
+
+export function comparableDialIssue(expected, actual) {
+  if (!expected) return null;
+  if (typeof actual !== 'string' || !actual.trim()) return 'dial_unverified';
+  return actual.trim().toLowerCase() === expected.toLowerCase() ? null : 'dial_mismatch';
 }
 
 export function existingCompKeys(cardIndex) {

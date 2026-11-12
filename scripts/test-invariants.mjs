@@ -23,6 +23,10 @@ assert.equal(milgauss.market_evidence.comps.find((sale) => sale.url.endsWith("/2
 assert.ok(milgaussComps.every((sale) => sale.condition.startsWith("Black dial")),
   "only black-dial Milgauss sales can price the black-dial dossier");
 assert.ok(milgaussComps.some((sale) => sale.url.endsWith("/257562") && sale.price_usd === 11970));
+const wrongDial = structuredClone(milgauss);
+wrongDial.market_evidence.comps.find((sale) => sale.dial === "Z-Blue").comparable = true;
+assert.ok(validateCard(wrongDial, { buildDate: BUILD }).some((error) => error.includes("dial must match")),
+  "a hand-edited card must not bypass the comparable dial guard");
 for (const [lot, color] of [["NY080424/1", "Turquoise"], ["260548", "Green"], ["260550", "Yellow"]]) {
   const sale = op41.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`));
   assert.equal(sale?.comparable, false, `${color} sale must not price the generic OP41`);

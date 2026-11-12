@@ -66,7 +66,15 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
 
   const ev = card.market_evidence || {};
   req(Array.isArray(ev.comps), "market_evidence.comps must be an array");
+  if (ev.comparable_dial !== undefined) {
+    req(typeof ev.comparable_dial === "string" && ev.comparable_dial.trim() === ev.comparable_dial &&
+      ev.comparable_dial.length > 0, "market_evidence.comparable_dial must be a non-empty, trimmed string");
+  }
   for (const [i, c] of (ev.comps || []).entries()) {
+    if (typeof ev.comparable_dial === "string" && c.comparable !== false) {
+      req(typeof c.dial === "string" && c.dial.trim().toLowerCase() === ev.comparable_dial.toLowerCase(),
+        `comps[${i}].dial must match the comparable dial or be marked non-comparable`);
+    }
     req(isDate(c.date), `comps[${i}].date must be YYYY-MM-DD`);
     req(new Date(c.date) <= new Date(buildDate), `comps[${i}].date in the future`);
     req(Number.isFinite(c.price_usd) && c.price_usd > 0, `comps[${i}].price_usd must be finite and > 0`);

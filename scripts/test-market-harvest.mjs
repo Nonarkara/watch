@@ -69,6 +69,14 @@ const emptyKeys = existingCompKeys(index);
 const ready = classifyLot(parsed.lots[0], index, emptyKeys, detail);
 assert.equal(ready.status, 'ready_for_review');
 assert.deepEqual(ready.reasons, []);
+const scopedCard = { ...card, comparable_dial: 'Black' };
+const scopedIndex = { cards: [scopedCard], byIdentity: new Map([['rolex|5513', [scopedCard]]]) };
+const explicitDial = parsePhillipsDetailPage(detailHtml +
+  '<div><span>Dial</span><div class="seldon-detail__value"><span>Black</span></div></div>');
+assert.equal(explicitDial.dial, 'Black');
+assert.equal(classifyLot(parsed.lots[0], scopedIndex, emptyKeys, explicitDial).status, 'ready_for_review');
+assert.deepEqual(classifyLot(parsed.lots[0], scopedIndex, emptyKeys, { ...detail, dial: 'Blue' }).reasons, ['dial_mismatch']);
+assert.deepEqual(classifyLot(parsed.lots[0], scopedIndex, emptyKeys, detail).reasons, ['dial_unverified']);
 
 const nonUsd = classifyLot(parsed.lots[1], index, emptyKeys, detail);
 assert.equal(nonUsd.status, 'quarantined');
