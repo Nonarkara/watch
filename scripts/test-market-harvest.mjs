@@ -3,9 +3,10 @@ import { spawnSync } from 'node:child_process';
 import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 import {
   classifyLot, discoverPhillipsAuctionCodes, existingCompKeys, normalizeReference, parseMoney,
-  parsePhillipsAuctionPage, parsePhillipsDetailPage, resolvePromotionDate, summarizeRecords,
+  parsePhillipsAuctionPage, parsePhillipsDetailPage, resolvePromotionDate, sha256, summarizeRecords,
 } from './lib/market-harvest.mjs';
 import { matchingConvertedUsd, publicMarketIntake } from './lib/market-intake.mjs';
 
@@ -14,7 +15,7 @@ const sandbox = mkdtempSync(join(tmpdir(), 'watch-promotion-'));
 try {
   const root = new URL('../', import.meta.url);
   for (const dir of ['scripts', 'data/cards', 'data/market']) mkdirSync(join(sandbox, dir), { recursive: true });
-  for (const path of ['scripts/promote_market_sale.mjs', 'scripts/validate_card.mjs', 'scripts/lib']) {
+  for (const path of ['scripts/promote_market_sale.mjs', 'scripts/replay_phillips_archive.mjs', 'scripts/validate_card.mjs', 'scripts/lib']) {
     cpSync(new URL(path, root), join(sandbox, path), { recursive: true });
   }
   const owner = JSON.parse(readFileSync(new URL('data/cards/rolex-116520.json', root), 'utf8'));
@@ -40,6 +41,18 @@ try {
   assert.equal(readFileSync(queuePath, 'utf8'), queueBytes);
   const context = promote('--decision=variant', '--note=Different reference, cited for context.', '--dry-run');
   assert.equal(context.status, 0, context.stderr);
+  const rawDir = 'data/.harvest/phillips/2026-09-05';
+  const rawPath = `${rawDir}/auction-NY080126-0123456789ab.html.gz`;
+  mkdirSync(join(sandbox, rawDir), { recursive: true });
+  writeFileSync(join(sandbox, rawPath), gzipSync('<html>modified snapshot</html>'));
+  writeFileSync(join(sandbox, 'data/market/harvest-manifest.json'), JSON.stringify({
+    schema_version: 1, requests: [{ url: 'https://www.phillips.com/auctions/auction/NY080126',
+      path: rawPath, sha256: sha256('<html>original snapshot</html>') }],
+  }));
+  const replay = spawnSync(process.execPath, [join(sandbox, 'scripts/replay_phillips_archive.mjs')], { encoding: 'utf8' });
+  assert.equal(replay.status, 1);
+  assert.match(replay.stderr, /Snapshot checksum mismatch: NY080126/);
+  assert.equal(readFileSync(queuePath, 'utf8'), queueBytes, 'replay must never rewrite the review queue');
 } finally {
   rmSync(sandbox, { recursive: true, force: true });
 }

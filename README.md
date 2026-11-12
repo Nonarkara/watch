@@ -59,6 +59,10 @@ exact-reference, realized non-USD lots within the same `--max-details` budget. U
 keep first priority. Foreign-currency lots can gain reference, material and dial checks without
 becoming comparable or eligible for promotion.
 
+To audit an existing archive without fetching or changing any data, run
+`node scripts/replay_phillips_archive.mjs /path/to/archive-checkout`. The command checks
+snapshot hashes and applies the current parser and dossier matcher to the archived results.
+
 Promotion also checks the Phillips lot identity across URL forms. For multi-day or legacy
 auction records, verify the session containing the lot and supply `--sale-date=YYYY-MM-DD`
 and `--date-source=<Phillips session or lot URL>`. The auction opening date alone is not a sale date.
