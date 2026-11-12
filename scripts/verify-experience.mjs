@@ -46,8 +46,10 @@ function verifyMarket() {
         assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
       }
     }
+    browser('set', 'viewport', '239', '900')
     browser('open', base + '/about#the-market')
     browser('wait', '#the-market .market-toggle button')
+    assert(evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), 'About and its chart filters must fit at 239px')
     browser('click', '#the-market .market-toggle button:last-child')
     browser('wait', '#the-market svg[aria-label^="All observed"]')
     assert(evaluate("document.querySelector('#the-market .market-toggle button:last-child').getAttribute('aria-pressed') === 'true'"))

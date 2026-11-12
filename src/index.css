@@ -2132,7 +2132,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .buy-code p { color: var(--dim); max-width: 64ch; }
 @media (min-width: 880px) { .buy-code { display: grid; grid-template-columns: repeat(2, 1fr); } }
 
-.market-toggle { display: flex; gap: var(--space-xs); }
+.market-toggle { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 
 .market-chart { margin: var(--space-md) 0; border: var(--border); background: var(--bg); padding: var(--space-md); }
 .market-chart-head { display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: var(--space-md); }
@@ -2152,6 +2152,9 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 @media (max-width: 560px) {
   .market-chart { padding: 8px; }
   .market-chart-head, .market-chart-legend { gap: 8px 12px; margin-bottom: 8px; }
+}
+@media (max-width: 319px) {
+  .market-chart-legend { display: grid; gap: 4px; }
 }
 .market-outliers { margin-top: var(--space-md); padding: var(--space-sm) var(--space-md); border: 1px solid var(--rule); border-left: 2px solid var(--amber); background: var(--paper-2); }
 .market-outliers ul { list-style: none; margin-top: var(--space-xs); }
@@ -3806,6 +3809,11 @@ main.shell { padding-top: var(--space-md); }
 .contact-card p { font-family: var(--font-essay); font-size: 15px; line-height: 1.6; margin: 0 0 16px; max-width: 60ch; }
 .contact-card a { color: var(--coral-text); }
 .contact-card a:hover { color: var(--coral-2); }
+@media (max-width: 319px) {
+  .founder-link { max-width: 100%; overflow-wrap: anywhere; padding-inline: 8px; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); padding-inline: 12px; }
+  .contact-card { min-width: 0; padding: 12px; overflow-wrap: anywhere; }
+}
 @media (min-width: 880px) {
   .contact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
