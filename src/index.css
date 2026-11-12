@@ -751,6 +751,12 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .ladder-rows { }
 .ladder-row { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-md); min-height: var(--tap-min); border-bottom: 1px solid var(--neutral-line); justify-content: space-between; }
 .ladder-row:last-child { border-bottom: none; }
+.ladder-row > :first-child { min-inline-size: 0; overflow-wrap: anywhere; }
+@media (max-width: 320px) {
+  .ladder-row { flex-wrap: wrap; row-gap: var(--space-xs); }
+  .ladder-row > :first-child { flex: 1 1 8rem; }
+  .ladder-row > :last-child { max-inline-size: 100%; margin-inline-start: auto; overflow-wrap: anywhere; }
+}
 
 /* ── Footer ── */
 .ftr { border-top: var(--mg-rule) solid var(--ink); padding: var(--space-lg) 0 calc(var(--space-xl) + var(--sab)); }
