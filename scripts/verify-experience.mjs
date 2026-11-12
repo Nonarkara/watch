@@ -292,7 +292,7 @@ try {
     const citationsFit = evaluate(`(() => {
       const table=document.querySelector('[aria-label="Verified sales"]');
       const links=[...table.querySelectorAll('a')];
-      const fits=()=>links.length===4 && new Set(links.map(link=>link.getAttribute('aria-label'))).size===4 && links.every(link=>{
+      const fits=()=>links.length===${priced.marks} && new Set(links.map(link=>link.getAttribute('aria-label'))).size===${priced.marks} && links.every(link=>{
         const r=link.getBoundingClientRect();
         return r.left>=0 && r.right<=innerWidth && r.height>=32;
       });
