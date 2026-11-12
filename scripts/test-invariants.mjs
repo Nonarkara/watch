@@ -160,6 +160,14 @@ assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).l
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
+const thinFuture = structuredClone(future);
+thinFuture.market_evidence.comps = [future.market_evidence.comps[0], future.market_evidence.comps.at(-1)];
+const thinResult = computeAll(thinFuture, shared, BUILD);
+assert.equal(thinResult.estimate.n, 1, "future sale must not inflate the refusal count");
+assert.equal(thinResult.confidence.n, 1, "future sale must not inflate confidence without an estimate");
+const centurySales = ["1910-01-01", "1911-01-01", "1912-01-01"]
+  .map((date, i) => ({ date, price_usd: 100 + i, venue: "phillips" }));
+assert.equal(marketEstimate(centurySales, BUILD).value, 101, "All records is not a rolling century");
 const leapWindow = ["2023-02-28", "2023-03-01", "2023-08-01", "2024-02-29", "2024-03-01"]
   .map((date, i) => ({ date, price_usd: 100 + i, venue: "phillips" }));
 const leapEstimate = marketEstimate(leapWindow, "2024-02-29");

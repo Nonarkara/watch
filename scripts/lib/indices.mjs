@@ -2,6 +2,7 @@
 // Deterministic: same (card, shared, buildDate) → byte-identical output. No Date.now(), no randomness.
 
 const MS_DAY = 86400000;
+const ALL_RECORDS_WINDOW = 1200; // Public schema marker, not a 100-year cutoff.
 
 // A comp counts toward the estimate only if it is the same object the card describes.
 // Special-dial variants (a Tiffany-signed 5711), celebrity-provenance lots, and charity
@@ -31,6 +32,14 @@ function compsInWindow(comps, buildDate, months, endOffsetMonths = 0) {
   });
 }
 
+const recordedThrough = (comps, buildDate) => {
+  const end = Date.parse(buildDate);
+  return comps.filter((sale) => Date.parse(sale.date) <= end);
+};
+const estimateCohort = (eligible, buildDate, months) => months === ALL_RECORDS_WINDOW
+  ? eligible
+  : compsInWindow(eligible, buildDate, months);
+
 const median = (xs) => {
   const s = [...xs].sort((a, b) => a - b);
   const m = s.length >> 1;
@@ -55,16 +64,17 @@ const percentile = (xs, p) => {
 // refuses below n=3. Older windows degrade honestly in the limitation string
 // so a card with comps spread over years still gets a number, not a refusal.
 export function marketEstimate(comps, buildDate) {
-  const windows = [12, 24, 36, 60, 120, 1200];  // 1200mo = "all time on file"
+  const eligible = recordedThrough(comps, buildDate);
+  const windows = [12, 24, 36, 60, 120, ALL_RECORDS_WINDOW];
   for (const months of windows) {
-    const w = compsInWindow(comps, buildDate, months);
+    const w = estimateCohort(eligible, buildDate, months);
     if (w.length < 3) continue;
     const prices = w.map((c) => c.price_usd);
     const venues = new Set(w.map((c) => c.venue)).size;
     const newest = w.map((c) => c.date).sort().at(-1);
     const oldest = w.map((c) => c.date).sort()[0];
     const base = { n: w.length, window_months: months, venues, as_of: newest, reason: null };
-    const windowLabel = months === 1200 ? "all time on file" : months === 120 ? "10 years" : months === 60 ? "5 years" : `${months} months`;
+    const windowLabel = months === ALL_RECORDS_WINDOW ? "all time on file" : months === 120 ? "10 years" : months === 60 ? "5 years" : `${months} months`;
     if (w.length >= 8) {
       return { ...base,
         value: Math.round(trimmedMean(prices, 0.2)),
@@ -78,11 +88,10 @@ export function marketEstimate(comps, buildDate) {
       method: "median",
       limitation: `Only ${w.length} sales over ${windowLabel} (oldest ${oldest}, newest ${newest}); small-sample median — single-condition comps dominate.` };
   }
-  return { value: null, n: comps.length, window_months: null, as_of: null, method: null,
-    reason: comps.length === 0 ? "no_comps" : "insufficient_comps",
-    limitation: comps.length < 3
-      ? `Only ${comps.length} verified sale${comps.length === 1 ? '' : 's'} on file. Add at least ${3 - comps.length} more comp (Phillips, Christie's, Sotheby's, Bonhams) for an estimate.`
-      : `Sales exist but none of the 3-, 5-, or 10-year windows from the build date contain 3 sales; refusing to estimate.` };
+  const n = eligible.length;
+  return { value: null, n, window_months: null, as_of: null, method: null,
+    reason: n === 0 ? "no_comps" : "insufficient_comps",
+    limitation: `Only ${n} verified sale${n === 1 ? '' : 's'} on file. Add at least ${3 - n} more comp (Phillips, Christie's, Sotheby's, Bonhams) for an estimate.` };
 }
 
 // (b) Premium to retail %
@@ -331,7 +340,7 @@ export function resellabilityIndex(comps, buildDate, confidence) {
 }
 
 export function computeAll(card, shared, buildDate) {
-  const comps = card.market_evidence.comps.filter(isComparable);
+  const comps = recordedThrough(card.market_evidence.comps.filter(isComparable), buildDate);
   const estimate = marketEstimate(comps, buildDate);
   const premium = premiumToRetail(estimate, card.retail, card.identity.produced.discontinued);
   const change_1y = priceChange(comps, buildDate, 1, shared.cpi);
@@ -341,7 +350,7 @@ export function computeAll(card, shared, buildDate) {
   const liquidity = liquiditySignal(comps, buildDate);
   // A displayed estimate and its confidence must describe the same sales.
   const confidence = confidenceTier(
-    estimate.value == null ? comps : compsInWindow(comps, buildDate, estimate.window_months),
+    estimate.value == null ? comps : estimateCohort(comps, buildDate, estimate.window_months),
     buildDate,
   );
   const attention = screenAttention(card, scarcity, shared.screen_sightings);
