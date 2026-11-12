@@ -51,9 +51,11 @@ for (const origin of ['https://script.google.com', 'https://ipapi.co', 'https://
 const fixture = JSON.parse(readFileSync(new URL('./fixtures/test-card.json', import.meta.url), 'utf8'));
 fixture.market_evidence.comps[0].url = 'https://user:password@example.com/lot';
 fixture.market_evidence.comps[1].price_usd = Infinity;
+fixture.retail.msrp_history[0].source_url = 'javascript:void(0)';
 const errors = validateCard(fixture);
 assert(errors.some((e) => e.includes('comps[0].url')));
 assert(errors.some((e) => e.includes('finite')));
+assert(errors.some((e) => e.includes('msrp_history[0].source_url')));
 
 const originalFetch = globalThis.fetch;
 const dataset = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'));

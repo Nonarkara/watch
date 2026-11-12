@@ -141,6 +141,24 @@ try {
   }))()`)
   assert(priced.published === 5 && priced.text.includes('$25,600') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 4 && priced.citations >= 4 && priced.settlement,
     'available estimates, their age, cited sales, and the existing charts must survive compaction')
+  browser('click', '.dossier-retail-records summary')
+  const observations = evaluate(`fetch('/data.json').then(r=>r.json()).then(data=>{
+    const card=data.cards.find(c=>c.id==='rolex-116500ln');
+    const chart=document.querySelector('.dossier-price-chart');
+    const svg=chart.querySelector('svg');
+    const retail=card.retail.msrp_history;
+    const sales=card.notable_sales;
+    const years=[...retail.map(r=>r.effective_year),...sales.map(s=>Number(s.date.slice(0,4)))];
+    const dates=[...chart.querySelectorAll('.dossier-chart-dates span')].map(e=>Number(e.textContent));
+    const sources=[...chart.querySelectorAll('.dossier-retail-records[open] a')];
+    return svg.querySelectorAll('circle').length===retail.length &&
+      svg.querySelectorAll('rect').length===sales.length && !svg.querySelector('path,polyline') &&
+      dates[0]===Math.min(...years) && dates.at(-1)===Math.max(...years) &&
+      sources.length===retail.length && sources.every((source,i)=>source.getAttribute('href')===retail[i].source_url) &&
+      chart.querySelector('.dossier-chart-key').textContent.includes('List price by year');
+  })`)
+  assert(observations, 'chart marks and source links must match observations, without a carried-forward line')
+  browser('click', '.dossier-retail-records summary')
   browser('scrollintoview', '.dsr-evidence-ledger')
   browser('screenshot', join(out, 'dossier-evidence-priced.png'))
   for (const [width, height] of [[390, 844], [1024, 900], [1440, 900]]) {
@@ -188,7 +206,7 @@ try {
         const r=link.getBoundingClientRect();
         return r.left>=0 && r.right<=innerWidth && r.height>=32;
       });
-      const chart=document.querySelector('svg[aria-label="Price evidence chart"]').getBoundingClientRect();
+      const chart=document.querySelector('.dossier-price-chart').getBoundingClientRect();
       const records=table.getBoundingClientRect();
       const current=fits() && (innerWidth<900 || (chart.right<records.left && Math.abs(chart.top-records.top)<1)) &&
         [...table.tBodies[0].rows].every(row=>row.getBoundingClientRect().height<=64);

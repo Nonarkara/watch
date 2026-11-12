@@ -361,7 +361,7 @@ export default function Dossier() {
             {c.comp_summary && <span className="mono">{c.comp_summary.n} VERIFIED SALE{c.comp_summary.n === 1 ? '' : 'S'} · {c.comp_summary.date_range[0].slice(0, 4) === c.comp_summary.date_range[1].slice(0, 4) ? c.comp_summary.date_range[0].slice(0, 4) : `${c.comp_summary.date_range[0].slice(0, 4)}–${c.comp_summary.date_range[1].slice(0, 4)}`}</span>}
           </h2>
           <div className={c.notable_sales.length > 0 && c.notable_sales.length + c.retail.msrp_history.length > 1 ? 'dossier-price-pair' : undefined}>
-          <Sparkline msrp={c.retail.msrp_history} sales={c.notable_sales} buildDate={c.computed.as_of_build} />
+          <Sparkline msrp={c.retail.msrp_history} sales={c.notable_sales} />
           {c.notable_sales.length > 0 && (
             <table className="sales-table dossier-sales" aria-label="Verified sales">
               <thead><tr><th scope="col">Sale</th><th scope="col" className="num">Price</th><th scope="col">Source</th></tr></thead>

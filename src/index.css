@@ -1646,6 +1646,21 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .dossier-sales :is(th, td):last-child { width: 1%; padding-inline-end: 0; }
 .dossier-sales .num { width: 30%; }
 .dossier-sale-detail { display: block; font-weight: 400; }
+.dossier-price-chart { margin: 0; min-inline-size: 0; }
+.dossier-chart-key { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.dossier-chart-key span { display: inline-flex; align-items: center; gap: 6px; }
+.sale-symbol, .retail-symbol { display: inline-block; inline-size: 8px; block-size: 8px; }
+.sale-symbol { background: var(--amber); }
+.retail-symbol { border: 1px solid var(--ink); border-radius: 50%; }
+.dossier-chart-scale { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0 6px; color: var(--dim); }
+.dossier-chart-scale svg { display: block; width: 100%; height: auto; }
+.dossier-chart-ticks, .dossier-chart-dates { display: flex; justify-content: space-between; }
+.dossier-chart-ticks { flex-direction: column; align-items: end; }
+.dossier-chart-dates { grid-column: 2; }
+.dossier-retail-records summary, .dossier-retail-records a { min-block-size: 32px; }
+.dossier-retail-records summary { inline-size: fit-content; cursor: pointer; }
+.dossier-retail-records ul { display: flex; flex-wrap: wrap; gap: 4px 12px; list-style: none; padding: 0; }
+.dossier-retail-records a { display: inline-flex; align-items: center; gap: 4px; }
 .dossier-sales .src-a { display: inline-block; min-block-size: 32px; white-space: nowrap; border-bottom: 0; text-decoration: underline; text-underline-offset: 0.16em; }
 @media (min-width: 900px) {
   .dossier-price-pair { display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); align-items: start; gap: 20px; }

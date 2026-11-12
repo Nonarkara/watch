@@ -86,6 +86,8 @@ Dossier sale ledgers keep three columns at every width: venue with date and any 
 price with set or original currency, then the cited record. The price is the comparison
 anchor; the record is its exit. No separate swipe surface for a source link. At wide
 widths the historical marks and their verified records sit side by side, plot first.
+Filled squares are recorded sales; open circles are list prices by year. No mark
+extends beyond its recorded date or implies an unobserved price between records.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
