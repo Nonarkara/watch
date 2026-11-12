@@ -337,8 +337,23 @@ function watch(d) {
   return w;
 }
 
+// The shell paints a header and a paragraph that says LOADING, and that
+// paragraph sits still while the dataset arrives. A settle that accepts
+// stillness will measure the placeholder and then report every hole in the
+// real page as GONE. An empty-state sentence that also uses the boot class
+// ("NO REFERENCES MATCH") is the page, and it is not this.
+function stillLoading(d) {
+  var nodes = d.querySelectorAll('.boot');
+  for (var i = 0; i < nodes.length; i++) {
+    var t = (nodes[i].textContent || '').toUpperCase();
+    if (t.indexOf('LOADING') !== -1) return true;
+  }
+  return false;
+}
+
 // Is everything that can arrive late here yet?
 function arrived(d) {
+  if (stillLoading(d)) return false;
   try {
     var ff = d.fonts;
     if (ff && ff.status && ff.status !== 'loaded') return false;
@@ -367,7 +382,11 @@ function settle(d, cb) {
   var w = watch(d);
   function step() {
     var elapsed = Date.now() - start;
-    if (tries++ > 600 || elapsed > 5000) return cb();
+    // Five seconds once the page is here. Twelve while it is still the
+    // LOADING placeholder: the dataset is 1.6MB, and a five-second cap
+    // spent on the placeholder is a measurement of the placeholder.
+    var cap = stillLoading(d) ? 12000 : 5000;
+    if (tries++ > 800 || elapsed > cap) return cb();
     var s;
     try { s = signature(d); } catch (e) { return cb(); }
     if (s === last) stable++; else { stable = 0; last = s; }
@@ -479,6 +498,12 @@ function rendered(d, cb) {
     var main = d.querySelector('main#content') || d.querySelector('main') || d.body;
     var title = main && main.querySelector('h1');
     var ready = !main || main.getAttribute('data-study-ready') !== 'false';
+    // The route fallback says LOADING. It has a box, so a main that is
+    // still the fallback looks rendered, and the gate records the
+    // placeholder under the name of the page: the header is already there,
+    // the work is not, and every hole in the work is reported GONE. The
+    // prerender refuses that state. The live sweep has to refuse it too.
+    var booting = stillLoading(d);
     var fonts = true;
     try { fonts = !d.fonts || d.fonts.status === 'loaded'; } catch (e) { fonts = true; }
     var shown = false;
@@ -493,7 +518,7 @@ function rendered(d, cb) {
         shown = false;
       }
     } catch (e) { shown = false; }
-    if (ready && fonts && shown) return cb(true);
+    if (ready && fonts && shown && !booting) return cb(true);
     if (Date.now() - start > 12000) return cb(false);
     setTimeout(step, 25);
   })();
@@ -842,6 +867,37 @@ async function startServer(routes, widths) {
  * record has never been reviewed, and that is reported rather than ignored.
  */
 let advertisedRoutes = null;
+// How many sitemap rows were recognised as the dossier template rather than
+// as layouts of their own. Reported, not swallowed: a note says how many.
+let dossierRowsCollapsed = 0;
+
+/**
+ * Two paths are the same page when they differ only by a trailing slash.
+ *
+ * The directory walk records "/register/" because that is a directory with
+ * an index. The sitemap writes "/register" because that is the route. They
+ * are one page. samePath already says so for a navigation; the receipt has
+ * to say so too, or the slashless URL is reported as a page nobody reviewed
+ * while the slashed URL is the one the receipt recorded.
+ */
+function canonRoute(p) {
+  if (!p || p === "/") return "/";
+  const bare = p.length > 1 && p.endsWith("/") ? p.slice(0, -1) : p;
+  return bare ? bare + "/" : "/";
+}
+
+/**
+ * Is this URL one ROW of the dossier template, rather than a layout?
+ *
+ * /w/:id is one route. The sitemap lists every slug so a search engine can
+ * find that record. The measurement copy leaves those rows out of the
+ * receipt for the same reason (make-measure-copy.mjs): a few hundred copies
+ * of one template are not a few hundred layouts. LOCAL PATCH (watch) — the
+ * portable instrument does not know this site's route table.
+ */
+function isDossierRow(p) {
+  return /^\/w\/[^/]+\/$/.test(canonRoute(p));
+}
 
 /**
  * Is this path a FILE rather than a page?
@@ -922,13 +978,34 @@ async function discoverRoutes() {
     // The pages the site ADVERTISES, kept apart from the pages the RECEIPT
     // records. A page that is advertised and has no receipt has never been
     // reviewed, and that is reported below rather than swallowed.
-    advertisedRoutes = [...routes].sort();
+    //
+    // Canonical form first. "/register" from the sitemap and "/register/"
+    // from a home-page link are one page, and the receipt keys the slashed
+    // form because that is what a directory walk records. Leaving both in
+    // the set measured every layout twice and then failed the slashless
+    // copy as a page without a receipt.
+    //
+    // A dossier row is not a second layout. Collapsing it is not an
+    // exemption: an exemption would silence a page the receipt claims to
+    // cover. These URLs were never layout routes. A new top-level page in
+    // the sitemap is still a page without a receipt, and it still fails.
+    const canon = new Set();
+    dossierRowsCollapsed = 0;
+    for (const rt of routes) {
+      const c = canonRoute(rt);
+      if (isDossierRow(c)) {
+        dossierRowsCollapsed++;
+        continue;
+      }
+      canon.add(c);
+    }
+    advertisedRoutes = [...canon].sort();
 
     // Every route the receipt records is measured, whether the site
     // advertises it or not. The receipt is the contract.
-    for (const rt of Object.keys((baseline && baseline.routes) || {})) routes.add(rt);
+    for (const rt of Object.keys((baseline && baseline.routes) || {})) canon.add(canonRoute(rt));
 
-    return [...routes].sort();
+    return [...canon].sort();
   }
   const root = SRC_DIR;
   if (!existsSync(root)) {
@@ -1396,6 +1473,13 @@ if (errored.length) {
 }
 // The notes are printed at the end of the run.
 const notes = [];
+if (dossierRowsCollapsed) {
+  notes.push(
+    `${dossierRowsCollapsed} dossier URL(s) are the route /w/:id — the sitemap lists each row so it can be found. ` +
+      `The receipt records layouts, and the measurement copy leaves these rows out for the same reason. ` +
+      `They are not pages without a receipt.`,
+  );
+}
 
 // ---------------------------------------------------------------- the raw measurements
 if (JSON_OUT) {
@@ -1446,7 +1530,7 @@ const chromeHeavy = [];
 const chromeUnrecorded = [];
 
 function baselineFor(route, w) {
-  const r = baselineRoutes[route];
+  const r = baselineRoutes[route] || baselineRoutes[canonRoute(route)];
   if (!r) return null;
   return r[String(w)] || null;
 }
@@ -1829,7 +1913,8 @@ if (namedCliffs.size) {
 // A run that was told which routes to measure is a deliberate narrowing and
 // is not a failure; it is a note.
 const baselineRouteList = Object.keys(baselineRoutes);
-const vanishedRoutes = baselineRouteList.filter((rt) => !measuredRoutes.has(rt));
+const measuredCanon = new Set([...measuredRoutes].map((rt) => canonRoute(rt)));
+const vanishedRoutes = baselineRouteList.filter((rt) => !measuredCanon.has(canonRoute(rt)));
 if (!ROUTES_ARG) {
   for (const rt of vanishedRoutes) {
     failures.push(
@@ -1857,8 +1942,9 @@ if (!ROUTES_ARG) {
 // is not a quiet pass.
 if (advertisedRoutes && !ROUTES_ARG) {
   const exemptList = (baseline && baseline.exempt) || [];
+  const baselineCanon = new Set(baselineRouteList.map((rt) => canonRoute(rt)));
   for (const rt of advertisedRoutes) {
-    if (baselineRouteList.includes(rt)) continue;
+    if (baselineCanon.has(canonRoute(rt))) continue;
     const ex = exemptList.find((e) => e.check === "pageWithoutReceipt" && e.route === rt);
     if (ex) {
       notes.push(

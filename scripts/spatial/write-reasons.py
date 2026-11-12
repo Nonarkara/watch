@@ -24,8 +24,8 @@ REASONS = {
         "The spotlight is a reading block in two columns: the story, and the "
         "actions. The actions sit at the TOP of their column, level with the "
         "opening of the story beside them, because that is where the reader's "
-        "eye already is when the paragraph starts. Measured at 878px the two "
-        "CTAs are 30px tall in a 108px band and the 78px below them is the "
+        "eye already is when the paragraph starts. Measured at 878px the action "
+        "block leaves 76px empty beneath it in a 108px row; that 76px is the "
         "story's column, which runs on for more lines underneath. Moving the "
         "actions to the foot of their column would move the hole above them "
         "instead of removing it; the space belongs to the story."
@@ -67,15 +67,6 @@ REASONS = {
         "ends 216px above the action row. That gap is the slack between this "
         "card's text and the longest description in its row."
     ),
-    "dead|p.guide-card-subtitle": (
-        "The guide card's reading time and its call to action are pinned to the "
-        "card's foot (`margin-top: auto` on `.guide-card-mins`), and the three "
-        "guide cards are one ruled row of three - coral, yellow, navy - so "
-        "their heights are equal and the row's black rules stay straight. "
-        "Measured at 1099px the subtitle ends 138.1px above the pinned reading "
-        "time; that gap is the card's air, and it is the same in all three "
-        "cards, which is what makes the row read as one composition."
-    ),
     "dead|p.screen-rights.mono": (
         "The screen card's rights line is followed by the status note and the "
         "action row, which are pinned to the card's foot so the ledger's rows "
@@ -83,14 +74,6 @@ REASONS = {
         "above the note. The card's own text is shorter than the tallest card "
         "in its row, and the row's height is a decision about the table, not "
         "about this card."
-    ),
-    "dead|span.asia-spotlight-all-body": (
-        "The spotlight is a navy plate whose link is pinned to its foot "
-        "(`margin-top: auto`), so the plate reads as a block of colour with "
-        "its statement at the top and its way on at the bottom. Measured at "
-        "920px the body ends 161.6px above the pinned link. That space is "
-        "inside a deliberately coloured block, and the block is the palette's "
-        "counter-field."
     ),
     "dead|span.vc-type-tag.mono": (
         "The venue-type badge is a top-aligned marker in the card header row "
@@ -117,13 +100,6 @@ REASONS = {
         "the card 709px tall. Measured at 720px the image column fills 17% of "
         "that row because the body beside it is 590px of written dossier. The "
         "card is not short; the picture is."
-    ),
-    "scattered|div.guides-grid": (
-        "The three guide cards are one ruled row of three - coral, yellow, "
-        "navy - so their centres sit at 1/6, 1/2 and 5/6 of the row. Measured "
-        "at 879px two of the cards' centres are 67% of the row's WIDTH apart. "
-        "The instrument measures the space BETWEEN cells, and in a three-cell "
-        "row that space is the column, not a scatter."
     ),
 }
 
