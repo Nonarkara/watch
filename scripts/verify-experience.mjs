@@ -241,11 +241,11 @@ try {
     }
     browser('screenshot', join(out, `dossier-first-action-${width}.png`))
   }
-  browser('open', base + '/w/rolex-5513')
+  browser('open', base + '/w/rolex-6239-paul-newman')
   browser('wait', '.dsr-estimate-refusal')
   assert(evaluate(`document.querySelector('.dsr-estimate-refusal').textContent.includes('Market estimate') &&
     document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length === 2`),
-    'two sourced 5513 sales must stay visible without a market estimate')
+    'two sourced Daytona sales must stay visible without a market estimate')
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '.dsr-evidence-ledger')
   const priced = evaluate(`(() => ({

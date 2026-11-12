@@ -169,7 +169,7 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     assert.ok(!card.market_evidence.comps.some((comp) => /NY010523/i.test(comp.url)),
       `${file}: Phillips NY010523 is an art auction, not a watch sale`);
   }
-  for (const id of ["rolex-5513"]) {
+  for (const id of ["rolex-6239-paul-newman"]) {
     const card = JSON.parse(readFileSync(new URL(`${id}.json`, cardDir), "utf8"));
     const comps = card.market_evidence.comps.filter((comp) => comp.comparable !== false);
     const estimate = marketEstimate(comps, BUILD);
@@ -273,6 +273,7 @@ for (const [id, lot, median] of [
   ["rolex-126610ln", "/121670", 13750],
   ["rolex-1675", "/5574-54114.s", 18750],
   ["rolex-1803", "/5556-54104.s", 13750],
+  ["rolex-5513", "/5563-54121.s", 10625],
 ]) {
   const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
   const comps = card.market_evidence.comps.filter((sale) => sale.comparable !== false);

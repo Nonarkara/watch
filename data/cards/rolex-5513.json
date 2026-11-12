@@ -5,7 +5,7 @@
     "brand": "Rolex",
     "reference": "5513",
     "name": "Submariner",
-    "nickname": null,
+    "nickname": "Matte black dial",
     "collection": "Submariner",
     "tier": "crown",
     "produced": {
@@ -29,22 +29,43 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
+    "comparable_dial": "Matte black",
     "comps": [
       {
         "date": "2025-12-17",
         "price_usd": 10795,
         "venue": "christies",
         "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-submariner-wristwatch-ref-5513-315/285402",
-        "condition": null,
-        "box_papers": "watch_only"
+        "condition": "Circa 1966; catalogue says black without specifying a matte finish",
+        "box_papers": "watch_only",
+        "comparable": false
       },
       {
         "date": "2025-04-08",
         "price_usd": 13970,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/rolex/216051",
-        "condition": "Circa 1979 serif-dial example with guarantee, bracelet and presentation boxes",
+        "dial": "Matte black",
+        "condition": "Circa 1979 matte serif dial with guarantee, bracelet and presentation boxes",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2024-11-20",
+        "price_usd": 9375,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-5513-oyster-perpetual-submariner-circa-1968/a/5563-54124.s",
+        "dial": "Matte black",
+        "condition": "Circa 1968 matte black dial; Heritage lists a 93150 bracelet",
+        "box_papers": null
+      },
+      {
+        "date": "2024-11-20",
+        "price_usd": 10625,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-5513-oyster-perpetual-submariner-circa-1982/a/5563-54121.s",
+        "dial": "Matte black",
+        "condition": "Circa 1982 matte black dial; rich lume patina and oxidation on the seconds hand",
+        "box_papers": null
       }
     ],
     "listing_observations": []
