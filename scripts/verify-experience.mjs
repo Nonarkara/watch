@@ -52,6 +52,12 @@ try {
         const coverage = evaluate("fetch('/data.json').then(r=>r.json()).then(d=>({refused:d.cards.filter(c=>c.computed.estimate.value==null).length,text:document.querySelector('.pop-panel').textContent}))")
         assert(coverage.text.includes(`${coverage.refused} without publishable estimates`), 'Register must count the estimate gate, not sale coverage')
       }
+      if (name === 'data') {
+        browser('wait', '.data-intake-price small')
+        const intakeDates = evaluate(`[...document.querySelectorAll('.data-intake-price small')].map(e=>e.textContent)`)
+        assert(intakeDates.some(label=>label.startsWith('AUCTION START ')) && intakeDates.every(label=>!label.startsWith('REALIZED ')),
+          'legacy intake dates are auction opening dates, not verified lot dates')
+      }
       if (name === 'dossier-gap') {
         const geometry = evaluate(`(() => {
           const top=document.querySelector('.dsr-top'), heading=top.querySelector('h1');

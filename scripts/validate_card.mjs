@@ -72,6 +72,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
     req(Number.isFinite(c.price_usd) && c.price_usd > 0, `comps[${i}].price_usd must be finite and > 0`);
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
+    if (c.date_source_url !== undefined) req(isUrl(c.date_source_url), `comps[${i}].date_source_url must be a URL`);
     req(BOX.includes(c.box_papers ?? null), `comps[${i}].box_papers invalid`);
     req(c.comparable === undefined || typeof c.comparable === "boolean", `comps[${i}].comparable must be boolean`);
     // Excluding a sale from the estimate is a judgement call — it must state its reason.

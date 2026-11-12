@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { isDryRun } from './lib/fetch.mjs';
 import { validateCard } from './validate_card.mjs';
 import { writePublicMarketIntake } from './lib/market-intake.mjs';
+import { existingCompKeys, matchesExistingComp, resolvePromotionDate } from './lib/market-harvest.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const QUEUE_FILE = join(ROOT, 'data/market/review-queue.json');
@@ -50,19 +51,23 @@ if (decision === 'variant' && record.reasons.some((reason) => fatalVariantReason
 
 const cardFile = join(ROOT, 'data/cards', `${record.card_id}.json`);
 const card = JSON.parse(readFileSync(cardFile, 'utf8'));
-const duplicate = card.market_evidence.comps.some((comp) => comp.url === record.source_url ||
-  (comp.date === record.sale_date && comp.venue === 'phillips' && comp.price_usd === record.realized));
+const verifiedDate = resolvePromotionDate(record, { date: arg('sale-date'), source: arg('date-source') });
+const duplicate = matchesExistingComp({ ...record, sale_date: verifiedDate.date, sale_date_basis: 'reviewed' }, record.card_id,
+  existingCompKeys({ cards: [{ id: record.card_id, comps: card.market_evidence.comps }] }));
 if (duplicate) throw new Error(`${id} duplicates a comp already on ${record.card_id}`);
 
 const conditionParts = [record.detail.year, record.detail.material, record.detail.accessories, note]
   .filter(Boolean).map((value) => value.trim());
 const comp = {
-  date: record.sale_date,
+  date: verifiedDate.date,
+  date_source_url: verifiedDate.source,
   price_usd: record.realized,
   venue: 'phillips',
   url: record.source_url,
   condition: conditionParts.join('; ').slice(0, 800) || null,
   box_papers: record.detail.box_papers ?? null,
+  auction_code: record.auction_code,
+  lot_number: record.lot_number,
 };
 if (decision === 'variant') comp.comparable = false;
 
@@ -77,6 +82,8 @@ record.review = {
   reviewer,
   reviewed_at: new Date().toISOString(),
   card_id: record.card_id,
+  sale_date: verifiedDate.date,
+  date_source_url: verifiedDate.source,
 };
 queue.generated_at = new Date().toISOString();
 queue.summary = {

@@ -54,6 +54,10 @@ separate one-record command after a person checks reference, material, dial, con
 and accessories. Non-USD results remain quarantined until the schema can preserve source currency
 and source-backed exchange rates.
 
+Promotion also checks the Phillips lot identity across URL forms. For multi-day or legacy
+auction records, verify the session containing the lot and supply `--sale-date=YYYY-MM-DD`
+and `--date-source=<Phillips session or lot URL>`. The auction opening date alone is not a sale date.
+
 The production site is deployed to Cloudflare Pages and served at the custom domain
 [watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
 at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the

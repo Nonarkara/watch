@@ -101,6 +101,7 @@ export function parsePhillipsAuctionPage(html, sourceUrl) {
   const event = eventFrom(html);
   const auctionCode = sourceUrl.match(/\/([A-Z]{2}\d{6})(?:\/|$)/)?.[1] ?? null;
   const saleDate = event?.startDate?.slice(0, 10) ?? null;
+  const endDate = event?.endDate?.slice(0, 10) ?? null;
   const auctionName = event?.name ?? cleanText(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? '');
   const lots = [];
   const seen = new Set();
@@ -108,14 +109,19 @@ export function parsePhillipsAuctionPage(html, sourceUrl) {
 
   for (const match of html.matchAll(anchors)) {
     const path = decodeHtml(match[1]);
-    if (seen.has(path)) continue;
-    seen.add(path);
     const block = match[2];
+    const lotNumber = classText(block, 'seldon-object-tile__lot-number') || null;
+    const source = { source_url: `https://www.phillips.com${path}`, auction_code: auctionCode, lot_number: lotNumber };
+    const keys = [...phillipsLotKeys(source)];
+    if (seen.has(path) || keys.some(key => seen.has(key))) continue;
+    seen.add(path);
+    keys.forEach(key => seen.add(key));
     const text = cleanText(block);
     const soldDisplay = text.match(/Sold For\s*((?:HK\$|S\$|US\$|\$|CHF|£|€)\s*[0-9][0-9,.’]*)/i)?.[1] ?? '';
     const sold = parseMoney(soldDisplay);
     const reference = classText(block, 'seldon-object-tile__reference-number').replace(/^Ref\.\s*/i, '').trim() || null;
-    const sourceId = `phillips:${path.split('/').filter(Boolean).at(-1)}`;
+    const detailId = keys.find(key => key.startsWith('detail:'))?.slice('detail:'.length);
+    const sourceId = `phillips:${detailId ?? keys.find(key => key.startsWith('lot:')) ?? path}`;
     lots.push({
       source_id: sourceId,
       source: 'Phillips',
@@ -123,7 +129,9 @@ export function parsePhillipsAuctionPage(html, sourceUrl) {
       auction_code: auctionCode,
       auction_name: auctionName || null,
       sale_date: saleDate,
-      lot_number: classText(block, 'seldon-object-tile__lot-number') || null,
+      sale_date_basis: saleDate && saleDate === endDate ? 'single_day_auction' : 'auction_start_unverified',
+      auction_end_date: endDate,
+      lot_number: lotNumber,
       brand: classText(block, 'seldon-object-tile__maker') || null,
       reference,
       reference_key: normalizeReference(reference),
@@ -131,7 +139,7 @@ export function parsePhillipsAuctionPage(html, sourceUrl) {
       realized: sold.amount,
       currency: sold.currency,
       realized_display: sold.display,
-      source_url: `https://www.phillips.com${path}`,
+      source_url: source.source_url,
     });
   }
 
@@ -140,7 +148,7 @@ export function parsePhillipsAuctionPage(html, sourceUrl) {
       code: auctionCode,
       name: auctionName || null,
       start_date: saleDate,
-      end_date: event?.endDate?.slice(0, 10) ?? null,
+      end_date: endDate,
       location: event?.location?.name ?? null,
       source_url: sourceUrl,
       source_sha256: sha256(html),
@@ -238,6 +246,56 @@ function materialFamily(value = '') {
   return null;
 }
 
+export function phillipsLotKeys({ url, source_url, auction_code, lot_number }) {
+  const keys = new Set();
+  try {
+    const parsed = new URL(url ?? source_url);
+    if (parsed.protocol !== 'https:' || !['www.phillips.com', 'phillips.com'].includes(parsed.hostname) || parsed.username || parsed.password) return keys;
+    const path = parsed.pathname.match(/^\/detail\/(?:.*\/)?([A-Z]{2}\d{6})\/(\d+[A-Z]?)\/?$/i);
+    const numeric = !path && parsed.pathname.match(/^\/detail\/(?:[^/]+\/)?(\d+)\/?$/);
+    if (numeric) keys.add(`detail:${numeric[1]}`);
+    for (const [code, lot] of [[path?.[1], path?.[2]], [auction_code, lot_number]]) {
+      if (/^[A-Z]{2}\d{6}$/i.test(code ?? '') && /^\d+[A-Z]?$/i.test(lot ?? '')) {
+        keys.add(`lot:${code.toUpperCase()}/${String(lot).toUpperCase()}`);
+      }
+    }
+  } catch { /* Missing or malformed URL cannot establish identity. */ }
+  return keys;
+}
+
+export function matchesExistingComp(lot, cardId, keys) {
+  const lotKeys = phillipsLotKeys(lot);
+  if (keys.urls.has(`${cardId}|${lot.source_url}`) ||
+      [...lotKeys].some(key => keys.lots.has(`${cardId}|${key}`))) return true;
+  if (!['single_day_auction', 'reviewed'].includes(lot.sale_date_basis)) return false;
+  return (lotKeys.size ? keys.weakValues : keys.values).has(`${cardId}|${lot.sale_date}|${lot.venue}|${lot.realized}`);
+}
+
+export function resolvePromotionDate(record, { date, source } = {}) {
+  if (!date && !source && record.sale_date_basis === 'single_day_auction' && record.sale_date === record.auction_end_date) {
+    date = record.sale_date;
+    source = `https://www.phillips.com/auction/${record.auction_code}/overview`;
+  }
+  let url;
+  try { url = new URL(source); } catch { /* A dated source is required. */ }
+  const timestamp = /^\d{4}-\d{2}-\d{2}$/.test(date ?? '') ? Date.parse(date) : NaN;
+  if (!Number.isFinite(timestamp) || new Date(timestamp).toISOString().slice(0, 10) !== date ||
+      url?.protocol !== 'https:' || !['www.phillips.com', 'phillips.com', 'www.dist.phillips.com', 'dist.phillips.com'].includes(url.hostname) ||
+      url.username || url.password) {
+    throw new Error('Lot date is unverified: provide --sale-date=YYYY-MM-DD and --date-source=<Phillips session or lot URL>');
+  }
+  if ((record.sale_date && date < record.sale_date) || (record.auction_end_date && date > record.auction_end_date)) {
+    throw new Error('Verified lot date is outside the recorded auction date range');
+  }
+  const code = record.auction_code;
+  const sameAuction = /^[A-Z]{2}\d{6}$/.test(code ?? '') &&
+    new RegExp(`^/(?:auctions/)?auction/${code}(?:/overview)?/?$`, 'i').test(url.pathname);
+  const lotKeys = phillipsLotKeys(record);
+  const sameLot = [...phillipsLotKeys({ url: url.href })].some(key => lotKeys.has(key));
+  if (!sameAuction && !sameLot) throw new Error('Date source must identify this Phillips auction or lot');
+  return { date, source: url.href };
+}
+
 export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
   const identityKey = `${normalizeBrand(lot.brand)}|${lot.reference_key}`;
   const matches = cardIndex.byIdentity.get(identityKey) ?? [];
@@ -251,11 +309,8 @@ export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
   if (matches.length > 1) reasons.push('ambiguous_card_match');
 
   const card = matches.length === 1 ? matches[0] : null;
-  if (card && lot.sale_date && lot.realized) {
-    const valueKey = `${card.id}|${lot.sale_date}|${lot.venue}|${lot.realized}`;
-    if (existingKeys.urls.has(`${card.id}|${lot.source_url}`) || existingKeys.values.has(valueKey)) {
-      return { ...lot, card_id: card.id, status: 'duplicate', reasons: ['already_on_card'], detail };
-    }
+  if (card && matchesExistingComp(lot, card.id, existingKeys)) {
+    return { ...lot, card_id: card.id, status: 'duplicate', reasons: ['already_on_card'], detail };
   }
 
   if (card && lot.currency === 'USD' && lot.realized) {
@@ -274,13 +329,21 @@ export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
 export function existingCompKeys(cardIndex) {
   const urls = new Set();
   const values = new Set();
+  const lots = new Set();
+  const weakValues = new Set();
   for (const card of cardIndex.cards) {
     for (const comp of card.comps) {
       if (comp.url) urls.add(`${card.id}|${comp.url}`);
-      if (comp.date && comp.venue && comp.price_usd) values.add(`${card.id}|${comp.date}|${comp.venue}|${comp.price_usd}`);
+      const lotKeys = phillipsLotKeys(comp);
+      for (const key of lotKeys) lots.add(`${card.id}|${key}`);
+      if (comp.date && comp.venue && comp.price_usd) {
+        const value = `${card.id}|${comp.date}|${comp.venue}|${comp.price_usd}`;
+        values.add(value);
+        if (!lotKeys.size) weakValues.add(value);
+      }
     }
   }
-  return { urls, values };
+  return { urls, values, lots, weakValues };
 }
 
 export function summarizeRecords(records) {

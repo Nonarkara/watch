@@ -24,6 +24,7 @@ type MarketIntakeRecord = {
   realized: number | null
   currency: string | null
   sale_date: string | null
+  auction_date?: string | null
   source_url: string
   status: string
   reasons: string[]
@@ -237,7 +238,7 @@ export default function Data() {
                 </div>
                 <div className="data-intake-price">
                   <strong>{intakeMoney(record.realized, record.currency)}</strong>
-                  <small className="mono">REALIZED {record.sale_date ?? 'DATE MISSING'}</small>
+                  <small className="mono">{record.sale_date ? `SOLD ${record.sale_date}` : record.auction_date ? `AUCTION START ${record.auction_date}` : 'DATE UNVERIFIED'}</small>
                 </div>
                 <div className="data-intake-state">
                   <span className="mono">{record.status === 'ready_for_review' ? 'READY · NOT YET A COMP' : 'HELD'}</span>

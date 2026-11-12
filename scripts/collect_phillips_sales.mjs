@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchText, isDryRun, recordFetch } from './lib/fetch.mjs';
 import {
   classifyLot, discoverPhillipsAuctionCodes, existingCompKeys, loadCardIndex,
-  normalizeBrand, parsePhillipsAuctionPage, parsePhillipsDetailPage, sha256,
+  normalizeBrand, parsePhillipsAuctionPage, parsePhillipsDetailPage, phillipsLotKeys, sha256,
   summarizeRecords,
 } from './lib/market-harvest.mjs';
 import { writePublicMarketIntake } from './lib/market-intake.mjs';
@@ -79,6 +79,10 @@ if (existsSync(QUEUE_FILE)) {
   try { previous = JSON.parse(readFileSync(QUEUE_FILE, 'utf8')); } catch { /* a broken prior queue should not poison new evidence */ }
 }
 const previousById = new Map((previous?.records ?? []).map((record) => [record.source_id, record]));
+const previousByLot = new Map((previous?.records ?? []).flatMap(record =>
+  [...phillipsLotKeys(record)].map(key => [key, record])));
+const priorFor = lot => previousById.get(lot.source_id) ??
+  [...phillipsLotKeys(lot)].map(key => previousByLot.get(key)).find(Boolean);
 const run = {
   schema_version: 1,
   run_id: `phillips-${new Date().toISOString().replace(/[:.]/g, '-')}`,
@@ -132,13 +136,13 @@ const details = new Map((previous?.records ?? [])
 const eligibleForDetail = parsedLots.filter((lot) => {
   if (!lot.realized || lot.currency !== 'USD' || !lot.reference_key) return false;
   if (brandFilter && normalizeBrand(lot.brand) !== normalizeBrand(brandFilter)) return false;
-  if (!refresh && details.has(lot.source_id)) return false;
+  if (!refresh && (details.has(lot.source_id) || priorFor(lot)?.detail)) return false;
   return cardIndex.byIdentity.has(`${normalizeBrand(lot.brand)}|${lot.reference_key}`);
 }).slice(0, maxDetails);
 
 console.log(`[phillips] enriching ${eligibleForDetail.length} new or refreshed exact-reference USD matches`);
 for (const [index, lot] of eligibleForDetail.entries()) {
-  const key = lot.source_id.replace(':', '-');
+  const key = sha256(lot.source_id).slice(0, 16);
   const fetched = await getText(lot.source_url, 'detail', key);
   run.requests.push({ url: lot.source_url, ...fetched.raw, elapsed_ms: fetched.elapsed_ms, error: fetched.error });
   if (fetched.error) {
@@ -153,8 +157,8 @@ for (const [index, lot] of eligibleForDetail.entries()) {
 
 run.finished_at = new Date().toISOString();
 let observedRecords = parsedLots.map((lot) => {
-  const prior = previousById.get(lot.source_id);
-  const record = classifyLot(lot, cardIndex, compKeys, details.get(lot.source_id) ?? null);
+  const prior = priorFor(lot);
+  const record = classifyLot(lot, cardIndex, compKeys, details.get(lot.source_id) ?? prior?.detail ?? null);
   return {
     ...record,
     first_seen_at: prior?.first_seen_at ?? previous?.generated_at ?? run.finished_at,
@@ -164,7 +168,7 @@ let observedRecords = parsedLots.map((lot) => {
   };
 });
 if (brandFilter) observedRecords = observedRecords.filter((record) => normalizeBrand(record.brand) === normalizeBrand(brandFilter));
-const observedIds = new Set(observedRecords.map((record) => record.source_id));
+const observedIds = new Set(observedRecords.flatMap(record => [record.source_id, priorFor(record)?.source_id]));
 const retainedRecords = (previous?.records ?? [])
   .filter((record) => !observedIds.has(record.source_id))
   .map((prior) => ({
