@@ -299,3 +299,9 @@ Keep dial, accessories and native currency attached to each observation.
 Do not pool them into a valuation, use the estimate's currency equivalents
 as realized prices, or treat a difference between these sales as a measured
 dial premium.
+
+The intake queue dates are auction openings, not the days these lots sold.
+Phillips puts New York lot 152 in [Session II on June 14, 2026](https://www.phillips.com/auction/NY080126/overview)
+and Geneva lots 172, 193 and 214 in [Session II on May 10, 2026](https://www.phillips.com/auction/CH080226/overview).
+Use the session date with its source on any published lot row. Preserve the
+opening date in the raw queue and never substitute it for the session date.
