@@ -72,6 +72,7 @@ import { execFileSync, spawn } from "node:child_process";
 import { tmpdir, homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { widthBreakpoints } from "./width-breakpoints.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1123,11 +1124,7 @@ function scanStylesheets(text, into) {
     // one in a compound query — `(min-width:721px) and (max-width:1000px)`
     // would contribute 721 and lose 1000, and the 1000px cliff would go
     // unswept in exactly the way this function exists to prevent.
-    for (const m of body.matchAll(/\((?:min|max)-width:\s*([\d.]+)(px|rem|em)\)/g)) {
-      const n = parseFloat(m[1]);
-      if (!Number.isFinite(n) || n <= 0) continue;
-      const px = m[2] === "px" ? n : n * 16;
-      const bp = Math.round(px);
+    for (const bp of widthBreakpoints(body)) {
       // A cliff is a cliff: measure the width just below it, the width
       // itself, and the width just above it.
       for (const w of [bp - 1, bp, bp + 1]) if (w > 0) target.add(w);
@@ -1178,7 +1175,8 @@ async function remoteBreakpoints(base) {
   const into = { viewport: new Set(), container: new Set(), cliffs: new Set(), namedCliffs: new Map() };
   let html = "";
   try {
-    const r = await fetch(base + "/", { headers: { "user-agent": "spatial-law-probe" } });
+    const r = await fetch(base + "/", { headers: { "user-agent": "spatial-law-probe" }, signal: AbortSignal.timeout(10000) });
+    if (!r.ok) return into;
     html = await r.text();
   } catch {
     return into;
@@ -1195,8 +1193,8 @@ async function remoteBreakpoints(base) {
       continue;
     }
     try {
-      const r = await fetch(url, { headers: { "user-agent": "spatial-law-probe" } });
-      scanStylesheets(await r.text(), into);
+      const r = await fetch(url, { headers: { "user-agent": "spatial-law-probe" }, signal: AbortSignal.timeout(10000) });
+      if (r.ok && r.headers.get("content-type")?.includes("text/css")) scanStylesheets(await r.text(), into);
     } catch {
       /* a stylesheet that cannot be read is a stylesheet we cannot sweep */
     }
@@ -1214,6 +1212,10 @@ const cssScan = BASE
   ? await remoteBreakpoints(String(BASE).replace(/\/+$/, ""))
   : cssBreakpoints(DIST);
 const cssWidths = cssScan.viewport;
+if (BASE && !WIDTHS_ARG && !cssWidths.size && baseline?.measuredWidths?.length > projectWidths.length) {
+  console.error("FAIL — deployed CSS yielded no breakpoints; the recorded viewport sweep cannot be verified.");
+  process.exit(1);
+}
 const widths = WIDTHS_ARG
   ? String(WIDTHS_ARG).split(",").map((w) => parseInt(w.trim(), 10)).filter(Boolean)
   : [...new Set([...projectWidths, ...cssWidths])].sort((a, b) => a - b);
