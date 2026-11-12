@@ -38,7 +38,7 @@
     "spatial:falsify": "node scripts/spatial/spatial-falsify.mjs .spatial-dist",
     "spatial:probe": "node scripts/spatial/run-probe.mjs",
     "spatial:verify": "node scripts/spatial/verify.mjs",
-    "deploy": "npm run build && npm test && npx wrangler pages deploy dist --project-name watch --branch main"
+    "deploy": "npm audit --omit=dev --audit-level=high && npm run lint && npm run build && npm test && npx wrangler pages deploy dist --project-name watch --branch main"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.5",
