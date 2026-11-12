@@ -95,7 +95,16 @@ jobs:
         run: |
           node scripts/spatial/spatial-check.mjs \
             --base "$SPATIAL_BASE" \
-            --baseline design/spatial-baseline.json
+            --baseline design/spatial-baseline.json \
+            --json "$RUNNER_TEMP/spatial-measurements.json"
+      - name: Keep measurements even if the baseline check fails
+        if: always() && steps.target.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: spatial-measurements-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/spatial-measurements.json
+          if-no-files-found: warn
+          retention-days: 7
       - name: Say plainly what this job did and did not check
         if: always() && steps.target.outcome == 'success'
         env:
@@ -107,4 +116,5 @@ jobs:
             echo "- Selected target: $SPATIAL_BASE"
             echo "- Scope: routes in the receipt, at the configured layout widths."
             echo "- The local prerender gate and falsifier did not run in this workflow."
+            echo "- If the browser completed the sweep, the JSON measurements are available under Artifacts."
           } >> "$GITHUB_STEP_SUMMARY"
