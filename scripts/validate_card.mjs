@@ -16,6 +16,19 @@ const isUrl = (u) => {
 // YYYY alone is legal for provenance/waitlist dates — honest when only the year is known.
 const isDate = (d) => typeof d === "string" && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(d) && !isNaN(new Date(d));
 
+function saleKeys(sale) {
+  const url = new URL(sale.url);
+  url.hash = "";
+  for (const key of [...url.searchParams.keys()]) {
+    if (/^utm_/i.test(key) || (/(^|\.)ha\.com$/i.test(url.hostname) && /^ic\d+$/i.test(key))) {
+      url.searchParams.delete(key);
+    }
+  }
+  url.searchParams.sort();
+  url.pathname = url.pathname.replace(/\/$/, "");
+  return [url.href, ...phillipsLotKeys(sale)];
+}
+
 export function validateCard(card, { id, buildDate = "2099-01-01", comparableSaleOwners } = {}) {
   const errs = [];
   const req = (cond, msg) => { if (!cond) errs.push(msg); };
@@ -84,16 +97,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01", comparableSal
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
     if (isUrl(c.url)) {
-      const url = new URL(c.url);
-      url.hash = "";
-      for (const key of [...url.searchParams.keys()]) {
-        if (/^utm_/i.test(key) || (/(^|\.)ha\.com$/i.test(url.hostname) && /^ic\d+$/i.test(key))) {
-          url.searchParams.delete(key);
-        }
-      }
-      url.searchParams.sort();
-      url.pathname = url.pathname.replace(/\/$/, "");
-      const keys = [url.href, ...phillipsLotKeys(c)];
+      const keys = saleKeys(c);
       for (const key of keys) {
         req(!seenSaleKeys.has(key), `comps[${i}].url repeats an auction lot already on this card`);
         seenSaleKeys.add(key);
@@ -127,10 +131,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01", comparableSal
       req(isUrl(lot.url) && isUrl(lot.date_source_url), `${k} needs lot and date source URLs`);
       req(typeof lot.configuration === "string" && lot.configuration.trim().length > 0, `${k}.configuration required`);
       if (isUrl(lot.url)) {
-        const url = new URL(lot.url);
-        url.hash = "";
-        url.pathname = url.pathname.replace(/\/$/, "");
-        const keys = [url.href, ...phillipsLotKeys(lot)];
+        const keys = saleKeys(lot);
         req(!keys.some((key) => seenSaleKeys.has(key)), `${k}.url repeats an auction lot already on this card`);
         for (const key of keys) seenSaleKeys.add(key);
       }

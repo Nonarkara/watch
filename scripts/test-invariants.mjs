@@ -15,6 +15,14 @@ const invalidLot = structuredClone(steel6265);
 invalidLot.market_evidence.lot_observations.push({ ...lot, date: "2026-06-31", url: lot.url + "#result" });
 assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("valid past or current day")));
 assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")));
+const trackedLot = structuredClone(steel6265);
+trackedLot.market_evidence.lot_observations[0].url = "https://example.com/auction/lot-152?currency=USD&utm_campaign=archive";
+trackedLot.market_evidence.comps.push({
+  date: lot.date, price_usd: lot.amount, venue: "other_auction",
+  url: "https://example.com/auction/lot-152/?utm_source=results&currency=USD",
+});
+assert.ok(validateCard(trackedLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")),
+  "tracked URLs must not let the same lot appear as both a comp and an observation");
 const published6265 = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8"))
   .cards.find((card) => card.id === steel6265.id);
 assert.equal(published6265.lot_observations.length, 4);
