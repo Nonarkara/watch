@@ -2,7 +2,7 @@
 // Promote one reviewed intake record into one card. This command is intentionally
 // single-record: scraping scales discovery; judgment stays explicit and auditable.
 
-import { readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isDryRun } from './lib/fetch.mjs';
@@ -37,7 +37,9 @@ if (decision === 'variant' && (!note || note.trim().length < 12)) {
 const queue = JSON.parse(readFileSync(QUEUE_FILE, 'utf8'));
 const record = queue.records.find((item) => item.source_id === id);
 if (!record) throw new Error(`${id} is not in the current review queue`);
-if (!record.card_id) throw new Error(`${id} has no exact card match`);
+if (typeof record.card_id !== 'string' || !/^[a-z0-9]+(?:-+[a-z0-9]+)*$/.test(record.card_id)) {
+  throw new Error(`${id} has no valid card ID`);
+}
 if (!record.realized || record.currency !== 'USD') throw new Error(`${id} is not a realized USD sale`);
 if (!record.detail) throw new Error(`${id} has no detail snapshot; re-harvest with a larger --max-details`);
 if (record.status === 'duplicate' || record.status === 'promoted') throw new Error(`${id} is already represented on a card`);
@@ -49,7 +51,9 @@ if (decision === 'variant' && record.reasons.some((reason) => fatalVariantReason
   throw new Error(`${id} has unresolved evidence errors: ${record.reasons.join(', ')}`);
 }
 
-const cardFile = join(ROOT, 'data/cards', `${record.card_id}.json`);
+const cardDir = join(ROOT, 'data/cards');
+const cardName = `${record.card_id}.json`;
+const cardFile = join(cardDir, cardName);
 const card = JSON.parse(readFileSync(cardFile, 'utf8'));
 const dialIssue = comparableDialIssue(card.market_evidence.comparable_dial, record.detail.dial);
 if (decision === 'comparable' && dialIssue) throw new Error(`${id} cannot be promoted as comparable: ${dialIssue}`);
@@ -75,7 +79,13 @@ if (record.detail.dial) comp.dial = record.detail.dial;
 if (decision === 'variant') comp.comparable = false;
 
 card.market_evidence.comps.push(comp);
-const errors = validateCard(card, { id: record.card_id, buildDate: TODAY });
+const comparableSaleOwners = new Map();
+for (const file of readdirSync(cardDir).filter((name) => name.endsWith('.json') && name !== cardName).sort()) {
+  const other = JSON.parse(readFileSync(join(cardDir, file), 'utf8'));
+  const issues = validateCard(other, { id: file.slice(0, -5), buildDate: TODAY, comparableSaleOwners });
+  if (issues.length) throw new Error(`cannot promote while ${file} is invalid: ${issues.join('; ')}`);
+}
+const errors = validateCard(card, { id: record.card_id, buildDate: TODAY, comparableSaleOwners });
 if (errors.length) throw new Error(`promotion would invalidate ${record.card_id}: ${errors.join('; ')}`);
 
 record.status = 'promoted';

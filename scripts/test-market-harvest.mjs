@@ -1,9 +1,48 @@
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   classifyLot, discoverPhillipsAuctionCodes, existingCompKeys, normalizeReference, parseMoney,
   parsePhillipsAuctionPage, parsePhillipsDetailPage, resolvePromotionDate, summarizeRecords,
 } from './lib/market-harvest.mjs';
 import { matchingConvertedUsd, publicMarketIntake } from './lib/market-intake.mjs';
+
+// A stale review queue can offer a lot already used on a different dossier.
+const sandbox = mkdtempSync(join(tmpdir(), 'watch-promotion-'));
+try {
+  const root = new URL('../', import.meta.url);
+  for (const dir of ['scripts', 'data/cards', 'data/market']) mkdirSync(join(sandbox, dir), { recursive: true });
+  for (const path of ['scripts/promote_market_sale.mjs', 'scripts/validate_card.mjs', 'scripts/lib']) {
+    cpSync(new URL(path, root), join(sandbox, path), { recursive: true });
+  }
+  const owner = JSON.parse(readFileSync(new URL('data/cards/rolex-116520.json', root), 'utf8'));
+  const candidate = JSON.parse(readFileSync(new URL('data/cards/rolex-16520.json', root), 'utf8'));
+  const queue = JSON.parse(readFileSync(new URL('data/market/review-queue.json', root), 'utf8'));
+  const lot = queue.records.find((row) => row.source_id === 'phillips:231653');
+  candidate.market_evidence.comps = [];
+  delete candidate.market_evidence.comparable_dial;
+  Object.assign(lot, { card_id: candidate.id, status: 'ready_for_review', reasons: [] });
+  const candidatePath = join(sandbox, 'data/cards', `${candidate.id}.json`);
+  const queuePath = join(sandbox, 'data/market/review-queue.json');
+  const candidateBytes = JSON.stringify(candidate);
+  const queueBytes = JSON.stringify({ records: [lot] });
+  writeFileSync(join(sandbox, 'data/cards', `${owner.id}.json`), JSON.stringify(owner));
+  writeFileSync(candidatePath, candidateBytes);
+  writeFileSync(queuePath, queueBytes);
+  const promote = (...args) => spawnSync(process.execPath, [join(sandbox, 'scripts/promote_market_sale.mjs'),
+    '--id=phillips:231653', `--sale-date=${lot.sale_date}`, `--date-source=${lot.source_url}`, ...args], { encoding: 'utf8' });
+  const rejected = promote('--decision=comparable');
+  assert.equal(rejected.status, 1);
+  assert.match(rejected.stderr, /already comparable on rolex-116520/);
+  assert.equal(readFileSync(candidatePath, 'utf8'), candidateBytes);
+  assert.equal(readFileSync(queuePath, 'utf8'), queueBytes);
+  const context = promote('--decision=variant', '--note=Different reference, cited for context.', '--dry-run');
+  assert.equal(context.status, 0, context.stderr);
+} finally {
+  rmSync(sandbox, { recursive: true, force: true });
+}
 
 const tile = ({ id, lot, brand, reference, model, sold }) => `
 <a href="/detail/${brand.toLowerCase()}/${id}">
