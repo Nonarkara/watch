@@ -27,7 +27,7 @@ try {
       evaluate('document.fonts.ready.then(() => true)')
       if (name === 'collector') {
         browser('wait', '.pom-history-toggle')
-        assert(evaluate("!document.querySelector('.pom-decision') && !document.querySelector('.pom-basis-snapshot')"),
+        assert(evaluate("!document.querySelector('.pom-decision') && !document.querySelector('.pom-basis-snapshot') && !document.querySelector('.pom-basis-jumps')"),
           'stale estimates must not silently start a projection')
         if (width === 390) {
           browser('fill', '#pom-watch-start', '18000')
@@ -39,6 +39,16 @@ try {
         browser('screenshot', join(out, `collector-basis-${width}.png`))
         browser('click', '.pom-history-toggle')
         browser('wait', '.pom-decision')
+        browser('click', '.pom-basis-jumps a[href="#pom-decision"]')
+        assert(evaluate(`document.activeElement.id==='pom-decision' &&
+          document.querySelector('#pom-decision-title').getBoundingClientRect().bottom<innerHeight &&
+          document.querySelector('.pom-decision-foot').textContent.includes('historical estimate · newest sale 2024-12-13')`),
+          'the decision jump must move keyboard focus to the rendered decision')
+        if (width === 390) {
+          browser('click', '.pom-decision-foot a')
+          assert(evaluate("document.activeElement.id==='pom-exit-costs' && !!document.querySelector('#pom-exit-costs .pom-net-source a')"))
+          browser('click', '.pom-basis-jumps a[href="#pom-decision"]')
+        }
         assert(evaluate("document.querySelector('.pom-basis-snapshot').textContent.includes('HISTORICAL STARTING VALUE')"))
         assert(evaluate(`(() => {
           const box=document.querySelector('.pom-net-source'), style=getComputedStyle(box);

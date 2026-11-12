@@ -3353,6 +3353,8 @@ main.shell { padding-top: var(--space-md); }
 .pom-baseline-field input { width: 100%; margin: 10px 0 8px; padding: 10px 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 18px; }
 .pom-baseline-field small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; }
 .pom-watch-basis-fields { display: grid; gap: 8px; }
+.pom-basis-jumps { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.pom-basis-jumps a { display: inline-flex; align-items: center; min-height: 32px; text-decoration: underline; text-underline-offset: 3px; }
 #pom-watch-panel .pom-lab-controls { gap: 10px; margin-block: 12px; align-items: start; }
 #pom-watch-panel .pom-lab-controls > * { padding: 10px 12px; }
 #pom-saved-panel .pom-lab-controls { gap: 10px; margin-block: 12px; align-items: start; }
@@ -3462,7 +3464,8 @@ main.shell { padding-top: var(--space-md); }
 .pom-decision-grid span, .pom-decision-grid small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; letter-spacing: .03em; }
 .pom-decision-grid strong { font-family: var(--font-display); font-size: 23px; line-height: 1; overflow-wrap: anywhere; }
 .pom-decision-grid small { grid-column: 1 / -1; }
-.pom-decision-foot { margin: 0; padding: 11px 18px; border-top: 1px solid var(--ink); background: var(--paper-2); color: var(--dim); font-size: 8px; line-height: 1.5; overflow-wrap: anywhere; }
+.pom-decision-foot { margin: 0; padding: 8px 12px; border-top: 1px solid var(--ink); background: var(--paper-2); color: var(--dim); font-size: 11px; line-height: 1.45; overflow-wrap: anywhere; }
+.pom-decision-foot a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .pom-net-read { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6px 18px; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
 .pom-net-read > span { grid-row: 1 / span 2; align-self: center; color: var(--coral-text); font-size: 9px; letter-spacing: .1em; }
 .pom-net-read > strong { font-family: var(--font-display); font-size: 20px; line-height: 1.1; }

@@ -221,8 +221,9 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
   )
 }
 
-function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, fee }: {
+function DecisionSheet({ baseline, basisLabel, costBasis, annualRate, annualOwnershipCost, fee }: {
   baseline: number
+  basisLabel: string
   costBasis: number
   annualRate: number
   annualOwnershipCost: number
@@ -252,7 +253,7 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
   const rateGap = required.target_annual_rate - annualRate
 
   return (
-    <section className="pom-decision" aria-labelledby="pom-decision-title">
+    <section className="pom-decision" id="pom-decision" tabIndex={-1} aria-labelledby="pom-decision-title">
       <div className="pom-decision-head">
         <div>
           <span className="mono">DECISION SHEET · REVERSE THE QUESTION</span>
@@ -304,7 +305,7 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
           <small>{Number.isFinite(required.target_annual_rate) ? `${required.target_annual_rate.toFixed(1)}% ANNUAL GROWTH REQUIRED` : 'RATE CANNOT BE COMPUTED'}</small>
         </div>
       </div>
-      <p className="pom-decision-foot mono">BASELINE: DOSSIER ESTIMATE OR USER APPRAISAL · COST BASIS, HORIZON, OWNERSHIP RESERVE AND TARGET: USER INPUTS · EXIT FEE: VERIFIED SOURCE ABOVE · TAX, INFLATION, PURCHASE FEES AND CONDITION CHANGES EXCLUDED</p>
+      <p className="pom-decision-foot mono">Starting value: {money(baseline, 'USD')} · {basisLabel}. <a href="#pom-exit-costs">Exit costs and fee source ↑</a>. Excludes tax, inflation, purchase fees and condition changes.</p>
     </section>
   )
 }
@@ -777,6 +778,12 @@ function ValueLab() {
                   ? 'USER COST BASIS · used for net gain and break-even.'
                   : 'Blank uses the scenario starting value as a neutral cost basis.'}</small>
               </label>
+              {selectedExitScenario?.fee_rule && watchBaseline != null && watchBaseline > 0 && watchCostBasis != null && watchCostBasis > 0 && (
+                <nav className="pom-basis-jumps" aria-label="Scenario results">
+                  <a href="#pom-exit-costs">Exit costs ↓</a>
+                  <a href="#pom-decision">Decision sheet ↓</a>
+                </nav>
+              )}
             </div>
             <RateControl id="pom-watch-rate" value={annualRate} onChange={setAnnualRate} context={watchIndex} />
           </div>
@@ -813,7 +820,7 @@ function ValueLab() {
               : 'Enter a starting value to run the scenario. This reference does not yet have enough comparable sales for a market estimate.'}</p>
           )}
 
-          <div className="pom-net-lab">
+          <div className="pom-net-lab" id="pom-exit-costs" tabIndex={-1}>
             <div className="pom-net-head">
               <div>
                 <span className="mono">THE REALITY CHECK · NET, NOT GROSS</span>
@@ -853,6 +860,7 @@ function ValueLab() {
                   </span>)}</span>
                 </div>
                 <DecisionSheet baseline={watchBaseline} costBasis={watchCostBasis} annualRate={annualRate}
+                  basisLabel={hasManualValue ? 'user input' : `${usingHistorical ? 'historical estimate' : 'dossier estimate'} · newest sale ${estimate.as_of ?? 'not recorded'}`}
                   annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
                 <NetProjectionTable baseline={watchBaseline} costBasis={watchCostBasis} annualRate={annualRate}
                   annualOwnershipCost={ownershipCost} fee={selectedExitScenario.fee_rule} />
