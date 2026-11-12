@@ -4,6 +4,7 @@ import { useDataset } from '../lib/dataset-context.ts'
 import {
   feeRuleLabel,
   GLOBAL_VENUES,
+  VERIFIED_FEE_RULES,
   filterVenues,
   getVenueScenarios,
   type VenueScenario,
@@ -176,6 +177,7 @@ export default function Marketplaces() {
       <div className="venues-grid">
         {filteredVenues.map((v) => {
           const scenario = scenarioMap.get(v.id)
+          const feeEvidence = VERIFIED_FEE_RULES[v.id]
           return (
             <article key={v.id} className="venue-card">
               <div className="vc-top">
@@ -219,7 +221,12 @@ export default function Marketplaces() {
                 </div>
                 <div className="vcs-row">
                   <dt>Fee evidence</dt>
-                  <dd className="mono">{scenario?.fee_rule ? `VERIFIED · ${scenario.fee_rule.checked_date}` : 'NOT YET VERIFIED'}</dd>
+                  <dd className="mono">{feeEvidence ? <>
+                    Checked <time dateTime={feeEvidence.checked_date}>{feeEvidence.checked_date}</time>
+                    {!scenario && feeEvidence.sources.map((source) => (
+                      <span key={source.url}>{' · '}<a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a></span>
+                    ))}
+                  </> : 'NOT YET VERIFIED'}</dd>
                 </div>
               </dl>
 
