@@ -193,11 +193,18 @@ function verifyMarket() {
     browser('wait', '.wmp-time-rail summary')
     browser('focus', '.wmp-time-rail summary')
     browser('press', 'Enter')
-    assert(evaluate(`(() => {
+    browser('wait', '.wmp-time-rail-list .wmp-rail-card:nth-child(7)')
+    assert(evaluate(`document.fonts.ready.then(() => {
       const sources = document.querySelector('.wmp-time-rail');
       return sources.open && sources.querySelectorAll('.wmp-rail-card').length === 7 &&
         sources.scrollHeight <= sources.clientHeight + 1 && document.documentElement.scrollWidth === innerWidth;
-    })()`), 'The seven Watchmaking artifacts must open without their own scroll pane')
+    })`), 'The seven Watchmaking artifacts must open without their own scroll pane')
+    browser('open', base + '/about#the-market')
+    browser('wait', '--fn', 'document.querySelector(".market-toggle")?.getBoundingClientRect().bottom < innerHeight && scrollY > 0')
+    browser('click', '.market-toggle button:nth-child(2)')
+    assert(evaluate(`document.fonts.ready.then(() => document.documentElement.scrollWidth === innerWidth &&
+      document.querySelector('.market-chart svg').getAttribute('aria-label').startsWith('Patek Philippe'))`),
+    'The narrow About sales chart must restore its anchor and respond to the brand filter')
   } finally {
     browser('close')
     session = mainSession
