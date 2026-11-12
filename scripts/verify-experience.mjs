@@ -260,7 +260,7 @@ try {
           assert(evaluate("document.querySelector('.dsr-unavailable[open]').textContent.includes('Screen attention')"))
           browser('click', '.dsr-unavailable .mcell:first-of-type .why summary')
           browser('wait', '.dsr-unavailable .why[open] p')
-          assert(evaluate("document.querySelector('.dsr-unavailable .why[open] p').textContent.includes('verified sales')"))
+          assert(evaluate("document.querySelector('.dsr-unavailable .why[open] p').textContent.includes('No comparable sales')"))
           browser('screenshot', join(out, 'dossier-evidence-expanded-390.png'))
           browser('click', '.dsr-unavailable > summary')
           evaluate('window.scrollTo(0, 0)')
