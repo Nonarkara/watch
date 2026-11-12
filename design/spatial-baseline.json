@@ -100,7 +100,6 @@
     "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row.",
     "dead|span.vc-type-tag.mono": "The venue-type badge is a top-aligned marker in the card header row (`align-items: flex-start`), level with the first line of the venue name beside it. Measured at 718px the badge is 14px tall and the header row is 116px because the name and country wrap to three lines. The 102px under the badge is the card's own air, and a badge hung at the foot of the row would read as belonging to the spec table instead of to the name.",
     "orphan|aside.wmp-time-rail": "The watchmaking timeline rail is a sticky rail, not a panel: it is `position: sticky; top: calc(var(--header-h) + 120px)` with `align-self: start` and `max-height: calc(100vh - ...); overflow-y: auto`, so the reader scrolls the rail itself and it never leaves the viewport. Measured at 1101px it fills 12% of a 6075px row because the timeline beside it is 6075px long. The rail is the timeline's column, not 6075px of nothing.",
-    "dead|p.screen-rights.mono": "The screen card's rights line is followed by the status note and the action row, which are pinned to the card's foot so the ledger's rows stay equal height. Measured at 1099px the rights line ends 78.4px above the note. The card's own text is shorter than the tallest card in its row, and the row's height is a decision about the table, not about this card.",
     "dead|div.spotlight-ctas.mono": "The spotlight is a reading block in two columns: the story, and the actions. The actions sit at the TOP of their column (`align-self: flex-start`), level with the opening of the story beside them, because that is where the reader's eye already is when the paragraph starts. Measured at 878px the action block leaves 76px empty beneath it in a 108px row. That 76px is the story's column, which runs on for more lines underneath. Moving the actions to the foot of their column would move the hole above them instead of removing it; the space belongs to the story."
   },
   "exempt": [],
@@ -39378,14 +39377,7 @@
         }
       },
       "640": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39409,14 +39401,7 @@
         }
       },
       "641": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39440,14 +39425,7 @@
         }
       },
       "718": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39471,14 +39449,7 @@
         }
       },
       "719": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39502,14 +39473,7 @@
         }
       },
       "720": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39533,14 +39497,7 @@
         }
       },
       "721": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39564,14 +39521,7 @@
         }
       },
       "722": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39595,14 +39545,7 @@
         }
       },
       "759": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39626,14 +39569,7 @@
         }
       },
       "760": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39657,14 +39593,7 @@
         }
       },
       "761": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39688,14 +39617,7 @@
         }
       },
       "767": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39719,14 +39641,7 @@
         }
       },
       "768": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39750,14 +39665,7 @@
         }
       },
       "769": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39781,14 +39689,7 @@
         }
       },
       "799": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39812,14 +39713,7 @@
         }
       },
       "800": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39843,14 +39737,7 @@
         }
       },
       "801": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39874,14 +39761,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 154,
-            "detail": "154.40625px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39905,14 +39785,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 154,
-            "detail": "154.40625px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39936,14 +39809,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39967,14 +39833,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.453125,
-            "detail": "199.453125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39998,14 +39857,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.453125,
-            "detail": "199.453125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40029,14 +39881,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40060,14 +39905,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40091,14 +39929,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.96875,
-            "detail": "215.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40122,14 +39953,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.953125,
-            "detail": "215.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40153,14 +39977,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.96875,
-            "detail": "215.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40184,14 +40001,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40215,14 +40025,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.984375,
-            "detail": "194.984375px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40246,14 +40049,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40277,14 +40073,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40308,14 +40097,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.984375,
-            "detail": "194.984375px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40339,14 +40121,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40370,14 +40145,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40401,14 +40169,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40432,14 +40193,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40463,14 +40217,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.171875,
-            "detail": "185.171875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40494,20 +40241,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.390625px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40531,20 +40265,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.171875,
-            "detail": "185.171875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.390625px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40568,20 +40289,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.375px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40605,14 +40313,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40636,14 +40337,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40667,14 +40361,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40791,14 +40478,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40822,14 +40502,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40853,14 +40526,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40884,14 +40550,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
