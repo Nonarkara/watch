@@ -491,12 +491,12 @@ function isFresh(d, navStart, token) {
 //
 // A page with no title at all is not a failure — some pages have no h1 —
 // so for those the main element's own box is the readiness signal. Without
-// a main landmark, use the body, just as the probe and loadPage do. A blank
-// body still has to produce a real content-height box before it can pass.
+// a main landmark, static pages may use the body. Time Pop's SPA shell has
+// a sized body before React mounts; require its main landmark in that case.
 function rendered(d, cb) {
   var start = Date.now();
   (function step() {
-    var main = d.querySelector('main#content') || d.querySelector('main') || d.body;
+    var main = d.querySelector('main') || (d.getElementById('root') ? null : d.body);
     var title = main && main.querySelector('h1');
     var ready = !main || main.getAttribute('data-study-ready') !== 'false';
     // The route fallback says LOADING. It has a box, so a main that is
@@ -619,7 +619,7 @@ function loadPage(route, w, h, cb) {
             return finish({
               route: route,
               w: w,
-              error: 'the page never rendered a title',
+              error: 'the page never rendered measurable content',
             });
           }
           return settle(d, function () {
