@@ -125,6 +125,62 @@ try {
     'available estimates, their age, cited sales, and the existing charts must survive compaction')
   browser('scrollintoview', '.dsr-evidence-ledger')
   browser('screenshot', join(out, 'dossier-evidence-priced.png'))
+  for (const [width, height] of [[390, 844], [1024, 900], [1440, 900]]) {
+    browser('set', 'viewport', String(width), String(height))
+    const geometry = evaluate(`(() => {
+      const actions=document.querySelector('.dsr-actions'), bounds=actions.getBoundingClientRect();
+      const controls=[...actions.querySelectorAll('.dsr-action')];
+      const contained=controls.every(control => {
+        const box=control.getBoundingClientRect();
+        return box.left>=bounds.left-1 && box.right<=bounds.right+1 && box.height>=32;
+      });
+      const chart=document.querySelector('.txn-graphic-card');
+      const axes=[...chart.querySelectorAll('.spectrum-axis')];
+      const rects=axes.map(axis=>axis.getBoundingClientRect());
+      const sameScale=rects.length===2 && rects[0].x===rects[1].x && rects[0].width===rects[1].width;
+      const labels=[...chart.querySelectorAll('.spectrum-reading')].map(label=>label.textContent);
+      return { contained, controls:controls.length, actionHeight:bounds.height, scroll:actions.scrollWidth-actions.clientWidth,
+        sameScale, labels, chartHeight:chart.getBoundingClientRect().height, textInMarks:axes.some(axis=>axis.textContent.trim()) };
+    })()`)
+    assert(geometry.contained && geometry.controls === 5 && geometry.scroll <= 1 && geometry.actionHeight <= 96,
+      `the five actions must fit in at most two compact rows at ${width}: ${JSON.stringify(geometry)}`)
+    assert(geometry.sameScale && !geometry.textInMarks && geometry.chartHeight <= 330 &&
+      geometry.labels.some(label=>label.includes('Sale evidence band')) &&
+      geometry.labels.some(label=>label.includes('80–85%') && label.includes('Not a quote')),
+      `price marks and scenario labels must be separate, compact, and readable at ${width}`)
+    if (width === 1024) {
+      assert(evaluate(`(() => {
+        const actions=document.querySelector('.dsr-actions');
+        actions.style.flexWrap='nowrap';
+        for (const group of actions.children) group.style.flexShrink='0';
+        const fails=actions.scrollWidth > actions.clientWidth+1;
+        actions.removeAttribute('style');
+        for (const group of actions.children) group.removeAttribute('style');
+        return fails;
+      })()`), 'the old nowrap behavior must fail the tablet action budget')
+    }
+    browser('scrollintoview', '.dsr-actions')
+    browser('screenshot', join(out, `dossier-actions-${width}.png`))
+    browser('scrollintoview', '.txn-graphic-card')
+    browser('screenshot', join(out, `dossier-settlement-${width}.png`))
+    proofs.push({ name: 'dossier-settlement', width, geometry })
+  }
+  browser('click', '.txn-scenario-details > summary')
+  assert(evaluate("document.querySelector('.txn-scenario-details[open]').textContent.includes('94–97%')"))
+  browser('click', '.dsr-action-group--models a:last-child')
+  browser('wait', '--url', '**/marketplaces?watch=rolex-116500ln')
+  browser('set', 'viewport', '390', '844')
+  browser('open', base + '/w/rolex-116500ln')
+  browser('wait', '.spectrum-axis')
+  const enlargedChart = evaluate(`(() => {
+    const chart=document.querySelector('.txn-graphic-card');
+    const elements=[...chart.querySelectorAll('h3,p,span,summary')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);
+    for (const [element,size] of elements) element.style.fontSize=(size*2)+'px';
+    return chart.scrollWidth<=chart.clientWidth+1 && document.documentElement.scrollWidth<=innerWidth+1;
+  })()`)
+  assert(enlargedChart, 'the settlement chart must reflow with doubled text')
+  browser('scrollintoview', '.txn-graphic-card')
+  browser('screenshot', join(out, 'dossier-settlement-enlarged-390.png'))
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')

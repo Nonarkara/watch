@@ -9,23 +9,21 @@ export default function TransactionGraphic({ card }: Props) {
   const { estimate, premium, liquidity } = card.computed
   const msrp = card.retail.current_msrp_usd ?? card.retail.msrp_history.at(-1)?.price_usd
 
-  if (estimate.value == null) {
+  if (estimate.value == null || !estimate.band) {
     return (
       <div className="txn-graphic-card empty">
         <div className="txn-header">
-          <h3>Transaction Settlement Intelligence</h3>
-          <span className="mono micro dim">INSUFFICIENT COMPS FOR ESTIMATE</span>
+          <h3>Settlement scenarios</h3>
         </div>
         <p className="dim">
-          The register requires at least 3 verified sales to compute market clearing bands. Without sales evidence, we refuse to generate speculative buyer/seller settlement ranges.
+          {estimate.value == null ? estimate.limitation : 'The estimate has no evidence band on record.'}
         </p>
       </div>
     )
   }
 
   const estVal = estimate.value
-  const bandMin = estimate.band ? estimate.band[0] : Math.round(estVal * 0.92)
-  const bandMax = estimate.band ? estimate.band[1] : Math.round(estVal * 1.08)
+  const [bandMin, bandMax] = estimate.band
 
   // Settlement tiers
   const dealerCashMin = Math.round(estVal * 0.80)
@@ -34,8 +32,8 @@ export default function TransactionGraphic({ card }: Props) {
   const patientP2PMax = Math.round(estVal * 0.97)
 
   // Max scale for graphic
-  const scaleMax = Math.max(bandMax, msrp || 0, estVal * 1.15) * 1.05
-  const scaleMin = Math.min(dealerCashMin, msrp || Infinity) * 0.95
+  const scaleMax = Math.max(bandMax, msrp ?? 0, estVal) * 1.05
+  const scaleMin = Math.min(bandMin, dealerCashMin, msrp ?? Infinity, estVal) * 0.95
 
   const pctOfScale = (val: number) => {
     const range = scaleMax - scaleMin
@@ -46,104 +44,73 @@ export default function TransactionGraphic({ card }: Props) {
   return (
     <div className="txn-graphic-card">
       <div className="txn-header">
-        <div>
-          <span className="eyebrow">BUYER & SELLER SETTLEMENT INTELLIGENCE</span>
-          <h3>Probable Transaction Clearing Ranges</h3>
-        </div>
-        <div className="txn-liquidity-badge mono micro">
-          LIQUIDITY: {liquidity.tier.toUpperCase()} ({liquidity.sales_per_year} SALES/YR)
-        </div>
+        <h3>Sales and settlement</h3>
       </div>
 
-      {/* Visual Spectrum Bar */}
-      <div className="spectrum-wrap">
-        <div className="spectrum-axis">
-          {/* Dealer Wholesale Zone */}
-          <div
-            className="spectrum-zone dealer-zone"
-            style={{
-              left: `${pctOfScale(dealerCashMin)}%`,
-              width: `${pctOfScale(dealerCashMax) - pctOfScale(dealerCashMin)}%`,
-            }}
-          >
-            <span className="zone-label mono">DEALER CASH</span>
-          </div>
-
-          {/* Fair Clearing Zone */}
-          <div
-            className="spectrum-zone fair-zone"
-            style={{
-              left: `${pctOfScale(bandMin)}%`,
-              width: `${pctOfScale(bandMax) - pctOfScale(bandMin)}%`,
-            }}
-          >
-            <span className="zone-label mono">FAIR MARKET BAND</span>
-          </div>
-
-          {/* Estimate Marker Pin */}
-          <div
-            className="spectrum-pin"
-            style={{ left: `${pctOfScale(estVal)}%` }}
-          >
-            <div className="pin-head"></div>
-            <span className="pin-val mono">{usd(estVal)}</span>
-          </div>
-
-          {/* MSRP Marker if applicable */}
-          {msrp && (
-            <div
-              className="spectrum-msrp-pin"
-              style={{ left: `${pctOfScale(msrp)}%` }}
-            >
-              <div className="msrp-line"></div>
-              <span className="msrp-val mono">MSRP {usd(msrp)}</span>
-            </div>
-          )}
+      <div className="spectrum-wrap" role="group" aria-label="Settlement ranges on a shared US dollar scale">
+        <p className="spectrum-reading">
+          <strong>Sale evidence band</strong> <span className="mono">{usd(bandMin)}–{usd(bandMax)}</span>{' '}
+          <span className="dim">{estimate.n} sales used for estimate{estimate.as_of ? ` · newest ${estimate.as_of}` : ''}</span>
+        </p>
+        <div className="spectrum-axis" aria-hidden="true">
+          <span className="spectrum-zone fair-zone" style={{ left: `${pctOfScale(bandMin)}%`, width: `${pctOfScale(bandMax) - pctOfScale(bandMin)}%` }} />
+          <span className="spectrum-point" style={{ left: `${pctOfScale(estVal)}%` }} />
+          {msrp != null && <span className="spectrum-point spectrum-point--retail" style={{ left: `${pctOfScale(msrp)}%` }} />}
         </div>
-
-        <div className="spectrum-legend mono micro">
+        <p className="spectrum-reading spectrum-key">
+          <span><span aria-hidden="true">│ </span>Estimate <strong>{usd(estVal)}</strong></span>{' '}
+          {msrp != null && <span><span aria-hidden="true">┆ </span>Recorded list price <strong>{usd(msrp)}</strong></span>}
+        </p>
+        <p className="spectrum-reading spectrum-model">
+          <strong>Dealer payout scenario</strong> <span className="mono">{usd(dealerCashMin)}–{usd(dealerCashMax)}</span>{' '}
+          <span className="dim">Assumes 80–85% of the estimate. Not a quote.</span>
+        </p>
+        <div className="spectrum-axis" aria-hidden="true">
+          <span className="spectrum-zone dealer-zone" style={{ left: `${pctOfScale(dealerCashMin)}%`, width: `${pctOfScale(dealerCashMax) - pctOfScale(dealerCashMin)}%` }} />
+        </div>
+        <div className="spectrum-legend mono micro" aria-label="Shared US dollar scale">
           <span>{usd(Math.round(scaleMin))}</span>
           <span>{usd(Math.round((scaleMin + scaleMax) / 2))}</span>
           <span>{usd(Math.round(scaleMax))}</span>
         </div>
       </div>
 
-      {/* Buyer & Seller Dual Matrix */}
+      <details className="txn-scenario-details">
+      <summary>Buyer and seller assumptions</summary>
       <div className="matrix-grid">
         {/* Seller's Realization Matrix */}
         <div className="matrix-col seller-col">
           <div className="matrix-title">
-            <span className="role-icon">🏷️</span>
-            <h4>For Sellers: Net Realization</h4>
+            <h4>Seller scenarios</h4>
           </div>
 
           <div className="matrix-row">
             <div className="row-head">
-              <span className="row-label">Instant Dealer Payout (1-3 Days)</span>
+              <span className="row-label">Dealer payout scenario</span>
               <span className="row-val mono amber">{usd(dealerCashMin)} – {usd(dealerCashMax)}</span>
             </div>
             <p className="row-sub dim">
-              Immediate wholesale cash payout. Reflects dealer 15-20% holding risk & margin.
+              80–85% of the estimate. The model does not predict fees or time to sell.
             </p>
           </div>
 
           <div className="matrix-row">
             <div className="row-head">
-              <span className="row-label">Patient Direct Sale (30-90 Days)</span>
+              <span className="row-label">Direct sale scenario</span>
               <span className="row-val mono good-val">{usd(patientP2PMin)} – {usd(patientP2PMax)}</span>
             </div>
             <p className="row-sub dim">
-              Net proceeds after ~3-5% escrow/platform fee when matching a patient private collector.
+              94–97% of the estimate. An assumption, not a measured fee or sale price.
             </p>
           </div>
 
           <div className="matrix-row">
             <div className="row-head">
-              <span className="row-label">Endowment Trap Anchor</span>
+              <span className="row-label">Above the evidence band</span>
               <span className="row-val mono warn-val">&gt; {usd(bandMax)}</span>
             </div>
             <p className="row-sub dim">
-              Listing above this line anchors to emotional bias (WTA &gt; WTP), risking months of unsold paralysis.
+              Above the high end of this estimate band; the band does not predict sale probability.
             </p>
           </div>
         </div>
@@ -151,17 +118,16 @@ export default function TransactionGraphic({ card }: Props) {
         {/* Buyer's Decision Matrix */}
         <div className="matrix-col buyer-col">
           <div className="matrix-title">
-            <span className="role-icon">🔍</span>
-            <h4>For Buyers: Acquisition Discipline</h4>
+            <h4>Buyer reference points</h4>
           </div>
 
           <div className="matrix-row">
             <div className="row-head">
-              <span className="row-label">Fair Settlement Range</span>
+              <span className="row-label">Sale evidence band</span>
               <span className="row-val mono good-val">{usd(bandMin)} – {usd(bandMax)}</span>
             </div>
             <p className="row-sub dim">
-              Clearing range supported by {estimate.n} verified sales comps across {estimate.venues || 1} venue(s).
+              Based on {estimate.n} verified sales{estimate.venues ? ` across ${estimate.venues} venue(s)` : ''}.
             </p>
           </div>
 
@@ -171,29 +137,22 @@ export default function TransactionGraphic({ card }: Props) {
               <span className="row-val mono">{premium.value != null ? `${premium.value > 0 ? '+' : ''}${premium.value}%` : 'N/A'}</span>
             </div>
             <p className="row-sub dim">
-              {premium.value != null && premium.value > 0
-                ? `Trading at a ${premium.value}% scarcity premium over retail MSRP.`
-                : premium.value != null && premium.value < 0
-                ? `Trading at a ${Math.abs(premium.value)}% discount below retail MSRP.`
-                : 'No MSRP comparison available.'}
+              {premium.value != null ? 'Compares the estimate with the recorded retail baseline. It does not measure what caused the difference.' : 'No MSRP comparison available.'}
             </p>
           </div>
 
           <div className="matrix-row">
             <div className="row-head">
-              <span className="row-label">Re-Liquidation Risk</span>
+              <span className="row-label">Tracked sales frequency</span>
               <span className="row-val mono amber">{liquidity.tier.toUpperCase()}</span>
             </div>
             <p className="row-sub dim">
-              {liquidity.sales_per_year >= 12
-                ? 'High market velocity. Re-liquidates quickly if held for > 3 years.'
-                : liquidity.sales_per_year >= 4
-                ? 'Moderate velocity. Plan for a 60-90 day re-sale window.'
-                : 'Low velocity / niche demand. Treat as long-term un-hurried collection.'}
+              {liquidity.sales_per_year} tracked sales per year. This does not estimate time to sell.
             </p>
           </div>
         </div>
       </div>
+      </details>
     </div>
   )
 }

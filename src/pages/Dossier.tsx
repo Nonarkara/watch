@@ -161,6 +161,7 @@ export default function Dossier() {
       </div>
 
         <div className="dsr-actions">
+          <div className="dsr-action-group" role="group" aria-label="Collection actions">
           <button
             type="button"
             className={'dsr-action mono' + (inCompare ? ' on' : '')}
@@ -196,8 +197,11 @@ export default function Dossier() {
             {copied ? '✓ COPIED' : '⎘ COPY LINK'}
           </button>
           <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
-          <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS →</Link>
-          <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS →</Link>
+          </div>
+          <div className="dsr-action-group dsr-action-group--models" role="group" aria-label="Modeling tools">
+            <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS{'\u00a0'}→</Link>
+            <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS{'\u00a0'}→</Link>
+          </div>
         </div>
 
         <dl className="spec-grid mast-spec">

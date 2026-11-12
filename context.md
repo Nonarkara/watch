@@ -115,6 +115,12 @@ open, and unavailable measures share one disclosure with their full limits.
 No placeholder chart or equal-size cells for missing values. Existing sale
 charts, attribution, and price qualifications keep their meaning and order.
 
+**Settlement design read:** Use the same modular instrument ledger, with the
+shared dollar axis as the focal point. Like a ruled MoMA object label, each
+range names what it measures outside its plotted length. Sale evidence and
+assumed payout percentages occupy separate tracks. No prose inside data marks;
+no implied likelihood, holding period, or fee schedule without evidence.
+
 Home geometry repair: `src/pages/home.css` deliberately replaces inflated
 full-width stat tiles and repeated card framing with an aligned editorial column
 grid. Art → reading/action band → natural-width facts. Commitments and detailed
