@@ -32959,14 +32959,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 475.375,
-            "detail": "div.pom-card-image fills 24% of a row 622px tall, leaving 475px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32996,12 +32989,6 @@
             "sel": "aside.pom-bio-aside",
             "metric": 271,
             "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 477.703125,
-            "detail": "div.pom-card-image fills 23% of a row 623px tall, leaving 478px empty"
           }
         ],
         "firstAction": {
@@ -33570,12 +33557,6 @@
             "sel": "aside.pom-bio-aside",
             "metric": 253,
             "detail": "aside.pom-bio-aside leaves 253px empty beneath it in a 458px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 385.84375,
-            "detail": "div.pom-card-image fills 31% of a row 559px tall, leaving 386px empty"
           }
         ],
         "firstAction": {
@@ -33644,12 +33625,6 @@
             "sel": "aside.pom-bio-aside",
             "metric": 230,
             "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 330.09375,
-            "detail": "div.pom-card-image fills 36% of a row 517px tall, leaving 330px empty"
           }
         ],
         "firstAction": {
@@ -33681,12 +33656,6 @@
             "sel": "aside.pom-bio-aside",
             "metric": 230,
             "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 273.90625,
-            "detail": "div.pom-card-image fills 41% of a row 461px tall, leaving 274px empty"
           }
         ],
         "firstAction": {
@@ -33977,12 +33946,6 @@
             "sel": "aside.pom-bio-aside",
             "metric": 243,
             "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
           }
         ],
         "firstAction": {
