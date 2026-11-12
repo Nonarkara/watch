@@ -5102,8 +5102,12 @@ main.shell { padding-top: var(--space-md); }
 .screen-spotlight-eyebrow-meta {
   font-size: 10px; letter-spacing: 0.12em; color: var(--coral-text);
 }
-.screen-spotlight-grid { display: grid; grid-template-columns: 1fr; }
-.screen-spotlight-body { padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 10px; max-width: 68ch; }
+.screen-spotlight-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-md); padding: var(--space-md); }
+.screen-spotlight-body, .screen-spotlight-facts { min-inline-size: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+.screen-spotlight-body { max-inline-size: 68ch; }
+@media (min-width: 880px) {
+  .screen-spotlight-grid { grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); gap: var(--space-lg); align-items: start; }
+}
 .screen-spotlight-eyebrow-row { margin: 0; }
 .screen-spotlight-eyebrow-row .eyebrow { margin: 0; }
 .screen-spotlight-title {
@@ -5123,7 +5127,6 @@ main.shell { padding-top: var(--space-md); }
 .screen-spotlight-credits {
   display: grid; grid-template-columns: 1fr; gap: 0;
   border: 1px solid var(--ink);
-  margin-top: 10px;
 }
 .screen-spotlight-credits > div {
   display: grid; grid-template-columns: 90px 1fr; gap: 10px;
@@ -5138,7 +5141,7 @@ main.shell { padding-top: var(--space-md); }
 .screen-spotlight-ctas {
   display: flex; flex-wrap: wrap; gap: 0;
   border: 1px solid var(--ink);
-  align-self: flex-start; margin-top: 10px;
+  align-self: flex-start;
 }
 .screen-spotlight-cta {
   display: inline-flex; align-items: center; padding: 10px 16px;
@@ -5151,12 +5154,8 @@ main.shell { padding-top: var(--space-md); }
 .screen-spotlight-cta--primary { background: var(--ink); color: var(--bg); }
 .screen-spotlight-cta--primary:hover { background: var(--coral); color: var(--bg); }
 .screen-spotlight-cta--ghost:hover { background: var(--paper-2); }
-@media (max-width: 880px) {
-  .screen-spotlight-body { padding: 16px 18px 18px; }
-}
 @media (max-width: 319px) {
-  .screen-spotlight-grid { grid-template-columns: minmax(0, 1fr); }
-  .screen-spotlight-body { min-width: 0; padding: 12px; overflow-wrap: anywhere; }
+  .screen-spotlight-grid { overflow-wrap: anywhere; }
   .screen-spotlight-credits > div { grid-template-columns: 60px minmax(0, 1fr); gap: 4px; padding-inline: 8px; }
   .screen-spotlight-cta { max-width: 100%; padding-inline: 8px; }
 }

@@ -100,6 +100,15 @@ function verifyMarket() {
     assert(registerBefore !== registerAsia && registerAsia !== registerTier, 'Both narrow filters must change Register results')
     browser('open', base + '/screen#sightings')
     browser('wait', '.screen-card')
+    assert(evaluate(`(() => {
+      const ledger = document.querySelector('.screen-grid');
+      const stills = [...ledger.querySelectorAll('.screen-card-image-tag')]
+        .filter(tag => tag.textContent === 'IN-CONTEXT').length;
+      const portraits = ledger.querySelectorAll('.screen-card-image-credit').length - stills;
+      const summary = document.querySelector('.screen-stat-panel').textContent;
+      return summary.includes(stills + ' sightings with credited stills') &&
+        summary.includes(portraits + ' distinct watch portraits');
+    })()`), 'Screen totals must distinguish actual stills from deduplicated portraits')
     const screenCount = () => Number.parseInt(evaluate("document.querySelector('.screen-compact-controls [role=status]').textContent"), 10)
     assert(evaluate(`document.fonts.ready.then(() => {
       const legend = document.querySelector('.screen-compact-controls');

@@ -146,13 +146,10 @@ export default function Screen() {
   // Track dossier-portrait URLs already shown so two Milgauss cards don't look like two photos.
   const seenPortraits = new Set<string>()
 
-  const withStillsAndPortrait = snapshot?.sightings.filter((item) => {
-    if (item.media) return true
-    if (item.suppress_portrait_fallback) return false
-    const cid = item.matched_card_ids?.[0]
-    if (!cid) return false
-    return mediaById.has(cid)
-  }).length ?? 0
+  const distinctPortraits = new Set((snapshot?.sightings ?? []).flatMap((item) => {
+    const media = imageForSighting(item, mediaById)
+    return media?.kind === 'portrait' ? [media.url] : []
+  })).size
 
   return (
     <div className="screen-page">
@@ -174,7 +171,7 @@ export default function Screen() {
           <div className="pop-panel screen-stat-panel">
             <span className="bubble-kicker mono">THE HONEST PLOT TWIST</span>
             <strong>{snapshot?.count ?? '—'} sightings</strong>
-            <span>{withStills} with credited stills · {withStillsAndPortrait} with a portrait shown · {exact} exact Rolex reference maps · {snapshot?.iconic_stills ?? 0} iconic film icons</span>
+            <span>{withStills} sightings with credited stills · {distinctPortraits} distinct watch portraits · {exact} exact-reference matches</span>
             {snapshot?.editorial_url && (
               <a href={snapshot?.editorial_url} target="_blank" rel="noreferrer" className="mono micro">
                 TEDDY BALDASSARRE ROUNDUP ↗
@@ -205,6 +202,8 @@ export default function Screen() {
               because Bond needs to read it. That is why it became the most-cited watch in
               any catalogue.
             </p>
+          </div>
+          <div className="screen-spotlight-facts">
             <div className="screen-spotlight-credits mono">
               <div><span>STUDIO</span><strong>United Artists (EON Productions)</strong></div>
               <div><span>YEAR</span><strong>1962</strong></div>
