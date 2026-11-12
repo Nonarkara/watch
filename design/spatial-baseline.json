@@ -3686,7 +3686,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 2703,
+          "y": 758,
           "sel": "button"
         },
         "chrome": {
@@ -4982,7 +4982,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5246,7 +5246,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5416,7 +5416,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 2703,
+          "y": 758,
           "sel": "button"
         },
         "chrome": {
@@ -6712,7 +6712,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6976,7 +6976,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -22933,7 +22933,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 505,
+          "y": 341,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -24851,20 +24851,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -34208,7 +34195,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 652,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35504,7 +35491,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35768,7 +35755,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35938,8 +35925,8 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 483,
-          "sel": "select.sel.field"
+          "y": 344,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
