@@ -40,6 +40,13 @@ try {
         browser('click', '.pom-history-toggle')
         browser('wait', '.pom-decision')
         assert(evaluate("document.querySelector('.pom-basis-snapshot').textContent.includes('HISTORICAL STARTING VALUE')"))
+        assert(evaluate(`(() => {
+          const box=document.querySelector('.pom-net-source'), style=getComputedStyle(box);
+          const luminance=color=>color.match(/[\\d.]+/g).slice(0,3).map(Number).map(n=>n/255)
+            .map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4).reduce((sum,n,i)=>sum+n*[0.2126,0.7152,0.0722][i],0);
+          const [lo,hi]=[luminance(style.color),luminance(style.backgroundColor)].sort((a,b)=>a-b);
+          return (hi+0.05)/(lo+0.05)>=4.5 && box.textContent.includes('newest sale 2024-12-13');
+        })()`), 'historical basis must remain legible beside exit assumptions')
         browser('scrollintoview', '.pom-decision')
       }
       const proof = evaluate(`({width:innerWidth, documentWidth:document.documentElement.scrollWidth,
