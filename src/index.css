@@ -1638,7 +1638,8 @@ details.why summary { min-height: 20px; }
 .dsr-evidence-ledger { margin: 16px 0; border-block: 1px solid var(--rule); }
 .dsr-estimate-refusal { padding: 8px 0; max-inline-size: 65ch; }
 .dsr-evidence-ledger .mcell {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
+  display: grid; grid-template-columns: max-content max-content minmax(0, 1fr) max-content;
+  align-items: baseline; gap: 4px 12px; overflow-wrap: anywhere;
   padding: 4px 0; border: 0; border-bottom: 1px solid var(--rule);
 }
 .dsr-evidence-ledger .mcell .lab,
@@ -1647,11 +1648,20 @@ details.why summary { min-height: 20px; }
 .dsr-evidence-ledger .mcell .lab { font-weight: 600; }
 .dsr-evidence-ledger .mcell .val.big { font-size: var(--text-body); font-weight: 700; }
 .dsr-evidence-ledger .mcell .note { max-inline-size: 65ch; }
-.dsr-evidence-ledger .why[open] { flex-basis: 100%; }
+.dsr-evidence-ledger .why[open] { grid-column: 1 / -1; }
 .dsr-evidence-ledger .why summary,
 .dsr-unavailable > summary { min-height: 32px; padding-block: 8px; width: fit-content; }
 .dsr-unavailable > summary { cursor: pointer; font-weight: 600; }
 .dsr-unavailable .mcell { border-bottom: 0; border-top: 1px solid var(--rule); }
+@media (max-width: 480px) {
+  .dsr-evidence-ledger .mcell {
+    grid-template-columns: minmax(0, 1fr) minmax(0, max-content);
+    column-gap: 8px;
+  }
+  .dsr-evidence-ledger .mcell .val,
+  .dsr-evidence-ledger .mcell .why { justify-self: end; }
+  .dsr-evidence-ledger .mcell .why[open] { justify-self: stretch; }
+}
 
 /* Sections stop drifting apart. The bottom padding adds 60px to clear the
    fixed compare dock so the last row of cards isn't overlapped. */

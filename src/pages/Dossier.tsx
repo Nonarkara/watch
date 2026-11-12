@@ -115,7 +115,7 @@ export default function Dossier() {
             disabled={!inCompare && compare.full}
             title={inCompare ? 'Remove from compare set' : compare.full ? 'Compare set is full (4 max)' : 'Add to compare set'}
           >
-            {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ ADD TO COMPARE'}
+            {inCompare ? '✓ COMPARING' : compare.full ? 'COMPARE FULL' : '+ COMPARE'}
           </button>
           <button
             type="button"
