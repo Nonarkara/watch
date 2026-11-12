@@ -26,6 +26,12 @@
 # fail is not a gate; so the falsifier runs in the release chain, on the
 # machine that deploys.
 #
+# Dossier URLs (/w/<slug>) are one template. The sitemap lists every row so
+# search can find it; the receipt does not key each row. The run that did —
+# 358 routes, about 49 minutes — failed "page without a receipt" on URLs the
+# receipt was never meant to record, and on the slashless twin of every
+# layout route the sitemap writes without a trailing slash.
+#
 # The night city behind the page is a full-screen fixed canvas. The gate reads
 # a full-screen fixed layer as a modal and leaves it out of the chrome
 # measurement, which is right here: the city is a backdrop under the work, it

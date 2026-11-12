@@ -47,6 +47,10 @@ if (existsSync(sitemap)) {
   for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     try {
       const p = new URL(m[1]).pathname;
+      // /w/<slug> is one row of the route /w/:id, not a layout of its own.
+      // The live gate collapses the same rows (spatial-check.mjs, isDossierRow).
+      // A receipt that keyed every dossier would measure a few hundred copies
+      // of one template; that is the sweep that took 49 minutes.
       if (p && p !== '/' && !p.startsWith('/w/')) routes.push(p);
     } catch { /* not a url — skip */ }
   }

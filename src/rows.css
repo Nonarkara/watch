@@ -35,7 +35,8 @@
 .rolex-subtabs,
 .market-chart-legend,
 .labs-card-sources,
-.bible-dossier-list {
+.bible-dossier-list,
+.dsr-actions {
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
@@ -50,7 +51,8 @@
 .rolex-subtabs::-webkit-scrollbar,
 .market-chart-legend::-webkit-scrollbar,
 .labs-card-sources::-webkit-scrollbar,
-.bible-dossier-list::-webkit-scrollbar { display: none; }
+.bible-dossier-list::-webkit-scrollbar,
+.dsr-actions::-webkit-scrollbar { display: none; }
 .chips > *,
 .glossary-chips > *,
 .brand-tier-chips > *,
@@ -60,7 +62,19 @@
 .rolex-subtabs > *,
 .market-chart-legend > *,
 .labs-card-sources > *,
-.bible-dossier-list > * { flex: 0 0 auto; }
+.bible-dossier-list > *,
+.dsr-actions > * { flex: 0 0 auto; }
+/* Five dossier actions. From 880px the row fits, or it scrolls inside the
+   column (nowrap, above). On a phone that same nowrap row was wider than
+   the page: `1fr` will not shrink below the buttons' min-content, and the
+   page scrolled sideways by the overflow. A column of full-width actions
+   is a list, not a broken row, and it stays inside the viewport. */
+@media (max-width: 879px) {
+  .dsr-top { grid-template-columns: minmax(0, 1fr); }
+  .dsr-top > * { min-width: 0; }
+  .dsr-actions { flex-direction: column; align-items: stretch; max-width: 100%; }
+  .dsr-action { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+}
 
 /* The four axes of a dossier card. Four items, so the columns must be two
    or four — never three, which would leave RESELLABILITY alone on a row of
