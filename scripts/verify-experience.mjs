@@ -100,9 +100,11 @@ try {
             const styles=['gross','net','cost'].map(key=>getComputedStyle(svg.querySelector('.pom-scenario-'+key)).strokeDasharray);
             const table=document.querySelector('.pom-net-table');
             const net=[...table.tBodies[0].rows].map(row=>row.cells[4].textContent);
-            const shown=[...chart.querySelectorAll('.pom-scenario-milestones strong')].map(e=>e.textContent);
+            const amounts=[...chart.querySelectorAll('.pom-scenario-milestones strong')];
+            const shown=amounts.map(e=>e.textContent);
+            const whole=amounts.every(e=>{const text=document.createRange();text.selectNodeContents(e);return text.getClientRects().length===1 && e.scrollWidth<=e.clientWidth+1;});
             return labels.slice(-4).join(',')==='0y,3y,10y,20y' && new Set(labels.slice(0,-4)).size===3 &&
-              new Set(styles).size===3 && shown.slice(1).every((value,i)=>value===net[i+2]) &&
+              new Set(styles).size===3 && whole && shown.slice(1).every((value,i)=>value===net[i+2]) &&
               chart.querySelector('.pom-scenario-milestones small').textContent==='AT START · NET' &&
               !document.querySelector('.pom-net-breakdown').open;
           })()`)

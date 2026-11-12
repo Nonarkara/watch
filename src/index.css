@@ -3502,6 +3502,11 @@ main.shell { padding-top: var(--space-md); }
 .pom-scenario-milestones small, .pom-scenario-milestones strong { display: block; overflow-wrap: anywhere; }
 .pom-scenario-milestones small { color: var(--dim); font-size: 8px; letter-spacing: .06em; }
 .pom-scenario-milestones strong { margin-top: 3px; font-family: var(--font-mono); font-size: 11px; }
+@media (max-width: 480px) {
+  .pom-scenario-milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pom-scenario-milestones > span:nth-child(2n) { border-right: 0; }
+  .pom-scenario-milestones > span:nth-child(n+3) { border-top: 1px solid var(--neutral-line); }
+}
 .pom-scenario-legend { display: grid; gap: 7px; padding: 12px 18px; color: var(--dim); font-size: 8px; line-height: 1.4; letter-spacing: .05em; }
 .pom-scenario-legend > span { display: flex; min-width: 0; align-items: center; gap: 7px; overflow-wrap: anywhere; }
 .pom-scenario-swatch { display: inline-block; width: 18px; height: 3px; flex: none; background: var(--ink); }
