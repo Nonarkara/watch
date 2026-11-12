@@ -215,6 +215,11 @@ try {
       proofs.push({ name, ...proof, screenshot })
     }
   }
+  browser('open', base + '/w/rolex-126610ln')
+  browser('wait', '.dsr-estimate-refusal')
+  assert(evaluate(`document.querySelector('.dsr-estimate-refusal').textContent.includes('Market estimate') &&
+    document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length === 2`),
+    'two sourced Submariner sales must stay visible without a market estimate')
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '.dsr-evidence-ledger')
   const priced = evaluate(`(() => ({
@@ -224,7 +229,7 @@ try {
     citations:document.querySelectorAll('.sales-table .src-a').length,
     settlement:!!document.querySelector('.txn-graphic-card:not(.empty)')
   }))()`)
-  assert(priced.published === 5 && priced.text.includes('$25,600') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 4 && priced.citations >= 4 && priced.settlement,
+  assert(priced.published === 5 && priced.text.includes('$25,600') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 3 && priced.citations >= 3 && priced.settlement,
     'available estimates, their age, cited sales, and the existing charts must survive compaction')
   browser('click', '.dossier-retail-records summary')
   const observations = evaluate(`fetch('/data.json').then(r=>r.json()).then(data=>{
