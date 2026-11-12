@@ -27,6 +27,14 @@ assert.ok(!resonance.market_evidence.comps.some((c) => c.url.includes("152081113
   "the Résonance charity result belongs in provenance, not in the market series");
 assert.ok(resonance.provenance_events.some((event) => event.source_url.includes("152081113") && event.description.includes("SGD 4 million")),
   "retain the charity result in its original currency");
+const simplicity = JSON.parse(readFileSync(new URL("../data/cards/dufour-simplicity.json", import.meta.url), "utf8"));
+for (const [lot, result] of [["147960", "CHF 1,361,000"], ["232982", "HKD 9,461,500"]]) {
+  assert.equal(simplicity.provenance_events.filter((event) => event.source_url.endsWith(`/${lot}`) && event.description.includes(result)).length, 1,
+    "retain each exceptional Simplicity sale once in its original currency");
+  assert.ok(!simplicity.market_evidence.comps.some((comp) => comp.url.endsWith(`/${lot}`) ||
+    [1500000, 1210000, 1207287].includes(comp.price_usd)),
+  "exceptional Simplicity lots and their secondary USD quotes must stay out of the comparable series");
+}
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
 
 // Curated image assignments — checked by invariant 13 below.

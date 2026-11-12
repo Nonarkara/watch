@@ -18,11 +18,7 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
-    "comps": [
-      { "date": "2020-11", "price_usd": 1500000, "venue": "phillips", "url": "https://robbreport.com/style/watch-collector/phillips-sells-a-1-5-million-philippe-dufour-simplicity-1234580216/", "condition": "pink gold, hinged caseback, sold with guarantee and presentation box, Phillips Geneva Retrospective: 2000-2020 sale", "box_papers": "full_set" },
-      { "date": "2021-05", "price_usd": 1210000, "venue": "phillips", "url": "https://luxurylaunches.com/auctions/first-of-the-21-piece-limited-edition-philippe-dufour-simplicity-watches-fetches-1-21-million-at-phillips-auction.php", "condition": "first of a 21-piece limited edition, Phillips Geneva Auction XIV", "box_papers": null },
-      { "date": "2026-05", "price_usd": 1207287, "venue": "phillips", "url": "https://masterhorologer.com/2026/06/05/the-hong-kong-watch-auction-xxii-by-phillips-in-association-with-bacs-russo-realises-over-hk403-million-us51-5-million/", "condition": "stainless steel case, world auction record for a steel Simplicity, slate grey guilloche dial, Phillips Hong Kong Watch Auction XXII", "box_papers": null }
-    ],
+    "comps": [],
     "listing_observations": []
   },
   "scarcity_inputs": {
@@ -31,7 +27,20 @@
     "waitlist_evidence": [],
     "auction_appearances_5y": null
   },
-  "provenance_events": [],
+  "provenance_events": [
+    {
+      "date": "2020-11-08",
+      "person_or_event": "Anniversary No. 00/20",
+      "description": "The 37 mm pink-gold Simplicity 20th Anniversary No. 00/20, with a hinged caseback, sold for CHF 1,361,000 at Phillips Geneva. Reports quoting different dollar amounts refer to the same lot, not separate sales.",
+      "source_url": "https://www.phillips.com/detail/philippe-dufour/147960"
+    },
+    {
+      "date": "2026-05",
+      "person_or_event": "Steel Simplicity No. 210",
+      "description": "A rare steel Simplicity with a slate-grey guilloché dial and Breguet numerals sold for HKD 9,461,500 at Phillips Hong Kong. The steel case sets it apart from the precious-metal versions.",
+      "source_url": "https://www.phillips.com/detail/philippe-dufour/232982"
+    }
+  ],
   "narrative": {
     "story": "Philippe Dufour introduced the Simplicity in 2000 after decades restoring and complicating watches for other Geneva houses, stripping his own design down to hours, minutes, and a small seconds so the movement finishing had nowhere to hide. Every visible surface, from the anglage on the bridges to the black-polished steel of the small parts, is finished by hand using techniques Dufour learned from restoring 19th-century pocket watches rather than from CNC-assisted modern production. Annual output has stayed in the low double digits for its entire run, and Dufour has personally trained several of the watchmakers now working under their own names as independents, including Rexhep Rexhepi.",
     "collector_notes": "Case metal and the rare stainless-steel examples define most of the price spread; dial layout and finishing are consistent across the run, so provenance and documented ownership history carry unusual weight for a watch this recently made, given how closely the collector community tracks individual serial numbers.",
@@ -41,9 +50,8 @@
     "curated_by": "agent-haute",
     "curated_date": "2026-07-31",
     "sources": [
-      "https://robbreport.com/style/watch-collector/phillips-sells-a-1-5-million-philippe-dufour-simplicity-1234580216/",
-      "https://luxurylaunches.com/auctions/first-of-the-21-piece-limited-edition-philippe-dufour-simplicity-watches-fetches-1-21-million-at-phillips-auction.php",
-      "https://masterhorologer.com/2026/06/05/the-hong-kong-watch-auction-xxii-by-phillips-in-association-with-bacs-russo-realises-over-hk403-million-us51-5-million/"
+      "https://www.phillips.com/detail/philippe-dufour/147960",
+      "https://www.phillips.com/detail/philippe-dufour/232982"
     ]
   }
 }
