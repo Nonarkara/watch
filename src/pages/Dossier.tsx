@@ -360,25 +360,23 @@ export default function Dossier() {
           <h2 className="sect-h"><span>Price evidence</span>
             {c.comp_summary && <span className="mono">{c.comp_summary.n} VERIFIED SALE{c.comp_summary.n === 1 ? '' : 'S'} · {c.comp_summary.date_range[0].slice(0, 4) === c.comp_summary.date_range[1].slice(0, 4) ? c.comp_summary.date_range[0].slice(0, 4) : `${c.comp_summary.date_range[0].slice(0, 4)}–${c.comp_summary.date_range[1].slice(0, 4)}`}</span>}
           </h2>
+          <div className={c.notable_sales.length > 0 && c.notable_sales.length + c.retail.msrp_history.length > 1 ? 'dossier-price-pair' : undefined}>
           <Sparkline msrp={c.retail.msrp_history} sales={c.notable_sales} buildDate={c.computed.as_of_build} />
           {c.notable_sales.length > 0 && (
-            <div className="sales-table-wrap">
-            <table className="sales-table">
-              <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Set</th><th>Source</th></tr></thead>
+            <table className="sales-table dossier-sales" aria-label="Verified sales">
+              <thead><tr><th scope="col">Sale</th><th scope="col" className="num">Price</th><th scope="col">Source</th></tr></thead>
               <tbody>
                 {c.notable_sales.map((s, i) => (
                   <tr key={i}>
-                    <td className="mono">{s.date}</td>
-                    <td>{VENUE_LABEL[s.venue] ?? s.venue}</td>
-                    <td className="num">{usd(s.price_usd)}</td>
-                    <td className="mono micro dim">{s.box_papers?.replace('_', ' ').toUpperCase() ?? dash}</td>
-                    <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer">record ↗</a></td>
+                    <td>{VENUE_LABEL[s.venue] ?? s.venue}<time className="dossier-sale-detail mono micro dim" dateTime={s.date}>{s.date}</time></td>
+                    <td className="num">{usd(s.price_usd)}<span className="dossier-sale-detail mono micro dim">{s.box_papers?.replace('_', ' ') ?? 'Set unknown'}</span></td>
+                    <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Record: ${VENUE_LABEL[s.venue] ?? s.venue}, ${s.date}, ${usd(s.price_usd)}`}>Record <span aria-hidden="true">↗</span></a></td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            </div>
           )}
+          </div>
           {c.comp_summary && c.comp_summary.n > c.notable_sales.length && (
             <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
               Showing the {c.notable_sales.length} most notable of {c.comp_summary.n} verified sales
@@ -407,33 +405,32 @@ export default function Dossier() {
               date; the original currency price is shown beside it.</>
             )}
           </p>
-          <div className="sales-table-wrap">
-          <table className="sales-table">
-            <thead><tr><th>Date</th><th>Venue</th><th className="num">Price</th><th>Why excluded</th><th>Source</th></tr></thead>
+          <table className="sales-table dossier-sales" aria-label="Variant sales excluded from the estimate">
+            <thead><tr><th scope="col">Sale and exclusion</th><th scope="col" className="num">Price</th><th scope="col">Source</th></tr></thead>
             <tbody>
               {c.variant_sales.map((s, i) => (
                 <tr key={i}>
-                  <td className="mono">{s.date}</td>
-                  <td>{VENUE_LABEL[s.venue] ?? s.venue}</td>
+                  <td>
+                    {VENUE_LABEL[s.venue] ?? s.venue}
+                    <time className="dossier-sale-detail mono micro dim" dateTime={s.date}>{s.date}</time>
+                    <span className="dossier-sale-detail dim">{s.condition}</span>
+                  </td>
                   <td className="num">
                     {usd(s.price_usd)}
                     {s.fx_conversion && (
                       <span
-                        className="micro dim mono"
-                        style={{ display: 'block', fontWeight: 400 }}
+                        className="dossier-sale-detail micro dim mono"
                         title={`Converted at the ECB reference rate on ${s.fx_conversion.rate_date}: 1 ${s.fx_conversion.from} = ${s.fx_conversion.rate} USD. ${s.fx_conversion.provider}`}
                       >
                         ≈ {s.fx_conversion.original_display}
                       </span>
                     )}
                   </td>
-                  <td className="dim">{s.condition}</td>
-                  <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer">record ↗</a></td>
+                  <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Record: excluded sale at ${VENUE_LABEL[s.venue] ?? s.venue}, ${s.date}, ${usd(s.price_usd)}`}>Record <span aria-hidden="true">↗</span></a></td>
                 </tr>
               ))}
             </tbody>
           </table>
-          </div>
         </section>
       )}
 

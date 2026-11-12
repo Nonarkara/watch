@@ -1641,6 +1641,16 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .spec-row { padding: 6px 0; }
 .sales-table th { padding: 6px var(--space-md) 6px 0; }
 .sales-table td { padding: 6px var(--space-md) 6px 0; }
+.dossier-sales { min-width: 0; }
+.dossier-sales :is(th, td) { padding-inline-end: 8px; overflow-wrap: anywhere; vertical-align: top; }
+.dossier-sales :is(th, td):last-child { width: 1%; padding-inline-end: 0; }
+.dossier-sales .num { width: 30%; }
+.dossier-sale-detail { display: block; font-weight: 400; }
+.dossier-sales .src-a { display: inline-block; min-block-size: 32px; white-space: nowrap; border-bottom: 0; text-decoration: underline; text-underline-offset: 0.16em; }
+@media (min-width: 900px) {
+  .dossier-price-pair { display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); align-items: start; gap: 20px; }
+  .dossier-sales[aria-label^="Variant"] { max-inline-size: 52rem; }
+}
 .timeline { gap: var(--space-md); }
 
 /* Register: the controls block was three stacked rows of air. */

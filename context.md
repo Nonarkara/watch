@@ -82,6 +82,11 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 
 ## Design Read — Mondrian register (2026-10-29)
 
+Dossier sale ledgers keep three columns at every width: venue with date and any exclusion,
+price with set or original currency, then the cited record. The price is the comparison
+anchor; the record is its exit. No separate swipe surface for a source link. At wide
+widths the historical marks and their verified records sit side by side, plot first.
+
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
 their content, one flat colour block per fold (yellow = where you are, in the nav; navy =

@@ -106,6 +106,24 @@ try {
       }
       if (name === 'dossier-photo') {
         assert(evaluate("!!document.querySelector('.dossier-object img') && document.querySelector('.dossier-object figcaption').textContent.includes('SOURCE') && !document.querySelector('.dsr-photo-status')"), 'preserve the sourced portrait and credit')
+        const variant = evaluate(`fetch('/data.json').then(r=>r.json()).then(data=>{
+          const card=data.cards.find(c=>c.id==='ap-15202st');
+          const table=document.querySelector('[aria-label="Variant sales excluded from the estimate"]');
+          const rows=[...table.tBodies[0].rows];
+          return {width:table.getBoundingClientRect().width, complete:rows.length===card.variant_sales.length &&
+            rows.every((row,i)=>{
+              const sale=card.variant_sales[i], link=row.querySelector('a');
+              return link.getAttribute('href')===sale.url && link.getBoundingClientRect().right<=innerWidth &&
+                row.textContent.includes(sale.condition) && row.querySelector('time').dateTime===sale.date &&
+                (!sale.fx_conversion || row.textContent.includes(sale.fx_conversion.original_display));
+            })};
+        })`)
+        assert(variant.complete && variant.width <= width, `variant evidence and its citations must fit at ${width}`)
+        if (width === 390) {
+          browser('scrollintoview', '.dossier-sales[aria-label^="Variant"]')
+          browser('screenshot', join(out, 'dossier-variant-citations-390.png'))
+          evaluate('window.scrollTo(0, 0)')
+        }
       }
       const screenshot = join(out, `${name}-${width}.png`)
       browser('screenshot', screenshot)
@@ -163,6 +181,25 @@ try {
     browser('screenshot', join(out, `dossier-actions-${width}.png`))
     browser('scrollintoview', '.txn-graphic-card')
     browser('screenshot', join(out, `dossier-settlement-${width}.png`))
+    const citationsFit = evaluate(`(() => {
+      const table=document.querySelector('[aria-label="Verified sales"]');
+      const links=[...table.querySelectorAll('a')];
+      const fits=()=>links.length===4 && new Set(links.map(link=>link.getAttribute('aria-label'))).size===4 && links.every(link=>{
+        const r=link.getBoundingClientRect();
+        return r.left>=0 && r.right<=innerWidth && r.height>=32;
+      });
+      const chart=document.querySelector('svg[aria-label="Price evidence chart"]').getBoundingClientRect();
+      const records=table.getBoundingClientRect();
+      const current=fits() && (innerWidth<900 || (chart.right<records.left && Math.abs(chart.top-records.top)<1)) &&
+        [...table.tBodies[0].rows].every(row=>row.getBoundingClientRect().height<=64);
+      table.style.minWidth='560px';
+      const oldFails=!fits();
+      table.removeAttribute('style');
+      return current && (innerWidth!==390 || oldFails);
+    })()`)
+    assert(citationsFit, `all sale citations must fit without the old horizontal scrolling at ${width}`)
+    browser('scrollintoview', '.dossier-sales[aria-label="Verified sales"]')
+    browser('screenshot', join(out, `dossier-sale-citations-${width}.png`))
     proofs.push({ name: 'dossier-settlement', width, geometry })
   }
   browser('click', '.txn-scenario-details > summary')
@@ -181,6 +218,13 @@ try {
   assert(enlargedChart, 'the settlement chart must reflow with doubled text')
   browser('scrollintoview', '.txn-graphic-card')
   browser('screenshot', join(out, 'dossier-settlement-enlarged-390.png'))
+  assert(evaluate(`(() => {
+    const table=document.querySelector('.dossier-sales[aria-label="Verified sales"]');
+    const elements=[...table.querySelectorAll('th,td,time,span,a')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);
+    for (const [element,size] of elements) element.style.fontSize=(size*2)+'px';
+    return [...table.querySelectorAll('a')].every(link=>link.getBoundingClientRect().right<=innerWidth) &&
+      document.documentElement.scrollWidth<=innerWidth+1;
+  })()`), 'sale records must stay visible with doubled phone text')
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')
