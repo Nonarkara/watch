@@ -229,7 +229,7 @@ try {
     citations:document.querySelectorAll('.sales-table .src-a').length,
     settlement:!!document.querySelector('.txn-graphic-card:not(.empty)')
   }))()`)
-  assert(priced.published === 5 && priced.text.includes('$25,600') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 3 && priced.citations >= 3 && priced.settlement,
+  assert(priced.published === 4 && priced.text.includes('$28,750') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 3 && priced.citations >= 3 && priced.settlement,
     'available estimates, their age, cited sales, and the existing charts must survive compaction')
   browser('click', '.dossier-retail-records summary')
   const observations = evaluate(`fetch('/data.json').then(r=>r.json()).then(data=>{
@@ -323,7 +323,7 @@ try {
       return {fits:table.scrollWidth<=table.clientWidth+1, first:first.getBoundingClientRect().bottom,
         baseline:document.querySelector('.swb-info').textContent, sources:[...table.querySelectorAll('tbody tr')].every(r=>!!r.querySelector('a[href^="https://"]'))};
     })()`)
-    assert(receipt.fits && receipt.sources && receipt.first<=height && receipt.baseline.includes('HISTORICAL BASELINE: $25,600'), JSON.stringify(receipt))
+    assert(receipt.fits && receipt.sources && receipt.first<=height && receipt.baseline.includes('HISTORICAL BASELINE: $28,750'), JSON.stringify(receipt))
     browser('screenshot', join(out, `venue-receipt-${width}.png`))
     if(width===390) {
       browser('select', 'select[aria-label="Choose a watch reference"]', 'casio-ae-1200')
@@ -391,7 +391,7 @@ try {
       browser('click', '.rehome-actions button')
       browser('wait', '.rehome-copy-fallback textarea')
       const text = evaluate("document.querySelector('.rehome-copy-fallback textarea').value")
-      assert(text.includes('Family watch') && text.includes('Historical estimate: $25,600') && text.includes('newest sale 2024-12-13') &&
+      assert(text.includes('Family watch') && text.includes('Historical estimate: $28,750') && text.includes('newest sale 2024-12-13') &&
         evaluate('location.search') === '?watch=rolex-116500ln')
       evaluate("Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{writeText:async text=>{window.__copiedBrief=text}} }); true")
       browser('click', '.rehome-actions button')

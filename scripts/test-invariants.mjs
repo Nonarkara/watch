@@ -17,6 +17,11 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
 }).nominal_pct, null, "overlapping cohorts must refuse a trend");
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
 const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
+const daytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116500ln.json", import.meta.url), "utf8"));
+const daytonaComps = daytona.market_evidence.comps.filter((sale) => sale.comparable !== false);
+assert.equal(daytona.market_evidence.comps.find((sale) => sale.url.endsWith("/104/"))?.comparable, false);
+assert.ok(daytonaComps.every((sale) => sale.dial === "Black"));
+assert.ok(daytonaComps.some((sale) => sale.url.endsWith("/5556-54025.s") && sale.price_usd === 28750));
 const milgauss = JSON.parse(readFileSync(new URL("../data/cards/rolex-116400gv.json", import.meta.url), "utf8"));
 const milgaussComps = milgauss.market_evidence.comps.filter((sale) => sale.comparable !== false);
 assert.equal(milgauss.market_evidence.comps.find((sale) => sale.url.endsWith("/260795"))?.comparable, false);
