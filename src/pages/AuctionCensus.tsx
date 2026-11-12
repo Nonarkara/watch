@@ -201,15 +201,15 @@ export default function AuctionCensus() {
           <span>Which marques actually traded</span>
           <span className="mono">NOT THE SAME LIST AS MARKET CAP</span>
         </h2>
-        <p className="honest" style={{ marginBottom: 'var(--space-md)' }}>
-          Lot count is consignment frequency, not popularity. An auction house with a strong buyer
-          for one reference can offer many examples of that watch and none of another.
-        </p>
         <div className="pom-watch-scopes census-sort" role="group" aria-label="Sort the marques">
           <button type="button" aria-pressed={sort === 'value'} onClick={() => setSort('value')}>BY VALUE</button>
           <button type="button" aria-pressed={sort === 'lots'} onClick={() => setSort('lots')}>BY LOT COUNT</button>
           <button type="button" aria-pressed={sort === 'name'} onClick={() => setSort('name')}>A–Z</button>
         </div>
+        <p className="honest census-sort-note">
+          Lot count is consignment frequency, not popularity. An auction house with a strong buyer
+          for one reference can offer many examples of that watch and none of another.
+        </p>
         <table className="sales-table census-sales" style={{ marginTop: 'var(--space-sm)' }}>
           <thead>
             <tr><th scope="col">Marque</th><th scope="col" className="num">Lots</th><th scope="col" className="num">{valueLabel}</th></tr>

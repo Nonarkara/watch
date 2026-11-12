@@ -242,6 +242,19 @@ try {
         })`)
         assert(census.complete && census.starts && census.fits && census.first <= height && census.compact && census.countUnbroken, `census result and its caveat must fit at ${width}: ${JSON.stringify(census)}`)
         if (width === 390) {
+          assert(evaluate(`(() => {
+            const sort=document.querySelector('.census-sort'), note=document.querySelector('.census-sort-note');
+            const fits=sort.getBoundingClientRect().bottom<=innerHeight;
+            sort.before(note);
+            sort.style.marginTop='48px';
+            const oldFails=sort.getBoundingClientRect().bottom>innerHeight;
+            sort.style.removeProperty('margin-top');
+            sort.after(note);
+            return fits && oldFails;
+          })()`), 'marque sorting must fit before scrolling; restoring the old spacing must fail')
+          browser('click', '.census-sort button:nth-child(2)')
+          assert(evaluate("document.querySelector('.census-sort button:nth-child(2)').getAttribute('aria-pressed')==='true'"))
+          evaluate('window.scrollTo(0,0)')
           browser('click', '.census-method > summary')
           assert(evaluate("!!document.querySelector('.census-method[open] .census-channels')"))
           browser('click', '.census-method > summary')

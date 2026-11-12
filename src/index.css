@@ -5778,11 +5778,13 @@ main.shell { padding-top: var(--space-md); }
 .census-receipt dd { margin: 0; }
 .census-receipt dd strong { font-size: 1.35em; }
 .census-fx-note { max-inline-size: 64ch; }
+.census-method.sect, .census-ledger.sect { margin-block: 12px; }
 .census-method > summary { inline-size: fit-content; min-block-size: 32px; cursor: pointer; }
 .census-ledger { max-inline-size: 48rem; }
 .census-sales { min-width: 0; }
 .census-sort.pom-watch-scopes { display: flex; flex-wrap: wrap; gap: 6px; }
 .census-sort.pom-watch-scopes > button { flex: 0 0 auto; inline-size: auto; min-height: 32px; padding-inline: 8px; border-right: 1px solid var(--ink); }
+.census-sort-note { margin-block: 8px 0; }
 .census-sales :is(th, td) { padding-inline-end: 8px; overflow-wrap: anywhere; vertical-align: top; }
 .census-sales :is(th, td):nth-child(2) { width: 1%; white-space: nowrap; }
 .census-sales :is(th, td):last-child { padding-inline-end: 0; }
