@@ -413,13 +413,19 @@ try {
             const score = document.querySelector('.evidence-readout-score');
             const before = action.getBoundingClientRect(), visible = before.bottom <= innerHeight && before.height >= 44 &&
               before.top - score.getBoundingClientRect().bottom <= 12;
+            next.open = true;
             action.parentElement.append(action);
             const oldGap = action.getBoundingClientRect().top - score.getBoundingClientRect().bottom;
             next.before(action);
+            next.open = false;
             return visible && oldGap > 100;
           })()`), 'after the chart jump the dossier action belongs by the score, not below the evidence ledger')
           browser('click','.evidence-toggle button:last-child')
           assert(evaluate("document.querySelector('.evidence-toggle button:last-child').getAttribute('aria-pressed')==='true'"))
+          browser('focus', '.evidence-depth summary')
+          browser('press', 'Space')
+          assert(evaluate("document.querySelector('.evidence-depth').open && document.querySelectorAll('.evidence-channel-list dt').length === 5"))
+          browser('press', 'Space')
           browser('click', '.evidence-field-guide summary')
           assert(evaluate("document.querySelector('.evidence-field-guide').open && document.querySelector('.evidence-field-guide').textContent.includes('missing scores stay off the plot')"))
           browser('click', '.evidence-field-guide summary')

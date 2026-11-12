@@ -182,8 +182,8 @@ export default function Data() {
           </div>)}
         </dl>
         <div className="data-coverage-links">
-          <a href="#evidence-field-title" className="src-a">Evidence chart ↓</a>
-          <a href="#how-we-work" className="src-a">How we work ↓</a>
+          <a href="#evidence-field-title" className="src-a">Chart ↓</a>
+          <a href="#how-we-work" className="src-a">Method ↓</a>
           <Link to="/methodology" className="src-a">Rulebook →</Link>
         </div>
         </div>
@@ -191,7 +191,7 @@ export default function Data() {
         <dl className="data-coverage-secondary" aria-label="Other evidence in the archive">
           <div><dt>Exact photos</dt><dd>{cardStats.withImage} references</dd></div>
           <div><dt>Story</dt><dd>{cardStats.totalEvents} events across {cardStats.withProvenance} references</dd></div>
-          <div><dt>On screen</dt><dd>{cardStats.withExactScreen} exact-reference matches</dd></div>
+          <div><dt>On screen</dt><dd>{cardStats.withExactScreen} references with exact sightings</dd></div>
           <div><dt>Retail</dt><dd>{cardStats.withMsrp} references with a price on record</dd></div>
         </dl>
       </div>

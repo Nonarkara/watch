@@ -148,15 +148,17 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
               </div>
             </div>
             <Link to={`/w/${selected.id}`} className="evidence-open mono">OPEN DOSSIER →</Link>
-            <p className="evidence-depth-line mono">{evidenceDepth(selected)}/5 PUBLIC EVIDENCE CHANNELS</p>
-            <dl className="evidence-channel-list">
-              {EVIDENCE_CHANNELS.map((channel) => (
-                <div key={channel.key} className={selectedChannels[channel.key] ? 'has' : ''}>
-                  <dt>{channel.label}</dt>
-                  <dd className="mono">{selectedChannels[channel.key] ? 'ON FILE' : 'MISSING'}</dd>
-                </div>
-              ))}
-            </dl>
+            <details className="evidence-depth">
+              <summary className="evidence-depth-line mono">{evidenceDepth(selected)}/5 evidence channels</summary>
+              <dl className="evidence-channel-list">
+                {EVIDENCE_CHANNELS.map((channel) => (
+                  <div key={channel.key} className={selectedChannels[channel.key] ? 'has' : ''}>
+                    <dt>{channel.label}</dt>
+                    <dd className="mono">{selectedChannels[channel.key] ? 'ON FILE' : 'MISSING'}</dd>
+                  </div>
+                ))}
+              </dl>
+            </details>
             <p className="micro dim evidence-limitation">{selectedMetric.limitation}</p>
             <p className="micro mono dim">
               PUBLIC BUILD {built} · METHOD V2
