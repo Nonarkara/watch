@@ -80,6 +80,32 @@ try {
         const intakeDates = evaluate(`[...document.querySelectorAll('.data-intake-price small')].map(e=>e.textContent)`)
         assert(intakeDates.some(label=>label.startsWith('AUCTION START ')) && intakeDates.every(label=>!label.startsWith('REALIZED ')),
           'legacy intake dates are auction opening dates, not verified lot dates')
+        const coverage = evaluate(`fetch('/data.json').then(r=>r.json()).then(d=>{
+          const estimate=d.cards.filter(c=>c.computed.estimate.value!=null).length;
+          const sales=d.cards.filter(c=>c.computed.estimate.value==null&&c.comp_summary).length;
+          const counts=[estimate,sales,d.count-estimate-sales];
+          const rows=[...document.querySelectorAll('.data-coverage-rows dd')], parts=[...document.querySelectorAll('.data-coverage-bar > span')];
+          const plotWidth=parts.reduce((n,p)=>n+p.getBoundingClientRect().width,0);
+          const link=document.querySelector('.data-coverage-links a');
+          return {complete:rows.length===3 && rows.every((row,i)=>row.textContent===counts[i]+' / '+d.count),
+            proportional:parts.every((part,i)=>Math.abs(part.getBoundingClientRect().width-plotWidth*counts[i]/d.count)<1),
+            first:link.getBoundingClientRect().bottom,
+            wideFit:innerWidth<900 || (document.querySelector('.data-coverage-secondary').getBoundingClientRect().left>=document.querySelector('.data-coverage-primary').getBoundingClientRect().right &&
+              document.querySelector('#evidence-field-title').getBoundingClientRect().top<=520)};
+        })`)
+        assert(coverage.complete && coverage.proportional && coverage.first<=height && coverage.wideFit, JSON.stringify(coverage))
+        if (width===390) {
+          assert(evaluate(`(() => {
+            const hero=document.querySelector('.data-coverage .lede'), link=document.querySelector('.data-coverage-links a');
+            hero.style.minHeight='600px'; const fails=link.getBoundingClientRect().bottom>innerHeight;
+            hero.removeAttribute('style'); return fails;
+          })()`), 'a tall introductory band must fail the first-action budget')
+          browser('click','.data-coverage-links a:first-child')
+          assert(evaluate("location.hash==='#evidence-field-title' && document.activeElement.id==='evidence-field-title' && document.activeElement.getBoundingClientRect().top<innerHeight"))
+          browser('click','.evidence-toggle button:last-child')
+          assert(evaluate("document.querySelector('.evidence-toggle button:last-child').getAttribute('aria-pressed')==='true'"))
+          evaluate('window.scrollTo(0,0)')
+        }
       }
       if (name === 'auction-census') {
         const census = evaluate(`fetch('/data/auction_census.json').then(r=>r.json()).then(d=>{

@@ -1929,11 +1929,26 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 }
 
 /* ── DATA PIPELINE PAGE ─────────────────────────────────────────────────── */
-.data-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 24px 0; border-top: var(--border); border-left: var(--border); }
-.data-card { padding: 18px 20px; border-right: var(--border); border-bottom: var(--border); display: flex; flex-direction: column; gap: 4px; }
-.data-card .eyebrow { color: var(--amber); }
-.data-card strong { font-family: var(--font-mono); font-size: var(--text-body); font-weight: 500; line-height: 1; color: var(--navy-ink); }
-.data-card .dim { font-size: var(--text-micro); }
+.data-coverage { max-inline-size: 48rem; }
+.data-coverage-bar { display: flex; block-size: 14px; margin-block: 12px 6px; border: var(--border); }
+.data-coverage-bar > span { flex-basis: 0; min-inline-size: 0; }
+.data-coverage [data-basis="estimated"] { --coverage-fill: var(--coral); }
+.data-coverage [data-basis="sales"] { --coverage-fill: var(--dim); }
+.data-coverage [data-basis="missing"] { --coverage-fill: var(--paper-2); }
+.data-coverage-bar > span, .data-coverage-rows i { background: var(--coverage-fill); }
+.data-coverage-rows { margin: 0; }
+.data-coverage-rows > div, .data-coverage-secondary > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; padding-block: 5px; border-bottom: 1px solid var(--neutral-line); }
+.data-coverage-rows dt { display: flex; align-items: center; gap: 8px; }
+.data-coverage-rows i { inline-size: 9px; block-size: 9px; border: 1px solid var(--rule); }
+.data-coverage :is(dt, dd) { margin: 0; }
+.data-coverage-rows dd { font-weight: 700; }
+.data-coverage-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-block: 8px; }
+.data-coverage-links a { display: inline-flex; align-items: center; min-block-size: 32px; }
+.data-coverage-secondary { margin-block: 8px 0; color: var(--dim); }
+@media (min-width: 900px) {
+  .data-coverage { display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); gap: 24px; max-inline-size: none; }
+  .data-coverage-secondary { align-self: end; margin: 0 0 8px; border-top: var(--border); }
+}
 
 /* ── Data: every dossier, moving only when the reader changes the question ── */
 .evidence-field { margin: 48px 0 32px; padding-top: 24px; border-top: 1px solid var(--ink); }
@@ -2022,7 +2037,6 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .data-commands-list code { background: var(--canvas); padding: 1px 5px; border: 1px solid var(--rule); margin-right: 6px; }
 
 @media (min-width: 800px) {
-  .data-cards { grid-template-columns: repeat(3, 1fr); }
   .data-commands-list { grid-template-columns: 1fr 1fr; column-gap: 24px; }
   .data-intake-head { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: end; }
   .data-intake-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -4111,10 +4125,6 @@ main.shell { padding-top: var(--space-md); }
 .guides-meta span { display: block; font-size: 12px; line-height: 1.5; }
 
 /* ── /data: hero meta panel ─────────────────────────────────────────────── */
-.data-meta { max-width: 360px; }
-.data-meta .bubble-kicker { color: var(--coral-text); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; }
-.data-meta strong { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin: 6px 0; }
-.data-meta span { display: block; font-size: 12px; line-height: 1.5; }
 
 /* Tag on the methodology section so the hero's primary CTA lands where it should */
 #how-we-work { scroll-margin-top: 80px; }

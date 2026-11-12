@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { BIBLE_STATS } from '../lib/bible'
-import HeroBanner from '../components/HeroBanner.tsx'
 import EvidenceField from '../components/EvidenceField.tsx'
 
 type DataState = {
@@ -131,7 +130,7 @@ export default function Data() {
   ] as const
 
   const cardStats = {
-    withImage: data.cards.filter((c) => c.media.length > 0).length,
+    withImage: data.cards.filter(c => c.media.some(photo => photo.match === 'exact_reference')).length,
     withComps: data.cards.filter((c) => c.comp_summary).length,
     withEstimate: data.cards.filter((c) => c.computed.estimate.value != null).length,
     withProvenance: data.cards.filter((c) => c.provenance_events.length > 0).length,
@@ -140,12 +139,18 @@ export default function Data() {
     withMsrp: data.cards.filter((c) => c.retail.msrp_history.length > 0 || c.retail.current_msrp_usd != null).length,
   }
   const methodCoverage = [
-    ['Licensed photo', cardStats.withImage],
+    ['Exact-reference photo', cardStats.withImage],
     ['Sale evidence', cardStats.withComps],
     ['Publishable estimate', cardStats.withEstimate],
     ['Sourced provenance', cardStats.withProvenance],
     ['Retail history', cardStats.withMsrp],
   ] as const
+  const salesWithoutEstimate = data.cards.filter(c => c.computed.estimate.value == null && c.comp_summary).length
+  const priceCoverage = [
+    { key: 'estimated', label: 'Estimate available', count: cardStats.withEstimate },
+    { key: 'sales', label: 'Sales, no estimate', count: salesWithoutEstimate },
+    { key: 'missing', label: 'No comparable sales', count: data.count - cardStats.withEstimate - salesWithoutEstimate },
+  ]
   const visibleIntake = marketIntake?.records
     .filter((record) => record.status === 'ready_for_review' || record.status === 'quarantined')
     .sort((a, b) => Number(b.status === 'ready_for_review') - Number(a.status === 'ready_for_review'))
@@ -153,63 +158,32 @@ export default function Data() {
 
   return (
     <>
-      <HeroBanner
-        hue="navy"
-        size="md"
-        eyebrow={`DATA · ${data.count} REFERENCES · BUILD ${data.built}`}
-        title={<>How Time Pop<br />collects its evidence.</>}
-        subtitle={
-          <>
-            Every published number traces to a cited public source or is computed from cited
-            evidence. This page is the audit trail: what we collect, where it comes from, and
-            how fresh the build you are reading is.
-          </>
-        }
-        primary={{ to: '#how-we-work', label: 'READ THE METHODOLOGY' }}
-        secondary={{ to: '/methodology', label: 'SEE THE RULEBOOK' }}
-        meta={
-          <div className="pop-panel data-meta">
-            <span className="bubble-kicker mono">THE RULE</span>
-            <strong>No cited comps, no estimate.</strong>
-            <span>The visible refusals are load-bearing. {data.count - cardStats.withEstimate} of {data.count} dossiers do not clear the estimate gate today. That is the system working.</span>
-          </div>
-        }
-      />
-
-      <Link to="/" className="crumb">← HOME</Link>
-
-      <section className="data-cards">
-        <div className="data-card">
-          <span className="eyebrow">IMAGE COVERAGE</span>
-          <strong>{cardStats.withImage}/{data.count}</strong>
-          <span className="dim">{Math.round((cardStats.withImage / data.count) * 100)}% of dossiers carry a verified CC-licensed photo</span>
+      <div className="data-coverage">
+        <div className="data-coverage-primary">
+        <p className="eyebrow">Data · build {data.built}</p>
+        <h1 className="pagetitle">What can we price?</h1>
+        <p className="lede">{data.count} references. An estimate needs at least three comparable sales.</p>
+        <div className="data-coverage-bar" aria-hidden="true">
+          {priceCoverage.map(({ key, count }) => <span key={key} data-basis={key} style={{ flexGrow: count }} />)}
         </div>
-        <div className="data-card">
-          <span className="eyebrow">SALE EVIDENCE</span>
-          <strong>{cardStats.withComps}/{data.count}</strong>
-          <span className="dim">dossiers with at least one comparable cited sale</span>
+        <dl className="data-coverage-rows" aria-label="Price evidence coverage">
+          {priceCoverage.map(({ key, label, count }) => <div key={key} data-basis={key}>
+            <dt><i aria-hidden="true" />{label}</dt><dd className="mono">{count} / {data.count}</dd>
+          </div>)}
+        </dl>
+        <div className="data-coverage-links">
+          <a href="#evidence-field-title" className="src-a">Evidence chart ↓</a>
+          <a href="#how-we-work" className="src-a">How we work ↓</a>
+          <Link to="/methodology" className="src-a">Rulebook →</Link>
         </div>
-        <div className="data-card">
-          <span className="eyebrow">STORY</span>
-          <strong>{cardStats.totalEvents}</strong>
-          <span className="dim">dated, sourced events across {cardStats.withProvenance} cards</span>
         </div>
-        <div className="data-card">
-          <span className="eyebrow">SCREEN</span>
-          <strong>{cardStats.withExactScreen}</strong>
-          <span className="dim">dossiers carry at least one exact-reference film or TV sighting</span>
-        </div>
-        <div className="data-card">
-          <span className="eyebrow">RETAIL HISTORY</span>
-          <strong>{cardStats.withMsrp}</strong>
-          <span className="dim">dossiers with at least one MSRP data point</span>
-        </div>
-        <div className="data-card">
-          <span className="eyebrow">BUILD DATE</span>
-          <strong className="mono">{data.built}</strong>
-          <span className="dim">snapshotted at build time; pure functions of inputs</span>
-        </div>
-      </section>
+        <dl className="data-coverage-secondary" aria-label="Other evidence in the archive">
+          <div><dt>Exact photos</dt><dd>{cardStats.withImage} references</dd></div>
+          <div><dt>Story</dt><dd>{cardStats.totalEvents} events across {cardStats.withProvenance} references</dd></div>
+          <div><dt>On screen</dt><dd>{cardStats.withExactScreen} exact-reference matches</dd></div>
+          <div><dt>Retail</dt><dd>{cardStats.withMsrp} references with a price on record</dd></div>
+        </dl>
+      </div>
 
       <EvidenceField cards={data.cards} built={data.built} />
 

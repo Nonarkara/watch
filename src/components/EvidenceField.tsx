@@ -59,7 +59,7 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
   return (
     <section className="evidence-field" aria-labelledby="evidence-field-title">
       <div className="section-rule">
-        <h2 id="evidence-field-title">The evidence field</h2>
+        <h2 id="evidence-field-title" tabIndex={-1}>The evidence field</h2>
         <span className="sticker-inline mono">{filtered.length} DOTS · ONE DOT PER DOSSIER</span>
       </div>
       <div className="evidence-field-intro">
