@@ -243,6 +243,23 @@ try {
     return [...table.querySelectorAll('a')].every(link=>link.getBoundingClientRect().right<=innerWidth) &&
       document.documentElement.scrollWidth<=innerWidth+1;
   })()`), 'sale records must stay visible with doubled phone text')
+  // The reviewed lots must reach the price ledger with their actual source and age.
+  for (const [id, price, date, source] of [
+    ['lange-odysseus-363-179', '$60,960', '2025-04', 'https://www.phillips.com/detail/a-lange-sohne/144993'],
+    ['patek-5712-1a', '$101,600', '2024-06', 'https://www.phillips.com/detail/patek-philippe/190077'],
+  ]) {
+    browser('open', base + '/w/' + id)
+    browser('wait', '.dossier-sales[aria-label="Verified sales"]')
+    const reviewed = evaluate(`(() => {
+      const text=document.querySelector('.dsr-evidence-ledger').textContent;
+      const table=document.querySelector('.dossier-sales[aria-label="Verified sales"]');
+      const links=[...table.querySelectorAll('a')];
+      return text.includes(${JSON.stringify(price)}) && text.includes(${JSON.stringify('HISTORICAL, AS OF ' + date)}) &&
+        links.length===3 && links.some(link=>link.href===${JSON.stringify(source)}) &&
+        links.every(link=>link.getBoundingClientRect().right<=innerWidth);
+    })()`)
+    assert(reviewed, `${id} must show three cited records and an explicitly historical estimate`)
+  }
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')
