@@ -67,10 +67,7 @@ Promotion also checks the Phillips lot identity across URL forms. For multi-day 
 auction records, verify the session containing the lot and supply `--sale-date=YYYY-MM-DD`
 and `--date-source=<Phillips session or lot URL>`. The auction opening date alone is not a sale date.
 
-The production site is deployed to Cloudflare Pages and served at the custom domain
-[watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
-at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the
-custom domain.
+## Layout verification
 
 The scheduled Spatial law workflow measures production. To measure a release
 candidate, run it manually on the candidate branch with its immutable Pages
@@ -90,3 +87,8 @@ reopening the browser, run
 For an artifact captured with explicit routes or widths, repeat those flags.
 Replay checks the recorded cells and never updates the receipt; it does not
 check the live site, its sitemap, or its stylesheets.
+
+The production site is deployed to Cloudflare Pages and served at the custom domain
+[watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
+at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the
+custom domain.
