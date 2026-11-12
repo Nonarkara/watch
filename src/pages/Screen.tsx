@@ -317,7 +317,7 @@ export default function Screen() {
       )}
 
       <div className="screen-grid">
-        {sightings.map((item, index) => {
+        {sightings.map((item) => {
           let watchMedia = imageForSighting(item, mediaById)
           let sharedPortrait = false
           if (watchMedia?.kind === 'portrait') {
@@ -331,7 +331,7 @@ export default function Screen() {
           const isInContext = watchMedia?.kind === 'in_context'
           const studio = productionLabel(item)
           return (
-            <article className={`screen-card ${index % 5 === 1 ? 'tilt-right' : index % 5 === 3 ? 'tilt-left' : ''}`} key={item.id}>
+            <article className={`screen-card${watchMedia ? ' screen-card--illustrated' : ''}`} key={item.id}>
               <div className={`screen-card-media${watchMedia ? '' : ' screen-card-media--empty'}`}>
                 {watchMedia ? (
                   <a
@@ -361,31 +361,33 @@ export default function Screen() {
                   </div>
                 )}
               </div>
-              {!isInContext && watchMedia && (
-                <p className="screen-still-withheld-note mono micro">
-                  THE IN-FILM STILL IS COPYRIGHTED BY {studio.toUpperCase()}. WE SHOW THE WATCH INSTEAD.
-                </p>
-              )}
-              <div className="screen-card-top">
-                <span className="screen-kind mono">{item.brand} · {item.media_type}</span>
-                <span className={`evidence-badge ${item.identification}`}>{item.identification}</span>
-              </div>
-              <p className="eyebrow">{item.release_year ?? 'YEAR NOT RECORDED'}</p>
-              <h2>{item.watch}</h2>
-              <p>{item.description}</p>
-              {watchMedia?.caption && <p className="screen-caption dim micro">{watchMedia.caption}</p>}
-              {watchMedia?.license && <p className="screen-rights mono micro dim">{watchMedia.license}</p>}
-              <div className="screen-match mono micro">
-                {item.match_level === 'exact_reference' ? 'EXACT-REFERENCE MAP' : 'FAMILY ONLY · NOT SCORED AS SCARCITY'}
-              </div>
-              <div className="catalog-actions mono micro">
-                <a href={item.source_url} target="_blank" rel="noreferrer">
-                  {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'EDITORIAL SOURCE ↗'}
-                </a>
-                {(item.editorial_url || snapshot?.editorial_url) && item.source_url.includes('watch-id.com') && (
-                  <a href={item.editorial_url ?? snapshot?.editorial_url} target="_blank" rel="noreferrer">TEDDY ↗</a>
+              <div className="screen-card-body">
+                {!isInContext && watchMedia && (
+                  <p className="screen-still-withheld-note mono micro">
+                    THE IN-FILM STILL IS COPYRIGHTED BY {studio.toUpperCase()}. WE SHOW THE WATCH INSTEAD.
+                  </p>
                 )}
-                {item.matched_card_ids[0] && <Link to={`/w/${item.matched_card_ids[0]}`}>DOSSIER →</Link>}
+                <div className="screen-card-top">
+                  <span className="screen-kind mono">{item.brand} · {item.media_type}</span>
+                  <span className={`evidence-badge ${item.identification}`}>{item.identification}</span>
+                </div>
+                <p className="eyebrow">{item.release_year ?? 'YEAR NOT RECORDED'}</p>
+                <h2>{item.watch}</h2>
+                <p>{item.description}</p>
+                {watchMedia?.caption && <p className="screen-caption dim micro">{watchMedia.caption}</p>}
+                {watchMedia?.license && <p className="screen-rights mono micro dim">{watchMedia.license}</p>}
+                <div className="screen-match mono micro">
+                  {item.match_level === 'exact_reference' ? 'EXACT-REFERENCE MAP' : 'FAMILY ONLY · NOT SCORED AS SCARCITY'}
+                </div>
+                <div className="catalog-actions mono micro">
+                  <a href={item.source_url} target="_blank" rel="noreferrer">
+                    {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'EDITORIAL SOURCE ↗'}
+                  </a>
+                  {(item.editorial_url || snapshot?.editorial_url) && item.source_url.includes('watch-id.com') && (
+                    <a href={item.editorial_url ?? snapshot?.editorial_url} target="_blank" rel="noreferrer">TEDDY ↗</a>
+                  )}
+                  {item.matched_card_ids[0] && <Link to={`/w/${item.matched_card_ids[0]}`}>DOSSIER →</Link>}
+                </div>
               </div>
             </article>
           )

@@ -106,6 +106,15 @@ function verifyMarket() {
       return document.documentElement.scrollWidth <= innerWidth + 1 && legend.scrollWidth <= legend.clientWidth + 1 &&
         getComputedStyle(document.querySelector('.screen-card-image-credit')).position === 'static';
     })`), 'Narrow screen filters and credits must fit without overlaying the photo')
+    for (const width of [390, 640, 719, 720, 1440]) {
+      browser('set', 'viewport', String(width), '844')
+      assert(evaluate(`document.fonts.ready.then(() => {
+        const rows = [...document.querySelectorAll('.screen-card')].map(row => row.getBoundingClientRect());
+        return rows.length > 1 && rows.every((row, i) => row.right <= innerWidth + 1 &&
+          (i === 0 || Math.abs(row.top - rows[i - 1].bottom) <= 1));
+      })`), 'Screen sightings must form consecutive rows without inherited gaps at ' + width + 'px')
+    }
+    browser('set', 'viewport', '239', '844')
     const screenBefore = screenCount()
     browser('select', '.screen-compact-controls select:first-child', 'film')
     const screenFilm = screenCount()
