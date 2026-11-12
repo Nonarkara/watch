@@ -305,7 +305,10 @@ function DecisionSheet({ baseline, basisLabel, costBasis, annualRate, annualOwne
           <small>{Number.isFinite(required.target_annual_rate) ? `${required.target_annual_rate.toFixed(1)}% ANNUAL GROWTH REQUIRED` : 'RATE CANNOT BE COMPUTED'}</small>
         </div>
       </div>
-      <p className="pom-decision-foot mono">Starting value: {money(baseline, 'USD')} · {basisLabel}. <a href="#pom-exit-costs">Exit costs and fee source ↑</a>. Excludes tax, inflation, purchase fees and condition changes.</p>
+      <div className="pom-decision-foot mono">
+        <p>Starting value: {money(baseline, 'USD')} · {basisLabel}. Excludes tax, inflation, purchase fees and condition changes.</p>
+        <a href="#pom-exit-costs">Exit costs and fee source ↑</a>
+      </div>
     </section>
   )
 }
