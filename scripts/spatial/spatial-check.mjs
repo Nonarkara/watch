@@ -1467,6 +1467,12 @@ if (upstreamStatus.size) {
     }
   }
 }
+// Save every measured cell, including read errors, before issuing a verdict.
+// Otherwise the artifact is missing precisely when one route would not render.
+if (JSON_OUT) {
+  mkdirSync(path.dirname(path.resolve(String(JSON_OUT))), { recursive: true });
+  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ measurements: results }, null, 2));
+}
 const errored = results.filter((r) => r.error);
 if (errored.length) {
   console.error(`\nFAIL — the spatial gate could not read ${errored.length} page measurement(s):`);
@@ -1481,12 +1487,6 @@ if (dossierRowsCollapsed) {
       `The receipt records layouts, and the measurement copy leaves these rows out for the same reason. ` +
       `They are not pages without a receipt.`,
   );
-}
-
-// ---------------------------------------------------------------- the raw measurements
-if (JSON_OUT) {
-  mkdirSync(path.dirname(path.resolve(String(JSON_OUT))), { recursive: true });
-  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ measurements: results }, null, 2));
 }
 
 // ---------------------------------------------------------------- policy
