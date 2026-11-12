@@ -136,7 +136,12 @@ try {
               const sale=card.variant_sales[i], link=row.querySelector('a');
               return link.getAttribute('href')===sale.url && link.getBoundingClientRect().right<=innerWidth &&
                 row.textContent.includes(sale.condition) && row.querySelector('time').dateTime===sale.date &&
-                (!sale.fx_conversion || row.textContent.includes(sale.fx_conversion.original_display));
+                (!sale.fx_conversion || (
+                  row.querySelector('.dossier-variant-native').textContent===sale.fx_conversion.original_display &&
+                  row.querySelector('.dossier-variant-fx').textContent.startsWith('≈ $') &&
+                  row.querySelector('.dossier-variant-fx').textContent.includes('ECB '+sale.fx_conversion.rate_date) &&
+                  (sale.fx_conversion.date_basis!=='auction_start' || row.textContent.includes('Opening-date FX'))
+                )) && (sale.date_basis!=='auction_start' || row.textContent.includes('Auction opened'));
             })};
         })`)
         assert(variant.complete && variant.width <= width, `variant evidence and its citations must fit at ${width}`)

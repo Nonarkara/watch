@@ -393,42 +393,42 @@ export default function Dossier() {
 
       {c.variant_sales.length > 0 && (
         <section className="sect">
-          <h2 className="sect-h"><span>Variant sales — not used in the estimate</span><span className="mono">{c.variant_sales.length} EXCLUDED</span></h2>
-          <p className="honest" style={{ marginBottom: 'var(--space-md)' }}>
-            These are real, cited sales of a different configuration — a special-signed dial, a
-            celebrity-owned example, a charity lot, or a neighbouring reference in the same family.
-            They price a different object than this reference, so the register shows them as evidence
-            and keeps them out of the market estimate. Averaging them in would inflate the number for
-            every ordinary example. {c.variant_sales.some((s) => s.fx_conversion) && (
-              <>Where the hammer was struck outside New York, the USD figure is converted at the
-              European Central Bank reference rate for the last business day on or before the sale
-              date; the original currency price is shown beside it.</>
-            )}
+          <h2 className="sect-h"><span>Variant sales</span><span className="mono">{c.variant_sales.length} EXCLUDED</span></h2>
+          <p className="dossier-variant-note dim">
+            Different references, configurations, or provenance. These sales do not enter the estimate.
+            {c.variant_sales.some((s) => s.fx_conversion) && <> Converted rows show the published currency first; USD is approximate.</>}
           </p>
           <table className="sales-table dossier-sales" aria-label="Variant sales excluded from the estimate">
             <thead><tr><th scope="col">Sale and exclusion</th><th scope="col" className="num">Price</th><th scope="col">Source</th></tr></thead>
             <tbody>
-              {c.variant_sales.map((s, i) => (
+              {c.variant_sales.map((s, i) => {
+                const fx = s.fx_conversion
+                const result = fx?.original_display ?? usd(s.price_usd)
+                const dateLabel = s.date_basis === 'auction_start' ? 'Auction opened' : s.date_basis === 'lot_date' ? 'Sold' : 'Recorded date'
+                return (
                 <tr key={i}>
                   <td>
                     {VENUE_LABEL[s.venue] ?? s.venue}
-                    <time className="dossier-sale-detail mono micro dim" dateTime={s.date}>{s.date}</time>
+                    <span className="dossier-sale-detail mono micro dim">{dateLabel} <time dateTime={s.date}>{s.date}</time></span>
                     <span className="dossier-sale-detail dim">{s.condition}</span>
                   </td>
                   <td className="num">
-                    {usd(s.price_usd)}
-                    {s.fx_conversion && (
+                    <span className="dossier-variant-native">{result}</span>
+                    {fx && (
                       <span
-                        className="dossier-sale-detail micro dim mono"
-                        title={`Converted at the ECB reference rate on ${s.fx_conversion.rate_date}: 1 ${s.fx_conversion.from} = ${s.fx_conversion.rate} USD. ${s.fx_conversion.provider}`}
+                        className="dossier-sale-detail dossier-variant-fx micro dim mono"
+                        title={`${fx.note} 1 ${fx.from} = ${fx.rate} USD. ${fx.provider}`}
                       >
-                        ≈ {s.fx_conversion.original_display}
+                        ≈ {usd(s.price_usd)} USD<br />
+                        ECB {fx.rate_date}<br />
+                        {fx.date_basis === 'auction_start' ? 'Opening-date FX' : fx.date_basis === 'verified_sale_date' ? 'Sale-date FX' : 'FX basis unverified'}
                       </span>
                     )}
                   </td>
-                  <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Record: excluded sale at ${VENUE_LABEL[s.venue] ?? s.venue}, ${s.date}, ${usd(s.price_usd)}`}>Record <span aria-hidden="true">↗</span></a></td>
+                  <td><a className="src-a" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Record: excluded sale at ${VENUE_LABEL[s.venue] ?? s.venue}, ${dateLabel.toLowerCase()} ${s.date}, ${result}`}>Record <span aria-hidden="true">↗</span></a></td>
                 </tr>
-              ))}
+                )
+              })}
             </tbody>
           </table>
         </section>

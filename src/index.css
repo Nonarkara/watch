@@ -1646,6 +1646,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .dossier-sales :is(th, td):last-child { width: 1%; padding-inline-end: 0; }
 .dossier-sales .num { width: 30%; }
 .dossier-sale-detail { display: block; font-weight: 400; }
+.dossier-variant-note { max-inline-size: 66ch; margin-block: 0 8px; }
 .dossier-price-chart { margin: 0; min-inline-size: 0; }
 .dossier-chart-key { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .dossier-chart-key span { display: inline-flex; align-items: center; gap: 6px; }

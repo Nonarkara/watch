@@ -9,6 +9,10 @@ import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+const intake = JSON.parse(readFileSync(join(ROOT, "data/market/review-queue.json"), "utf8"));
+const openingDates = new Set(intake.records
+  .filter(record => record.sale_date && record.sale_date_basis !== 'single_day_auction')
+  .map(record => `${record.source_url}|${record.sale_date}`));
 
 const shared = {
   cpi: JSON.parse(readFileSync(join(ROOT, "data/shared/cpi_snapshot.json"), "utf8")),
@@ -95,16 +99,30 @@ for (const f of files) {
   const notable = [...comps].sort((a, b) => b.price_usd - a.price_usd).slice(0, 5)
     .map(({ date, price_usd, venue, url, box_papers }) => ({ date, price_usd, venue, url, box_papers: box_papers ?? null }));
   // Real, cited sales of a different configuration — shown, never averaged.
-  // The fx_conversion block rides along so the reader can see the hammer price
-  // in the currency it was actually struck in, plus the ECB rate used. A
-  // converted row without its provenance would read as a native USD sale, which
-  // it is not.
+  // The native result and the FX date basis travel together. Legacy fuzzy
+  // matches inherited the auction opening date, not the verified lot date.
   const variants = card.market_evidence.comps.filter((c) => !isComparable(c))
     .sort((a, b) => b.price_usd - a.price_usd)
-    .map(({ date, price_usd, venue, url, condition, fx_conversion }) => ({
-      date, price_usd, venue, url, condition,
-      ...(fx_conversion ? { fx_conversion } : {}),
-    }));
+    .map(({ date, price_usd, venue, url, condition, fx_conversion, fuzzy_match, date_source_url }) => {
+      const date_basis = date_source_url ? 'lot_date'
+        : fuzzy_match || openingDates.has(`${url}|${date}`) ? 'auction_start' : 'unverified';
+      const suffix = fx_conversion ? ` · hammer ${fx_conversion.original_display} in ${fx_conversion.original_currency}` : '';
+      const conversion = fx_conversion && {
+        ...fx_conversion,
+        date_basis: fx_conversion.date_basis ?? (fuzzy_match ? 'auction_start' : 'unverified'),
+      };
+      if (conversion?.date_basis === 'auction_start') {
+        conversion.reference_date ??= date;
+        conversion.note = 'Published sale result converted at the last available ECB rate on or before the auction opening date.';
+      } else if (conversion?.date_basis === 'unverified') {
+        conversion.note = 'The rate date is recorded; the date used to choose that rate was not verified.';
+      }
+      return {
+        date, date_basis, price_usd, venue, url,
+        condition: suffix && condition.endsWith(suffix) ? condition.slice(0, -suffix.length) : condition,
+        ...(conversion ? { fx_conversion: conversion } : {}),
+      };
+    });
 
   published.push({
     id: card.id,

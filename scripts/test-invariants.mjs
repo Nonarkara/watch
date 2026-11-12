@@ -348,6 +348,21 @@ assert.ok(isExcludedPortrait('https://upload.wikimedia.org/wikipedia/commons/thu
 assert.ok(isExcludedPortrait('/img/local-copy.jpg', images['anordain-model-1-midnight'].source_url));
 assert.equal(isExcludedPortrait(images['ap-15202st'].file, images['ap-15202st'].source_url), false);
 const portraitOutput = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'));
+const louisVariant = portraitOutput.cards.find(card => card.id === 'louis-richard-triple-detent-tourbillon')
+  ?.variant_sales.find(sale => sale.url.endsWith('/232871'));
+assert.equal(louisVariant?.date_basis, 'auction_start',
+  'an intake-derived variant without fuzzy metadata must not promote the auction opening to a lot date');
+for (const card of portraitOutput.cards) {
+  for (const sale of card.variant_sales) {
+    const fx = sale.fx_conversion;
+    if (!fx) continue;
+    assert(fx.original_display && fx.original_currency && fx.rate_date && fx.date_basis,
+      `${card.id}: converted variants need both the native result and the rate basis`);
+    assert(!card.notable_sales.some(comp => comp.url === sale.url),
+      `${card.id}: excluded conversions must not enter the verified sale series`);
+    if (fx.date_basis === 'auction_start') assert.equal(fx.reference_date, sale.date);
+  }
+}
 const misleadingPortraits = portraitOutput.cards.flatMap(card => card.media
   .filter(media => isExcludedPortrait(media.url, media.source_url)).map(() => card.id));
 assert.deepEqual(misleadingPortraits, [], 'excluded portrait assets must not publish');
