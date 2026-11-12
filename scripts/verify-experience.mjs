@@ -137,6 +137,15 @@ function verifyMarket() {
     browser('press', 'Space')
     assert(screenBefore > screenFilm && screenFilm > screenDecade && screenDecade > screenCount(),
       'Media, decade and keyboard exact filters must narrow the sightings')
+    browser('open', base + '/pom?watch=rolex-116500ln')
+    browser('wait', '.pom-watch-search input')
+    browser('fill', '.pom-watch-search input', '116500LN')
+    assert(evaluate(`document.fonts.ready.then(() =>
+      document.querySelector('.pom-watch-search input').clientWidth >= 56 &&
+      document.querySelector('#pom-watch-select').options.length === 1 &&
+      document.documentElement.scrollWidth === innerWidth)`), 'Pom search must stay readable after Clear appears at 239px')
+    browser('press', 'Escape')
+    assert(evaluate("document.querySelector('.pom-watch-search input').value === ''"))
   } finally {
     browser('close')
     session = mainSession

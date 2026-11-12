@@ -703,7 +703,7 @@ function ValueLab() {
             <label htmlFor="pom-watch-select">Pick a reference in the register</label>
             <div className="pom-watch-search">
               <input type="search" aria-label="Search watch references" value={watchSearch}
-                placeholder="Brand, reference, name, nickname, or collection"
+                placeholder="Search"
                 onChange={(event) => setWatchSearch(event.target.value)}
                 onKeyDown={(event) => { if (event.key === 'Escape' && watchSearch) { event.preventDefault(); setWatchSearch('') } }} />
               {watchSearch && <button type="button" onClick={() => setWatchSearch('')} aria-label="Clear watch search">CLEAR</button>}
