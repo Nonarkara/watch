@@ -325,10 +325,15 @@ try {
     browser('screenshot', join(out, `dossier-first-action-${width}.png`))
   }
   browser('open', base + '/w/rolex-6239-paul-newman')
+  browser('wait', '.dsr-evidence-ledger')
+  assert(evaluate(`document.querySelector('.dsr-evidence-ledger').textContent.includes('$419,100') &&
+    document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length === 3`),
+    'three sourced Paul Newman sales must be visible with the historical median')
+  browser('open', base + '/w/patek-5711-1a-018-tiffany')
   browser('wait', '.dsr-estimate-refusal')
   assert(evaluate(`document.querySelector('.dsr-estimate-refusal').textContent.includes('Market estimate') &&
-    document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length === 2`),
-    'two sourced Daytona sales must stay visible without a market estimate')
+    [...document.querySelectorAll('main a')].some(a=>a.href.endsWith('/NY080121/1T'))`),
+    'Tiffany must retain its charity citation without publishing an estimate')
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '.dsr-evidence-ledger')
   const priced = evaluate(`(() => ({
