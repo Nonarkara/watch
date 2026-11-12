@@ -5694,6 +5694,13 @@ main.shell { padding-top: var(--space-md); }
 .venue-receipt td.num, .vcq-row .val, .vcq-sub strong { white-space: nowrap; }
 .venue-receipt .src-a { inline-size: fit-content; min-block-size: 24px; }
 .venue-card-selector-panel .swb-actions { margin-block-start: 8px; }
+.venue-comparison { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+.venue-comparison-basis { min-inline-size: 0; }
+@media (min-width: 1024px) {
+  .venue-card-selector-panel:has(.venue-receipt) { max-inline-size: none; }
+  .venue-comparison:has(.venue-receipt) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.618fr); grid-template-rows: auto 1fr; align-items: start; gap: var(--space-sm) var(--space-lg); }
+  .venue-comparison > .venue-receipt { grid-area: 1 / 2 / span 2; }
+}
 .selected-watch-banner {
   display: flex;
   justify-content: space-between;

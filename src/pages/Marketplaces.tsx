@@ -98,8 +98,8 @@ export default function Marketplaces() {
           </p>
         )}
 
-        {selectedCard && (
-          <div className="selected-watch-banner">
+        {selectedCard && <div className="venue-comparison">
+          <div className="selected-watch-banner venue-comparison-basis">
             <div className="swb-info">
               <span className="eyebrow">{selectedCard.identity.brand} · {selectedCard.identity.collection}</span>
               <h3>{selectedCard.identity.name} <span className="mono">{selectedCard.identity.reference}</span></h3>
@@ -110,7 +110,6 @@ export default function Marketplaces() {
               </p>
             </div>
           </div>
-        )}
         {venueScenarios.some(s => s.seller_proceeds != null || s.buyer_total != null) && (
           <table className="sales-table venue-receipt" aria-label="Modeled venue costs, not quotes">
             <thead><tr><th scope="col">Modeled venue</th><th scope="col" className="num">Seller net</th><th scope="col" className="num">Buyer total</th></tr></thead>
@@ -123,9 +122,10 @@ export default function Marketplaces() {
             ))}</tbody>
           </table>
         )}
-        {selectedCard && <div className="swb-actions">
-          <Link to={`/pom?watch=${encodeURIComponent(selectedCard.id)}#value-lab`} className="btn secondary">MODEL HOLDING PERIODS →</Link>
-          <Link to={`/w/${selectedCard.id}`} className="btn secondary">OPEN DOSSIER →</Link>
+          <div className="swb-actions">
+            <Link to={`/pom?watch=${encodeURIComponent(selectedCard.id)}#value-lab`} className="btn secondary">HOLDING PERIODS →</Link>
+            <Link to={`/w/${selectedCard.id}`} className="btn secondary">OPEN DOSSIER →</Link>
+          </div>
         </div>}
       </div>
 
