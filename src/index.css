@@ -336,6 +336,14 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   .wm-logo { width: 24px; height: 24px; }
   .wm-main { font-size: clamp(18px, 5.6vw, 22px); }
 }
+/* Keep the named home link and its mark; do not let text run underneath
+   the 44px header controls. A populated Saved link uses another track. */
+@media (max-width: 272px) {
+  .wordmark .wm-stack { display: none; }
+}
+@media (max-width: 319px) {
+  .hdr-in:has(.saved-badge) .wordmark .wm-stack { display: none; }
+}
 
 /* the eight sections: a row of rectangles cut out by 1px ink rules (the
    grid's own background shows through the gap, so every boundary is the

@@ -18,6 +18,21 @@ function browser(...args) {
 }
 function evaluate(code) { return browser('eval', code).result }
 const proofs = []
+function verifyCompactMark(iconOnly, saved) {
+  const mark = evaluate(`(() => {
+    const home = document.querySelector('.wordmark'), logo = home.querySelector('.wm-logo');
+    const text = home.querySelector('.wm-main'), controls = document.querySelector('.hdr-cluster');
+    const right = el => el.getBoundingClientRect().right;
+    const box = logo.getBoundingClientRect();
+    return { iconOnly: text.getClientRects().length === 0, label: home.getAttribute('aria-label'),
+      href: home.getAttribute('href'), controls: controls.children.length,
+      clear: box.width > 0 && right(logo) <= controls.getBoundingClientRect().left &&
+        (text.getClientRects().length === 0 || right(text) <= controls.getBoundingClientRect().left + 1),
+      logoHit: home.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2)) };
+  })()`)
+  assert(mark.iconOnly === iconOnly && mark.label === 'Time Pop — home' && mark.href === '/' &&
+    mark.controls === (saved ? 4 : 3) && mark.clear && mark.logoHit, JSON.stringify(mark))
+}
 function verifyMarket() {
   const mainSession = session
   session += '-market'
@@ -65,6 +80,10 @@ function verifyMarket() {
     })`)
     assert(discovery.count === 6 && discovery.selected === 'DIVERS' && discovery.action.startsWith('/w/') &&
       discovery.actionY <= 900 && discovery.width <= 240 && discovery.fit, JSON.stringify(discovery))
+    evaluate('window.scrollTo(0, 0)')
+    verifyCompactMark(true, false)
+    browser('set', 'viewport', '280', '900')
+    verifyCompactMark(false, false)
   } finally {
     browser('close')
     session = mainSession
@@ -868,6 +887,7 @@ try {
       return { current, rejectsOldTracks };
     })`)
     assert(narrow.current && narrow.rejectsOldTracks, `Home's ledger, archive, verdict and nav must fit at ${width}px`)
+    verifyCompactMark(width < 320, true)
   }
   browser('set','viewport','390','900')
   // Block both font providers and reload. Fallback must preserve the core flow.
