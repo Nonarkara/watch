@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadMarketTrends, type MarketTrendRow } from '../lib/catalog.ts'
@@ -252,70 +252,86 @@ export default function Dossier() {
 
       <div role="tabpanel" id={`panel-${view}`} aria-labelledby={`tab-${view}`}>
       {view === 'evidence' && <>
-      <div className="metric-strip">
-        <div className="mcell">
-          <span className="lab">Market estimate</span>
-          {estimate.value != null ? (
-            <>
-              <span className="val big">{usd(estimate.value)}</span>
-              <span className="note mono">
-                {estimate.band && `${usd(estimate.band[0])}–${usd(estimate.band[1])} · `}
-                n={estimate.n} · {estimate.window_months}mo{estimate.stale ? ` · HISTORICAL, AS OF ${estimate.as_of?.slice(0, 7)}` : ''}
-              </span>
-            </>
-          ) : (
-            <><span className="val dim">{dash}</span><span className="note">{reasonText(estimate.reason)}</span></>
-          )}
-          <Why text={estimate.limitation} />
-        </div>
-        <div className="mcell">
-          <span className="lab">Vs retail</span>
-          {premium.value != null ? (
-            <>
-              <span className={'val big' + (premium.value < 0 ? ' neg' : '')}>{pct(premium.value)}</span>
-              <span className="note mono">{premium.vs?.toUpperCase()} · {usd(premium.msrp_usd!)}</span>
-              {premium.stale_baseline && (
-                <span className="note amber">Still in production — current list price not on record, so the real premium is smaller.</span>
-              )}
-            </>
-          ) : (
-            <><span className="val dim">{dash}</span><span className="note">{reasonText(premium.reason)}</span></>
-          )}
-          <Why text={premium.limitation} />
-        </div>
-        <ChangeCell label="1 year" ch={change_1y} />
-        <ChangeCell label="5 years" ch={change_5y} />
-        <div className="mcell">
-          <span className="lab">Liquidity</span>
-          <span className="val big">{liquidity.tier !== 'Unknown' ? liquidity.tier.toUpperCase() : dash}</span>
-          <span className="note mono">{liquidity.sales_per_year} TRACKED SALES / YR</span>
-          <Why text={liquidity.limitation} />
-        </div>
-        <div className="mcell">
-          <span className="lab">Resellability</span>
-          <span className="val big">{c.computed.resellability.value != null ? c.computed.resellability.value : dash}</span>
-          <span className="note mono">{c.computed.resellability.tier.toUpperCase()} · {c.computed.resellability.sales_per_year} SALE{c.computed.resellability.sales_per_year === 1 ? '' : 'S'}/YR</span>
-          <Why text={c.computed.resellability.limitation} />
-        </div>
-        <div className="mcell">
-          <span className="lab">Data confidence</span>
-          <span className={'val big' + (confidence.tier ? '' : ' dim')}>{confidence.tier ?? dash}</span>
-          <span className="note mono">
-            {confidence.tier
-              ? `${confidence.n} SALE${confidence.n === 1 ? '' : 'S'} · ${confidence.venues} VENUE${confidence.venues === 1 ? '' : 'S'} · NEWEST ${confidence.newest}`
-              : reasonText(confidence.reason).toUpperCase()}
-          </span>
-          <Why text="A: ≥10 sales/24mo, ≥3 venues, ≤90 days fresh. B: ≥4 sales, ≥2 venues, ≤1yr. C: ≥1 verified sale." />
-        </div>
-        <div className="mcell attention-cell">
-          <span className="lab">Screen attention</span>
-          <span className={'val big' + (c.computed.attention.value == null ? ' dim' : '')}>{c.computed.attention.value ?? dash}</span>
-          <span className="note mono">{c.computed.attention.value == null ? reasonText(c.computed.attention.reason) : `${c.computed.attention.screen_count} EXACT FILM/TV SIGHTING${c.computed.attention.screen_count === 1 ? '' : 'S'}`}</span>
-          <Why text={c.computed.attention.limitation} />
-        </div>
-      </div>
+      <EvidenceLedger refusal={estimate.value == null ? reasonText(estimate.reason) : null} measures={[
+        { id: 'estimate', available: estimate.value != null, content: (
+          <div className="mcell">
+            <span className="lab">Market estimate</span>
+            {estimate.value != null ? (
+              <>
+                <span className="val big">{usd(estimate.value)}</span>
+                <span className="note mono">
+                  {estimate.band && `${usd(estimate.band[0])}–${usd(estimate.band[1])} · `}
+                  n={estimate.n} · {estimate.window_months}mo{estimate.stale ? ` · HISTORICAL, AS OF ${estimate.as_of?.slice(0, 7)}` : ''}
+                </span>
+              </>
+            ) : (
+              <><span className="val dim">{dash}</span><span className="note">{reasonText(estimate.reason)}</span></>
+            )}
+            <Why text={estimate.limitation} />
+          </div>
+        ) },
+        { id: 'retail', available: premium.value != null, content: (
+          <div className="mcell">
+            <span className="lab">Vs retail</span>
+            {premium.value != null ? (
+              <>
+                <span className={'val big' + (premium.value < 0 ? ' neg' : '')}>{pct(premium.value)}</span>
+                <span className="note mono">{premium.vs?.toUpperCase()} · {usd(premium.msrp_usd!)}</span>
+                {premium.stale_baseline && (
+                  <span className="note amber">Still in production — current list price not on record, so the real premium is smaller.</span>
+                )}
+              </>
+            ) : (
+              <><span className="val dim">{dash}</span><span className="note">{reasonText(premium.reason)}</span></>
+            )}
+            <Why text={premium.limitation} />
+          </div>
+        ) },
+        { id: 'year', available: change_1y.nominal_pct != null, content: (
+          <ChangeCell label="1 year" ch={change_1y} />
+        ) },
+        { id: 'five-year', available: change_5y.nominal_pct != null, content: (
+          <ChangeCell label="5 years" ch={change_5y} />
+        ) },
+        { id: 'liquidity', available: liquidity.tier !== 'Unknown', content: (
+          <div className="mcell">
+            <span className="lab">Liquidity</span>
+            <span className="val big">{liquidity.tier !== 'Unknown' ? liquidity.tier.toUpperCase() : dash}</span>
+            <span className="note mono">{liquidity.sales_per_year} TRACKED SALES / YR</span>
+            <Why text={liquidity.limitation} />
+          </div>
+        ) },
+        { id: 'resell', available: c.computed.resellability.value != null, content: (
+          <div className="mcell">
+            <span className="lab">Resellability</span>
+            <span className="val big">{c.computed.resellability.value != null ? c.computed.resellability.value : dash}</span>
+            <span className="note mono">{c.computed.resellability.tier.toUpperCase()} · {c.computed.resellability.sales_per_year} SALE{c.computed.resellability.sales_per_year === 1 ? '' : 'S'}/YR</span>
+            <Why text={c.computed.resellability.limitation} />
+          </div>
+        ) },
+        { id: 'confidence', available: confidence.tier != null, content: (
+          <div className="mcell">
+            <span className="lab">Data confidence</span>
+            <span className={'val big' + (confidence.tier ? '' : ' dim')}>{confidence.tier ?? dash}</span>
+            <span className="note mono">
+              {confidence.tier
+                ? `${confidence.n} SALE${confidence.n === 1 ? '' : 'S'} · ${confidence.venues} VENUE${confidence.venues === 1 ? '' : 'S'} · NEWEST ${confidence.newest}`
+                : reasonText(confidence.reason).toUpperCase()}
+            </span>
+            <Why text="A: ≥10 sales/24mo, ≥3 venues, ≤90 days fresh. B: ≥4 sales, ≥2 venues, ≤1yr. C: ≥1 verified sale." />
+          </div>
+        ) },
+        { id: 'attention', available: c.computed.attention.value != null, content: (
+          <div className="mcell attention-cell">
+            <span className="lab">Screen attention</span>
+            <span className={'val big' + (c.computed.attention.value == null ? ' dim' : '')}>{c.computed.attention.value ?? dash}</span>
+            <span className="note mono">{c.computed.attention.value == null ? reasonText(c.computed.attention.reason) : `${c.computed.attention.screen_count} EXACT FILM/TV SIGHTING${c.computed.attention.screen_count === 1 ? '' : 'S'}`}</span>
+            <Why text={c.computed.attention.limitation} />
+          </div>
+        ) },
+      ]} />
 
-      <TransactionGraphic card={c} />
+      {estimate.value != null && <TransactionGraphic card={c} />}
 
       </>}
 
@@ -624,6 +640,25 @@ function resellClass(c: Card): 'strong' | 'neutral' | 'weak' {
   if (t === 'High') return 'strong'
   if (t === 'Medium' || t === 'Low') return 'neutral'
   return 'weak'
+}
+
+type EvidenceMeasure = { id: string; available: boolean; content: ReactNode }
+
+function EvidenceLedger({ refusal, measures }: { refusal: string | null; measures: EvidenceMeasure[] }) {
+  const published = measures.filter(measure => measure.available)
+  const unavailable = measures.filter(measure => !measure.available)
+  return (
+    <section className="dsr-evidence-ledger" aria-label="Evidence measures">
+      {refusal && <p className="dsr-estimate-refusal"><strong>Market estimate</strong> <span aria-hidden="true">—</span> {refusal}</p>}
+      {published.map(measure => <Fragment key={measure.id}>{measure.content}</Fragment>)}
+      {unavailable.length > 0 && (
+        <details className="dsr-unavailable">
+          <summary>{unavailable.length} unavailable {unavailable.length === 1 ? 'measure' : 'measures'} · reasons and limits</summary>
+          {unavailable.map(measure => <Fragment key={measure.id}>{measure.content}</Fragment>)}
+        </details>
+      )}
+    </section>
+  )
 }
 
 function ChangeCell({ label, ch }: { label: string; ch: Change }) {

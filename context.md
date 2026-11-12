@@ -109,6 +109,12 @@ compact source status and verdict. Wide screens pair identity and verdict in
 61.8/38.2 tracks; phone stacks the same reading order. No empty image track or
 added frame; keep the existing rule weights, colours, and photographed layout.
 
+**Evidence design read:** The dossier uses the same ruled object ledger. A
+published measure leads its row; a missing estimate states its reason in the
+open, and unavailable measures share one disclosure with their full limits.
+No placeholder chart or equal-size cells for missing values. Existing sale
+charts, attribution, and price qualifications keep their meaning and order.
+
 Home geometry repair: `src/pages/home.css` deliberately replaces inflated
 full-width stat tiles and repeated card framing with an aligned editorial column
 grid. Art → reading/action band → natural-width facts. Commitments and detailed

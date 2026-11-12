@@ -1614,6 +1614,24 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 details.why { margin-top: 4px; }
 details.why summary { min-height: 20px; }
 
+.dsr-evidence-ledger { margin: 16px 0; border-block: 1px solid var(--rule); }
+.dsr-estimate-refusal { padding: 8px 0; max-inline-size: 65ch; }
+.dsr-evidence-ledger .mcell {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
+  padding: 4px 0; border: 0; border-bottom: 1px solid var(--rule);
+}
+.dsr-evidence-ledger .mcell .lab,
+.dsr-evidence-ledger .mcell .note,
+.dsr-evidence-ledger .why { margin: 0; }
+.dsr-evidence-ledger .mcell .lab { font-weight: 600; }
+.dsr-evidence-ledger .mcell .val.big { font-size: var(--text-body); font-weight: 700; }
+.dsr-evidence-ledger .mcell .note { max-inline-size: 65ch; }
+.dsr-evidence-ledger .why[open] { flex-basis: 100%; }
+.dsr-evidence-ledger .why summary,
+.dsr-unavailable > summary { min-height: 32px; padding-block: 8px; width: fit-content; }
+.dsr-unavailable > summary { cursor: pointer; font-weight: 600; }
+.dsr-unavailable .mcell { border-bottom: 0; border-top: 1px solid var(--rule); }
+
 /* Sections stop drifting apart. The bottom padding adds 60px to clear the
    fixed compare dock so the last row of cards isn't overlapped. */
 main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) + 60px); }

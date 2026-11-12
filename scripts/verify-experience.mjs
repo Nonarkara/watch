@@ -76,6 +76,32 @@ try {
             frame.remove();return fails;
           })()`)
           assert.equal(oldFrameFails, true, 'restoring the old 180px frame must fail the heading budget')
+          const ledger = evaluate(`(() => {
+            const section=document.querySelector('.dsr-evidence-ledger');
+            return { height:section.getBoundingClientRect().height,
+              refusal:section.querySelector('.dsr-estimate-refusal')?.textContent,
+              missing:section.querySelector('.dsr-unavailable')?.querySelectorAll('.mcell').length,
+              placeholder:!!document.querySelector('.txn-graphic-card.empty') };
+          })()`)
+          assert(ledger.height <= 112 && ledger.refusal.includes('No verified sales') && ledger.missing === 8 && !ledger.placeholder,
+            'unavailable measures must not create a stack of tiles or a placeholder chart')
+          const oldTilesFail = evaluate(`(() => {
+            const ledger=document.querySelector('.dsr-evidence-ledger'), old=document.createElement('div');
+            old.className='metric-strip';
+            old.append(...[...ledger.querySelectorAll('.mcell')].map(row=>row.cloneNode(true)));
+            ledger.after(old);const fails=old.getBoundingClientRect().height>112;old.remove();return fails;
+          })()`)
+          assert.equal(oldTilesFail, true, 'restoring the tile layout must fail the sparse ledger budget')
+          browser('click', '.dsr-unavailable > summary')
+          browser('wait', '.dsr-unavailable[open] .mcell')
+          assert(evaluate("document.querySelector('.dsr-unavailable[open]').textContent.includes('Screen attention')"))
+          browser('click', '.dsr-unavailable .mcell:first-of-type .why summary')
+          browser('wait', '.dsr-unavailable .why[open] p')
+          assert(evaluate("document.querySelector('.dsr-unavailable .why[open] p').textContent.includes('verified sales')"))
+          browser('screenshot', join(out, 'dossier-evidence-expanded-390.png'))
+          browser('click', '.dsr-unavailable > summary')
+          evaluate('window.scrollTo(0, 0)')
+          Object.assign(proof, { ledger })
         }
       }
       if (name === 'dossier-photo') {
@@ -86,6 +112,19 @@ try {
       proofs.push({ name, ...proof, screenshot })
     }
   }
+  browser('open', base + '/w/rolex-116500ln')
+  browser('wait', '.dsr-evidence-ledger')
+  const priced = evaluate(`(() => ({
+    published:document.querySelectorAll('.dsr-evidence-ledger > .mcell').length,
+    text:document.querySelector('.dsr-evidence-ledger').textContent,
+    marks:document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length,
+    citations:document.querySelectorAll('.sales-table .src-a').length,
+    settlement:!!document.querySelector('.txn-graphic-card:not(.empty)')
+  }))()`)
+  assert(priced.published === 5 && priced.text.includes('$25,600') && priced.text.includes('HISTORICAL, AS OF 2024-12') && priced.marks === 4 && priced.citations >= 4 && priced.settlement,
+    'available estimates, their age, cited sales, and the existing charts must survive compaction')
+  browser('scrollintoview', '.dsr-evidence-ledger')
+  browser('screenshot', join(out, 'dossier-evidence-priced.png'))
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')
