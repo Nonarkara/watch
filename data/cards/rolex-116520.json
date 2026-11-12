@@ -29,13 +29,35 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
+    "comparable_dial": "Black",
     "comps": [
       {
-        "date": "2026-06-13",
+        "date": "2026-06",
         "price_usd": 25400,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/rolex/231653",
+        "dial": "Black",
         "condition": "Circa 2007, Switzerland; Stainless steel; Accompanied by a Rolex warranty dated May 1, 2007 and stamped Hartgers Jeweler, green leather Rolex presentation box, wax tag, original invoice, 2015 Rolex International Service Guarantee and invoice, service pouch, product literature, and outer packaging; Ordinary black-dial steel reference; full set, original-owner history, 2015 service, and very-good condition disclosed.",
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2024-06-14",
+        "price_usd": 20160,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-daytona-ref-116520-208/224610",
+        "date_source_url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-daytona-ref-116520-208/224610",
+        "dial": "Black",
+        "condition": "Circa 2007 steel watch, case Z542631; neither box nor papers was supplied.",
+        "box_papers": "watch_only"
+      },
+      {
+        "date": "2022-06-09",
+        "price_usd": 32760,
+        "venue": "christies",
+        "url": "https://www.christies.com/en/lot/lot-6378224",
+        "date_source_url": "https://www.christies.com/en/lot/lot-6378224",
+        "dial": "Black",
+        "condition": "Circa 2005 steel watch, case F783481; offered by the original owner with box and guarantee.",
         "box_papers": "full_set"
       }
     ],

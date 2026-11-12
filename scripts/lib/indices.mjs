@@ -360,6 +360,9 @@ export function computeAll(card, shared, buildDate) {
   if (broadWindow) {
     estimate.limitation += " Historical only: the past 36 months do not contain three comparable sales.";
   }
+  if (card.market_evidence.comparable_dial) {
+    estimate.limitation += ` Dial scope: ${card.market_evidence.comparable_dial} only.`;
+  }
   const market_band = marketBand(card, estimate, shared.market_context?.band_framework);
   const resellability = resellabilityIndex(comps, buildDate, confidence);
   return { estimate: { ...estimate, stale }, premium, change_1y, change_5y,

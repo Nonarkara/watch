@@ -24,6 +24,11 @@ for (const suffix of ["/NY080121/1T", "hk24010.html"]) {
 assert.ok(newmanCard.market_evidence.comps.some(sale => sale.url.endsWith("/lot-6460427") &&
   sale.price_usd === 226800 && sale.dial === "Paul Newman exotic" && sale.comparable !== false));
 const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
+const steelDaytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116520.json", import.meta.url), "utf8"));
+assert.equal(steelDaytona.market_evidence.comparable_dial, "Black");
+assert.ok(steelDaytona.market_evidence.comps.filter(sale => sale.comparable !== false).every(sale => sale.dial === "Black"));
+const steelEstimate = marketEstimate(steelDaytona.market_evidence.comps, "2026-11-06");
+assert.deepEqual([steelEstimate.value, steelEstimate.n, steelEstimate.venues], [25400, 3, 2]);
 const daytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116500ln.json", import.meta.url), "utf8"));
 const daytonaComps = daytona.market_evidence.comps.filter((sale) => sale.comparable !== false);
 assert.equal(daytona.market_evidence.comps.find((sale) => sale.url.endsWith("/104/"))?.comparable, false);
