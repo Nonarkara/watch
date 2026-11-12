@@ -114,6 +114,29 @@ export function validateCard(card, { id, buildDate = "2099-01-01", comparableSal
     }
   }
 
+  if (ev.lot_observations !== undefined) {
+    req(Array.isArray(ev.lot_observations), "market_evidence.lot_observations must be an array");
+    for (const [i, lot] of (Array.isArray(ev.lot_observations) ? ev.lot_observations : []).entries()) {
+      const k = `lot_observations[${i}]`;
+      if (!lot || typeof lot !== "object") { req(false, `${k} must be an object`); continue; }
+      const day = typeof lot.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(lot.date) ? new Date(lot.date) : null;
+      req(day && Number.isFinite(+day) && day.toISOString().slice(0, 10) === lot.date && lot.date <= buildDate, `${k}.date must be a valid past or current day`);
+      req(Number.isFinite(lot.amount) && lot.amount > 0, `${k}.amount must be positive and finite`);
+      req(typeof lot.currency === "string" && /^[A-Z]{3}$/.test(lot.currency), `${k}.currency must be a three-letter currency code`);
+      req(VENUES.includes(lot.venue), `${k}.venue invalid`);
+      req(isUrl(lot.url) && isUrl(lot.date_source_url), `${k} needs lot and date source URLs`);
+      req(typeof lot.configuration === "string" && lot.configuration.trim().length > 0, `${k}.configuration required`);
+      if (isUrl(lot.url)) {
+        const url = new URL(lot.url);
+        url.hash = "";
+        url.pathname = url.pathname.replace(/\/$/, "");
+        const keys = [url.href, ...phillipsLotKeys(lot)];
+        req(!keys.some((key) => seenSaleKeys.has(key)), `${k}.url repeats an auction lot already on this card`);
+        for (const key of keys) seenSaleKeys.add(key);
+      }
+    }
+  }
+
   const s = card.scarcity_inputs || {};
   req(s.limited_edition && typeof s.limited_edition.is_limited === "boolean", "scarcity_inputs.limited_edition.is_limited");
   // is_limited alone adds up to 12 of 25 scarcity points (indices.mjs), so an

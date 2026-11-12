@@ -148,6 +148,12 @@ for (const f of files) {
     } : null,
     notable_sales: notable,
     variant_sales: variants,
+    ...(card.market_evidence.lot_observations?.length ? {
+      lot_observations: card.market_evidence.lot_observations
+        .map(({ date, amount, currency, venue, url, date_source_url, configuration }) =>
+          ({ date, amount, currency, venue, url, date_source_url, configuration }))
+        .sort((a, b) => b.date.localeCompare(a.date)),
+    } : {}),
     computed,
     meta: { ...card.meta, build_date: buildDate },
   });

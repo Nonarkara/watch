@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T18:28:12.036Z",
+  "generated_at": "2026-11-12T21:05:29.991Z",
   "source": "Phillips public watch auction results",
   "source_url": "https://www.phillips.com/features/watches",
   "harvest_date": "2026-09-05T17:14:54.282Z",
@@ -22,14 +22,14 @@
     "value_publishing_neither_reference_nor_model_usd": 2384725
   },
   "coverage": {
-    "lots_matching_a_card": 46,
-    "lots_matching_a_card_pct": 6.8,
-    "value_matching_a_card_usd": 17806518,
-    "value_matching_a_card_pct": 8,
+    "lots_matching_a_card": 50,
+    "lots_matching_a_card_pct": 7.4,
+    "value_matching_a_card_usd": 18189985,
+    "value_matching_a_card_pct": 8.1,
     "by_reference": {
-      "lots": 37,
-      "value_usd": 3890096,
-      "value_pct": 1.7,
+      "lots": 41,
+      "value_usd": 4273563,
+      "value_pct": 1.9,
       "meaning": "Brand + published reference number matched a card. The traditional channel, and the only one that worked for most of the register until this build."
     },
     "by_model_name": {
@@ -102,7 +102,7 @@
       "lots": 111,
       "priced_lots": 110,
       "value_usd": 17375362,
-      "cards_in_register": 46
+      "cards_in_register": 47
     },
     {
       "brand": "Audemars Piguet",

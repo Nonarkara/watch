@@ -8,6 +8,12 @@ For a dossier that prices one dial, set `market_evidence.comparable_dial`. Each 
 
 One auction lot may count as comparable on only one dossier. Related dossiers may cite it as non-comparable evidence with an explanation.
 
+Use optional `market_evidence.lot_observations` for individual reported results
+that should not enter estimates or indices. Each row has `date` (actual sale
+day), `date_source_url`, `amount`, `currency` (original three-letter code),
+`venue`, `url` (lot result), and `configuration` (what the lot describes).
+Do not repeat a lot already recorded in `comps` on that dossier.
+
 Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.json`
 
 ```jsonc

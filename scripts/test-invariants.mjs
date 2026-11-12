@@ -8,6 +8,19 @@ import { validateSightings } from "./validate_sightings.mjs";
 import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
+const steel6265 = JSON.parse(readFileSync(new URL("../data/cards/rolex-6265.json", import.meta.url), "utf8"));
+assert.deepEqual(validateCard(steel6265, { buildDate: BUILD }), []);
+const lot = steel6265.market_evidence.lot_observations[0];
+const invalidLot = structuredClone(steel6265);
+invalidLot.market_evidence.lot_observations.push({ ...lot, date: "2026-06-31", url: lot.url + "#result" });
+assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("valid past or current day")));
+assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")));
+const published6265 = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8"))
+  .cards.find((card) => card.id === steel6265.id);
+assert.equal(published6265.lot_observations.length, 4);
+assert.deepEqual(published6265.lot_observations.map((row) => row.currency), ["USD", "CHF", "CHF", "CHF"]);
+assert.equal(published6265.comp_summary, null);
+assert.equal(published6265.computed.estimate.value, null, "observed lots cannot create a valuation");
 // Identical historical sales cannot become both ends of a one-year trend.
 const historicalOnly = [100, 200, 300].map((price_usd, i) => ({
   date: `2025-0${6 - i}-01`, price_usd,
