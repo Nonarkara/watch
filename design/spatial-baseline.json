@@ -32891,14 +32891,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33366,14 +33359,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 253,
-            "detail": "aside.pom-bio-aside leaves 253px empty beneath it in a 458px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33707,14 +33693,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
