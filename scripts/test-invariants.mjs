@@ -291,6 +291,10 @@ for (const [id, lot, median] of [
   assert.equal(estimate.n, 3, "older Christie’s evidence must not widen a sufficient recent Hulk cohort");
   assert.equal(estimate.window_months, 24);
   assert.equal(estimate.value, 18125);
+  const confidence = computeAll(hulk, shared, BUILD).confidence;
+  assert.equal(confidence.n, 3, "confidence must count the sales used by the estimate");
+  assert.equal(confidence.venues, 1, "a venue outside the estimate window must not upgrade its confidence");
+  assert.equal(confidence.tier, "C");
   assert.ok(hulk.provenance_events.some((event) => event.source_url.endsWith("/233078") &&
     event.description.includes("CHF 17,780")));
   assert.ok(!sales.some((sale) => sale.url.endsWith("/233078")), "do not treat the CHF result as a USD sale");

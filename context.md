@@ -20,6 +20,8 @@ Every published number is a **pure function of on-card raw evidence + committed 
 
 A sale cohort that needs more than 36 months is historical, even if its newest sale is recent. A newest sale older than 365 days also makes an estimate historical. The collector calculator requires an explicit opt-in before using either kind of historical estimate.
 
+When an estimate exists, its confidence grade uses only the sales in its calculation window. Without an estimate, the grade describes the comparable evidence on file.
+
 **Market-evidence intake.** `npm run data:market:harvest` discovers completed Phillips watch
 auctions, saves compressed raw responses locally, parses all lots, exact-matches them to dossiers,
 deduplicates against existing comps, and writes a manifest plus `data/market/review-queue.json`.

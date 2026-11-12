@@ -332,7 +332,11 @@ export function computeAll(card, shared, buildDate) {
   const scarcity = scarcityIndex(card, shared.brand_production, buildDate);
   const collectibility = collectibilityIndex(card, premium, scarcity, change_5y);
   const liquidity = liquiditySignal(comps, buildDate);
-  const confidence = confidenceTier(comps, buildDate);
+  // A displayed estimate and its confidence must describe the same sales.
+  const confidence = confidenceTier(
+    estimate.value == null ? comps : compsInWindow(comps, buildDate, estimate.window_months),
+    buildDate,
+  );
   const attention = screenAttention(card, scarcity, shared.screen_sightings);
   // One recent sale cannot make a five-year (or wider) cohort current.
   const broadWindow = estimate.value != null && estimate.window_months > 36;
