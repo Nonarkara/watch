@@ -163,7 +163,7 @@ try {
               missing:section.querySelector('.dsr-unavailable')?.querySelectorAll('.mcell').length,
               placeholder:!!document.querySelector('.txn-graphic-card.empty') };
           })()`)
-          assert(ledger.height <= 112 && ledger.refusal.includes('No verified sales') && ledger.missing === 8 && !ledger.placeholder,
+          assert(ledger.height <= 112 && ledger.refusal.includes('No comparable sales') && ledger.missing === 8 && !ledger.placeholder,
             'unavailable measures must not create a stack of tiles or a placeholder chart')
           const oldTilesFail = evaluate(`(() => {
             const ledger=document.querySelector('.dsr-evidence-ledger'), old=document.createElement('div');
