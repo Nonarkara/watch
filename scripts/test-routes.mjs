@@ -130,7 +130,7 @@ assert.ok(pomPageSrc.includes('OWNERSHIP COST: USER ASSUMPTION') && pomPageSrc.i
   'net outcomes must label user costs and show the break-even growth requirement');
 assert.ok(pomPageSrc.includes('Net break-even appears by year') && pomPageSrc.includes('ASSUMPTIONS, NOT A FORECAST'),
   'net outcomes must turn the table into an explicit, bounded model read');
-assert.ok(pomPageSrc.includes('Current market value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
+assert.ok(pomPageSrc.includes('Your starting value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
   && pomPageSrc.includes('Net vs cost basis'),
   'single-watch math must keep current valuation separate from owner cost basis');
 assert.ok(pomPageSrc.includes('OWNER SCENARIO · LIVE') && pomPageSrc.includes('YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS')

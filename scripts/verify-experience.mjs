@@ -25,7 +25,23 @@ try {
       browser('open', base + path)
       browser('wait', 'main h1')
       evaluate('document.fonts.ready.then(() => true)')
-      if (name === 'collector') browser('scrollintoview', '.pom-decision')
+      if (name === 'collector') {
+        browser('wait', '.pom-history-toggle')
+        assert(evaluate("!document.querySelector('.pom-decision') && !document.querySelector('.pom-basis-snapshot')"),
+          'stale estimates must not silently start a projection')
+        if (width === 390) {
+          browser('fill', '#pom-watch-start', '18000')
+          assert(evaluate("document.querySelector('.pom-basis-snapshot').textContent.includes('$18,000') && !document.querySelector('.pom-basis-snapshot').textContent.includes('HISTORICAL STARTING VALUE')"))
+          browser('reload')
+          browser('wait', '.pom-history-toggle')
+        }
+        browser('scrollintoview', '.pom-lab-controls')
+        browser('screenshot', join(out, `collector-basis-${width}.png`))
+        browser('click', '.pom-history-toggle')
+        browser('wait', '.pom-decision')
+        assert(evaluate("document.querySelector('.pom-basis-snapshot').textContent.includes('HISTORICAL STARTING VALUE')"))
+        browser('scrollintoview', '.pom-decision')
+      }
       const proof = evaluate(`({width:innerWidth, documentWidth:document.documentElement.scrollWidth,
         heading:document.querySelector('main h1').textContent,
         jost:document.fonts.check('16px Jost'), bodyFont:getComputedStyle(document.body).fontFamily,

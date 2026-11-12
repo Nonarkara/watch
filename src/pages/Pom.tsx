@@ -122,7 +122,7 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
   const last = points.at(-1)!
 
   return (
-    <div className="pom-scenario-chart" role="img" aria-label={`Owner scenario from ${money(baseline, 'USD')} today to ${money(last.gross, 'USD')} gross and ${money(last.net, 'USD')} net after 20 years, compared with a ${money(costBasis, 'USD')} cost basis.`}>
+    <div className="pom-scenario-chart" role="img" aria-label={`Owner scenario from a starting value of ${money(baseline, 'USD')} to ${money(last.gross, 'USD')} gross and ${money(last.net, 'USD')} net after 20 years, compared with a ${money(costBasis, 'USD')} cost basis.`}>
       <div className="pom-scenario-head">
         <span className="mono">OWNER SCENARIO · LIVE</span>
         <strong>{money(last.net, 'USD')} NET AT 20Y</strong>
@@ -149,13 +149,13 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
       <div className="pom-scenario-milestones">
         {milestones.map((point) => (
           <span key={point.years}>
-            <small className="mono">{point.years === 0 ? 'TODAY' : `${point.years}Y NET`}</small>
+            <small className="mono">{point.years === 0 ? 'START' : `${point.years}Y NET`}</small>
             <strong>{money(point.net, 'USD')}</strong>
           </span>
         ))}
       </div>
       <div className="pom-scenario-legend mono">
-        <span><i className="pom-scenario-swatch pom-scenario-swatch--gross" />GROSS · CURRENT VALUE × YOUR RATE</span>
+        <span><i className="pom-scenario-swatch pom-scenario-swatch--gross" />GROSS · STARTING VALUE COMPOUNDED</span>
         <span><i className="pom-scenario-swatch pom-scenario-swatch--net" />NET · AFTER VERIFIED FEE + YOUR COSTS</span>
         <span><i className="pom-scenario-swatch pom-scenario-swatch--cost" />COST BASIS</span>
         <span>PLOT RANGE {money(rawMin, 'USD')}–{money(rawMax, 'USD')} · YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS</span>
@@ -181,11 +181,11 @@ function NetProjectionTable({ baseline, costBasis, annualRate, annualOwnershipCo
       <div className="pom-net-read" data-positive={alreadyAboveCost || Boolean(firstNetPositive)}>
         <span className="mono">MODEL READ · ASSUMPTIONS, NOT A FORECAST</span>
         <strong>{alreadyAboveCost
-          ? 'Already above net cost basis at today’s value'
+          ? 'Above net cost basis at the starting value'
           : firstNetPositive
           ? `Net break-even appears by year ${firstNetPositive.years}`
           : `Still below net break-even after ${longestHorizon.years} years`}</strong>
-        <p>Today after the selected seller fee: {signedMoney(today.net_change, 'USD')} vs cost basis, before tax and past ownership costs. Future model: {annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve.</p>
+        <p>At the starting value after the selected seller fee: {signedMoney(today.net_change, 'USD')} vs cost basis, before tax and past ownership costs. Future model: {annualRate.toFixed(1)}% gross annual growth · {money(annualOwnershipCost, 'USD')}/year ownership reserve.</p>
       </div>
       <ScenarioCurve baseline={baseline} costBasis={costBasis} rows={rows} today={today} />
       <div className="pom-projection-wrap">
@@ -285,7 +285,7 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
       </div>
       <div className="pom-decision-grid">
         <div>
-          <span className="mono">SELL AT TODAY’S VALUE</span>
+          <span className="mono">SELL AT STARTING VALUE</span>
           <strong>{money(today.net_proceeds, 'USD')}</strong>
           <small>{signedMoney(today.net_change, 'USD')} VS YOUR COST BASIS · VERIFIED FEE</small>
         </div>
@@ -302,7 +302,7 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
         <div>
           <span className="mono">SALE PRICE NEEDED</span>
           <strong>{money(required.target_gross_value, 'USD')}</strong>
-          <small>{Number.isFinite(required.target_annual_rate) ? `${required.target_annual_rate.toFixed(1)}% MARKET CAGR FROM TODAY` : 'RATE CANNOT BE COMPUTED'}</small>
+          <small>{Number.isFinite(required.target_annual_rate) ? `${required.target_annual_rate.toFixed(1)}% ANNUAL GROWTH REQUIRED` : 'RATE CANNOT BE COMPUTED'}</small>
         </div>
       </div>
       <p className="pom-decision-foot mono">BASELINE: DOSSIER ESTIMATE OR USER APPRAISAL · COST BASIS, HORIZON, OWNERSHIP RESERVE AND TARGET: USER INPUTS · EXIT FEE: VERIFIED SOURCE ABOVE · TAX, INFLATION, PURCHASE FEES AND CONDITION CHANGES EXCLUDED</p>
@@ -348,6 +348,11 @@ function investmentRead(card: Card): { label: string; body: string; tone: string
       tone: 'unknown',
     }
   }
+  if (card.computed.estimate.stale) return {
+    label: 'HISTORICAL EVIDENCE ONLY',
+    body: 'The sales on record can anchor an illustration, but they do not establish what this watch would sell for today.',
+    tone: 'neutral',
+  }
   const realChange = card.computed.change_1y.real_pct
   if (realChange == null) {
     return {
@@ -389,6 +394,7 @@ function ValueLab() {
   const [watchSearch, setWatchSearch] = useState('')
   const [watchScope, setWatchScope] = useState<'all' | 'anchored' | 'ready'>('all')
   const [manualWatchValue, setManualWatchValue] = useState('')
+  const [historicalWatchId, setHistoricalWatchId] = useState<string | null>(null)
   const [purchaseCostBasis, setPurchaseCostBasis] = useState('')
   const [exitVenueId, setExitVenueId] = useState('chrono24')
   const [annualOwnershipCost, setAnnualOwnershipCost] = useState('')
@@ -468,10 +474,14 @@ function ValueLab() {
   const savedScenarioBaseline = enteredSavedBaseline > 0
     ? enteredSavedBaseline
     : savedSummary.evidence_total
+  const estimate = selectedCard.computed.estimate
   const enteredWatchValue = Number(manualWatchValue)
-  const watchBaseline = enteredWatchValue > 0
+  const hasManualValue = Number.isFinite(enteredWatchValue) && enteredWatchValue > 0
+  const historicalAllowed = historicalWatchId === selectedCard.id
+  const usingHistorical = !hasManualValue && Boolean(estimate.stale) && historicalAllowed
+  const watchBaseline = hasManualValue
     ? enteredWatchValue
-    : selectedCard.computed.estimate.value
+    : estimate.stale && !historicalAllowed ? null : estimate.value
   const enteredCostBasis = Number(purchaseCostBasis)
   const watchCostBasis = enteredCostBasis > 0
     ? enteredCostBasis
@@ -504,6 +514,7 @@ function ValueLab() {
 
   const chooseWatch = (watchId: string) => {
     setSelectedId(watchId)
+    setHistoricalWatchId(null)
     setManualWatchValue('')
     setPurchaseCostBasis('')
     setTab('watch')
@@ -708,7 +719,7 @@ function ValueLab() {
               </div>
             </div>
             <dl>
-              <div><dt>Market estimate</dt><dd>{selectedCard.computed.estimate.value != null ? money(selectedCard.computed.estimate.value, 'USD') : '—'}</dd></div>
+              <div><dt>{estimate.stale ? 'Historical estimate' : 'Market estimate'}</dt><dd>{estimate.value != null ? money(estimate.value, 'USD') : '—'}</dd></div>
               <div><dt>Estimate band</dt><dd>{selectedCard.computed.estimate.band ? `${money(selectedCard.computed.estimate.band[0], 'USD')}–${money(selectedCard.computed.estimate.band[1], 'USD')}` : '—'}</dd></div>
               <div><dt>Comparable sales</dt><dd>{selectedCard.computed.estimate.n || '—'}</dd></div>
               <div><dt>Confidence</dt><dd>{selectedCard.computed.confidence.tier ?? '—'}</dd></div>
@@ -726,14 +737,19 @@ function ValueLab() {
           <div className="pom-lab-controls">
             <div className="pom-baseline-field pom-watch-basis-fields">
               <label>
-                <span>Current market value · USD</span>
-                <input type="number" min="1" step="100" inputMode="numeric" value={manualWatchValue}
-                  placeholder={selectedCard.computed.estimate.value?.toString() ?? 'Enter current value'}
+                <span>Your starting value · USD</span>
+                <input id="pom-watch-start" type="number" min="1" step="100" inputMode="numeric" value={manualWatchValue}
+                  placeholder="Enter your value"
                   onChange={(event) => setManualWatchValue(event.target.value)} />
-                <small>{enteredWatchValue > 0 ? 'USER APPRAISAL · using your current value.' : selectedCard.computed.estimate.value != null
-                  ? `DOSSIER ESTIMATE · ${selectedCard.computed.estimate.n} comps · tier ${selectedCard.computed.confidence.tier ?? '—'} · as of ${selectedCard.computed.estimate.as_of ?? '—'}.`
+                <small>{hasManualValue ? 'USER INPUT · not a verified appraisal.' : estimate.value != null
+                  ? `${estimate.stale ? 'HISTORICAL' : 'DOSSIER'} ESTIMATE · ${estimate.n} sales · tier ${selectedCard.computed.confidence.tier ?? '—'} · newest ${estimate.as_of ?? '—'}.`
                   : 'No estimate exists. Enter a current appraisal to run arithmetic without claiming a market valuation.'}</small>
               </label>
+              {estimate.stale && estimate.value != null && !hasManualValue && <button type="button"
+                className="btn secondary pom-history-toggle" aria-pressed={historicalAllowed}
+                onClick={() => setHistoricalWatchId(historicalAllowed ? null : selectedCard.id)}>
+                {historicalAllowed ? 'Stop using historical estimate' : `Use historical ${money(estimate.value, 'USD')} for illustration`}
+              </button>}
               <label>
                 <span>What you paid · USD (optional)</span>
                 <input type="number" min="1" step="100" inputMode="numeric" value={purchaseCostBasis}
@@ -741,7 +757,7 @@ function ValueLab() {
                   onChange={(event) => setPurchaseCostBasis(event.target.value)} />
                 <small>{enteredCostBasis > 0
                   ? 'USER COST BASIS · used for net gain and break-even.'
-                  : 'Blank means a neutral purchase today at the current value. It does not assume an old purchase price.'}</small>
+                  : 'Blank uses the scenario starting value as a neutral cost basis.'}</small>
               </label>
             </div>
             <RateControl id="pom-watch-rate" value={annualRate} onChange={setAnnualRate} context={watchIndex} />
@@ -749,32 +765,34 @@ function ValueLab() {
 
           {watchBaseline != null && watchBaseline > 0 && watchCostBasis != null && watchCostBasis > 0 ? (
             <>
-              <div className="pom-basis-snapshot" aria-label="Current value and owner cost basis">
+              <div className="pom-basis-snapshot" aria-label="Scenario starting value and owner cost basis">
                 <div>
-                  <span className="mono">CURRENT VALUE BASIS</span>
+                  <span className="mono">{usingHistorical ? 'HISTORICAL STARTING VALUE' : 'SCENARIO STARTING VALUE'}</span>
                   <strong>{money(watchBaseline, 'USD')}</strong>
-                  <small>{enteredWatchValue > 0
-                    ? 'USER APPRAISAL'
+                  <small>{hasManualValue
+                    ? 'USER INPUT'
                     : `${selectedCard.computed.estimate.n} COMPS · TIER ${selectedCard.computed.confidence.tier ?? '—'} · AS OF ${selectedCard.computed.estimate.as_of ?? '—'}`}</small>
                 </div>
                 <div>
                   <span className="mono">YOUR COST BASIS</span>
                   <strong>{money(watchCostBasis, 'USD')}</strong>
-                  <small>{enteredCostBasis > 0 ? 'USER INPUT' : 'NEUTRAL DEFAULT · CURRENT VALUE'}</small>
+                  <small>{enteredCostBasis > 0 ? 'USER INPUT' : 'NEUTRAL DEFAULT · STARTING VALUE'}</small>
                 </div>
                 <div data-positive={watchBaseline >= watchCostBasis}>
-                  <span className="mono">MARK-TO-MARKET</span>
+                  <span className="mono">STARTING VALUE VS COST</span>
                   <strong>{signedMoney(watchBaseline - watchCostBasis, 'USD')}</strong>
                   <small>BEFORE SELLING FEES AND FUTURE OWNERSHIP COSTS</small>
                 </div>
               </div>
               <ProjectionTable baseline={watchBaseline} annualRate={annualRate} currency="USD" />
               <p className="pom-formula mono">
-                FUTURE GROSS VALUE STARTS FROM TODAY’S {money(watchBaseline, 'USD')} VALUE · COST BASIS {money(watchCostBasis, 'USD')} IS USED ONLY FOR INVESTMENT GAIN AND BREAK-EVEN · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED HERE
+                GROSS SCENARIO FROM {usingHistorical ? 'HISTORICAL ' : ''}{money(watchBaseline, 'USD')} · COST BASIS {money(watchCostBasis, 'USD')} IS USED ONLY FOR GAIN AND BREAK-EVEN · OWNERSHIP COSTS, TAX, CONDITION AND SELLING FEES EXCLUDED HERE
               </p>
             </>
           ) : (
-            <p className="pom-projection-refusal">Enter a starting value to run the scenario. The blank is deliberate: this reference does not yet have enough comparable sales for a market estimate.</p>
+            <p className="pom-projection-refusal">{estimate.stale
+              ? 'Enter your own starting value or choose the historical estimate above. Neither is a current quote.'
+              : 'Enter a starting value to run the scenario. This reference does not yet have enough comparable sales for a market estimate.'}</p>
           )}
 
           <div className="pom-net-lab">
@@ -808,6 +826,7 @@ function ValueLab() {
             {selectedExitScenario?.fee_rule && watchBaseline != null && watchBaseline > 0 && watchCostBasis != null && watchCostBasis > 0 ? (
               <>
                 <div className="pom-net-source">
+                  {usingHistorical && <strong>Historical starting value · {money(watchBaseline, 'USD')} · newest sale {estimate.as_of ?? 'not recorded'}</strong>}
                   <strong className="mono">{selectedExitScenario.venue.name.toUpperCase()} · {sellerFeeLabel(selectedExitScenario.fee_rule)}</strong>
                   <span className="mono">SOURCE: OFFICIAL FEE PAGE · TIER VERIFIED · CHECKED {selectedExitScenario.fee_rule.checked_date} · COST BASIS: {enteredCostBasis > 0 ? `USER INPUT ${money(watchCostBasis, 'USD')}` : `NEUTRAL DEFAULT ${money(watchCostBasis, 'USD')}`} · OWNERSHIP COST: USER ASSUMPTION {money(ownershipCost, 'USD')}/YR</span>
                   <span className="mono">ONLY THE SELLER FEE ENTERS THIS NET-OUTCOME MODEL · ANY BUYER FEE SHOWN ON THE VENUE PAGE IS NOT DEDUCTED HERE</span>

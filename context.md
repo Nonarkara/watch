@@ -98,6 +98,9 @@ copy on the right when wide enough; phones can jump directly from draft to copy.
 The brief carries the evidence date even when it leaves the site.
 Venue costs use a column ledger: the selected baseline and date lead, seller
 and buyer figures sit beside the venue, and directory research stays below.
+Holding-period scenarios distinguish the owner's starting value from a stale
+dossier estimate. Historical figures require an explicit choice and never
+become today's value by passing through the calculator.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to

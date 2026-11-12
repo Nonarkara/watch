@@ -3297,7 +3297,12 @@ main.shell { padding-top: var(--space-md); }
 .pom-baseline-field > span, .pom-rate-label label, .pom-watch-picker > label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .pom-baseline-field input { width: 100%; margin: 10px 0 8px; padding: 10px 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 18px; }
 .pom-baseline-field small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; }
-.pom-watch-basis-fields { display: grid; gap: 16px; }
+.pom-watch-basis-fields { display: grid; gap: 8px; }
+#pom-watch-panel .pom-lab-controls { gap: 10px; margin-block: 12px; }
+#pom-watch-panel .pom-lab-controls > * { padding: 10px 12px; }
+@media (max-width: 879px) {
+  #pom-watch-panel.pom-lab-panel { padding: 12px; }
+}
 .pom-watch-basis-fields label { display: block; }
 .pom-watch-basis-fields label + label { padding-top: 16px; border-top: 1px solid var(--neutral-line); }
 .pom-watch-basis-fields label > span { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
@@ -3322,7 +3327,8 @@ main.shell { padding-top: var(--space-md); }
 .pom-loss { color: var(--coral-text); font-weight: 700; }
 .pom-formula { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--yellow); background: var(--paper-2); font-size: 9px; line-height: 1.5; color: var(--dim); overflow-wrap: anywhere; }
 .pom-basis-snapshot { display: grid; grid-template-columns: 1fr; margin: 0 0 18px; border: 1px solid var(--ink); font-variant-numeric: tabular-nums; }
-.pom-basis-snapshot > div { min-width: 0; padding: 14px 16px; border-bottom: 1px solid var(--ink); }
+.pom-basis-snapshot > div { min-width: 0; padding: 8px 12px; border-bottom: 1px solid var(--ink); }
+.pom-history-toggle { justify-self: start; inline-size: fit-content; max-inline-size: 100%; min-block-size: 32px; white-space: normal; }
 .pom-basis-snapshot > div:last-child { border-bottom: 0; background: var(--paper-2); }
 .pom-basis-snapshot span, .pom-basis-snapshot small { display: block; color: var(--dim); font-size: 8px; line-height: 1.45; letter-spacing: .08em; }
 .pom-basis-snapshot strong { display: block; margin: 5px 0; font-family: var(--font-display); font-size: 24px; line-height: 1; }
