@@ -84,6 +84,7 @@ try {
             const shown=[...chart.querySelectorAll('.pom-scenario-milestones strong')].map(e=>e.textContent);
             return labels.slice(-4).join(',')==='0y,3y,10y,20y' && new Set(labels.slice(0,-4)).size===3 &&
               new Set(styles).size===3 && shown.slice(1).every((value,i)=>value===net[i+2]) &&
+              chart.querySelector('.pom-scenario-milestones small').textContent==='AT START · NET' &&
               !document.querySelector('.pom-net-breakdown').open;
           })()`)
           assert(chart, 'chart labels, stroke keys and exact net readouts must match the detailed ledger')

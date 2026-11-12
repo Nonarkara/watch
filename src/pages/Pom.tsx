@@ -163,7 +163,7 @@ function ScenarioCurve({ baseline, costBasis, rows, today }: {
       <div className="pom-scenario-milestones">
         {milestones.map((point) => (
           <span key={point.years}>
-            <small className="mono">{point.years === 0 ? 'SELL NOW · NET' : `${point.years}Y NET`}</small>
+            <small className="mono">{point.years === 0 ? 'AT START · NET' : `${point.years}Y NET`}</small>
             <strong>{money(point.net, 'USD')}</strong>
           </span>
         ))}
