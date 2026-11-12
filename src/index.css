@@ -5698,6 +5698,22 @@ main.shell { padding-top: var(--space-md); }
    is low. 142 of 675 lots publish no reference number at all, which is a fact
    about the tier, not about our coverage. These two rows are that disclosure,
    so they get their own frame instead of being buried in the footnote. */
+.census-receipt { margin-block: 12px 6px; border-block: 1px solid var(--rule); }
+.census-receipt > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; padding-block: 5px; }
+.census-receipt > div + div { border-top: 1px solid var(--neutral-line); }
+.census-receipt dt { color: var(--dim); }
+.census-receipt dd { margin: 0; }
+.census-receipt dd strong { font-size: 1.35em; }
+.census-fx-note { max-inline-size: 64ch; }
+.census-method > summary { inline-size: fit-content; min-block-size: 32px; cursor: pointer; }
+.census-ledger { max-inline-size: 48rem; }
+.census-sales { min-width: 0; }
+.census-sort.pom-watch-scopes { display: flex; flex-wrap: wrap; gap: 6px; }
+.census-sort.pom-watch-scopes > button { flex: 0 0 auto; inline-size: auto; min-height: 32px; padding-inline: 8px; border-right: 1px solid var(--ink); }
+.census-sales :is(th, td) { padding-inline-end: 8px; overflow-wrap: anywhere; vertical-align: top; }
+.census-sales :is(th, td):nth-child(2) { width: 1%; white-space: nowrap; }
+.census-sales :is(th, td):last-child { padding-inline-end: 0; }
+.census-sales .num:last-child { width: 30%; }
 .census-channels {
   display: grid; grid-template-columns: 1fr; gap: 0;
   border-top: var(--border); border-left: var(--border);

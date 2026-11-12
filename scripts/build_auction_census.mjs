@@ -20,6 +20,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { normalizeBrand, normalizeReference, normalizeModelName } from './lib/market-harvest.mjs';
+import { matchingConvertedUsd } from './lib/market-intake.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const QUEUE = JSON.parse(readFileSync(join(ROOT, 'data/market/review-queue.json'), 'utf8'));
@@ -70,8 +71,7 @@ const priced = records.filter((r) => r.realized);
 // USD value, converted where needed.
 function usdValue(r) {
   if (r.currency === 'USD') return r.realized;
-  const fx = FX_BY_ID.get(r.source_id);
-  return fx ? fx.realized : null;
+  return matchingConvertedUsd(r, FX_BY_ID.get(r.source_id));
 }
 
 const auctions = new Map();
@@ -85,8 +85,9 @@ let heldByModelValueUsd = 0;
 let unnamedLots = 0;
 let unnamedValueUsd = 0;
 let totalValueUsd = 0;
-let unconvertedValue = 0;
+let unconvertedLots = 0;
 let convertedCount = 0;
+let openingDateFxCount = 0;
 
 for (const r of records) {
   const key = r.auction_code || r.auction_name || 'unknown';
@@ -102,7 +103,10 @@ for (const r of records) {
   if (usd != null) {
     a.value_usd += usd;
     totalValueUsd += usd;
-    if (r.currency !== 'USD') convertedCount++;
+    if (r.currency !== 'USD') {
+      convertedCount++;
+      if (FX_BY_ID.get(r.source_id)?.fx_conversion?.date_basis !== 'verified_sale_date') openingDateFxCount++;
+    }
   }
 
   const bk = normalizeBrand(r.brand || '');
@@ -141,7 +145,7 @@ for (const r of records) {
 }
 
 for (const r of records) {
-  if (r.realized && usdValue(r) == null) unconvertedValue += r.realized;
+  if (r.realized && usdValue(r) == null) unconvertedLots++;
 }
 
 const census = {
@@ -150,7 +154,7 @@ const census = {
   source: QUEUE.source,
   source_url: QUEUE.source_url,
   harvest_date: QUEUE.generated_at,
-  method: `Lots parsed from ${QUEUE.source} public auction results pages. USD values for non-USD sales are converted at the European Central Bank reference rate for the last business day on or before the sale date (see data/market/fx-rates.json).`,
+  method: 'Phillips “Sold For” results as published, not hammer-only prices. Non-USD results use the last available European Central Bank rate on or before the conversion reference date. Legacy conversions use the auction opening date, not a verified lot date (see data/market/fx-rates.json).',
   limitation: 'This is the shape of three auction rooms, not the whole secondary market. Phillips selects consignments; absence from these three sales is not evidence a reference does not trade. Catalogue coverage counts only lots whose normalised brand plus published identity matches a card we hold exactly. "Published identity" is either a reference number or a model name — the haute-horlogerie tier publishes no reference numbers at all, so a model name is an exact identity too. Near-miss references are reported separately and are never counted as covered.',
   totals: {
     auctions: auctions.size,
@@ -158,7 +162,8 @@ const census = {
     priced_lots: priced.length,
     value_usd: Math.round(totalValueUsd),
     lots_converted_from_other_currency: convertedCount,
-    unconverted_lots: unconvertedValue > 0 ? 1 : 0,
+    lots_converted_at_auction_start: openingDateFxCount,
+    unconverted_lots: unconvertedLots,
     brands_seen: brands.size,
     brands_in_register: [...cardBrands.keys()].length,
     lots_with_no_published_reference: records.filter((r) => !r.reference_key).length,

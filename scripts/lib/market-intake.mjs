@@ -1,6 +1,13 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 
+export function matchingConvertedUsd(lot, conversion) {
+  if (!conversion || !lot.currency || !lot.sale_date || !(lot.realized > 0)) return null;
+  return conversion.original_currency === lot.currency && conversion.original_realized === lot.realized &&
+    (conversion.fx_conversion?.reference_date ?? conversion.sale_date) === lot.sale_date &&
+    Number.isFinite(conversion.realized) && conversion.realized > 0 ? conversion.realized : null;
+}
+
 /**
  * Publish the smallest useful view of the private intake queue. The public file
  * carries exact-card candidates only; it deliberately omits raw page text and

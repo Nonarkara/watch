@@ -89,6 +89,9 @@ widths the historical marks and their verified records sit side by side, plot fi
 Filled squares are recorded sales; open circles are list prices by year. No mark
 extends beyond its recorded date or implies an unobserved price between records.
 
+Auction Census uses a column ledger. Coverage leads, the source and FX caveat sit
+with the total, and the auction records follow before the full methodology.
+
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
 their content, one flat colour block per fold (yellow = where you are, in the nav; navy =

@@ -3,7 +3,7 @@ import {
   classifyLot, discoverPhillipsAuctionCodes, existingCompKeys, normalizeReference, parseMoney,
   parsePhillipsAuctionPage, parsePhillipsDetailPage, resolvePromotionDate, summarizeRecords,
 } from './lib/market-harvest.mjs';
-import { publicMarketIntake } from './lib/market-intake.mjs';
+import { matchingConvertedUsd, publicMarketIntake } from './lib/market-intake.mjs';
 
 const tile = ({ id, lot, brand, reference, model, sold }) => `
 <a href="/detail/${brand.toLowerCase()}/${id}">
@@ -109,5 +109,10 @@ assert.equal(publicQueue.records[0].detail.description, undefined, 'raw marketin
 assert.equal(publicQueue.records[0].realized, 13970);
 assert.equal(publicQueue.records[0].sale_date, null);
 assert.equal(publicQueue.records[0].auction_date, '2026-06-13');
+const fxLot = { currency: 'HKD', realized: 100000, sale_date: '2026-06-13' };
+const fx = { original_currency: 'HKD', original_realized: 100000, realized: 12762, sale_date: '2026-06-13' };
+assert.equal(matchingConvertedUsd(fxLot, fx), 12762);
+assert.equal(matchingConvertedUsd(fxLot, { ...fx, original_realized: 110000 }), null);
+assert.equal(matchingConvertedUsd(fxLot, { ...fx, sale_date: '2026-06-12' }), null);
 
 console.log('✓ market harvest parser, trust boundary, dedupe, and conservation law');

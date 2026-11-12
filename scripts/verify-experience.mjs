@@ -21,7 +21,7 @@ const proofs = []
 try {
   for (const [width, height] of [[390, 844], [1024, 900], [1440, 900], [1280, 720]]) {
     browser('set', 'viewport', String(width), String(height))
-    for (const [name, path] of [['home', '/'], ['register', '/register'], ['data', '/data'], ['collector', '/pom?watch=rolex-116500ln#value-lab'], ['dossier-gap', '/w/casio-ae-1200'], ['dossier-photo', '/w/ap-15202st']]) {
+    for (const [name, path] of [['home', '/'], ['register', '/register'], ['data', '/data'], ['auction-census', '/auction-census'], ['collector', '/pom?watch=rolex-116500ln#value-lab'], ['dossier-gap', '/w/casio-ae-1200'], ['dossier-photo', '/w/ap-15202st']]) {
       browser('open', base + path)
       browser('wait', 'main h1')
       evaluate('document.fonts.ready.then(() => true)')
@@ -57,6 +57,21 @@ try {
         const intakeDates = evaluate(`[...document.querySelectorAll('.data-intake-price small')].map(e=>e.textContent)`)
         assert(intakeDates.some(label=>label.startsWith('AUCTION START ')) && intakeDates.every(label=>!label.startsWith('REALIZED ')),
           'legacy intake dates are auction opening dates, not verified lot dates')
+      }
+      if (name === 'auction-census') {
+        const census = evaluate(`fetch('/data/auction_census.json').then(r=>r.json()).then(d=>{
+          const tables=[...document.querySelectorAll('.census-sales')], rows=tables[0].tBodies[0].rows;
+          return {complete:rows.length===d.totals.auctions, starts:document.querySelector('.census-fx-note').textContent.includes(d.totals.lots_converted_at_auction_start+' conversions use auction-opening FX'),
+            first:rows[0].getBoundingClientRect().bottom, fits:tables.every(t=>t.getBoundingClientRect().right<=innerWidth && t.scrollWidth<=t.clientWidth+1),
+            compact:[...document.querySelectorAll('.census-sort button')].every(b=>b.getBoundingClientRect().width<=120),
+            countUnbroken:tables.every(t=>getComputedStyle(t.tHead.rows[0].cells[1]).whiteSpace==='nowrap')};
+        })`)
+        assert(census.complete && census.starts && census.fits && census.first <= height && census.compact && census.countUnbroken, `census result and its caveat must fit at ${width}: ${JSON.stringify(census)}`)
+        if (width === 390) {
+          browser('click', '.census-method > summary')
+          assert(evaluate("!!document.querySelector('.census-method[open] .census-channels')"))
+          browser('click', '.census-method > summary')
+        }
       }
       if (name === 'dossier-gap') {
         const geometry = evaluate(`(() => {

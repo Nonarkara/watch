@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T18:38:18.299Z",
+  "generated_at": "2026-11-12T18:28:12.036Z",
   "source": "Phillips public watch auction results",
   "source_url": "https://www.phillips.com/features/watches",
   "harvest_date": "2026-09-05T17:14:54.282Z",
-  "method": "Lots parsed from Phillips public watch auction results public auction results pages. USD values for non-USD sales are converted at the European Central Bank reference rate for the last business day on or before the sale date (see data/market/fx-rates.json).",
+  "method": "Phillips “Sold For” results as published, not hammer-only prices. Non-USD results use the last available European Central Bank rate on or before the conversion reference date. Legacy conversions use the auction opening date, not a verified lot date (see data/market/fx-rates.json).",
   "limitation": "This is the shape of three auction rooms, not the whole secondary market. Phillips selects consignments; absence from these three sales is not evidence a reference does not trade. Catalogue coverage counts only lots whose normalised brand plus published identity matches a card we hold exactly. \"Published identity\" is either a reference number or a model name — the haute-horlogerie tier publishes no reference numbers at all, so a model name is an exact identity too. Near-miss references are reported separately and are never counted as covered.",
   "totals": {
     "auctions": 3,
@@ -12,6 +12,7 @@
     "priced_lots": 673,
     "value_usd": 223480216,
     "lots_converted_from_other_currency": 517,
+    "lots_converted_at_auction_start": 517,
     "unconverted_lots": 0,
     "brands_seen": 98,
     "brands_in_register": 57,
