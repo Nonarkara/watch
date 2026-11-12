@@ -16,6 +16,12 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
   observations: { "2026-09": 110, "2025-09": 100 },
 }).nominal_pct, null, "overlapping cohorts must refuse a trend");
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
+const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
+for (const [lot, color] of [["NY080424/1", "Turquoise"], ["260548", "Green"], ["260550", "Yellow"]]) {
+  const sale = op41.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`));
+  assert.equal(sale?.comparable, false, `${color} sale must not price the generic OP41`);
+  assert.ok(sale.condition.startsWith(color), `the lot must disclose its ${color.toLowerCase()} dial`);
+}
 assert.equal(newmanCard.market_evidence.comps.find((c) => c.price_usd === 17752500).comparable, false,
   "celebrity-owned lot must remain outside ordinary valuation");
 const resonance = JSON.parse(readFileSync(new URL("../data/cards/journe-resonance.json", import.meta.url), "utf8"));
