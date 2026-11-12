@@ -148,19 +148,21 @@ export default function Saved() {
                   {pulseRows.map((row) => {
                     const card = byId.get(row.card_id)
                     if (!card) return null
-                    const media = card.media[0]
+                    const media = card.media.find(image => image.match === 'exact_reference') ?? card.media[0]
+                    const related = media?.match === 'reference_family'
                     const trend = trendByCard.get(row.card_id)
                     return (
                       <Link key={row.card_id} to={`/w/${row.card_id}`} className="saved-pulse-row">
                         <span className="saved-pulse-rank mono">{row.current_rank ?? '—'}</span>
                         <span className="saved-pulse-image">
                           {media
-                            ? <img src={media.url} alt="" loading="lazy" decoding="async"  width={400} height={300} />
+                            ? <img src={media.url} alt={related ? `Related watch, not reference ${card.identity.reference}` : ''} loading="lazy" decoding="async" width={400} height={300} />
                             : <span className="mono">NO PHOTO</span>}
                         </span>
                         <span className="saved-pulse-object">
                           <span className="saved-pulse-source mono">{card.identity.brand.toUpperCase()} · {card.identity.reference}</span>
                           <strong>{card.identity.name}</strong>
+                          {related && <span className="saved-pulse-photo-note mono">Related photo · not this reference</span>}
                           {trendSignal(trend) && <span className="saved-pulse-signal mono">{trendSignal(trend)}</span>}
                         </span>
                         <span className="saved-pulse-move mono" data-movement={row.movement}>{movementLabel(row)}</span>

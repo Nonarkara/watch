@@ -4389,6 +4389,7 @@ main.shell { padding-top: var(--space-md); }
 }
 .saved-pulse-source { color: var(--coral-text); }
 .saved-pulse-signal { color: var(--dim); }
+.saved-pulse-photo-note { color: var(--dim); font-size: var(--text-micro); line-height: 1.3; }
 .saved-pulse-move {
   grid-column: 2 / -1;
   justify-self: start;

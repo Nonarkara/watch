@@ -42,7 +42,8 @@ interface SpotlightProps {
 
 export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightProps) {
   const c = card
-  const m = c.media[0]
+  const m = c.media.find(image => image.match === 'exact_reference') ?? c.media[0]
+  const related = m?.match === 'reference_family'
   const { scarcity, collectibility, resellability } = c.computed
   const provCount = c.provenance_events.length
 
@@ -72,11 +73,11 @@ export default function Spotlight({ card, eyebrow, reason, trend }: SpotlightPro
       <div className="spotlight-grid">
         <a className="spotlight-photo" href={m?.source_url ?? `/w/${c.id}`} target={m?.source_url ? '_blank' : undefined} rel={m?.source_url ? 'noreferrer' : undefined}>
           {m
-            ? <img src={m.url} alt={c.identity.name} loading="lazy" decoding="async"  width={640} height={380} />
+            ? <img src={m.url} alt={related ? `Related watch, not reference ${c.identity.reference}` : c.identity.name} loading="lazy" decoding="async" width={640} height={380} />
             : <span className="dim">NO CC PHOTO</span>}
           {m && (
             <span className="spotlight-photo-cap mono">
-              {m.match === 'exact_reference' ? 'EXACT REFERENCE' : 'FAMILY MATCH'}
+              {related ? 'RELATED WATCH · NOT THIS REFERENCE' : 'EXACT REFERENCE'}
               {m.configuration_reference ? ` · ${m.configuration_reference}` : ''}
               {' · '}PHOTO {m.credit?.toUpperCase() ?? m.rights_status?.toUpperCase()}{m.license ? ` · ${m.license.toUpperCase()}` : ''}
             </span>

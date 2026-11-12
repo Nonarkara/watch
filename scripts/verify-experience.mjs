@@ -580,6 +580,19 @@ try {
   assert(evaluate("document.querySelector('#pom-saved-panel .pom-value-status').textContent.includes('1/2') && document.querySelector('.pom-saved-gap').textContent.includes('not in this build') && !document.querySelector('#pom-saved-panel .pom-history-toggle')"))
   browser('fill', '#pom-saved-start', '18000')
   assert(evaluate("document.querySelector('#pom-saved-panel .pom-formula').textContent.includes('USER-ENTERED START · $18,000')"))
+  browser('network', 'route', '**/live/market_trends.json', '--abort')
+  evaluate("localStorage.setItem('watch.saved', JSON.stringify(['cartier-santos-wssa0018','rolex-116500ln'])); true")
+  browser('open', base + '/saved')
+  browser('wait', '.saved-pulse-photo-note')
+  assert(evaluate(`(() => {
+    const related=document.querySelector('.saved-pulse-row[href="/w/cartier-santos-wssa0018"]');
+    const exact=document.querySelector('.saved-pulse-row[href="/w/rolex-116500ln"]');
+    return related.querySelector('img').alt==='Related watch, not reference WSSA0018' &&
+      related.querySelector('.saved-pulse-photo-note').textContent==='Related photo · not this reference' &&
+      !!exact.querySelector('img') && !exact.querySelector('.saved-pulse-photo-note') &&
+      document.documentElement.scrollWidth<=innerWidth;
+  })()`), 'Saved attention must distinguish exact and related thumbnails without phone overflow')
+  browser('network', 'unroute', '**/live/market_trends.json')
   browser('open', base + '/compare')
   browser('wait', 'select[aria-label="Add a reference"]')
   for (const id of ['rolex-116500ln','casio-ae-1200','patek-5712-1a','lange-odysseus-363-179'])
