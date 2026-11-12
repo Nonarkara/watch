@@ -272,7 +272,6 @@ for (const [id, lot, price] of [
 for (const [id, lot, median] of [
   ["rolex-126610ln", "/121670", 13750],
   ["rolex-1675", "/5574-54114.s", 18750],
-  ["rolex-116610lv-hulk", "/5592-54104.s", 18125],
 ]) {
   const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
   const comps = card.market_evidence.comps.filter((sale) => sale.comparable !== false);
@@ -284,6 +283,18 @@ for (const [id, lot, median] of [
 }
 
 // 11. Screen exposure changes attention pressure, never scarcity.
+{
+  const hulk = JSON.parse(readFileSync(new URL("../data/cards/rolex-116610lv-hulk.json", import.meta.url), "utf8"));
+  const sales = hulk.market_evidence.comps.filter((sale) => sale.comparable !== false);
+  const estimate = marketEstimate(sales, BUILD);
+  assert.ok(sales.some((sale) => sale.url.endsWith("/181738") && sale.price_usd === 22680));
+  assert.equal(estimate.n, 3, "older Christie’s evidence must not widen a sufficient recent Hulk cohort");
+  assert.equal(estimate.window_months, 24);
+  assert.equal(estimate.value, 18125);
+  assert.ok(hulk.provenance_events.some((event) => event.source_url.endsWith("/233078") &&
+    event.description.includes("CHF 17,780")));
+  assert.ok(!sales.some((sale) => sale.url.endsWith("/233078")), "do not treat the CHF result as a USD sale");
+}
 const withScreen = { ...shared, screen_sightings: { sightings: [{
   media_type: "film", match_level: "exact_reference", matched_card_ids: [fixture.id],
 }] } };

@@ -31,6 +31,14 @@
   "market_evidence": {
     "comps": [
       {
+        "date": "2023-05-04",
+        "price_usd": 22680,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/watches-online-dubai-edit/rolex-submariner-ref-116610lv-hulk-steel-automatic-wristwatch-130/181738",
+        "condition": "Circa 2019 green dial and ceramic bezel; guarantee and presentation box",
+        "box_papers": "full_set"
+      },
+      {
         "date": "2026-06-12",
         "price_usd": 21590,
         "venue": "christies",
@@ -86,6 +94,12 @@
     "auction_appearances_5y": null
   },
   "provenance_events": [
+    {
+      "date": "2026-09",
+      "person_or_event": "Phillips Geneva sale",
+      "description": "A circa-2014 Hulk with box and papers sold for CHF 17,780. Recorded in the original currency; not included in the USD estimate.",
+      "source_url": "https://www.phillips.com/detail/rolex/233078"
+    },
     {
       "date": "2010-01-01",
       "person_or_event": "Hulk 116610LV launch",
