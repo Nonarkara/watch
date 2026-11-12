@@ -431,6 +431,17 @@ try {
           browser('click', '.evidence-field-guide summary')
           browser('scrollintoview','.evidence-plot-wrap')
           browser('screenshot',join(out,'data-evidence-plot-390.png'))
+          browser('click', '.data-coverage-links a:nth-child(2)')
+          assert(evaluate(`(() => {
+            const nav = document.querySelector('.method-map');
+            const copy = document.querySelector('.data-methodology-copy');
+            return location.hash === '#how-we-work' && nav.getBoundingClientRect().bottom < copy.getBoundingClientRect().top &&
+              nav.querySelector('a').getBoundingClientRect().bottom < innerHeight;
+          })()`), 'The methodology jump must expose navigation before the long-form audit')
+          browser('click', '.method-map a[href="#method-3"]')
+          assert(evaluate("location.hash === '#method-3'"))
+          browser('open', base + '/data#how-we-work')
+          browser('wait', '--fn', 'document.querySelector(".method-map a")?.getBoundingClientRect().bottom < innerHeight && scrollY > 0')
           evaluate('window.scrollTo(0,0)')
         }
       }

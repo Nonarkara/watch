@@ -92,6 +92,14 @@ export default function Data() {
       .catch(() => setMarketIntake(null))
   }, [])
 
+  useEffect(() => {
+    if (!data) return
+    const id = window.location.hash.slice(1)
+    if (!/^(how-we-work|method-[1-7]|evidence-field-title)$/.test(id)) return
+    const frame = requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView())
+    return () => cancelAnimationFrame(frame)
+  }, [data])
+
   if (!data) return null
 
   const sources = [
@@ -270,15 +278,50 @@ export default function Data() {
       </section>
 
       <section className="data-methodology" id="how-we-work" aria-label="How we work, in full">
-        <div className="data-methodology-copy">
         <h2>How we work, in full.</h2>
         <p className="data-methodology-lede">
-          A watch enters the register the way a good answer enters a room: it carries its
-          sources. Everything that follows is the work of being honest about that — a single
-          loop that runs from <em>is this watch worth a dossier</em> to <em>what number can
-          we publish</em> to <em>what will we refuse to invent</em>. We will walk through it
-          once, end to end.
+          What gets a dossier, what counts as a comparable sale, and when we leave the price blank.
+          Start with the evidence ledger or jump to a step.
         </p>
+
+        <aside className="data-methodology-rail" aria-label="Live methodology ledger">
+          <p className="eyebrow">LIVE METHOD LEDGER</p>
+          <nav className="method-map" aria-label="Method sections">
+            <p className="method-rail-title mono">THE SEVEN CHECKPOINTS</p>
+            {[
+              ['01', 'Admission', '#method-1'],
+              ['02', 'The dossier', '#method-2'],
+              ['03', 'Honesty ladder', '#method-3'],
+              ['04', 'Card to wire', '#method-4'],
+              ['05', 'Four axes', '#method-5'],
+              ['06', 'Build and test', '#method-6'],
+              ['07', 'The rule', '#method-7'],
+            ].map(([number, label, href]) => (
+              <a href={href} key={href}><span className="mono">{number}</span><strong>{label}</strong><span>↓</span></a>
+            ))}
+          </nav>
+          <div className="method-refusal">
+            <strong>{data.count - cardStats.withEstimate}</strong>
+            <span className="mono">OF {data.count} DOSSIERS DO NOT PUBLISH A MARKET ESTIMATE</span>
+            <p>{cardStats.withEstimate} references clear the current comparable-sale gate. A blank price is a result, not unfinished UI.</p>
+          </div>
+
+          <div className="method-coverage" aria-label="Evidence coverage">
+            <p className="method-rail-title mono">EVIDENCE ON FILE</p>
+            {methodCoverage.map(([label, count]) => (
+              <div className="method-coverage-row" key={label}>
+                <div><span>{label}</span><strong className="mono">{count}/{data.count}</strong></div>
+                <span className="method-coverage-track" role="img" aria-label={`${label}: ${count} of ${data.count}`}>
+                  <span style={{ width: `${Math.round((count / data.count) * 100)}%` }} />
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="method-build mono">PUBLIC BUILD {data.built} · METHOD V{data.methodology_version}</p>
+        </aside>
+
+        <div className="data-methodology-copy">
 
         <h3 id="method-1">1. The first question: is this watch worth a dossier?</h3>
         <p>
@@ -393,43 +436,6 @@ export default function Data() {
         </p>
         </div>
 
-        <aside className="data-methodology-rail" aria-label="Live methodology ledger">
-          <p className="eyebrow">LIVE METHOD LEDGER</p>
-          <div className="method-refusal">
-            <strong>{data.count - cardStats.withEstimate}</strong>
-            <span className="mono">OF {data.count} DOSSIERS DO NOT PUBLISH A MARKET ESTIMATE</span>
-            <p>{cardStats.withEstimate} references clear the current comparable-sale gate. A blank price is a result, not unfinished UI.</p>
-          </div>
-
-          <div className="method-coverage" aria-label="Evidence coverage">
-            <p className="method-rail-title mono">EVIDENCE ON FILE</p>
-            {methodCoverage.map(([label, count]) => (
-              <div className="method-coverage-row" key={label}>
-                <div><span>{label}</span><strong className="mono">{count}/{data.count}</strong></div>
-                <span className="method-coverage-track" role="img" aria-label={`${label}: ${count} of ${data.count}`}>
-                  <span style={{ width: `${Math.round((count / data.count) * 100)}%` }} />
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <nav className="method-map" aria-label="Method sections">
-            <p className="method-rail-title mono">THE SEVEN CHECKPOINTS</p>
-            {[
-              ['01', 'Admission', '#method-1'],
-              ['02', 'The dossier', '#method-2'],
-              ['03', 'Honesty ladder', '#method-3'],
-              ['04', 'Card to wire', '#method-4'],
-              ['05', 'Four axes', '#method-5'],
-              ['06', 'Build and test', '#method-6'],
-              ['07', 'The rule', '#method-7'],
-            ].map(([number, label, href]) => (
-              <a href={href} key={href}><span className="mono">{number}</span><strong>{label}</strong><span>↓</span></a>
-            ))}
-          </nav>
-
-          <p className="method-build mono">PUBLIC BUILD {data.built} · METHOD V{data.methodology_version}</p>
-        </aside>
       </section>
 
       <section className="data-sources">
