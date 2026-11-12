@@ -958,19 +958,24 @@ function DistributionChart() {
 }
 
 function WatchCard({ watch }: { watch: PomWatch }) {
+  const photo = watch.image.startsWith('/img/pom-real/')
   return (
     <article className="pom-card" id={`pom-${watch.position}`}>
-      <div className="pom-card-image">
-        <img src={watch.image} alt={`${watch.brand} ${watch.reference} — pop-art portrait`} loading="lazy" decoding="async"  width={400} height={300} />
-        <span className="pom-card-pos">{String(watch.position).padStart(2, '0')}</span>
+      <div className="pom-card-lead">
+        <div className="pom-card-image">
+          <img src={watch.image} alt={`${photo ? 'Collection photograph' : 'Editorial illustration'} for ${watch.brand} ${watch.reference}`} loading="lazy" decoding="async" width={400} height={300} />
+          <span className="pom-card-pos">{String(watch.position).padStart(2, '0')}</span>
+        </div>
+        <div className="pom-card-identity">
+          <p className="pom-card-meta mono">
+            <span className="pom-card-brand">{watch.brand.toUpperCase()}</span>
+            <span className="pom-card-ref">{watch.reference}</span>
+          </p>
+          <h3 className="pom-card-name">{watch.watch}</h3>
+          <p className="pom-card-price mono">{formatPrice(watch)} · at publication</p>
+        </div>
       </div>
       <div className="pom-card-body">
-        <p className="pom-card-meta mono">
-          <span className="pom-card-brand">{watch.brand.toUpperCase()}</span>
-          <span className="pom-card-ref">{watch.reference}</span>
-        </p>
-        <h3 className="pom-card-name">{watch.watch}</h3>
-        <p className="pom-card-price mono">{formatPrice(watch)} · at publication</p>
         <p className="pom-card-note">{watch.note}</p>
         {watch.tip && (
           <p className="pom-card-tip">

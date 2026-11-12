@@ -27,6 +27,21 @@ try {
       evaluate('document.fonts.ready.then(() => true)')
       if (name === 'collector') {
         browser('wait', '.pom-history-toggle')
+        assert(evaluate(`(() => {
+          const cards = [...document.querySelectorAll('.pom-card')];
+          return cards.length === 14 && cards.every(card => {
+            const bounds = card.getBoundingClientRect();
+            const note = card.querySelector('.pom-card-note').getBoundingClientRect();
+            const chips = [...card.querySelectorAll('.score-axis')];
+            return card.querySelector('img') && card.querySelector('.pom-card-actions a') &&
+              note.width >= bounds.width * 0.75 && chips.length === 4 && chips.every(chip => {
+                const box = chip.getBoundingClientRect();
+                return box.left >= bounds.left && box.right <= bounds.right &&
+                  [...chip.children].every(child => child.scrollWidth <= child.clientWidth + 1 &&
+                    child.getBoundingClientRect().right <= box.right + 1);
+              });
+          });
+        })()`), 'Pom portraits and links must stay present; notes must span the card and score text must stay inside its chip')
         assert(evaluate("!document.querySelector('.pom-decision') && !document.querySelector('.pom-basis-snapshot') && !document.querySelector('.pom-basis-jumps')"),
           'stale estimates must not silently start a projection')
         if (width === 390) {

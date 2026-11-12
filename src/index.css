@@ -3620,12 +3620,14 @@ main.shell { padding-top: var(--space-md); }
 .pom-ledger-head .sticker-inline { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 
 .pom-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 2px solid var(--ink); }
-.pom-card { display: grid; grid-template-columns: 1fr; gap: 0; border-bottom: 1px solid var(--ink); }
+.pom-card { min-width: 0; border-bottom: 1px solid var(--ink); }
 .pom-card:last-child { border-bottom: 0; }
-.pom-card-image { position: relative; aspect-ratio: 1 / 1; background: var(--paper-2); border-bottom: 1px solid var(--ink); }
-.pom-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pom-card-lead { display: grid; grid-template-columns: min(32%, 120px) minmax(0, 1fr); align-items: center; gap: 12px; padding: 12px 16px 0; }
+.pom-card-image { position: relative; aspect-ratio: 1 / 1; background: var(--paper-2); }
+.pom-card-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.pom-card-identity { display: flex; flex-direction: column; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
 .pom-card-pos { position: absolute; top: 8px; left: 8px; background: var(--ink); color: var(--paper); font-family: var(--font-display); font-size: 16px; font-weight: 700; padding: 4px 8px; letter-spacing: -0.02em; }
-.pom-card-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pom-card-body { padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .pom-card-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin: 0; }
 .pom-card-brand { color: var(--coral-text); font-size: 10px; letter-spacing: 0.16em; }
 .pom-card-ref { font-weight: 500; font-size: 12px; }
@@ -3637,6 +3639,7 @@ main.shell { padding-top: var(--space-md); }
 .pom-card-axes { display: flex; flex-wrap: wrap; gap: 4px; }
 .pom-card-axes .score-axis { display: inline-flex; flex-wrap: wrap; max-width: 100%; min-width: 0; align-items: center; gap: 6px; padding: 3px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.4; border: 1px solid var(--ink); background: var(--paper-2); }
 .pom-card-axes .score-axis strong { display: inline-block; }
+.pom-card-axes .score-axis > span { min-width: 0; overflow-wrap: anywhere; white-space: normal; }
 .pom-card-actions { display: flex; gap: 8px; }
 .pom-card-actions a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 12px; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); background: var(--paper-2); }
 .pom-card-actions a:hover { background: var(--ink); color: var(--paper); }
@@ -3645,23 +3648,11 @@ main.shell { padding-top: var(--space-md); }
 .pom-meth-foot a { color: var(--coral-text); text-decoration: none; }
 .pom-meth-foot a:hover { text-decoration: underline; }
 
-/* The image column is a SHARE of the card, not a fixed 200px. A fixed column
-   meant that at 1024px — three cards across, each 305px wide — the body was
-   left 104px, and the essay in it rendered one word per line. The card is
-   now allowed to be two-up until there is genuinely room for three. */
-@media (min-width: 720px) {
-  .pom-grid { grid-template-columns: 1fr 1fr; }
-  .pom-card { grid-template-columns: minmax(120px, 38%) minmax(0, 1fr); }
+/* Portrait and identity share one row; the notes no longer pay for an image rail. */
+@media (min-width: 880px) {
+  .pom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pom-card:nth-child(odd) { border-right: 1px solid var(--ink); }
-  .pom-card-image { border-bottom: 0; border-right: 1px solid var(--ink); aspect-ratio: 1 / 1; }
-}
-@media (min-width: 1360px) {
-  .pom-grid { grid-template-columns: 1fr 1fr 1fr; }
-  .pom-card { grid-template-columns: minmax(120px, 38%) minmax(0, 1fr); }
-  .pom-card:nth-child(3n+1), .pom-card:nth-child(3n+2) { border-right: 1px solid var(--ink); }
-  .pom-card:nth-child(3n+3) { border-right: 0; }
-  .pom-card:nth-last-child(-n+2) { border-bottom: 0; }
-  .pom-card:nth-last-child(1) { border-bottom: 0; }
+  .pom-card:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
 }
 
 /* ── FILM WATCHES (GQ-style 16-item list) ──────────────────────────────────
