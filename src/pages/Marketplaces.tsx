@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import {
@@ -13,7 +13,6 @@ import { usd } from '../lib/format.ts'
 export default function Marketplaces() {
   const data = useDataset()
   const [searchParams, setSearchParams] = useSearchParams()
-  const [selectedId, setSelectedId] = useState('')
   const [regionFilter, setRegionFilter] = useState('ALL')
   const [typeFilter, setTypeFilter] = useState('ALL')
   const [searchQuery, setSearchQuery] = useState('')
@@ -23,14 +22,9 @@ export default function Marketplaces() {
     [data],
   )
 
-  const selectedCard = useMemo(() => cards.find((c) => c.id === selectedId), [cards, selectedId])
   const requestedWatchId = searchParams.get('watch')
+  const selectedCard = cards.find((card) => card.id === requestedWatchId)
   const invalidRequestedWatch = requestedWatchId != null && cards.length > 0 && !cards.some((card) => card.id === requestedWatchId)
-
-  useEffect(() => {
-    if (!requestedWatchId || !cards.some((card) => card.id === requestedWatchId)) return
-    setSelectedId(requestedWatchId)
-  }, [cards, requestedWatchId])
 
   const filteredVenues = useMemo(() => {
     let list = filterVenues(GLOBAL_VENUES, regionFilter, typeFilter)
@@ -60,7 +54,6 @@ export default function Marketplaces() {
   if (!data) return null
 
   const chooseWatch = (watchId: string) => {
-    setSelectedId(watchId)
     const next = new URLSearchParams(searchParams)
     if (watchId) next.set('watch', watchId)
     else next.delete('watch')
@@ -70,13 +63,10 @@ export default function Marketplaces() {
   return (
     <>
       <p className="eyebrow">GLOBAL DIRECTORY & VERIFIED FEE LAB</p>
-      <h1 className="pagetitle">Where watches change hands.</h1>
+      <h1 className="pagetitle">What does it cost to sell?</h1>
       <p className="lede">
-        Search marketplaces, dealers, and auction houses. Fee math appears only where Time Pop has
-        checked an official schedule. Every calculation starts from one dossier estimate; it is a
-        scenario, not a live quote from the venue.
+        Compare published venue fees against one watch estimate. These scenarios are not quotes.
       </p>
-      <p className="mono micro dim">DIRECTORY: {GLOBAL_VENUES.length} ENTRIES · SOURCE: TIME POP DIRECTORY · TIER WORKING · BUILD 2026-08-17 · VERIFY CURRENT TERMS WITH THE VENUE</p>
 
       {/* Watch Selection & Reference Valuation Bar */}
       <div className="venue-card-selector-panel">
@@ -88,7 +78,7 @@ export default function Marketplaces() {
         <div className="selector-row">
           <select
             className="sel field"
-            value={selectedId}
+            value={selectedCard?.id ?? ''}
             onChange={(e) => chooseWatch(e.target.value)}
             aria-label="Choose a watch reference"
           >
@@ -114,23 +104,32 @@ export default function Marketplaces() {
               <h3>{selectedCard.identity.name} <span className="mono">{selectedCard.identity.reference}</span></h3>
               <p className="mono micro dim">
                 {selectedCard.computed.estimate.value != null
-                  ? `MARKET BASELINE: ${usd(selectedCard.computed.estimate.value)} · ${selectedCard.computed.estimate.n} COMPS · TIER ${selectedCard.computed.confidence.tier ?? '—'} · AS OF ${selectedCard.computed.estimate.as_of ?? '—'}`
+                  ? `${selectedCard.computed.estimate.stale ? 'HISTORICAL' : 'MARKET'} BASELINE: ${usd(selectedCard.computed.estimate.value)} · ${selectedCard.computed.estimate.n} SALES · TIER ${selectedCard.computed.confidence.tier ?? '—'} · AS OF ${selectedCard.computed.estimate.as_of ?? '—'}`
                   : 'NO MARKET BASELINE · FEE MATH STAYS OFF'}
               </p>
             </div>
-            <div className="swb-actions">
-              <Link to={`/pom?watch=${encodeURIComponent(selectedCard.id)}#value-lab`} className="btn secondary">
-                MODEL HOLDING PERIODS →
-              </Link>
-              <Link to={`/w/${selectedCard.id}`} className="btn secondary">
-                OPEN DOSSIER →
-              </Link>
-            </div>
           </div>
         )}
+        {venueScenarios.some(s => s.seller_proceeds != null || s.buyer_total != null) && (
+          <table className="sales-table venue-receipt" aria-label="Modeled venue costs, not quotes">
+            <thead><tr><th scope="col">Modeled venue</th><th scope="col" className="num">Seller net</th><th scope="col" className="num">Buyer total</th></tr></thead>
+            <tbody>{venueScenarios.filter(s => s.seller_proceeds != null || s.buyer_total != null).map(s => (
+              <tr key={s.venue.id}>
+                <td>{s.venue.name}{s.fee_rule?.sources[0] && <a className="dossier-sale-detail micro src-a" href={s.fee_rule.sources[0].url} target="_blank" rel="noopener noreferrer" aria-label={`Fee checked ${s.fee_rule.checked_date}: ${s.venue.name} official schedule`}>Fee checked {s.fee_rule.checked_date} ↗</a>}</td>
+                <td className="num">{s.seller_proceeds == null ? <span aria-label="Not modeled">—</span> : usd(s.seller_proceeds)}</td>
+                <td className="num">{s.buyer_total == null ? <span aria-label="Not modeled">—</span> : usd(s.buyer_total)}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        )}
+        {selectedCard && <div className="swb-actions">
+          <Link to={`/pom?watch=${encodeURIComponent(selectedCard.id)}#value-lab`} className="btn secondary">MODEL HOLDING PERIODS →</Link>
+          <Link to={`/w/${selectedCard.id}`} className="btn secondary">OPEN DOSSIER →</Link>
+        </div>}
       </div>
 
       {/* Directory Filter Controls */}
+      <p className="mono micro dim">DIRECTORY: {GLOBAL_VENUES.length} ENTRIES · SOURCE: TIME POP DIRECTORY · TIER WORKING · BUILD 2026-08-17 · VERIFY CURRENT TERMS WITH THE VENUE</p>
       <div className="venue-filters-bar">
         <div className="vf-search">
           <input

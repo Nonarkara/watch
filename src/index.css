@@ -5462,21 +5462,25 @@ main.shell { padding-top: var(--space-md); }
 
 /* ── Global Marketplaces & Venue Directory Styles ── */
 .venue-card-selector-panel {
-  background: var(--paper-2);
-  border: var(--border);
-  padding: var(--space-lg);
-  margin: var(--space-lg) 0;
+  border-block: var(--border);
+  padding-block: 8px;
+  margin: 12px 0;
+  max-inline-size: 52rem;
 }
+.venue-card-selector-panel .section-rule { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.venue-receipt { min-width: 0; }
+.venue-receipt :is(th, td) { padding-inline-end: 8px; vertical-align: top; overflow-wrap: anywhere; }
+.venue-receipt :is(th, td):last-child { padding-inline-end: 0; }
+.venue-receipt .src-a { inline-size: fit-content; min-block-size: 24px; }
+.venue-card-selector-panel .swb-actions { margin-block-start: 8px; }
 .selected-watch-banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-md);
-  background: var(--bg);
-  border: var(--border);
-  padding: var(--space-md);
-  margin-top: var(--space-md);
+  gap: 6px 12px;
+  padding-block: 6px;
+  margin-top: 6px;
 }
 .swb-info h3 {
   font-family: var(--font-display);

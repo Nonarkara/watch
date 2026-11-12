@@ -250,6 +250,23 @@ try {
   assert(evaluate("document.querySelector('.txn-scenario-details[open]').textContent.includes('94–97%')"))
   browser('click', '.dsr-action-group--models a:last-child')
   browser('wait', '--url', '**/marketplaces?watch=rolex-116500ln')
+  for (const [width, height] of [[390,844], [1024,900], [1440,900]]) {
+    browser('set', 'viewport', String(width), String(height))
+    browser('open', base + '/marketplaces?watch=rolex-116500ln')
+    browser('wait', '.venue-receipt tbody tr')
+    const receipt = evaluate(`(() => {
+      const table=document.querySelector('.venue-receipt'), first=table.tBodies[0].rows[0];
+      return {fits:table.scrollWidth<=table.clientWidth+1, first:first.getBoundingClientRect().bottom,
+        baseline:document.querySelector('.swb-info').textContent, sources:[...table.querySelectorAll('tbody tr')].every(r=>!!r.querySelector('a[href^="https://"]'))};
+    })()`)
+    assert(receipt.fits && receipt.sources && receipt.first<=height && receipt.baseline.includes('HISTORICAL BASELINE: $25,600'), JSON.stringify(receipt))
+    browser('screenshot', join(out, `venue-receipt-${width}.png`))
+    if(width===390) {
+      browser('select', 'select[aria-label="Choose a watch reference"]', 'casio-ae-1200')
+      assert(evaluate("!document.querySelector('.venue-receipt') && document.querySelector('.swb-info').textContent.includes('NO MARKET BASELINE')"))
+    }
+    proofs.push({name:'venue-receipt',width,...receipt})
+  }
   browser('set', 'viewport', '390', '844')
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '.spectrum-axis')

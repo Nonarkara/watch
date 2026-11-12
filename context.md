@@ -96,6 +96,8 @@ equivalent second. Auction-opening dates never read as verified lot dates.
 Rehome uses a workbench grid: choose the reference first, draft on the left and
 copy on the right when wide enough; phones can jump directly from draft to copy.
 The brief carries the evidence date even when it leaves the site.
+Venue costs use a column ledger: the selected baseline and date lead, seller
+and buyer figures sit beside the venue, and directory research stays below.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
