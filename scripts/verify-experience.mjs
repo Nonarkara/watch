@@ -130,6 +130,16 @@ try {
           })()`), 'a tall introductory band must fail the first-action budget')
           browser('click','.data-coverage-links a:first-child')
           assert(evaluate("location.hash==='#evidence-field-title' && document.activeElement.id==='evidence-field-title' && document.activeElement.getBoundingClientRect().top<innerHeight"))
+          assert(evaluate(`(() => {
+            const action = document.querySelector('.evidence-open'), next = action.nextElementSibling;
+            const score = document.querySelector('.evidence-readout-score');
+            const before = action.getBoundingClientRect(), visible = before.bottom <= innerHeight && before.height >= 44 &&
+              before.top - score.getBoundingClientRect().bottom <= 12;
+            action.parentElement.append(action);
+            const oldGap = action.getBoundingClientRect().top - score.getBoundingClientRect().bottom;
+            next.before(action);
+            return visible && oldGap > 100;
+          })()`), 'after the chart jump the dossier action belongs by the score, not below the evidence ledger')
           browser('click','.evidence-toggle button:last-child')
           assert(evaluate("document.querySelector('.evidence-toggle button:last-child').getAttribute('aria-pressed')==='true'"))
           browser('click', '.evidence-field-guide summary')

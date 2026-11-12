@@ -138,13 +138,16 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
         </div>
 
         {selected && selectedChannels && selectedMetric && (
-          <aside className="evidence-readout" aria-live="polite">
-            <p className="eyebrow">{selected.identity.brand.toUpperCase()} · {selected.identity.reference}</p>
-            <h3>{selected.identity.name}</h3>
-            <div className="evidence-readout-score">
-              <strong>{metricValue(selected, metric) ?? '—'}</strong>
-              <span className="mono">{metricValue(selected, metric) === null ? 'NO PUBLISHED SCORE' : `/100 ${metricLabel(metric).toUpperCase()}`}<br />{selectedMetric.tier?.toUpperCase() ?? 'NO TIER'} · {selectedMetric.k_of[0]}/{selectedMetric.k_of[1]} SIGNALS</span>
+          <aside className="evidence-readout" aria-label="Selected watch">
+            <div aria-live="polite" aria-atomic="true">
+              <p className="eyebrow">{selected.identity.brand.toUpperCase()} · {selected.identity.reference}</p>
+              <h3>{selected.identity.name}</h3>
+              <div className="evidence-readout-score">
+                <strong>{metricValue(selected, metric) ?? '—'}</strong>
+                <span className="mono">{metricValue(selected, metric) === null ? 'NO PUBLISHED SCORE' : `/100 ${metricLabel(metric).toUpperCase()}`}<br />{selectedMetric.tier?.toUpperCase() ?? 'NO TIER'} · {selectedMetric.k_of[0]}/{selectedMetric.k_of[1]} SIGNALS</span>
+              </div>
             </div>
+            <Link to={`/w/${selected.id}`} className="evidence-open mono">OPEN DOSSIER →</Link>
             <p className="evidence-depth-line mono">{evidenceDepth(selected)}/5 PUBLIC EVIDENCE CHANNELS</p>
             <dl className="evidence-channel-list">
               {EVIDENCE_CHANNELS.map((channel) => (
@@ -157,9 +160,10 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
             <p className="micro dim evidence-limitation">{selectedMetric.limitation}</p>
             <p className="micro mono dim">
               PUBLIC BUILD {built} · METHOD V2
-              {selected.comp_summary ? ` · ${selected.comp_summary.n} COMPS · ${selected.comp_summary.venues.length} VENUES` : ' · NO COMPS'}
+              {selected.comp_summary
+                ? ` · ${selected.comp_summary.n} COMP${selected.comp_summary.n === 1 ? '' : 'S'} · ${selected.comp_summary.venues.length} VENUE${selected.comp_summary.venues.length === 1 ? '' : 'S'}`
+                : ' · NO COMPS'}
             </p>
-            <Link to={`/w/${selected.id}`} className="evidence-open mono">OPEN DOSSIER →</Link>
           </aside>
         )}
       </div>
