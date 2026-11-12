@@ -649,6 +649,13 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
   font-family: var(--font-mono);
 }
 .dsr-verdict-row:first-child { border-top: 0; }
+@media (max-width: 360px) {
+  .dsr-verdict-row {
+    grid-template-columns: 56px 36px minmax(0, 1fr) 60px;
+    column-gap: 8px;
+    overflow-wrap: anywhere;
+  }
+}
 .dsr-verdict-key { font-size: 10px; letter-spacing: 0.12em; }
 .dsr-verdict-val { font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .dsr-verdict-cap { font-size: 10px; letter-spacing: 0.06em; color: var(--dim); }

@@ -470,6 +470,7 @@ try {
   evaluate("fetch('/data.json').then(r=>r.json()).then(d=>{localStorage.setItem('watch.saved',JSON.stringify(d.cards.slice(0,200).map(c=>c.id)));return true})")
   browser('reload')
   browser('wait', '.saved-badge[aria-label="Saved watches: 200"]')
+  browser('wait', '.dsr-verdict')
   for (const [width,height] of [[320,720],[390,844],[721,900],[1024,900],[1440,900]]) {
     browser('set','viewport',String(width),String(height))
     evaluate('document.fonts.ready.then(() => true)')
@@ -483,6 +484,15 @@ try {
         city.style.width='auto';city.style.paddingInline='10px';name.style.display='inline';pin.style.display='none';
         falsifier=!fits();
         for(const el of [city,name,pin])el.removeAttribute('style');
+        const verdict=document.querySelector('.dsr-verdict');
+        const rows=[...verdict.querySelectorAll('.dsr-verdict-row')];
+        const verdictFits=()=>document.documentElement.scrollWidth<=innerWidth+1 && rows.length===4 &&
+          rows.every(row=>row.lastElementChild.getBoundingClientRect().right<=verdict.getBoundingClientRect().right);
+        const compact=verdictFits();
+        for(const row of rows) {row.style.gridTemplateColumns='80px 56px 1fr 80px';row.style.columnGap='0';row.style.overflowWrap='normal';}
+        const fixedFails=!verdictFits();
+        for(const row of rows)row.removeAttribute('style');
+        falsifier=falsifier && compact && fixedFails;
       }
       const controls=[...cluster.querySelectorAll('button,a')];
       return {current,falsifier,controls:controls.length,targets:controls.every(el=>{const r=el.getBoundingClientRect();return r.width>=44&&r.height>=44}),
