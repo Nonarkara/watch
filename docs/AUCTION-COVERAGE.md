@@ -305,3 +305,25 @@ Phillips puts New York lot 152 in [Session II on June 14, 2026](https://www.phil
 and Geneva lots 172, 193 and 214 in [Session II on May 10, 2026](https://www.phillips.com/auction/CH080226/overview).
 Use the session date with its source on any published lot row. Preserve the
 opening date in the raw queue and never substitute it for the session date.
+
+### Review case: Patek Philippe 3700/11
+
+Phillips reports five realized prices under 3700/11 in the intake queue.
+The lot records distinguish steel, yellow gold and two-tone configurations;
+they do not price one interchangeable watch. Sources checked 2026-11-13 (Bangkok).
+
+| Phillips lot | Session date | Configuration | Reported sale |
+|---|---|---|---:|
+| [New York XIV, 26](https://www.phillips.com/detail/patek-philippe/233442) | 2026-06-13 | Steel, Tiffany & Co. retailer signature, archive extract | USD 355,600 |
+| [New York XIV, 99](https://www.phillips.com/detail/patek-philippe/232963) | 2026-06-14 | Yellow gold, original owner's family, certificate and box | USD 228,600 |
+| [Hong Kong XXII, 918](https://www.phillips.com/detail/patek-philippe/233256) | 2026-05-30 | Steel, Type 3 serif dial, service sealed | HKD 952,500 |
+| [Hong Kong XXII, 1021](https://www.phillips.com/detail/patek-philippe/232323) | 2026-05-31 | Steel and yellow gold, matte black dial, travel pouch | HKD 762,000 |
+| [Geneva XXIII, 218](https://www.phillips.com/detail/patek-philippe/229801) | 2026-05-10 | Yellow gold, North American import mark, archive extract | CHF 146,050 |
+
+Dates follow the published [New York](https://www.phillips.com/auction/NY080126/overview),
+[Hong Kong](https://www.phillips.com/auction/HK080226/overview) and
+[Geneva](https://www.phillips.com/auction/CH080226/overview) lot ranges. The queue
+stores the opening day, which differs from the session date for three lots.
+Keep these as native-currency observations on a distinct 3700/11 dossier,
+not as comps for the earlier 3700/1A. The observations do not establish a
+Tiffany, material, or condition premium.
