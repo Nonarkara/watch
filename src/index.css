@@ -519,13 +519,27 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .handover-checklist strong { font-weight: 600; }
 
 /* ── Scarcity economics ── */
-.scarcity-chips { margin-bottom: var(--space-md); }
+.scarcity-distribution, .scarcity-guide { max-inline-size: 48rem; }
+.chips.scarcity-chips { flex-wrap: wrap; overflow: visible; margin-bottom: var(--space-sm); }
+.metric-strip.scarcity-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-block: var(--space-md); }
+.scarcity-summary .mcell { padding: var(--space-sm); }
+.scarcity-summary .mcell:nth-last-child(-n+2) { border-bottom: 0; }
+.scarcity-summary .val.big { font-size: var(--text-body); font-weight: 700; }
+@media (min-width: 880px) {
+  .metric-strip.scarcity-summary { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .scarcity-summary .mcell { border-bottom: 0; }
+  .scarcity-summary .mcell:not(:last-child) { border-right: 1px solid var(--ink); }
+}
 .scarcity-list { border-top: var(--border); }
-.scarcity-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md); align-items: center; min-height: var(--tap-min); padding: var(--space-sm) 0; border-bottom: var(--border); }
-.scarcity-row > span:first-child { min-width: 0; }
-.scarcity-reasons { display: block; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
-.scarcity-score { text-align: right; }
-.scarcity-score > span { display: block; }
+.scarcity-guide { border-bottom: var(--border); }
+.scarcity-guide summary { cursor: pointer; min-block-size: 32px; padding-block: var(--space-xs); }
+.scarcity-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px var(--space-md); align-items: baseline; min-height: var(--tap-min); padding: var(--space-sm) 0; border-bottom: var(--border); }
+.scarcity-row > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.scarcity-reasons { grid-column: 1 / -1; }
+.scarcity-score { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--space-sm); }
+@media (max-width: 480px) {
+  .scarcity-row { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* ── Register controls ── */
 .controls { display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-lg) 0 var(--space-sm); }

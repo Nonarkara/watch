@@ -146,6 +146,17 @@ function verifyMarket() {
       document.documentElement.scrollWidth === innerWidth)`), 'Pom search must stay readable after Clear appears at 239px')
     browser('press', 'Escape')
     assert(evaluate("document.querySelector('.pom-watch-search input').value === ''"))
+    browser('open', base + '/signals')
+    browser('wait', '.scarcity-row')
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const filters = [...document.querySelectorAll('.scarcity-chips button')];
+      return filters.length === 4 && filters.every(button => {
+        const rect = button.getBoundingClientRect();
+        return rect.right <= innerWidth && rect.bottom <= innerHeight;
+      }) && document.querySelector('.scarcity-row').getBoundingClientRect().top < innerHeight;
+    })`), 'Scarcity filters and the first result must be reachable without scrolling at 239px')
+    browser('click', '.scarcity-chips button:first-child')
+    assert(evaluate("document.querySelector('.scarcity-chips button:first-child').getAttribute('aria-pressed') === 'true' && document.querySelector('.scarcity-distribution [role=status]').textContent.includes('GRAIL')"))
   } finally {
     browser('close')
     session = mainSession

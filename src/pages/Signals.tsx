@@ -16,20 +16,19 @@ export default function Signals() {
       <p className="eyebrow">Scarcity Economics</p>
       <h1 className="pagetitle">Scarcity is not one thing</h1>
       <p className="lede">
-        A watch can be scarce because production stopped, an edition was fixed, distribution is
-        constrained, or few examples appear for sale. The register keeps those causes separate and
-        shows how much evidence supports every score. Scarcity describes access; it does not promise value.
+        Scarcity describes how hard a watch is to find, not what it’s worth. Each score shows how
+        many public signals support it.
       </p>
 
+      <details className="scarcity-guide">
+        <summary>What goes into the scarcity score?</summary>
       <div className="metric-strip scarcity-summary">
-        <SummaryCell label="References studied" value={summary.total} note="THE FULL REGISTER" />
+        <SummaryCell label="References" value={summary.total} note="THE FULL REGISTER" />
         <SummaryCell label="Closed supply" value={summary.discontinued} note="PRODUCTION ENDED" />
         <SummaryCell label="Fixed editions" value={summary.limited} note="MAKER-STATED LIMITED" />
         <SummaryCell label="Waitlist evidence" value={summary.waitlisted} note="SOURCED PUBLIC CLAIMS" />
       </div>
 
-      <section className="sect">
-        <h2 className="sect-h"><span>The five public signals</span><span className="mono">MISSING SIGNALS ARE NOT GUESSED</span></h2>
         <dl className="spec-grid">
           <Signal label="Production status" text="Once a reference is discontinued, the supply can circulate but cannot grow through new production." />
           <Signal label="Edition size" text="A maker-stated limit closes supply from launch. A numbered edition is evidence; the word ‘rare’ is not." />
@@ -37,13 +36,13 @@ export default function Signals() {
           <Signal label="Observed availability" text="Recent listings indicate how often examples surface. Thin venue coverage is treated as a limitation." />
           <Signal label="Waitlist evidence" text="Sourced allocation or waitlist reports describe constrained access, which is demand pressure rather than physical rarity." />
         </dl>
-      </section>
+      </details>
 
-      <section className="sect">
-        <h2 className="sect-h"><span>Read the distribution</span><span className="mono">{cards.length} {tier.toUpperCase()} REFERENCE{cards.length === 1 ? '' : 'S'}</span></h2>
+      <section className="sect scarcity-distribution">
+        <h2 className="sect-h"><span>Read the distribution</span><span className="mono" role="status">{cards.length} {tier.toUpperCase()} REFERENCE{cards.length === 1 ? '' : 'S'}</span></h2>
         <div className="chips scarcity-chips" role="group" aria-label="Scarcity tier">
           {SCARCITY_TIERS.map((name) => (
-            <button type="button" key={name} className={'chip' + (tier === name ? ' on' : '')} onClick={() => setTier(name)}>
+            <button type="button" key={name} aria-pressed={tier === name} className={'chip' + (tier === name ? ' on' : '')} onClick={() => setTier(name)}>
               {name} · {summary.tierCounts[name]}
             </button>
           ))}
@@ -57,14 +56,12 @@ export default function Signals() {
                   <span className="l-brand">{card.identity.brand}</span>{' '}
                   <span className="l-ref mono">{card.identity.reference}</span>
                   {card.identity.nickname && <span className="l-nick"> “{card.identity.nickname}”</span>}
-                  <span className="scarcity-reasons micro dim">
-                    {reasons.length ? reasons.join(' · ') : 'no closed-supply claim'}
-                  </span>
                 </span>
                 <span className="scarcity-score mono">
-                  {card.computed.scarcity.value}
-                  <span className="micro dim"> / 100 · {card.computed.scarcity.k_of[0]}/{card.computed.scarcity.k_of[1]} SIGNALS</span>
+                  <strong>{card.computed.scarcity.value}/100</strong>
+                  <span className="micro dim">{card.computed.scarcity.k_of[0]}/{card.computed.scarcity.k_of[1]} signals</span>
                 </span>
+                {reasons.length > 0 && <span className="scarcity-reasons micro dim">{reasons.join(' · ')}</span>}
               </Link>
             )
           })}
