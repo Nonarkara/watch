@@ -5,7 +5,7 @@
     "brand": "Rolex",
     "reference": "116400GV",
     "name": "Milgauss",
-    "nickname": "GV",
+    "nickname": "GV · Black dial",
     "collection": "Milgauss",
     "tier": "crown",
     "produced": { "start_year": 2007, "end_year": 2023, "discontinued": true },
@@ -19,9 +19,10 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2025-06-11", "price_usd": 12600, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-milgauss-ref-116400gv-284/260795", "condition": null, "box_papers": null },
-      { "date": "2025-12-17", "price_usd": 12065, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-bracelet-ref-116400gv-319/285404", "condition": null, "box_papers": null },
-      { "date": "2025-12-17", "price_usd": 10795, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-ref-116400gv-204/285288", "condition": null, "box_papers": null }
+      { "date": "2025-06-11", "price_usd": 12600, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-milgauss-ref-116400gv-284/260795", "condition": "Z-Blue dial, not the black-dial baseline", "box_papers": "full_set", "comparable": false },
+      { "date": "2025-12-17", "price_usd": 12065, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-bracelet-ref-116400gv-319/285404", "condition": "Black dial, circa 2022", "box_papers": "full_set" },
+      { "date": "2025-12-17", "price_usd": 10795, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-ref-116400gv-204/285288", "condition": "Black dial, circa 2010; case V934252", "box_papers": "full_set" },
+      { "date": "2025-05-01", "price_usd": 11970, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-dubai-edit-stories-time-collection-exceptional-watches/rolex-milgauss-ref-116400gv-fine-stainless-steel-anti-magnetic-95/257562", "condition": "Black dial, circa 2010; case G070742; bracelet wear", "box_papers": "full_set" }
     ],
     "listing_observations": []
   },
@@ -36,7 +37,7 @@
   ],
   "narrative": {
     "story": "Rolex revived the Milgauss in 2007 and gave the GV version a green-tinted sapphire crystal — 'Glace Verte' — over a black, and from 2014 an electric 'Z-Blue', dial with the orange lightning-bolt seconds hand. The antimagnetic shield and caliber 3131 continued the 1950s scientist's-watch brief. When Rolex dropped the Milgauss entirely in 2023, the GV became the line's closing statement and secondary interest picked up.",
-    "collector_notes": "Black-dial and Z-Blue versions trade differently; the green crystal is nearly impossible to scratch but check the case and shield-related service history. Discontinuation, not rarity, drives the current premium.",
+    "collector_notes": "The estimate covers black-dial examples only. Z-Blue sales are shown separately. Check the case and shield-related service history.",
     "starter_alternative": "casio-gmw-b5000"
   },
   "meta": {
@@ -44,6 +45,7 @@
     "curated_date": "2026-07-31",
     "sources": [
       "https://www.hodinkee.com/articles/the-rolex-milgauss-is-now-discontinued",
+      "https://onlineonly.christies.com/s/watches-online-dubai-edit-stories-time-collection-exceptional-watches/rolex-milgauss-ref-116400gv-fine-stainless-steel-anti-magnetic-95/257562",
       "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-milgauss-ref-116400gv-284/260795",
       "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-bracelet-ref-116400gv-319/285404",
       "https://onlineonly.christies.com/s/watches-online-new-york-edit/rolex-stainless-steel-milgauss-ref-116400gv-204/285288"

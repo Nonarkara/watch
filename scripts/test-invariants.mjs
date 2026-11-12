@@ -17,6 +17,12 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
 }).nominal_pct, null, "overlapping cohorts must refuse a trend");
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
 const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
+const milgauss = JSON.parse(readFileSync(new URL("../data/cards/rolex-116400gv.json", import.meta.url), "utf8"));
+const milgaussComps = milgauss.market_evidence.comps.filter((sale) => sale.comparable !== false);
+assert.equal(milgauss.market_evidence.comps.find((sale) => sale.url.endsWith("/260795"))?.comparable, false);
+assert.ok(milgaussComps.every((sale) => sale.condition.startsWith("Black dial")),
+  "only black-dial Milgauss sales can price the black-dial dossier");
+assert.ok(milgaussComps.some((sale) => sale.url.endsWith("/257562") && sale.price_usd === 11970));
 for (const [lot, color] of [["NY080424/1", "Turquoise"], ["260548", "Green"], ["260550", "Yellow"]]) {
   const sale = op41.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`));
   assert.equal(sale?.comparable, false, `${color} sale must not price the generic OP41`);
