@@ -197,6 +197,8 @@ export default function Register() {
 function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, number> }) {
   const { has, toggle } = useCompare()
   const [photoUnavailable, setPhotoUnavailable] = useState(false)
+  const photo = c.media.find(item => item.match === 'exact_reference') ?? c.media[0]
+  const relatedPhoto = photo?.match === 'reference_family'
   const inSet = has(c.id)
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
@@ -207,11 +209,15 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       draggable
       onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
     >
-      {c.media[0] && !photoUnavailable ? (
+      {photo && !photoUnavailable ? (
         <Link to={`/w/${c.id}`} className="rc-media-link">
           <div className="rc-media">
-            <img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} loading="lazy" decoding="async" onError={() => setPhotoUnavailable(true)} className="photo-img" width={400} height={300} />
+            <img src={photo.url} alt={relatedPhoto
+              ? `Related watch from ${c.identity.brand}, not reference ${c.identity.reference}`
+              : `${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`}
+              loading="lazy" decoding="async" onError={() => setPhotoUnavailable(true)} className="photo-img" width={400} height={300} />
           </div>
+          {relatedPhoto && <span className="rc-media-note mono">Related watch · not this reference</span>}
         </Link>
       ) : <p className="rc-media-empty mono">{photoUnavailable ? 'PHOTO COULD NOT LOAD' : 'NO PHOTO ON FILE'}</p>}
       <div className="rc-id">

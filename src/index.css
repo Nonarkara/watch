@@ -1715,6 +1715,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .register-method a { display: inline-flex; align-items: center; min-height: 32px; text-decoration: underline; }
 .register-controls { margin-top: 8px; }
 .rc-media-empty { margin: 0 0 8px; }
+.rc-media-note { margin: -4px 0 8px; color: var(--dim); font-size: var(--text-micro); line-height: 1.35; }
 .card-grid-view { margin-top: var(--space-sm); }
 .card-grid-view:has(> .reg-card:only-child) { grid-template-columns: minmax(0, 340px); width: fit-content; max-width: 100%; }
 .card-grid-view > .reg-card:only-child .rc-media { max-height: 144px; }

@@ -123,6 +123,14 @@ try {
           const search = 'input[aria-label="Search the register"]'
           browser('fill', search, 'AE-1200WH-1AV')
           assert(evaluate("document.querySelector('.rc-media-empty').getBoundingClientRect().height<=24 && !document.querySelector('.reg-card .rc-media')"))
+          browser('fill', search, '5712/1A')
+          assert(evaluate(`(() => {
+            const card=document.querySelector('.rc-name-link[href="/w/patek-5712-1a"]').closest('.reg-card');
+            const photo=card.querySelector('img'), note=card.querySelector('.rc-media-note');
+            return photo ? note.textContent==='Related watch · not this reference' &&
+              photo.alt.includes('not reference 5712/1A') && note.getBoundingClientRect().height>0
+              : card.querySelector('.rc-media-empty')?.textContent==='PHOTO COULD NOT LOAD';
+          })()`), 'a related portrait must be visibly and accessibly qualified, or fail to a labeled photo status')
           browser('fill', search, '116710BLNR')
           assert(evaluate("document.querySelector('.rc-data dt').textContent==='Historical'"))
           browser('click', '.register-view-toggle button:last-child')
