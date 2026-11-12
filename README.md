@@ -83,3 +83,10 @@ after a dossier or shared-chart change. The three samples cover native-currency
 lot records without an estimate (6265), a historical estimate with charts
 (116500LN), and a dial-scoped refusal (Tiffany 5711). This is a seven-width
 layout check, not a replacement for the full sweep or keyboard testing.
+
+To compare a retained JSON artifact against a revised receipt without
+reopening the browser, run
+`node scripts/spatial/spatial-check.mjs --replay spatial-measurements.json`.
+For an artifact captured with explicit routes or widths, repeat those flags.
+Replay checks the recorded cells and never updates the receipt; it does not
+check the live site, its sitemap, or its stylesheets.

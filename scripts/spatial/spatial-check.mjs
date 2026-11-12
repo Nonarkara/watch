@@ -64,6 +64,7 @@
  *                      and then fall through to the verdict, so a report run
  *                      fails exactly when the gate fails
  *   --json <path>      also write the raw measurements to a file
+ *   --replay <path>    compare saved measurements without browsing or updating the baseline
  */
 import { createServer } from "node:http";
 import { readdir } from "node:fs/promises";
@@ -116,8 +117,13 @@ const BASELINE = arg("baseline", path.join("design", "spatial-baseline.json"));
 const ROUTES_ARG = arg("routes", null);
 const WIDTHS_ARG = arg("widths", null);
 const BASE = arg("base", null);
+const REPLAY = arg("replay", null);
 const UPDATE = argv.includes("--update");
 const REPORT = argv.includes("--report");
+if (REPLAY && (typeof REPLAY !== "string" || BASE || UPDATE || argv.includes("--dir") || argv.includes("--json"))) {
+  console.error("FAIL — --replay requires a JSON path and cannot be combined with --base, --dir, --update or --json.");
+  process.exit(1);
+}
 
 // The site being measured is a SNAPSHOT of the directory, copied once
 // before the first measurement.
@@ -133,7 +139,7 @@ const REPORT = argv.includes("--report");
 // stylesheet and every chunk is read from, and the receipt always describes
 // one coherent site.
 const SRC_DIR = path.resolve(String(DIR));
-const DIST = BASE ? null : existsSync(SRC_DIR) ? snapshotDir(SRC_DIR) : null;
+const DIST = BASE || REPLAY ? null : existsSync(SRC_DIR) ? snapshotDir(SRC_DIR) : null;
 const JSON_OUT = arg("json", null);
 
 const DEFAULT_WIDTHS = [360, 480, 768, 1024, 1440, 1920];
@@ -190,7 +196,7 @@ const CHROME_CANDIDATES = [
 ].filter(Boolean);
 const CHROME = CHROME_CANDIDATES.find((c) => existsSync(c));
 
-if (!CHROME) {
+if (!CHROME && !REPLAY) {
   console.error(
     "\nFAIL — the spatial gate could not measure.\n" +
       "  No Chrome binary found. Tried:\n" +
@@ -1204,11 +1210,28 @@ async function remoteBreakpoints(base) {
 
 // ---------------------------------------------------------------- measure
 const baseline = loadBaseline();
+let saved = null;
+if (REPLAY) {
+  try {
+    saved = JSON.parse(readFileSync(REPLAY, "utf8"));
+    if (!baseline || !Array.isArray(saved.measurements) || !saved.measurements.length ||
+        saved.measurements.some((r) => typeof r?.route !== "string" || !r.route.startsWith("/") ||
+          !Number.isInteger(r.w) || r.w <= 0 || (!r.error &&
+            (!Array.isArray(r.findings) || !Number.isFinite(r.chrome?.top) ||
+              !Number.isFinite(r.hierarchy?.h1Count) || !r.firstAction)))) {
+      throw new Error("expected a baseline and nonempty route/width measurements");
+    }
+  } catch (error) {
+    console.error(`FAIL — cannot replay measurements: ${error.message}`);
+    process.exit(1);
+  }
+  console.log("REPLAY — saved browser measurements only; live routes and stylesheets were not checked.");
+}
 const projectWidths =
   baseline && Array.isArray(baseline.widths) && baseline.widths.length
     ? baseline.widths.map(Number).filter(Boolean)
     : DEFAULT_WIDTHS;
-const cssScan = BASE
+const cssScan = REPLAY ? { viewport: new Set(), namedCliffs: new Map() } : BASE
   ? await remoteBreakpoints(String(BASE).replace(/\/+$/, ""))
   : cssBreakpoints(DIST);
 const cssWidths = cssScan.viewport;
@@ -1218,9 +1241,13 @@ if (BASE && !WIDTHS_ARG && !cssWidths.size && baseline?.measuredWidths?.length >
 }
 const widths = WIDTHS_ARG
   ? String(WIDTHS_ARG).split(",").map((w) => parseInt(w.trim(), 10)).filter(Boolean)
-  : [...new Set([...projectWidths, ...cssWidths])].sort((a, b) => a - b);
+  : [...new Set([...projectWidths, ...cssWidths, ...(saved ? [
+      ...(baseline.measuredWidths ?? []), ...saved.measurements.map((r) => r.w),
+    ] : [])])].sort((a, b) => a - b);
 
-const routes = await discoverRoutes();
+const routes = saved && !ROUTES_ARG
+  ? [...new Set([...Object.keys(baseline.routes ?? {}), ...saved.measurements.map((r) => r.route)])]
+  : await discoverRoutes();
 if (!routes.length) {
   console.error("\nFAIL — the spatial gate found no routes to measure. Nothing was verified.\n");
   process.exit(1);
@@ -1238,6 +1265,7 @@ if (!routes.length) {
 //
 // So the assumption is gone. Every measurement is a fresh load at the width
 // being measured, and there is nothing left to prove.
+async function measureInBrowser() {
 await startServer(routes, widths);
 
 const prof = `${tmpdir()}/spatial-law-${process.pid}-${Date.now()}`;
@@ -1414,7 +1442,11 @@ if (payload.error) {
   console.error(`\nFAIL — the spatial harness threw. Nothing was verified.\n${String(payload.error).trim()}\n`);
   process.exit(1);
 }
-const results = Array.isArray(payload.measurements) ? payload.measurements : [];
+return payload;
+}
+
+const sweep = saved ?? await measureInBrowser();
+const results = Array.isArray(sweep.measurements) ? sweep.measurements : [];
 
 const expected = routes.length * widths.length;
 // The gate must have measured every ROUTE at every WIDTH. Counting the
@@ -2174,7 +2206,7 @@ if (REPORT) {
     );
   }
   console.log(`\n${results.length} measurements across ${routes.length} routes and ${widths.length} widths.`);
-  console.log(
+  if (!REPLAY) console.log(
     `  · every one of them was taken from a FRESH page load at the width being measured, on a real clock — ` +
       `so the geometry recorded is the geometry a reader gets, not the geometry of a page that had not finished arriving.`,
   );
@@ -2261,6 +2293,8 @@ printNotes();
 console.log(
   `  · spatial: ${results.length} measurements across ${routes.length} routes and ${widths.length} widths — ` +
     `every hole, orphan, scattered pair and wrap is either fixed or written down`,
+);
+if (!REPLAY) console.log(
   `  · spatial: every measurement was a fresh load at the width measured, on a real clock — ` +
     `the chrome of each page is recorded, and a chrome that changed is a change the receipt cannot hide`,
 );
