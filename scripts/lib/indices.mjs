@@ -13,11 +13,18 @@ const daysBetween = (a, b) => Math.round((new Date(a) - new Date(b)) / MS_DAY);
 const monthKey = (iso) => iso.slice(0, 7);
 const round1 = (x) => Math.round(x * 10) / 10;
 
+function monthsBefore(iso, months) {
+  const date = new Date(iso);
+  const year = date.getUTCFullYear();
+  const month = date.getUTCMonth() - months;
+  const lastDay = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  return Date.UTC(year, month, Math.min(date.getUTCDate(), lastDay));
+}
+
 function compsInWindow(comps, buildDate, months, endOffsetMonths = 0) {
-  const end = new Date(buildDate);
-  end.setMonth(end.getMonth() - endOffsetMonths);
-  const start = new Date(end);
-  start.setMonth(start.getMonth() - months);
+  // Anchor both boundaries to the build date, in UTC, without month-end rollover.
+  const end = monthsBefore(buildDate, endOffsetMonths);
+  const start = monthsBefore(buildDate, endOffsetMonths + months);
   return comps.filter((c) => {
     const d = new Date(c.date);
     return d > start && d <= end;

@@ -160,6 +160,12 @@ assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).l
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
+const leapWindow = ["2023-02-28", "2023-03-01", "2023-08-01", "2024-02-29", "2024-03-01"]
+  .map((date, i) => ({ date, price_usd: 100 + i, venue: "phillips" }));
+const leapEstimate = marketEstimate(leapWindow, "2024-02-29");
+assert.equal(leapEstimate.window_months, 12, "Feb 29 minus a year must clamp to Feb 28, not roll to March");
+assert.equal(leapEstimate.n, 3, "the lower boundary is exclusive and the build date inclusive");
+assert.equal(leapEstimate.value, 102);
 
 // 10a. The Phillips art auction cannot enter any watch's market evidence.
 {
