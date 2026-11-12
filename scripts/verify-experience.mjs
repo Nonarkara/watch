@@ -115,6 +115,10 @@ function verifyMarket() {
       return document.documentElement.scrollWidth <= innerWidth + 1 && legend.scrollWidth <= legend.clientWidth + 1 &&
         getComputedStyle(document.querySelector('.screen-card-image-credit')).position === 'static';
     })`), 'Narrow screen filters and credits must fit without overlaying the photo')
+    assert(evaluate(`document.fonts.ready.then(() =>
+      [...document.querySelectorAll('.screen-card .catalog-actions')].every(row =>
+        new Set([...row.children].map(link => link.offsetTop)).size === 1))`),
+    'Narrow Screen links must stay together without orphaning the dossier link')
     for (const width of [390, 640, 719, 720, 1440]) {
       browser('set', 'viewport', String(width), '844')
       assert(evaluate(`document.fonts.ready.then(() => {

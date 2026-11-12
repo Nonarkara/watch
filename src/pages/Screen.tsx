@@ -27,7 +27,7 @@ interface FilmWatchRow {
 
 const FILM_WATCHES: FilmWatchRow[] = [
   { brand: 'Rolex', reference: '6538', watch: 'Submariner (Big Crown)', film: 'Dr. No', year: 1962, character: 'Sean Connery as James Bond',
-    note: 'Connery lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor.', dossierId: 'rolex-submariner-6538' },
+    note: 'The oversized, unguarded crown is the detail to look for.', dossierId: 'rolex-submariner-6538' },
   { brand: 'Heuer', reference: '1133B', watch: 'Monaco', film: 'Le Mans', year: 1971, character: 'Steve McQueen as Michael Delaney',
     note: 'McQueen personally requested the Monaco from Jack Heuer. Crown sits on the left so it does not dig into the wrist while racing.', dossierId: 'tagheuer-monaco-caw211p' },
   { brand: 'Omega', reference: 'Speedmaster', watch: 'Professional Moonwatch', film: 'Apollo 13', year: 1995, character: 'Kevin Bacon as Jack Swigert',
@@ -186,7 +186,7 @@ export default function Screen() {
           the license, the deep link. */}
       <section className="screen-spotlight" aria-label="Featured cinematic pairing">
         <div className="screen-spotlight-eyebrow">
-          <span className="eyebrow">FEATURED PAIRING · THE ONE THAT STARTED IT</span>
+          <span className="eyebrow">FEATURED PAIRING</span>
           <span className="screen-spotlight-eyebrow-meta mono">1962 · DR. NO · THE SUBMARINER ON BOND'S WRIST</span>
         </div>
         <div className="screen-spotlight-grid">
@@ -194,13 +194,12 @@ export default function Screen() {
             <p className="screen-spotlight-eyebrow-row">
               <span className="eyebrow">ROLEX · SUBMARINER 6538 · BIG CROWN</span>
             </p>
-            <h2 className="screen-spotlight-title">Connery lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor.</h2>
+            <h2 className="screen-spotlight-title">Bond’s Big Crown in <i>Dr. No</i></h2>
             <p className="screen-spotlight-body-text">
-              The 6538 sits on Connery's wrist in Dr. No and across the first four Bond films.
-              It is the first watch the screen ever wore on purpose — not as a brand placement,
-              but as a piece of equipment the character would actually need. The dial reads
-              because Bond needs to read it. That is why it became the most-cited watch in
-              any catalogue.
+              The detail to look for on Connery’s Submariner is the winding crown: 8 mm wide,
+              with no guards on either side.{' '}
+              <a className="src-a" href="https://www.christies.com/lot/lot-6120030" target="_blank" rel="noreferrer">Christie’s catalogue</a>{' '}
+              identifies it as reference 6538 and notes that collectors call it the “James Bond” model.
             </p>
           </div>
           <div className="screen-spotlight-facts">
@@ -380,7 +379,7 @@ export default function Screen() {
                 </div>
                 <div className="catalog-actions mono micro">
                   <a href={item.source_url} target="_blank" rel="noreferrer">
-                    {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'EDITORIAL SOURCE ↗'}
+                    {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'SOURCE ↗'}
                   </a>
                   {(item.editorial_url || snapshot?.editorial_url) && item.source_url.includes('watch-id.com') && (
                     <a href={item.editorial_url ?? snapshot?.editorial_url} target="_blank" rel="noreferrer">TEDDY ↗</a>
