@@ -127,13 +127,16 @@ try {
           'legacy intake dates are auction opening dates, not verified lot dates')
         const coverage = evaluate(`fetch('/data.json').then(r=>r.json()).then(d=>{
           const estimate=d.cards.filter(c=>c.computed.estimate.value!=null).length;
+          const historical=d.cards.filter(c=>c.computed.estimate.value!=null&&c.computed.estimate.stale).length;
           const sales=d.cards.filter(c=>c.computed.estimate.value==null&&c.comp_summary).length;
-          const counts=[estimate,sales,d.count-estimate-sales];
+          const counts=[estimate-historical,historical,sales,d.count-estimate-sales];
           const rows=[...document.querySelectorAll('.data-coverage-rows dd')], parts=[...document.querySelectorAll('.data-coverage-bar > span')];
           const plotWidth=parts.reduce((n,p)=>n+p.getBoundingClientRect().width,0);
           const link=document.querySelector('.data-coverage-links a');
-          return {complete:rows.length===3 && rows.every((row,i)=>row.textContent===counts[i]+' / '+d.count),
-            proportional:parts.every((part,i)=>Math.abs(part.getBoundingClientRect().width-plotWidth*counts[i]/d.count)<1),
+          return {complete:rows.length===3 && rows[0].querySelector('[data-basis="estimated"]').textContent===counts[0]+' recent' &&
+              rows[0].querySelector('[data-basis="historical"]').textContent===counts[1]+' historical' &&
+              rows.slice(1).every((row,i)=>row.textContent===counts[i+2]+' / '+d.count),
+            proportional:parts.length===4 && parts.every((part,i)=>Math.abs(part.getBoundingClientRect().width-plotWidth*counts[i]/d.count)<1),
             first:link.getBoundingClientRect().bottom,
             wideFit:innerWidth<900 || (document.querySelector('.data-coverage-secondary').getBoundingClientRect().left>=document.querySelector('.data-coverage-primary').getBoundingClientRect().right &&
               document.querySelector('#evidence-field-title').getBoundingClientRect().top<=520)};

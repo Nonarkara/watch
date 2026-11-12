@@ -146,8 +146,9 @@ export default function Data() {
     ['Retail history', cardStats.withMsrp],
   ] as const
   const salesWithoutEstimate = data.cards.filter(c => c.computed.estimate.value == null && c.comp_summary).length
+  const historicalEstimates = data.cards.filter(c => c.computed.estimate.value != null && c.computed.estimate.stale).length
+  const recentEstimates = cardStats.withEstimate - historicalEstimates
   const priceCoverage = [
-    { key: 'estimated', label: 'Estimate available', count: cardStats.withEstimate },
     { key: 'sales', label: 'Sales, no estimate', count: salesWithoutEstimate },
     { key: 'missing', label: 'No comparable sales', count: data.count - cardStats.withEstimate - salesWithoutEstimate },
   ]
@@ -164,9 +165,18 @@ export default function Data() {
         <h1 className="pagetitle">What can we price?</h1>
         <p className="lede">{data.count} references. An estimate needs at least three comparable sales.</p>
         <div className="data-coverage-bar" aria-hidden="true">
+          <span data-basis="estimated" style={{ flexGrow: recentEstimates }} />
+          <span data-basis="historical" style={{ flexGrow: historicalEstimates }} />
           {priceCoverage.map(({ key, count }) => <span key={key} data-basis={key} style={{ flexGrow: count }} />)}
         </div>
         <dl className="data-coverage-rows" aria-label="Price evidence coverage">
+          <div>
+            <dt>Estimates</dt>
+            <dd className="data-estimate-split mono">
+              <span data-basis="estimated"><i aria-hidden="true" />{recentEstimates} recent</span>
+              <span data-basis="historical"><i aria-hidden="true" />{historicalEstimates} historical</span>
+            </dd>
+          </div>
           {priceCoverage.map(({ key, label, count }) => <div key={key} data-basis={key}>
             <dt><i aria-hidden="true" />{label}</dt><dd className="mono">{count} / {data.count}</dd>
           </div>)}

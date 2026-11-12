@@ -1943,6 +1943,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .data-coverage-bar { display: flex; block-size: 14px; margin-block: 12px 6px; border: var(--border); }
 .data-coverage-bar > span { flex-basis: 0; min-inline-size: 0; }
 .data-coverage [data-basis="estimated"] { --coverage-fill: var(--coral); }
+.data-coverage [data-basis="historical"] { --coverage-fill: var(--sky); }
 .data-coverage [data-basis="sales"] { --coverage-fill: var(--dim); }
 .data-coverage [data-basis="missing"] { --coverage-fill: var(--paper-2); }
 .data-coverage-bar > span, .data-coverage-rows i { background: var(--coverage-fill); }
@@ -1952,6 +1953,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .data-coverage-rows i { inline-size: 9px; block-size: 9px; border: 1px solid var(--rule); }
 .data-coverage :is(dt, dd) { margin: 0; }
 .data-coverage-rows dd { font-weight: 700; }
+.data-estimate-split, .data-estimate-split > span { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .data-coverage-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-block: 8px; }
 .data-coverage-links a { display: inline-flex; align-items: center; min-block-size: 32px; }
 .data-coverage-secondary { margin-block: 8px 0; color: var(--dim); }
