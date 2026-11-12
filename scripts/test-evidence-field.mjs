@@ -20,6 +20,17 @@ assert.equal(Array.from({ length: 6 }, (_, depth) => depths.filter((value) => va
 assert.ok(data.cards.every((card) => metricValue(card, 'scarcity') === card.computed.scarcity.value
   && metricValue(card, 'collectibility') === card.computed.collectibility.value), 'the chart reads published metrics without recomputing them')
 assert.equal(EVIDENCE_CHANNELS.length, 5, 'the public evidence contract has five named channels')
+const specimen = structuredClone(data.cards[0])
+specimen.media = [{ match: 'reference_family' }]
+assert.equal(evidenceChannels(specimen).photo, false)
+specimen.media = [{ match: 'exact_reference' }]
+assert.equal(evidenceChannels(specimen).photo, true)
+for (const value of [null, NaN, -1, 101]) {
+  specimen.computed.scarcity.value = value
+  assert.equal(metricValue(specimen, 'scarcity'), null)
+}
+specimen.computed.scarcity.value = 0
+assert.equal(metricValue(specimen, 'scarcity'), 0, 'a published zero remains a plotted value')
 const offsets = data.cards.map((card) => evidenceColumnOffset(card.id))
 assert.deepEqual(offsets, data.cards.map((card) => evidenceColumnOffset(card.id)), 'point spread is deterministic')
 assert.ok(offsets.every((offset) => Math.abs(offset) <= 24), 'point spread stays inside its evidence-depth column')

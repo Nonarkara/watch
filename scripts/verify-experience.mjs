@@ -94,6 +94,14 @@ try {
               document.querySelector('#evidence-field-title').getBoundingClientRect().top<=520)};
         })`)
         assert(coverage.complete && coverage.proportional && coverage.first<=height && coverage.wideFit, JSON.stringify(coverage))
+        const plot = evaluate(`(() => {
+          const wrap=document.querySelector('.evidence-plot-wrap'), svg=wrap.querySelector('svg');
+          const fits=svg.getBoundingClientRect().width<=wrap.clientWidth+1;
+          svg.style.minWidth='620px'; const oldSwipes=svg.getBoundingClientRect().width>wrap.clientWidth+1; svg.removeAttribute('style');
+          return {fits, oldSwipes, dots:svg.querySelectorAll('.evidence-point').length, counts:svg.querySelectorAll('.evidence-axis-number').length};
+        })()`)
+        assert(plot.fits && plot.dots>0 && plot.counts===6 && (width!==390 || plot.oldSwipes),
+          'all six plot columns must fit; restoring the old minimum width must fail on phone')
         if (width===390) {
           assert(evaluate(`(() => {
             const hero=document.querySelector('.data-coverage .lede'), link=document.querySelector('.data-coverage-links a');
@@ -104,6 +112,8 @@ try {
           assert(evaluate("location.hash==='#evidence-field-title' && document.activeElement.id==='evidence-field-title' && document.activeElement.getBoundingClientRect().top<innerHeight"))
           browser('click','.evidence-toggle button:last-child')
           assert(evaluate("document.querySelector('.evidence-toggle button:last-child').getAttribute('aria-pressed')==='true'"))
+          browser('scrollintoview','.evidence-plot-wrap')
+          browser('screenshot',join(out,'data-evidence-plot-390.png'))
           evaluate('window.scrollTo(0,0)')
         }
       }

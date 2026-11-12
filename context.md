@@ -110,6 +110,8 @@ watchlist. A map pin replaces the city word only where the word crowds the mark.
 Data opens on a column receipt: estimates, comparable sales without estimates,
 and no comparable sales share one denominator. The chart is the first exit;
 wide screens use the adjacent track for photo, story, screen and retail coverage.
+The evidence plot fits the phone without swiping; only valid published scores
+become dots. Photo depth counts exact references, and zero remains a real score.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
