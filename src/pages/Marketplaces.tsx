@@ -183,7 +183,6 @@ export default function Marketplaces() {
                   <span className="eyebrow">{v.region.toUpperCase()} · {v.country.toUpperCase()} ({v.city})</span>
                   <h3>{v.name}</h3>
                 </div>
-                <span className="vc-type-tag mono micro">{v.type.toUpperCase()}</span>
               </div>
 
               {selectedCard && scenario && (
@@ -213,7 +212,7 @@ export default function Marketplaces() {
                 </div>
               )}
 
-              <div className="vc-specs">
+              <dl className="vc-specs">
                 <div className="vcs-row">
                   <dt>Venue role</dt>
                   <dd className="mono">{v.type}</dd>
@@ -222,7 +221,7 @@ export default function Marketplaces() {
                   <dt>Fee evidence</dt>
                   <dd className="mono">{scenario?.fee_rule ? `VERIFIED · ${scenario.fee_rule.checked_date}` : 'NOT YET VERIFIED'}</dd>
                 </div>
-              </div>
+              </dl>
 
               <div className="vc-actions">
                 <a

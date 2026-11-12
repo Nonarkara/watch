@@ -5609,6 +5609,7 @@ main.shell { padding-top: var(--space-md); }
   flex-direction: column;
   gap: var(--space-sm);
 }
+.venues-grid { align-items: start; }
 .vc-top, .dvc-head {
   display: flex;
   justify-content: space-between;
@@ -5617,9 +5618,6 @@ main.shell { padding-top: var(--space-md); }
   border-bottom: 1px solid var(--rule);
   padding-bottom: var(--space-xs);
 }
-/* The type tag is a fixed 106px. Beside a venue name on a phone it left the
-   name 101px — five lines for a country. Below 560px the tag sits under the
-   name and the name keeps the whole width. */
 @media (max-width: 560px) {
   .vc-top, .dvc-head { flex-direction: column; align-items: flex-start; }
 }
@@ -5628,13 +5626,6 @@ main.shell { padding-top: var(--space-md); }
   font-size: 17px;
   font-weight: 600;
   margin-top: 2px;
-}
-.vc-type-tag {
-  border: 1px solid var(--rule);
-  padding: 2px 6px;
-  color: var(--dim);
-  font-size: 9px;
-  white-space: nowrap;
 }
 .vc-desc {
   font-size: var(--text-micro);
@@ -5699,6 +5690,7 @@ main.shell { padding-top: var(--space-md); }
   padding-top: var(--space-xs);
   border-top: var(--border);
 }
+.vc-actions { margin-top: 0; }
 
 .dossier-pending-venues {
   margin-top: var(--space-xl);
