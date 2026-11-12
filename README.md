@@ -71,3 +71,8 @@ The production site is deployed to Cloudflare Pages and served at the custom dom
 [watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
 at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the
 custom domain.
+
+The scheduled Spatial law workflow measures production. To measure a release
+candidate, run it manually on the candidate branch with its immutable Pages
+preview URL (for example, `https://1234abcd.watch-1de.pages.dev/`). A green
+production monitor does not clear a preview.

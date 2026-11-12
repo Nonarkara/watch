@@ -7,22 +7,16 @@
 #
 # Why it measures the DEPLOYED site rather than a fresh build:
 #
-#   The site's stylesheet imports the shared design tokens from the estate
-#   (../../_shared/design-tokens/dr-non-brand.css), and that file is
-#   deliberately not vendored into this repository. It is not published
-#   either — https://nonarkara.org/_shared/design-tokens/dr-non-brand.css
-#   returns the site's HTML, not CSS. So a CI runner cannot build this site,
-#   and a gate that measured a CI build would be measuring a different page
-#   from the one the world sees. Measuring the deployed site needs no build
-#   and no tokens: it measures exactly what is being served.
+#   The build and unit tests run in the separate gate workflow. This check
+#   measures the bytes a visitor receives. Scheduled and push runs observe
+#   production; a manual run can target an immutable Pages preview.
 #
 #   The build-time gate still runs before every deploy, locally:
 #     npm run spatial:gate      build -> measure copy -> prerender -> gate
 #     npm run spatial:falsify   prove the gate bites by breaking the page
 #
 # The falsifier does NOT run here; the step summary says so. It needs a local,
-# prerendered copy of the site, which needs a build, which needs the shared
-# design tokens this runner cannot obtain. A gate that has never been shown to
+# prerendered copy of the site. A gate that has never been shown to
 # fail is not a gate; so the falsifier runs in the release chain, on the
 # machine that deploys.
 #
@@ -41,6 +35,11 @@ name: Spatial law
 
 on:
   workflow_dispatch:
+    inputs:
+      preview_url:
+        description: 'Immutable watch-1de.pages.dev preview URL; blank checks production'
+        required: false
+        type: string
   push:
     branches: [main]
   schedule:
@@ -51,7 +50,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: spatial-law
+  group: spatial-law-${{ inputs.preview_url || 'production' }}
   cancel-in-progress: true
 
 jobs:
@@ -62,6 +61,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: '24'
@@ -74,22 +75,36 @@ jobs:
           chrome-version: stable
       - name: Point the gate at that browser
         run: echo "CHROME_PATH=$(command -v google-chrome || command -v chrome)" >> "$GITHUB_ENV"
-      - name: The deployed site has no spatial hallucination
+      - name: Select the production or immutable preview target
+        id: target
+        env:
+          PREVIEW_URL: ${{ inputs.preview_url }}
+        run: |
+          if [[ -z "$PREVIEW_URL" ]]; then
+            target='https://watch.nonarkara.org/'
+          elif [[ "$PREVIEW_URL" =~ ^https://[0-9a-f]{8}\.watch-1de\.pages\.dev/?$ ]]; then
+            target="${PREVIEW_URL%/}/"
+          else
+            echo 'Expected an immutable https://<eight hex digits>.watch-1de.pages.dev/ preview' >&2
+            exit 2
+          fi
+          echo "base=$target" >> "$GITHUB_OUTPUT"
+      - name: Measure the selected deployment against the receipt
+        env:
+          SPATIAL_BASE: ${{ steps.target.outputs.base }}
         run: |
           node scripts/spatial/spatial-check.mjs \
-            --base https://watch.nonarkara.org/ \
+            --base "$SPATIAL_BASE" \
             --baseline design/spatial-baseline.json
       - name: Say plainly what this job did and did not check
-        # The falsifier (spatial-falsify.mjs) needs a local, prerendered copy
-        # of the site, which needs a build, which needs the shared design
-        # tokens this runner cannot obtain. So it runs in the release chain on
-        # the machine that deploys, not here. This job says so rather than
-        # letting a skipped step read as a pass.
+        if: always() && steps.target.outcome == 'success'
+        env:
+          SPATIAL_BASE: ${{ steps.target.outputs.base }}
         run: |
           {
             echo "### Spatial law"
             echo
-            echo "- Measured the DEPLOYED site at watch.nonarkara.org, every route, every layout-changing width."
-            echo "- The build-time gate and the falsifier run in the release chain, not in CI, because this"
-            echo "  runner cannot obtain the shared design tokens and therefore cannot build the site."
+            echo "- Selected target: $SPATIAL_BASE"
+            echo "- Scope: routes in the receipt, at the configured layout widths."
+            echo "- The local prerender gate and falsifier did not run in this workflow."
           } >> "$GITHUB_STEP_SUMMARY"
