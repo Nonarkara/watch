@@ -471,6 +471,8 @@ try {
   browser('reload')
   browser('wait', '.saved-badge[aria-label="Saved watches: 200"]')
   browser('wait', '.dsr-verdict')
+  browser('set','viewport','1440','900')
+  evaluate('document.fonts.ready.then(() => document.querySelector(".nav").offsetWidth)')
   for (const [width,height] of [[320,720],[390,844],[721,900],[1024,900],[1440,900]]) {
     browser('set','viewport',String(width),String(height))
     evaluate('document.fonts.ready.then(() => true)')
@@ -498,7 +500,9 @@ try {
       return {current,falsifier,controls:controls.length,targets:controls.every(el=>{const r=el.getBoundingClientRect();return r.width>=44&&r.height>=44}),
         height:document.querySelector('.hdr').getBoundingClientRect().height, label:city.getAttribute('aria-label'),
         pin:getComputedStyle(pin).display!=='none', doc:document.documentElement.scrollWidth,
-        navFits:[...document.querySelectorAll('.nav-a')].every(el=>el.scrollWidth<=el.clientWidth+1)};
+        navFits:[...document.querySelectorAll('.nav-a')].every(el=>el.scrollWidth<=el.clientWidth+1 &&
+          el.getBoundingClientRect().right<=innerWidth+1 &&
+          getComputedStyle(el).transitionProperty.split(',').every(p=>['color','background-color','none'].includes(p.trim())))};
     })()`)
     assert(masthead.current && masthead.falsifier && masthead.controls===4 && masthead.targets && masthead.height<=160 &&
       masthead.label.includes('currently') && masthead.pin===(width<=460) && masthead.doc<=width+1 && masthead.navFits, JSON.stringify(masthead))

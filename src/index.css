@@ -363,7 +363,6 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   font-size: var(--text-micro); font-weight: 600; letter-spacing: 0.03em;
   color: var(--dim); white-space: nowrap; overflow: hidden;
   text-decoration: none;
-  transition: color 120ms ease, background-color 120ms ease;
 }
 @media (min-width: 720px) { .nav-a { letter-spacing: 0.06em; padding: 0 10px; } }
 @media (min-width: 720px) and (max-width: 999px) { .nav-a { letter-spacing: 0.03em; padding: 0 6px; } }
@@ -742,7 +741,9 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 /* ── Reduced motion: this site animates almost nothing by design ── */
 * { transition: none; }
 @media (hover: hover) and (pointer: fine) {
-  .lrow, .scarcity-row, .nav-a, .src-a, .chip, .btn, .purpose-card, .photo-card, .sim-toggle-btn { transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .lrow, .scarcity-row, .src-a, .chip, .btn, .purpose-card, .photo-card, .sim-toggle-btn { transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1); }
+  /* Breakpoint padding and tracking must snap; animating them spills the narrow nav. */
+  .nav-a { transition: color 120ms ease, background-color 120ms ease; }
   .btn:hover { color: var(--bg); background: var(--amber); }
   .btn.secondary:hover { color: var(--bg); background: var(--fg); border-color: var(--fg); }
   .purpose-card:hover { background: var(--neutral-pale); }
