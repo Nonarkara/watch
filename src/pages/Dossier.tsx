@@ -97,11 +97,11 @@ export default function Dossier() {
 
       {trendHit && (
         <p className="dsr-trending mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
-          <span className="dsr-trending-pulse" aria-hidden="true">●</span>
-          <strong>RANK {trendHit.rank} · {trendHit.snapshotDate}</strong>
+          <span className="dsr-trending-pulse" aria-hidden="true">●</span>{' '}
+          <strong>RANK {trendHit.rank} · {trendHit.snapshotDate}</strong>{' '}
           <span className="dim"> · in public attention, not price</span>
           {trendHit.wikipedia.dod_pct != null && (
-            <span className="dim"> · wiki {trendHit.wikipedia.dod_pct > 0 ? '+' : ''}{trendHit.wikipedia.dod_pct}%</span>
+            <span className="dim">{' · wiki '}{trendHit.wikipedia.dod_pct > 0 ? '+' : ''}{trendHit.wikipedia.dod_pct}%</span>
           )}
         </p>
       )}

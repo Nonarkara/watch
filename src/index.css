@@ -607,7 +607,6 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 /* "Trending in public attention" callout on the Dossier masthead. Leads
    the page so the user sees the rank before the 5-second verdict. */
 .dsr-trending {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px;
   margin: 12px 0 0;
   padding: 6px 10px;
   background: var(--ink); color: var(--bg);
@@ -1687,9 +1686,10 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .retail-symbol { border: 1px solid var(--ink); border-radius: 50%; }
 .dossier-chart-scale { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0 6px; color: var(--dim); }
 .dossier-chart-scale svg { display: block; width: 100%; height: auto; }
-.dossier-chart-ticks, .dossier-chart-dates { display: flex; justify-content: space-between; }
-.dossier-chart-ticks { flex-direction: column; align-items: end; }
-.dossier-chart-dates { grid-column: 2; }
+.dossier-chart-ticks { position: relative; text-align: end; }
+/* The zero tick is anchored to the end of the plot, not a second content row. */
+.dossier-chart-ticks > span:last-child { position: absolute; inset-block-end: 0; inset-inline-end: 0; }
+.dossier-chart-dates { grid-column: 2; display: flex; justify-content: space-between; }
 .dossier-retail-records summary, .dossier-retail-records a { min-block-size: 32px; }
 .dossier-retail-records summary { inline-size: fit-content; cursor: pointer; }
 .dossier-retail-records ul { display: flex; flex-wrap: wrap; gap: 4px 12px; list-style: none; padding: 0; }
@@ -2271,12 +2271,9 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
   margin-top: 2px;
 }
 .spectrum-reading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 2px 12px;
   margin: 0 0 4px;
 }
+.spectrum-reading > .mono { white-space: nowrap; }
 .spectrum-key { margin-top: 4px; }
 .spectrum-model { margin-top: 12px; }
 .spectrum-axis {
