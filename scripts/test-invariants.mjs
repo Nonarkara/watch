@@ -38,6 +38,12 @@ assert.deepEqual(laterJumbo.lot_observations.map((row) => [row.date, row.currenc
 assert.equal(laterJumbo.comp_summary, null);
 assert.equal(laterJumbo.computed.estimate.value, null);
 assert.equal(earlierJumbo.lot_observations, undefined, "later Nautilus lots must not attach to the 3700/1A");
+const publishedSimplicity = publicCards.find((card) => card.id === "dufour-simplicity");
+assert.deepEqual(publishedSimplicity.lot_observations.map(({ date, currency, amount }) => [date, currency, amount]), [
+  ["2026-05-30", "HKD", 9461500], ["2022-11-06", "CHF", 1022200], ["2020-11-08", "CHF", 1361000],
+]);
+assert.equal(publishedSimplicity.comp_summary, null, "unlike Simplicity configurations cannot form a comparable cohort");
+assert.equal(publishedSimplicity.computed.estimate.value, null);
 // Identical historical sales cannot become both ends of a one-year trend.
 const historicalOnly = [100, 200, 300].map((price_usd, i) => ({
   date: `2025-0${6 - i}-01`, price_usd,
@@ -95,8 +101,8 @@ assert.ok(resonance.provenance_events.some((event) => event.source_url.includes(
   "retain the charity result in its original currency");
 const simplicity = JSON.parse(readFileSync(new URL("../data/cards/dufour-simplicity.json", import.meta.url), "utf8"));
 for (const [lot, result] of [["147960", "CHF 1,361,000"], ["232982", "HKD 9,461,500"]]) {
-  assert.equal(simplicity.provenance_events.filter((event) => event.source_url.endsWith(`/${lot}`) && event.description.includes(result)).length, 1,
-    "retain each exceptional Simplicity sale once in its original currency");
+  assert.equal(simplicity.provenance_events.filter((event) => event.source_url.endsWith(`/${lot}`) && event.description.includes(result)).length, 0,
+    "the structured auction result is the only price entry; provenance retains the story");
   assert.ok(!simplicity.market_evidence.comps.some((comp) => comp.url.endsWith(`/${lot}`) ||
     [1500000, 1210000, 1207287].includes(comp.price_usd)),
   "exceptional Simplicity lots and their secondary USD quotes must stay out of the comparable series");
