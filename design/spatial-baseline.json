@@ -95,7 +95,6 @@
   },
   "reasons": {
     "dead|aside.data-methodology-rail": "The methodology rail is a sticky rail beside the audit ledger, not a card: `align-self: start` and `position: sticky; top: 24px` from 880px, so it stays beside the reader while the long evidence table scrolls under it. Measured at 880px the rail's own box is 928px tall inside a 3121px row, and the column beside it is 2193px taller. The space below the rail is the audit's length, not a hole in the rail.",
-    "dead|aside.pom-bio-aside": "Uncle Pom's bio is a bordered aside in a two-column dossier layout (`align-self: start`), so it is the height of its own content and the essay beside it is the taller column. Measured at 880px the aside is 240px tall in a 511px row, and the 271px under it is the essay's column, which continues past the aside by exactly that much.",
     "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is.",
     "dead|div.vc-specs": "The venue card's specification rows (venue role, fee evidence) sit under the card header, and the card's height is set by the header's wrapped address beside it. Measured at 759px the 75.5px below the spec block is the card's own air above the visit link, and the card's border is the ledger's rule, not a frame drawn around a hole.",
     "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row.",
@@ -32915,14 +32914,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32946,14 +32938,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32977,14 +32962,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33008,14 +32986,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33039,14 +33010,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33070,14 +33034,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33101,14 +33058,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33204,14 +33154,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33235,14 +33178,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33266,14 +33202,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33297,14 +33226,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33328,14 +33250,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 253,
-            "detail": "aside.pom-bio-aside leaves 253px empty beneath it in a 458px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33383,14 +33298,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 254,
-            "detail": "aside.pom-bio-aside leaves 254px empty beneath it in a 458px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33414,14 +33322,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 230,
-            "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33445,14 +33346,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 230,
-            "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33476,14 +33370,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 231,
-            "detail": "aside.pom-bio-aside leaves 231px empty beneath it in a 435px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33507,14 +33394,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33538,14 +33418,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33569,14 +33442,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33600,14 +33466,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33631,14 +33490,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33662,14 +33514,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33717,14 +33562,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33748,14 +33586,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33779,14 +33610,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
