@@ -370,6 +370,10 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
   .nav { grid-template-columns: repeat(4, minmax(max-content, 1fr)); }
   .nav-a { padding-inline: 1px; letter-spacing: 0; }
 }
+@media (max-width: 319px) {
+  .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-a { white-space: normal; overflow-wrap: anywhere; text-align: center; }
+}
 /* the live section is the one colour block in the band: a rectangle of warm
    yellow, not an underline */
 .nav-a.on { background: var(--mg-warm); color: var(--ink); }

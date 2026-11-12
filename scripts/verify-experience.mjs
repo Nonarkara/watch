@@ -791,6 +791,28 @@ try {
   browser('click','.saved-badge')
   browser('wait','--url','**/saved')
   browser('set','viewport','390','900')
+  for (const width of [239, 240, 241, 318, 319, 320]) {
+    browser('set', 'viewport', String(width), '844')
+    browser('open', base + '/')
+    browser('wait', '.archive-lead')
+    const narrow = evaluate(`document.fonts.ready.then(() => {
+      const archive = document.querySelector('.archive-lead');
+      const ledger = document.querySelector('.hero-ledger-grid');
+      const verdict = document.querySelector('.spotlight-verdict');
+      const fits = el => el.scrollWidth <= el.clientWidth + 1;
+      const current = document.documentElement.scrollWidth <= innerWidth + 1 &&
+        [archive, ledger, verdict, document.querySelector('.nav')].every(fits);
+      let rejectsOldTracks = true;
+      if (innerWidth === 240) {
+        ledger.style.gridTemplateColumns = 'repeat(4, max-content)';
+        rejectsOldTracks = !fits(ledger);
+        ledger.style.removeProperty('grid-template-columns');
+      }
+      return { current, rejectsOldTracks };
+    })`)
+    assert(narrow.current && narrow.rejectsOldTracks, `Home's ledger, archive, verdict and nav must fit at ${width}px`)
+  }
+  browser('set','viewport','390','900')
   // Block both font providers and reload. Fallback must preserve the core flow.
   browser('network', 'route', '**/fonts/*', '--abort')
   browser('network', 'route', '*fonts.googleapis.com*', '--abort')
