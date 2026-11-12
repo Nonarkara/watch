@@ -88,10 +88,11 @@ for (const f of files) {
 }
 let failed = 0;
 const published = [];
+const comparableSaleOwners = new Map();
 
 for (const f of files) {
   const card = JSON.parse(readFileSync(join(cardDir, f), "utf8"));
-  const errs = validateCard(card, { id: f.replace(/\.json$/, ""), buildDate });
+  const errs = validateCard(card, { id: f.replace(/\.json$/, ""), buildDate, comparableSaleOwners });
   if (errs.length) { failed++; console.error(`✗ ${f}\n  - ${errs.join("\n  - ")}`); continue; }
 
   const computed = computeAll(card, shared, buildDate);

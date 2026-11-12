@@ -16,7 +16,7 @@ const isUrl = (u) => {
 // YYYY alone is legal for provenance/waitlist dates — honest when only the year is known.
 const isDate = (d) => typeof d === "string" && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(d) && !isNaN(new Date(d));
 
-export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
+export function validateCard(card, { id, buildDate = "2099-01-01", comparableSaleOwners } = {}) {
   const errs = [];
   const req = (cond, msg) => { if (!cond) errs.push(msg); };
 
@@ -72,6 +72,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
       ev.comparable_dial.length > 0, "market_evidence.comparable_dial must be a non-empty, trimmed string");
   }
   const seenSaleKeys = new Set();
+  const comparableKeys = new Set();
   for (const [i, c] of (ev.comps || []).entries()) {
     if (typeof ev.comparable_dial === "string" && c.comparable !== false) {
       req(typeof c.dial === "string" && c.dial.trim().toLowerCase() === ev.comparable_dial.toLowerCase(),
@@ -92,9 +93,15 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
       }
       url.searchParams.sort();
       url.pathname = url.pathname.replace(/\/$/, "");
-      for (const key of [url.href, ...phillipsLotKeys(c)]) {
+      const keys = [url.href, ...phillipsLotKeys(c)];
+      for (const key of keys) {
         req(!seenSaleKeys.has(key), `comps[${i}].url repeats an auction lot already on this card`);
         seenSaleKeys.add(key);
+      }
+      if (comparableSaleOwners && c.comparable !== false) {
+        const owner = keys.map((key) => comparableSaleOwners.get(key)).find(Boolean);
+        req(!owner, `comps[${i}] auction lot already comparable on ${owner}`);
+        for (const key of keys) comparableKeys.add(key);
       }
     }
     if (c.date_source_url !== undefined) req(isUrl(c.date_source_url), `comps[${i}].date_source_url must be a URL`);
@@ -126,6 +133,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   req(card.narrative && typeof card.narrative.story === "string" && card.narrative.story.length > 20, "narrative.story required");
   req(card.meta && isDate(card.meta.curated_date), "meta.curated_date required");
   req(Array.isArray(card.meta?.sources), "meta.sources must be an array (use [] if none) — the register renders its length unguarded");
+  if (!errs.length) for (const key of comparableKeys) comparableSaleOwners.set(key, card.id);
   return errs;
 }
 
@@ -133,10 +141,11 @@ if (process.argv[1].endsWith("validate_card.mjs")) {
   const files = process.argv.slice(2);
   if (!files.length) { console.error("usage: node scripts/validate_card.mjs <card.json>..."); process.exit(2); }
   let bad = 0;
+  const comparableSaleOwners = new Map();
   for (const f of files) {
     const card = JSON.parse(readFileSync(f, "utf8"));
     const id = f.split("/").at(-1).replace(/\.json$/, "");
-    const errs = validateCard(card, { id, buildDate: new Date().toISOString().slice(0, 10) });
+    const errs = validateCard(card, { id, buildDate: new Date().toISOString().slice(0, 10), comparableSaleOwners });
     if (errs.length) { bad++; console.error(`✗ ${f}\n  - ${errs.join("\n  - ")}`); }
     else console.log(`✓ ${f}`);
   }

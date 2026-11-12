@@ -170,6 +170,20 @@ firstLot.url = "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex/a/5556-54
 repeatedLot.market_evidence.comps.at(-1).url = firstLot.url + "?ic4=GalleryView&utm_source=newsletter#details";
 assert.ok(validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")));
 
+const owner = structuredClone(fixture);
+const related = structuredClone(fixture);
+related.id = "testbrand-tb2";
+related.identity.reference = "TB2";
+owner.market_evidence.comps = [{ ...firstLot, url: "https://www.phillips.com/detail/rolex/NY080124/14" }];
+related.market_evidence.comps = [{ ...firstLot, url: "https://phillips.com/detail/rolex/NY080124/14/?utm_source=newsletter" }];
+const comparableSaleOwners = new Map();
+const registerOptions = { buildDate: BUILD, comparableSaleOwners };
+assert.deepEqual(validateCard(owner, registerOptions), []);
+assert.ok(validateCard(related, registerOptions).some((error) => error.includes(`already comparable on ${owner.id}`)),
+  "the same lot cannot price a second dossier even when the URL differs");
+Object.assign(related.market_evidence.comps[0], { comparable: false, condition: "A different reference, cited for context." });
+assert.deepEqual(validateCard(related, registerOptions), [], "a related dossier may cite the sale as context");
+
 // 10. Windowing: comp dated after buildDate is ignored, not counted
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });

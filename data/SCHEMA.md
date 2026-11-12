@@ -6,6 +6,8 @@ One JSON file per watch reference: `data/cards/<brand-slug>-<ref-slug>.json` (lo
 
 For a dossier that prices one dial, set `market_evidence.comparable_dial`. Each comparable sale then needs a matching `dial` from its source. Missing or different dials cannot be promoted as comparable, including from queues built before the scope was set.
 
+One auction lot may count as comparable on only one dossier. Related dossiers may cite it as non-comparable evidence with an explanation.
+
 Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.json`
 
 ```jsonc
