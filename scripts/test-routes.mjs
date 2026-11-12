@@ -302,13 +302,16 @@ console.log(`✓ served tree is clean (${publicFiles.length} files, no OS metada
 // shipped: .dossier-pending-links a used var(--text) instead of var(--ink).
 // This fails on undefined vars; var(--x, fallback) is safe and is skipped.
 const indexCss = readFileSync(join(ROOT, "src/index.css"), "utf8");
-const tokenPath = join(ROOT, "_shared/design-tokens/dr-non-brand.css");
-// index.css line 1 imports this file through the _shared symlink, which points
-// at ../_shared and is gitignored. If it is missing, 15 tokens (the type scale,
-// the --space-* scale, the saturation ramp) have no definition and fail open.
-// Name the real fix here instead of leaving the next agent to infer it.
-assert.ok(existsSync(tokenPath),
-  `missing design tokens at _shared/design-tokens/dr-non-brand.css\n  → restore the symlink: ln -s /Users/nonarkara/Projects/_shared _shared`);
+const tokenPath = join(ROOT, "src/design-tokens/dr-non-brand.css");
+// The tokens are vendored into the repo so a clean clone builds and tests in CI
+// (the old import reached outside the repo through a gitignored symlink, which
+// no CI runner has). The estate's canonical copy still exists on the owner's
+// machine; report drift against it, never fail on its absence.
+assert.ok(existsSync(tokenPath), "missing vendored design tokens at src/design-tokens/dr-non-brand.css");
+const canonicalTokens = join(ROOT, "_shared/design-tokens/dr-non-brand.css");
+if (existsSync(canonicalTokens) && readFileSync(canonicalTokens, "utf8") !== readFileSync(tokenPath, "utf8")) {
+  console.warn("! src/design-tokens/dr-non-brand.css differs from _shared's canonical copy — re-vendor it (cp) if the shared tokens changed on purpose");
+}
 const tokenCss = readFileSync(tokenPath, "utf8");
 const definedVars = new Set(
   [...indexCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1])

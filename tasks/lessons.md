@@ -323,3 +323,19 @@
   has no data; a baseline file with `reason` fields written by the agent that failed the
   gate; any count that is `?? 0` on an unloaded fetch. Guards (test-css-theme.mjs §11-13)
   each proven by mutation; `scripts/spatial/msh-probe.js` is the non-waivable measure.
+
+## 2026-11-12 · The repo could only build on one laptop
+- **What went wrong:** `src/index.css` imported its design tokens through a gitignored symlink
+  to `../../_shared`, and `vite.config.ts` allowed the dev server to serve the whole
+  `/Users/nonarkara/Projects` tree (which contains the secrets backup). A clean clone could
+  neither build nor pass `npm test`, so no CI run of the test suite had ever been possible,
+  and every "tests pass" claim was true on one machine only. The Actions were pinned to
+  mutable tags, and no secret-scan hook was installed.
+- **Correct behaviour:** a repo is the unit of trust. Vendor what it imports (tokens now in
+  `src/design-tokens/`, with a drift warning against the canonical copy, never a failure on
+  its absence); keep the dev-server file allow-list at the repo; rehearse every gate in a
+  fresh `git clone` before calling it a gate; pin third-party Actions to a commit SHA.
+- **How to recognise:** an `@import`/`import` that leaves the repo root, a gitignored symlink
+  the tests depend on, `server.fs.allow` pointing above the repo, a workflow `uses:` ending
+  in a tag. Guards: `scripts/test-security.mjs` (SHA pins, COOP) and `scripts/test-routes.mjs`
+  (vendored tokens), each proven by mutation.

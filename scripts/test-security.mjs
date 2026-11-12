@@ -20,6 +20,23 @@ assert(!scriptPolicy.includes('unsafe-inline') && !scriptPolicy.includes('unsafe
 assert.match(headers, /Strict-Transport-Security:\s*max-age=\d{5,}/,
   'HSTS missing from _headers — returning visitors get no TLS pinning');
 
+// No window.opener link to a cross-origin page: this site opens none, and a
+// compromised linked origin must not be able to reach back into it.
+assert.match(headers, /Cross-Origin-Opener-Policy:\s*same-origin/, 'COOP same-origin missing from _headers');
+
+// CI supply chain: every third-party Action is pinned to a full commit SHA (a
+// tag can be moved by whoever controls it), and no workflow interpolates
+// attacker-influenced event text into a shell step.
+import { readdirSync } from 'node:fs';
+const wfDir = new URL('../.github/workflows/', import.meta.url);
+for (const f of readdirSync(wfDir).filter((n) => n.endsWith('.yml'))) {
+  const src = readFileSync(new URL(f, wfDir), 'utf8');
+  for (const m of src.matchAll(/^\s*-?\s*uses:\s*(\S+)/gm)) {
+    assert.match(m[1], /@[0-9a-f]{40}$/, `${f}: Action ${m[1]} must be pinned to a 40-hex commit SHA, not a tag`);
+  }
+  assert(!/\$\{\{\s*github\.(event|head_ref)/.test(src), `${f}: github.event/head_ref text must not be interpolated into a workflow`);
+}
+
 // The canonical tracker (index.html imports it from nonarkara.org on load)
 // POSTs to Google Apps Script and geo-enriches via ipapi.co. If connect-src
 // does not allow those two origins the import succeeds and every ping fails

@@ -1,4 +1,4 @@
-@import url('../../_shared/design-tokens/dr-non-brand.css');
+@import './design-tokens/dr-non-brand.css';
 @import 'tailwindcss';
 @import './fonts.css';
 
