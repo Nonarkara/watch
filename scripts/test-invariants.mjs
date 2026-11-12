@@ -59,6 +59,18 @@ assert.deepEqual(validateCard(fixture, { id: "testbrand-tb1", buildDate: BUILD }
 
 const c1 = computeAll(fixture, shared, BUILD);
 const c2 = computeAll(fixture, shared, BUILD);
+assert.equal(c1.estimate.stale, false, "recent 12-month evidence remains eligible as a starting value");
+const wideCohort = structuredClone(fixture);
+wideCohort.market_evidence.comps = fixture.market_evidence.comps.slice(0, 3).map((comp, i) => ({
+  ...comp,
+  date: ["2022-09-01", "2023-01-01", "2026-06-01"][i],
+}));
+const wideEstimate = computeAll(wideCohort, shared, BUILD).estimate;
+assert.equal(wideEstimate.window_months, 60);
+assert.equal(wideEstimate.n, 3);
+assert.equal(wideEstimate.as_of, "2026-06-01");
+assert.equal(wideEstimate.stale, true, "a recent newest sale must not make a broad cohort current");
+assert.match(wideEstimate.limitation, /Historical only/);
 // 1. Idempotence: byte-identical recomputation
 assert.equal(JSON.stringify(c1), JSON.stringify(c2), "computeAll must be deterministic");
 

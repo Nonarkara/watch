@@ -334,7 +334,12 @@ export function computeAll(card, shared, buildDate) {
   const liquidity = liquiditySignal(comps, buildDate);
   const confidence = confidenceTier(comps, buildDate);
   const attention = screenAttention(card, scarcity, shared.screen_sightings);
-  const stale = estimate.value != null && daysBetween(buildDate, estimate.as_of) > 365;
+  // One recent sale cannot make a five-year (or wider) cohort current.
+  const broadWindow = estimate.value != null && estimate.window_months > 36;
+  const stale = estimate.value != null && (broadWindow || daysBetween(buildDate, estimate.as_of) > 365);
+  if (broadWindow) {
+    estimate.limitation += " Historical only: the past 36 months do not contain three comparable sales.";
+  }
   const market_band = marketBand(card, estimate, shared.market_context?.band_framework);
   const resellability = resellabilityIndex(comps, buildDate, confidence);
   return { estimate: { ...estimate, stale }, premium, change_1y, change_5y,
