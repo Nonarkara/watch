@@ -92,7 +92,7 @@ export default function Rehome() {
         </form>
 
         {card && <aside className="brief-preview" id="handover-preview" tabIndex={-1}>
-          <div className="section-rule"><h2>Your handover brief</h2><span className="mono micro dim">PREVIEW</span></div>
+          <div className="section-rule"><h2>Your handover brief</h2></div>
               <h3>{card.identity.brand} {card.identity.name} <span className="mono">{card.identity.reference}</span></h3>
               <p className="dim">{card.identity.one_liner}</p>
               <p className="rehome-market-context">{marketContext(card)}</p>

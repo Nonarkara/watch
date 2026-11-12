@@ -296,6 +296,7 @@ try {
     browser('wait', '.rehome-actions button')
     assert(evaluate("location.search==='?watch=rolex-116500ln' && document.documentElement.scrollWidth<=innerWidth+1"))
     assert(evaluate("document.querySelectorAll('.brief-facts > div').length===1 && document.querySelector('.rehome-market-context').textContent.startsWith('Historical estimate')"))
+    assert(evaluate("document.querySelector('.rehome-form .section-rule').getBoundingClientRect().height<=48"), 'preview link must share the form heading row')
     browser('screenshot', join(out, `rehome-draft-${width}.png`))
     if (width === 390) {
       browser('fill', '.rehome-form label:nth-of-type(2) textarea', 'Family watch, service receipt included.')
