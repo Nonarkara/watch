@@ -36,6 +36,7 @@ const maxDetails = Number(argValue('max-details', '60'));
 const brandFilter = argValue('brand');
 const dryRun = isDryRun();
 const refresh = process.argv.includes('--refresh');
+const enrichForeign = process.argv.includes('--enrich-foreign');
 
 if (!Number.isInteger(maxAuctions) || maxAuctions < 1 || maxAuctions > 50) {
   throw new Error('--max-auctions must be an integer from 1 to 50');
@@ -90,7 +91,7 @@ const run = {
   source: 'Phillips public watch auction results',
   source_url: DISCOVERY_URL,
   policy: 'Discovery is automatic. Only exact-reference, realized USD sales can reach ready_for_review. Promotion remains a separate human decision.',
-  options: { max_auctions: maxAuctions, max_details: maxDetails, brand: brandFilter ?? null, dry_run: dryRun, refresh },
+  options: { max_auctions: maxAuctions, max_details: maxDetails, brand: brandFilter ?? null, dry_run: dryRun, refresh, enrich_foreign: enrichForeign },
   requests: [],
   auctions: [],
   failures: [],
@@ -134,13 +135,13 @@ const details = new Map((previous?.records ?? [])
   .filter((record) => record.detail)
   .map((record) => [record.source_id, record.detail]));
 const eligibleForDetail = parsedLots.filter((lot) => {
-  if (!lot.realized || lot.currency !== 'USD' || !lot.reference_key) return false;
+  if (!lot.realized || !lot.currency || !lot.reference_key || (!enrichForeign && lot.currency !== 'USD')) return false;
   if (brandFilter && normalizeBrand(lot.brand) !== normalizeBrand(brandFilter)) return false;
   if (!refresh && (details.has(lot.source_id) || priorFor(lot)?.detail)) return false;
   return cardIndex.byIdentity.has(`${normalizeBrand(lot.brand)}|${lot.reference_key}`);
-}).slice(0, maxDetails);
+}).sort((a, b) => Number(b.currency === 'USD') - Number(a.currency === 'USD')).slice(0, maxDetails);
 
-console.log(`[phillips] enriching ${eligibleForDetail.length} new or refreshed exact-reference USD matches`);
+console.log(`[phillips] enriching ${eligibleForDetail.length} new or refreshed exact-reference ${enrichForeign ? 'matches (USD first)' : 'USD matches'}`);
 for (const [index, lot] of eligibleForDetail.entries()) {
   const key = sha256(lot.source_id).slice(0, 16);
   const fetched = await getText(lot.source_url, 'detail', key);

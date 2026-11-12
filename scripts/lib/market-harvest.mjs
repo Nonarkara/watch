@@ -315,7 +315,7 @@ export function classifyLot(lot, cardIndex, existingKeys, detail = null) {
     return { ...lot, card_id: card.id, status: 'duplicate', reasons: ['already_on_card'], detail };
   }
 
-  if (card && lot.currency === 'USD' && lot.realized) {
+  if (card && lot.realized && (lot.currency === 'USD' || detail)) {
     if (!detail) reasons.push('detail_not_fetched');
     if (detail?.reference_key && detail.reference_key !== card.reference_key) reasons.push('detail_reference_mismatch');
     const cardMaterial = materialFamily(card.material ?? '');

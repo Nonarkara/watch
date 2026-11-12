@@ -54,6 +54,11 @@ separate one-record command after a person checks reference, material, dial, con
 and accessories. Non-USD results remain quarantined until the schema can preserve source currency
 and source-backed exchange rates.
 
+Where source access permits it, `--enrich-foreign` lets the harvester collect detail for
+exact-reference, realized non-USD lots within the same `--max-details` budget. USD candidates
+keep first priority. Foreign-currency lots can gain reference, material and dial checks without
+becoming comparable or eligible for promotion.
+
 Promotion also checks the Phillips lot identity across URL forms. For multi-day or legacy
 auction records, verify the session containing the lot and supply `--sale-date=YYYY-MM-DD`
 and `--date-source=<Phillips session or lot URL>`. The auction opening date alone is not a sale date.

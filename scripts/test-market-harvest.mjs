@@ -120,6 +120,10 @@ assert.deepEqual(classifyLot(parsed.lots[0], scopedIndex, emptyKeys, detail).rea
 const nonUsd = classifyLot(parsed.lots[1], index, emptyKeys, detail);
 assert.equal(nonUsd.status, 'quarantined');
 assert(nonUsd.reasons.includes('non_usd_sale'));
+assert.deepEqual(classifyLot(parsed.lots[1], index, emptyKeys, {
+  ...detail, reference_key: '5512', material: 'Yellow gold',
+}).reasons, ['non_usd_sale', 'detail_reference_mismatch', 'material_mismatch'],
+  'foreign-currency detail can reveal identity issues but cannot lift the currency quarantine');
 
 const unknown = classifyLot(parsed.lots[2], index, emptyKeys, null);
 assert.equal(unknown.status, 'quarantined');
