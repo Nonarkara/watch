@@ -142,7 +142,7 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     assert.ok(!card.market_evidence.comps.some((comp) => /NY010523/i.test(comp.url)),
       `${file}: Phillips NY010523 is an art auction, not a watch sale`);
   }
-  for (const id of ["rolex-126610ln", "rolex-116610lv-hulk", "rolex-1680-red", "rolex-1803", "rolex-5513"]) {
+  for (const id of ["rolex-116610lv-hulk", "rolex-1680-red", "rolex-1803", "rolex-5513"]) {
     const card = JSON.parse(readFileSync(new URL(`${id}.json`, cardDir), "utf8"));
     const comps = card.market_evidence.comps.filter((comp) => comp.comparable !== false);
     const estimate = marketEstimate(comps, BUILD);
@@ -239,6 +239,20 @@ for (const [id, lot, price] of [
   assert.ok(comps[0].url.endsWith(`/NY080124/${lot}`));
   assert.equal(comps[0].price_usd, price);
   assert.equal(comps[0].comparable, false);
+}
+
+// Recovered evidence must clear the floor without counting an exceptional lot.
+for (const [id, lot, median] of [
+  ["rolex-126610ln", "/121670", 13750],
+  ["rolex-1675", "/5574-54114.s", 18750],
+]) {
+  const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
+  const comps = card.market_evidence.comps.filter((sale) => sale.comparable !== false);
+  assert.ok(comps.some((sale) => sale.url.endsWith(lot)), `${id} must retain the reviewed lot`);
+  assert.equal(new Set(comps.map((sale) => sale.url)).size, comps.length, `${id} must cite distinct sales`);
+  if (comps.length === 3) {
+    assert.equal(marketEstimate(comps, BUILD).value, median, `${id} three-sale median`);
+  }
 }
 
 // 11. Screen exposure changes attention pressure, never scarcity.

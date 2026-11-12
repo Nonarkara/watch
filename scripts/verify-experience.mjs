@@ -215,11 +215,11 @@ try {
       proofs.push({ name, ...proof, screenshot })
     }
   }
-  browser('open', base + '/w/rolex-126610ln')
+  browser('open', base + '/w/rolex-116610lv-hulk')
   browser('wait', '.dsr-estimate-refusal')
   assert(evaluate(`document.querySelector('.dsr-estimate-refusal').textContent.includes('Market estimate') &&
     document.querySelectorAll('svg[aria-label="Price evidence chart"] rect').length === 2`),
-    'two sourced Submariner sales must stay visible without a market estimate')
+    'two sourced Hulk sales must stay visible without a market estimate')
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '.dsr-evidence-ledger')
   const priced = evaluate(`(() => ({
