@@ -4333,7 +4333,7 @@ main.shell { padding-top: var(--space-md); }
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
   background: var(--navy);
-  color: var(--paper);
+  color: #fff;
   font-size: 9px;
   letter-spacing: 0.1em;
 }
@@ -4419,7 +4419,7 @@ main.shell { padding-top: var(--space-md); }
   margin: 0;
   padding: 10px 20px;
   background: var(--yellow);
-  color: var(--ink);
+  color: #0a0a0a;
   font-size: 8px;
   letter-spacing: 0.09em;
 }

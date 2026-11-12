@@ -20,7 +20,7 @@ import {
 const ATTENTION_HISTORY_KEY = 'watch.attention.history.v1'
 
 function movementLabel(pulse: SavedAttentionPulse): string {
-  if (pulse.movement === 'current') return `TODAY #${pulse.current_rank}`
+  if (pulse.movement === 'current') return `RANK #${pulse.current_rank}`
   if (pulse.movement === 'new') return `NEW · #${pulse.current_rank}`
   if (pulse.movement === 'up') return `UP ${pulse.places} · #${pulse.current_rank}`
   if (pulse.movement === 'down') return `DOWN ${pulse.places} · #${pulse.current_rank}`
@@ -128,10 +128,10 @@ export default function Saved() {
                 <div>
                   <p className="eyebrow" id="saved-pulse-title">YOUR DAILY PULSE</p>
                   <strong className="saved-pulse-number">{currentAttentionCount}/{cards.length}</strong>
-                  <p className="saved-pulse-deck">saved references are in today&apos;s public-attention watchlist.</p>
+                  <p className="saved-pulse-deck">saved references appear in the latest available attention snapshot.</p>
                 </div>
                 <div className="saved-pulse-note">
-                  <span className="saved-pulse-live mono">● PUBLIC SIGNAL</span>
+                  <span className="saved-pulse-live mono">{trends.origin === 'live' ? 'FEED SNAPSHOT' : 'BUNDLED SNAPSHOT'}</span>
                   <p>Search and reading attention can precede demand, or mean nothing at all. It is context—not a price forecast.</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default function Saved() {
                   })}
                 </div>
               ) : (
-                <p className="saved-pulse-quiet">Quiet today. None of your saved references appears in the current top 20.</p>
+                <p className="saved-pulse-quiet">None of your saved references appears in this snapshot’s top 20.</p>
               )}
 
               <p className="saved-pulse-foot mono">
@@ -201,7 +201,7 @@ export default function Saved() {
                     <span className="saved-cell-name">{c.identity.name}</span>
                     {c.identity.nickname && <span className="saved-cell-nick">“{c.identity.nickname}”</span>}
                     <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
-                    {trend && <span className="saved-cell-pulse mono">TODAY #{trend.rank} · {trendSignal(trend)}</span>}
+                    {trend && <span className="saved-cell-pulse mono">RANK #{trend.rank} · {trends?.as_of}{trendSignal(trend) && ` · ${trendSignal(trend)}`}</span>}
                     <span className="saved-cell-price mono">
                       {est != null ? <>{usd(est)}<small className="saved-price-date dim">{c.computed.estimate.stale ? 'Historical · ' : ''}{c.computed.estimate.as_of ?? 'date unverified'}</small></>
                         : msrp != null ? `${usd(msrp)} RETAIL`

@@ -592,6 +592,24 @@ try {
       !!exact.querySelector('img') && !exact.querySelector('.saved-pulse-photo-note') &&
       document.documentElement.scrollWidth<=innerWidth;
   })()`), 'Saved attention must distinguish exact and related thumbnails without phone overflow')
+  assert(evaluate(`(() => {
+    const root=document.documentElement, original=root.getAttribute('data-theme');
+    const luminosity=value=>value.match(/[\\d.]+/g).slice(0,3).map(Number).map(v=>v/255)
+      .map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4)
+      .reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+    const contrast=['dark','light'].every(theme=>{
+      root.setAttribute('data-theme',theme);
+      return ['.saved-pulse-meta','.saved-pulse-foot'].every(selector=>{
+        const css=getComputedStyle(document.querySelector(selector));
+        const [lo,hi]=[luminosity(css.color),luminosity(css.backgroundColor)].sort((a,b)=>a-b);
+        return (hi+0.05)/(lo+0.05)>=4.5;
+      });
+    });
+    if(original===null) root.removeAttribute('data-theme'); else root.setAttribute('data-theme',original);
+    const pulse=document.querySelector('.saved-pulse');
+    return contrast && pulse.textContent.includes('BUNDLED SNAPSHOT') &&
+      pulse.textContent.includes('AS OF ') && !pulse.textContent.toLowerCase().includes('today');
+  })()`), 'a bundled snapshot must be dated and both source bands readable in light and dark')
   browser('network', 'unroute', '**/live/market_trends.json')
   browser('open', base + '/compare')
   browser('wait', 'select[aria-label="Add a reference"]')
