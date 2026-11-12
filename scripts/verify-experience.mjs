@@ -98,6 +98,23 @@ function verifyMarket() {
     browser('select', '.register-filter-selects select:nth-child(2)', 'attainable')
     const registerTier = evaluate("document.querySelector('.register-controls .count-line').textContent")
     assert(registerBefore !== registerAsia && registerAsia !== registerTier, 'Both narrow filters must change Register results')
+    browser('open', base + '/screen#sightings')
+    browser('wait', '.screen-card')
+    const screenCount = () => Number.parseInt(evaluate("document.querySelector('.screen-compact-controls [role=status]').textContent"), 10)
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const legend = document.querySelector('.screen-compact-controls');
+      return document.documentElement.scrollWidth <= innerWidth + 1 && legend.scrollWidth <= legend.clientWidth + 1 &&
+        getComputedStyle(document.querySelector('.screen-card-image-credit')).position === 'static';
+    })`), 'Narrow screen filters and credits must fit without overlaying the photo')
+    const screenBefore = screenCount()
+    browser('select', '.screen-compact-controls select:first-child', 'film')
+    const screenFilm = screenCount()
+    browser('select', '.screen-compact-controls select:nth-child(2)', '2000')
+    const screenDecade = screenCount()
+    browser('focus', '.screen-exact-check input')
+    browser('press', 'Space')
+    assert(screenBefore > screenFilm && screenFilm > screenDecade && screenDecade > screenCount(),
+      'Media, decade and keyboard exact filters must narrow the sightings')
   } finally {
     browser('close')
     session = mainSession

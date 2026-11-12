@@ -267,6 +267,25 @@ export default function Screen() {
         </p>
       </aside>
 
+      <div className="screen-compact-controls" role="group" aria-label="Sighting filters">
+        <select className="sel" aria-label="Filter by media type" value={filter} onChange={(e) => setFilter(e.target.value as Filter)}>
+          <option value="all">All media</option>
+          <option value="film">Film</option>
+          <option value="television">Television</option>
+          <option value="other">Other</option>
+        </select>
+        {decadeChips.length > 1 && <select className="sel" aria-label="Filter by decade"
+          value={yearMin ?? ''} onChange={(e) => {
+            const decade = decadeChips.find((d) => String(d.from) === e.target.value)
+            setYearMin(decade?.from ?? null)
+            setYearMax(decade?.to ?? null)
+          }}>
+          <option value="">All decades</option>
+          {decadeChips.map((d) => <option key={d.from} value={d.from}>{d.label}</option>)}
+        </select>}
+        <label className="screen-exact-check"><input type="checkbox" checked={exactOnly} onChange={(e) => setExactOnly(e.target.checked)} /> Exact reference only</label>
+        <span className="mono micro dim" role="status">{sightings.length} SHOWN</span>
+      </div>
       <div className="screen-controls" role="group" aria-label="Filter by media type">
         {(['all', 'film', 'television', 'other'] as Filter[]).map((value) => (
           <button className={`chip ${filter === value ? 'on' : ''}`} key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{value.toUpperCase()}</button>
@@ -279,6 +298,7 @@ export default function Screen() {
         <div className="screen-controls screen-year-controls" role="group" aria-label="Filter by decade">
           <button
             className={`chip ${yearMin == null && yearMax == null ? 'on' : ''}`}
+            aria-pressed={yearMin == null && yearMax == null}
             onClick={() => { setYearMin(null); setYearMax(null) }}
           >ALL YEARS</button>
           {decadeChips.map((d) => {
@@ -287,6 +307,7 @@ export default function Screen() {
               <button
                 key={d.label}
                 className={`chip ${active ? 'on' : ''}`}
+                aria-pressed={active}
                 onClick={() => { setYearMin(d.from); setYearMax(d.to) }}
                 title={`Sightings from ${d.from} to ${d.to}`}
               >{d.label.toUpperCase()}</button>
@@ -311,7 +332,7 @@ export default function Screen() {
           const studio = productionLabel(item)
           return (
             <article className={`screen-card ${index % 5 === 1 ? 'tilt-right' : index % 5 === 3 ? 'tilt-left' : ''}`} key={item.id}>
-              <div className="screen-card-media">
+              <div className={`screen-card-media${watchMedia ? '' : ' screen-card-media--empty'}`}>
                 {watchMedia ? (
                   <a
                     href={watchMedia.source_url}
@@ -370,6 +391,7 @@ export default function Screen() {
           )
         })}
       </div>
+      {snapshot && sightings.length === 0 && <p className="screen-no-results">No sightings match these filters.</p>}
 
       <section className="evidence-note">
         <p className="eyebrow">CREDITS &amp; LIMITS</p>
