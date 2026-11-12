@@ -2155,6 +2155,8 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 }
 @media (max-width: 319px) {
   .market-chart-legend { display: grid; gap: 4px; }
+  .market-toggle { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .market-toggle .chip { min-width: 0; padding-inline: 4px; white-space: normal; overflow-wrap: anywhere; }
 }
 .market-outliers { margin-top: var(--space-md); padding: var(--space-sm) var(--space-md); border: 1px solid var(--rule); border-left: 2px solid var(--amber); background: var(--paper-2); }
 .market-outliers ul { list-style: none; margin-top: var(--space-xs); }
