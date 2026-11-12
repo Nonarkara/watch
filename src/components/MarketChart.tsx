@@ -134,7 +134,7 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
       <div className="market-chart-head">
         <div>
           <p className="eyebrow">{brand.toUpperCase()} · PUBLISHED SALE OBSERVATIONS</p>
-          <h3>{sortedSales.length} sales · {sortedSales[0].date.slice(0, 7)} to {lastSale.date.slice(0, 7)}</h3>
+          <h3>{sortedSales.length} sales · <time dateTime={sortedSales[0].date.slice(0, 7)}>{sortedSales[0].date.slice(0, 7)}</time> to <time dateTime={lastSale.date.slice(0, 7)}>{lastSale.date.slice(0, 7)}</time></h3>
           <p className="dim">
             Different references sold at different times. This is not a price index or a return.
           </p>

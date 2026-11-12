@@ -24,7 +24,8 @@ function verifyCompactMark(iconOnly, saved) {
     const text = home.querySelector('.wm-main'), controls = document.querySelector('.hdr-cluster');
     const right = el => el.getBoundingClientRect().right;
     const box = logo.getBoundingClientRect();
-    return { iconOnly: text.getClientRects().length === 0, label: home.getAttribute('aria-label'),
+    return { width: innerWidth, storedCount: JSON.parse(localStorage.getItem('watch.saved') ?? '[]').length,
+      iconOnly: text.getClientRects().length === 0, label: home.getAttribute('aria-label'),
       href: home.getAttribute('href'), controls: controls.children.length,
       clear: box.width > 0 && right(logo) <= controls.getBoundingClientRect().left &&
         (text.getClientRects().length === 0 || right(text) <= controls.getBoundingClientRect().left + 1),
@@ -37,7 +38,7 @@ function verifyMarket() {
   const mainSession = session
   session += '-market'
   try {
-    for (const width of [239, 390, 1024, 1440]) {
+    for (const width of [239, 390, 768, 1024, 1440]) {
       browser('set', 'viewport', String(width), '900')
       browser('open', base + '/economy')
       browser('wait', '.market-chart svg')
@@ -51,11 +52,13 @@ function verifyMarket() {
           dots: svg.querySelectorAll('circle').length,
           outliers: chart.querySelectorAll('.market-chart-outliers li').length,
           line: !!svg.querySelector('path'), invalid: svg.innerHTML.includes('NaN'),
+          legendRows: new Set([...legend.children].map(key => key.offsetTop)).size,
           overflow: document.documentElement.scrollWidth > innerWidth + 1 || legend.scrollWidth > legend.clientWidth + 1
         };
       })()`)
       assert(market.dots >= 4 && market.dots + market.outliers === market.count && !market.line &&
         !market.invalid && !market.overflow, JSON.stringify({ width, ...market }))
+      if (width === 768) assert.equal(market.legendRows, 1, 'Tablet chart keys belong together')
       if (width === 390) {
         browser('click', '.market-chart-sources:not(.market-chart-outliers) summary')
         assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
@@ -80,6 +83,13 @@ function verifyMarket() {
     })`)
     assert(discovery.count === 6 && discovery.selected === 'DIVERS' && discovery.action.startsWith('/w/') &&
       discovery.actionY <= 900 && discovery.width <= 240 && discovery.fit, JSON.stringify(discovery))
+    browser('set', 'viewport', '720', '900')
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const keys = [...document.querySelectorAll('.discover-filters button')];
+      return keys.filter(key => key.offsetTop === keys[0].offsetTop).length === 3 &&
+        keys.filter(key => key.offsetTop === keys[5].offsetTop).length === 3;
+    })`), 'Tablet discovery filters must form two complete rows')
+    browser('set', 'viewport', '239', '900')
     evaluate('window.scrollTo(0, 0)')
     verifyCompactMark(true, false)
     browser('set', 'viewport', '280', '900')
