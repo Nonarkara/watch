@@ -21,7 +21,7 @@ const proofs = []
 try {
   for (const [width, height] of [[390, 844], [1024, 900], [1440, 900], [1280, 720]]) {
     browser('set', 'viewport', String(width), String(height))
-    for (const [name, path] of [['home', '/'], ['register', '/register'], ['data', '/data'], ['collector', '/pom?watch=rolex-116500ln#value-lab']]) {
+    for (const [name, path] of [['home', '/'], ['register', '/register'], ['data', '/data'], ['collector', '/pom?watch=rolex-116500ln#value-lab'], ['dossier-gap', '/w/casio-ae-1200'], ['dossier-photo', '/w/ap-15202st']]) {
       browser('open', base + path)
       browser('wait', 'main h1')
       evaluate('document.fonts.ready.then(() => true)')
@@ -52,6 +52,35 @@ try {
         const coverage = evaluate("fetch('/data.json').then(r=>r.json()).then(d=>({refused:d.cards.filter(c=>c.computed.estimate.value==null).length,text:document.querySelector('.pop-panel').textContent}))")
         assert(coverage.text.includes(`${coverage.refused} without publishable estimates`), 'Register must count the estimate gate, not sale coverage')
       }
+      if (name === 'dossier-gap') {
+        const geometry = evaluate(`(() => {
+          const top=document.querySelector('.dsr-top'), heading=top.querySelector('h1');
+          const note=top.querySelector('.dsr-photo-status'), action=top.querySelector('.dsr-action-save');
+          const identity=top.querySelector('.dsr-identity').getBoundingClientRect(), verdict=top.querySelector('.dsr-verdict').getBoundingClientRect();
+          return {headingTop:heading.getBoundingClientRect().top, statusHeight:note?.getBoundingClientRect().height,
+            status:note?.textContent, actionBottom:action.getBoundingClientRect().bottom,
+            inset:heading.getBoundingClientRect().left-top.getBoundingClientRect().left,
+            photo:!!top.querySelector('figure'), verdictRows:top.querySelectorAll('.dsr-verdict-row').length,
+            sideBySide:verdict.left>=identity.right && Math.abs(verdict.top-identity.top)<=1};
+        })()`)
+        assert(geometry.status?.includes('PHOTO UNVERIFIED') && geometry.statusHeight <= 48 && !geometry.photo)
+        assert(geometry.headingTop <= 300 && Math.abs(geometry.inset) <= 1, `missing photo displaced the watch identity at ${width}`)
+        assert(geometry.actionBottom <= height && geometry.verdictRows === 4, `missing-photo evidence and save action must fit at ${width}`)
+        if (width >= 960) assert(geometry.sideBySide, 'use the second track for the verdict, not a desktop void')
+        Object.assign(proof, { geometry })
+        if (width === 390) {
+          const oldFrameFails = evaluate(`(() => {
+            const top=document.querySelector('.dsr-top'), frame=document.createElement('div');
+            frame.style.height='180px';top.prepend(frame);
+            const fails=top.querySelector('h1').getBoundingClientRect().top>300;
+            frame.remove();return fails;
+          })()`)
+          assert.equal(oldFrameFails, true, 'restoring the old 180px frame must fail the heading budget')
+        }
+      }
+      if (name === 'dossier-photo') {
+        assert(evaluate("!!document.querySelector('.dossier-object img') && document.querySelector('.dossier-object figcaption').textContent.includes('SOURCE') && !document.querySelector('.dsr-photo-status')"), 'preserve the sourced portrait and credit')
+      }
       const screenshot = join(out, `${name}-${width}.png`)
       browser('screenshot', screenshot)
       proofs.push({ name, ...proof, screenshot })
@@ -61,9 +90,11 @@ try {
   browser('open', base + '/')
   browser('wait', 'main h1')
   browser('click', '.srch-btn')
+  browser('wait', '.srch-input')
   browser('fill', '.srch-input', '5513')
   browser('press', 'Enter')
   browser('wait', '--url', '**/w/rolex-5513')
+  browser('wait', '.dsr-top h1')
   assert(evaluate('location.pathname') === '/w/rolex-5513', 'search must open the selected dossier')
   browser('set', 'viewport', '390', '900')
   evaluate("[...document.querySelectorAll('main p, main h1, main h2, main label')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]).forEach(([e,size])=>e.style.fontSize=(size*2)+'px')")

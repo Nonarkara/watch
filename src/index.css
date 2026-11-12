@@ -1379,7 +1379,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .dossier-object { background: var(--paper-2); border: var(--border); margin: 12px 0 24px; padding: 20px; }
 .dossier-object img { width: 100%; height: min(55vw, 460px); object-fit: contain; mix-blend-mode: multiply; }
 .dossier-object figcaption { padding-top: 12px; border-top: var(--border); color: var(--dim); font-family: var(--font-mono); font-size: var(--text-micro); }
-.dossier-empty { margin: 12px 0 24px; min-height: 300px; }
 .brand-context { border-left: 2px solid var(--rule); padding: 10px 14px; margin-top: 16px; max-width: 72ch; }
 .brand-context span { color: var(--dim); }
 .attention-cell, .pressure-cell { background: transparent; }
@@ -1550,7 +1549,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
    The object and the identity share the top row so the fold carries the watch,
    its name and its numbers instead of a full-width photograph. */
 .dsr-top { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); align-items: start; margin-bottom: var(--space-lg); }
-.dsr-top .dossier-object, .dsr-top .dossier-empty { margin: 0; }
+.dsr-top .dossier-object { margin: 0; }
 .dsr-top .masthead { margin-bottom: 0; }
 .dsr-tabs { display: flex; gap: var(--space-lg); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-md); }
 .dsr-tab {
@@ -1573,7 +1572,6 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   .cslot { white-space: nowrap; }
   .cdock .btn { padding: 0 var(--space-sm); font-size: var(--text-micro); }
   .cdock-clear { display: none; }
-  .dossier-empty { min-height: 180px; }
   .dsr-top .dossier-object img { height: 220px; }
 }
 
@@ -1592,6 +1590,18 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
 .dsr-top .dossier-object img { height: min(46vw, 300px); }
 .dsr-top .dossier-object figcaption { padding-top: 10px; line-height: 1.5; }
 .masthead .mast-line { margin-top: 10px; max-width: 56ch; }
+.dsr-top.dsr-top--no-portrait { grid-template-columns: minmax(0, 1fr); }
+.dsr-photo-status { margin: 8px 0 0; color: var(--dim); }
+@media (min-width: 960px) {
+  /* The identity and the four-axis receipt have their own content-sized heights. */
+  .dsr-top--no-portrait .masthead {
+    display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
+    column-gap: 24px; align-items: start;
+  }
+  .dsr-top--no-portrait .dsr-verdict { margin-top: 0; }
+  .dsr-top--no-portrait .dsr-actions,
+  .dsr-top--no-portrait .mast-spec { grid-column: 1 / -1; }
+}
 .pagetitle { margin: 6px 0 10px; }
 
 /* Ten cells, five columns: two complete rows and no empty boxes. */

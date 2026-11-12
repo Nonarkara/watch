@@ -67,7 +67,7 @@ export default function Dossier() {
     <>
       <Link to="/register" className="crumb">← REGISTER</Link>
 
-      <div className="dsr-top">
+      <div className={c.media[0] ? 'dsr-top' : 'dsr-top dsr-top--no-portrait'}>
       {c.media[0] ? (
         <figure className="dossier-object">
           <a href={c.media[0].source_url} target="_blank" rel="noreferrer"><img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} decoding="async" fetchPriority="high" width={600} height={450} /></a>
@@ -80,13 +80,19 @@ export default function Dossier() {
             {c.media[0].license ? ` · ${c.media[0].license.toUpperCase()}` : ''} · SOURCE ↗
           </figcaption>
         </figure>
-      ) : <div className="empty-photo dossier-empty"><strong>IMAGE FRAME</strong><span>This reference has no verified media attachment yet.</span><small className="mono">AWAITING A SOURCE + RIGHTS PATH</small></div>}
+      ) : null}
 
       <div className="masthead">
+        <div className="dsr-identity">
         <p className="eyebrow">{c.identity.brand} · {c.identity.collection} · {TIER_LABEL[c.identity.tier]}</p>
         <h1 className="pagetitle">{c.identity.name} <span className="mono">{c.identity.reference}</span></h1>
         {c.identity.nickname && <p className="mast-nick">“{c.identity.nickname}”</p>}
         <p className="mast-line">{c.identity.one_liner}</p>
+        {!c.media[0] && (
+          <p className="dsr-photo-status mono micro">
+            <strong>PHOTO UNVERIFIED</strong> · Awaiting a source and reuse rights.
+          </p>
+        )}
 
       {trendHit && (
         <p className="dsr-trending mono" title="Public attention (Wikipedia pageviews; Google Trends when connected), not price">
@@ -98,6 +104,7 @@ export default function Dossier() {
           )}
         </p>
       )}
+        </div>
 
       <div className="dsr-verdict" aria-label="Five-second verdict">
         <span className="dsr-verdict-eyebrow mono">FIVE-SECOND VERDICT</span>

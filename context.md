@@ -102,6 +102,13 @@ validated end to end.
 
 ## Anti-Regression
 
+**Dossier design read (missing portrait):** A MoMA object label names the object
+and records what is known; absence is metadata, not an illustration. In the
+modular ledger the watch name leads when no photograph exists, followed by the
+compact source status and verdict. Wide screens pair identity and verdict in
+61.8/38.2 tracks; phone stacks the same reading order. No empty image track or
+added frame; keep the existing rule weights, colours, and photographed layout.
+
 Home geometry repair: `src/pages/home.css` deliberately replaces inflated
 full-width stat tiles and repeated card framing with an aligned editorial column
 grid. Art → reading/action band → natural-width facts. Commitments and detailed
