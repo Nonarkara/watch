@@ -7,6 +7,7 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { sitemapPaths } from './spatial/sitemap-routes.mjs'
 
 const tmp = mkdtempSync(join(tmpdir(), 'watch-spatial-replay-'))
 const checker = fileURLToPath(new URL('./spatial/spatial-check.mjs', import.meta.url))
@@ -25,14 +26,18 @@ const run = (measurements, ...args) => {
   return { code: result.status, output: result.stdout + result.stderr }
 }
 const exec = promisify(execFile)
-const html = '<link rel="stylesheet" href="/site.css"><a href="/about/">About</a>'
+const html = '<link rel="stylesheet" href="/site.css">'
 let css = 'body{color:black}'
+let sitemapStatus = 200
 const server = createServer((req, res) => {
   if (req.url === '/site.css') {
     res.setHeader('Content-Type', 'text/css')
     return res.end(css)
   }
-  if (req.url === '/sitemap.xml') return res.end('<urlset/>')
+  if (req.url === '/sitemap.xml') {
+    res.statusCode = sitemapStatus
+    return res.end(`<urlset><loc>http://${req.headers.host}/about</loc></urlset>`)
+  }
   return res.end(html)
 })
 try {
@@ -42,6 +47,9 @@ try {
       Object.fromEntries(cells.filter((row) => row.route === route).map((row) => [row.w, row])),
     ])),
   }
+  const canonicalSitemap = '<loc>https://watch.nonarkara.org/register</loc><loc>https://other.invalid/wrong</loc>'
+  assert.deepEqual(sitemapPaths(canonicalSitemap, 'https://f79a13b0.watch-1de.pages.dev'), ['/register'])
+  assert.deepEqual(sitemapPaths(canonicalSitemap, 'https://unrelated.example'), [])
   writeFileSync(receipt, JSON.stringify(baseline))
   const pass = run(cells)
   assert.equal(pass.code, 0, pass.output)
@@ -82,6 +90,9 @@ try {
   writeShard(2, cells.slice(2))
   const assembled = await assemble()
   assert.equal(assembled.code, 0, assembled.output)
+  sitemapStatus = 503
+  assert.match((await assemble()).output, /cannot discover deployed sitemap routes: HTTP 503/)
+  sitemapStatus = 200
   css = 'body{color:red}'
   assert.match((await assemble()).output, /incompatible shard/)
   console.log('✓ spatial replay and sharded gate require full unique coverage, preserve errors, and reject a changed deployment')

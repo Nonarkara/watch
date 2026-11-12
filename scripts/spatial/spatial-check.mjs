@@ -77,6 +77,7 @@ import { tmpdir, homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { widthBreakpointTerms } from "./width-breakpoints.mjs";
+import { sitemapPaths } from "./sitemap-routes.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -957,12 +958,16 @@ async function discoverRoutes() {
     const base = String(BASE).replace(/\/+$/, "");
     const routes = new Set(["/"]);
     try {
-      const sm = await (await fetch(base + "/sitemap.xml")).text();
-      for (const m of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-        const u = new URL(m[1]);
-        if (u.origin === new URL(base).origin && !isAssetPath(u.pathname)) routes.add(u.pathname);
+      const response = await fetch(base + "/sitemap.xml", { signal: AbortSignal.timeout(10000) });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const listed = sitemapPaths(await response.text(), base).filter((p) => !isAssetPath(p));
+      if (!listed.length) throw new Error("no same-site page URLs");
+      for (const p of listed) routes.add(p);
+    } catch (error) {
+      if (SHARD || ASSEMBLE) {
+        console.error(`FAIL — cannot discover deployed sitemap routes: ${error.message}`);
+        process.exit(1);
       }
-    } catch {
       /* no sitemap — the home page links are still worth having */
     }
     try {
