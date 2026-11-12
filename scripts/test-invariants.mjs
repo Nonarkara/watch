@@ -18,6 +18,15 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
 assert.equal(newmanCard.market_evidence.comps.find((c) => c.price_usd === 17752500).comparable, false,
   "celebrity-owned lot must remain outside ordinary valuation");
+const resonance = JSON.parse(readFileSync(new URL("../data/cards/journe-resonance.json", import.meta.url), "utf8"));
+for (const lot of ["230170", "225726"]) {
+  assert.equal(resonance.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`))?.comparable, false,
+    "the Souscription and Coppola RN lots must stay outside the standard RS valuation");
+}
+assert.ok(!resonance.market_evidence.comps.some((c) => c.url.includes("152081113")),
+  "the Résonance charity result belongs in provenance, not in the market series");
+assert.ok(resonance.provenance_events.some((event) => event.source_url.includes("152081113") && event.description.includes("SGD 4 million")),
+  "retain the charity result in its original currency");
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
 
 // Curated image assignments — checked by invariant 13 below.
