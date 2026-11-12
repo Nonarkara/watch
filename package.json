@@ -35,6 +35,7 @@
     "spatial:prerender": "node scripts/spatial/prerender.mjs",
     "spatial:gate": "npm run spatial:copy && npm run spatial:prerender && node scripts/spatial/spatial-check.mjs --dir .spatial-dist --baseline design/spatial-baseline.json",
     "spatial:report": "npm run spatial:copy && npm run spatial:prerender && node scripts/spatial/spatial-check.mjs --dir .spatial-dist --baseline design/spatial-baseline.json --report",
+    "spatial:dossiers": "node scripts/spatial/spatial-check.mjs --routes /w/rolex-6265,/w/rolex-116500ln,/w/patek-5711-1a-018-tiffany --widths 320,390,480,481,768,1024,1440",
     "spatial:falsify": "node scripts/spatial/spatial-falsify.mjs .spatial-dist",
     "spatial:probe": "node scripts/spatial/run-probe.mjs",
     "spatial:verify": "node scripts/spatial/verify.mjs",

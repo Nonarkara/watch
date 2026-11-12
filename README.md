@@ -76,3 +76,10 @@ The scheduled Spatial law workflow measures production. To measure a release
 candidate, run it manually on the candidate branch with its immutable Pages
 preview URL (for example, `https://1234abcd.watch-1de.pages.dev/`). A green
 production monitor does not clear a preview.
+
+The site-wide receipt does not cover individual dossiers. Run
+`npm run spatial:dossiers -- --base <immutable-preview-url>` alongside it
+after a dossier or shared-chart change. The three samples cover native-currency
+lot records without an estimate (6265), a historical estimate with charts
+(116500LN), and a dial-scoped refusal (Tiffany 5711). This is a seven-width
+layout check, not a replacement for the full sweep or keyboard testing.
