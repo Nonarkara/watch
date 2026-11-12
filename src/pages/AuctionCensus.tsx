@@ -93,7 +93,7 @@ export default function AuctionCensus() {
   }, [])
 
   if (err) return <p className="honest" role="alert">{err}</p>
-  if (!census) return <p className="lede">Loading the census…</p>
+  if (!census) return <p className="lede boot" role="status">Loading the census…</p>
 
   const { totals, coverage } = census
   const approximate = totals.lots_converted_at_auction_start > 0 || totals.unconverted_lots > 0
