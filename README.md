@@ -58,3 +58,14 @@ The production site is deployed to Cloudflare Pages and served at the custom dom
 [watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
 at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the
 custom domain.
+
+Before a production upload, use a clean checkout of the intended `main` commit on Node 24.
+Check that the `gate` workflow passed for that commit, then exercise the candidate in a
+Pages preview. The scheduled `Spatial law` workflow checks production; its result is not
+proof that a preview passes. Run `npm run spatial:gate` and `npm run spatial:falsify` on the
+built candidate when changing layout or the spatial tooling.
+
+`npm run deploy` runs the production dependency audit, lint, build, and tests before
+uploading to the Pages production branch. It does not enforce GitHub status checks or
+run the browser checks. After upload, verify that Pages serves the built assets before
+checking the custom domain and exercising the affected routes there.

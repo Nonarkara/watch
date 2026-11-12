@@ -1,5 +1,6 @@
 # The gate: a clean clone must build and pass its own tests, with no secret in
-# the tree and no known-vulnerable production dependency. Red gate = no deploy.
+# the tree and no known high/critical production advisory. Review this check
+# before merging or deploying; GitHub does not currently require it on main.
 # (Doctrine Laws 1 + 4, _toolkit/production-gate/ci-gate.yml, adapted.)
 name: gate
 on:
@@ -47,3 +48,6 @@ jobs:
 
       - name: Tests
         run: npm test
+
+      - name: Lint
+        run: npm run lint

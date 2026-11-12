@@ -194,15 +194,17 @@ const inventedInterest = trends.trending.filter((row) =>
   row.trends?.interest != null && (row.trends.interest < 0 || row.trends.interest > 100));
 assert.deepEqual(inventedInterest, [],
   "Google Trends interest must stay in 0–100 when present");
-// Watchdog: the daily harvest runs on GitHub Actions, which has been blocked
-// by a billing limit — a blocked run never executes its own age-report step,
-// so nothing else warns that the snapshot is rotting. The site discloses
-// staleness to visitors; this is the signal for the operator. Threshold is
-// deliberately generous (7d) so it fires only on a real outage, not a weekend.
-const snapshotAge = Math.floor((Date.now() - Date.parse(trends.as_of + "T00:00:00Z")) / 86_400_000);
-assert.ok(snapshotAge <= 7,
-  `market_trends snapshot is ${snapshotAge}d old (as_of ${trends.as_of})\n  → the daily harvest has not run in over a week; refresh with: npm run data:trends`);
-console.log(`✓ market trends snapshot (${trends.trending.length} rows, as_of ${trends.as_of}, ${snapshotAge}d old)`);
+// This file is the bundled fallback, not the daily Worker output. Keep the
+// clean-clone test independent of the clock; /live/health.json monitors the
+// actual collector, and the UI discloses stale fallback data.
+const snapshotDate = new Date(`${trends.as_of}T00:00:00Z`);
+assert.ok(Number.isFinite(snapshotDate.getTime()) && snapshotDate.toISOString().slice(0, 10) === trends.as_of,
+  'market_trends.as_of must be a valid YYYY-MM-DD calendar date');
+const snapshotAge = Math.floor((Date.now() - snapshotDate.getTime()) / 86_400_000);
+if (snapshotAge > 7) {
+  console.warn(`Bundled market-attention fallback is ${snapshotAge}d old (as_of ${trends.as_of}). Check /live/health.json for collector health.`);
+}
+console.log(`✓ market trends fallback (${trends.trending.length} rows, as_of ${trends.as_of})`);
 
 // Saved is the collector's private view of the public attention snapshot.
 // The set and its prior-day rank history must stay on-device, while its
