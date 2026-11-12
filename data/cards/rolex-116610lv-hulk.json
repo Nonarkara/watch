@@ -35,16 +35,42 @@
         "price_usd": 21590,
         "venue": "christies",
         "url": "https://www.christies.com/en/lot/lot-6590241",
-        "condition": null,
-        "box_papers": "box_only"
+        "condition": "Named collection: Todd Michael Glaser; kept outside the ordinary resale cohort",
+        "box_papers": "box_only",
+        "comparable": false
       },
       {
         "date": "2022-06-12",
         "price_usd": 35280,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/rolex/NY080222/139",
-        "condition": "Brand-new 2021 example with guarantee, hang tag and presentation box",
+        "condition": "Brand-new 2021 example with guarantee, hang tag and presentation box; not a pre-owned baseline",
+        "box_papers": "full_set",
+        "comparable": false
+      },
+      {
+        "date": "2025-03-24",
+        "price_usd": 15000,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-submariner-hulk-reference-116610lv-stainless-steel-wristwatch/a/21174-13039.s",
+        "condition": "Green sunburst dial, steel case and Oyster bracelet",
+        "box_papers": null
+      },
+      {
+        "date": "2025-08-11",
+        "price_usd": 18750,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-stainless-steel-submariner-hulk-circa-2013-box-and-papers/a/21183-12039.s",
+        "condition": "Circa 2013 green sunburst dial with original box and papers",
         "box_papers": "full_set"
+      },
+      {
+        "date": "2026-06-15",
+        "price_usd": 18125,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-oyster-perpetual-date-submariner-hulk-ref-116610lv/a/5592-54104.s",
+        "condition": "Green sunburst dial, very good condition with light case and bracelet scratches",
+        "box_papers": null
       }
     ],
     "listing_observations": []
