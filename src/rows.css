@@ -66,16 +66,17 @@
   .dsr-top > * { min-width: 0; }
 }
 
-/* The four axes of a dossier card. Four items, so the columns must be two
-   or four — never three, which would leave RESELLABILITY alone on a row of
-   its own. Two under the card's own width, four when the card is wide
-   enough for the labels to sit side by side. */
+/* Use the card's text scale, not the viewport, to fit all four scores. */
+.pom-card-body { container: pom-scores / inline-size; }
 .pom-card-axes {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 4px;
 }
 .pom-card-axes .score-axis { min-width: 0; }
-@media (min-width: 1100px) {
+@container pom-scores (min-width: 15em) {
+  .pom-card-axes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container pom-scores (min-width: 32em) {
   .pom-card-axes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
