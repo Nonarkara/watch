@@ -169,7 +169,7 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
     assert.ok(!card.market_evidence.comps.some((comp) => /NY010523/i.test(comp.url)),
       `${file}: Phillips NY010523 is an art auction, not a watch sale`);
   }
-  for (const id of ["rolex-1680-red", "rolex-1803", "rolex-5513"]) {
+  for (const id of ["rolex-1803", "rolex-5513"]) {
     const card = JSON.parse(readFileSync(new URL(`${id}.json`, cardDir), "utf8"));
     const comps = card.market_evidence.comps.filter((comp) => comp.comparable !== false);
     const estimate = marketEstimate(comps, BUILD);
@@ -283,6 +283,13 @@ for (const [id, lot, median] of [
 }
 
 // 11. Screen exposure changes attention pressure, never scarcity.
+{
+  const redSub = JSON.parse(readFileSync(new URL("../data/cards/rolex-1680-red.json", import.meta.url), "utf8"));
+  const sales = redSub.market_evidence.comps;
+  assert.equal(sales.find((sale) => sale.url.endsWith("/62209"))?.comparable, false);
+  assert.equal(computeAll(redSub, shared, BUILD).estimate.value, 20625);
+  assert.equal(computeAll(redSub, shared, BUILD).estimate.stale, true);
+}
 {
   const hulk = JSON.parse(readFileSync(new URL("../data/cards/rolex-116610lv-hulk.json", import.meta.url), "utf8"));
   const sales = hulk.market_evidence.comps.filter((sale) => sale.comparable !== false);

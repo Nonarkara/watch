@@ -43,8 +43,33 @@
         "price_usd": 32500,
         "venue": "christies",
         "url": "https://onlineonly.christies.com/s/christies-watches-online-play-time/rolex-tropical-red-submariner-ref-1680-97/62209",
-        "condition": null,
-        "box_papers": "full_set"
+        "condition": "Tropical brown dial; excluded from the ordinary black-dial red-print cohort",
+        "box_papers": "full_set",
+        "comparable": false
+      },
+      {
+        "date": "2020-12-08",
+        "price_usd": 20000,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-1680-red-submariner-mark-iv-dial-circa-1970/a/5515-54048.s",
+        "condition": "Circa 1970 Mark IV red print; case 2769693, signs of polishing",
+        "box_papers": null
+      },
+      {
+        "date": "2021-06-01",
+        "price_usd": 21875,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-1680-red-submariner-mark-iv-dial-feet-first-stainless-steel-circa-1970/a/5519-54090.s",
+        "condition": "Circa 1970 Mark IV feet-first red print; case 2929744",
+        "box_papers": null
+      },
+      {
+        "date": "2026-04-24",
+        "price_usd": 21250,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-1680-red-submariner-steel-oyster-perpetual-date-circa-1973/a/5581-54131.s",
+        "condition": "Circa 1973 black dial with red Submariner lettering; case 3917219",
+        "box_papers": null
       }
     ],
     "listing_observations": []
