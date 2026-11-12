@@ -2,6 +2,14 @@ export const usd = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 export const pct = (n: number) => (n > 0 ? '+' : '') + n.toFixed(1) + '%';
 export const dash = '—';
 
+export function saleWindowLabel(months: number | null): string {
+  if (!months) return 'Window unknown';
+  if (months === 1200) return 'All records';
+  if (months % 12 !== 0) return `${months} months`;
+  const years = months / 12;
+  return `${years} ${years === 1 ? 'year' : 'years'}`;
+}
+
 export function yearsLabel(p: { start_year: number; end_year: number | null }): string {
   return p.end_year ? `${p.start_year}–${p.end_year}` : `${p.start_year}–`;
 }
@@ -12,7 +20,7 @@ export const VENUE_LABEL: Record<string, string> = {
 };
 
 export const REASON_TEXT: Record<string, string> = {
-  no_comps: 'No verified sales collected yet',
+  no_comps: 'No comparable sales on file',
   insufficient_comps: 'Fewer than 3 verified sales',
   insufficient_comps_in_period: 'Not enough sales in the comparison window',
   no_msrp: 'No published retail price on record',

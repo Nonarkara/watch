@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { loadMarketTrends, type MarketTrendRow } from '../lib/catalog.ts'
 import { TIER_LABEL, type Card, type Change } from '../lib/data.ts'
-import { usd, pct, dash, yearsLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
+import { usd, pct, dash, yearsLabel, saleWindowLabel, VENUE_LABEL, reasonText } from '../lib/format.ts'
 import { useCompare } from '../lib/compare-store.ts'
 import { useSaved } from '../lib/saved-store.ts'
 import Sparkline from '../components/Sparkline.tsx'
@@ -265,7 +265,8 @@ export default function Dossier() {
                 <span className="val big">{usd(estimate.value)}</span>
                 <span className="note mono">
                   {estimate.band && `${usd(estimate.band[0])}–${usd(estimate.band[1])} · `}
-                  n={estimate.n} · {estimate.window_months}mo{estimate.stale ? ` · HISTORICAL, AS OF ${estimate.as_of?.slice(0, 7)}` : ''}
+                  {estimate.n} sales · {saleWindowLabel(estimate.window_months)}
+                  {estimate.stale && estimate.as_of && <> · HISTORICAL, AS OF <time dateTime={estimate.as_of} style={{ whiteSpace: 'nowrap' }}>{estimate.as_of.slice(0, 7)}</time></>}
                 </span>
               </>
             ) : (
@@ -385,8 +386,7 @@ export default function Dossier() {
             </p>
           )}
           {c.notable_sales.length === 0 && (
-            <p className="honest">No verified sales collected yet for this reference. The register shows retail
-              history only — it does not estimate without evidence.</p>
+            <p className="honest">No comparable sales on file. Retail prices are not resale evidence.</p>
           )}
         </section>
       )}
@@ -598,8 +598,9 @@ export default function Dossier() {
           <div className="fact-bubble fact-bubble-coral">
             <span className="bubble-kicker mono">WHY NO MARKET ESTIMATE?</span>
             <strong>The register refuses to estimate this one.</strong>
-            <span>No verified sales of this exact reference have reached the register. The honest answer is
-              “we don’t know” — not a guessed number. A guess would mislead more than a blank.</span>
+            <span>{c.variant_sales.length > 0
+              ? 'The variant sales above price different watches or configurations, not this one.'
+              : 'No comparable sales are on file for this watch.'}</span>
             <Link to="/methodology" className="src-a">HOW THE ESTIMATOR DECIDES →</Link>
           </div>
         </section>

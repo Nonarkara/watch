@@ -18,6 +18,7 @@ import HeroBanner from '../components/HeroBanner.tsx'
 import { useDataset } from '../lib/dataset-context.ts'
 import { useSaved } from '../lib/saved-store.ts'
 import type { Card, ContextIndex } from '../lib/data.ts'
+import { saleWindowLabel } from '../lib/format.ts'
 import { POM_AGGREGATE, POM_BIO, POM_COLLECTION, type PomAxisTier, type PomWatch } from '../lib/pom.ts'
 import {
   NEUTRAL_ANNUAL_RATE,
@@ -605,7 +606,7 @@ function ValueLab() {
                     ? `${historicalSavedCount ? `${historicalSavedCount} historical or undated. ` : ''}The sum is not an appraisal of your watches.`
                     : `${savedSummary.missing_ids.length} missing estimates. Priced subset: ${money(savedSummary.known_subtotal, 'USD')}; not a collection total.`}</p>
                   <small className="pom-value-source mono">{savedSummary.priced_count > 0
-                    ? `SOURCE: DOSSIER ESTIMATORS · ${savedCompCount} COMPS · WINDOWS ≤${savedMaxWindowMonths}M · CONFIDENCE ${savedConfidenceTiers || 'UNKNOWN'} · COMPONENTS AS OF ${savedEstimateDateRange ?? 'UNKNOWN'}`
+                    ? `SOURCE: DOSSIER ESTIMATORS · ${savedCompCount} COMPS · LONGEST WINDOW: ${saleWindowLabel(savedMaxWindowMonths).toUpperCase()} · CONFIDENCE ${savedConfidenceTiers || 'UNKNOWN'} · COMPONENTS AS OF ${savedEstimateDateRange ?? 'UNKNOWN'}`
                     : 'SOURCE: NO SAVED REFERENCE CLEARS THE ESTIMATE GATE'}</small>
                 </div>
               </div>
@@ -669,7 +670,7 @@ function ValueLab() {
                         ? money(card.computed.estimate.value, 'USD')
                         : 'NEEDS 3 COMPS'}</strong>
                       <small>{card.computed.estimate.value != null
-                        ? `${card.computed.estimate.stale ? 'HISTORICAL · ' : ''}${card.computed.estimate.n} SALES · ${card.computed.estimate.window_months ?? '—'}M · TIER ${card.computed.confidence.tier ?? '—'} · AS OF ${card.computed.estimate.as_of ?? '—'}`
+                        ? `${card.computed.estimate.stale ? 'HISTORICAL · ' : ''}${card.computed.estimate.n} SALES · ${saleWindowLabel(card.computed.estimate.window_months).toUpperCase()} · TIER ${card.computed.confidence.tier ?? '—'} · AS OF ${card.computed.estimate.as_of ?? '—'}`
                         : 'ESTIMATE GATE CLOSED'}</small>
                     </span>
                   </Link>

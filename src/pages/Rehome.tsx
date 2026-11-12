@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
-import { dash, usd } from '../lib/format.ts'
+import { dash, saleWindowLabel, usd } from '../lib/format.ts'
 
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
 
@@ -138,7 +138,7 @@ function marketContext(card: Card): string {
   const estimate = card.computed.estimate
   if (estimate.value == null) return `No market estimate — ${estimate.limitation}`
   const age = estimate.as_of ? `; newest sale ${estimate.as_of}` : '; newest sale date unavailable'
-  const window = estimate.window_months == null ? '' : ` over ${estimate.window_months} months`
+  const window = estimate.window_months == null ? '' : ` · ${saleWindowLabel(estimate.window_months)}`
   return `${estimate.stale ? 'Historical estimate' : 'Market estimate'}: ${usd(estimate.value)} from ${estimate.n} verified sales${window}${age}. Not an asking price or an appraisal of this watch.`
 }
 
