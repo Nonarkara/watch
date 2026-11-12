@@ -280,3 +280,22 @@ the by-reference / by-model-name split, and publishes the
 "142 lots published no reference at all" figure next to them. A reader can see
 exactly why the number is low and what would move it. Until those cards exist,
 the page says so plainly, and we do not estimate the rest.
+
+### Review case: Rolex 6265
+
+Four quarantined Phillips lots share the 6265 reference and steel case, but
+do not establish one comparable price series. The source pages were checked
+on 2026-11-13 (Bangkok).
+
+| Phillips lot | Dial or configuration | Reported sale |
+|---|---|---:|
+| [New York XIV, 152](https://www.phillips.com/detail/rolex/232037) | Big Red, black dial; warranty, invoice and box | USD 114,300 |
+| [Geneva XXIII, 172](https://www.phillips.com/detail/rolex/178808) | Sigma dial | CHF 57,150 |
+| [Geneva XXIII, 193](https://www.phillips.com/detail/rolex/227410) | Daytona; not labeled Big Red in the lot title | CHF 63,500 |
+| [Geneva XXIII, 214](https://www.phillips.com/detail/rolex/178741) | Big Red; blank guarantee, repair receipts and box | CHF 88,900 |
+
+Use these as individually cited lot observations for a reference dossier.
+Keep dial, accessories and native currency attached to each observation.
+Do not pool them into a valuation, use the estimate's currency equivalents
+as realized prices, or treat a difference between these sales as a measured
+dial premium.

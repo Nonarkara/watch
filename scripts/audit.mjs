@@ -135,7 +135,7 @@ head('HARVEST SOURCES')
 lines.push(`  Watch-ID Rolex harvest (data/shared/watch_id_rolex.json): ${watchid.count} sightings — source for the Rolex subset of the canonical screen data.`)
 if (marketQueue) {
   const s = marketQueue.summary
-  lines.push(`  Phillips market intake (data/market/review-queue.json): ${s.harvested} lots — ${s.ready_for_review} ready, ${s.quarantined} quarantined, ${s.duplicate} duplicate, ${s.failed} failed.`)
+  lines.push(`  Phillips market intake (data/market/review-queue.json): ${s.harvested} lots — ${s.ready_for_review} ready, ${s.promoted ?? 0} promoted, ${s.quarantined} quarantined, ${s.duplicate} duplicate, ${s.failed} failed.`)
 }
 
 lines.push(hr)
