@@ -403,6 +403,7 @@ try {
   browser('open', base + '/w/rolex-116500ln')
   browser('wait', '#tab-venues')
   browser('click', '#tab-venues')
+  browser('wait', 'a[href="/rehome?watch=rolex-116500ln"]')
   browser('click', 'a[href="/rehome?watch=rolex-116500ln"]')
   browser('wait', '.rehome-actions button')
   assert(evaluate("document.querySelector('#rehome-watch').value==='rolex-116500ln'"), 'handover should start with the dossier reference selected')
