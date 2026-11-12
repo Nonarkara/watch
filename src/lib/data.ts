@@ -21,6 +21,7 @@ export interface FxConversion {
  *  provenance, charity lot, or a neighbouring reference in the same family).
  *  Shown as evidence, never fed to the estimator. */
 export interface VariantSale { date: string; date_basis?: 'lot_date' | 'auction_start' | 'unverified'; price_usd: number; venue: string; url: string; condition: string; fx_conversion?: FxConversion }
+export interface LotObservation { date: string; date_source_url: string; amount: number; currency: string; venue: string; url: string; configuration: string }
 export interface ProvenanceEvent { date: string; person_or_event: string; description: string; source_url: string }
 
 export interface Estimate {
@@ -127,6 +128,7 @@ export interface Card {
   comp_summary: { n: number; venues: string[]; date_range: [string, string] } | null;
   notable_sales: Sale[];
   variant_sales: VariantSale[];
+  lot_observations?: LotObservation[];
   computed: Computed;
   meta: { curated_by: string; curated_date: string; sources: string[]; build_date: string };
 }

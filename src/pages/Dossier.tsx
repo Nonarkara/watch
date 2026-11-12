@@ -144,7 +144,12 @@ export default function Dossier() {
           <span role="status" aria-live="polite" className="mono" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{copied ? 'Link copied to clipboard' : ''}</span>
           </div>
           <div className="dsr-action-group dsr-action-group--models" role="group" aria-label="Modeling tools">
-            <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS{'\u00a0'}→</Link>
+            {!!c.lot_observations?.length && estimate.value == null
+              ? <button type="button" className="dsr-action mono" onClick={() => {
+                  setView('evidence')
+                  requestAnimationFrame(() => document.getElementById('observed-lots-heading')?.focus())
+                }}>SEE {c.lot_observations.length} AUCTION RESULTS{'\u00a0'}↓</button>
+              : <Link to={`/pom?watch=${encodeURIComponent(c.id)}#value-lab`} className="dsr-action mono">MODEL HOLDING PERIODS{'\u00a0'}→</Link>}
             <Link to={`/marketplaces?watch=${encodeURIComponent(c.id)}`} className="dsr-action mono">MODEL SELLING COSTS{'\u00a0'}→</Link>
           </div>
         </div>
@@ -211,7 +216,7 @@ export default function Dossier() {
           )}
           <div className="spec-row"><dt>Produced</dt><dd className="mono">{yearsLabel(c.identity.produced)}{c.identity.produced.discontinued ? ' · DISCONTINUED' : ' · IN PRODUCTION'}</dd></div>
           <div className="spec-row"><dt>Caliber</dt><dd className="mono">{c.identity.movement.caliber} · {c.identity.movement.type}</dd></div>
-          <div className="spec-row"><dt>Case</dt><dd className="mono">{c.identity.case.diameter_mm}MM · {c.identity.case.material.toUpperCase()}</dd></div>
+          <div className="spec-row"><dt>Case</dt><dd className="mono">{c.identity.case.diameter_mm != null && `${c.identity.case.diameter_mm}MM · `}{c.identity.case.material.toUpperCase()}</dd></div>
           <div className="spec-row"><dt>Bezel</dt><dd className="mono">{c.identity.case.bezel.toUpperCase()}</dd></div>
           {msrpNow != null && <div className="spec-row"><dt>{c.retail.current_msrp_usd != null ? 'Retail' : 'Final retail'}</dt>
             <dd className="mono">{usd(msrpNow)}{c.retail.msrp_history[0] && c.retail.msrp_history[0].price_usd !== msrpNow ? ` · LAUNCH ${usd(c.retail.msrp_history[0].price_usd)} (${c.retail.msrp_history[0].effective_year})` : ''}</dd></div>}
@@ -256,6 +261,31 @@ export default function Dossier() {
 
       <div role="tabpanel" id={`panel-${view}`} aria-labelledby={`tab-${view}`}>
       {view === 'evidence' && <>
+      {!!c.lot_observations?.length && (
+        <section className="sect" aria-labelledby="observed-lots-heading">
+          <h2 id="observed-lots-heading" tabIndex={-1} className="sect-h">Auction results</h2>
+          <p className="dossier-variant-note dim">Reported prices in their original currencies. These lots do not set a market estimate.</p>
+          <table className="sales-table dossier-sales dossier-observed-lots" aria-labelledby="observed-lots-heading">
+            <thead><tr><th scope="col">Configuration</th><th scope="col" className="num">Sold for</th><th scope="col">Lot</th></tr></thead>
+            <tbody>{c.lot_observations.map((lot) => {
+              const venue = VENUE_LABEL[lot.venue] ?? lot.venue
+              const amount = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(lot.amount)
+              return (
+                <tr key={lot.url}>
+                  <td>
+                    {lot.configuration}{' '}
+                    <a className="src-a dossier-sale-detail mono micro" href={lot.date_source_url} target="_blank" rel="noreferrer"
+                      aria-label={`Session schedule for ${venue}, ${lot.date}`}><time dateTime={lot.date}>{lot.date}</time></a>
+                  </td>
+                  <td className="num">{lot.currency} {amount}</td>
+                  <td><a className="src-a" href={lot.url} target="_blank" rel="noreferrer"
+                    aria-label={`Lot record at ${venue}: ${lot.configuration} ${lot.currency} ${amount}`}>Record <span aria-hidden="true">↗</span></a></td>
+                </tr>
+              )
+            })}</tbody>
+          </table>
+        </section>
+      )}
       <EvidenceLedger refusal={estimate.value == null ? reasonText(estimate.reason) : null} measures={[
         { id: 'estimate', available: estimate.value != null, content: (
           <div className="mcell">
@@ -598,7 +628,9 @@ export default function Dossier() {
           <div className="fact-bubble fact-bubble-coral">
             <span className="bubble-kicker mono">WHY NO MARKET ESTIMATE?</span>
             <strong>The register refuses to estimate this one.</strong>
-            <span>{c.variant_sales.length > 0
+            <span>{c.lot_observations?.length
+              ? 'The recorded lots are individual auction results, not a comparable price series.'
+              : c.variant_sales.length > 0
               ? 'The variant sales above price different watches or configurations, not this one.'
               : 'No comparable sales are on file for this watch.'}</span>
             <Link to="/methodology" className="src-a">HOW THE ESTIMATOR DECIDES →</Link>
