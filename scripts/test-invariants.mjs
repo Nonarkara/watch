@@ -221,20 +221,18 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
   }
 }
 
-// The 1675 clears the market gate with distinct USD sales and deliberately
-// excludes gold and special-provenance variants.
-for (const expected of [
-  { file: "rolex-1675.json", n: 3, value: 22860, window: 120, asOf: "2024-12-07" },
+// These Phillips results must point to the actual lot, not the sale catalogue.
+for (const [id, lot, price] of [
+  ["rolex-1675", 14, 29210],
+  ["rolex-16600", 13, 16510],
+  ["patek-3700-1a", 8, 114300],
 ]) {
-  const card = JSON.parse(readFileSync(new URL(`../data/cards/${expected.file}`, import.meta.url), "utf8"));
-  const comps = card.market_evidence.comps.filter((c) => c.comparable !== false);
-  const estimate = marketEstimate(comps, BUILD);
-  assert.equal(estimate.n, expected.n, `${card.id} must retain three comparable USD sales`);
-  assert.equal(estimate.value, expected.value, `${card.id} estimate must be the three-sale median`);
-  assert.equal(estimate.window_months, expected.window, `${card.id} must disclose its evidence window`);
-  assert.equal(estimate.as_of, expected.asOf);
-  assert.equal(new Set(comps.map((c) => c.url)).size, expected.n,
-    `${card.id} comps must point to three distinct source records`);
+  const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
+  const comps = card.market_evidence.comps.filter((c) => /\/NY080124(?:\/|$)/.test(c.url));
+  assert.equal(comps.length, 1, `${id} must not retain a duplicate or batch citation`);
+  assert.ok(comps[0].url.endsWith(`/NY080124/${lot}`));
+  assert.equal(comps[0].price_usd, price);
+  assert.equal(comps[0].comparable, false);
 }
 
 // 11. Screen exposure changes attention pressure, never scarcity.

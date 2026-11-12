@@ -40,11 +40,12 @@
       },
       {
         "date": "2024-06-08",
-        "price_usd": 114300,
+        "price_usd": 29210,
         "venue": "phillips",
-        "url": "https://www.phillips.com/detail/rolex/NY080124",
-        "condition": "Mark 0 matte dial, 1967, full set",
-        "box_papers": "full_set"
+        "url": "https://www.phillips.com/detail/rolex/NY080124/14",
+        "condition": "Early Mark 0 matte dial (circa 1967); distinct from later matte-dial production",
+        "box_papers": null,
+        "comparable": false
       },
       {
         "date": "2024-12-07",

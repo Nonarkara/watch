@@ -72,10 +72,10 @@ const comps = {
       comparable: false },
   ],
   'patek-3700-1a': [
-    // 3700/11 "Jumbo" — Phillips NY Watch Auction X, lot 8, sold $762,000 (tropical dial)
-    { date: '2024-06-08', price_usd: 762000, venue: 'phillips',
-      url: 'https://www.phillips.com/detail/patek-philippe/NY080124',
-      condition: '3700/11 yellow gold/stainless steel "Jumbo" two-tone',
+    // 3700/11 "Jumbo" — Phillips NY Watch Auction X, lot 8
+    { date: '2024-06-08', price_usd: 114300, venue: 'phillips',
+      url: 'https://www.phillips.com/detail/patek-philippe/NY080124/8',
+      condition: 'Two-tone 3700/11, not the steel 3700/1A',
       box_papers: null,
       comparable: false },
   ],
@@ -83,17 +83,19 @@ const comps = {
   // ============= ROLEX =============
   'rolex-1675': [
     // 1675 GMT-Master "Mark 0" — Phillips NY X, lot 14
-    { date: '2024-06-08', price_usd: 114300, venue: 'phillips',
-      url: 'https://www.phillips.com/detail/rolex/NY080124',
-      condition: 'Mark 0 matte dial, 1967, full set',
-      box_papers: 'full_set' },
+    { date: '2024-06-08', price_usd: 29210, venue: 'phillips',
+      url: 'https://www.phillips.com/detail/rolex/NY080124/14',
+      condition: 'Early Mark 0 matte dial (circa 1967); distinct from later matte-dial production',
+      box_papers: null,
+      comparable: false },
   ],
   'rolex-16600': [
     // 1665 Sea-Dweller "Great White" Mk1 — Phillips NY X, lot 13
-    { date: '2024-06-08', price_usd: 107950, venue: 'phillips',
-      url: 'https://www.phillips.com/detail/rolex/NY080124',
-      condition: 'Mark 1 dial, guarantee, presentation box',
-      box_papers: 'full_set' },
+    { date: '2024-06-08', price_usd: 16510, venue: 'phillips',
+      url: 'https://www.phillips.com/detail/rolex/NY080124/13',
+      condition: 'Earlier Sea-Dweller 1665 Great White, not reference 16600',
+      box_papers: 'full_set',
+      comparable: false },
   ],
 
   // ============= TUDOR =============

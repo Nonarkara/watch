@@ -32,11 +32,12 @@
     "comps": [
       {
         "date": "2024-06-08",
-        "price_usd": 107950,
+        "price_usd": 16510,
         "venue": "phillips",
-        "url": "https://www.phillips.com/detail/rolex/NY080124",
-        "condition": "Mark 1 dial, guarantee, presentation box",
-        "box_papers": "full_set"
+        "url": "https://www.phillips.com/detail/rolex/NY080124/13",
+        "condition": "Earlier Sea-Dweller 1665 Great White, not reference 16600",
+        "box_papers": "full_set",
+        "comparable": false
       }
     ],
     "listing_observations": []
