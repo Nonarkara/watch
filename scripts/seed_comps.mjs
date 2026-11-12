@@ -8,6 +8,29 @@
 //   - Comparability: same metal/dial family as the card (different dial = variant sale)
 //   - No asking prices. No "estimated to sell" entries. Only "Sold for $X".
 //
+// Retraction: Phillips NY010523 was a contemporary art sale, not watches.
+// Its result PDF does not substantiate any watch transaction. The following
+// card IDs previously carried rows from that PDF; do not re-seed those rows:
+//
+//   omega-snoopy-50th
+//   rolex-114060
+//   rolex-116500ln
+//   rolex-116610ln
+//   rolex-116610lv-hulk
+//   rolex-124060
+//   rolex-126500ln
+//   rolex-126610ln
+//   rolex-126610lv
+//   rolex-126710blro-pepsi
+//   rolex-16520
+//   rolex-1680-red
+//   rolex-1803
+//   rolex-5513
+//
+// Prefer the individual lot over a results PDF. Confirm the exact reference,
+// configuration, closing date, sold currency, and sold amount on that lot.
+// A matching dollar amount on another lot is not evidence of a watch sale.
+//
 // To add a new comp later, just edit the comps object and re-run. Idempotent on
 // (date + url) — won't double-add the same lot twice.
 
@@ -72,85 +95,6 @@ const comps = {
       condition: 'Mark 1 dial, guarantee, presentation box',
       box_papers: 'full_set' },
   ],
-  'rolex-116610ln': [
-    // 116610LN "Maxi" Submariner Date, sold Phillips multiple times
-    { date: '2023-05-15', price_usd: 13970, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: 'Standard 116610LN, full set, 2018',
-      box_papers: 'full_set' },
-  ],
-  'rolex-116610lv-hulk': [
-    { date: '2023-05-15', price_usd: 17780, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '116610LV Hulk, 2020 (last year of production)',
-      box_papers: 'full_set' },
-  ],
-  'rolex-16520': [
-    { date: '2023-05-15', price_usd: 44450, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '16520 Zenith Daytona, 1990s',
-      box_papers: null },
-  ],
-  'rolex-1803': [
-    { date: '2023-05-15', price_usd: 14605, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '1803 Day-Date, 1970s',
-      box_papers: null },
-  ],
-  'rolex-1680-red': [
-    { date: '2023-05-15', price_usd: 69850, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '1680 red Submariner Date, 1978',
-      box_papers: 'full_set' },
-  ],
-  'rolex-5513': [
-    { date: '2023-05-15', price_usd: 13970, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '5513 Submariner, 1970s',
-      box_papers: null },
-  ],
-  'rolex-114060': [
-    { date: '2023-05-15', price_usd: 15240, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '114060 Submariner no-date, 2019',
-      box_papers: 'full_set' },
-  ],
-  'rolex-126710blro-pepsi': [
-    { date: '2023-05-15', price_usd: 27940, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '126710BLRO Pepsi, 2019',
-      box_papers: 'full_set' },
-  ],
-  'rolex-124060': [
-    { date: '2023-05-15', price_usd: 13970, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '124060 Submariner no-date, 2021',
-      box_papers: 'full_set' },
-  ],
-  'rolex-126610ln': [
-    { date: '2023-05-15', price_usd: 13970, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '126610LN 41mm Submariner Date, 2022',
-      box_papers: 'full_set' },
-  ],
-  'rolex-126610lv': [
-    { date: '2023-05-15', price_usd: 16510, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '126610LV Kermit, 2022',
-      box_papers: 'full_set' },
-  ],
-  'rolex-126500ln': [
-    { date: '2023-05-15', price_usd: 44450, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '126500LN, 2023, full set',
-      box_papers: 'full_set' },
-  ],
-  'rolex-116500ln': [
-    { date: '2023-05-15', price_usd: 38100, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '116500LN, 2021, full set',
-      box_papers: 'full_set' },
-  ],
 
   // ============= TUDOR =============
   'tudor-bb-79230n': [
@@ -162,12 +106,6 @@ const comps = {
   ],
 
   // ============= OMEGA =============
-  'omega-snoopy-50th': [
-    { date: '2022-06-09', price_usd: 165100, venue: 'phillips',
-      url: 'https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf',
-      condition: '310.32.42.50.02.001 Silver Snoopy 50th, full set',
-      box_papers: 'full_set' },
-  ],
 
   // ============= CARTIER =============
   'cartier-crash': [

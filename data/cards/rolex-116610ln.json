@@ -30,14 +30,6 @@
   },
   "market_evidence": {
     "comps": [
-      {
-        "date": "2023-05-15",
-        "price_usd": 13970,
-        "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "Standard 116610LN, full set, 2018",
-        "box_papers": "full_set"
-      }
     ],
     "listing_observations": []
   },

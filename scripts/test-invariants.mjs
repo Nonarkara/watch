@@ -111,17 +111,25 @@ const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
 
-// 10a. Evidence-wave regression: the ordinary 126610LN now clears the market gate.
-// The three source records are distinct watches/sales; no converted prices or special lots.
+// 10a. The Phillips art auction cannot enter any watch's market evidence.
 {
-  const submariner = JSON.parse(readFileSync(new URL("../data/cards/rolex-126610ln.json", import.meta.url), "utf8"));
-  const estimate = marketEstimate(submariner.market_evidence.comps.filter((c) => c.comparable !== false), BUILD);
-  assert.equal(estimate.n, 3, "126610LN must retain three comparable USD sales");
-  assert.equal(estimate.value, 13750, "126610LN estimate must be the three-sale median");
-  assert.equal(estimate.window_months, 60, "126610LN must disclose its five-year evidence window");
-  assert.equal(estimate.as_of, "2025-11-20");
-  assert.equal(new Set(submariner.market_evidence.comps.map((c) => c.url)).size, 3,
-    "126610LN comps must point to three distinct source records");
+  const cardDir = new URL("../data/cards/", import.meta.url);
+  for (const file of readdirSync(cardDir).filter((name) => name.endsWith(".json"))) {
+    const card = JSON.parse(readFileSync(new URL(file, cardDir), "utf8"));
+    assert.ok(!card.market_evidence.comps.some((comp) => /NY010523/i.test(comp.url)),
+      `${file}: Phillips NY010523 is an art auction, not a watch sale`);
+  }
+  for (const id of ["rolex-126610ln", "rolex-116610lv-hulk", "rolex-1680-red", "rolex-1803", "rolex-5513"]) {
+    const card = JSON.parse(readFileSync(new URL(`${id}.json`, cardDir), "utf8"));
+    const comps = card.market_evidence.comps.filter((comp) => comp.comparable !== false);
+    const estimate = marketEstimate(comps, BUILD);
+    assert.ok(estimate.n >= 2, `${id} must retain its supported sales`);
+    assert.equal(new Set(comps.map((comp) => comp.url)).size, comps.length, `${id} must cite distinct sales`);
+    if (estimate.n < 3) {
+      assert.equal(estimate.value, null, `${id} cannot publish an estimate with two sales`);
+      assert.equal(estimate.reason, "insufficient_comps");
+    }
+  }
 }
 
 // 10b. Fuzzy-matched Phillips comps route correctly: every fuzzy match is
@@ -196,11 +204,9 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
   }
 }
 
-// 10b. Three more ordinary Rolex references clear the same gate using exact-reference,
-// completed USD sales. The 1675 deliberately excludes gold and special-provenance variants.
+// The 1675 clears the market gate with distinct USD sales and deliberately
+// excludes gold and special-provenance variants.
 for (const expected of [
-  { file: "rolex-116610lv-hulk.json", n: 3, value: 21590, window: 60, asOf: "2026-06-12" },
-  { file: "rolex-5513.json", n: 3, value: 13970, window: 60, asOf: "2025-12-17" },
   { file: "rolex-1675.json", n: 3, value: 22860, window: 120, asOf: "2024-12-07" },
 ]) {
   const card = JSON.parse(readFileSync(new URL(`../data/cards/${expected.file}`, import.meta.url), "utf8"));

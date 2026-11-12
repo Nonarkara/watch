@@ -10,7 +10,11 @@ const data = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.
 const submariner = data.cards.find((card) => card.id === 'rolex-126610ln')
 assert.ok(submariner, '126610LN fixture must exist in the public build')
 
-const scenarios = getVenueScenarios(submariner)
+// Keep fee arithmetic independent of changes to the published market evidence.
+const feeFixture = structuredClone(submariner)
+Object.assign(feeFixture.computed.estimate, { value: 13_750, n: 3, as_of: '2025-11-20', reason: null })
+feeFixture.computed.confidence.tier = 'C'
+const scenarios = getVenueScenarios(feeFixture)
 assert.equal(scenarios.length, GLOBAL_VENUES.length, 'fee lab must preserve the full venue directory')
 assert.equal(Object.keys(VERIFIED_FEE_RULES).length, 2, 'only checked fee schedules may produce math')
 
