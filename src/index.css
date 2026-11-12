@@ -442,20 +442,26 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
 .discovery-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-md); padding: var(--space-md) var(--space-lg); }
 
 /* ── Rehome ── */
-.rehome-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-top: var(--space-xl); }
-.rehome-form { display: flex; flex-direction: column; gap: var(--space-md); }
+.rehome-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 16px; }
+.rehome-form { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rehome-layout:not(.rehome-layout--selected) .rehome-form { max-inline-size: 44rem; }
 .rehome-form label { display: block; }
+.rehome-layout .section-rule { flex-direction: row; align-items: baseline; flex-wrap: wrap; }
 .field-label { display: block; color: var(--dim); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-xs); }
 .field { width: 100%; }
 .area { display: block; min-height: 92px; padding-top: var(--space-sm); padding-bottom: var(--space-sm); resize: vertical; }
-.brief-preview { border: var(--border); border-left: 2px solid var(--amber); padding: var(--space-lg); align-self: start; }
+.rehome-form .area { min-height: 52px; padding-block: 4px; }
+.brief-preview { border-block: var(--border); padding-block: 8px; align-self: start; min-width: 0; overflow-wrap: anywhere; }
 .brief-preview h3 { font-family: var(--font-display); font-size: var(--text-body); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.35; margin: var(--space-sm) 0; }
-.empty-state { color: var(--dim); min-height: 180px; max-width: 45ch; }
-.brief-facts { margin: var(--space-lg) 0; }
-.brief-facts > div { padding: var(--space-sm) 0; border-top: 1px solid var(--neutral-line); }
+.brief-facts { margin: 10px 0; }
+.brief-facts > div { padding: 5px 0; border-top: 1px solid var(--neutral-line); }
 .brief-facts dt { color: var(--dim); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
 .brief-facts dd { white-space: pre-wrap; }
-.brief-dossier { display: block; width: fit-content; margin-top: var(--space-md); }
+.rehome-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-block: 8px; }
+.rehome-market-context { margin-block: 8px 0; }
+.rehome-actions .btn { min-height: 44px; }
+.rehome-preview-link, .brief-dossier { display: inline-flex; align-items: center; min-height: 32px; }
+.rehome-copy-fallback { display: block; margin-block: 6px; }
 .handover-checklist { margin-top: var(--space-xl); }
 .handover-checklist ol { display: grid; grid-template-columns: 1fr; list-style: none; border-top: var(--border); border-left: var(--border); margin-bottom: var(--space-md); }
 .handover-checklist li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-sm); padding: var(--space-md); border-right: var(--border); border-bottom: var(--border); }
@@ -519,8 +525,7 @@ main.shell { padding-top: var(--space-xl); padding-bottom: calc(var(--space-2xl)
   .discovery-grid > section { border-right: var(--border); border-bottom: none; }
   .discovery-grid > section:last-child { border-right: none; }
   .discovery-foot { flex-direction: row; justify-content: space-between; align-items: center; }
-  .rehome-layout { grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr); }
-  .brief-preview { position: sticky; top: var(--space-md); }
+  .rehome-layout--selected { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; }
   .handover-checklist ol { grid-template-columns: 1fr 1fr; }
   .lhead, .lrow { display: grid; grid-template-columns: minmax(260px, 1fr) 110px 96px 118px 76px 56px; gap: var(--space-md); align-items: baseline; }
   .lhead { padding: var(--space-sm) 0; border-bottom: 1px solid var(--rule); color: var(--dim); font-size: var(--text-micro); letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-mono); }

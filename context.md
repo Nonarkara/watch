@@ -93,6 +93,9 @@ Auction Census uses a column ledger. Coverage leads, the source and FX caveat si
 with the total, and the auction records follow before the full methodology.
 Excluded lots show the published currency first and the approximate USD
 equivalent second. Auction-opening dates never read as verified lot dates.
+Rehome uses a workbench grid: choose the reference first, draft on the left and
+copy on the right when wide enough; phones can jump directly from draft to copy.
+The brief carries the evidence date even when it leaves the site.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to

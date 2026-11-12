@@ -286,6 +286,44 @@ try {
     })()`)
     assert(reviewed, `${id} must show three cited records and an explicitly historical estimate`)
   }
+  for (const [width, height] of [[390,844], [1024,900], [1440,900]]) {
+    browser('set', 'viewport', String(width), String(height))
+    browser('open', base + '/rehome')
+    browser('wait', '#rehome-watch')
+    assert(evaluate("document.querySelector('#rehome-watch').getBoundingClientRect().bottom<innerHeight && !document.querySelector('.brief-preview')"),
+      'the first action fits and no empty preview is reserved')
+    browser('select', '#rehome-watch', 'rolex-116500ln')
+    browser('wait', '.rehome-actions button')
+    assert(evaluate("location.search==='?watch=rolex-116500ln' && document.documentElement.scrollWidth<=innerWidth+1"))
+    assert(evaluate("document.querySelectorAll('.brief-facts > div').length===1 && document.querySelector('.rehome-market-context').textContent.startsWith('Historical estimate')"))
+    browser('screenshot', join(out, `rehome-draft-${width}.png`))
+    if (width === 390) {
+      browser('fill', '.rehome-form label:nth-of-type(2) textarea', 'Family watch, service receipt included.')
+      browser('select', '#rehome-watch', 'casio-ae-1200')
+      assert(evaluate("!document.querySelector('.brief-preview').textContent.includes('Family watch') && !document.querySelector('.brief-preview .txn-graphic-card')"))
+      browser('select', '#rehome-watch', 'rolex-116500ln')
+      assert(evaluate("document.querySelector('.rehome-form textarea').value.startsWith('Family watch')"))
+      browser('click', '.rehome-preview-link')
+      assert(evaluate("document.querySelector('.rehome-actions button').getBoundingClientRect().bottom<=innerHeight"), 'phone jump must reveal copy')
+      evaluate("Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{writeText:async()=>{throw new Error('denied')}} }); true")
+      browser('click', '.rehome-actions button')
+      browser('wait', '.rehome-copy-fallback textarea')
+      const text = evaluate("document.querySelector('.rehome-copy-fallback textarea').value")
+      assert(text.includes('Family watch') && text.includes('Historical estimate: $25,600') && text.includes('newest sale 2024-12-13') &&
+        evaluate('location.search') === '?watch=rolex-116500ln')
+      evaluate("Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{writeText:async text=>{window.__copiedBrief=text}} }); true")
+      browser('click', '.rehome-actions button')
+      assert(evaluate('window.__copiedBrief') === text, 'clipboard and manual selection must carry the same provenance')
+      browser('screenshot', join(out, 'rehome-copy-390.png'))
+    }
+    proofs.push({name:'rehome', width})
+  }
+  browser('open', base + '/w/rolex-116500ln')
+  browser('wait', '#tab-venues')
+  browser('click', '#tab-venues')
+  browser('click', 'a[href="/rehome?watch=rolex-116500ln"]')
+  browser('wait', '.rehome-actions button')
+  assert(evaluate("document.querySelector('#rehome-watch').value==='rolex-116500ln'"), 'handover should start with the dossier reference selected')
   // Exercise a real input and keyboard selection rather than checking links only.
   browser('open', base + '/')
   browser('wait', 'main h1')

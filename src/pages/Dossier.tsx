@@ -447,6 +447,7 @@ export default function Dossier() {
             dossier’s market estimate. If either the estimate or the fee source is missing, the math
             stays off.
           </p>
+          <Link className="src-a" to={`/rehome?watch=${encodeURIComponent(c.id)}`}>Make a handover brief →</Link>
 
           <div className="dossier-venue-grid">
             {verifiedVenueScenarios.map((scenario) => (
