@@ -1954,6 +1954,11 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 /* ── BRANDS DIRECTORY ───────────────────────────────────────────────────── */
 .brand-directory-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-block: var(--space-sm); scroll-margin-top: 80px; }
 .brand-directory-controls select { min-block-size: 32px; max-inline-size: 100%; background: var(--paper); color: var(--ink); border: var(--border); padding-inline: var(--space-sm); }
+@media (max-width: 360px) {
+  .brand-directory-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .brand-directory-controls label { grid-column: 1 / -1; }
+  .brand-directory-controls select { min-inline-size: 0; }
+}
 .brand-spotlight-row { margin-block: var(--space-sm); max-inline-size: 48rem; }
 .brand-spotlight-row summary { cursor: pointer; min-block-size: 32px; padding-block: var(--space-xs); }
 .brand-spotlight-grid { border: 1px solid var(--ink); }
@@ -5686,6 +5691,7 @@ main.shell { padding-top: var(--space-md); }
 .venue-receipt { min-width: 0; }
 .venue-receipt :is(th, td) { padding-inline-end: 8px; vertical-align: top; overflow-wrap: anywhere; }
 .venue-receipt :is(th, td):last-child { padding-inline-end: 0; }
+.venue-receipt td.num, .vcq-row .val, .vcq-sub strong { white-space: nowrap; }
 .venue-receipt .src-a { inline-size: fit-content; min-block-size: 24px; }
 .venue-card-selector-panel .swb-actions { margin-block-start: 8px; }
 .selected-watch-banner {
@@ -5740,7 +5746,7 @@ main.shell { padding-top: var(--space-md); }
 
 .venues-grid, .dossier-venue-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: var(--space-lg);
   margin: var(--space-lg) 0;
 }
@@ -5752,6 +5758,8 @@ main.shell { padding-top: var(--space-md); }
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 .venues-grid { align-items: start; }
 .vc-top, .dvc-head {
@@ -5835,6 +5843,10 @@ main.shell { padding-top: var(--space-md); }
   border-top: var(--border);
 }
 .vc-actions { margin-top: 0; }
+@media (max-width: 360px) {
+  .venue-card { padding: var(--space-sm); }
+  .vcq-row, .vcq-sub, .vcs-row, .vc-actions { flex-wrap: wrap; gap: 2px 8px; }
+}
 
 .dossier-pending-venues {
   margin-top: var(--space-xl);

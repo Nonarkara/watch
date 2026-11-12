@@ -86,7 +86,7 @@ export default function Marketplaces() {
             <option value="">CHOOSE A WATCH REFERENCE…</option>
             {cards.map((c) => (
               <option key={c.id} value={c.id}>
-                {c.identity.brand.toUpperCase()} · {c.identity.name.toUpperCase()} · {c.identity.reference}
+                {c.identity.reference} · {c.identity.brand} · {c.identity.name}
               </option>
             ))}
           </select>

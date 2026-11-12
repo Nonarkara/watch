@@ -205,6 +205,13 @@ function verifyMarket() {
     assert(evaluate(`document.fonts.ready.then(() => document.documentElement.scrollWidth === innerWidth &&
       document.querySelector('.market-chart svg').getAttribute('aria-label').startsWith('Patek Philippe'))`),
     'The narrow About sales chart must restore its anchor and respond to the brand filter')
+    browser('open', base + '/marketplaces?watch=rolex-116500ln')
+    browser('wait', '.venue-card .vc-quote-box')
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const cards = [...document.querySelectorAll('.venue-card')];
+      return document.documentElement.scrollWidth === innerWidth && cards.length > 0 &&
+        cards.every(card => card.scrollWidth <= card.clientWidth + 1 && card.querySelector('.vc-quote-box'));
+    })`), 'Marketplace fee scenarios must not push venue cards beyond a narrow viewport')
   } finally {
     browser('close')
     session = mainSession

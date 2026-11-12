@@ -45692,14 +45692,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
