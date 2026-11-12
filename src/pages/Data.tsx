@@ -177,6 +177,7 @@ export default function Data() {
           <Link to="/methodology" className="src-a">Rulebook →</Link>
         </div>
         </div>
+        <EvidenceField cards={data.cards} built={data.built} />
         <dl className="data-coverage-secondary" aria-label="Other evidence in the archive">
           <div><dt>Exact photos</dt><dd>{cardStats.withImage} references</dd></div>
           <div><dt>Story</dt><dd>{cardStats.totalEvents} events across {cardStats.withProvenance} references</dd></div>
@@ -184,8 +185,6 @@ export default function Data() {
           <div><dt>Retail</dt><dd>{cardStats.withMsrp} references with a price on record</dd></div>
         </dl>
       </div>
-
-      <EvidenceField cards={data.cards} built={data.built} />
 
       {marketIntake && (
         <section className="data-intake" aria-labelledby="data-intake-title">

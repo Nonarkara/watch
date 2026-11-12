@@ -11,7 +11,7 @@ import {
 } from '../lib/evidence-field.ts'
 
 const W = 900
-const H = 480
+const H = 400
 const PAD = { top: 36, right: 36, bottom: 70, left: 88 }
 const PLOT_W = W - PAD.left - PAD.right
 const PLOT_H = H - PAD.top - PAD.bottom
@@ -62,16 +62,6 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
         <h2 id="evidence-field-title" tabIndex={-1}>The evidence field</h2>
         <span className="sticker-inline mono">{plotted.length} PLOTTED{omitted > 0 && ` · ${omitted} WITHOUT A SCORE`}</span>
       </div>
-      <div className="evidence-field-intro">
-        <p>
-          Height is the published score. Columns count five kinds of evidence: exact photo,
-          comparable sales, provenance, retail history, and exact screen ID.
-        </p>
-        <p className="micro dim">
-          Dots spread within a column for legibility. Zero is a published score; missing scores stay off the plot.
-        </p>
-      </div>
-
       <div className="evidence-controls">
         <div className="evidence-toggle" role="group" aria-label="Vertical metric">
           {(['scarcity', 'collectibility'] as const).map((name) => (
@@ -89,7 +79,7 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
           </select>
         </label>
         <label>
-          <span className="mono">READ A REFERENCE</span>
+          <span className="mono">REFERENCE</span>
           <select value={selected?.id ?? ''} onChange={(event) => setSelectedId(event.target.value)}>
             {filtered.map((card) => (
               <option key={card.id} value={card.id}>{card.identity.brand} · {card.identity.reference}</option>
@@ -139,6 +129,12 @@ export default function EvidenceField({ cards, built }: { cards: Card[]; built: 
             })}
           </svg>
           <p className="evidence-phone-axis evidence-phone-axis--bottom mono">Evidence channels · watch count beneath each</p>
+          <details className="evidence-field-guide">
+            <summary>How to read the plot</summary>
+            <p>Height is the published score. Columns count five kinds of evidence: exact photo,
+              comparable sales, provenance, retail history, and exact screen ID.</p>
+            <p>Dots spread within a column for legibility. Zero is a published score; missing scores stay off the plot.</p>
+          </details>
         </div>
 
         {selected && selectedChannels && selectedMetric && (

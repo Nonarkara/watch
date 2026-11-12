@@ -102,6 +102,26 @@ try {
         })()`)
         assert(plot.fits && plot.dots>0 && plot.counts===6 && (width!==390 || plot.oldSwipes),
           'all six plot columns must fit; restoring the old minimum width must fail on phone')
+        const fieldGeometry = evaluate(`(() => {
+          const controls = document.querySelector('.evidence-controls'), plot = document.querySelector('.evidence-plot');
+          const bounds = () => ({ controlsBottom: controls.getBoundingClientRect().bottom,
+            plotBottom: plot.getBoundingClientRect().bottom,
+            filterGap: controls.querySelector('label').getBoundingClientRect().left -
+              controls.firstElementChild.getBoundingClientRect().right,
+            plotTail: plot.parentElement.getBoundingClientRect().bottom -
+              plot.parentElement.lastElementChild.getBoundingClientRect().bottom });
+          const current = bounds();
+          // Restore the measured cost of the previous intro/filter stack.
+          controls.style.marginTop = '240px';
+          const oldPlotBottom = bounds().plotBottom;
+          controls.style.removeProperty('margin-top');
+          return { ...current, oldPlotBottom };
+        })()`)
+        assert(fieldGeometry.controlsBottom <= height && (height < 844 || fieldGeometry.plotBottom <= height) &&
+          (width < 760 || (fieldGeometry.filterGap <= 12 && fieldGeometry.plotTail <= 2)),
+          `the Data plot and filters must fit at ${width}×${height}: ${JSON.stringify(fieldGeometry)}`)
+        if (width === 390) assert(fieldGeometry.oldPlotBottom > height, 'the previous pre-plot stack must fail the phone budget')
+        Object.assign(proof, { fieldGeometry })
         if (width===390) {
           assert(evaluate(`(() => {
             const hero=document.querySelector('.data-coverage .lede'), link=document.querySelector('.data-coverage-links a');
@@ -112,6 +132,9 @@ try {
           assert(evaluate("location.hash==='#evidence-field-title' && document.activeElement.id==='evidence-field-title' && document.activeElement.getBoundingClientRect().top<innerHeight"))
           browser('click','.evidence-toggle button:last-child')
           assert(evaluate("document.querySelector('.evidence-toggle button:last-child').getAttribute('aria-pressed')==='true'"))
+          browser('click', '.evidence-field-guide summary')
+          assert(evaluate("document.querySelector('.evidence-field-guide').open && document.querySelector('.evidence-field-guide').textContent.includes('missing scores stay off the plot')"))
+          browser('click', '.evidence-field-guide summary')
           browser('scrollintoview','.evidence-plot-wrap')
           browser('screenshot',join(out,'data-evidence-plot-390.png'))
           evaluate('window.scrollTo(0,0)')

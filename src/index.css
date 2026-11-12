@@ -1954,20 +1954,23 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .data-coverage-links a { display: inline-flex; align-items: center; min-block-size: 32px; }
 .data-coverage-secondary { margin-block: 8px 0; color: var(--dim); }
 @media (min-width: 900px) {
-  .data-coverage { display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); gap: 24px; max-inline-size: none; }
-  .data-coverage-secondary { align-self: end; margin: 0 0 8px; border-top: var(--border); }
+  .data-coverage { display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); column-gap: 24px; max-inline-size: none; }
+  .data-coverage-secondary { grid-area: 1 / 2; align-self: end; margin: 0 0 8px; border-top: var(--border); }
+  .data-coverage > .evidence-field { grid-column: 1 / -1; }
 }
 
 /* ── Data: every dossier, moving only when the reader changes the question ── */
-.evidence-field { margin: 24px 0 32px; padding-top: 12px; border-top: 1px solid var(--ink); }
-.evidence-field-intro { display: grid; gap: 8px; max-width: 72ch; margin-bottom: 18px; }
-.evidence-field-intro p:first-child { font-family: var(--font-essay); font-size: 16px; line-height: 1.55; }
-.evidence-controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 12px 0; }
-.evidence-controls label { display: flex; flex-direction: column; gap: 5px; }
+.evidence-field { margin: 12px 0 16px; padding-top: 8px; border-top: 1px solid var(--ink); }
+.evidence-field .section-rule { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 4px; }
+.evidence-field-guide { padding: 0 8px; }
+.evidence-field-guide summary { display: list-item; min-height: 32px; padding-block: 6px; cursor: pointer; }
+.evidence-field-guide p { max-width: 65ch; padding-bottom: 8px; }
+.evidence-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.618fr); gap: 4px 8px; margin: 4px 0 8px; }
+.evidence-controls label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .evidence-controls label > span { font-size: 9px; letter-spacing: .12em; color: var(--dim); }
-.evidence-controls select { appearance: none; min-height: var(--tap-min); padding: 8px 10px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font-family: var(--font-mono); font-size: 11px; }
-.evidence-toggle { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink); }
-.evidence-toggle button { min-height: var(--tap-min); padding: 8px 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; }
+.evidence-controls select { width: 100%; min-height: 32px; padding: 4px 8px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font-family: var(--font-mono); font-size: 11px; }
+.evidence-toggle { display: inline-flex; flex-wrap: wrap; grid-column: 1 / -1; justify-self: start; border: 1px solid var(--ink); }
+.evidence-toggle button { min-height: 32px; padding: 4px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; }
 .evidence-toggle button + button { border-left: 1px solid var(--ink); }
 .evidence-toggle button.on { background: var(--coral); color: #0A0A0A; }
 .evidence-stage { display: grid; grid-template-columns: 1fr; border: 1px solid var(--ink); }
@@ -2002,9 +2005,11 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .evidence-open { display: inline-flex; margin-top: 14px; padding: 9px 12px; border: 1px solid var(--ink); font-size: 10px; letter-spacing: .1em; }
 .evidence-open:hover { background: var(--ink); color: var(--paper); }
 @media (min-width: 760px) {
-  .evidence-controls { grid-template-columns: auto minmax(180px, .7fr) minmax(240px, 1fr); align-items: end; }
-  .evidence-stage { grid-template-columns: minmax(0, 2.2fr) minmax(260px, .8fr); }
-  .evidence-plot-wrap { border-bottom: 0; border-right: 1px solid var(--ink); }
+  .evidence-controls { grid-template-columns: max-content minmax(0, 180px) minmax(0, 280px); align-items: end; }
+  .evidence-toggle { grid-column: auto; }
+  .evidence-stage { grid-template-columns: minmax(0, 2.2fr) minmax(260px, .8fr); align-items: start; border: 0; }
+  .evidence-plot-wrap, .evidence-readout { border: 1px solid var(--ink); }
+  .evidence-readout { border-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .evidence-point, .evidence-point circle { transition: none; }
