@@ -42,7 +42,7 @@ function groupByBrand(cards: Card[]): BrandGroup[] {
       if (c.screen_events.length > 0) withExactScreen++
       tiers[c.identity.tier]++
     }
-    // Most popular = the model with the most comps, then the most provenance,
+    // Archive pick = the model with the most comps, then the most provenance,
     // then the most-photographed, then the first alphabetically. We sort on
     // (comps, provenance_events.length, media.length, -id) so ties break
     // deterministically.
@@ -168,7 +168,7 @@ export default function Brands() {
                 </span>
                 {g.mostPopular && (
                   <span className="brand-spotlight-most">
-                    <span className="brand-spotlight-most-eyebrow mono">MOST COLLECTED</span>
+                    <span className="brand-spotlight-most-eyebrow mono">ARCHIVE PICK</span>
                     <span className="brand-spotlight-most-name">{g.mostPopular.identity.name}</span>
                     <span className="brand-spotlight-most-ref mono">{g.mostPopular.identity.reference}</span>
                   </span>
@@ -207,21 +207,19 @@ export default function Brands() {
                 <span className="brand-wm-tier mono">{TIER_PILL[dominantTier]}</span>
               </Link>
 
-              {/* Column 2: most popular model + contrast */}
+              {/* Column 2: archive pick + contrast */}
               <div className="brand-picks">
                 {g.mostPopular && (
                   <Link to={`/w/${g.mostPopular.id}`} className="brand-pick">
-                    <span className="brand-pick-thumb">
+                    {g.mostPopular.media[0] && <span className="brand-pick-thumb">
                       {/* alt is empty on purpose: the model's name is the
                           line under the thumbnail, and the browser laying the
                           alt text out inside a 72x72 frame is how the name
                           used to be sliced. */}
-                      {g.mostPopular.media[0]
-                        ? <img src={g.mostPopular.media[0].url} alt="" loading="lazy" decoding="async"  width={72} height={72} />
-                        : <span className="dim">—</span>}
-                    </span>
+                      <img src={g.mostPopular.media[0].url} alt="" loading="lazy" decoding="async" width={72} height={72} />
+                    </span>}
                     <span className="brand-pick-body">
-                      <span className="brand-pick-eyebrow mono">MOST POPULAR</span>
+                      <span className="brand-pick-eyebrow mono">ARCHIVE PICK</span>
                       <span className="brand-pick-name">{g.mostPopular.identity.name}</span>
                       <span className="brand-pick-ref mono">
                         {g.mostPopular.identity.reference}
@@ -232,11 +230,9 @@ export default function Brands() {
                 )}
                 {g.contrast && g.contrast.id !== g.mostPopular?.id && (
                   <Link to={`/w/${g.contrast.id}`} className="brand-pick brand-pick--alt">
-                    <span className="brand-pick-thumb">
-                      {g.contrast.media[0]
-                        ? <img src={g.contrast.media[0].url} alt="" loading="lazy" decoding="async"  width={72} height={72} />
-                        : <span className="dim">—</span>}
-                    </span>
+                    {g.contrast.media[0] && <span className="brand-pick-thumb">
+                      <img src={g.contrast.media[0].url} alt="" loading="lazy" decoding="async" width={72} height={72} />
+                    </span>}
                     <span className="brand-pick-body">
                       <span className="brand-pick-eyebrow mono">SEE ALSO · {TIER_PILL[g.contrast.identity.tier]}</span>
                       <span className="brand-pick-name">{g.contrast.identity.name}</span>

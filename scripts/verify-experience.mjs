@@ -157,6 +157,14 @@ function verifyMarket() {
     })`), 'Scarcity filters and the first result must be reachable without scrolling at 239px')
     browser('click', '.scarcity-chips button:first-child')
     assert(evaluate("document.querySelector('.scarcity-chips button:first-child').getAttribute('aria-pressed') === 'true' && document.querySelector('.scarcity-distribution [role=status]').textContent.includes('GRAIL')"))
+    browser('open', base + '/brands')
+    browser('wait', '.brand-row')
+    assert(evaluate(`document.fonts.ready.then(() => {
+      const rows = [...document.querySelectorAll('.brand-row')];
+      return rows.length > 0 && document.documentElement.scrollWidth === innerWidth &&
+        rows.every(row => row.scrollWidth <= row.clientWidth + 1) &&
+        [...document.querySelectorAll('.brand-pick-thumb')].every(thumb => thumb.querySelector('img'));
+    })`), 'Brand names and references must fit without empty model frames at 239px')
   } finally {
     browser('close')
     session = mainSession
