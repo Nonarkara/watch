@@ -74,6 +74,12 @@ assert.equal(daytona.market_evidence.comps.find((sale) => sale.url.endsWith("/10
 assert.ok(daytonaComps.every((sale) => sale.dial === "Black"));
 assert.ok(daytonaComps.some((sale) => sale.url.endsWith("/5556-54025.s") && sale.price_usd === 28750));
 const milgauss = JSON.parse(readFileSync(new URL("../data/cards/rolex-116400gv.json", import.meta.url), "utf8"));
+const milgaussPortrait = publicCards.find((card) => card.id === milgauss.id).media[0];
+assert.equal(milgaussPortrait.match, "exact_reference");
+assert.equal(milgaussPortrait.credit, "Mweavil");
+assert.equal(milgaussPortrait.license, "CC BY-SA 3.0");
+assert.match(milgaussPortrait.caption, /black dial and green sapphire/);
+assert.doesNotMatch(milgaussPortrait.caption, /White Lotus|A Man in Full/);
 const milgaussComps = milgauss.market_evidence.comps.filter((sale) => sale.comparable !== false);
 assert.equal(milgauss.market_evidence.comps.find((sale) => sale.url.endsWith("/260795"))?.comparable, false);
 assert.ok(milgaussComps.every((sale) => sale.condition.startsWith("Black dial")),

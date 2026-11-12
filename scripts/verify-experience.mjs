@@ -788,6 +788,10 @@ try {
   browser('wait','#city-options')
   browser('press','Escape')
   assert(evaluate("document.activeElement===document.querySelector('.city-toggle-btn')"))
+  assert(evaluate(`(() => {
+    const badge = document.querySelector('.saved-badge'), r = badge.getBoundingClientRect();
+    return badge.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2));
+  })()`), 'Closing the city menu must leave the Saved link unobstructed')
   browser('click','.saved-badge')
   browser('wait','--url','**/saved')
   browser('set','viewport','390','900')
@@ -795,18 +799,22 @@ try {
     browser('set', 'viewport', String(width), '900')
     browser('open', base + '/economy')
     browser('wait', '.market-chart svg')
-    const market = evaluate(`new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => {
+    browser('wait', '--fn', `(() => {
+      const svg = document.querySelector('.market-chart svg');
+      return svg && Math.abs(svg.viewBox.baseVal.width - svg.clientWidth) <= 1;
+    })()`)
+    const market = evaluate(`(() => {
       const chart = document.querySelector('.market-chart');
       const svg = chart.querySelector('svg');
       const dots = svg.querySelectorAll('circle').length;
       const outliers = chart.querySelectorAll('.market-chart-outliers li').length;
-      return resolve({
+      return {
         count: chart.querySelectorAll('.market-chart-sources:not(.market-chart-outliers) a').length,
         dots, outliers, line: !!svg.querySelector('path'), invalid: svg.innerHTML.includes('NaN'),
         viewportMatches: Math.abs(svg.viewBox.baseVal.width - svg.clientWidth) <= 1,
         overflow: document.documentElement.scrollWidth > innerWidth + 1
-      });
-    })))`)
+      };
+    })()`)
     assert(market.dots >= 4 && market.dots + market.outliers === market.count && !market.line &&
       !market.invalid && market.viewportMatches && !market.overflow, JSON.stringify(market))
     if (width === 390) {

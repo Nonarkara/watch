@@ -371,11 +371,12 @@
     "caption": "Wikimedia Commons — closest verified CC-licensed photo for the Rolex Oyster Perpetual 39. Title: File:Rolex Herrenuhr Oyster Perpetual Datejust mit Turn-O-Graph Lünette Gold (1992).jpg."
   },
   "rolex-116400gv": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rolex_Milgauss_116400GV.jpg",
-    "credit": "Carolyn Maria Adams",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_116400GV.jpg",
-    "caption": "Rolex Milgauss 116400GV — the green-crystal anti-magnetic Rolex. Worn on White Lotus S3 and A Man in Full."
+    "file": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Rolex_Milgauss_GV.jpg",
+    "credit": "Mweavil",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_GV.jpg",
+    "match": "exact_reference",
+    "caption": "Rolex Milgauss 116400GV, black dial and green sapphire; photographed in 2012."
   },
   "rolex-116500ln": {
     "file": "/img/rolex-116500ln.jpg",
