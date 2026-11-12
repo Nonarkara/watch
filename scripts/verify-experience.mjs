@@ -195,6 +195,19 @@ try {
         assert(archive.ids.length === new Set(archive.ids).size && archive.ids.length > archive.leadCount,
           'The archive disclosure must preserve unique additional references')
         assert(archive.makers.length === 4 && new Set(archive.makers).size === 4, 'Asia shelf must represent four distinct makers')
+        const editorial = evaluate(`(() => {
+          const shelf = document.querySelector('.hot-row');
+          const links = [...shelf.querySelectorAll('.hot-col-card')];
+          const ids = [...document.querySelectorAll('.asia-spotlight-card'), ...links].map(a => a.getAttribute('href'));
+          return { label: shelf.getAttribute('aria-label'), ids, count: links.length,
+            fits: links.every(a => a.scrollWidth <= a.clientWidth + 1),
+            noEmptyTrack: links.filter(a => !a.querySelector('.reference-photo')).every(a =>
+              Math.abs(a.querySelector('.hot-col-name').getBoundingClientRect().left - a.getBoundingClientRect().left) <= 1 &&
+              (innerWidth < 390 || a.getBoundingClientRect().height <= 56)) };
+        })()`)
+        assert(editorial.label === 'Editorial picks from the register' && editorial.count === 8 &&
+          editorial.ids.length === new Set(editorial.ids).size && editorial.fits && editorial.noEmptyTrack,
+          `Editorial shelves must show distinct references and no empty photo column at ${width}`)
         if (width === 390) {
           assert(archive.height <= 232, `Archive sampler and disclosure exceed their phone budget: ${archive.height}px`)
           const oldFixedTracksClip = evaluate(`(() => {

@@ -140,12 +140,11 @@
 .home-page .hot-col { padding: 0; border: 0; }
 .home-page .hot-col-card { border: 0; border-bottom: 1px solid var(--rule); padding: 8px 0; }
 .home-page .hot-col-grid { display: block; }
-.home-page .hot-col-card {
-  display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 12px;
-}
-.home-page .hot-col-media { grid-row: 1 / 3; height: 64px; width: 64px; margin: 0; }
+.home-page .hot-col-card { display: grid; gap: 2px 8px; }
+.home-page .hot-col-card:has(.reference-photo) { grid-template-columns: 48px minmax(0, 1fr); }
+.home-page .hot-col-media.reference-photo { grid-row: 1 / 3; height: 48px; width: 48px; margin: 0; }
 .home-page .hot-col-media img { width: 100%; height: 100%; object-fit: contain; }
-.home-page .hot-col-id, .home-page .hot-col-name { grid-column: 2; margin: 0; align-self: center; }
+.home-page .hot-col-id, .home-page .hot-col-name { margin: 0; overflow-wrap: anywhere; }
 .home-page .asia-spotlight-grid { display: grid; grid-template-columns: 1fr; border: 0; gap: 0; }
 .home-page .asia-spotlight-card {
   display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 2px 12px;

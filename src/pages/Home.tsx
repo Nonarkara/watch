@@ -79,10 +79,12 @@ function topScreenPicks(snapshot: ScreenSnapshot | null, limit = 5): { title: st
     }))
 }
 
-function ReferencePhoto({ card, className = 'ticker-thumb' }: { card: Card; className?: string }) {
+function ReferencePhoto({ card, className = 'ticker-thumb', showMissing = true }: { card: Card; className?: string; showMissing?: boolean }) {
   const media = card.media.find(image => image.match === 'exact_reference')
   const [failed, setFailed] = useState(false)
-  if (!media || failed) return <span className={`${className} reference-photo-missing ticker-photo-status mono`}>PHOTO UNVERIFIED</span>
+  if (!media || failed) return showMissing
+    ? <span className={`${className} reference-photo-missing ticker-photo-status mono`}>PHOTO UNVERIFIED</span>
+    : null
   return <span className={`${className} reference-photo`} data-reference={card.id}><img src={media.url} alt="" loading="lazy"
     decoding="async" width={400} height={300} onError={() => setFailed(true)} /></span>
 }
@@ -164,25 +166,17 @@ export default function Home() {
   }, [cards])
   const spotlightTrend = trends?.trending.find(row => row.card_id === brassTacks[0]?.id)
 
-  // Thai/SEA picks: cards that Thai collectors cite most, weighted by
-  // (region, dossier completeness, media). Surfaced as a separate section
-  // because the home is read by both the global audience and the local
-  // Bangkok/Singapore/KL audience.
-  const thaiPicks = useMemo(() => {
-    const seaBrands = new Set(['Casio', 'Seiko', 'Grand Seiko', 'Credor', 'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Hajime Asaoka', 'Citizen', 'Orient', 'Certina', 'Mido', 'Rado', 'Zelos', 'AnOrdain'])
-    return cards
-      .filter((c) => seaBrands.has(c.identity.brand) && c.media.length > 0)
-      .slice(0, 4)
-  }, [cards])
-
-  // Global hot independents: the most-cited independent watchmakers of the
-  // 2020s. Sized to four — one of each "hot" tier.
-  const globalHot = useMemo(() => {
+  // Editorial picks from the register, not a dealer feed or attention ranking.
+  const independentPicks = useMemo(() => {
     const target = new Set(['F.P. Journe', 'Laurent Ferrier', 'Grönefeld', 'H. Moser & Cie', 'De Bethune', 'Rexhep Rexhepi', 'Philippe Dufour', 'MB&F', 'Hajime Asaoka'])
-    return cards
-      .filter((c) => target.has(c.identity.brand) && c.media.length > 0)
-      .slice(0, 4)
+    return tasteOfRegister(cards.filter((c) => target.has(c.identity.brand))).slice(0, 4)
   }, [cards])
+  const moreAsia = useMemo(() => {
+    const shownMakers = new Set([...asiaPicks, ...independentPicks].map((c) => c.identity.brand))
+    return tasteOfRegister(cards.filter((c) =>
+      BRAND_REGION[c.identity.brand] === 'asia' && !shownMakers.has(c.identity.brand)
+    )).slice(0, 4)
+  }, [cards, asiaPicks, independentPicks])
 
   if (!data) return null
 
@@ -507,23 +501,18 @@ export default function Home() {
       )}
       </div>
 
-      {/* "What's hot" — two parallel 4-up rows. One for the Thai/SEA market
-          (the brand owners, the local dealers, the collectors in Bangkok
-          and Singapore), one for the global hot independent watchmaking
-          scene. The two halves of the Time Pop audience in two passes. */}
-      <section className="hot-row" aria-label="What's hot — Thai and global">
+      <section className="hot-row" aria-label="Editorial picks from the register">
         <div className="section-rule">
-          <h2>What's hot in the register.</h2>
-          <span className="sticker-inline mono">THAI/SEA · GLOBAL INDEPENDENT · EDITORIAL</span>
+          <h2>Further into the register.</h2>
+          <span className="sticker-inline mono">EDITORIAL PICKS</span>
         </div>
         <div className="hot-grid">
           <div className="hot-col">
-            <p className="hot-col-eyebrow mono">01 · THAI / SEA</p>
-            <p className="hot-col-line">What the Bangkok dealer is showing this month.</p>
+            <h3 className="hot-col-eyebrow mono">More from Asia</h3>
             <div className="hot-col-grid">
-              {thaiPicks.map((c) => (
+              {moreAsia.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <ReferencePhoto card={c} className="hot-col-media" />
+                  <ReferencePhoto card={c} className="hot-col-media" showMissing={false} />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>
@@ -531,12 +520,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hot-col">
-            <p className="hot-col-eyebrow mono">02 · GLOBAL INDEPENDENT</p>
-            <p className="hot-col-line">What the global independent scene is talking about.</p>
+            <h3 className="hot-col-eyebrow mono">Independent makers</h3>
             <div className="hot-col-grid">
-              {globalHot.map((c) => (
+              {independentPicks.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <ReferencePhoto card={c} className="hot-col-media" />
+                  <ReferencePhoto card={c} className="hot-col-media" showMissing={false} />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>
