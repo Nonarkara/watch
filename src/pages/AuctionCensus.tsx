@@ -92,6 +92,12 @@ export default function AuctionCensus() {
     return () => { cancelled = true }
   }, [])
 
+  useEffect(() => {
+    if (!census || window.location.hash !== '#marques') return
+    const frame = requestAnimationFrame(() => document.getElementById('marques')?.scrollIntoView())
+    return () => cancelAnimationFrame(frame)
+  }, [census])
+
   if (err) return <p className="honest" role="alert">{err}</p>
   if (!census) return <p className="lede boot" role="status">Loading the census…</p>
 
@@ -118,13 +124,16 @@ export default function AuctionCensus() {
         {totals.lots_converted_at_auction_start > 0 && <> {totals.lots_converted_at_auction_start} conversions use auction-opening FX, not the lot’s sale day.</>}
         {totals.unconverted_lots > 0 && <> {totals.unconverted_lots} priced lots excluded from the USD sum for lack of a matching conversion.</>}
       </p>
+      <a className="src-a census-marque-jump" href="#marques">Browse and sort marques ↓</a>
 
       <details className="sect census-method">
         <summary>What coverage counts and leaves out</summary>
         <p className="honest">
           {coverage.lots_matching_a_card} of {totals.lots} lots price a reference this register holds
-          exactly — {usdFull(coverage.value_matching_a_card_usd)}, or {coverage.value_matching_a_card_pct}%
-          of the money. The register does not need the other {totals.lots - coverage.lots_matching_a_card}
+          exactly ({coverage.lots_matching_a_card_pct}% of lots). The matched lots account for{' '}
+          {usdFull(coverage.value_matching_a_card_usd)}, or{' '}
+          {coverage.value_matching_a_card_pct}% of the reported USD total.
+          The register does not need the other {totals.lots - coverage.lots_matching_a_card}
           lots to be correct; it needs to know which objects it is pricing. A dossier with no comps says
           so rather than borrowing a neighbouring reference's result.
         </p>
@@ -196,7 +205,7 @@ export default function AuctionCensus() {
         </table>
       </section>
 
-      <section className="sect census-ledger">
+      <section className="sect census-ledger" id="marques" tabIndex={-1}>
         <h2 className="sect-h">
           <span>Which marques actually traded</span>
           <span className="mono">NOT THE SAME LIST AS MARKET CAP</span>

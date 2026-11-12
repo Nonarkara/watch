@@ -5948,6 +5948,8 @@ main.shell { padding-top: var(--space-md); }
 .census-receipt dd { margin: 0; }
 .census-receipt dd strong { font-size: 1.35em; }
 .census-fx-note { max-inline-size: 64ch; }
+.census-marque-jump { display: inline-flex; align-items: center; min-block-size: 32px; }
+#marques { scroll-margin-top: 80px; }
 .census-method.sect, .census-ledger.sect { margin-block: 12px; }
 .census-method > summary { inline-size: fit-content; min-block-size: 32px; cursor: pointer; }
 .census-ledger { max-inline-size: 48rem; }

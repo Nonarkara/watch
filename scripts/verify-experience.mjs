@@ -215,6 +215,15 @@ function verifyMarket() {
     assert(evaluate(`document.fonts.ready.then(() => document.documentElement.scrollWidth === innerWidth &&
       document.querySelector('.market-chart svg').getAttribute('aria-label').startsWith('Patek Philippe'))`),
     'The narrow About sales chart must restore its anchor and respond to the brand filter')
+    browser('open', base + '/auction-census')
+    browser('wait', '.census-marque-jump')
+    assert(evaluate('document.querySelector(".census-marque-jump").getBoundingClientRect().bottom < innerHeight'))
+    browser('click', '.census-marque-jump')
+    assert(evaluate('document.activeElement.id === "marques" && document.querySelector(".census-sort").getBoundingClientRect().bottom < innerHeight'))
+    browser('open', base + '/auction#marques')
+    browser('wait', '--fn', 'document.querySelector(".census-sort")?.getBoundingClientRect().bottom < innerHeight && scrollY > 0')
+    browser('click', '.census-sort button:nth-child(2)')
+    assert(evaluate('document.querySelector(".census-sort button:nth-child(2)").getAttribute("aria-pressed") === "true"'))
     browser('open', base + '/marketplaces?watch=rolex-116500ln')
     browser('wait', '.venue-card .vc-quote-box')
     assert(evaluate(`document.fonts.ready.then(() => {
