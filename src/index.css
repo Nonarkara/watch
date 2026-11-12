@@ -2138,6 +2138,15 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .market-chart-legend small { color: var(--dim); margin-left: 4px; letter-spacing: .04em; }
 .market-chart svg { width: 100%; height: auto; display: block; }
 .market-chart figcaption { margin-top: var(--space-sm); }
+.market-chart-sources { margin-top: 8px; }
+.market-chart-sources summary { width: fit-content; padding-block: 8px; cursor: pointer; }
+.market-chart-sources ul { padding-inline-start: 20px; overflow-wrap: anywhere; }
+.market-chart-outliers li { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.market-chart-outliers li > span { font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) {
+  .market-chart { padding: 8px; }
+  .market-chart-head, .market-chart-legend { gap: 8px 12px; margin-bottom: 8px; }
+}
 .market-outliers { margin-top: var(--space-md); padding: var(--space-sm) var(--space-md); border: 1px solid var(--rule); border-left: 2px solid var(--amber); background: var(--paper-2); }
 .market-outliers ul { list-style: none; margin-top: var(--space-xs); }
 .market-outliers li { display: grid; grid-template-columns: 100px 130px 1fr; gap: var(--space-sm); padding: 4px 0; font-size: var(--text-micro); }

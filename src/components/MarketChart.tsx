@@ -1,7 +1,5 @@
-// MarketChart: plots a brand's verified sales over time, bucketed into quarters.
-// Uses ALL the brand's published comparable sales, but only draws a connecting line
-// where at least 2 sales fall in the same quarter. Where data is too thin, the chart
-// falls back to individual sale dots, never to a synthesized trend.
+// Public sale observations; changing reference mix is not a price index.
+import { useEffect, useRef, useState } from 'react'
 import type { Card, Sale } from '../lib/data.ts'
 import { usd } from '../lib/format.ts'
 
@@ -33,22 +31,25 @@ const EVENTS: { date: string; label: string; tone: 'milestone' | 'peak' | 'troug
 ]
 
 export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Props) {
-  // Build a flat sale stream from each card's notable_sales (the published, masked comps).
-  const sales: Sale[] = []
+  const frame = useRef<SVGSVGElement>(null)
+  const [width, setWidth] = useState(880)
+  const sales: (Sale & { reference: string })[] = []
   for (const c of cards) {
     if (brand !== 'All' && c.identity.brand !== brand) continue
-    for (const s of c.notable_sales ?? []) sales.push(s)
-  }
-  // Fallback: try the public data more loosely
-  if (sales.length < 4 && brand === 'Rolex') {
-    // Include all sales from Rolex cards (not just notable) for the chart view only.
-    for (const c of cards) {
-      if (c.identity.brand !== 'Rolex') continue
-      for (const s of c.notable_sales ?? []) {
-        if (!sales.includes(s)) sales.push(s)
+    for (const s of c.notable_sales ?? []) {
+      if (Number.isFinite(new Date(s.date).getTime()) && Number.isFinite(s.price_usd) && s.price_usd > 0) {
+        sales.push({ ...s, reference: `${c.identity.brand} ${c.identity.reference}` })
       }
     }
   }
+  const hasChart = sales.length >= 4
+  useEffect(() => {
+    const svg = frame.current
+    if (!svg) return
+    const observer = new ResizeObserver(([entry]) => setWidth(Math.max(180, Math.round(entry.contentRect.width))))
+    observer.observe(svg)
+    return () => observer.disconnect()
+  }, [hasChart])
   if (sales.length < 4) {
     return (
       <div className="empty-photo compact">
@@ -61,9 +62,8 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
   // Sort chronologically.
   const sortedSales = [...sales].sort((a, b) => a.date.localeCompare(b.date))
 
-  // Identify and flag extreme outliers (>5x median) so a single charity lot doesn't flatten the chart.
-  // The outlier dots still render — they just sit at the top with a note — and the y-axis uses the
-  // trimmed range so the rest of the data is readable.
+  // Keep extreme observations in the source list rather than clipping them
+  // against the plot ceiling or assuming why they fetched a high price.
   const allPrices = sortedSales.map((s) => s.price_usd).sort((a, b) => a - b)
   const overallMedian = MEDIAN(allPrices) ?? 0
   const OUTLIER_MULTIPLE = 5
@@ -71,7 +71,8 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
   const inliers = sortedSales.filter((s) => !isOutlier(s.price_usd))
   const outliers = sortedSales.filter((s) => isOutlier(s.price_usd))
 
-  // Bucket by quarter, take median, drop quarters with a single sale (too thin to publish as a line).
+  // Only mark quarters with two or more observations. Position each marker
+  // at the median observed date, not an invented date parsed from "2026-Q1".
   const buckets = new Map<string, Sale[]>()
   for (const s of inliers) {
     const q = QUARTER(s.date)
@@ -81,13 +82,15 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
   const quarterly = [...buckets.entries()]
     .filter(([, xs]) => xs.length >= 2)
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([q, xs]) => ({ q, median: MEDIAN(xs.map((s) => s.price_usd))!, n: xs.length }))
+    .map(([q, xs]) => ({ q, median: MEDIAN(xs.map((s) => s.price_usd))!,
+      date: MEDIAN(xs.map((s) => new Date(s.date).getTime()))!, n: xs.length }))
 
   // Chart geometry
-  const W = 880
-  const H = height
-  const PAD_L = 76
-  const PAD_R = 24
+  const W = width
+  const compact = W < 560
+  const H = compact ? Math.min(height, 230) : height
+  const PAD_L = compact ? 62 : 76
+  const PAD_R = compact ? 20 : 28
   const PAD_T = 36
   const PAD_B = 40
   // x-range covers the full date range, not just the dense quarters — so individual sales outside
@@ -110,175 +113,110 @@ export default function MarketChart({ cards, brand = 'Rolex', height = 340 }: Pr
   // Convert events within the chart window into x positions
   const visibleEvents = EVENTS.filter((e) => {
     const t = new Date(e.date).getTime()
-    return t >= t0 && t <= t1 + (t1 - t0) * 0.05
+    return t >= t0 && t <= t1
   })
 
-  // Build the line path through quarterly medians
-  const path = quarterly
-    .map((q, i) => {
-      const t = new Date(q.q + '-01').getTime()
-      return `${i === 0 ? 'M' : 'L'} ${x(t)} ${y(q.median)}`
-    })
-    .join(' ')
-
-  // Build an area fill under the line — only when we have a real line
-  let area = ''
-  if (quarterly.length >= 2) {
-    const lastT = new Date(quarterly[quarterly.length - 1].q + '-01').getTime()
-    const firstT = new Date(quarterly[0].q + '-01').getTime()
-    area = `${path} L ${x(lastT)} ${H - PAD_B} L ${x(firstT)} ${H - PAD_B} Z`
-  }
-
-  // Build y-axis tick lines (4 evenly spaced, with $0 always at the bottom)
+  // Evenly spaced ticks across the displayed price range.
   const ticks = 4
   const yTicks = Array.from({ length: ticks + 1 }, (_, i) => yLo + ((yHi - yLo) * i) / ticks)
+  const tickLabel = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact', maximumFractionDigits: 1 })
   // x-axis labels: show 6 evenly-spaced dates from the full range
-  const xTickCount = Math.min(6, sortedSales.length)
+  const xTickCount = t0 === t1 ? 1 : compact ? 3 : Math.min(6, sortedSales.length)
   const xTicks = Array.from({ length: xTickCount }, (_, i) => {
     const t = t0 + ((t1 - t0) * i) / Math.max(1, xTickCount - 1)
     return new Date(t)
   })
 
-  const firstQ = quarterly[0] ?? { q: sortedSales[0].date.slice(0, 7), median: sortedSales[0].price_usd, n: 1 }
   const lastSale = sortedSales[sortedSales.length - 1]
-  const lastQ = quarterly[quarterly.length - 1] ?? { q: lastSale.date.slice(0, 7), median: lastSale.price_usd, n: 1 }
-  const direction = lastQ.median > firstQ.median ? 'up' : lastQ.median < firstQ.median ? 'down' : 'flat'
-  const changePct = firstQ.median > 0 ? ((lastQ.median - firstQ.median) / firstQ.median) * 100 : 0
 
   return (
     <figure className="market-chart">
       <div className="market-chart-head">
         <div>
-          <p className="eyebrow">{brand.toUpperCase()} · VERIFIED COMPARABLE SALES</p>
-          <h3>
-            {direction === 'up' ? '↑' : direction === 'down' ? '↓' : '→'}{' '}
-            {Math.abs(changePct).toFixed(0)}% from {sortedSales[0].date.slice(0, 7)} to {lastSale.date.slice(0, 7)}
-          </h3>
+          <p className="eyebrow">{brand.toUpperCase()} · PUBLISHED SALE OBSERVATIONS</p>
+          <h3>{sortedSales.length} sales · {sortedSales[0].date.slice(0, 7)} to {lastSale.date.slice(0, 7)}</h3>
           <p className="dim">
-            {sortedSales.length} verified sales for {brand} in this register
-            {quarterly.length >= 2 ? `; ${quarterly.length} quarters had enough sales to draw a line.` : `; not enough sales per quarter to draw a line, so each dot is one sale.`}
-            {outliers.length > 0 && ` ${outliers.length} sale${outliers.length === 1 ? '' : 's'} above 5× the cohort median ${outliers.length === 1 ? 'is' : 'are'} shown above the chart frame, not on the line — celebrity-provenance and charity lots price a different object.`}
+            Different references sold at different times. This is not a price index or a return.
           </p>
         </div>
         <div className="market-chart-legend">
           <span className="lg-dot">• <small>ONE SALE</small></span>
-          {quarterly.length >= 2 && <span className="lg-line">— <small>QUARTERLY MEDIAN</small></span>}
-          <span className="lg-event">┃ <small>MARKET EVENT</small></span>
+          {!!quarterly.length && <span className="lg-line">◇ <small>QUARTER MEDIAN</small></span>}
+          {!!visibleEvents.length && <span className="lg-event">┃ <small>MARKET EVENT</small></span>}
         </div>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`${brand} verified sale prices over time`}>
+      <svg ref={frame} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`${brand} observed sale prices in US dollars by date`}>
         {/* grid lines */}
         {yTicks.map((v, i) => (
           <g key={`y-${i}`}>
             <line x1={PAD_L} y1={y(v)} x2={W - PAD_R} y2={y(v)} stroke="var(--line)" strokeWidth="1" strokeDasharray={i === 0 ? '' : '2 4'} />
-            <text x={PAD_L - 8} y={y(v) + 4} fontSize="10" fontFamily="var(--font-mono)" fill="var(--dim)" textAnchor="end">{usd(v)}</text>
+            <text x={PAD_L - 8} y={y(v) + 4} fontSize="11" fontFamily="var(--font-mono)" fill="var(--dim)" textAnchor="end">{tickLabel.format(v)}</text>
           </g>
         ))}
-        {/* area fill */}
-        {area && <path d={area} fill="var(--amber)" fillOpacity="0.08" />}
-        {/* median line */}
-        {path && <path d={path} fill="none" stroke="var(--amber)" strokeWidth="2" />}
-        {/* event markers (drawn before dots so dots sit on top).
-            Labels are stacked vertically when their x-positions would otherwise
-            overlap. We estimate the label width with a fixed per-character cost
-            and march each label down by one row until it clears its left neighbour.
-            Events near the right edge anchor their label to the LEFT of the
-            marker so it doesn't clip off the chart. */}
-        {(() => {
-          const LABEL_W_PER_CHAR = 5.6 // px at fontSize 9 mono; enough margin not to overlap
-          const ROW_H = 12
-          const placed: { x: number; y: number; xEnd: number; }[] = []
-          return visibleEvents.map((e, i) => {
-            const t = new Date(e.date).getTime()
-            const cx = x(t)
-            const color = e.tone === 'peak' ? 'var(--amber)' : e.tone === 'trough' ? 'var(--dim)' : 'var(--fg)'
-            const text = e.label.toUpperCase()
-            const w = text.length * LABEL_W_PER_CHAR
-            // If the label would extend past the right padding, anchor to the
-            // LEFT of the marker so the trailing character stays inside the chart.
-            const rightAnchored = cx + 6 + w > W - PAD_R
-            const labelX = rightAnchored ? cx - 6 : cx + 6
-            const textAnchor = rightAnchored ? 'end' : 'start'
-            // Stagger: try rows 0..4 until the new label's [start, start+w]
-            // doesn't overlap any previously placed label in that row.
-            let row = 0
-            while (row < 5) {
-              const y = PAD_T + 4 + row * ROW_H
-              const start = labelX
-              const end = rightAnchored ? cx - 6 : cx + 6 + w
-              const overlaps = placed.some((p) => p.y === y && start < p.xEnd && p.x < end)
-              if (!overlaps) {
-                placed.push({ x: start, y, xEnd: end })
-                return (
-                  <g key={`e-${i}`}>
-                    <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke={color} strokeWidth="1" strokeDasharray="2 3" opacity="0.55" />
-                    <rect x={cx - 3} y={PAD_T - 6} width="6" height="6" fill={color} />
-                    <text x={labelX} y={y} fontSize="9" fontFamily="var(--font-mono)" fill={color} textAnchor={textAnchor}>
-                      {text}
-                      <title>{e.date} · {e.label}</title>
-                    </text>
-                  </g>
-                )
-              }
-              row++
-            }
-            // Overflow: drop the label, keep only the marker so the chart stays readable.
-            return (
-              <g key={`e-${i}`}>
-                <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke={color} strokeWidth="1" strokeDasharray="2 3" opacity="0.55" />
-                <rect x={cx - 3} y={PAD_T - 6} width="6" height="6" fill={color}>
-                  <title>{e.date} · {e.label}</title>
-                </rect>
-              </g>
-            )
-          })
-        })()}
+        {/* Event guides stay behind sale dots; the keyed text lives outside the plot. */}
+        {visibleEvents.map((event, i) => {
+          const cx = x(new Date(event.date).getTime())
+          return (
+            <g key={event.date}>
+              <title>{event.date} · {event.label}</title>
+              <line x1={cx} y1={PAD_T} x2={cx} y2={H - PAD_B} stroke="var(--dim)" strokeWidth="1" strokeDasharray="2 3" />
+              <text x={cx} y={PAD_T - 8 - (i % 2) * 12} textAnchor="middle" fontSize="11" fill="var(--fg)">{i + 1}</text>
+            </g>
+          )
+        })}
         {/* individual sale dots — the honest data layer */}
-        {sortedSales.map((s, i) => {
+        {inliers.map((s, i) => {
           const t = new Date(s.date).getTime()
           return (
             <circle key={`s-${i}`} cx={x(t)} cy={y(s.price_usd)} r="3" fill="var(--amber)" stroke="var(--bg)" strokeWidth="1" fillOpacity="0.7">
-              <title>{`${s.date} · ${usd(s.price_usd)}`}</title>
+              <title>{`${s.reference} · ${s.date} · ${usd(s.price_usd)}`}</title>
             </circle>
           )
         })}
-        {/* quarterly median dots — larger */}
+        {/* Diamonds distinguish sample summaries from actual sale dots. */}
         {quarterly.map((q, i) => {
-          const t = new Date(q.q + '-01').getTime()
+          const cx = x(q.date), cy = y(q.median)
           return (
-            <circle key={`q-${i}`} cx={x(t)} cy={y(q.median)} r="4" fill="var(--amber)" stroke="var(--bg)" strokeWidth="1.5">
+            <rect key={`q-${i}`} x={cx - 4} y={cy - 4} width="8" height="8" transform={`rotate(45 ${cx} ${cy})`} fill="var(--bg)" stroke="var(--amber)" strokeWidth="1.5">
               <title>{`${q.q} · ${usd(q.median)} · n=${q.n} (quarterly median)`}</title>
-            </circle>
+            </rect>
           )
         })}
         {/* x-axis labels */}
         {xTicks.map((d, i) => (
           <text key={`x-${i}`} x={x(d.getTime())} y={H - PAD_B + 16} fontSize="10" fontFamily="var(--font-mono)" fill="var(--dim)" textAnchor="middle">
-            {d.getUTCFullYear()}-{String(Math.floor(d.getUTCMonth() / 3) + 1).padStart(1, '0')}
+            {d.toISOString().slice(0, 7)}
           </text>
         ))}
       </svg>
       {outliers.length > 0 && (
-        <div className="market-outliers">
-          <p className="eyebrow">OUTLIERS · SHOWN SEPARATELY, NOT ON THE LINE</p>
+        <details className="market-chart-sources market-chart-outliers">
+          <summary>{outliers.length} {outliers.length === 1 ? 'sale' : 'sales'} not plotted · above 5× the sample median</summary>
           <ul>
             {outliers.map((s, i) => (
               <li key={i} className="mono">
-                <span>{s.date}</span>
+                <a className="src-a" href={s.url} target="_blank" rel="noreferrer">{s.reference} · {s.date}</a>
                 <span>{usd(s.price_usd)}</span>
-                <span className="dim">— kept out of the median because the cohort median is {usd(overallMedian)}.</span>
               </li>
             ))}
           </ul>
-        </div>
+        </details>
       )}
       <figcaption className="micro dim">
-        Each small dot is one verified comparable sale in the register. The line (when present) connects
-        quarters that had two or more sales. Vertical lines mark public market events documented in
-        the working paper. The chart uses only published comparable sales — internal comp sets stay
-        private. A flat dot means the sale matched the prior level; a steep line means the cohort
-        repriced. Quarters with too few sales to publish a line are kept as individual dots.
+        USD on the vertical axis. Diamonds mark medians of two or more plotted sales in the same quarter.
+        Event markers are context, not explanations.
       </figcaption>
+      <details className="market-chart-sources">
+        <summary>Sale records and event dates</summary>
+        <ul>
+          {sortedSales.map((s, i) => <li key={i}><a className="src-a" href={s.url} target="_blank" rel="noreferrer">
+            {s.reference} · {s.date} · {usd(s.price_usd)}
+          </a></li>)}
+        </ul>
+        {!!visibleEvents.length && <ol aria-label="Market events">
+          {visibleEvents.map((event) => <li key={event.date}>{event.date} · {event.label}</li>)}
+        </ol>}
+      </details>
     </figure>
   )
 }

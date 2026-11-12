@@ -870,10 +870,10 @@ export default function About() {
 
       <section className="sect" id="the-market">
         <div className="section-rule">
-          <h2>What prices are doing right now</h2>
+          <h2>Published sales by date</h2>
           <div className="market-toggle">
             {(['Rolex', 'Patek Philippe', 'All'] as const).map((b) => (
-              <button key={b} type="button" className={'chip' + (brand === b ? ' on' : '')} onClick={() => setBrand(b)}>
+              <button key={b} type="button" className={'chip' + (brand === b ? ' on' : '')} aria-pressed={brand === b} onClick={() => setBrand(b)}>
                 {b.toUpperCase()}
               </button>
             ))}

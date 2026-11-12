@@ -791,6 +791,34 @@ try {
   browser('click','.saved-badge')
   browser('wait','--url','**/saved')
   browser('set','viewport','390','900')
+  for (const width of [390, 1024, 1440]) {
+    browser('set', 'viewport', String(width), '900')
+    browser('open', base + '/economy')
+    browser('wait', '.market-chart svg')
+    const market = evaluate(`new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => {
+      const chart = document.querySelector('.market-chart');
+      const svg = chart.querySelector('svg');
+      const dots = svg.querySelectorAll('circle').length;
+      const outliers = chart.querySelectorAll('.market-chart-outliers li').length;
+      return resolve({
+        count: chart.querySelectorAll('.market-chart-sources:not(.market-chart-outliers) a').length,
+        dots, outliers, line: !!svg.querySelector('path'), invalid: svg.innerHTML.includes('NaN'),
+        viewportMatches: Math.abs(svg.viewBox.baseVal.width - svg.clientWidth) <= 1,
+        overflow: document.documentElement.scrollWidth > innerWidth + 1
+      });
+    })))`)
+    assert(market.dots >= 4 && market.dots + market.outliers === market.count && !market.line &&
+      !market.invalid && market.viewportMatches && !market.overflow, JSON.stringify(market))
+    if (width === 390) {
+      browser('click', '.market-chart-sources:not(.market-chart-outliers) summary')
+      assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
+    }
+  }
+  browser('open', base + '/about#the-market')
+  browser('wait', '#the-market .market-toggle button')
+  browser('click', '#the-market .market-toggle button:last-child')
+  assert(evaluate(`document.querySelector('#the-market .market-toggle button:last-child').getAttribute('aria-pressed') === 'true' &&
+    document.querySelector('#the-market svg[aria-label^="All observed"]') !== null`))
   for (const width of [239, 240, 241, 318, 319, 320]) {
     browser('set', 'viewport', String(width), '844')
     browser('open', base + '/')
