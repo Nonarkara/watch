@@ -6,7 +6,6 @@ import { TIER_LABEL, TIER_ORDER, BRAND_REGION, REGION_ORDER, REGION_LABEL, type 
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 import { loadMarketTrends } from '../lib/catalog.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
-import HeroBanner from '../components/HeroBanner.tsx'
 
 type SortKey = 'collectibility' | 'scarcity' | 'trending' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
 const SORTS: { k: SortKey; label: string }[] = [
@@ -103,29 +102,19 @@ export default function Register() {
 
   return (
     <>
-      <HeroBanner
-        hue="navy"
-        size="md"
-        eyebrow="THE REGISTER"
-        title={<>Every reference,<br />with its evidence.</>}
-        subtitle={
-          <>
-            Market figures come from verified public sales; the indices are computed, sourced,
-            and show their own limits. Where evidence is thin, the register says so instead of
-            guessing.
-          </>
-        }
-        secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
-        meta={
-          <div className="pop-panel">
-            <span className="bubble-kicker mono">THE HONEST PLOT</span>
-            <strong>{data?.count ?? '—'} references</strong>
-            <span>{data ? `${data.cards.filter((c) => c.comp_summary).length} with cited sales · ${data.cards.filter((c) => c.computed.estimate.value == null).length} without publishable estimates` : ''}</span>
-          </div>
-        }
-      />
+      <header className="register-heading">
+        <h1 className="pagetitle">The Register</h1>
+        {data && <p className="register-coverage">
+          <strong>{cards.length} references</strong> · {cards.filter((c) => c.comp_summary).length} with cited sales · {cards.filter((c) => c.computed.estimate.value == null).length} without publishable estimates
+        </p>}
+        <details className="register-method">
+          <summary>How we price watches</summary>
+          <p>Market figures come from verified public sales. The indices show their sources and limits. Where evidence is thin, the register leaves the price blank.</p>
+          <Link to="/methodology">Read the methodology →</Link>
+        </details>
+      </header>
 
-      <div className="controls">
+      <div className="controls register-controls">
         <div className="controls-row">
           <input className="inp" type="search" placeholder="Search brand, reference, nickname…"
             value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search the register" />
@@ -200,13 +189,14 @@ export default function Register() {
         </>
       )}
 
-      {rows.length === 0 && <p className="boot mono">NO REFERENCES MATCH.</p>}
+      {data && rows.length === 0 && <p className="boot mono">NO REFERENCES MATCH.</p>}
     </>
   )
 }
 
 function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, number> }) {
   const { has, toggle } = useCompare()
+  const [photoUnavailable, setPhotoUnavailable] = useState(false)
   const inSet = has(c.id)
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
@@ -217,13 +207,13 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       draggable
       onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
     >
-      <Link to={`/w/${c.id}`} className="rc-media-link">
-        <div className="rc-media">
-          {c.media[0]
-            ? <img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} loading="lazy" decoding="async" className="photo-img" width={400} height={300} />
-            : <span className="rc-media-empty mono">NO IMAGE</span>}
-        </div>
-      </Link>
+      {c.media[0] && !photoUnavailable ? (
+        <Link to={`/w/${c.id}`} className="rc-media-link">
+          <div className="rc-media">
+            <img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} loading="lazy" decoding="async" onError={() => setPhotoUnavailable(true)} className="photo-img" width={400} height={300} />
+          </div>
+        </Link>
+      ) : <p className="rc-media-empty mono">{photoUnavailable ? 'PHOTO COULD NOT LOAD' : 'NO PHOTO ON FILE'}</p>}
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
         {trendRank != null && (

@@ -117,13 +117,24 @@ try {
         }
       }
       if (name === 'register') {
-        const coverage = evaluate("fetch('/data.json').then(r=>r.json()).then(d=>({refused:d.cards.filter(c=>c.computed.estimate.value==null).length,text:document.querySelector('.pop-panel').textContent}))")
+        const coverage = evaluate("fetch('/data.json').then(r=>r.json()).then(d=>({refused:d.cards.filter(c=>c.computed.estimate.value==null).length,text:document.querySelector('.register-coverage').textContent}))")
         assert(coverage.text.includes(`${coverage.refused} without publishable estimates`), 'Register must count the estimate gate, not sale coverage')
         if (width === 390 || width === 1024) {
           const search = 'input[aria-label="Search the register"]'
+          browser('fill', search, 'AE-1200WH-1AV')
+          assert(evaluate("document.querySelector('.rc-media-empty').getBoundingClientRect().height<=24 && !document.querySelector('.reg-card .rc-media')"))
           browser('fill', search, '116710BLNR')
           assert(evaluate("document.querySelector('.rc-data dt').textContent==='Historical'"))
           browser('click', '.register-view-toggle button:last-child')
+          if (width === 390) assert(evaluate(`(() => {
+            const heading=document.querySelector('.register-heading'), row=document.querySelector('.lrow');
+            window.scrollTo(0,0);
+            const fits=row.getBoundingClientRect().bottom<=innerHeight;
+            heading.style.minHeight='470px';
+            const oldFails=row.getBoundingClientRect().bottom>innerHeight;
+            heading.style.removeProperty('min-height');
+            return fits && oldFails;
+          })()`), 'the complete phone search result must fit and the old masthead height must fail')
           assert(evaluate(`(() => {
             const price=document.querySelector('.lrow[href="/w/rolex-116710blnr-batman"] .l-price');
             return price.dataset.estimate==='historical' && price.querySelector('abbr').title==='Historical estimate' &&
