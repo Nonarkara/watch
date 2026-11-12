@@ -350,8 +350,10 @@ assert.equal(isExcludedPortrait(images['ap-15202st'].file, images['ap-15202st'].
 const portraitOutput = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'));
 const louisVariant = portraitOutput.cards.find(card => card.id === 'louis-richard-triple-detent-tourbillon')
   ?.variant_sales.find(sale => sale.url.endsWith('/232871'));
-assert.equal(louisVariant?.date_basis, 'auction_start',
-  'an intake-derived variant without fuzzy metadata must not promote the auction opening to a lot date');
+assert.equal(louisVariant?.date_basis, 'lot_date', 'Phillips session I confirms lot 108 sold on May 9');
+assert.equal(louisVariant?.fx_conversion?.original_display, 'CHF3,968,000');
+assert.equal(louisVariant?.fx_conversion?.date_basis, 'auction_start',
+  'a verified sale date does not retroactively change the FX lookup basis');
 for (const card of portraitOutput.cards) {
   for (const sale of card.variant_sales) {
     const fx = sale.fx_conversion;

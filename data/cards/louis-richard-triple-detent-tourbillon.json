@@ -36,9 +36,21 @@
         "price_usd": 5096896,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/louis-richard/232871",
+        "date_source_url": "https://www.phillips.com/auction/CH080226/overview",
         "comparable": false,
         "condition": "Phillips Geneva Watch Auction: XXIII, lot 108. Circa 1860, 18k yellow gold, 56mm, movement no. 12, case no. 11846 12, dial and movement signed, movement further engraved 'Invenit et Fecit'. Hammer CHF 3,200,000; sold CHF 3,968,000 (converted at the ECB reference rate for 2026-05-08) after 46 bids. Provenance: Sotheby's New York, 30 October 1990, lot 448; thence by descent from Harlow Shapley, Director of the Harvard College Observatory. Marked NOT COMPARABLE because Phillips describes it as the only known example in the history of watchmaking: one sale is a data point, not a price series, and nothing may be estimated from it. Literature: Revue Française de l'Horlogerie Ancienne no. 8 (1980), pp. 52-60.",
-        "box_papers": null
+        "box_papers": null,
+        "fx_conversion": {
+          "from": "CHF",
+          "rate": 1.2845,
+          "rate_date": "2026-05-08",
+          "provider": "European Central Bank reference rate via Frankfurter (frankfurter.app)",
+          "reference_date": "2026-05-09",
+          "date_basis": "auction_start",
+          "original_realized": 3968000,
+          "original_currency": "CHF",
+          "original_display": "CHF3,968,000"
+        }
       }
     ],
     "listing_observations": []
