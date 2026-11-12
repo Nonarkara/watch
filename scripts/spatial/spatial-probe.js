@@ -496,6 +496,7 @@
     // container is reported with its width: the gate can then see whether
     // the sweep ever landed on the cliff.
     var containers = [];
+    var rootFontPx = parseFloat(win.getComputedStyle(d.documentElement).fontSize);
     var cands = main.querySelectorAll("*");
     for (var qi = 0; qi < cands.length; qi++) {
       var qc = cands[qi];
@@ -503,10 +504,18 @@
       if (!qcs.containerType || qcs.containerType === "normal") continue;
       var qcr = qc.getBoundingClientRect();
       if (!qcr.width) continue;
+      var contentWidth = parseFloat(qcs.width);
+      if (!Number.isFinite(contentWidth)) contentWidth = qcr.width;
+      if (qcs.boxSizing === "border-box") {
+        contentWidth -= parseFloat(qcs.paddingLeft) + parseFloat(qcs.paddingRight) +
+          parseFloat(qcs.borderLeftWidth) + parseFloat(qcs.borderRightWidth);
+      }
       containers.push({
         sel: sel(qc),
-        w: Math.round(qcr.width * 100) / 100,
+        w: Math.round(contentWidth * 100) / 100,
         name: qcs.containerName || "",
+        fontPx: parseFloat(qcs.fontSize),
+        rootFontPx: rootFontPx,
       });
     }
     rec.containers = containers;

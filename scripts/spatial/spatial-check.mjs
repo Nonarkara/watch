@@ -73,7 +73,7 @@ import { execFileSync, spawn } from "node:child_process";
 import { tmpdir, homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { widthBreakpoints } from "./width-breakpoints.mjs";
+import { widthBreakpointTerms } from "./width-breakpoints.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1130,7 +1130,8 @@ function scanStylesheets(text, into) {
     // one in a compound query — `(min-width:721px) and (max-width:1000px)`
     // would contribute 721 and lose 1000, and the 1000px cliff would go
     // unswept in exactly the way this function exists to prevent.
-    for (const bp of widthBreakpoints(body)) {
+    for (const { value, unit } of widthBreakpointTerms(body)) {
+      const bp = Math.round(unit === "px" ? value : value * 16);
       // A cliff is a cliff: measure the width just below it, the width
       // itself, and the width just above it.
       for (const w of [bp - 1, bp, bp + 1]) if (w > 0) target.add(w);
@@ -1141,7 +1142,7 @@ function scanStylesheets(text, into) {
         into.cliffs.add(bp);
         const key = cname || "";
         if (!into.namedCliffs.has(key)) into.namedCliffs.set(key, new Set());
-        into.namedCliffs.get(key).add(bp);
+        into.namedCliffs.get(key).add(`${value}${unit}`);
       }
     }
   }
@@ -1869,30 +1870,35 @@ if (namedCliffs.size) {
         if (!byContainer.has(nm)) byContainer.set(nm, new Map());
         const perSel = byContainer.get(nm);
         if (!perSel.has(c.sel)) perSel.set(c.sel, new Map());
-        perSel.get(c.sel).set(Number(r.w), c.w);
+        perSel.get(c.sel).set(Number(r.w), c);
       }
     }
   }
   for (const [name, cliffs] of namedCliffs) {
-    for (const cliff of [...cliffs].sort((a, b) => a - b)) {
+    for (const term of [...cliffs].sort()) {
+      const cliff = parseFloat(term);
+      const unit = term.endsWith("rem") ? "rem" : term.endsWith("em") ? "em" : "px";
       if (!name) {
         notes.push(
-          `the container cliff at ${cliff}px belongs to an ANONYMOUS container query — the gate cannot tell which container it applies to, so it cannot say whether it was swept. Name the query (@container name (min-width: ${cliff}px)) and the gate will check it.`,
+          `the container cliff at ${term} belongs to an ANONYMOUS container query — the gate cannot tell which container it applies to, so it cannot say whether it was swept. Name the query and the gate will check it.`,
         );
         continue;
       }
       const perSel = byContainer.get(name);
       if (!perSel || !perSel.size) {
         notes.push(
-          `the container cliff at ${cliff}px belongs to "${name}", which no measured page contains — there was nothing to sweep.`,
+          `the container cliff at ${term} belongs to "${name}", which no measured page contains — there was nothing to sweep.`,
         );
         continue;
       }
       let landed = null;
       let straddled = null;
       for (const [sel, pairs] of perSel) {
-        const list = [...pairs.entries()].sort((a, b) => a[1] - b[1]);
-        const near = list.find(([, w]) => Math.abs(w - cliff) <= 2);
+        const list = [...pairs.entries()].map(([v, c]) => {
+          const scale = unit === "em" ? c.fontPx : unit === "rem" ? c.rootFontPx : 1;
+          return [v, c.w / scale, scale];
+        }).filter(([, w]) => Number.isFinite(w)).sort((a, b) => a[1] - b[1]);
+        const near = list.find(([, w, scale]) => Math.abs(w - cliff) * scale <= 2);
         if (near) {
           landed = { sel, w: near[1], v: near[0] };
           break;
@@ -1906,7 +1912,7 @@ if (namedCliffs.size) {
       }
       if (landed) {
         notes.push(
-          `the container cliff at ${cliff}px was measured — the container "${name}" was ${landed.w}px wide at viewport ${landed.v}px`,
+          `the container cliff at ${term} was measured — the container "${name}" was ${landed.w.toFixed(2)}${unit} wide at viewport ${landed.v}px`,
         );
       } else if (straddled) {
         const [v1, w1] = straddled.below;
@@ -1917,21 +1923,21 @@ if (namedCliffs.size) {
         // off. Naming it turns "add a width" into one number.
         const guess =
           w2 > w1 ? Math.round(v1 + ((cliff - w1) * (v2 - v1)) / (w2 - w1)) : Math.round((v1 + v2) / 2);
-        const where = `the container is ${w1}px wide at viewport ${v1}px and ${w2}px wide at viewport ${v2}px`;
+        const where = `the container is ${w1.toFixed(2)}${unit} wide at viewport ${v1}px and ${w2.toFixed(2)}${unit} wide at viewport ${v2}px`;
         if (cssComplete) {
           failures.push(
-            `unswept container cliff — the layout changes when the container "${name}" is ${cliff}px wide, ` +
+            `unswept container cliff — the layout changes when the container "${name}" is ${term} wide, ` +
               `but the sweep never put it there (${where}). The layout on one side of that cliff was never measured. ` +
               `Add a viewport width of about ${guess}px to the project's widths — that is where the container lands on the cliff.`,
           );
         } else {
           notes.push(
-            `the container cliff at ${cliff}px was crossed but not measured (${where}) — this sweep did not cover every cliff the CSS declares, so it is recorded, not failed.`,
+            `the container cliff at ${term} was crossed but not measured (${where}) — this sweep did not cover every cliff the CSS declares, so it is recorded, not failed.`,
           );
         }
       } else {
         notes.push(
-          `the container cliff at ${cliff}px was never crossed — the container "${name}" never reached it at any swept width, so there was nothing to measure`,
+          `the container cliff at ${term} was never crossed — the container "${name}" never reached it at any swept width, so there was nothing to measure`,
         );
       }
     }

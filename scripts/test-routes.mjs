@@ -3,11 +3,14 @@
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import assert from "node:assert/strict";
-import { widthBreakpoints } from "./spatial/width-breakpoints.mjs";
+import { widthBreakpoints, widthBreakpointTerms } from "./spatial/width-breakpoints.mjs";
 
 assert.deepEqual(widthBreakpoints("(min-width: 721px) and (max-width:1000px)"), [721, 1000]);
 assert.deepEqual(widthBreakpoints("(width<=600px),(width>=48rem),(400px<width<800px)"), [600, 768, 400, 800]);
 assert.deepEqual(widthBreakpoints("(prefers-reduced-motion:reduce) and (height>=400px)"), []);
+assert.deepEqual(widthBreakpointTerms("pom-scores (min-width:15em) and (width<32rem)"), [
+  { value: 15, unit: "em" }, { value: 32, unit: "rem" },
+]);
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const routes = new Set(
