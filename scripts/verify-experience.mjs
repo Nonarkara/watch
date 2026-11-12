@@ -425,6 +425,41 @@ try {
   evaluate("[...document.querySelectorAll('main p, main h1, main h2, main label')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]).forEach(([e,size])=>e.style.fontSize=(size*2)+'px')")
   assert(evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), 'enlarged text must reflow')
   browser('screenshot', join(out, 'dossier-enlarged-390.png'))
+  evaluate("fetch('/data.json').then(r=>r.json()).then(d=>{localStorage.setItem('watch.saved',JSON.stringify(d.cards.slice(0,200).map(c=>c.id)));return true})")
+  browser('reload')
+  browser('wait', '.saved-badge[aria-label="Saved watches: 200"]')
+  for (const [width,height] of [[320,720],[390,844],[721,900],[1024,900],[1440,900]]) {
+    browser('set','viewport',String(width),String(height))
+    evaluate('document.fonts.ready.then(() => true)')
+    const masthead = evaluate(`(() => {
+      const city=document.querySelector('.city-toggle-btn'), name=city.querySelector('.city-toggle-name'), pin=city.querySelector('.city-toggle-pin');
+      const cluster=document.querySelector('.hdr-cluster'), mark=document.querySelector('.wm-main');
+      const fits=()=>mark.getBoundingClientRect().right <= cluster.getBoundingClientRect().left+1;
+      const current=fits();
+      let falsifier=true;
+      if(innerWidth===320) {
+        city.style.width='auto';city.style.paddingInline='10px';name.style.display='inline';pin.style.display='none';
+        falsifier=!fits();
+        for(const el of [city,name,pin])el.removeAttribute('style');
+      }
+      const controls=[...cluster.querySelectorAll('button,a')];
+      return {current,falsifier,controls:controls.length,targets:controls.every(el=>{const r=el.getBoundingClientRect();return r.width>=44&&r.height>=44}),
+        height:document.querySelector('.hdr').getBoundingClientRect().height, label:city.getAttribute('aria-label'),
+        pin:getComputedStyle(pin).display!=='none', doc:document.documentElement.scrollWidth,
+        navFits:[...document.querySelectorAll('.nav-a')].every(el=>el.scrollWidth<=el.clientWidth+1)};
+    })()`)
+    assert(masthead.current && masthead.falsifier && masthead.controls===4 && masthead.targets && masthead.height<=160 &&
+      masthead.label.includes('currently') && masthead.pin===(width<=460) && masthead.doc<=width+1 && masthead.navFits, JSON.stringify(masthead))
+    browser('screenshot',join(out,`masthead-populated-${width}.png`))
+  }
+  browser('set','viewport','320','720')
+  browser('click','.city-toggle-btn')
+  browser('wait','#city-options')
+  browser('press','Escape')
+  assert(evaluate("document.activeElement===document.querySelector('.city-toggle-btn')"))
+  browser('click','.saved-badge')
+  browser('wait','--url','**/saved')
+  browser('set','viewport','390','900')
   // Block both font providers and reload. Fallback must preserve the core flow.
   browser('network', 'route', '**/fonts/*', '--abort')
   browser('network', 'route', '*fonts.googleapis.com*', '--abort')
@@ -434,6 +469,9 @@ try {
   browser('fill', 'input[aria-label="Search the register"]', '5513')
   assert(evaluate("document.querySelector('main').textContent.includes('5513')"), 'search survives failed fonts')
   browser('screenshot', join(out, 'register-fallback-390.png'))
+  browser('set','viewport','320','720')
+  assert(evaluate("document.querySelector('.wm-main').getBoundingClientRect().right <= document.querySelector('.hdr-cluster').getBoundingClientRect().left+1"),
+    'the populated wordmark must fit even when fonts are blocked')
   writeFileSync(join(out, 'receipt.json'), JSON.stringify({ base, proofs, search: 'passed', enlarged: 'passed', fallback: 'passed' }, null, 2))
   console.log(`✓ ${proofs.length} responsive proofs, loaded font, search, enlargement and font-failure fallback → ${out}`)
 } finally { browser('close') }

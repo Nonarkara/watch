@@ -105,6 +105,8 @@ Saved scenarios count every reference, including references absent from the
 build. A historical sum requires consent tied to the saved set and build.
 Compare leads with a dated price ledger. Full photos, verdicts and specs
 remain below it; saved and recent watch prices carry their own evidence date.
+The mobile masthead reserves room for all four 44px tools with a populated
+watchlist. A map pin replaces the city word only where the word crowds the mark.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to

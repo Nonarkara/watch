@@ -326,7 +326,15 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 @media (min-width: 721px) {
   .wm-logo { width: 36px; height: 36px; }
   .wm-main { font-size: var(--text-display); }
+}
+@media (min-width: 1000px) {
   .wm-sub, .wm-tag { display: block; }
+}
+@media (max-width: 360px) {
+  .hdr-in { padding-left: calc(14px + var(--sal)); padding-right: calc(14px + var(--sar)); }
+  .wordmark { gap: 5px; }
+  .wm-logo { width: 24px; height: 24px; }
+  .wm-main { font-size: clamp(18px, 5.6vw, 22px); }
 }
 
 /* the eight sections: a row of rectangles cut out by 1px ink rules (the
@@ -359,6 +367,10 @@ h1, h2, h3 { text-wrap: balance; font-weight: 600; letter-spacing: -0.02em; }
 }
 @media (min-width: 720px) { .nav-a { letter-spacing: 0.06em; padding: 0 10px; } }
 @media (min-width: 720px) and (max-width: 999px) { .nav-a { letter-spacing: 0.03em; padding: 0 6px; } }
+@media (max-width: 360px) {
+  .nav { grid-template-columns: repeat(4, minmax(max-content, 1fr)); }
+  .nav-a { padding-inline: 1px; letter-spacing: 0; }
+}
 /* the live section is the one colour block in the band: a rectangle of warm
    yellow, not an underline */
 .nav-a.on { background: var(--mg-warm); color: var(--ink); }
@@ -4168,6 +4180,9 @@ main.shell { padding-top: var(--space-md); }
 }
 .saved-badge:hover { background: var(--navy); }
 .saved-badge-star { font-size: 12px; line-height: 1; }
+@media (max-width: 460px) {
+  .saved-badge { padding-inline: 4px; }
+}
 
 /* ── Search palette (modal) ──────────────────────────────────────────────── */
 .srch-bk { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: flex-start; justify-content: center; z-index: 9999; padding-top: 12vh; }
