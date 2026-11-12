@@ -52,7 +52,8 @@ function mediaFor(card) {
       type: "image", url: curated.file, source_url: curated.source_url,
       credit: curated.credit, license: curated.license ?? null,
       rights_status: "licensed", caption: curated.caption ?? null,
-      match: curated.caption ? "reference_family" : "exact_reference",
+      match: curated.match === "exact_reference" || curated.match === "reference_family"
+        ? curated.match : curated.caption ? "reference_family" : "exact_reference",
     }];
   }
   // The scraped catalogue's own rights field says "reuse license not asserted", and its

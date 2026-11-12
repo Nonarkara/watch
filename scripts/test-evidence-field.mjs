@@ -10,6 +10,12 @@ import {
 
 const data = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'))
 const depths = data.cards.map(evidenceDepth)
+for (const id of ['rolex-126900', 'rolex-16710', 'rolex-116610ln']) {
+  const card = data.cards.find(row => row.id === id)
+  assert.ok(card?.media[0]?.caption && card.media[0].source_url.includes('commons.wikimedia.org'))
+  assert.equal(card.media[0].match, 'exact_reference', `${id}: a source caption does not make an exact photo a family match`)
+  assert.equal(evidenceChannels(card).photo, true)
+}
 
 assert.equal(depths.length, data.count, 'one evidence-field point per published dossier')
 assert.ok(depths.every((depth) => Number.isInteger(depth) && depth >= 0 && depth <= 5), 'evidence depth stays in [0,5]')
