@@ -101,6 +101,8 @@ and buyer figures sit beside the venue, and directory research stays below.
 Holding-period scenarios distinguish the owner's starting value from a stale
 dossier estimate. Historical figures require an explicit choice and never
 become today's value by passing through the calculator.
+Saved scenarios count every reference, including references absent from the
+build. A historical sum requires consent tied to the saved set and build.
 
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to

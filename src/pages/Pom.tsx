@@ -389,7 +389,8 @@ function ValueLab() {
   const [tab, setTab] = useState<'collection' | 'saved' | 'watch'>('collection')
   const [annualRate, setAnnualRate] = useState(NEUTRAL_ANNUAL_RATE)
   const [pomBaseline, setPomBaseline] = useState(String(POM_AGGREGATE.article_value_mid_thb))
-  const [savedBaseline, setSavedBaseline] = useState('')
+  const [savedInput, setSavedInput] = useState({ key: '', value: '' })
+  const [acceptedSavedKey, setAcceptedSavedKey] = useState<string | null>(null)
   const [selectedId, setSelectedId] = useState('rolex-116500ln')
   const [watchSearch, setWatchSearch] = useState('')
   const [watchScope, setWatchScope] = useState<'all' | 'anchored' | 'ready'>('all')
@@ -447,13 +448,14 @@ function ValueLab() {
   const savedCards = saved.ids
     .map((id) => byId.get(id))
     .filter((card): card is Card => Boolean(card))
-  const savedSummary = summarizeCollectionEstimates(savedCards.map((card) => ({
-    id: card.id,
-    estimate: card.computed.estimate.value,
+  const savedSummary = summarizeCollectionEstimates(saved.ids.map((id) => ({
+    id,
+    estimate: byId.get(id)?.computed.estimate.value,
   })))
-  const missingSavedCards = savedSummary.missing_ids
-    .map((id) => byId.get(id))
-    .filter((card): card is Card => Boolean(card))
+  const missingSavedLabels = savedSummary.missing_ids.map(id => {
+    const card = byId.get(id)
+    return card ? `${card.identity.brand} ${card.identity.reference}` : `${id} (not in this build)`
+  })
   const pricedSavedCards = savedCards.filter((card) => card.computed.estimate.value != null)
   const savedEstimateDates = pricedSavedCards
     .map((card) => card.computed.estimate.as_of)
@@ -470,10 +472,16 @@ function ValueLab() {
   const savedCompCount = pricedSavedCards.reduce((sum, card) => sum + card.computed.estimate.n, 0)
   const savedMaxWindowMonths = Math.max(0, ...pricedSavedCards
     .map((card) => card.computed.estimate.window_months ?? 0))
+  const savedKey = JSON.stringify([data.built, [...saved.ids].sort()])
+  const savedBaseline = savedInput.key === savedKey ? savedInput.value : ''
   const enteredSavedBaseline = Number(savedBaseline)
-  const savedScenarioBaseline = enteredSavedBaseline > 0
+  const hasSavedInput = Number.isFinite(enteredSavedBaseline) && enteredSavedBaseline > 0
+  const historicalSavedCount = pricedSavedCards.filter(card => card.computed.estimate.stale || !card.computed.estimate.as_of).length
+  const savedNeedsConsent = historicalSavedCount > 0
+  const usingSavedHistorical = !hasSavedInput && savedNeedsConsent && acceptedSavedKey === savedKey
+  const savedScenarioBaseline = hasSavedInput
     ? enteredSavedBaseline
-    : savedSummary.evidence_total
+    : savedNeedsConsent && !usingSavedHistorical ? null : savedSummary.evidence_total
   const estimate = selectedCard.computed.estimate
   const enteredWatchValue = Number(manualWatchValue)
   const hasManualValue = Number.isFinite(enteredWatchValue) && enteredWatchValue > 0
@@ -538,7 +546,7 @@ function ValueLab() {
         <button type="button" role="tab" aria-selected={tab === 'collection'} aria-controls="pom-collection-panel"
           onClick={() => openMode('collection')}>UNCLE POM'S 14</button>
         <button type="button" role="tab" aria-selected={tab === 'saved'} aria-controls="pom-saved-panel"
-          onClick={() => openMode('saved')}>MY SAVED · {savedCards.length}</button>
+          onClick={() => openMode('saved')}>MY SAVED · {saved.ids.length}</button>
         <button type="button" role="tab" aria-selected={tab === 'watch'} aria-controls="pom-watch-panel"
           onClick={() => openMode('watch')}>TRY YOUR WATCH · {data.count}</button>
       </div>
@@ -575,7 +583,7 @@ function ValueLab() {
         </div>
       ) : tab === 'saved' ? (
         <div className="pom-lab-panel" id="pom-saved-panel" role="tabpanel">
-          {savedCards.length === 0 ? (
+          {saved.ids.length === 0 ? (
             <div className="pom-saved-empty">
               <span className="mono">YOUR COLLECTION IS EMPTY</span>
               <h3>Save a few watches. Bring them back here.</h3>
@@ -591,16 +599,59 @@ function ValueLab() {
                   <p>Each priced watch clears the same three-comparable-sales gate as its dossier.</p>
                 </div>
                 <div className="pom-value-refusal">
-                  <span className="mono">EVIDENCE-DERIVED COLLECTION TOTAL</span>
+                  <span className="mono">{!savedSummary.complete ? 'NO COLLECTION SUM' : savedNeedsConsent ? 'SUM INCLUDES HISTORICAL ESTIMATES' : 'SUM OF DOSSIER ESTIMATES'}</span>
                   <strong>{savedSummary.evidence_total != null ? money(savedSummary.evidence_total, 'USD') : '—'}</strong>
                   <p>{savedSummary.complete
-                    ? 'Every saved watch clears the gate. This is the sum of their current publishable estimates.'
-                    : `${savedSummary.missing_ids.length} saved watch${savedSummary.missing_ids.length === 1 ? '' : 'es'} still need enough sales. Known priced subset: ${money(savedSummary.known_subtotal, 'USD')}; not a collection total.`}</p>
+                    ? `${historicalSavedCount ? `${historicalSavedCount} historical or undated. ` : ''}The sum is not an appraisal of your watches.`
+                    : `${savedSummary.missing_ids.length} missing estimates. Priced subset: ${money(savedSummary.known_subtotal, 'USD')}; not a collection total.`}</p>
                   <small className="pom-value-source mono">{savedSummary.priced_count > 0
                     ? `SOURCE: DOSSIER ESTIMATORS · ${savedCompCount} COMPS · WINDOWS ≤${savedMaxWindowMonths}M · CONFIDENCE ${savedConfidenceTiers || 'UNKNOWN'} · COMPONENTS AS OF ${savedEstimateDateRange ?? 'UNKNOWN'}`
                     : 'SOURCE: NO SAVED REFERENCE CLEARS THE ESTIMATE GATE'}</small>
                 </div>
               </div>
+
+
+              {missingSavedLabels.length > 0 && (
+                <p className="pom-saved-gap mono">
+                  MISSING ESTIMATE: {missingSavedLabels.join(' · ')}
+                </p>
+              )}
+
+              <div className="pom-lab-controls">
+                <div className="pom-baseline-field pom-saved-basis">
+                  <label>
+                  <span>Your collection starting value · USD</span>
+                  <input id="pom-saved-start" type="number" min="1" step="100" inputMode="numeric" value={savedBaseline}
+                    placeholder="Enter your total"
+                    onChange={(event) => setSavedInput({ key: savedKey, value: event.target.value })} />
+                  <small>{hasSavedInput
+                    ? 'Using your number. The system cannot verify a user-entered appraisal.'
+                    : savedSummary.evidence_total == null
+                      ? 'No total is inferred from a partial subset.'
+                      : savedNeedsConsent ? 'Historical figures are off unless you choose them.' : 'Using the sum of the dossier estimates.'}</small>
+                  </label>
+                  {savedSummary.evidence_total != null && savedNeedsConsent && !hasSavedInput && (
+                    <button type="button" className="btn secondary pom-history-toggle" aria-pressed={usingSavedHistorical}
+                      onClick={() => setAcceptedSavedKey(usingSavedHistorical ? null : savedKey)}>
+                      {usingSavedHistorical ? 'Stop using historical sum' : 'Use historical sum for illustration'}
+                    </button>
+                  )}
+                </div>
+                <RateControl id="pom-saved-rate" value={annualRate} onChange={setAnnualRate} context={overallIndex} />
+              </div>
+
+              {savedScenarioBaseline != null && savedScenarioBaseline > 0 ? (
+                <>
+                  <ProjectionTable baseline={savedScenarioBaseline} annualRate={annualRate} currency="USD" />
+                  <p className="pom-formula mono">
+                    {usingSavedHistorical ? `HISTORICAL START · COMPONENTS AS OF ${savedEstimateDateRange ?? 'UNKNOWN'}` : hasSavedInput ? 'USER-ENTERED START' : 'DOSSIER ESTIMATE SUM'} · {money(savedScenarioBaseline, 'USD')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup> · OWNERSHIP COSTS, TAX, CONDITION AND FEES EXCLUDED
+                  </p>
+                </>
+              ) : (
+                <p className="pom-projection-refusal">{savedSummary.complete && savedNeedsConsent
+                  ? 'Enter your total or explicitly choose the historical sum.'
+                  : 'Enter your total to run the scenario. A priced subset cannot stand in for the collection.'}</p>
+              )}
 
               <div className="pom-saved-list" aria-label="Saved collection valuation coverage">
                 <div className="pom-saved-list-head mono">
@@ -618,44 +669,12 @@ function ValueLab() {
                         ? money(card.computed.estimate.value, 'USD')
                         : 'NEEDS 3 COMPS'}</strong>
                       <small>{card.computed.estimate.value != null
-                        ? `${card.computed.estimate.n} COMPS · ${card.computed.estimate.window_months ?? '—'}M · TIER ${card.computed.confidence.tier ?? '—'} · AS OF ${card.computed.estimate.as_of ?? '—'}`
+                        ? `${card.computed.estimate.stale ? 'HISTORICAL · ' : ''}${card.computed.estimate.n} SALES · ${card.computed.estimate.window_months ?? '—'}M · TIER ${card.computed.confidence.tier ?? '—'} · AS OF ${card.computed.estimate.as_of ?? '—'}`
                         : 'ESTIMATE GATE CLOSED'}</small>
                     </span>
                   </Link>
                 ))}
               </div>
-
-              {missingSavedCards.length > 0 && (
-                <p className="pom-saved-gap mono">
-                  MISSING ESTIMATE: {missingSavedCards.map((card) => `${card.identity.brand} ${card.identity.reference}`).join(' · ')}
-                </p>
-              )}
-
-              <div className="pom-lab-controls">
-                <label className="pom-baseline-field">
-                  <span>Current collection value · USD</span>
-                  <input type="number" min="1" step="100" inputMode="numeric" value={savedBaseline}
-                    placeholder={savedSummary.evidence_total?.toString() ?? 'Enter your current appraisal total'}
-                    onChange={(event) => setSavedBaseline(event.target.value)} />
-                  <small>{enteredSavedBaseline > 0
-                    ? 'Using your number. The system cannot verify a user-entered appraisal.'
-                    : savedSummary.evidence_total != null
-                      ? 'Using the sum of every saved watch’s publishable estimate until you enter your own total.'
-                      : 'No total is inferred from a partial subset. Enter a current appraisal to run the arithmetic.'}</small>
-                </label>
-                <RateControl id="pom-saved-rate" value={annualRate} onChange={setAnnualRate} context={overallIndex} />
-              </div>
-
-              {savedScenarioBaseline != null && savedScenarioBaseline > 0 ? (
-                <>
-                  <ProjectionTable baseline={savedScenarioBaseline} annualRate={annualRate} currency="USD" />
-                  <p className="pom-formula mono">
-                    SCENARIO ONLY · {money(savedScenarioBaseline, 'USD')} × (1 + {(annualRate / 100).toFixed(3)})<sup>t</sup> · OWNERSHIP COSTS, TAX, SERVICE, CONDITION AND SELLING FEES EXCLUDED
-                  </p>
-                </>
-              ) : (
-                <p className="pom-projection-refusal">Enter a current collection value to run the scenario. The system refuses to add a priced subset to unpriced watches and call the result a total.</p>
-              )}
             </>
           )}
         </div>
