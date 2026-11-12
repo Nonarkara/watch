@@ -3442,26 +3442,26 @@ main.shell { padding-top: var(--space-md); }
 .pom-net-source { display: grid; gap: 5px; padding: 8px 12px; border-inline-start: 2px solid var(--yellow); background: var(--paper); color: var(--ink); font-size: 10px; }
 .pom-net-source a { text-decoration: underline; }
 .pom-decision { border-bottom: 1px solid var(--ink); background: var(--surface); }
-.pom-decision-head { display: grid; gap: 12px; padding: 18px; border-bottom: 1px solid var(--ink); }
+.pom-decision-head { display: grid; gap: 8px; padding: 12px; border-bottom: 1px solid var(--ink); }
 .pom-decision-head span { color: var(--coral-text); font-size: 9px; letter-spacing: .1em; }
 .pom-decision-head h4 { margin: 5px 0 0; font-family: var(--font-display); font-size: clamp(24px, 3vw, 34px); line-height: 1; }
 .pom-decision-head p { max-width: 62ch; margin: 0; font-family: var(--font-essay); font-size: 14px; line-height: 1.5; }
-.pom-decision-controls { display: grid; border-bottom: 1px solid var(--ink); }
-.pom-decision-controls label { display: grid; gap: 7px; padding: 14px 18px; }
-.pom-decision-controls label + label { border-top: 1px solid var(--ink); }
+.pom-decision-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid var(--ink); }
+.pom-decision-controls label { display: grid; align-content: end; gap: 4px; min-width: 0; padding: 8px 12px; }
+.pom-decision-controls label + label { border-left: 1px solid var(--ink); }
 .pom-decision-controls label > span { font-family: var(--font-mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
-.pom-decision-controls select, .pom-decision-controls input { width: 100%; min-height: 42px; padding: 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: var(--font-mono); }
-.pom-decision-controls small { color: var(--dim); font-family: var(--font-mono); font-size: 8px; line-height: 1.45; }
-.pom-decision-read { display: grid; gap: 5px; padding: 16px 18px; border-bottom: 1px solid var(--ink); background: var(--coral); color: var(--ink); }
+.pom-decision-controls select, .pom-decision-controls input { width: 100%; min-width: 0; min-height: 36px; padding: 4px 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: var(--font-mono); }
+.pom-decision-read { display: grid; gap: 4px; padding: 12px; border-bottom: 1px solid var(--ink); background: var(--coral); color: #0a0a0a; }
 .pom-decision-read[data-clears="true"] { background: var(--teal); }
 .pom-decision-read > span { font-size: 9px; letter-spacing: .09em; }
 .pom-decision-read > strong { font-family: var(--font-display); font-size: 21px; line-height: 1.1; }
 .pom-decision-read > p { margin: 0; font-size: 11px; line-height: 1.45; }
 .pom-decision-grid { display: grid; grid-template-columns: 1fr; }
-.pom-decision-grid > div { min-width: 0; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
+.pom-decision-grid > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 4px 8px; min-width: 0; padding: 8px 12px; border-bottom: 1px solid var(--ink); }
 .pom-decision-grid > div:last-child { border-bottom: 0; }
 .pom-decision-grid span, .pom-decision-grid small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; letter-spacing: .03em; }
-.pom-decision-grid strong { display: block; margin: 5px 0; font-family: var(--font-display); font-size: 23px; line-height: 1; }
+.pom-decision-grid strong { font-family: var(--font-display); font-size: 23px; line-height: 1; overflow-wrap: anywhere; }
+.pom-decision-grid small { grid-column: 1 / -1; }
 .pom-decision-foot { margin: 0; padding: 11px 18px; border-top: 1px solid var(--ink); background: var(--paper-2); color: var(--dim); font-size: 8px; line-height: 1.5; overflow-wrap: anywhere; }
 .pom-net-read { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6px 18px; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
 .pom-net-read > span { grid-row: 1 / span 2; align-self: center; color: var(--coral-text); font-size: 9px; letter-spacing: .1em; }
@@ -3505,8 +3505,6 @@ main.shell { padding-top: var(--space-md); }
 }
 @media (min-width: 720px) {
   .pom-decision-head { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; }
-  .pom-decision-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pom-decision-controls label + label { border-top: 0; border-left: 1px solid var(--ink); }
   .pom-decision-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pom-decision-grid > div { border-right: 1px solid var(--ink); }
   .pom-decision-grid > div:nth-child(2n) { border-right: 0; }

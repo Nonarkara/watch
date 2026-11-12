@@ -258,7 +258,7 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
           <span className="mono">DECISION SHEET · REVERSE THE QUESTION</span>
           <h4 id="pom-decision-title">What must this watch do?</h4>
         </div>
-        <p>Choose a holding period and the annual net return you want on what you paid. Time Pop works backward through the selected costs. This is a threshold, not a prediction.</p>
+        <p>Set a holding period and a yearly return on what you paid, after the exit fee and ownership reserve. This is a threshold, not a prediction.</p>
       </div>
       <div className="pom-decision-controls">
         <label>
@@ -266,13 +266,11 @@ function DecisionSheet({ baseline, costBasis, annualRate, annualOwnershipCost, f
           <select value={years} onChange={(event) => setYears(Number(event.target.value))}>
             {[1, 2, 3, 10, 20].map((period) => <option value={period} key={period}>{period} {period === 1 ? 'year' : 'years'}</option>)}
           </select>
-          <small>USER ASSUMPTION · how long you might hold it.</small>
         </label>
         <label>
-          <span>Desired annual net return</span>
+          <span>Annual net target (%)</span>
           <input type="number" min="-20" max="50" step="0.5" inputMode="decimal" value={targetReturn}
             onChange={(event) => setTargetReturn(event.target.value)} />
-          <small>USER TARGET · measured against your cost basis after the modeled fee and ownership reserve.</small>
         </label>
       </div>
       <div className="pom-decision-read" data-clears={clearsTarget}>

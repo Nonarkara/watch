@@ -47,6 +47,22 @@ try {
           const [lo,hi]=[luminance(style.color),luminance(style.backgroundColor)].sort((a,b)=>a-b);
           return (hi+0.05)/(lo+0.05)>=4.5 && box.textContent.includes('newest sale 2024-12-13');
         })()`), 'historical basis must remain legible beside exit assumptions')
+        assert(evaluate(`(() => {
+          const section=document.querySelector('.pom-decision'), controls=section.querySelector('.pom-decision-controls');
+          const grid=section.querySelector('.pom-decision-grid'), top=section.getBoundingClientRect().top;
+          const fits=()=>grid.getBoundingClientRect().bottom-top<=innerHeight &&
+            controls.getBoundingClientRect().height<=110 && grid.children.length===4 &&
+            [...controls.querySelectorAll('input, select')].every(e=>e.getBoundingClientRect().height>=32);
+          const compact=fits();
+          if(innerWidth!==390) return compact;
+          controls.style.gridTemplateColumns='1fr';
+          controls.style.minHeight='232px';
+          grid.style.minHeight='390px';
+          const oldFails=!fits();
+          controls.removeAttribute('style');
+          grid.removeAttribute('style');
+          return compact && oldFails;
+        })()`), `decision controls and four results must fit one view from the decision heading at ${width}`)
         browser('scrollintoview', '.pom-decision')
       }
       const proof = evaluate(`({width:innerWidth, documentWidth:document.documentElement.scrollWidth,
