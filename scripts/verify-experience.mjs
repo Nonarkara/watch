@@ -53,6 +53,18 @@ function verifyMarket() {
     browser('click', '#the-market .market-toggle button:last-child')
     browser('wait', '#the-market svg[aria-label^="All observed"]')
     assert(evaluate("document.querySelector('#the-market .market-toggle button:last-child').getAttribute('aria-pressed') === 'true'"))
+    browser('open', base + '/discover')
+    browser('wait', '.discover-filters')
+    browser('focus', '.discover-filters button:last-child')
+    browser('press', 'Enter')
+    const discovery = evaluate(`document.fonts.ready.then(() => {
+      const filters = document.querySelector('.discover-filters'), action = document.querySelector('.discovery-open');
+      return { count: filters.children.length, selected: filters.querySelector('[aria-pressed=true]')?.textContent.trim(),
+        action: action.getAttribute('href'), actionY: action.getBoundingClientRect().bottom + scrollY,
+        width: document.documentElement.scrollWidth, fit: filters.scrollWidth <= filters.clientWidth + 1 };
+    })`)
+    assert(discovery.count === 6 && discovery.selected === 'DIVERS' && discovery.action.startsWith('/w/') &&
+      discovery.actionY <= 900 && discovery.width <= 240 && discovery.fit, JSON.stringify(discovery))
   } finally {
     browser('close')
     session = mainSession
