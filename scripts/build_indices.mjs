@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { computeAll, isComparable } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
+import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
@@ -42,7 +43,7 @@ function mediaFor(card) {
   // A curated, licence-verified photograph wins over a catalogue match: it is the
   // image we can actually attribute.
   const curated = shared.images[card.id];
-  if (curated?.file) {
+  if (curated?.file && !isExcludedPortrait(curated.file, curated.source_url)) {
     return [{
       type: "image", url: curated.file, source_url: curated.source_url,
       credit: curated.credit, license: curated.license ?? null,
@@ -58,7 +59,8 @@ function mediaFor(card) {
   return shared.rolex_catalog.records
     .filter((record) => record.brand === card.identity.brand
       && record.reference === card.identity.reference.toUpperCase()
-      && record.image_license_asserted === true)
+      && record.image_license_asserted === true
+      && !isExcludedPortrait(record.image_url, record.source_url))
     .slice(0, 3)
     .map((record) => ({
       type: "image", url: record.image_url, source_url: record.source_url,

@@ -5,6 +5,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { computeAll, marketEstimate, priceChange } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 import { validateSightings } from "./validate_sightings.mjs";
+import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
 // Identical historical sales cannot become both ends of a one-year trend.
@@ -340,6 +341,19 @@ console.log("✓ no image fallback URL is shared by 3+ cards");
   }
 }
 console.log("✓ no cross-brand image shares in images.json");
+
+// A licence permits reuse; it does not prove the subject is the named watch.
+assert.ok(isExcludedPortrait('https://commons.wikimedia.org/wiki/File%3ACounterfeit%20Casio%20F-91W%20digital%20watch.jpg'));
+assert.ok(isExcludedPortrait('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Counterfeit_Casio_F-91W_digital_watch.jpg/250px-Counterfeit_Casio_F-91W_digital_watch.jpg'));
+assert.ok(isExcludedPortrait('/img/local-copy.jpg', images['anordain-model-1-midnight'].source_url));
+assert.equal(isExcludedPortrait(images['ap-15202st'].file, images['ap-15202st'].source_url), false);
+const portraitOutput = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'));
+const misleadingPortraits = portraitOutput.cards.flatMap(card => card.media
+  .filter(media => isExcludedPortrait(media.url, media.source_url)).map(() => card.id));
+assert.deepEqual(misleadingPortraits, [], 'excluded portrait assets must not publish');
+assert.ok(portraitOutput.cards.find(card => card.id === 'ap-15202st')?.media
+  .some(media => media.url === images['ap-15202st'].file), 'keep the sourced 15202ST portrait');
+console.log('✓ rejected portrait assets stay out of the public dataset');
 
 // 15. Model-name channel guard — a published model name may not be a LINE.
 // The auction census matches a lot on brand + published model name when the
