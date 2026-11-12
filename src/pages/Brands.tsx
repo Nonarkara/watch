@@ -136,10 +136,12 @@ export default function Brands() {
             .slice()
             .sort((a, b) => b.cards.length - a.cards.length)
             .slice(0, 3)
-            .map((g) => (
+            .map((g) => {
+              const photo = g.mostPopular?.media.find((image) => image.match === 'exact_reference')
+              return (
               <Link key={g.brand} to={`/register?brand=${encodeURIComponent(g.brand)}`} className={`brand-spotlight brand-spotlight--${hueForBrand(g.brand)}`}>
-                {g.mostPopular?.media?.[0] && <span className="brand-spotlight-media">
-                  <img src={g.mostPopular.media[0].url} alt={g.mostPopular.identity.name} loading="lazy" decoding="async" width={120} height={120} />
+                {photo && <span className="brand-spotlight-media">
+                  <img src={photo.url} alt="" loading="lazy" decoding="async" width={120} height={120} />
                 </span>}
                 <span className="brand-spotlight-id">
                   <span className="brand-spotlight-name">{g.brand}</span>
@@ -155,7 +157,8 @@ export default function Brands() {
                   </span>
                 )}
               </Link>
-            ))}
+              )
+            })}
         </div>
       </details>
 
@@ -163,6 +166,8 @@ export default function Brands() {
         {filtered.map((g) => {
           const coverage = g.cards.length === 0 ? 0 : Math.round((g.withImage / g.cards.length) * 100)
           const hue = hueForBrand(g.brand)
+          const pickPhoto = g.mostPopular?.media.find((image) => image.match === 'exact_reference')
+          const contrastPhoto = g.contrast?.media.find((image) => image.match === 'exact_reference')
           const dominantTier = (Object.keys(g.tiers) as Card['identity']['tier'][])
             .reduce((a, b) => (g.tiers[b] > g.tiers[a] ? b : a), 'core' as Card['identity']['tier'])
           return (
@@ -183,12 +188,12 @@ export default function Brands() {
               <div className="brand-picks">
                 {g.mostPopular && (
                   <Link to={`/w/${g.mostPopular.id}`} className="brand-pick">
-                    {g.mostPopular.media[0] && <span className="brand-pick-thumb">
+                    {pickPhoto && <span className="brand-pick-thumb">
                       {/* alt is empty on purpose: the model's name is the
                           line under the thumbnail, and the browser laying the
                           alt text out inside a 72x72 frame is how the name
                           used to be sliced. */}
-                      <img src={g.mostPopular.media[0].url} alt="" loading="lazy" decoding="async" width={72} height={72} />
+                      <img src={pickPhoto.url} alt="" loading="lazy" decoding="async" width={72} height={72} />
                     </span>}
                     <span className="brand-pick-body">
                       <span className="brand-pick-eyebrow mono">ARCHIVE PICK</span>
@@ -202,8 +207,8 @@ export default function Brands() {
                 )}
                 {g.contrast && g.contrast.id !== g.mostPopular?.id && (
                   <Link to={`/w/${g.contrast.id}`} className="brand-pick brand-pick--alt">
-                    {g.contrast.media[0] && <span className="brand-pick-thumb">
-                      <img src={g.contrast.media[0].url} alt="" loading="lazy" decoding="async" width={72} height={72} />
+                    {contrastPhoto && <span className="brand-pick-thumb">
+                      <img src={contrastPhoto.url} alt="" loading="lazy" decoding="async" width={72} height={72} />
                     </span>}
                     <span className="brand-pick-body">
                       <span className="brand-pick-eyebrow mono">SEE ALSO · {TIER_PILL[g.contrast.identity.tier]}</span>

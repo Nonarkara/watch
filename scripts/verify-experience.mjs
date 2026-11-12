@@ -167,6 +167,18 @@ function verifyMarket() {
         [...document.querySelectorAll('.brand-pick-thumb')].every(thumb => thumb.querySelector('img'));
     })`), 'Brand names and references must fit without empty model frames at 239px')
     const allBrands = evaluate("document.querySelectorAll('.brand-row').length")
+    browser('click', '.brand-spotlight-row summary')
+    assert(evaluate(`fetch('/data.json').then(response => response.json()).then(({cards}) => {
+      const exact = (card, img) => card?.media.some(photo => photo.match === 'exact_reference' && photo.url === img.getAttribute('src'));
+      return [...document.querySelectorAll('.brand-pick img')].every(img =>
+        exact(cards.find(card => '/w/' + card.id === img.closest('a').getAttribute('href')), img)) &&
+        [...document.querySelectorAll('.brand-spotlight-media img')].every(img => {
+          const tile = img.closest('.brand-spotlight');
+          return exact(cards.find(card => card.identity.brand === tile.querySelector('.brand-spotlight-name').textContent &&
+            card.identity.reference === tile.querySelector('.brand-spotlight-most-ref').textContent), img);
+        });
+    })`), 'Brands must not show a related model as the named reference')
+    browser('click', '.brand-spotlight-row summary')
     browser('select', '#brand-tier', 'trinity')
     const trinityBrands = evaluate("document.querySelectorAll('.brand-row').length")
     assert(trinityBrands > 0 && trinityBrands < allBrands &&
