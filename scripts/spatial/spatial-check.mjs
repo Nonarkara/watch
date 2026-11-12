@@ -65,8 +65,11 @@
  *                      fails exactly when the gate fails
  *   --json <path>      also write the raw measurements to a file
  *   --replay <path>    compare saved measurements without browsing or updating the baseline
+ *   --shard I/N       measure a deterministic subset of deployed routes at all widths; requires --json
+ *   --assemble <dir>  require every shard from the same live plan, then run the full policy
  */
 import { createServer } from "node:http";
+import { createHash } from "node:crypto";
 import { readdir } from "node:fs/promises";
 import { existsSync, readFileSync, writeFileSync, mkdirSync, statSync, rmSync, readdirSync, cpSync, mkdtempSync } from "node:fs";
 import { execFileSync, spawn } from "node:child_process";
@@ -118,6 +121,8 @@ const ROUTES_ARG = arg("routes", null);
 const WIDTHS_ARG = arg("widths", null);
 const BASE = arg("base", null);
 const REPLAY = arg("replay", null);
+const SHARD = arg("shard", null);
+const ASSEMBLE = arg("assemble", null);
 const UPDATE = argv.includes("--update");
 const REPORT = argv.includes("--report");
 if (REPLAY && (typeof REPLAY !== "string" || BASE || UPDATE || argv.includes("--dir") || argv.includes("--json"))) {
@@ -141,6 +146,15 @@ if (REPLAY && (typeof REPLAY !== "string" || BASE || UPDATE || argv.includes("--
 const SRC_DIR = path.resolve(String(DIR));
 const DIST = BASE || REPLAY ? null : existsSync(SRC_DIR) ? snapshotDir(SRC_DIR) : null;
 const JSON_OUT = arg("json", null);
+const shardParts = typeof SHARD === "string" ? /^(\d+)\/(\d+)$/.exec(SHARD) : null;
+const shardIndex = shardParts ? Number(shardParts[1]) : 0;
+const shardCount = shardParts ? Number(shardParts[2]) : 0;
+if ((SHARD || ASSEMBLE) && (!BASE || REPLAY || ROUTES_ARG || WIDTHS_ARG || UPDATE ||
+    (SHARD && (ASSEMBLE || typeof JSON_OUT !== "string" || shardIndex < 1 || shardCount < 2 || shardIndex > shardCount)) ||
+    (ASSEMBLE && typeof ASSEMBLE !== "string"))) {
+  console.error("FAIL — use --base with --shard INDEX/COUNT --json PATH or --assemble DIRECTORY, without route or width overrides.");
+  process.exit(1);
+}
 
 const DEFAULT_WIDTHS = [360, 480, 768, 1024, 1440, 1920];
 const DEFAULT_LIMITS = {
@@ -1188,6 +1202,7 @@ async function remoteBreakpoints(base) {
   } catch {
     return into;
   }
+  const bytes = createHash("sha256").update(html);
   const hrefs = [...html.matchAll(/<link[^>]+rel=["']?stylesheet["']?[^>]*>/gi)]
     .map((m) => /href=["']([^"']+)["']/i.exec(m[0]))
     .filter(Boolean)
@@ -1201,11 +1216,17 @@ async function remoteBreakpoints(base) {
     }
     try {
       const r = await fetch(url, { headers: { "user-agent": "spatial-law-probe" }, signal: AbortSignal.timeout(10000) });
-      if (r.ok && r.headers.get("content-type")?.includes("text/css")) scanStylesheets(await r.text(), into);
+      if (r.ok && r.headers.get("content-type")?.includes("text/css")) {
+        const css = await r.text();
+        bytes.update(css);
+        into.stylesRead = (into.stylesRead ?? 0) + 1;
+        scanStylesheets(css, into);
+      }
     } catch {
       /* a stylesheet that cannot be read is a stylesheet we cannot sweep */
     }
   }
+  into.fingerprint = bytes.digest("hex");
   return into;
 }
 
@@ -1246,9 +1267,22 @@ const widths = WIDTHS_ARG
       ...(baseline.measuredWidths ?? []), ...saved.measurements.map((r) => r.w),
     ] : [])])].sort((a, b) => a - b);
 
-const routes = saved && !ROUTES_ARG
+const allRoutes = saved && !ROUTES_ARG
   ? [...new Set([...Object.keys(baseline.routes ?? {}), ...saved.measurements.map((r) => r.route)])]
   : await discoverRoutes();
+const routes = SHARD
+  ? allRoutes.filter((_, i) => i % shardCount === shardIndex - 1)
+  : allRoutes;
+const planId = (SHARD || ASSEMBLE) && cssScan.fingerprint && cssScan.stylesRead && baseline
+  ? createHash("sha256").update(JSON.stringify({
+      base: String(BASE).replace(/\/+$/, ""), routes: allRoutes, advertisedRoutes, widths,
+      fingerprint: cssScan.fingerprint, baseline,
+    })).digest("hex")
+  : null;
+if ((SHARD || ASSEMBLE) && !planId) {
+  console.error("FAIL — cannot identify the deployed site and baseline for the measurement plan.");
+  process.exit(1);
+}
 if (!routes.length) {
   console.error("\nFAIL — the spatial gate found no routes to measure. Nothing was verified.\n");
   process.exit(1);
@@ -1446,7 +1480,42 @@ if (payload.error) {
 return payload;
 }
 
-const sweep = saved ?? await measureInBrowser();
+async function assembleShards(dir) {
+  const parts = await readdir(dir, { recursive: true });
+  const files = parts.filter((name) => name.endsWith(".json"));
+  const seen = new Set();
+  let count;
+  const measurements = [];
+  for (const file of files) {
+    const { plan, shard, measurements: cells } = JSON.parse(readFileSync(path.join(dir, file), "utf8"));
+    if (plan !== planId || !Number.isInteger(shard?.index) || !Number.isInteger(shard?.count) ||
+        shard.count < 2 || shard.index < 1 || shard.index > shard.count ||
+        seen.has(shard.index) || (count !== undefined && count !== shard.count) || !Array.isArray(cells)) {
+      throw new Error(`invalid, duplicate or incompatible shard: ${file}`);
+    }
+    count = shard.count;
+    seen.add(shard.index);
+    const assigned = new Set(allRoutes.filter((_, i) => i % count === shard.index - 1));
+    if (!assigned.size || cells.length !== assigned.size * widths.length ||
+        cells.some((cell) => !assigned.has(cell?.route) || !widths.includes(cell?.w))) {
+      throw new Error(`shard does not cover its assigned route/width cells: ${file}`);
+    }
+    measurements.push(...cells);
+  }
+  if (!count || seen.size !== count) throw new Error(`expected ${count ?? "all"} shards, got ${seen.size}`);
+  return { measurements };
+}
+let sweep;
+try {
+  sweep = saved ?? (ASSEMBLE ? await assembleShards(ASSEMBLE) : await measureInBrowser());
+} catch (error) {
+  console.error(`FAIL — cannot obtain spatial evidence: ${error.message}`);
+  process.exit(1);
+}
+if (SHARD && (await remoteBreakpoints(String(BASE).replace(/\/+$/, ""))).fingerprint !== cssScan.fingerprint) {
+  console.error("FAIL — deployed HTML or stylesheets changed during this shard; no evidence was published.");
+  process.exit(1);
+}
 const results = Array.isArray(sweep.measurements) ? sweep.measurements : [];
 
 const expected = routes.length * widths.length;
@@ -1504,13 +1573,18 @@ if (upstreamStatus.size) {
 // Otherwise the artifact is missing precisely when one route would not render.
 if (JSON_OUT) {
   mkdirSync(path.dirname(path.resolve(String(JSON_OUT))), { recursive: true });
-  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ measurements: results }, null, 2));
+  const metadata = SHARD ? { plan: planId, shard: { index: shardIndex, count: shardCount } } : {};
+  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ ...metadata, measurements: results }, null, 2));
 }
 const errored = results.filter((r) => r.error);
 if (errored.length) {
   console.error(`\nFAIL — the spatial gate could not read ${errored.length} page measurement(s):`);
   for (const e of errored.slice(0, 10)) console.error(`  ✗ ${e.route} @${e.w}px — ${e.error}`);
   process.exit(1);
+}
+if (SHARD) {
+  console.log(`Collected ${results.length} measurements for shard ${SHARD}; no site-wide verdict yet.`);
+  process.exit(0);
 }
 // The notes are printed at the end of the run.
 const notes = [];

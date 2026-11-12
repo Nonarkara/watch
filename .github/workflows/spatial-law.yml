@@ -54,11 +54,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  gate:
+  target:
     runs-on: ubuntu-latest
-    # A fresh load per (route, width): 26 routes x 64 widths is 1664 page
-    # loads. On a slow runner that is not 30 minutes.
-    timeout-minutes: 90
+    outputs:
+      base: ${{ steps.target.outputs.base }}
+    steps:
+      - name: Select the production or immutable preview target
+        id: target
+        env:
+          PREVIEW_URL: ${{ inputs.preview_url }}
+        run: |
+          if [[ -z "$PREVIEW_URL" ]]; then
+            target='https://watch.nonarkara.org/'
+          elif [[ "$PREVIEW_URL" =~ ^https://[0-9a-f]{8}\.watch-1de\.pages\.dev/?$ ]]; then
+            target="${PREVIEW_URL%/}/"
+          else
+            echo 'Expected an immutable https://<eight hex digits>.watch-1de.pages.dev/ preview' >&2
+            exit 2
+          fi
+          echo "base=$target" >> "$GITHUB_OUTPUT"
+  measure:
+    needs: target
+    runs-on: ubuntu-latest
+    # Each runner freshly loads its own routes at every required width.
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -75,30 +98,54 @@ jobs:
           chrome-version: stable
       - name: Point the gate at that browser
         run: echo "CHROME_PATH=$(command -v google-chrome || command -v chrome)" >> "$GITHUB_ENV"
-      - name: Select the production or immutable preview target
-        id: target
+      - name: Collect this shard's browser measurements
         env:
-          PREVIEW_URL: ${{ inputs.preview_url }}
-        run: |
-          if [[ -z "$PREVIEW_URL" ]]; then
-            target='https://watch.nonarkara.org/'
-          elif [[ "$PREVIEW_URL" =~ ^https://[0-9a-f]{8}\.watch-1de\.pages\.dev/?$ ]]; then
-            target="${PREVIEW_URL%/}/"
-          else
-            echo 'Expected an immutable https://<eight hex digits>.watch-1de.pages.dev/ preview' >&2
-            exit 2
-          fi
-          echo "base=$target" >> "$GITHUB_OUTPUT"
-      - name: Measure the selected deployment against the receipt
-        env:
-          SPATIAL_BASE: ${{ steps.target.outputs.base }}
+          SPATIAL_BASE: ${{ needs.target.outputs.base }}
+          SHARD_INDEX: ${{ matrix.shard }}
         run: |
           node scripts/spatial/spatial-check.mjs \
-            --base "$SPATIAL_BASE" \
+            --base "$SPATIAL_BASE" --shard "$SHARD_INDEX/4" \
+            --baseline design/spatial-baseline.json \
+            --json "$RUNNER_TEMP/spatial-part.json"
+      - name: Keep this shard's measurements, including render failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: spatial-part-${{ github.run_attempt }}-${{ matrix.shard }}
+          path: ${{ runner.temp }}/spatial-part.json
+          if-no-files-found: warn
+          retention-days: 7
+  gate:
+    needs: [target, measure]
+    if: ${{ !cancelled() && needs.target.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+      - name: Download measurements from this attempt only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "$GITHUB_RUN_ID" --pattern "spatial-part-${GITHUB_RUN_ATTEMPT}-*" \
+            --dir "$RUNNER_TEMP/spatial-parts"
+      - name: Require complete coverage and judge the whole deployment
+        env:
+          SPATIAL_BASE: ${{ needs.target.outputs.base }}
+        run: |
+          node scripts/spatial/spatial-check.mjs \
+            --base "$SPATIAL_BASE" --assemble "$RUNNER_TEMP/spatial-parts" \
             --baseline design/spatial-baseline.json \
             --json "$RUNNER_TEMP/spatial-measurements.json"
       - name: Keep measurements even if the baseline check fails
-        if: always() && steps.target.outcome == 'success'
+        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: spatial-measurements-${{ github.run_id }}-${{ github.run_attempt }}
@@ -106,15 +153,16 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
       - name: Say plainly what this job did and did not check
-        if: always() && steps.target.outcome == 'success'
+        if: always()
         env:
-          SPATIAL_BASE: ${{ steps.target.outputs.base }}
+          SPATIAL_BASE: ${{ needs.target.outputs.base }}
         run: |
           {
             echo "### Spatial law"
             echo
             echo "- Selected target: $SPATIAL_BASE"
-            echo "- Scope: routes in the receipt, at the configured layout widths."
+            echo "- Scope: all receipt and discovered layout routes, at every required width."
+            echo "- If a shard must be rerun, rerun all jobs to keep measurements in one attempt."
             echo "- The local prerender gate and falsifier did not run in this workflow."
             echo "- If the browser completed the sweep, the JSON measurements are available under Artifacts."
           } >> "$GITHUB_STEP_SUMMARY"

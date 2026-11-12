@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict'
-import { spawnSync } from 'node:child_process'
+import { execFile, spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { createServer } from 'node:http'
+import { promisify } from 'node:util'
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -21,13 +24,25 @@ const run = (measurements, ...args) => {
   if (result.error) throw result.error
   return { code: result.status, output: result.stdout + result.stderr }
 }
+const exec = promisify(execFile)
+const html = '<link rel="stylesheet" href="/site.css"><a href="/about/">About</a>'
+let css = 'body{color:black}'
+const server = createServer((req, res) => {
+  if (req.url === '/site.css') {
+    res.setHeader('Content-Type', 'text/css')
+    return res.end(css)
+  }
+  if (req.url === '/sitemap.xml') return res.end('<urlset/>')
+  return res.end(html)
+})
 try {
-  writeFileSync(receipt, JSON.stringify({
+  const baseline = {
     widths: [390, 1024], measuredWidths: [390, 1024],
     routes: Object.fromEntries(['/', '/about/'].map((route) => [route,
       Object.fromEntries(cells.filter((row) => row.route === route).map((row) => [row.w, row])),
     ])),
-  }))
+  }
+  writeFileSync(receipt, JSON.stringify(baseline))
   const pass = run(cells)
   assert.equal(pass.code, 0, pass.output)
   assert.match(pass.output, /live routes and stylesheets were not checked/)
@@ -39,7 +54,38 @@ try {
   assert.equal(failed.code, 1)
   assert.match(failed.output, /empty app shell/)
   assert.equal(run(cells, '--update').code, 1, 'replay must not write a new baseline')
-  console.log('✓ spatial replay requires every unique measurement and preserves render failures')
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
+  const base = `http://127.0.0.1:${server.address().port}`
+  const fingerprint = createHash('sha256').update(html).update(css).digest('hex')
+  const routes = ['/', '/about/'], widths = [390, 1024]
+  const plan = createHash('sha256').update(JSON.stringify({
+    base, routes, advertisedRoutes: routes, widths, fingerprint, baseline,
+  })).digest('hex')
+  const partDir = mkdtempSync(join(tmp, 'parts-'))
+  const writeShard = (index, measurements, name = `${index}.json`) => {
+    writeFileSync(join(partDir, name), JSON.stringify({ plan, shard: { index, count: 2 }, measurements }))
+  }
+  const assemble = async () => {
+    try {
+      const { stdout } = await exec(process.execPath, [checker, '--base', base, '--assemble', partDir, '--baseline', receipt])
+      return { code: 0, output: stdout }
+    } catch (error) {
+      return { code: error.code, output: error.stdout + error.stderr }
+    }
+  }
+  writeShard(1, cells.slice(0, 2))
+  assert.match((await assemble()).output, /expected 2 shards, got 1/)
+  writeShard(2, [cells[2], cells[2]])
+  assert.match((await assemble()).output, /Measured twice/)
+  writeShard(2, [cells[2], { ...cells[3], error: 'broken route' }])
+  assert.match((await assemble()).output, /broken route/)
+  writeShard(2, cells.slice(2))
+  const assembled = await assemble()
+  assert.equal(assembled.code, 0, assembled.output)
+  css = 'body{color:red}'
+  assert.match((await assemble()).output, /incompatible shard/)
+  console.log('✓ spatial replay and sharded gate require full unique coverage, preserve errors, and reject a changed deployment')
 } finally {
+  server.close()
   rmSync(tmp, { recursive: true, force: true })
 }
