@@ -68,7 +68,7 @@
   padding: 12px 16px; border-top: 1px solid var(--rule);
 }
 .home-page .spotlight-reading .spotlight-story { flex: 1 1 52ch; max-width: 65ch; margin: 0; }
-.home-page .spotlight-reading .spotlight-ctas { margin: 0; }
+.home-page .spotlight-reading .spotlight-ctas { margin: 0; align-self: center; }
 .home-page .spotlight-ctas { flex-wrap: wrap; border: 0; gap: 8px; }
 .home-page .spotlight-cta { flex: 0 0 auto; padding: 12px; min-height: 44px; border: 1px solid var(--ink); }
 .home-page .spotlight-trend-pulse { animation: none; }
