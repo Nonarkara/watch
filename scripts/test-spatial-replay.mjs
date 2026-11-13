@@ -3,11 +3,14 @@ import { execFile, spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { createServer } from 'node:http'
 import { promisify } from 'node:util'
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { sitemapPaths } from './spatial/sitemap-routes.mjs'
+
+const checkedInReceipt = JSON.parse(readFileSync(new URL('../design/spatial-baseline.json', import.meta.url), 'utf8'))
+assert.equal(checkedInReceipt.version, 2, 'the checked-in spatial baseline must be a v2 receipt')
 
 const tmp = mkdtempSync(join(tmpdir(), 'watch-spatial-replay-'))
 const checker = fileURLToPath(new URL('./spatial/spatial-check.mjs', import.meta.url))
