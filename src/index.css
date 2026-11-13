@@ -3492,6 +3492,11 @@ main.shell { padding-top: var(--space-md); }
 .pom-baseline-field > span, .pom-rate-label label, .pom-watch-picker > label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .pom-baseline-field input { width: 100%; margin: 10px 0 8px; padding: 10px 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 18px; }
 .pom-baseline-field small { display: block; color: var(--dim); font-size: 11px; line-height: 1.45; }
+@media (max-width: 319px) {
+  #pom-collection-panel { padding: 8px; }
+  #pom-collection-panel .pom-baseline-field { padding-inline: 8px; }
+  #pom-collection-panel .pom-baseline-field input { padding-inline: 6px; }
+}
 .pom-watch-basis-fields { display: grid; gap: 8px; }
 .pom-basis-jumps { display: flex; flex-wrap: wrap; gap: 4px 12px; }
 .pom-basis-jumps a { display: inline-flex; align-items: center; min-height: 32px; text-decoration: underline; text-underline-offset: 3px; }
