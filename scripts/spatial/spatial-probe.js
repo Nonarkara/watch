@@ -205,7 +205,8 @@
     var doc = d.documentElement;
 
     // ---- 5a. the page scrolls sideways ------------------------------------
-    if (doc.scrollWidth > doc.clientWidth + 1) {
+    var documentOverflow = doc.scrollWidth - doc.clientWidth;
+    if (documentOverflow > 1) {
       var worst = null;
       var every = d.querySelectorAll("*");
       for (var i = 0; i < every.length; i++) {
@@ -215,8 +216,8 @@
           if (!worst || over > worst.over) worst = { over: over, s: sel(every[i]) };
         }
       }
-      push(F, "overflow", worst ? worst.s : "document", worst ? worst.over : 0,
-        "the page scrolls sideways by " + Math.round(worst ? worst.over : 0) + "px");
+      push(F, "overflow", worst ? worst.s : "document", documentOverflow,
+        "the page scrolls sideways by " + documentOverflow + "px");
     }
 
     // ---- 1 and 2. dead space, orphans --------------------------------------
