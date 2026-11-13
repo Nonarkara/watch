@@ -23724,20 +23724,7 @@
         }
       },
       "768": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"

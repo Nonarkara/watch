@@ -1035,6 +1035,7 @@ try {
     browser('set', 'viewport', String(width), '844')
     browser('open', base + '/')
     browser('wait', '.archive-lead')
+    browser('wait', '.saved-badge[aria-label="Saved watches: 200"]')
     const narrow = evaluate(`document.fonts.ready.then(() => {
       const archive = document.querySelector('.archive-lead');
       const ledger = document.querySelector('.hero-ledger-grid');
