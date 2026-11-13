@@ -94,7 +94,6 @@
     "allowedSizes": null
   },
   "reasons": {
-    "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is."
   },
   "exempt": [],
   "provenance": {
@@ -2054,14 +2053,7 @@
         }
       },
       "481": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.market-toggle",
-            "metric": 79,
-            "detail": "div.market-toggle leaves 79px empty beneath it in a 101px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 496,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
