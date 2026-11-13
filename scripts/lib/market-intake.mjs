@@ -1,6 +1,20 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 
+export function matchingConvertedUsd(lot, conversion) {
+  if (!conversion || !lot.currency || !lot.sale_date || !(lot.realized > 0)) return null;
+  const fx = conversion.fx_conversion;
+  if (conversion.source_id !== lot.source_id || conversion.currency !== 'USD' ||
+      conversion.original_currency !== lot.currency || conversion.original_realized !== lot.realized ||
+      fx?.from !== lot.currency || (fx.reference_date ?? conversion.sale_date) !== lot.sale_date ||
+      !Number.isFinite(fx.rate) || fx.rate <= 0 || typeof fx.provider !== 'string' || !fx.provider.trim() ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(fx.rate_date ?? '') || fx.rate_date > lot.sale_date) return null;
+  const rateDate = new Date(fx.rate_date);
+  if (!Number.isFinite(rateDate.getTime()) || rateDate.toISOString().slice(0, 10) !== fx.rate_date) return null;
+  const expected = Math.round(lot.realized * fx.rate);
+  return Number.isSafeInteger(expected) && expected > 0 && conversion.realized === expected ? expected : null;
+}
+
 /**
  * Publish the smallest useful view of the private intake queue. The public file
  * carries exact-card candidates only; it deliberately omits raw page text and
@@ -18,7 +32,8 @@ export function publicMarketIntake(queue) {
       model: record.model,
       realized: record.realized,
       currency: record.currency,
-      sale_date: record.sale_date,
+      sale_date: record.review?.sale_date ?? (record.sale_date_basis === 'single_day_auction' ? record.sale_date : null),
+      auction_date: record.sale_date ?? null,
       source_url: record.source_url,
       status: record.status,
       reasons: record.reasons ?? [],

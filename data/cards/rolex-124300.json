@@ -22,9 +22,9 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-12-07", "price_usd": 24130, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080424/1", "condition": null, "box_papers": "full_set" },
-      { "date": "2025-06-11", "price_usd": 21420, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-vibrant-stainless-steel-oyster-perpetual-ref-124300-201/260548", "condition": null, "box_papers": null },
-      { "date": "2025-06-11", "price_usd": 18900, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-oyster-perpetual-ref-124300-203/260550", "condition": null, "box_papers": null }
+      { "date": "2024-12-07", "price_usd": 24130, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080424/1", "condition": "Turquoise lacquer dial; discontinued color, not a baseline for other dials", "box_papers": "full_set", "comparable": false },
+      { "date": "2025-06-11", "price_usd": 21420, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-vibrant-stainless-steel-oyster-perpetual-ref-124300-201/260548", "condition": "Green lacquer dial; not a baseline for other dials", "box_papers": "full_set", "comparable": false },
+      { "date": "2025-06-11", "price_usd": 18900, "venue": "christies", "url": "https://onlineonly.christies.com/s/watches-online-new-york-edit-stories-time-collection-exceptional/rolex-stainless-steel-oyster-perpetual-ref-124300-203/260550", "condition": "Yellow lacquer dial; discontinued color, not a baseline for other dials", "box_papers": null, "comparable": false }
     ],
     "listing_observations": []
   },

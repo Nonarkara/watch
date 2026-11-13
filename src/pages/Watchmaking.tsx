@@ -1257,17 +1257,8 @@ export default function Watchmaking() {
         {tab === 'time' && (
           <section className="wmp-panel" data-panel="time" id="time">
             <div className="wmp-time-grid">
-              <div className="wmp-time-essays">
-                <TimeOpening />
-                <HumeCard />
-                <EinsteinCard figures={bySlot.einstein ?? []} />
-                <FirstWatchCard hero={bySlot.frame?.[0]} />
-                <FirstPocketWatchCard figure={bySlot.pocket?.[0]} />
-                <QuartzCard figures={bySlot.astron ?? []} />
-                <SmartphoneCard figure={bySlot.atomic?.[0]} />
-                <HiroshimaWitnessCard figure={bySlot.hiroshima?.[0]} />
-              </div>
-              <aside className="wmp-time-rail" aria-label="Artifacts of time">
+              <details className="wmp-time-rail">
+                <summary>Artifacts of time: photos and sources</summary>
                 <div className="wmp-time-rail-head">
                   <span className="eyebrow">ARTIFACTS OF TIME</span>
                   <h3 className="wmp-time-rail-title">The evidence, with sources.</h3>
@@ -1280,7 +1271,17 @@ export default function Watchmaking() {
                 <div className="wmp-time-rail-list">
                   {timeRail.map((a) => <RailCard key={a.id} a={a} />)}
                 </div>
-              </aside>
+              </details>
+              <div className="wmp-time-essays">
+                <TimeOpening />
+                <HumeCard />
+                <EinsteinCard figures={bySlot.einstein ?? []} />
+                <FirstWatchCard hero={bySlot.frame?.[0]} />
+                <FirstPocketWatchCard figure={bySlot.pocket?.[0]} />
+                <QuartzCard figures={bySlot.astron ?? []} />
+                <SmartphoneCard figure={bySlot.atomic?.[0]} />
+                <HiroshimaWitnessCard figure={bySlot.hiroshima?.[0]} />
+              </div>
             </div>
           </section>
         )}

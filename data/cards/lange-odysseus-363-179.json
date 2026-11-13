@@ -19,8 +19,9 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-12-07", "price_usd": 60960, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-and-sohne/NY080424/109", "condition": null, "box_papers": "full_set" },
-      { "date": "2025-04-08", "price_usd": 50800, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-and-sohne/NY080325/2", "condition": null, "box_papers": "full_set" }
+      { "date": "2024-12-08", "price_usd": 60960, "venue": "phillips", "url": "https://www.phillips.com/detail/a.-lange-%26-s%C3%B6hne/208084", "condition": "Circa 2020; steel bracelet, guarantee and box", "box_papers": "full_set" },
+      { "date": "2025-04-08", "price_usd": 50800, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-sohne/216436", "condition": "Circa 2022; catalogued as virtually unworn, with guarantee and box", "box_papers": "full_set" },
+      { "date": "2020-12-12", "price_usd": 81900, "venue": "phillips", "url": "https://www.phillips.com/detail/a-lange-sohne/144993", "condition": "2019; catalogued as unworn, with guarantee booklet and box", "box_papers": "full_set" }
     ],
     "listing_observations": []
   },

@@ -14,11 +14,14 @@ export default function Discover() {
   const [index, setIndex] = useState(() => Math.floor(Date.now() / 86_400_000))
   const [filterVibe, setFilterVibe] = useState<Vibe>('all')
   const [watchingIds, setWatchingIds] = useState<Set<string>>(new Set())
+  const [watchingDate, setWatchingDate] = useState<string | null>(null)
+  const [failedPhoto, setFailedPhoto] = useState<string | null>(null)
 
   useEffect(() => {
     loadMarketTrends().then((snap) => {
       if (!snap?.trending) return
       setWatchingIds(new Set(snap.trending.map((row) => row.card_id)))
+      setWatchingDate(snap.as_of)
     }).catch(() => {})
   }, [])
 
@@ -34,13 +37,14 @@ export default function Discover() {
 
   if (!data || cards.length === 0) return null
 
-  const withPhoto = filteredCards.filter((c) => c.media.length > 0)
-  const activeCards = (withPhoto.length > 0 ? withPhoto : filteredCards.length > 0 ? filteredCards : cards)
-  const card = activeCards[index % activeCards.length]
-  const signals = scarcitySignals(card)
+  const hasPhoto = (c: Card) => c.media.some((media) => media.match === 'exact_reference')
+  const withPhoto = filteredCards.filter(hasPhoto)
+  const activeCards = [...withPhoto, ...filteredCards.filter((c) => !hasPhoto(c))]
+  const card = activeCards.length ? activeCards[index % activeCards.length] : null
+  const photo = card?.media.find((media) => media.match === 'exact_reference' && media.url !== failedPhoto)
 
   const spinRoulette = () => {
-    setIndex((current) => current + 1 + Math.floor(Math.random() * 5))
+    if (activeCards.length > 1) setIndex((current) => current + 1 + Math.floor(Math.random() * (activeCards.length - 1)))
   }
 
   return (
@@ -48,16 +52,16 @@ export default function Discover() {
       <div className="discover-head">
         <div>
           <p className="eyebrow">Interactive Discovery Mode</p>
-          <h1 className="pagetitle">Watch Roulette & Vibe Matcher</h1>
-          <p className="lede">Spin through reference dossiers, explore scarcity mechanics, and discover horological objects without financial noise.</p>
+          <h1 className="pagetitle">Watch roulette.</h1>
+          <p className="lede">Pick a filter, then spin for a watch and its story.</p>
         </div>
-        <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette to discover a random watch">
+        <button type="button" className="btn" onClick={spinRoulette} disabled={activeCards.length < 2} aria-label="Spin roulette to discover a random watch">
           SPIN ROULETTE →
         </button>
       </div>
 
       {/* Vibe Selector Chips */}
-      <div className="chips" style={{ marginBottom: '24px' }} role="group" aria-label="Filter by vibe">
+      <div className="discover-filters" role="group" aria-label="Filter by vibe">
         <button
           className={`chip ${filterVibe === 'all' ? 'on' : ''}`}
           aria-pressed={filterVibe === 'all'}
@@ -68,9 +72,10 @@ export default function Discover() {
         <button
           className={`chip ${filterVibe === 'grail' ? 'on' : ''}`}
           aria-pressed={filterVibe === 'grail'}
+          aria-label="Grails: crown, trinity and haute tiers"
           onClick={() => { setFilterVibe('grail'); setIndex(0) }}
         >
-          GRAILS · CROWN / TRINITY / HAUTE
+          GRAILS
         </button>
         <button
           className={`chip ${filterVibe === 'watching' ? 'on' : ''}`}
@@ -78,7 +83,7 @@ export default function Discover() {
           onClick={() => { setFilterVibe('watching'); setIndex(0) }}
           disabled={watchingIds.size === 0}
         >
-          WATCHING TODAY ({watchingIds.size})
+          ATTENTION LIST ({watchingIds.size})
         </button>
         <button
           className={`chip ${filterVibe === 'understated' ? 'on' : ''}`}
@@ -92,7 +97,7 @@ export default function Discover() {
           aria-pressed={filterVibe === 'chronograph'}
           onClick={() => { setFilterVibe('chronograph'); setIndex(0) }}
         >
-          CHRONOGRAPHS
+          CHRONOGRAPH
         </button>
         <button
           className={`chip ${filterVibe === 'diver' ? 'on' : ''}`}
@@ -102,21 +107,30 @@ export default function Discover() {
           DIVERS
         </button>
       </div>
+      {filterVibe === 'watching' && watchingDate && <p className="micro dim discover-attention-date">Snapshot: <time dateTime={watchingDate}>{watchingDate}</time> · attention, not sales</p>}
 
-      <article className="discovery-card">
-        {card.media[0] ? (
-          <div className="photo-thumb-wrap">
-            <img src={card.media[0].url} alt={card.identity.name} className="photo-img" loading="eager" decoding="async" fetchPriority="high" width={400} height={300} />
-            <span className="tier-badge mono">SOURCE-LINKED</span>
-          </div>
-        ) : <div className="empty-photo"><strong>IMAGE NOT YET SOURCED</strong><span>The dossier stays honest instead.</span></div>}
-
+      {card ? <article className="discovery-card">
+        <div className={`discovery-opening${photo ? ' discovery-opening--photo' : ''}`}>
         <header className="discovery-mast">
           <p className="eyebrow">{card.identity.brand} · {card.identity.collection}</p>
           <h2>{card.identity.name} <span className="mono">{card.identity.reference}</span></h2>
           {card.identity.nickname && <p className="mast-nick">“{card.identity.nickname}”</p>}
+          <Link className="src-a discovery-open" to={`/w/${card.id}`}>OPEN DOSSIER →</Link>
           <p>{card.identity.one_liner}</p>
         </header>
+        {photo ? (
+          <figure className="discovery-portrait">
+            <img src={photo.url} alt={`${card.identity.brand} ${card.identity.reference}`} className="photo-img"
+              loading="eager" decoding="async" width={400} height={300} onError={() => setFailedPhoto(photo.url)} />
+            <figcaption className="micro dim">
+              <a className="src-a" href={photo.source_url} target="_blank" rel="noreferrer" aria-label="Photo source">
+                {photo.credit || 'Photo source'} ↗
+              </a>{photo.license && ` · ${photo.license}`}
+            </figcaption>
+          </figure>
+        ) : null}
+
+        </div>
 
         <div className="discovery-grid">
           <section>
@@ -136,7 +150,7 @@ export default function Discover() {
             <p className="scarcity-number mono">{card.computed.scarcity.value}<span>/100</span></p>
             <p className="dim">A proxy built from {card.computed.scarcity.k_of[0]} of {card.computed.scarcity.k_of[1]} public signals — not a secret production number.</p>
             <ul className="signal-list">
-              {signals.map((signal) => <li key={signal}>{signal}</li>)}
+              {scarcitySignals(card).map((signal) => <li key={signal}>{signal}</li>)}
             </ul>
             <Link className="src-a" to="/methodology">How the score works →</Link>
           </section>
@@ -154,12 +168,11 @@ export default function Discover() {
 
         <footer className="discovery-foot">
           <span className="mono micro dim">{(card.meta.sources ?? []).length} SOURCES · {(card.provenance_events ?? []).length} SOURCED EVENTS</span>
-          <div style={{ display: 'flex', gap: '12px' }}>
-            <button type="button" className="btn" onClick={spinRoulette} aria-label="Spin roulette again">SPIN AGAIN →</button>
-            <Link className="btn secondary" to={`/w/${card.id}`}>OPEN FULL DOSSIER →</Link>
+          <div className="discovery-actions">
+            <button type="button" className="btn" onClick={spinRoulette} disabled={activeCards.length < 2} aria-label="Spin roulette again">SPIN AGAIN →</button>
           </div>
         </footer>
-      </article>
+      </article> : <p className="discover-empty" role="status">No references match this filter. Choose another to keep exploring.</p>}
     </>
   )
 }

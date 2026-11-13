@@ -2,8 +2,17 @@
   "version": 2,
   "tool": "spatial-law",
   "widths": [
+    341,
+    342,
+    343,
     390,
+    579,
+    580,
+    581,
     1024,
+    1069,
+    1070,
+    1071,
     1440
   ],
   "measuredWidths": [
@@ -94,16 +103,6 @@
     "allowedSizes": null
   },
   "reasons": {
-    "dead|aside.data-methodology-rail": "The methodology rail is a sticky rail beside the audit ledger, not a card: `align-self: start` and `position: sticky; top: 24px` from 880px, so it stays beside the reader while the long evidence table scrolls under it. Measured at 880px the rail's own box is 928px tall inside a 3121px row, and the column beside it is 2193px taller. The space below the rail is the audit's length, not a hole in the rail.",
-    "dead|aside.pom-bio-aside": "Uncle Pom's bio is a bordered aside in a two-column dossier layout (`align-self: start`), so it is the height of its own content and the essay beside it is the taller column. Measured at 880px the aside is 240px tall in a 511px row, and the 271px under it is the essay's column, which continues past the aside by exactly that much.",
-    "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is.",
-    "dead|div.vc-specs": "The venue card's specification rows (venue role, fee evidence) sit under the card header, and the card's height is set by the header's wrapped address beside it. Measured at 759px the 75.5px below the spec block is the card's own air above the visit link, and the card's border is the ledger's rule, not a frame drawn around a hole.",
-    "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row.",
-    "dead|span.vc-type-tag.mono": "The venue-type badge is a top-aligned marker in the card header row (`align-items: flex-start`), level with the first line of the venue name beside it. Measured at 718px the badge is 14px tall and the header row is 116px because the name and country wrap to three lines. The 102px under the badge is the card's own air, and a badge hung at the foot of the row would read as belonging to the spec table instead of to the name.",
-    "orphan|aside.wmp-time-rail": "The watchmaking timeline rail is a sticky rail, not a panel: it is `position: sticky; top: calc(var(--header-h) + 120px)` with `align-self: start` and `max-height: calc(100vh - ...); overflow-y: auto`, so the reader scrolls the rail itself and it never leaves the viewport. Measured at 1101px it fills 12% of a 6075px row because the timeline beside it is 6075px long. The rail is the timeline's column, not 6075px of nothing.",
-    "orphan|div.pom-card-image": "The dossier card is two columns: the object image on the left and the dossier body on the right. The image column is `align-self: start`, so it is as tall as the photograph and the body's own text is what makes the card 709px tall. Measured at 720px the image column fills 17% of that row because the body beside it is 590px of written dossier. The card is not short; the picture is.",
-    "dead|p.screen-rights.mono": "The screen card's rights line is followed by the status note and the action row, which are pinned to the card's foot so the ledger's rows stay equal height. Measured at 1099px the rights line ends 78.4px above the note. The card's own text is shorter than the tallest card in its row, and the row's height is a decision about the table, not about this card.",
-    "dead|div.spotlight-ctas.mono": "The spotlight is a reading block in two columns: the story, and the actions. The actions sit at the TOP of their column (`align-self: flex-start`), level with the opening of the story beside them, because that is where the reader's eye already is when the paragraph starts. Measured at 878px the action block leaves 76px empty beneath it in a 108px row. That 76px is the story's column, which runs on for more lines underneath. Moving the actions to the foot of their column would move the hole above them instead of removing it; the space belongs to the story."
   },
   "exempt": [],
   "provenance": {
@@ -1053,14 +1052,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.spotlight-ctas.mono",
-            "metric": 76,
-            "detail": "div.spotlight-ctas.mono leaves 76px empty beneath it in a 108px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 414,
           "sel": "a.btn"
@@ -1084,14 +1076,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.spotlight-ctas.mono",
-            "metric": 76,
-            "detail": "div.spotlight-ctas.mono leaves 76px empty beneath it in a 108px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 414,
           "sel": "a.btn"
@@ -1115,14 +1100,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.spotlight-ctas.mono",
-            "metric": 76,
-            "detail": "div.spotlight-ctas.mono leaves 76px empty beneath it in a 108px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 381,
           "sel": "a.btn"
@@ -1146,14 +1124,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.spotlight-ctas.mono",
-            "metric": 76,
-            "detail": "div.spotlight-ctas.mono leaves 76px empty beneath it in a 108px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 381,
           "sel": "a.btn"
@@ -2091,14 +2062,7 @@
         }
       },
       "481": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.market-toggle",
-            "metric": 79,
-            "detail": "div.market-toggle leaves 79px empty beneath it in a 101px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 496,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -3614,7 +3578,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 3070,
+          "y": 796,
           "sel": "button"
         },
         "chrome": {
@@ -3638,7 +3602,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 2907,
+          "y": 796,
           "sel": "button"
         },
         "chrome": {
@@ -3662,7 +3626,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 2907,
+          "y": 779,
           "sel": "button"
         },
         "chrome": {
@@ -3686,7 +3650,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 2703,
+          "y": 758,
           "sel": "button"
         },
         "chrome": {
@@ -3710,7 +3674,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -3734,7 +3698,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -3758,7 +3722,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -3782,7 +3746,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 2369,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3806,7 +3770,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 2369,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3830,7 +3794,7 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 2352,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3854,7 +3818,7 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3878,7 +3842,7 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3902,7 +3866,7 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3926,7 +3890,7 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3950,7 +3914,7 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3974,7 +3938,7 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -3998,7 +3962,7 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4022,7 +3986,7 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4046,7 +4010,7 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4070,7 +4034,7 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4094,7 +4058,7 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4118,7 +4082,7 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4142,7 +4106,7 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4166,7 +4130,7 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4190,7 +4154,7 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4214,7 +4178,7 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4238,7 +4202,7 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4262,7 +4226,7 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4286,7 +4250,7 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4310,7 +4274,7 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4334,7 +4298,7 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4358,7 +4322,7 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4382,7 +4346,7 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4406,7 +4370,7 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4430,7 +4394,7 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4454,7 +4418,7 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4478,7 +4442,7 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4502,7 +4466,7 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 1957,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4526,7 +4490,7 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 1957,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4550,7 +4514,7 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 1940,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4574,7 +4538,7 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 1940,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -4598,7 +4562,7 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4622,7 +4586,7 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4646,7 +4610,7 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4670,7 +4634,7 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4694,7 +4658,7 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4718,7 +4682,7 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4742,7 +4706,7 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4766,7 +4730,7 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4790,7 +4754,7 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4814,7 +4778,7 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4838,7 +4802,7 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4862,7 +4826,7 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4886,7 +4850,7 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4910,7 +4874,7 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4934,7 +4898,7 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4958,7 +4922,7 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -4982,7 +4946,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5006,7 +4970,7 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5030,7 +4994,7 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5054,7 +5018,7 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 1732,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5078,7 +5042,7 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 1732,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5102,7 +5066,7 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5126,7 +5090,7 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5150,7 +5114,7 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5246,7 +5210,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5270,7 +5234,7 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5294,7 +5258,7 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5318,7 +5282,7 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -5344,7 +5308,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 3070,
+          "y": 796,
           "sel": "button"
         },
         "chrome": {
@@ -5368,7 +5332,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 2907,
+          "y": 796,
           "sel": "button"
         },
         "chrome": {
@@ -5392,7 +5356,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 2907,
+          "y": 779,
           "sel": "button"
         },
         "chrome": {
@@ -5416,7 +5380,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 2703,
+          "y": 758,
           "sel": "button"
         },
         "chrome": {
@@ -5440,7 +5404,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -5464,7 +5428,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -5488,7 +5452,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 2427,
+          "y": 700,
           "sel": "button"
         },
         "chrome": {
@@ -5512,7 +5476,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 2369,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5536,7 +5500,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 2369,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5560,7 +5524,7 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 2352,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5584,7 +5548,7 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5608,7 +5572,7 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5632,7 +5596,7 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5656,7 +5620,7 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 2116,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5680,7 +5644,7 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5704,7 +5668,7 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5728,7 +5692,7 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5752,7 +5716,7 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5776,7 +5740,7 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5800,7 +5764,7 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5824,7 +5788,7 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5848,7 +5812,7 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5872,7 +5836,7 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5896,7 +5860,7 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5920,7 +5884,7 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 2074,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5944,7 +5908,7 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5968,7 +5932,7 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -5992,7 +5956,7 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6016,7 +5980,7 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6040,7 +6004,7 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6064,7 +6028,7 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6088,7 +6052,7 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6112,7 +6076,7 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6136,7 +6100,7 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6160,7 +6124,7 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6184,7 +6148,7 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6208,7 +6172,7 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 1973,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6232,7 +6196,7 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 1957,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6256,7 +6220,7 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 1957,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6280,7 +6244,7 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 1940,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6304,7 +6268,7 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 1940,
+          "y": 683,
           "sel": "button"
         },
         "chrome": {
@@ -6328,7 +6292,7 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6352,7 +6316,7 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6376,7 +6340,7 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6400,7 +6364,7 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6424,7 +6388,7 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6448,7 +6412,7 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6472,7 +6436,7 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6496,7 +6460,7 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 1774,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6520,7 +6484,7 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6544,7 +6508,7 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6568,7 +6532,7 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 1753,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6592,7 +6556,7 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6616,7 +6580,7 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6640,7 +6604,7 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6664,7 +6628,7 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 1737,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6688,7 +6652,7 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6712,7 +6676,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6736,7 +6700,7 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6760,7 +6724,7 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 1716,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6784,7 +6748,7 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 1732,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6808,7 +6772,7 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 1732,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6832,7 +6796,7 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6856,7 +6820,7 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6880,7 +6844,7 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -6976,7 +6940,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -7000,7 +6964,7 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -7024,7 +6988,7 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -7048,7 +7012,7 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 1695,
+          "y": 650,
           "sel": "button"
         },
         "chrome": {
@@ -8804,8 +8768,8 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 276,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8828,8 +8792,8 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 276,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8852,8 +8816,8 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8876,8 +8840,8 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8900,8 +8864,8 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8924,8 +8888,8 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8948,8 +8912,8 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8972,8 +8936,8 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8996,8 +8960,8 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -9020,8 +8984,8 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9044,8 +9008,8 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9068,8 +9032,8 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9092,8 +9056,8 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9116,8 +9080,8 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9140,8 +9104,8 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9164,8 +9128,8 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9188,8 +9152,8 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9212,8 +9176,8 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9236,8 +9200,8 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9260,8 +9224,8 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9284,8 +9248,8 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9308,8 +9272,8 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9332,8 +9296,8 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9356,8 +9320,8 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9380,8 +9344,8 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9404,8 +9368,8 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9428,8 +9392,8 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9452,8 +9416,8 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9476,8 +9440,8 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9500,8 +9464,8 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9524,8 +9488,8 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9548,8 +9512,8 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9572,8 +9536,8 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9596,8 +9560,8 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9620,8 +9584,8 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9644,8 +9608,8 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9668,8 +9632,8 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9692,8 +9656,8 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9716,8 +9680,8 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9740,8 +9704,8 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9764,8 +9728,8 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9788,8 +9752,8 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9812,8 +9776,8 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9836,8 +9800,8 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9860,8 +9824,8 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9884,8 +9848,8 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9908,8 +9872,8 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9932,8 +9896,8 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9956,8 +9920,8 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9980,8 +9944,8 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10004,8 +9968,8 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10028,8 +9992,8 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10052,8 +10016,8 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10076,8 +10040,8 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10100,8 +10064,8 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10124,8 +10088,8 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10148,8 +10112,8 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10172,8 +10136,8 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10196,8 +10160,8 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10220,8 +10184,8 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10244,8 +10208,8 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10268,8 +10232,8 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10292,8 +10256,8 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10316,8 +10280,8 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10340,8 +10304,8 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10436,8 +10400,8 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10460,8 +10424,8 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10484,8 +10448,8 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10508,8 +10472,8 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -13246,14 +13210,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2193,
-            "detail": "aside.data-methodology-rail leaves 2193px empty beneath it in a 3121px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13277,14 +13234,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2193,
-            "detail": "aside.data-methodology-rail leaves 2193px empty beneath it in a 3121px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13308,14 +13258,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13339,14 +13282,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13370,14 +13306,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13401,14 +13330,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13432,14 +13354,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13463,14 +13378,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13494,14 +13402,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13525,14 +13426,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13556,14 +13450,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13587,14 +13474,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13618,14 +13498,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13649,14 +13522,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13680,14 +13546,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13711,14 +13570,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13742,14 +13594,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1841,
-            "detail": "aside.data-methodology-rail leaves 1841px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13773,14 +13618,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1841,
-            "detail": "aside.data-methodology-rail leaves 1841px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13804,14 +13642,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13835,14 +13666,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13866,14 +13690,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13897,14 +13714,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13928,14 +13738,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13959,14 +13762,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13990,14 +13786,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14021,14 +13810,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14052,14 +13834,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1860,
-            "detail": "aside.data-methodology-rail leaves 1860px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14083,14 +13858,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14114,14 +13882,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14145,14 +13906,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14176,14 +13930,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -22861,7 +22608,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22885,7 +22632,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22909,7 +22656,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22933,7 +22680,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 505,
+          "y": 341,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22957,7 +22704,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22981,7 +22728,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -23005,7 +22752,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -23029,7 +22776,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 456,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -23053,7 +22800,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 456,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -23459,14 +23206,7 @@
         }
       },
       "718": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23490,14 +23230,7 @@
         }
       },
       "719": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23521,14 +23254,7 @@
         }
       },
       "720": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23552,14 +23278,7 @@
         }
       },
       "721": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23583,14 +23302,7 @@
         }
       },
       "722": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23614,20 +23326,7 @@
         }
       },
       "759": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23651,20 +23350,7 @@
         }
       },
       "760": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23688,20 +23374,7 @@
         }
       },
       "761": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23725,20 +23398,7 @@
         }
       },
       "767": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23762,20 +23422,7 @@
         }
       },
       "768": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23799,20 +23446,7 @@
         }
       },
       "769": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23836,20 +23470,7 @@
         }
       },
       "799": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23873,20 +23494,7 @@
         }
       },
       "800": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23910,20 +23518,7 @@
         }
       },
       "801": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23947,14 +23542,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 386,
           "sel": "select.sel.field"
@@ -23978,14 +23566,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 386,
           "sel": "select.sel.field"
@@ -24009,14 +23590,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24040,14 +23614,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24071,14 +23638,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24102,14 +23662,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24133,14 +23686,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24164,14 +23710,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24195,14 +23734,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24226,14 +23758,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24257,14 +23782,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24288,14 +23806,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24319,14 +23830,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24518,20 +24022,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24555,20 +24046,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24592,20 +24070,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24629,20 +24094,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24666,20 +24118,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24703,20 +24142,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24740,20 +24166,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24777,20 +24190,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24814,20 +24214,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24851,20 +24238,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24888,20 +24262,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24925,20 +24286,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24962,20 +24310,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -32569,14 +31904,7 @@
         }
       },
       "720": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 589.5,
-            "detail": "div.pom-card-image fills 17% of a row 709px tall, leaving 590px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32600,14 +31928,7 @@
         }
       },
       "721": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 589.5,
-            "detail": "div.pom-card-image fills 17% of a row 709px tall, leaving 590px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32631,14 +31952,7 @@
         }
       },
       "722": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 589.5,
-            "detail": "div.pom-card-image fills 17% of a row 709px tall, leaving 590px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32662,14 +31976,7 @@
         }
       },
       "759": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 542.671875,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 543px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32693,14 +32000,7 @@
         }
       },
       "760": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 542.484375,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 542px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32724,14 +32024,7 @@
         }
       },
       "761": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 542.296875,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 542px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32755,14 +32048,7 @@
         }
       },
       "767": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 541.15625,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 541px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32786,14 +32072,7 @@
         }
       },
       "768": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 540.96875,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 541px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32817,14 +32096,7 @@
         }
       },
       "769": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 540.78125,
-            "detail": "div.pom-card-image fills 19% of a row 667px tall, leaving 541px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32848,14 +32120,7 @@
         }
       },
       "799": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 532.578125,
-            "detail": "div.pom-card-image fills 20% of a row 664px tall, leaving 533px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32879,14 +32144,7 @@
         }
       },
       "800": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 532.390625,
-            "detail": "div.pom-card-image fills 20% of a row 664px tall, leaving 532px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32910,14 +32168,7 @@
         }
       },
       "801": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 532.203125,
-            "detail": "div.pom-card-image fills 20% of a row 664px tall, leaving 532px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32941,14 +32192,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 475.5625,
-            "detail": "div.pom-card-image fills 24% of a row 622px tall, leaving 476px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -32972,14 +32216,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 475.375,
-            "detail": "div.pom-card-image fills 24% of a row 622px tall, leaving 475px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 430,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33003,20 +32240,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 477.703125,
-            "detail": "div.pom-card-image fills 23% of a row 623px tall, leaving 478px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33040,20 +32264,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 477.515625,
-            "detail": "div.pom-card-image fills 24% of a row 623px tall, leaving 478px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33077,20 +32288,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 451.59375,
-            "detail": "div.pom-card-image fills 25% of a row 601px tall, leaving 452px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33114,20 +32312,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 451.40625,
-            "detail": "div.pom-card-image fills 25% of a row 601px tall, leaving 451px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33151,20 +32336,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 271,
-            "detail": "aside.pom-bio-aside leaves 271px empty beneath it in a 511px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 451.21875,
-            "detail": "div.pom-card-image fills 25% of a row 601px tall, leaving 451px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33188,20 +32360,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 425.796875,
-            "detail": "div.pom-card-image fills 27% of a row 579px tall, leaving 426px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33225,20 +32384,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 425.609375,
-            "detail": "div.pom-card-image fills 27% of a row 579px tall, leaving 426px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33262,20 +32408,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 484px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 425.421875,
-            "detail": "div.pom-card-image fills 27% of a row 579px tall, leaving 425px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33299,14 +32432,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 418.203125,
-            "detail": "div.pom-card-image fills 28% of a row 579px tall, leaving 418px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 397,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33330,14 +32456,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 418,
-            "detail": "div.pom-card-image fills 28% of a row 579px tall, leaving 418px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33361,14 +32480,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 417.3125,
-            "detail": "div.pom-card-image fills 28% of a row 578px tall, leaving 417px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33392,20 +32504,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 390.78125,
-            "detail": "div.pom-card-image fills 30% of a row 559px tall, leaving 391px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33429,20 +32528,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 390.59375,
-            "detail": "div.pom-card-image fills 30% of a row 559px tall, leaving 391px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33466,20 +32552,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 390.40625,
-            "detail": "div.pom-card-image fills 30% of a row 559px tall, leaving 390px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33503,20 +32576,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 252,
-            "detail": "aside.pom-bio-aside leaves 252px empty beneath it in a 457px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 390.21875,
-            "detail": "div.pom-card-image fills 30% of a row 559px tall, leaving 390px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33540,20 +32600,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 253,
-            "detail": "aside.pom-bio-aside leaves 253px empty beneath it in a 458px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 386.03125,
-            "detail": "div.pom-card-image fills 31% of a row 559px tall, leaving 386px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33577,20 +32624,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 253,
-            "detail": "aside.pom-bio-aside leaves 253px empty beneath it in a 458px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 385.84375,
-            "detail": "div.pom-card-image fills 31% of a row 559px tall, leaving 386px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33614,20 +32648,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 254,
-            "detail": "aside.pom-bio-aside leaves 254px empty beneath it in a 458px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 385.65625,
-            "detail": "div.pom-card-image fills 31% of a row 559px tall, leaving 386px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33651,20 +32672,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 230,
-            "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 330.09375,
-            "detail": "div.pom-card-image fills 36% of a row 517px tall, leaving 330px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33688,20 +32696,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 230,
-            "detail": "aside.pom-bio-aside leaves 230px empty beneath it in a 435px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 273.90625,
-            "detail": "div.pom-card-image fills 41% of a row 461px tall, leaving 274px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33725,20 +32720,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 231,
-            "detail": "aside.pom-bio-aside leaves 231px empty beneath it in a 435px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 273.71875,
-            "detail": "div.pom-card-image fills 41% of a row 461px tall, leaving 274px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33762,20 +32744,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 244.3125,
-            "detail": "div.pom-card-image fills 47% of a row 458px tall, leaving 244px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33799,20 +32768,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 244.3125,
-            "detail": "div.pom-card-image fills 47% of a row 458px tall, leaving 244px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33836,20 +32792,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 240,
-            "detail": "aside.pom-bio-aside leaves 240px empty beneath it in a 445px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 244.3125,
-            "detail": "div.pom-card-image fills 47% of a row 458px tall, leaving 244px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33873,20 +32816,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 244.3125,
-            "detail": "div.pom-card-image fills 47% of a row 458px tall, leaving 244px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33910,20 +32840,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33947,20 +32864,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -33984,20 +32888,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -34021,20 +32912,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -34058,20 +32936,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -34095,20 +32960,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.pom-bio-aside",
-            "metric": 243,
-            "detail": "aside.pom-bio-aside leaves 243px empty beneath it in a 448px row"
-          },
-          {
-            "kind": "orphan",
-            "sel": "div.pom-card-image",
-            "metric": 427,
-            "detail": "div.pom-card-image fills 25% of a row 569px tall, leaving 427px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 405,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -34136,7 +32988,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 652,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34160,7 +33012,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 652,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34184,7 +33036,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 652,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34208,7 +33060,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 652,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34232,7 +33084,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34256,7 +33108,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34280,7 +33132,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 277,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34304,7 +33156,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34328,7 +33180,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34352,7 +33204,7 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34376,7 +33228,7 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34400,7 +33252,7 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34424,7 +33276,7 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34448,7 +33300,7 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34472,7 +33324,7 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34496,7 +33348,7 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34520,7 +33372,7 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34544,7 +33396,7 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34568,7 +33420,7 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34592,7 +33444,7 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34616,7 +33468,7 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34640,7 +33492,7 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34664,7 +33516,7 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34688,7 +33540,7 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34712,7 +33564,7 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34736,7 +33588,7 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34760,7 +33612,7 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34784,7 +33636,7 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34808,7 +33660,7 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34832,7 +33684,7 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34856,7 +33708,7 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34880,7 +33732,7 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34904,7 +33756,7 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34928,7 +33780,7 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34952,7 +33804,7 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -34976,7 +33828,7 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35000,7 +33852,7 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35024,7 +33876,7 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35048,7 +33900,7 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35072,7 +33924,7 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35096,7 +33948,7 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 610,
+          "y": 256,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35120,7 +33972,7 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35144,7 +33996,7 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35168,7 +34020,7 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35192,7 +34044,7 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35216,7 +34068,7 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35240,7 +34092,7 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35264,7 +34116,7 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35288,7 +34140,7 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35312,7 +34164,7 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 577,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35336,7 +34188,7 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35360,7 +34212,7 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35384,7 +34236,7 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35408,7 +34260,7 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35432,7 +34284,7 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35456,7 +34308,7 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35480,7 +34332,7 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35504,7 +34356,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35528,7 +34380,7 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35552,7 +34404,7 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35576,7 +34428,7 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35600,7 +34452,7 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35624,7 +34476,7 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35648,7 +34500,7 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35672,7 +34524,7 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35768,7 +34620,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35792,7 +34644,7 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35816,7 +34668,7 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35840,7 +34692,7 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 467,
+          "y": 223,
           "sel": "input.inp"
         },
         "chrome": {
@@ -35866,8 +34718,8 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 515,
-          "sel": "select.sel.field"
+          "y": 344,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -35890,8 +34742,8 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 515,
-          "sel": "select.sel.field"
+          "y": 344,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -35914,8 +34766,8 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 515,
-          "sel": "select.sel.field"
+          "y": 344,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -35938,8 +34790,8 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 483,
-          "sel": "select.sel.field"
+          "y": 344,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -35962,8 +34814,8 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 462,
-          "sel": "select.sel.field"
+          "y": 323,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -35986,8 +34838,8 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 462,
-          "sel": "select.sel.field"
+          "y": 323,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -36010,8 +34862,8 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 462,
-          "sel": "select.sel.field"
+          "y": 323,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -36034,8 +34886,8 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 462,
-          "sel": "select.sel.field"
+          "y": 323,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -36058,8 +34910,8 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 462,
-          "sel": "select.sel.field"
+          "y": 323,
+          "sel": "select#rehome-watch"
         },
         "chrome": {
           "vh": 844,
@@ -39876,14 +38728,7 @@
         }
       },
       "640": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39907,14 +38752,7 @@
         }
       },
       "641": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39938,14 +38776,7 @@
         }
       },
       "718": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -39969,14 +38800,7 @@
         }
       },
       "719": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40000,14 +38824,7 @@
         }
       },
       "720": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40031,14 +38848,7 @@
         }
       },
       "721": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40062,14 +38872,7 @@
         }
       },
       "722": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40093,14 +38896,7 @@
         }
       },
       "759": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40124,14 +38920,7 @@
         }
       },
       "760": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40155,14 +38944,7 @@
         }
       },
       "761": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40186,14 +38968,7 @@
         }
       },
       "767": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40217,14 +38992,7 @@
         }
       },
       "768": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40248,14 +39016,7 @@
         }
       },
       "769": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40279,14 +39040,7 @@
         }
       },
       "799": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40310,14 +39064,7 @@
         }
       },
       "800": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40341,14 +39088,7 @@
         }
       },
       "801": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40372,14 +39112,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 154,
-            "detail": "154.40625px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40403,14 +39136,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 154,
-            "detail": "154.40625px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 387,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40434,14 +39160,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40465,14 +39184,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.453125,
-            "detail": "199.453125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40496,14 +39208,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.453125,
-            "detail": "199.453125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40527,14 +39232,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40558,14 +39256,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 199.46875,
-            "detail": "199.46875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40589,14 +39280,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.96875,
-            "detail": "215.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40620,14 +39304,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.953125,
-            "detail": "215.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40651,14 +39328,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 215.96875,
-            "detail": "215.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40682,14 +39352,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 354,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40713,14 +39376,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.984375,
-            "detail": "194.984375px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40744,14 +39400,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40775,14 +39424,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40806,14 +39448,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.984375,
-            "detail": "194.984375px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40837,14 +39472,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.96875,
-            "detail": "194.96875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40868,14 +39496,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 194.953125,
-            "detail": "194.953125px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40899,14 +39520,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40930,14 +39544,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40961,14 +39568,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.171875,
-            "detail": "185.171875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -40992,20 +39592,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.390625px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41029,20 +39616,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.171875,
-            "detail": "185.171875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.390625px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41066,20 +39640,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 185.1875,
-            "detail": "185.1875px of empty space under p"
-          },
-          {
-            "kind": "dead",
-            "sel": "p.screen-rights.mono",
-            "metric": 78,
-            "detail": "78.375px of empty space under p.screen-rights.mono"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41103,14 +39664,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41134,14 +39688,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41165,14 +39712,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41196,14 +39736,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41227,14 +39760,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41258,14 +39784,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41289,14 +39808,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41320,14 +39832,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41351,14 +39856,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41382,14 +39880,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "p",
-            "metric": 164.1875,
-            "detail": "164.1875px of empty space under p"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 362,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -41417,7 +39908,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 1518,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41441,7 +39932,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 1318,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41465,7 +39956,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 1318,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41489,7 +39980,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 1207,
+          "y": 376,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41513,7 +40004,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41537,7 +40028,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41561,7 +40052,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41585,7 +40076,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41609,7 +40100,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41633,7 +40124,7 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41657,7 +40148,7 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41681,7 +40172,7 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41705,7 +40196,7 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41729,7 +40220,7 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41753,7 +40244,7 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41777,7 +40268,7 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41801,7 +40292,7 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41825,7 +40316,7 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41849,7 +40340,7 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41873,7 +40364,7 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41897,7 +40388,7 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41921,7 +40412,7 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41945,7 +40436,7 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41969,7 +40460,7 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41993,7 +40484,7 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42017,7 +40508,7 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42041,7 +40532,7 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42065,7 +40556,7 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42089,7 +40580,7 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42113,7 +40604,7 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42137,7 +40628,7 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42161,7 +40652,7 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42185,7 +40676,7 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42209,7 +40700,7 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42233,7 +40724,7 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42257,7 +40748,7 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42281,7 +40772,7 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42305,7 +40796,7 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42329,7 +40820,7 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42353,7 +40844,7 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 847,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42377,7 +40868,7 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 847,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42401,7 +40892,7 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42425,7 +40916,7 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42449,7 +40940,7 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42473,7 +40964,7 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42497,7 +40988,7 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42521,7 +41012,7 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42545,7 +41036,7 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42569,7 +41060,7 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42593,7 +41084,7 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42617,7 +41108,7 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42641,7 +41132,7 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42665,7 +41156,7 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42689,7 +41180,7 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42713,7 +41204,7 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42737,7 +41228,7 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42761,7 +41252,7 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42785,7 +41276,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 719,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42809,7 +41300,7 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 719,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42833,7 +41324,7 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42857,7 +41348,7 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42881,7 +41372,7 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42905,7 +41396,7 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42929,7 +41420,7 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -42953,7 +41444,7 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -43049,7 +41540,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -43073,7 +41564,7 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -43097,7 +41588,7 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -43121,7 +41612,7 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -46339,14 +44830,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5362,
-            "detail": "aside.wmp-time-rail fills 12% of a row 6075px tall, leaving 5362px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46370,14 +44854,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46401,14 +44878,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46432,14 +44902,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46463,14 +44926,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46494,14 +44950,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46525,14 +44974,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46556,14 +44998,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46587,14 +45022,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46618,14 +45046,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -46649,14 +45070,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"

@@ -8,7 +8,7 @@ export function SavedProvider({ children }: { children: React.ReactNode }) {
   const [ids, setIds] = useState<string[]>(() => {
     try {
       const raw = JSON.parse(localStorage.getItem(KEY) ?? '[]')
-      return Array.isArray(raw) ? raw.slice(0, MAX) : []
+      return Array.isArray(raw) ? [...new Set(raw.filter((id): id is string => typeof id === 'string' && id.length > 0))].slice(0, MAX) : []
     } catch { return [] }
   })
   useEffect(() => { try { localStorage.setItem(KEY, JSON.stringify(ids)) } catch { /* private mode */ } }, [ids])

@@ -5,7 +5,7 @@
 
 import type { Card } from '../lib/data.ts'
 
-type Strength = 'strong' | 'neutral' | 'weak'
+type Strength = 'strong' | 'neutral' | 'weak' | 'unknown'
 
 function classify(v: number | null, strong: number, weak: number): Strength {
   if (v == null) return 'weak'
@@ -52,7 +52,7 @@ export default function RolexAxesBar({ card }: { card: Card }) {
   const resell: Strength =
     resellability.tier === 'High' ? 'strong' :
     resellability.tier === 'Medium' ? 'neutral' :
-    resellability.tier === 'Low' ? 'neutral' : 'weak'
+    resellability.tier === 'Low' ? 'neutral' : 'unknown'
 
   // Story bar uses the provenance event count, capped at 10 for a 0-100 scale.
   const storyBar = provCount > 0 ? Math.min(100, provCount * 10) : 0
@@ -90,7 +90,7 @@ export default function RolexAxesBar({ card }: { card: Card }) {
         label="RESELL"
         display={resellability.value != null ? String(resellability.value) : '—'}
         bar={resellability.value}
-        caption={resellability.tier === 'Unknown' ? 'NEVER TRADED' :
+        caption={resellability.tier === 'Unknown' ? 'NO COMPARABLE SALES' :
           `${resellability.tier.toUpperCase()} · ${resellability.sales_per_year}/YR`}
         strength={resell}
         hue="teal"

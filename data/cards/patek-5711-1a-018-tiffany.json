@@ -35,22 +35,25 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
+    "comparable_dial": "Tiffany Blue",
     "comps": [
       {
         "date": "2021-12-11",
         "price_usd": 6503500,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/patek-philippe/NY080121/1T",
-        "condition": "piece No. 1 of 170, single-lot charity sale",
-        "box_papers": null
+        "condition": "First numbered piece of 170; charity proceeds benefited The Nature Conservancy. Excluded from ordinary-sale valuation.",
+        "box_papers": "full_set",
+        "comparable": false
       },
       {
         "date": "2024-04-01",
         "price_usd": 225794,
         "venue": "sothebys",
         "url": "https://www.sothebys.com/en/auctions/ecatalogue/lot.sothebys.hk24010.html",
-        "condition": "Olive green dial, 2021, full set",
-        "box_papers": "full_set"
+        "condition": "Recorded as olive green, not Tiffany Blue; the legacy link could not be verified as an exact lot.",
+        "box_papers": "full_set",
+        "comparable": false
       },
       {
         "date": "2026-06-13",

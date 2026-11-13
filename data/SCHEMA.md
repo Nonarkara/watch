@@ -4,6 +4,16 @@ One JSON file per watch reference: `data/cards/<brand-slug>-<ref-slug>.json` (lo
 
 **The honesty law (non-negotiable):** every fact is either (a) verifiable public knowledge (identity/specs), or (b) carries a `source_url` you actually found. **Omit rather than guess.** A sparse honest card beats a full fabricated one — the build system is designed to degrade gracefully. NEVER invent a URL, a price, a date, or a production number. NEVER estimate a comp. If you didn't see it, it isn't in the card.
 
+For a dossier that prices one dial, set `market_evidence.comparable_dial`. Each comparable sale then needs a matching `dial` from its source. Missing or different dials cannot be promoted as comparable, including from queues built before the scope was set.
+
+One auction lot may count as comparable on only one dossier. Related dossiers may cite it as non-comparable evidence with an explanation.
+
+Use optional `market_evidence.lot_observations` for individual reported results
+that should not enter estimates or indices. Each row has `date` (actual sale
+day), `date_source_url`, `amount`, `currency` (original three-letter code),
+`venue`, `url` (lot result), and `configuration` (what the lot describes).
+Do not repeat a lot already recorded in `comps` on that dossier.
+
 Validate before finishing: `node scripts/validate_card.mjs data/cards/<file>.json`
 
 ```jsonc

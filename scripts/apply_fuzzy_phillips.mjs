@@ -37,12 +37,8 @@ for (const m of MATCHES.matches) {
     url: m.source_url,
     box_papers: null,
     // The condition is the "why excluded" string the build script maps to the
-    // variant-sales table. It names the harvested reference, and for a
-    // converted lot it also names the currency the hammer was struck in.
-    condition: [
-      `similar reference: ${m.harvested_brand} ${m.harvested_reference}${m.harvested_model ? ` · ${m.harvested_model}` : ''}`,
-      ...(m.original_currency ? [`hammer ${m.original_display} in ${m.original_currency}`] : []),
-    ].join(' · '),
+    // variant-sales table. Currency and conversion details have their own fields.
+    condition: `similar reference: ${m.harvested_brand} ${m.harvested_reference}${m.harvested_model ? ` · ${m.harvested_model}` : ''}`,
     // Real and cited, but it prices a similar-but-not-identical reference, so
     // it is shown and never averaged into the market estimate.
     comparable: false,

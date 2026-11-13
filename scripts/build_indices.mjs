@@ -5,9 +5,14 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { computeAll, isComparable } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
+import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+const intake = JSON.parse(readFileSync(join(ROOT, "data/market/review-queue.json"), "utf8"));
+const openingDates = new Set(intake.records
+  .filter(record => record.sale_date && record.sale_date_basis !== 'single_day_auction')
+  .map(record => `${record.source_url}|${record.sale_date}`));
 
 const shared = {
   cpi: JSON.parse(readFileSync(join(ROOT, "data/shared/cpi_snapshot.json"), "utf8")),
@@ -42,12 +47,13 @@ function mediaFor(card) {
   // A curated, licence-verified photograph wins over a catalogue match: it is the
   // image we can actually attribute.
   const curated = shared.images[card.id];
-  if (curated?.file) {
+  if (curated?.file && !isExcludedPortrait(curated.file, curated.source_url)) {
     return [{
       type: "image", url: curated.file, source_url: curated.source_url,
       credit: curated.credit, license: curated.license ?? null,
       rights_status: "licensed", caption: curated.caption ?? null,
-      match: curated.caption ? "reference_family" : "exact_reference",
+      match: curated.match === "exact_reference" || curated.match === "reference_family"
+        ? curated.match : curated.caption ? "reference_family" : "exact_reference",
     }];
   }
   // The scraped catalogue's own rights field says "reuse license not asserted", and its
@@ -58,7 +64,8 @@ function mediaFor(card) {
   return shared.rolex_catalog.records
     .filter((record) => record.brand === card.identity.brand
       && record.reference === card.identity.reference.toUpperCase()
-      && record.image_license_asserted === true)
+      && record.image_license_asserted === true
+      && !isExcludedPortrait(record.image_url, record.source_url))
     .slice(0, 3)
     .map((record) => ({
       type: "image", url: record.image_url, source_url: record.source_url,
@@ -82,10 +89,11 @@ for (const f of files) {
 }
 let failed = 0;
 const published = [];
+const comparableSaleOwners = new Map();
 
 for (const f of files) {
   const card = JSON.parse(readFileSync(join(cardDir, f), "utf8"));
-  const errs = validateCard(card, { id: f.replace(/\.json$/, ""), buildDate });
+  const errs = validateCard(card, { id: f.replace(/\.json$/, ""), buildDate, comparableSaleOwners });
   if (errs.length) { failed++; console.error(`✗ ${f}\n  - ${errs.join("\n  - ")}`); continue; }
 
   const computed = computeAll(card, shared, buildDate);
@@ -93,16 +101,30 @@ for (const f of files) {
   const notable = [...comps].sort((a, b) => b.price_usd - a.price_usd).slice(0, 5)
     .map(({ date, price_usd, venue, url, box_papers }) => ({ date, price_usd, venue, url, box_papers: box_papers ?? null }));
   // Real, cited sales of a different configuration — shown, never averaged.
-  // The fx_conversion block rides along so the reader can see the hammer price
-  // in the currency it was actually struck in, plus the ECB rate used. A
-  // converted row without its provenance would read as a native USD sale, which
-  // it is not.
+  // The native result and the FX date basis travel together. Legacy fuzzy
+  // matches inherited the auction opening date, not the verified lot date.
   const variants = card.market_evidence.comps.filter((c) => !isComparable(c))
     .sort((a, b) => b.price_usd - a.price_usd)
-    .map(({ date, price_usd, venue, url, condition, fx_conversion }) => ({
-      date, price_usd, venue, url, condition,
-      ...(fx_conversion ? { fx_conversion } : {}),
-    }));
+    .map(({ date, price_usd, venue, url, condition, fx_conversion, fuzzy_match, date_source_url }) => {
+      const date_basis = date_source_url ? 'lot_date'
+        : fuzzy_match || openingDates.has(`${url}|${date}`) ? 'auction_start' : 'unverified';
+      const suffix = fx_conversion ? ` · hammer ${fx_conversion.original_display} in ${fx_conversion.original_currency}` : '';
+      const conversion = fx_conversion && {
+        ...fx_conversion,
+        date_basis: fx_conversion.date_basis ?? (fuzzy_match ? 'auction_start' : 'unverified'),
+      };
+      if (conversion?.date_basis === 'auction_start') {
+        conversion.reference_date ??= date;
+        conversion.note = 'Published sale result converted at the last available ECB rate on or before the auction opening date.';
+      } else if (conversion?.date_basis === 'unverified') {
+        conversion.note = 'The rate date is recorded; the date used to choose that rate was not verified.';
+      }
+      return {
+        date, date_basis, price_usd, venue, url,
+        condition: suffix && condition.endsWith(suffix) ? condition.slice(0, -suffix.length) : condition,
+        ...(conversion ? { fx_conversion: conversion } : {}),
+      };
+    });
 
   published.push({
     id: card.id,
@@ -126,6 +148,12 @@ for (const f of files) {
     } : null,
     notable_sales: notable,
     variant_sales: variants,
+    ...(card.market_evidence.lot_observations?.length ? {
+      lot_observations: card.market_evidence.lot_observations
+        .map(({ date, amount, currency, venue, url, date_source_url, configuration }) =>
+          ({ date, amount, currency, venue, url, date_source_url, configuration }))
+        .sort((a, b) => b.date.localeCompare(a.date)),
+    } : {}),
     computed,
     meta: { ...card.meta, build_date: buildDate },
   });

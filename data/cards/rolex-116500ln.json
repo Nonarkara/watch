@@ -5,7 +5,7 @@
     "brand": "Rolex",
     "reference": "116500LN",
     "name": "Cosmograph Daytona",
-    "nickname": "Ceramic Daytona",
+    "nickname": "Ceramic Daytona · Black dial",
     "collection": "Daytona",
     "tier": "crown",
     "produced": {
@@ -40,13 +40,15 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
+    "comparable_dial": "Black",
     "comps": [
       {
         "date": "2019-06-25",
         "price_usd": 30000,
         "venue": "christies",
         "url": "https://onlineonly.christies.com/s/christies-watches-online-time-travel/rolex-ceramic-daytona-ref-116500ln-242/71994",
-        "condition": null,
+        "dial": "Black",
+        "condition": "Black dial, circa 2018; excellent overall condition",
         "box_papers": "full_set"
       },
       {
@@ -54,7 +56,8 @@
         "price_usd": 17920,
         "venue": "bonhams",
         "url": "https://www.bonhams.com/auction/30160/lot/103/",
-        "condition": null,
+        "dial": "Black",
+        "condition": "Glossy black dial",
         "box_papers": null
       },
       {
@@ -62,16 +65,19 @@
         "price_usd": 25600,
         "venue": "bonhams",
         "url": "https://www.bonhams.com/auction/30160/lot/104/",
-        "condition": null,
-        "box_papers": null
+        "dial": "White",
+        "condition": "White dial, excluded from the black-dial estimate",
+        "box_papers": null,
+        "comparable": false
       },
       {
-        "date": "2023-05-15",
-        "price_usd": 38100,
-        "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "116500LN, 2021, full set",
-        "box_papers": "full_set"
+        "date": "2024-06-03",
+        "price_usd": 28750,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-daytona-stainless-steel-ref-116500ln-circa-2023/a/5556-54025.s",
+        "dial": "Black",
+        "condition": "Black dial, circa 2023; Heritage describes it as new",
+        "box_papers": "papers_only"
       },
       {
         "date": "2026-05-30",

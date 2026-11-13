@@ -44,6 +44,8 @@ const rows = cards.map((c) => {
     hasPublicMedia: !!pub.media?.length,
     compCount: (c.market_evidence?.comps || []).length,
     compSummary: !!pub.comp_summary,
+    lotObservationCount: pub.lot_observations?.length ?? 0,
+    variantSaleCount: pub.variant_sales?.length ?? 0,
     provenanceCount: (c.provenance_events || []).length,
     narrative: !!c.narrative?.story,
     starterAlt: !!c.narrative?.starter_alternative,
@@ -102,9 +104,13 @@ for (const b of sorted) {
 }
 
 lines.push(hr)
-head('GAP REPORT — cards with no image, no comps, no provenance')
-const blank = rows.filter((r) => !r.hasPublicMedia && !r.compSummary && r.provenanceCount === 0)
-lines.push(`${blank.length} cards have NEITHER image NOR comps NOR provenance. They render as skeleton dossiers.`)
+head('GAP REPORT — cards without photos, sale records, or provenance')
+const lotCount = rows.reduce((n, r) => n + r.lotObservationCount, 0)
+const observedCards = rows.filter((r) => r.lotObservationCount > 0).length
+lines.push(`Native-currency lot observations: ${lotCount} · dossiers with observations: ${observedCards}. Excluded from comparable-sale coverage.`)
+const blank = rows.filter((r) => !r.hasPublicMedia && !r.compSummary && !r.lotObservationCount &&
+  !r.variantSaleCount && r.provenanceCount === 0)
+lines.push(`${blank.length} cards have no published photo, sale record, or provenance event.`)
 lines.push('Brands most affected:')
 const blankByBrand = new Map()
 for (const r of blank) blankByBrand.set(r.brand, (blankByBrand.get(r.brand) || 0) + 1)
@@ -135,7 +141,7 @@ head('HARVEST SOURCES')
 lines.push(`  Watch-ID Rolex harvest (data/shared/watch_id_rolex.json): ${watchid.count} sightings — source for the Rolex subset of the canonical screen data.`)
 if (marketQueue) {
   const s = marketQueue.summary
-  lines.push(`  Phillips market intake (data/market/review-queue.json): ${s.harvested} lots — ${s.ready_for_review} ready, ${s.quarantined} quarantined, ${s.duplicate} duplicate, ${s.failed} failed.`)
+  lines.push(`  Phillips market intake (data/market/review-queue.json): ${s.harvested} lots — ${s.ready_for_review} ready, ${s.promoted ?? 0} promoted, ${s.quarantined} quarantined, ${s.duplicate} duplicate, ${s.failed} failed.`)
 }
 
 lines.push(hr)

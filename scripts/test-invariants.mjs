@@ -5,8 +5,45 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { computeAll, marketEstimate, priceChange } from "./lib/indices.mjs";
 import { validateCard } from "./validate_card.mjs";
 import { validateSightings } from "./validate_sightings.mjs";
+import { isExcludedPortrait } from "./lib/portrait-evidence.mjs";
 
 const BUILD = "2026-07-31"; // pinned — idempotence requires it
+const steel6265 = JSON.parse(readFileSync(new URL("../data/cards/rolex-6265.json", import.meta.url), "utf8"));
+assert.deepEqual(validateCard(steel6265, { buildDate: BUILD }), []);
+const lot = steel6265.market_evidence.lot_observations[0];
+const invalidLot = structuredClone(steel6265);
+invalidLot.market_evidence.lot_observations.push({ ...lot, date: "2026-06-31", url: lot.url + "#result" });
+assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("valid past or current day")));
+assert.ok(validateCard(invalidLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")));
+const trackedLot = structuredClone(steel6265);
+trackedLot.market_evidence.lot_observations[0].url = "https://example.com/auction/lot-152?currency=USD&utm_campaign=archive";
+trackedLot.market_evidence.comps.push({
+  date: lot.date, price_usd: lot.amount, venue: "other_auction",
+  url: "https://example.com/auction/lot-152/?utm_source=results&currency=USD",
+});
+assert.ok(validateCard(trackedLot, { buildDate: BUILD }).some((e) => e.includes("repeats an auction lot")),
+  "tracked URLs must not let the same lot appear as both a comp and an observation");
+const publicCards = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8")).cards;
+const published6265 = publicCards.find((card) => card.id === steel6265.id);
+assert.equal(published6265.lot_observations.length, 4);
+assert.deepEqual(published6265.lot_observations.map((row) => row.currency), ["USD", "CHF", "CHF", "CHF"]);
+assert.equal(published6265.comp_summary, null);
+assert.equal(published6265.computed.estimate.value, null, "observed lots cannot create a valuation");
+const laterJumbo = publicCards.find((card) => card.id === "patek-3700-11");
+const earlierJumbo = publicCards.find((card) => card.id === "patek-3700-1a");
+assert.deepEqual(laterJumbo.lot_observations.map((row) => [row.date, row.currency, row.amount]), [
+  ["2026-06-14", "USD", 228600], ["2026-06-13", "USD", 355600],
+  ["2026-05-31", "HKD", 762000], ["2026-05-30", "HKD", 952500], ["2026-05-10", "CHF", 146050],
+]);
+assert.equal(laterJumbo.comp_summary, null);
+assert.equal(laterJumbo.computed.estimate.value, null);
+assert.equal(earlierJumbo.lot_observations, undefined, "later Nautilus lots must not attach to the 3700/1A");
+const publishedSimplicity = publicCards.find((card) => card.id === "dufour-simplicity");
+assert.deepEqual(publishedSimplicity.lot_observations.map(({ date, currency, amount }) => [date, currency, amount]), [
+  ["2026-05-30", "HKD", 9461500], ["2022-11-06", "CHF", 1022200], ["2020-11-08", "CHF", 1361000],
+]);
+assert.equal(publishedSimplicity.comp_summary, null, "unlike Simplicity configurations cannot form a comparable cohort");
+assert.equal(publishedSimplicity.computed.estimate.value, null);
 // Identical historical sales cannot become both ends of a one-year trend.
 const historicalOnly = [100, 200, 300].map((price_usd, i) => ({
   date: `2025-0${6 - i}-01`, price_usd,
@@ -15,8 +52,67 @@ assert.equal(priceChange(historicalOnly, "2026-09-08", 1, {
   observations: { "2026-09": 110, "2025-09": 100 },
 }).nominal_pct, null, "overlapping cohorts must refuse a trend");
 const newmanCard = JSON.parse(readFileSync(new URL("../data/cards/rolex-6239-paul-newman.json", import.meta.url), "utf8"));
+const tiffanyCard = JSON.parse(readFileSync(new URL("../data/cards/patek-5711-1a-018-tiffany.json", import.meta.url), "utf8"));
+for (const suffix of ["/NY080121/1T", "hk24010.html"]) {
+  assert.equal(tiffanyCard.market_evidence.comps.find(sale => sale.url.endsWith(suffix))?.comparable,
+    false, "Tiffany charity and olive-green rows must not count as ordinary Tiffany Blue sales");
+}
+assert.ok(newmanCard.market_evidence.comps.some(sale => sale.url.endsWith("/lot-6460427") &&
+  sale.price_usd === 226800 && sale.dial === "Paul Newman exotic" && sale.comparable !== false));
+const op41 = JSON.parse(readFileSync(new URL("../data/cards/rolex-124300.json", import.meta.url), "utf8"));
+const steelDaytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116520.json", import.meta.url), "utf8"));
+assert.equal(steelDaytona.market_evidence.comparable_dial, "Black");
+assert.ok(steelDaytona.market_evidence.comps.filter(sale => sale.comparable !== false).every(sale => sale.dial === "Black"));
+const steelEstimate = marketEstimate(steelDaytona.market_evidence.comps, "2026-11-06");
+assert.deepEqual([steelEstimate.value, steelEstimate.n, steelEstimate.venues], [25400, 3, 2]);
+const batman = JSON.parse(readFileSync(new URL("../data/cards/rolex-116710blnr-batman.json", import.meta.url), "utf8"));
+const batmanEstimate = marketEstimate(batman.market_evidence.comps, "2026-11-06");
+assert.deepEqual([batmanEstimate.value, batmanEstimate.n, batmanEstimate.venues, batmanEstimate.as_of], [15240, 3, 2, "2026-10"]);
+const daytona = JSON.parse(readFileSync(new URL("../data/cards/rolex-116500ln.json", import.meta.url), "utf8"));
+const daytonaComps = daytona.market_evidence.comps.filter((sale) => sale.comparable !== false);
+assert.equal(daytona.market_evidence.comps.find((sale) => sale.url.endsWith("/104/"))?.comparable, false);
+assert.ok(daytonaComps.every((sale) => sale.dial === "Black"));
+assert.ok(daytonaComps.some((sale) => sale.url.endsWith("/5556-54025.s") && sale.price_usd === 28750));
+const milgauss = JSON.parse(readFileSync(new URL("../data/cards/rolex-116400gv.json", import.meta.url), "utf8"));
+const milgaussPortrait = publicCards.find((card) => card.id === milgauss.id).media[0];
+assert.equal(milgaussPortrait.match, "exact_reference");
+assert.equal(milgaussPortrait.credit, "Mweavil");
+assert.equal(milgaussPortrait.license, "CC BY-SA 3.0");
+assert.match(milgaussPortrait.caption, /black dial and green sapphire/);
+assert.doesNotMatch(milgaussPortrait.caption, /White Lotus|A Man in Full/);
+const milgaussComps = milgauss.market_evidence.comps.filter((sale) => sale.comparable !== false);
+assert.equal(milgauss.market_evidence.comps.find((sale) => sale.url.endsWith("/260795"))?.comparable, false);
+assert.ok(milgaussComps.every((sale) => sale.condition.startsWith("Black dial")),
+  "only black-dial Milgauss sales can price the black-dial dossier");
+assert.ok(milgaussComps.some((sale) => sale.url.endsWith("/257562") && sale.price_usd === 11970));
+const wrongDial = structuredClone(milgauss);
+wrongDial.market_evidence.comps.find((sale) => sale.dial === "Z-Blue").comparable = true;
+assert.ok(validateCard(wrongDial, { buildDate: BUILD }).some((error) => error.includes("dial must match")),
+  "a hand-edited card must not bypass the comparable dial guard");
+for (const [lot, color] of [["NY080424/1", "Turquoise"], ["260548", "Green"], ["260550", "Yellow"]]) {
+  const sale = op41.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`));
+  assert.equal(sale?.comparable, false, `${color} sale must not price the generic OP41`);
+  assert.ok(sale.condition.startsWith(color), `the lot must disclose its ${color.toLowerCase()} dial`);
+}
 assert.equal(newmanCard.market_evidence.comps.find((c) => c.price_usd === 17752500).comparable, false,
   "celebrity-owned lot must remain outside ordinary valuation");
+const resonance = JSON.parse(readFileSync(new URL("../data/cards/journe-resonance.json", import.meta.url), "utf8"));
+for (const lot of ["230170", "225726"]) {
+  assert.equal(resonance.market_evidence.comps.find((c) => c.url.endsWith(`/${lot}`))?.comparable, false,
+    "the Souscription and Coppola RN lots must stay outside the standard RS valuation");
+}
+assert.ok(!resonance.market_evidence.comps.some((c) => c.url.includes("152081113")),
+  "the Résonance charity result belongs in provenance, not in the market series");
+assert.ok(resonance.provenance_events.some((event) => event.source_url.includes("152081113") && event.description.includes("SGD 4 million")),
+  "retain the charity result in its original currency");
+const simplicity = JSON.parse(readFileSync(new URL("../data/cards/dufour-simplicity.json", import.meta.url), "utf8"));
+for (const [lot, result] of [["147960", "CHF 1,361,000"], ["232982", "HKD 9,461,500"]]) {
+  assert.equal(simplicity.provenance_events.filter((event) => event.source_url.endsWith(`/${lot}`) && event.description.includes(result)).length, 0,
+    "the structured auction result is the only price entry; provenance retains the story");
+  assert.ok(!simplicity.market_evidence.comps.some((comp) => comp.url.endsWith(`/${lot}`) ||
+    [1500000, 1210000, 1207287].includes(comp.price_usd)),
+  "exceptional Simplicity lots and their secondary USD quotes must stay out of the comparable series");
+}
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/test-card.json", import.meta.url), "utf8"));
 
 // Curated image assignments — checked by invariant 13 below.
@@ -35,6 +131,18 @@ assert.deepEqual(validateCard(fixture, { id: "testbrand-tb1", buildDate: BUILD }
 
 const c1 = computeAll(fixture, shared, BUILD);
 const c2 = computeAll(fixture, shared, BUILD);
+assert.equal(c1.estimate.stale, false, "recent 12-month evidence remains eligible as a starting value");
+const wideCohort = structuredClone(fixture);
+wideCohort.market_evidence.comps = fixture.market_evidence.comps.slice(0, 3).map((comp, i) => ({
+  ...comp,
+  date: ["2022-09-01", "2023-01-01", "2026-06-01"][i],
+}));
+const wideEstimate = computeAll(wideCohort, shared, BUILD).estimate;
+assert.equal(wideEstimate.window_months, 60);
+assert.equal(wideEstimate.n, 3);
+assert.equal(wideEstimate.as_of, "2026-06-01");
+assert.equal(wideEstimate.stale, true, "a recent newest sale must not make a broad cohort current");
+assert.match(wideEstimate.limitation, /Historical only/);
 // 1. Idempotence: byte-identical recomputation
 assert.equal(JSON.stringify(c1), JSON.stringify(c2), "computeAll must be deterministic");
 
@@ -105,22 +213,72 @@ unexplained.market_evidence.comps.at(-1).condition = null;
 assert.ok(validateCard(unexplained, { id: "testbrand-tb1", buildDate: BUILD }).length > 0,
   "comparable:false without a reason must fail validation");
 
+const repeatedLot = structuredClone(fixture);
+const firstLot = repeatedLot.market_evidence.comps[0];
+firstLot.url = "https://www.phillips.com/detail/rolex/NY080124/14";
+repeatedLot.market_evidence.comps.push({
+  ...firstLot, url: "https://phillips.com/detail/rolex/NY080124/14/?utm_source=newsletter#details",
+});
+assert.ok(validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")));
+repeatedLot.market_evidence.comps.at(-1).url = "https://www.phillips.com/detail/rolex/NY080124/15";
+assert.ok(!validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")),
+  "different lots may have the same date and price");
+firstLot.url = "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex/a/5556-54121.s";
+repeatedLot.market_evidence.comps.at(-1).url = firstLot.url + "?ic4=GalleryView&utm_source=newsletter#details";
+assert.ok(validateCard(repeatedLot, { buildDate: BUILD }).some((error) => error.includes("repeats an auction lot")));
+
+const owner = structuredClone(fixture);
+const related = structuredClone(fixture);
+related.id = "testbrand-tb2";
+related.identity.reference = "TB2";
+owner.market_evidence.comps = [{ ...firstLot, url: "https://www.phillips.com/detail/rolex/NY080124/14" }];
+related.market_evidence.comps = [{ ...firstLot, url: "https://phillips.com/detail/rolex/NY080124/14/?utm_source=newsletter" }];
+const comparableSaleOwners = new Map();
+const registerOptions = { buildDate: BUILD, comparableSaleOwners };
+assert.deepEqual(validateCard(owner, registerOptions), []);
+assert.ok(validateCard(related, registerOptions).some((error) => error.includes(`already comparable on ${owner.id}`)),
+  "the same lot cannot price a second dossier even when the URL differs");
+Object.assign(related.market_evidence.comps[0], { comparable: false, condition: "A different reference, cited for context." });
+assert.deepEqual(validateCard(related, registerOptions), [], "a related dossier may cite the sale as context");
+
 // 10. Windowing: comp dated after buildDate is ignored, not counted
 const future = structuredClone(fixture);
 future.market_evidence.comps.push({ date: "2027-01-01", price_usd: 999999, venue: "ebay", url: "https://example.com/f", condition: null, box_papers: null });
 assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future comps excluded");
+const thinFuture = structuredClone(future);
+thinFuture.market_evidence.comps = [future.market_evidence.comps[0], future.market_evidence.comps.at(-1)];
+const thinResult = computeAll(thinFuture, shared, BUILD);
+assert.equal(thinResult.estimate.n, 1, "future sale must not inflate the refusal count");
+assert.equal(thinResult.confidence.n, 1, "future sale must not inflate confidence without an estimate");
+const centurySales = ["1910-01-01", "1911-01-01", "1912-01-01"]
+  .map((date, i) => ({ date, price_usd: 100 + i, venue: "phillips" }));
+assert.equal(marketEstimate(centurySales, BUILD).value, 101, "All records is not a rolling century");
+const leapWindow = ["2023-02-28", "2023-03-01", "2023-08-01", "2024-02-29", "2024-03-01"]
+  .map((date, i) => ({ date, price_usd: 100 + i, venue: "phillips" }));
+const leapEstimate = marketEstimate(leapWindow, "2024-02-29");
+assert.equal(leapEstimate.window_months, 12, "Feb 29 minus a year must clamp to Feb 28, not roll to March");
+assert.equal(leapEstimate.n, 3, "the lower boundary is exclusive and the build date inclusive");
+assert.equal(leapEstimate.value, 102);
 
-// 10a. Evidence-wave regression: the ordinary 126610LN now clears the market gate.
-// The three source records are distinct watches/sales; no converted prices or special lots.
+// 10a. The Phillips art auction cannot enter any watch's market evidence.
 {
-  const submariner = JSON.parse(readFileSync(new URL("../data/cards/rolex-126610ln.json", import.meta.url), "utf8"));
-  const estimate = marketEstimate(submariner.market_evidence.comps.filter((c) => c.comparable !== false), BUILD);
-  assert.equal(estimate.n, 3, "126610LN must retain three comparable USD sales");
-  assert.equal(estimate.value, 13750, "126610LN estimate must be the three-sale median");
-  assert.equal(estimate.window_months, 60, "126610LN must disclose its five-year evidence window");
-  assert.equal(estimate.as_of, "2025-11-20");
-  assert.equal(new Set(submariner.market_evidence.comps.map((c) => c.url)).size, 3,
-    "126610LN comps must point to three distinct source records");
+  const cardDir = new URL("../data/cards/", import.meta.url);
+  for (const file of readdirSync(cardDir).filter((name) => name.endsWith(".json"))) {
+    const card = JSON.parse(readFileSync(new URL(file, cardDir), "utf8"));
+    assert.ok(!card.market_evidence.comps.some((comp) => /NY010523/i.test(comp.url)),
+      `${file}: Phillips NY010523 is an art auction, not a watch sale`);
+  }
+  for (const id of ["rolex-6239-paul-newman"]) {
+    const card = JSON.parse(readFileSync(new URL(`${id}.json`, cardDir), "utf8"));
+    const comps = card.market_evidence.comps.filter((comp) => comp.comparable !== false);
+    const estimate = marketEstimate(comps, BUILD);
+    assert.ok(estimate.n >= 2, `${id} must retain its supported sales`);
+    assert.equal(new Set(comps.map((comp) => comp.url)).size, comps.length, `${id} must cite distinct sales`);
+    if (estimate.n < 3) {
+      assert.equal(estimate.value, null, `${id} cannot publish an estimate with two sales`);
+      assert.equal(estimate.reason, "insufficient_comps");
+    }
+  }
 }
 
 // 10b. Fuzzy-matched Phillips comps route correctly: every fuzzy match is
@@ -195,25 +353,60 @@ assert.equal(marketEstimate(future.market_evidence.comps, BUILD).n, 8, "future c
   }
 }
 
-// 10b. Three more ordinary Rolex references clear the same gate using exact-reference,
-// completed USD sales. The 1675 deliberately excludes gold and special-provenance variants.
-for (const expected of [
-  { file: "rolex-116610lv-hulk.json", n: 3, value: 21590, window: 60, asOf: "2026-06-12" },
-  { file: "rolex-5513.json", n: 3, value: 13970, window: 60, asOf: "2025-12-17" },
-  { file: "rolex-1675.json", n: 3, value: 22860, window: 120, asOf: "2024-12-07" },
+// These Phillips results must point to the actual lot, not the sale catalogue.
+for (const [id, lot, price] of [
+  ["rolex-1675", 14, 29210],
+  ["rolex-16600", 13, 16510],
+  ["patek-3700-1a", 8, 114300],
 ]) {
-  const card = JSON.parse(readFileSync(new URL(`../data/cards/${expected.file}`, import.meta.url), "utf8"));
-  const comps = card.market_evidence.comps.filter((c) => c.comparable !== false);
-  const estimate = marketEstimate(comps, BUILD);
-  assert.equal(estimate.n, expected.n, `${card.id} must retain three comparable USD sales`);
-  assert.equal(estimate.value, expected.value, `${card.id} estimate must be the three-sale median`);
-  assert.equal(estimate.window_months, expected.window, `${card.id} must disclose its evidence window`);
-  assert.equal(estimate.as_of, expected.asOf);
-  assert.equal(new Set(comps.map((c) => c.url)).size, expected.n,
-    `${card.id} comps must point to three distinct source records`);
+  const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
+  const comps = card.market_evidence.comps.filter((c) => /\/NY080124(?:\/|$)/.test(c.url));
+  assert.equal(comps.length, 1, `${id} must not retain a duplicate or batch citation`);
+  assert.ok(comps[0].url.endsWith(`/NY080124/${lot}`));
+  assert.equal(comps[0].price_usd, price);
+  assert.equal(comps[0].comparable, false);
+}
+
+// Recovered evidence must clear the floor without counting an exceptional lot.
+for (const [id, lot, median] of [
+  ["rolex-126610ln", "/121670", 13750],
+  ["rolex-1675", "/5574-54114.s", 18750],
+  ["rolex-1803", "/5556-54104.s", 13750],
+  ["rolex-5513", "/5563-54121.s", 10625],
+]) {
+  const card = JSON.parse(readFileSync(new URL(`../data/cards/${id}.json`, import.meta.url), "utf8"));
+  const comps = card.market_evidence.comps.filter((sale) => sale.comparable !== false);
+  assert.ok(comps.some((sale) => sale.url.endsWith(lot)), `${id} must retain the reviewed lot`);
+  assert.equal(new Set(comps.map((sale) => sale.url)).size, comps.length, `${id} must cite distinct sales`);
+  if (comps.length === 3) {
+    assert.equal(marketEstimate(comps, BUILD).value, median, `${id} three-sale median`);
+  }
 }
 
 // 11. Screen exposure changes attention pressure, never scarcity.
+{
+  const redSub = JSON.parse(readFileSync(new URL("../data/cards/rolex-1680-red.json", import.meta.url), "utf8"));
+  const sales = redSub.market_evidence.comps;
+  assert.equal(sales.find((sale) => sale.url.endsWith("/62209"))?.comparable, false);
+  assert.equal(computeAll(redSub, shared, BUILD).estimate.value, 20625);
+  assert.equal(computeAll(redSub, shared, BUILD).estimate.stale, true);
+}
+{
+  const hulk = JSON.parse(readFileSync(new URL("../data/cards/rolex-116610lv-hulk.json", import.meta.url), "utf8"));
+  const sales = hulk.market_evidence.comps.filter((sale) => sale.comparable !== false);
+  const estimate = marketEstimate(sales, BUILD);
+  assert.ok(sales.some((sale) => sale.url.endsWith("/181738") && sale.price_usd === 22680));
+  assert.equal(estimate.n, 3, "older Christie’s evidence must not widen a sufficient recent Hulk cohort");
+  assert.equal(estimate.window_months, 24);
+  assert.equal(estimate.value, 18125);
+  const confidence = computeAll(hulk, shared, BUILD).confidence;
+  assert.equal(confidence.n, 3, "confidence must count the sales used by the estimate");
+  assert.equal(confidence.venues, 1, "a venue outside the estimate window must not upgrade its confidence");
+  assert.equal(confidence.tier, "C");
+  assert.ok(hulk.provenance_events.some((event) => event.source_url.endsWith("/233078") &&
+    event.description.includes("CHF 17,780")));
+  assert.ok(!sales.some((sale) => sale.url.endsWith("/233078")), "do not treat the CHF result as a USD sale");
+}
 const withScreen = { ...shared, screen_sightings: { sightings: [{
   media_type: "film", match_level: "exact_reference", matched_card_ids: [fixture.id],
 }] } };
@@ -260,6 +453,15 @@ for (const key of ["synthetic_exact", "synthetic_family", "synthetic_iconic", "s
   const canonical = JSON.parse(readFileSync(new URL("../data/shared/screen_sightings.json", import.meta.url), "utf8"));
   const errs = validateSightings(canonical);
   assert.deepEqual(errs, [], `canonical screen data must validate — errors: ${errs.join("; ")}`);
+  const published = JSON.parse(readFileSync(new URL("../public/data/screen_sightings.json", import.meta.url), "utf8"));
+  const register = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8"));
+  const ids = new Set(register.cards.map(card => card.id));
+  assert.deepEqual(published, canonical, "Screen snapshots must agree");
+  for (const sighting of published.sightings) {
+    for (const id of sighting.matched_card_ids) assert.ok(ids.has(id), `${sighting.id} links to missing dossier ${id}`);
+  }
+  assert.deepEqual(published.sightings.find(s => s.id === "tag-carrera-ryan-gosling-gray-man").matched_card_ids, [],
+    "The 2022 three-hand Carrera sighting must not point to the 2023 Glassbox chronograph");
 }
 
 console.log("✓ all invariants hold");
@@ -340,6 +542,36 @@ console.log("✓ no image fallback URL is shared by 3+ cards");
   }
 }
 console.log("✓ no cross-brand image shares in images.json");
+
+// A licence permits reuse; it does not prove the subject is the named watch.
+assert.ok(isExcludedPortrait('https://commons.wikimedia.org/wiki/File%3ACounterfeit%20Casio%20F-91W%20digital%20watch.jpg'));
+assert.ok(isExcludedPortrait('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Counterfeit_Casio_F-91W_digital_watch.jpg/250px-Counterfeit_Casio_F-91W_digital_watch.jpg'));
+assert.ok(isExcludedPortrait('/img/local-copy.jpg', images['anordain-model-1-midnight'].source_url));
+assert.equal(isExcludedPortrait(images['ap-15202st'].file, images['ap-15202st'].source_url), false);
+const portraitOutput = JSON.parse(readFileSync(new URL('../public/data.json', import.meta.url), 'utf8'));
+const louisVariant = portraitOutput.cards.find(card => card.id === 'louis-richard-triple-detent-tourbillon')
+  ?.variant_sales.find(sale => sale.url.endsWith('/232871'));
+assert.equal(louisVariant?.date_basis, 'lot_date', 'Phillips session I confirms lot 108 sold on May 9');
+assert.equal(louisVariant?.fx_conversion?.original_display, 'CHF3,968,000');
+assert.equal(louisVariant?.fx_conversion?.date_basis, 'auction_start',
+  'a verified sale date does not retroactively change the FX lookup basis');
+for (const card of portraitOutput.cards) {
+  for (const sale of card.variant_sales) {
+    const fx = sale.fx_conversion;
+    if (!fx) continue;
+    assert(fx.original_display && fx.original_currency && fx.rate_date && fx.date_basis,
+      `${card.id}: converted variants need both the native result and the rate basis`);
+    assert(!card.notable_sales.some(comp => comp.url === sale.url),
+      `${card.id}: excluded conversions must not enter the verified sale series`);
+    if (fx.date_basis === 'auction_start') assert.equal(fx.reference_date, sale.date);
+  }
+}
+const misleadingPortraits = portraitOutput.cards.flatMap(card => card.media
+  .filter(media => isExcludedPortrait(media.url, media.source_url)).map(() => card.id));
+assert.deepEqual(misleadingPortraits, [], 'excluded portrait assets must not publish');
+assert.ok(portraitOutput.cards.find(card => card.id === 'ap-15202st')?.media
+  .some(media => media.url === images['ap-15202st'].file), 'keep the sourced 15202ST portrait');
+console.log('✓ rejected portrait assets stay out of the public dataset');
 
 // 15. Model-name channel guard — a published model name may not be a LINE.
 // The auction census matches a lot on brand + published model name when the

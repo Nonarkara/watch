@@ -54,6 +54,40 @@ separate one-record command after a person checks reference, material, dial, con
 and accessories. Non-USD results remain quarantined until the schema can preserve source currency
 and source-backed exchange rates.
 
+Where source access permits it, `--enrich-foreign` lets the harvester collect detail for
+exact-reference, realized non-USD lots within the same `--max-details` budget. USD candidates
+keep first priority. Foreign-currency lots can gain reference, material and dial checks without
+becoming comparable or eligible for promotion.
+
+To audit an existing archive without fetching or changing any data, run
+`node scripts/replay_phillips_archive.mjs /path/to/archive-checkout`. The command checks
+snapshot hashes and applies the current parser and dossier matcher to the archived results.
+
+Promotion also checks the Phillips lot identity across URL forms. For multi-day or legacy
+auction records, verify the session containing the lot and supply `--sale-date=YYYY-MM-DD`
+and `--date-source=<Phillips session or lot URL>`. The auction opening date alone is not a sale date.
+
+## Layout verification
+
+The scheduled Spatial law workflow measures production. To measure a release
+candidate, run it manually on the candidate branch with its immutable Pages
+preview URL (for example, `https://1234abcd.watch-1de.pages.dev/`). A green
+production monitor does not clear a preview.
+
+The site-wide receipt does not cover individual dossiers. Run
+`npm run spatial:dossiers -- --base <immutable-preview-url>` alongside it
+after a dossier or shared-chart change. The three samples cover native-currency
+lot records without an estimate (6265), a historical estimate with charts
+(116500LN), and a dial-scoped refusal (Tiffany 5711). This is a seven-width
+layout check, not a replacement for the full sweep or keyboard testing.
+
+To compare a retained JSON artifact against a revised receipt without
+reopening the browser, run
+`node scripts/spatial/spatial-check.mjs --replay spatial-measurements.json`.
+For an artifact captured with explicit routes or widths, repeat those flags.
+Replay checks the recorded cells and never updates the receipt; it does not
+check the live site, its sitemap, or its stylesheets.
+
 The production site is deployed to Cloudflare Pages and served at the custom domain
 [watch.nonarkara.org](https://watch.nonarkara.org/) (Cloudflare Pages project `watch`, also reachable
 at the fallback `watch-1de.pages.dev`). Canonical, OG, sitemap, and crawler user-agents all name the

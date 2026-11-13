@@ -79,12 +79,26 @@ function topScreenPicks(snapshot: ScreenSnapshot | null, limit = 5): { title: st
     }))
 }
 
-function ReferencePhoto({ card, className = 'ticker-thumb' }: { card: Card; className?: string }) {
+function ReferencePhoto({ card, className = 'ticker-thumb', showMissing = true }: { card: Card; className?: string; showMissing?: boolean }) {
   const media = card.media.find(image => image.match === 'exact_reference')
   const [failed, setFailed] = useState(false)
-  if (!media || failed) return <span className={`${className} reference-photo-missing ticker-photo-status mono`}>PHOTO UNVERIFIED</span>
+  if (!media || failed) return showMissing
+    ? <span className={`${className} reference-photo-missing ticker-photo-status mono`}>PHOTO UNVERIFIED</span>
+    : null
   return <span className={`${className} reference-photo`} data-reference={card.id}><img src={media.url} alt="" loading="lazy"
     decoding="async" width={400} height={300} onError={() => setFailed(true)} /></span>
+}
+
+function ArchiveReference({ card }: { card: Card }) {
+  return (
+    <Link to={`/w/${card.id}`} className="ticker-cell">
+      <ReferencePhoto card={card} />
+      <span className="ticker-brand">{card.identity.brand.toUpperCase()}</span>
+      <span className="ticker-ref">{card.identity.reference}</span>
+      <span className="ticker-name">{card.identity.name}</span>
+      {card.comp_summary && <span className="ticker-evidence mono">{card.comp_summary.n} COMPS</span>}
+    </Link>
+  )
 }
 
 export default function Home() {
@@ -132,9 +146,17 @@ export default function Home() {
   const stills = screen ? screen.sightings.filter((s) => s.media).length : null  // null = not loaded yet; never render a loading state as 0
   const screenPicks = useMemo(() => topScreenPicks(screen), [screen])
   const ticker = useMemo(() => tasteOfRegister(cards), [cards])
-  const asiaPicks = useMemo(() => cards.filter((c) =>
-    BRAND_REGION[c.identity.brand] === 'asia' && c.media.length > 0
-  ).slice(0, 4), [cards])
+  const archiveLead = ticker.slice(0, 1)
+  const archivePhoto = ticker.slice(1).find((c) => c.media.some((image) => image.match === 'exact_reference')) ?? ticker[1]
+  if (archivePhoto) archiveLead.push(archivePhoto)
+  const archiveMore = ticker.filter((c) => !archiveLead.includes(c))
+  const asiaPicks = useMemo(() => {
+    const byMaker = new Map<string, Card>()
+    for (const c of tasteOfRegister(cards.filter((card) => BRAND_REGION[card.identity.brand] === 'asia'))) {
+      if (!byMaker.has(c.identity.brand)) byMaker.set(c.identity.brand, c)
+    }
+    return [...byMaker.values()].slice(0, 4)
+  }, [cards])
   const brassTacks = useMemo(() => {
     // For buyers: a couple of fully-stocked dossiers worth starting with.
     const withProvenanceAndComps = cards.filter((c) => c.comp_summary && c.provenance_events.length >= 2)
@@ -142,26 +164,19 @@ export default function Home() {
       .sort((a, b) => b.comp_summary!.n - a.comp_summary!.n)
       .slice(0, 5)
   }, [cards])
+  const spotlightTrend = trends?.trending.find(row => row.card_id === brassTacks[0]?.id)
 
-  // Thai/SEA picks: cards that Thai collectors cite most, weighted by
-  // (region, dossier completeness, media). Surfaced as a separate section
-  // because the home is read by both the global audience and the local
-  // Bangkok/Singapore/KL audience.
-  const thaiPicks = useMemo(() => {
-    const seaBrands = new Set(['Casio', 'Seiko', 'Grand Seiko', 'Credor', 'King Seiko', 'Kurono Tokyo', 'Minase', 'Naoya Hida', 'Hajime Asaoka', 'Citizen', 'Orient', 'Certina', 'Mido', 'Rado', 'Zelos', 'AnOrdain'])
-    return cards
-      .filter((c) => seaBrands.has(c.identity.brand) && c.media.length > 0)
-      .slice(0, 4)
-  }, [cards])
-
-  // Global hot independents: the most-cited independent watchmakers of the
-  // 2020s. Sized to four — one of each "hot" tier.
-  const globalHot = useMemo(() => {
+  // Editorial picks from the register, not a dealer feed or attention ranking.
+  const independentPicks = useMemo(() => {
     const target = new Set(['F.P. Journe', 'Laurent Ferrier', 'Grönefeld', 'H. Moser & Cie', 'De Bethune', 'Rexhep Rexhepi', 'Philippe Dufour', 'MB&F', 'Hajime Asaoka'])
-    return cards
-      .filter((c) => target.has(c.identity.brand) && c.media.length > 0)
-      .slice(0, 4)
+    return tasteOfRegister(cards.filter((c) => target.has(c.identity.brand))).slice(0, 4)
   }, [cards])
+  const moreAsia = useMemo(() => {
+    const shownMakers = new Set([...asiaPicks, ...independentPicks].map((c) => c.identity.brand))
+    return tasteOfRegister(cards.filter((c) =>
+      BRAND_REGION[c.identity.brand] === 'asia' && !shownMakers.has(c.identity.brand)
+    )).slice(0, 4)
+  }, [cards, asiaPicks, independentPicks])
 
   if (!data) return null
 
@@ -283,11 +298,11 @@ export default function Home() {
         // the one signal that has actual data (wiki day-over-day %, or "—" if
         // the day was flat). 5 not 8 because the strip has to read at a glance
         // and stay above the fold on tablet.
-        <section className="trending-now" aria-label="Trending now — top 5 in public attention">
+        <section className="trending-now" aria-label="Top five in the public attention snapshot">
           <div className="trending-now-head">
             <span className="trending-now-eyebrow mono">
               <span className="trending-now-dot" aria-hidden="true">●</span>
-              TRENDING NOW
+              ATTENTION RANKING
             </span>
             <span className="trending-now-meta mono">
               AS OF {trends.as_of}
@@ -339,7 +354,7 @@ export default function Home() {
           <div className="section-rule">
             <h2>Trending in public attention.</h2>
             <span className="sticker-inline mono">
-              AS OF {trends.as_of} · {trends.origin === 'live' ? 'LIVE DAILY' : 'BUILD SNAPSHOT'}
+              AS OF {trends.as_of} · {trends.origin === 'live' ? 'FEED SNAPSHOT' : 'BUNDLED SNAPSHOT'}
               {trendAge != null && <> · {trendStale ? `STALE ${trendAge}D` : `${trendAge}D OLD`}</>}
             </span>
           </div>
@@ -409,28 +424,26 @@ export default function Home() {
           card={brassTacks[0]}
           eyebrow="FEATURED DOSSIER · STORY-RICH"
           reason={`${brassTacks[0].comp_summary?.n ?? 0} cited comps · ${brassTacks[0].provenance_events.length} sourced events`}
-          trend={trends?.trending?.find((row) => row.card_id === brassTacks[0].id) ?? null}
+          trend={spotlightTrend && trends ? { ...spotlightTrend, snapshotDate: trends.as_of } : null}
         />
       )}
 
       <section className="reference-ticker" aria-label="A taste of the archive">
         <div className="ticker-head">
           <p className="eyebrow">A TASTE OF THE ARCHIVE</p>
-          <p className="ticker-meta mono">{ticker.length} references · {brandCount} brands · last build {data.built}</p>
+          <p className="ticker-meta mono">{ticker.length} selected · register: {brandCount} brands · built {data.built}</p>
         </div>
-        <div className="ticker-strip">
-          {ticker.map((c) => {
-            return (
-              <Link key={c.id} to={`/w/${c.id}`} className="ticker-cell">
-                <ReferencePhoto card={c} />
-                <span className="ticker-brand">{c.identity.brand.toUpperCase()}</span>
-                <span className="ticker-ref">{c.identity.reference}</span>
-                <span className="ticker-name">{c.identity.name}</span>
-                {c.comp_summary && <span className="ticker-evidence mono">{c.comp_summary.n} COMPS</span>}
-              </Link>
-            )
-          })}
+        <div className="archive-lead">
+          {archiveLead.map((c) => <ArchiveReference key={c.id} card={c} />)}
         </div>
+        {archiveMore.length > 0 && (
+          <details className="archive-more">
+            <summary>{archiveMore.length} more references</summary>
+            <div className="archive-list">
+              {archiveMore.map((c) => <ArchiveReference key={c.id} card={c} />)}
+            </div>
+          </details>
+        )}
       </section>
 
       <div className="home-entry-grid">
@@ -460,10 +473,10 @@ export default function Home() {
       )}
 
       {asiaPicks.length > 0 && (
-        <section className="asia-spotlight" aria-label="Asian-market references">
+        <section className="asia-spotlight" aria-label="References from Asian watchmakers">
           <div className="section-rule">
             <h2>Asia on Time Pop.</h2>
-            <span className="sticker-inline mono">JDM · HK AD QUEUES · TOKYO INDEPENDENTS</span>
+            <span className="sticker-inline mono">MAKERS IN THE REGISTER</span>
           </div>
           <div className="asia-spotlight-grid">
             {asiaPicks.map((c) => (
@@ -488,23 +501,18 @@ export default function Home() {
       )}
       </div>
 
-      {/* "What's hot" — two parallel 4-up rows. One for the Thai/SEA market
-          (the brand owners, the local dealers, the collectors in Bangkok
-          and Singapore), one for the global hot independent watchmaking
-          scene. The two halves of the Time Pop audience in two passes. */}
-      <section className="hot-row" aria-label="What's hot — Thai and global">
+      <section className="hot-row" aria-label="Editorial picks from the register">
         <div className="section-rule">
-          <h2>What's hot in the register.</h2>
-          <span className="sticker-inline mono">THAI/SEA · GLOBAL INDEPENDENT · EDITORIAL</span>
+          <h2>Further into the register.</h2>
+          <span className="sticker-inline mono">EDITORIAL PICKS</span>
         </div>
         <div className="hot-grid">
           <div className="hot-col">
-            <p className="hot-col-eyebrow mono">01 · THAI / SEA</p>
-            <p className="hot-col-line">What the Bangkok dealer is showing this month.</p>
+            <h3 className="hot-col-eyebrow mono">More from Asia</h3>
             <div className="hot-col-grid">
-              {thaiPicks.map((c) => (
+              {moreAsia.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <ReferencePhoto card={c} className="hot-col-media" />
+                  <ReferencePhoto card={c} className="hot-col-media" showMissing={false} />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>
@@ -512,12 +520,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hot-col">
-            <p className="hot-col-eyebrow mono">02 · GLOBAL INDEPENDENT</p>
-            <p className="hot-col-line">What the global independent scene is talking about.</p>
+            <h3 className="hot-col-eyebrow mono">Independent makers</h3>
             <div className="hot-col-grid">
-              {globalHot.map((c) => (
+              {independentPicks.map((c) => (
                 <Link key={c.id} to={`/w/${c.id}`} className="hot-col-card">
-                  <ReferencePhoto card={c} className="hot-col-media" />
+                  <ReferencePhoto card={c} className="hot-col-media" showMissing={false} />
                   <span className="hot-col-id mono">{c.identity.brand.toUpperCase()} · {c.identity.reference}</span>
                   <span className="hot-col-name">{c.identity.name}</span>
                 </Link>

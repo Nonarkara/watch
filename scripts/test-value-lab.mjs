@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { reasonText, saleWindowLabel } from '../src/lib/format.ts'
 import {
   HOLDING_PERIODS,
   NEUTRAL_ANNUAL_RATE,
@@ -12,6 +13,9 @@ import {
 } from '../src/lib/value-lab.ts'
 
 assert.deepEqual(HOLDING_PERIODS, [1, 2, 3, 10, 20])
+assert.deepEqual([null, 12, 24, 120, 1200].map(saleWindowLabel),
+  ['Window unknown', '1 year', '2 years', '10 years', 'All records'])
+assert.equal(reasonText('no_comps'), 'No comparable sales on file')
 assert.equal(NEUTRAL_ANNUAL_RATE, 0, 'an unchosen growth assumption must not imply appreciation')
 
 const complete = summarizeCollectionEstimates([

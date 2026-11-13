@@ -176,7 +176,7 @@ if (!existsSync(marketQueuePath) || !existsSync(marketManifestPath)) {
     const manifest = JSON.parse(readFileSync(marketManifestPath, 'utf8'));
     const s = queue.summary || {};
     const ageDays = Math.floor((Date.now() - new Date(queue.generated_at).getTime()) / 86400000);
-    log(ok(`${s.harvested ?? 0} harvested: ${s.ready_for_review ?? 0} ready, ${s.quarantined ?? 0} quarantined, ${s.duplicate ?? 0} duplicate, ${s.failed ?? 0} failed`));
+    log(ok(`${s.harvested ?? 0} harvested: ${s.ready_for_review ?? 0} ready, ${s.promoted ?? 0} promoted, ${s.quarantined ?? 0} quarantined, ${s.duplicate ?? 0} duplicate, ${s.failed ?? 0} failed`));
     log(ok(`${manifest.auctions?.filter((a) => a.has_results).length ?? 0} completed auctions; ${manifest.failures?.length ?? 0} request failures; queue age ${ageDays}d`));
     log('  Rule: scraping discovers candidates; only one-record human promotion can edit a card.');
   } catch (e) {

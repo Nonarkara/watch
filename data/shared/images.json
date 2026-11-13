@@ -371,11 +371,12 @@
     "caption": "Wikimedia Commons — closest verified CC-licensed photo for the Rolex Oyster Perpetual 39. Title: File:Rolex Herrenuhr Oyster Perpetual Datejust mit Turn-O-Graph Lünette Gold (1992).jpg."
   },
   "rolex-116400gv": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rolex_Milgauss_116400GV.jpg",
-    "credit": "Carolyn Maria Adams",
-    "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_116400GV.jpg",
-    "caption": "Rolex Milgauss 116400GV — the green-crystal anti-magnetic Rolex. Worn on White Lotus S3 and A Man in Full."
+    "file": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Rolex_Milgauss_GV.jpg",
+    "credit": "Mweavil",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Milgauss_GV.jpg",
+    "match": "exact_reference",
+    "caption": "Rolex Milgauss 116400GV, black dial and green sapphire; photographed in 2012."
   },
   "rolex-116500ln": {
     "file": "/img/rolex-116500ln.jpg",
@@ -396,7 +397,8 @@
     "credit": "foeoc kannilc",
     "license": "CC BY 2.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Rolex%20Submariner%20diving%20watch.jpg",
-    "caption": "Rolex Submariner Date — a Cerachrom-bezel Submariner. The closest verified CC-licensed photograph for the 116610LN / 16610 family; the case is the same as 116610LN."
+    "match": "exact_reference",
+    "caption": "Rolex Submariner Date 116610LN, identified in the source description and photographed in 2012."
   },
   "rolex-116610lv-hulk": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/1/10/Rolex_Submariner_ref._14060M%2C_met%C3%A0_anni_2000.jpg",
@@ -497,11 +499,12 @@
     "caption": "GMT-Master II ref. 16710 \"Pepsi\" on Jubilee — the earlier aluminium-bezel generation, not the ceramic 126710BLRO."
   },
   "rolex-126900": {
-    "file": "https://upload.wikimedia.org/wikipedia/commons/d/da/Rolex_Air_King_ref._114234%2C_circa_2010.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Rolex_Air-King_ref._126900%2C_risalente_al_2022.jpg",
     "credit": "EMore98",
     "license": "CC BY-SA 4.0",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Air_King_ref._114234,_circa_2010.jpg",
-    "caption": "Wikimedia Commons — closest verified CC-licensed photo for the Rolex Air-King. Title: File:Rolex Air King ref. 114234, circa 2010.jpg."
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_Air-King_ref._126900,_risalente_al_2022.jpg",
+    "match": "exact_reference",
+    "caption": "Air-King reference 126900, identified by the photographer. Original Wikimedia Commons image, unmodified."
   },
   "rolex-1601": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Rolex_Datejust_1603.jpg",
@@ -547,10 +550,11 @@
   },
   "rolex-16710": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
-    "credit": "OpaleHorse",
+    "credit": "Peter Wilson",
     "license": "CC BY-SA 4.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",
-    "caption": "Rolex GMT-Master II ref. 16710 — the 1989–2007 generation, last with an aluminium bezel insert. Worn on The Blacklist."
+    "match": "exact_reference",
+    "caption": "Rolex GMT-Master II ref. 16710. The Commons file identifies the photographed reference; this photograph is not a screen still."
   },
   "rolex-1675": {
     "file": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Rolex_GMT_Master_II_-_16710_in_it_sitting_on_top_of_the_box.jpg",

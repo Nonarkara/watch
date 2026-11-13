@@ -64,14 +64,20 @@
  *                      and then fall through to the verdict, so a report run
  *                      fails exactly when the gate fails
  *   --json <path>      also write the raw measurements to a file
+ *   --replay <path>    compare saved measurements without browsing or updating the baseline
+ *   --shard I/N       measure a deterministic subset of deployed routes at all widths; requires --json
+ *   --assemble <dir>  require every shard from the same live plan, then run the full policy
  */
 import { createServer } from "node:http";
+import { createHash } from "node:crypto";
 import { readdir } from "node:fs/promises";
 import { existsSync, readFileSync, writeFileSync, mkdirSync, statSync, rmSync, readdirSync, cpSync, mkdtempSync } from "node:fs";
 import { execFileSync, spawn } from "node:child_process";
 import { tmpdir, homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { widthBreakpointTerms } from "./width-breakpoints.mjs";
+import { sitemapPaths } from "./sitemap-routes.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -115,8 +121,15 @@ const BASELINE = arg("baseline", path.join("design", "spatial-baseline.json"));
 const ROUTES_ARG = arg("routes", null);
 const WIDTHS_ARG = arg("widths", null);
 const BASE = arg("base", null);
+const REPLAY = arg("replay", null);
+const SHARD = arg("shard", null);
+const ASSEMBLE = arg("assemble", null);
 const UPDATE = argv.includes("--update");
 const REPORT = argv.includes("--report");
+if (REPLAY && (typeof REPLAY !== "string" || BASE || UPDATE || argv.includes("--dir") || argv.includes("--json"))) {
+  console.error("FAIL — --replay requires a JSON path and cannot be combined with --base, --dir, --update or --json.");
+  process.exit(1);
+}
 
 // The site being measured is a SNAPSHOT of the directory, copied once
 // before the first measurement.
@@ -132,8 +145,17 @@ const REPORT = argv.includes("--report");
 // stylesheet and every chunk is read from, and the receipt always describes
 // one coherent site.
 const SRC_DIR = path.resolve(String(DIR));
-const DIST = BASE ? null : existsSync(SRC_DIR) ? snapshotDir(SRC_DIR) : null;
+const DIST = BASE || REPLAY ? null : existsSync(SRC_DIR) ? snapshotDir(SRC_DIR) : null;
 const JSON_OUT = arg("json", null);
+const shardParts = typeof SHARD === "string" ? /^(\d+)\/(\d+)$/.exec(SHARD) : null;
+const shardIndex = shardParts ? Number(shardParts[1]) : 0;
+const shardCount = shardParts ? Number(shardParts[2]) : 0;
+if ((SHARD || ASSEMBLE) && (!BASE || REPLAY || ROUTES_ARG || WIDTHS_ARG || UPDATE ||
+    (SHARD && (ASSEMBLE || typeof JSON_OUT !== "string" || shardIndex < 1 || shardCount < 2 || shardIndex > shardCount)) ||
+    (ASSEMBLE && typeof ASSEMBLE !== "string"))) {
+  console.error("FAIL — use --base with --shard INDEX/COUNT --json PATH or --assemble DIRECTORY, without route or width overrides.");
+  process.exit(1);
+}
 
 const DEFAULT_WIDTHS = [360, 480, 768, 1024, 1440, 1920];
 const DEFAULT_LIMITS = {
@@ -189,7 +211,7 @@ const CHROME_CANDIDATES = [
 ].filter(Boolean);
 const CHROME = CHROME_CANDIDATES.find((c) => existsSync(c));
 
-if (!CHROME) {
+if (!CHROME && !REPLAY) {
   console.error(
     "\nFAIL — the spatial gate could not measure.\n" +
       "  No Chrome binary found. Tried:\n" +
@@ -360,7 +382,15 @@ function arrived(d) {
   } catch (e) { /* no font API in this document */ }
   var imgs = d.getElementsByTagName('img');
   for (var i = 0; i < imgs.length; i++) {
-    if (!imgs[i].complete) return false;
+    var img = imgs[i];
+    if (img.complete) continue;
+    // An explicitly sized lazy image below the fold may never be requested.
+    // Its reserved box is still measured; visible or unsized images must settle.
+    if (img.loading === 'lazy' &&
+        Number(img.getAttribute('width')) > 0 &&
+        Number(img.getAttribute('height')) > 0 &&
+        img.getBoundingClientRect().top >= d.defaultView.innerHeight) continue;
+    return false;
   }
   return true;
 }
@@ -490,12 +520,12 @@ function isFresh(d, navStart, token) {
 //
 // A page with no title at all is not a failure — some pages have no h1 —
 // so for those the main element's own box is the readiness signal. Without
-// a main landmark, use the body, just as the probe and loadPage do. A blank
-// body still has to produce a real content-height box before it can pass.
+// a main landmark, static pages may use the body. Time Pop's SPA shell has
+// a sized body before React mounts; require its main landmark in that case.
 function rendered(d, cb) {
   var start = Date.now();
   (function step() {
-    var main = d.querySelector('main#content') || d.querySelector('main') || d.body;
+    var main = d.querySelector('main') || (d.getElementById('root') ? null : d.body);
     var title = main && main.querySelector('h1');
     var ready = !main || main.getAttribute('data-study-ready') !== 'false';
     // The route fallback says LOADING. It has a box, so a main that is
@@ -618,7 +648,7 @@ function loadPage(route, w, h, cb) {
             return finish({
               route: route,
               w: w,
-              error: 'the page never rendered a title',
+              error: 'the page never rendered measurable content',
             });
           }
           return settle(d, function () {
@@ -936,12 +966,16 @@ async function discoverRoutes() {
     const base = String(BASE).replace(/\/+$/, "");
     const routes = new Set(["/"]);
     try {
-      const sm = await (await fetch(base + "/sitemap.xml")).text();
-      for (const m of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-        const u = new URL(m[1]);
-        if (u.origin === new URL(base).origin && !isAssetPath(u.pathname)) routes.add(u.pathname);
+      const response = await fetch(base + "/sitemap.xml", { signal: AbortSignal.timeout(10000) });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const listed = sitemapPaths(await response.text(), base).filter((p) => !isAssetPath(p));
+      if (!listed.length) throw new Error("no same-site page URLs");
+      for (const p of listed) routes.add(p);
+    } catch (error) {
+      if (SHARD || ASSEMBLE) {
+        console.error(`FAIL — cannot discover deployed sitemap routes: ${error.message}`);
+        process.exit(1);
       }
-    } catch {
       /* no sitemap — the home page links are still worth having */
     }
     try {
@@ -1123,11 +1157,8 @@ function scanStylesheets(text, into) {
     // one in a compound query — `(min-width:721px) and (max-width:1000px)`
     // would contribute 721 and lose 1000, and the 1000px cliff would go
     // unswept in exactly the way this function exists to prevent.
-    for (const m of body.matchAll(/\((?:min|max)-width:\s*([\d.]+)(px|rem|em)\)/g)) {
-      const n = parseFloat(m[1]);
-      if (!Number.isFinite(n) || n <= 0) continue;
-      const px = m[2] === "px" ? n : n * 16;
-      const bp = Math.round(px);
+    for (const { value, unit } of widthBreakpointTerms(body)) {
+      const bp = Math.round(unit === "px" ? value : value * 16);
       // A cliff is a cliff: measure the width just below it, the width
       // itself, and the width just above it.
       for (const w of [bp - 1, bp, bp + 1]) if (w > 0) target.add(w);
@@ -1138,7 +1169,7 @@ function scanStylesheets(text, into) {
         into.cliffs.add(bp);
         const key = cname || "";
         if (!into.namedCliffs.has(key)) into.namedCliffs.set(key, new Set());
-        into.namedCliffs.get(key).add(bp);
+        into.namedCliffs.get(key).add(`${value}${unit}`);
       }
     }
   }
@@ -1178,11 +1209,13 @@ async function remoteBreakpoints(base) {
   const into = { viewport: new Set(), container: new Set(), cliffs: new Set(), namedCliffs: new Map() };
   let html = "";
   try {
-    const r = await fetch(base + "/", { headers: { "user-agent": "spatial-law-probe" } });
+    const r = await fetch(base + "/", { headers: { "user-agent": "spatial-law-probe" }, signal: AbortSignal.timeout(10000) });
+    if (!r.ok) return into;
     html = await r.text();
   } catch {
     return into;
   }
+  const bytes = createHash("sha256").update(html);
   const hrefs = [...html.matchAll(/<link[^>]+rel=["']?stylesheet["']?[^>]*>/gi)]
     .map((m) => /href=["']([^"']+)["']/i.exec(m[0]))
     .filter(Boolean)
@@ -1195,30 +1228,74 @@ async function remoteBreakpoints(base) {
       continue;
     }
     try {
-      const r = await fetch(url, { headers: { "user-agent": "spatial-law-probe" } });
-      scanStylesheets(await r.text(), into);
+      const r = await fetch(url, { headers: { "user-agent": "spatial-law-probe" }, signal: AbortSignal.timeout(10000) });
+      if (r.ok && r.headers.get("content-type")?.includes("text/css")) {
+        const css = await r.text();
+        bytes.update(css);
+        into.stylesRead = (into.stylesRead ?? 0) + 1;
+        scanStylesheets(css, into);
+      }
     } catch {
       /* a stylesheet that cannot be read is a stylesheet we cannot sweep */
     }
   }
+  into.fingerprint = bytes.digest("hex");
   return into;
 }
 
 // ---------------------------------------------------------------- measure
 const baseline = loadBaseline();
+let saved = null;
+if (REPLAY) {
+  try {
+    saved = JSON.parse(readFileSync(REPLAY, "utf8"));
+    if (!baseline || !Array.isArray(saved.measurements) || !saved.measurements.length ||
+        saved.measurements.some((r) => typeof r?.route !== "string" || !r.route.startsWith("/") ||
+          !Number.isInteger(r.w) || r.w <= 0 || (!r.error &&
+            (!Array.isArray(r.findings) || !Number.isFinite(r.chrome?.top) ||
+              !Number.isFinite(r.hierarchy?.h1Count) || !r.firstAction)))) {
+      throw new Error("expected a baseline and nonempty route/width measurements");
+    }
+  } catch (error) {
+    console.error(`FAIL — cannot replay measurements: ${error.message}`);
+    process.exit(1);
+  }
+  console.log("REPLAY — saved browser measurements only; live routes and stylesheets were not checked.");
+}
 const projectWidths =
   baseline && Array.isArray(baseline.widths) && baseline.widths.length
     ? baseline.widths.map(Number).filter(Boolean)
     : DEFAULT_WIDTHS;
-const cssScan = BASE
+const cssScan = REPLAY ? { viewport: new Set(), namedCliffs: new Map() } : BASE
   ? await remoteBreakpoints(String(BASE).replace(/\/+$/, ""))
   : cssBreakpoints(DIST);
 const cssWidths = cssScan.viewport;
+if (BASE && !WIDTHS_ARG && !cssWidths.size && baseline?.measuredWidths?.length > projectWidths.length) {
+  console.error("FAIL — deployed CSS yielded no breakpoints; the recorded viewport sweep cannot be verified.");
+  process.exit(1);
+}
 const widths = WIDTHS_ARG
   ? String(WIDTHS_ARG).split(",").map((w) => parseInt(w.trim(), 10)).filter(Boolean)
-  : [...new Set([...projectWidths, ...cssWidths])].sort((a, b) => a - b);
+  : [...new Set([...projectWidths, ...cssWidths, ...(saved ? [
+      ...(baseline.measuredWidths ?? []), ...saved.measurements.map((r) => r.w),
+    ] : [])])].sort((a, b) => a - b);
 
-const routes = await discoverRoutes();
+const allRoutes = saved && !ROUTES_ARG
+  ? [...new Set([...Object.keys(baseline.routes ?? {}), ...saved.measurements.map((r) => r.route)])]
+  : await discoverRoutes();
+const routes = SHARD
+  ? allRoutes.filter((_, i) => i % shardCount === shardIndex - 1)
+  : allRoutes;
+const planId = (SHARD || ASSEMBLE) && cssScan.fingerprint && cssScan.stylesRead && baseline
+  ? createHash("sha256").update(JSON.stringify({
+      base: String(BASE).replace(/\/+$/, ""), routes: allRoutes, advertisedRoutes, widths,
+      fingerprint: cssScan.fingerprint, baseline,
+    })).digest("hex")
+  : null;
+if ((SHARD || ASSEMBLE) && !planId) {
+  console.error("FAIL — cannot identify the deployed site and baseline for the measurement plan.");
+  process.exit(1);
+}
 if (!routes.length) {
   console.error("\nFAIL — the spatial gate found no routes to measure. Nothing was verified.\n");
   process.exit(1);
@@ -1236,6 +1313,7 @@ if (!routes.length) {
 //
 // So the assumption is gone. Every measurement is a fresh load at the width
 // being measured, and there is nothing left to prove.
+async function measureInBrowser() {
 await startServer(routes, widths);
 
 const prof = `${tmpdir()}/spatial-law-${process.pid}-${Date.now()}`;
@@ -1412,7 +1490,46 @@ if (payload.error) {
   console.error(`\nFAIL — the spatial harness threw. Nothing was verified.\n${String(payload.error).trim()}\n`);
   process.exit(1);
 }
-const results = Array.isArray(payload.measurements) ? payload.measurements : [];
+return payload;
+}
+
+async function assembleShards(dir) {
+  const parts = await readdir(dir, { recursive: true });
+  const files = parts.filter((name) => name.endsWith(".json"));
+  const seen = new Set();
+  let count;
+  const measurements = [];
+  for (const file of files) {
+    const { plan, shard, measurements: cells } = JSON.parse(readFileSync(path.join(dir, file), "utf8"));
+    if (plan !== planId || !Number.isInteger(shard?.index) || !Number.isInteger(shard?.count) ||
+        shard.count < 2 || shard.index < 1 || shard.index > shard.count ||
+        seen.has(shard.index) || (count !== undefined && count !== shard.count) || !Array.isArray(cells)) {
+      throw new Error(`invalid, duplicate or incompatible shard: ${file}`);
+    }
+    count = shard.count;
+    seen.add(shard.index);
+    const assigned = new Set(allRoutes.filter((_, i) => i % count === shard.index - 1));
+    if (!assigned.size || cells.length !== assigned.size * widths.length ||
+        cells.some((cell) => !assigned.has(cell?.route) || !widths.includes(cell?.w))) {
+      throw new Error(`shard does not cover its assigned route/width cells: ${file}`);
+    }
+    measurements.push(...cells);
+  }
+  if (!count || seen.size !== count) throw new Error(`expected ${count ?? "all"} shards, got ${seen.size}`);
+  return { measurements };
+}
+let sweep;
+try {
+  sweep = saved ?? (ASSEMBLE ? await assembleShards(ASSEMBLE) : await measureInBrowser());
+} catch (error) {
+  console.error(`FAIL — cannot obtain spatial evidence: ${error.message}`);
+  process.exit(1);
+}
+if (SHARD && (await remoteBreakpoints(String(BASE).replace(/\/+$/, ""))).fingerprint !== cssScan.fingerprint) {
+  console.error("FAIL — deployed HTML or stylesheets changed during this shard; no evidence was published.");
+  process.exit(1);
+}
+const results = Array.isArray(sweep.measurements) ? sweep.measurements : [];
 
 const expected = routes.length * widths.length;
 // The gate must have measured every ROUTE at every WIDTH. Counting the
@@ -1465,11 +1582,22 @@ if (upstreamStatus.size) {
     }
   }
 }
+// Save every measured cell, including read errors, before issuing a verdict.
+// Otherwise the artifact is missing precisely when one route would not render.
+if (JSON_OUT) {
+  mkdirSync(path.dirname(path.resolve(String(JSON_OUT))), { recursive: true });
+  const metadata = SHARD ? { plan: planId, shard: { index: shardIndex, count: shardCount } } : {};
+  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ ...metadata, measurements: results }, null, 2));
+}
 const errored = results.filter((r) => r.error);
 if (errored.length) {
   console.error(`\nFAIL — the spatial gate could not read ${errored.length} page measurement(s):`);
   for (const e of errored.slice(0, 10)) console.error(`  ✗ ${e.route} @${e.w}px — ${e.error}`);
   process.exit(1);
+}
+if (SHARD) {
+  console.log(`Collected ${results.length} measurements for shard ${SHARD}; no site-wide verdict yet.`);
+  process.exit(0);
 }
 // The notes are printed at the end of the run.
 const notes = [];
@@ -1479,12 +1607,6 @@ if (dossierRowsCollapsed) {
       `The receipt records layouts, and the measurement copy leaves these rows out for the same reason. ` +
       `They are not pages without a receipt.`,
   );
-}
-
-// ---------------------------------------------------------------- the raw measurements
-if (JSON_OUT) {
-  mkdirSync(path.dirname(path.resolve(String(JSON_OUT))), { recursive: true });
-  writeFileSync(path.resolve(String(JSON_OUT)), JSON.stringify({ measurements: results }, null, 2));
 }
 
 // ---------------------------------------------------------------- policy
@@ -1835,30 +1957,35 @@ if (namedCliffs.size) {
         if (!byContainer.has(nm)) byContainer.set(nm, new Map());
         const perSel = byContainer.get(nm);
         if (!perSel.has(c.sel)) perSel.set(c.sel, new Map());
-        perSel.get(c.sel).set(Number(r.w), c.w);
+        perSel.get(c.sel).set(Number(r.w), c);
       }
     }
   }
   for (const [name, cliffs] of namedCliffs) {
-    for (const cliff of [...cliffs].sort((a, b) => a - b)) {
+    for (const term of [...cliffs].sort()) {
+      const cliff = parseFloat(term);
+      const unit = term.endsWith("rem") ? "rem" : term.endsWith("em") ? "em" : "px";
       if (!name) {
         notes.push(
-          `the container cliff at ${cliff}px belongs to an ANONYMOUS container query — the gate cannot tell which container it applies to, so it cannot say whether it was swept. Name the query (@container name (min-width: ${cliff}px)) and the gate will check it.`,
+          `the container cliff at ${term} belongs to an ANONYMOUS container query — the gate cannot tell which container it applies to, so it cannot say whether it was swept. Name the query and the gate will check it.`,
         );
         continue;
       }
       const perSel = byContainer.get(name);
       if (!perSel || !perSel.size) {
         notes.push(
-          `the container cliff at ${cliff}px belongs to "${name}", which no measured page contains — there was nothing to sweep.`,
+          `the container cliff at ${term} belongs to "${name}", which no measured page contains — there was nothing to sweep.`,
         );
         continue;
       }
       let landed = null;
       let straddled = null;
       for (const [sel, pairs] of perSel) {
-        const list = [...pairs.entries()].sort((a, b) => a[1] - b[1]);
-        const near = list.find(([, w]) => Math.abs(w - cliff) <= 2);
+        const list = [...pairs.entries()].map(([v, c]) => {
+          const scale = unit === "em" ? c.fontPx : unit === "rem" ? c.rootFontPx : 1;
+          return [v, c.w / scale, scale];
+        }).filter(([, w]) => Number.isFinite(w)).sort((a, b) => a[1] - b[1]);
+        const near = list.find(([, w, scale]) => Math.abs(w - cliff) * scale <= 2);
         if (near) {
           landed = { sel, w: near[1], v: near[0] };
           break;
@@ -1872,7 +1999,7 @@ if (namedCliffs.size) {
       }
       if (landed) {
         notes.push(
-          `the container cliff at ${cliff}px was measured — the container "${name}" was ${landed.w}px wide at viewport ${landed.v}px`,
+          `the container cliff at ${term} was measured — the container "${name}" was ${landed.w.toFixed(2)}${unit} wide at viewport ${landed.v}px`,
         );
       } else if (straddled) {
         const [v1, w1] = straddled.below;
@@ -1883,21 +2010,21 @@ if (namedCliffs.size) {
         // off. Naming it turns "add a width" into one number.
         const guess =
           w2 > w1 ? Math.round(v1 + ((cliff - w1) * (v2 - v1)) / (w2 - w1)) : Math.round((v1 + v2) / 2);
-        const where = `the container is ${w1}px wide at viewport ${v1}px and ${w2}px wide at viewport ${v2}px`;
+        const where = `the container is ${w1.toFixed(2)}${unit} wide at viewport ${v1}px and ${w2.toFixed(2)}${unit} wide at viewport ${v2}px`;
         if (cssComplete) {
           failures.push(
-            `unswept container cliff — the layout changes when the container "${name}" is ${cliff}px wide, ` +
+            `unswept container cliff — the layout changes when the container "${name}" is ${term} wide, ` +
               `but the sweep never put it there (${where}). The layout on one side of that cliff was never measured. ` +
               `Add a viewport width of about ${guess}px to the project's widths — that is where the container lands on the cliff.`,
           );
         } else {
           notes.push(
-            `the container cliff at ${cliff}px was crossed but not measured (${where}) — this sweep did not cover every cliff the CSS declares, so it is recorded, not failed.`,
+            `the container cliff at ${term} was crossed but not measured (${where}) — this sweep did not cover every cliff the CSS declares, so it is recorded, not failed.`,
           );
         }
       } else {
         notes.push(
-          `the container cliff at ${cliff}px was never crossed — the container "${name}" never reached it at any swept width, so there was nothing to measure`,
+          `the container cliff at ${term} was never crossed — the container "${name}" never reached it at any swept width, so there was nothing to measure`,
         );
       }
     }
@@ -2172,7 +2299,7 @@ if (REPORT) {
     );
   }
   console.log(`\n${results.length} measurements across ${routes.length} routes and ${widths.length} widths.`);
-  console.log(
+  if (!REPLAY) console.log(
     `  · every one of them was taken from a FRESH page load at the width being measured, on a real clock — ` +
       `so the geometry recorded is the geometry a reader gets, not the geometry of a page that had not finished arriving.`,
   );
@@ -2259,6 +2386,8 @@ printNotes();
 console.log(
   `  · spatial: ${results.length} measurements across ${routes.length} routes and ${widths.length} widths — ` +
     `every hole, orphan, scattered pair and wrap is either fixed or written down`,
+);
+if (!REPLAY) console.log(
   `  · spatial: every measurement was a fresh load at the width measured, on a real clock — ` +
     `the chrome of each page is recorded, and a chrome that changed is a change the receipt cannot hide`,
 );

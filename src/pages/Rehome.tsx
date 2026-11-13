@@ -1,20 +1,21 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import type { Card } from '../lib/data.ts'
-import { dash, usd } from '../lib/format.ts'
+import { dash, saleWindowLabel, usd } from '../lib/format.ts'
 
 import TransactionGraphic from '../components/TransactionGraphic.tsx'
 
+type Draft = Record<'story' | 'condition' | 'included' | 'service' | 'transfer', string>
+const emptyDraft: Draft = { story: '', condition: '', included: '', service: '', transfer: 'Still deciding' }
+
 export default function Rehome() {
   const data = useDataset()
-  const [selectedId, setSelectedId] = useState('')
-  const [story, setStory] = useState('')
-  const [condition, setCondition] = useState('')
-  const [included, setIncluded] = useState('')
-  const [service, setService] = useState('')
-  const [transfer, setTransfer] = useState('Sale at a fair, evidence-informed price')
-  const [copied, setCopied] = useState(false)
+  const [params, setParams] = useSearchParams()
+  const selectedId = params.get('watch') ?? ''
+  const [drafts, setDrafts] = useState<Record<string, Draft>>({})
+  const [copiedBrief, setCopiedBrief] = useState('')
+  const [copyFailed, setCopyFailed] = useState(false)
 
   const cards = useMemo(
     () => [...(data?.cards ?? [])].sort((a, b) => `${a.identity.brand} ${a.identity.name}`.localeCompare(`${b.identity.brand} ${b.identity.name}`)),
@@ -22,84 +23,97 @@ export default function Rehome() {
   )
   if (!data) return null
   const card = cards.find((c) => c.id === selectedId)
-  const brief = card ? buildBrief(card, { story, condition, included, service, transfer }) : ''
+  const draft = drafts[selectedId] ?? emptyDraft
+  const { story, condition, included, service, transfer } = draft
+  const changeDraft = (field: keyof Draft, value: string) => {
+    setDrafts(current => ({ ...current, [selectedId]: { ...(current[selectedId] ?? emptyDraft), [field]: value } }))
+  }
+  const brief = card ? buildBrief(card, draft) : ''
 
   const copyBrief = async () => {
     if (!brief) return
-    await navigator.clipboard.writeText(brief)
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 1800)
+    try {
+      await navigator.clipboard.writeText(brief)
+      setCopiedBrief(brief)
+      setCopyFailed(false)
+    } catch {
+      setCopiedBrief('')
+      setCopyFailed(true)
+    }
   }
 
   return (
     <>
       <p className="eyebrow">Responsible rehoming</p>
-      <h1 className="pagetitle">Find the next custodian, not just a buyer</h1>
-      <p className="lede">
-        A thoughtful handover begins with the truth of the object: what it is, how it has lived,
-        what comes with it, and what the next person should know. This tool turns those facts into a shareable brief.
-      </p>
+      <h1 className="pagetitle">Pass a watch on</h1>
+      <p className="lede">Make a brief for the next owner. Drafts aren’t posted or saved.</p>
 
-      <div className="rehome-layout">
+      <div className={'rehome-layout' + (card ? ' rehome-layout--selected' : '')}>
         <form className="rehome-form" onSubmit={(event) => event.preventDefault()}>
-          <div className="section-rule"><h2>Build the brief</h2><span className="mono micro dim">NOT A LISTING FORM</span></div>
+          <div className="section-rule"><h2>Build the brief</h2>{card && <a className="src-a rehome-preview-link" href="#handover-preview">Preview ↓</a>}</div>
           <label>
             <span className="field-label">Watch in the register</span>
-            <select className="sel field" value={selectedId} onChange={(event) => { setSelectedId(event.target.value); setCopied(false) }}>
+            <select id="rehome-watch" className="sel field" value={card?.id ?? ''} onChange={(event) => {
+              setParams(event.target.value ? { watch: event.target.value } : {}, { replace: true })
+              setCopiedBrief('')
+              setCopyFailed(false)
+            }}>
               <option value="">CHOOSE A REFERENCE…</option>
               {cards.map((c) => <option value={c.id} key={c.id}>{c.identity.brand.toUpperCase()} · {c.identity.name.toUpperCase()} · {c.identity.reference}</option>)}
             </select>
           </label>
+          {card && <>
           <label>
             <span className="field-label">Why are you passing it on?</span>
-            <textarea className="inp field area" value={story} onChange={(event) => setStory(event.target.value)} placeholder="The honest, human part of the story…" />
+            <textarea className="inp field area" rows={2} value={story} onChange={(event) => changeDraft('story', event.target.value)} placeholder="What should the next owner know about its story?" />
           </label>
           <label>
             <span className="field-label">Condition and known issues</span>
-            <textarea className="inp field area" value={condition} onChange={(event) => setCondition(event.target.value)} placeholder="Wear, marks, accuracy, replaced parts — disclose what you know." />
+            <textarea className="inp field area" rows={2} value={condition} onChange={(event) => changeDraft('condition', event.target.value)} placeholder="Wear, marks, accuracy, replaced parts." />
           </label>
           <label>
             <span className="field-label">What is included?</span>
-            <input className="inp field" value={included} onChange={(event) => setIncluded(event.target.value)} placeholder="Watch, box, papers, links, receipts…" />
+            <input className="inp field" value={included} onChange={(event) => changeDraft('included', event.target.value)} placeholder="Watch, box, papers, links, receipts…" />
           </label>
           <label>
             <span className="field-label">Service and ownership history</span>
-            <textarea className="inp field area" value={service} onChange={(event) => setService(event.target.value)} placeholder="Dates, work performed, documentation, previous owners…" />
+            <textarea className="inp field area" rows={2} value={service} onChange={(event) => changeDraft('service', event.target.value)} placeholder="Dates, work performed, documentation." />
           </label>
           <label>
             <span className="field-label">Preferred handover</span>
-            <select className="sel field" value={transfer} onChange={(event) => setTransfer(event.target.value)}>
+            <select className="sel field" value={transfer} onChange={(event) => changeDraft('transfer', event.target.value)}>
+              <option>Still deciding</option>
               <option>Sale at a fair, evidence-informed price</option>
               <option>Trade for another watch</option>
               <option>Gift to the right person</option>
-              <option>Still deciding</option>
             </select>
           </label>
+          </>}
         </form>
 
-        <aside className="brief-preview" aria-live="polite">
-          <div className="section-rule"><h2>Your handover brief</h2><span className="mono micro dim">PREVIEW</span></div>
-          {card ? (
-            <>
-              <p className="eyebrow">Looking for the next custodian of</p>
+        {card && <aside className="brief-preview" id="handover-preview" tabIndex={-1}>
+          <div className="section-rule"><h2>Your handover brief</h2></div>
               <h3>{card.identity.brand} {card.identity.name} <span className="mono">{card.identity.reference}</span></h3>
               <p className="dim">{card.identity.one_liner}</p>
+              <p className="rehome-market-context">{marketContext(card)}</p>
+              <div className="rehome-actions">
+                <button type="button" className="btn" onClick={copyBrief}>{copiedBrief === brief ? 'COPIED ✓' : 'COPY BRIEF'}</button>
+                <Link className="brief-dossier src-a" to={`/w/${card.id}`}>Sourced dossier →</Link>
+              </div>
+              <p role="status" className="micro">{copyFailed ? 'Clipboard unavailable. Select the text below to copy it.' : copiedBrief === brief ? 'Brief copied.' : ''}</p>
+              {copyFailed && <label className="rehome-copy-fallback">
+                <span className="field-label">Brief text</span>
+                <textarea className="inp field area" readOnly value={brief} onFocus={event => event.currentTarget.select()} />
+              </label>}
               <dl className="brief-facts">
                 <BriefFact label="Why it is moving on" value={story} />
                 <BriefFact label="Condition & disclosure" value={condition} />
                 <BriefFact label="Included" value={included} />
                 <BriefFact label="Service & ownership" value={service} />
                 <BriefFact label="Preferred handover" value={transfer} />
-                <BriefFact label="Register context" value={marketContext(card)} />
               </dl>
-              <TransactionGraphic card={card} />
-              <button type="button" className="btn" onClick={copyBrief}>{copied ? 'COPIED ✓' : 'COPY BRIEF'}</button>
-              <Link className="brief-dossier src-a" to={`/w/${card.id}`}>Open the sourced dossier →</Link>
-            </>
-          ) : (
-            <p className="empty-state">Choose a reference to begin. The register will supply identity and market context; you supply the object’s actual life.</p>
-          )}
-        </aside>
+              {card.computed.estimate.value != null && <TransactionGraphic card={card} />}
+        </aside>}
       </div>
 
       <section className="handover-checklist">
@@ -117,16 +131,18 @@ export default function Rehome() {
 }
 
 function BriefFact({ label, value }: { label: string; value: string }) {
-  return <div><dt>{label}</dt><dd>{value.trim() || 'Not added yet.'}</dd></div>
+  return value.trim() ? <div><dt>{label}</dt><dd>{value.trim()}</dd></div> : null
 }
 
 function marketContext(card: Card): string {
   const estimate = card.computed.estimate
   if (estimate.value == null) return `No market estimate — ${estimate.limitation}`
-  return `${usd(estimate.value)} evidence-based estimate from ${estimate.n} verified sales over ${estimate.window_months} months. This is context, not an asking-price recommendation.`
+  const age = estimate.as_of ? `; newest sale ${estimate.as_of}` : '; newest sale date unavailable'
+  const window = estimate.window_months == null ? '' : ` · ${saleWindowLabel(estimate.window_months)}`
+  return `${estimate.stale ? 'Historical estimate' : 'Market estimate'}: ${usd(estimate.value)} from ${estimate.n} verified sales${window}${age}. Not an asking price or an appraisal of this watch.`
 }
 
-function buildBrief(card: Card, fields: Record<'story' | 'condition' | 'included' | 'service' | 'transfer', string>): string {
+function buildBrief(card: Card, fields: Draft): string {
   return [
     `LOOKING FOR THE NEXT CUSTODIAN OF`,
     `${card.identity.brand} ${card.identity.name} · ${card.identity.reference}`,

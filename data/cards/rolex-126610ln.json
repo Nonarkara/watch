@@ -42,19 +42,19 @@
   "market_evidence": {
     "comps": [
       {
-        "date": "2025-04-08",
-        "price_usd": 10795,
-        "venue": "phillips",
-        "url": "https://www.phillips.com/detail/rolex/NY080325/43",
-        "condition": null,
+        "date": "2021-06-22",
+        "price_usd": 15000,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/watches-online-new-york-edition/rolex-submariner-steel-ref-126610ln-104/121670",
+        "condition": "2021 steel 41 mm, black dial; excellent overall condition",
         "box_papers": "full_set"
       },
       {
-        "date": "2023-05-15",
-        "price_usd": 13970,
+        "date": "2025-04-08",
+        "price_usd": 10795,
         "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "126610LN 41mm Submariner Date, 2022",
+        "url": "https://www.phillips.com/detail/rolex/217138",
+        "condition": null,
         "box_papers": "full_set"
       },
       {

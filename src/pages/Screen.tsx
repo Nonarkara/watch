@@ -27,7 +27,7 @@ interface FilmWatchRow {
 
 const FILM_WATCHES: FilmWatchRow[] = [
   { brand: 'Rolex', reference: '6538', watch: 'Submariner (Big Crown)', film: 'Dr. No', year: 1962, character: 'Sean Connery as James Bond',
-    note: 'Connery lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor.', dossierId: 'rolex-submariner-6538' },
+    note: 'The oversized, unguarded crown is the detail to look for.', dossierId: 'rolex-submariner-6538' },
   { brand: 'Heuer', reference: '1133B', watch: 'Monaco', film: 'Le Mans', year: 1971, character: 'Steve McQueen as Michael Delaney',
     note: 'McQueen personally requested the Monaco from Jack Heuer. Crown sits on the left so it does not dig into the wrist while racing.', dossierId: 'tagheuer-monaco-caw211p' },
   { brand: 'Omega', reference: 'Speedmaster', watch: 'Professional Moonwatch', film: 'Apollo 13', year: 1995, character: 'Kevin Bacon as Jack Swigert',
@@ -146,13 +146,10 @@ export default function Screen() {
   // Track dossier-portrait URLs already shown so two Milgauss cards don't look like two photos.
   const seenPortraits = new Set<string>()
 
-  const withStillsAndPortrait = snapshot?.sightings.filter((item) => {
-    if (item.media) return true
-    if (item.suppress_portrait_fallback) return false
-    const cid = item.matched_card_ids?.[0]
-    if (!cid) return false
-    return mediaById.has(cid)
-  }).length ?? 0
+  const distinctPortraits = new Set((snapshot?.sightings ?? []).flatMap((item) => {
+    const media = imageForSighting(item, mediaById)
+    return media?.kind === 'portrait' ? [media.url] : []
+  })).size
 
   return (
     <div className="screen-page">
@@ -174,7 +171,7 @@ export default function Screen() {
           <div className="pop-panel screen-stat-panel">
             <span className="bubble-kicker mono">THE HONEST PLOT TWIST</span>
             <strong>{snapshot?.count ?? '—'} sightings</strong>
-            <span>{withStills} with credited stills · {withStillsAndPortrait} with a portrait shown · {exact} exact Rolex reference maps · {snapshot?.iconic_stills ?? 0} iconic film icons</span>
+            <span>{withStills} sightings with credited stills · {distinctPortraits} distinct watch portraits · {exact} exact-reference matches</span>
             {snapshot?.editorial_url && (
               <a href={snapshot?.editorial_url} target="_blank" rel="noreferrer" className="mono micro">
                 TEDDY BALDASSARRE ROUNDUP ↗
@@ -189,7 +186,7 @@ export default function Screen() {
           the license, the deep link. */}
       <section className="screen-spotlight" aria-label="Featured cinematic pairing">
         <div className="screen-spotlight-eyebrow">
-          <span className="eyebrow">FEATURED PAIRING · THE ONE THAT STARTED IT</span>
+          <span className="eyebrow">FEATURED PAIRING</span>
           <span className="screen-spotlight-eyebrow-meta mono">1962 · DR. NO · THE SUBMARINER ON BOND'S WRIST</span>
         </div>
         <div className="screen-spotlight-grid">
@@ -197,14 +194,15 @@ export default function Screen() {
             <p className="screen-spotlight-eyebrow-row">
               <span className="eyebrow">ROLEX · SUBMARINER 6538 · BIG CROWN</span>
             </p>
-            <h2 className="screen-spotlight-title">Connery lit the dial with a lighter in Goldfinger. The Submariner proved a film watch could be plot armor.</h2>
+            <h2 className="screen-spotlight-title">Bond’s Big Crown in <i>Dr. No</i></h2>
             <p className="screen-spotlight-body-text">
-              The 6538 sits on Connery's wrist in Dr. No and across the first four Bond films.
-              It is the first watch the screen ever wore on purpose — not as a brand placement,
-              but as a piece of equipment the character would actually need. The dial reads
-              because Bond needs to read it. That is why it became the most-cited watch in
-              any catalogue.
+              The detail to look for on Connery’s Submariner is the winding crown: 8 mm wide,
+              with no guards on either side.{' '}
+              <a className="src-a" href="https://www.christies.com/lot/lot-6120030" target="_blank" rel="noreferrer">Christie’s catalogue</a>{' '}
+              identifies it as reference 6538 and notes that collectors call it the “James Bond” model.
             </p>
+          </div>
+          <div className="screen-spotlight-facts">
             <div className="screen-spotlight-credits mono">
               <div><span>STUDIO</span><strong>United Artists (EON Productions)</strong></div>
               <div><span>YEAR</span><strong>1962</strong></div>
@@ -267,6 +265,25 @@ export default function Screen() {
         </p>
       </aside>
 
+      <div className="screen-compact-controls" role="group" aria-label="Sighting filters">
+        <select className="sel" aria-label="Filter by media type" value={filter} onChange={(e) => setFilter(e.target.value as Filter)}>
+          <option value="all">All media</option>
+          <option value="film">Film</option>
+          <option value="television">Television</option>
+          <option value="other">Other</option>
+        </select>
+        {decadeChips.length > 1 && <select className="sel" aria-label="Filter by decade"
+          value={yearMin ?? ''} onChange={(e) => {
+            const decade = decadeChips.find((d) => String(d.from) === e.target.value)
+            setYearMin(decade?.from ?? null)
+            setYearMax(decade?.to ?? null)
+          }}>
+          <option value="">All decades</option>
+          {decadeChips.map((d) => <option key={d.from} value={d.from}>{d.label}</option>)}
+        </select>}
+        <label className="screen-exact-check"><input type="checkbox" checked={exactOnly} onChange={(e) => setExactOnly(e.target.checked)} /> Exact reference only</label>
+        <span className="mono micro dim" role="status">{sightings.length} SHOWN</span>
+      </div>
       <div className="screen-controls" role="group" aria-label="Filter by media type">
         {(['all', 'film', 'television', 'other'] as Filter[]).map((value) => (
           <button className={`chip ${filter === value ? 'on' : ''}`} key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{value.toUpperCase()}</button>
@@ -279,6 +296,7 @@ export default function Screen() {
         <div className="screen-controls screen-year-controls" role="group" aria-label="Filter by decade">
           <button
             className={`chip ${yearMin == null && yearMax == null ? 'on' : ''}`}
+            aria-pressed={yearMin == null && yearMax == null}
             onClick={() => { setYearMin(null); setYearMax(null) }}
           >ALL YEARS</button>
           {decadeChips.map((d) => {
@@ -287,6 +305,7 @@ export default function Screen() {
               <button
                 key={d.label}
                 className={`chip ${active ? 'on' : ''}`}
+                aria-pressed={active}
                 onClick={() => { setYearMin(d.from); setYearMax(d.to) }}
                 title={`Sightings from ${d.from} to ${d.to}`}
               >{d.label.toUpperCase()}</button>
@@ -296,7 +315,7 @@ export default function Screen() {
       )}
 
       <div className="screen-grid">
-        {sightings.map((item, index) => {
+        {sightings.map((item) => {
           let watchMedia = imageForSighting(item, mediaById)
           let sharedPortrait = false
           if (watchMedia?.kind === 'portrait') {
@@ -310,8 +329,8 @@ export default function Screen() {
           const isInContext = watchMedia?.kind === 'in_context'
           const studio = productionLabel(item)
           return (
-            <article className={`screen-card ${index % 5 === 1 ? 'tilt-right' : index % 5 === 3 ? 'tilt-left' : ''}`} key={item.id}>
-              <div className="screen-card-media">
+            <article className={`screen-card${watchMedia ? ' screen-card--illustrated' : ''}`} key={item.id}>
+              <div className={`screen-card-media${watchMedia ? '' : ' screen-card-media--empty'}`}>
                 {watchMedia ? (
                   <a
                     href={watchMedia.source_url}
@@ -340,36 +359,39 @@ export default function Screen() {
                   </div>
                 )}
               </div>
-              {!isInContext && watchMedia && (
-                <p className="screen-still-withheld-note mono micro">
-                  THE IN-FILM STILL IS COPYRIGHTED BY {studio.toUpperCase()}. WE SHOW THE WATCH INSTEAD.
-                </p>
-              )}
-              <div className="screen-card-top">
-                <span className="screen-kind mono">{item.brand} · {item.media_type}</span>
-                <span className={`evidence-badge ${item.identification}`}>{item.identification}</span>
-              </div>
-              <p className="eyebrow">{item.release_year ?? 'YEAR NOT RECORDED'}</p>
-              <h2>{item.watch}</h2>
-              <p>{item.description}</p>
-              {watchMedia?.caption && <p className="screen-caption dim micro">{watchMedia.caption}</p>}
-              {watchMedia?.license && <p className="screen-rights mono micro dim">{watchMedia.license}</p>}
-              <div className="screen-match mono micro">
-                {item.match_level === 'exact_reference' ? 'EXACT-REFERENCE MAP' : 'FAMILY ONLY · NOT SCORED AS SCARCITY'}
-              </div>
-              <div className="catalog-actions mono micro">
-                <a href={item.source_url} target="_blank" rel="noreferrer">
-                  {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'EDITORIAL SOURCE ↗'}
-                </a>
-                {(item.editorial_url || snapshot?.editorial_url) && item.source_url.includes('watch-id.com') && (
-                  <a href={item.editorial_url ?? snapshot?.editorial_url} target="_blank" rel="noreferrer">TEDDY ↗</a>
+              <div className="screen-card-body">
+                {!isInContext && watchMedia && (
+                  <p className="screen-still-withheld-note mono micro">
+                    THE IN-FILM STILL IS COPYRIGHTED BY {studio.toUpperCase()}. WE SHOW THE WATCH INSTEAD.
+                  </p>
                 )}
-                {item.matched_card_ids[0] && <Link to={`/w/${item.matched_card_ids[0]}`}>DOSSIER →</Link>}
+                <div className="screen-card-top">
+                  <span className="screen-kind mono">{item.brand} · {item.media_type}</span>
+                  <span className={`evidence-badge ${item.identification}`}>{item.identification}</span>
+                </div>
+                <p className="eyebrow">{item.release_year ?? 'YEAR NOT RECORDED'}</p>
+                <h2>{item.watch}</h2>
+                <p>{item.description}</p>
+                {watchMedia?.caption && <p className="screen-caption dim micro">{watchMedia.caption}</p>}
+                {watchMedia?.license && <p className="screen-rights mono micro dim">{watchMedia.license}</p>}
+                <div className="screen-match mono micro">
+                  {item.match_level === 'exact_reference' ? 'EXACT-REFERENCE MAP' : 'FAMILY ONLY · NOT SCORED AS SCARCITY'}
+                </div>
+                <div className="catalog-actions mono micro">
+                  <a href={item.source_url} target="_blank" rel="noreferrer">
+                    {item.source_url.includes('watch-id.com') ? 'WATCH-ID ↗' : 'SOURCE ↗'}
+                  </a>
+                  {(item.editorial_url || snapshot?.editorial_url) && item.source_url.includes('watch-id.com') && (
+                    <a href={item.editorial_url ?? snapshot?.editorial_url} target="_blank" rel="noreferrer">TEDDY ↗</a>
+                  )}
+                  {item.matched_card_ids[0] && <Link to={`/w/${item.matched_card_ids[0]}`}>DOSSIER →</Link>}
+                </div>
               </div>
             </article>
           )
         })}
       </div>
+      {snapshot && sightings.length === 0 && <p className="screen-no-results">No sightings match these filters.</p>}
 
       <section className="evidence-note">
         <p className="eyebrow">CREDITS &amp; LIMITS</p>

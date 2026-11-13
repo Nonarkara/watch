@@ -1,6 +1,6 @@
 {
   "collected": "2026-08-02",
-  "built_at": "2026-11-06",
+  "built_at": "2026-11-13",
   "source_url": "https://www.watch-id.com/brands/rolex",
   "editorial_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
   "count": 45,
@@ -215,9 +215,7 @@
       "release_year": 2022,
       "identification": "reported",
       "match_level": "family_only",
-      "matched_card_ids": [
-        "tagheuer-carrera-glassbox-cbs2210"
-      ],
+      "matched_card_ids": [],
       "source_url": "https://teddybaldassarre.com/en-int/blogs/watches/movie-watches",
       "media": {
         "type": "image",

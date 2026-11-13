@@ -37,11 +37,11 @@
   "market_evidence": {
     "comps": [
       {
-        "date": "2022-06-09",
-        "price_usd": 165100,
+        "date": "2023-06-10",
+        "price_usd": 25400,
         "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "310.32.42.50.02.001 Silver Snoopy 50th, full set",
+        "url": "https://www.phillips.com/detail/omega/NY080123/2",
+        "condition": "2022 steel Silver Snoopy Award, unworn; case 83’710’140",
         "box_papers": "full_set"
       }
     ],

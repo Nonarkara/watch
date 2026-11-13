@@ -1,5 +1,6 @@
 // Card validator — the invariant gate. Importable + CLI: node scripts/validate_card.mjs data/cards/x.json
 import { readFileSync } from "node:fs";
+import { phillipsLotKeys } from "./lib/market-harvest.mjs";
 
 const TIERS = ["trinity", "crown", "haute", "core", "attainable"];
 const VENUES = ["phillips", "christies", "sothebys", "antiquorum", "bonhams", "ebay", "other_auction"];
@@ -15,7 +16,20 @@ const isUrl = (u) => {
 // YYYY alone is legal for provenance/waitlist dates — honest when only the year is known.
 const isDate = (d) => typeof d === "string" && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(d) && !isNaN(new Date(d));
 
-export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
+function saleKeys(sale) {
+  const url = new URL(sale.url);
+  url.hash = "";
+  for (const key of [...url.searchParams.keys()]) {
+    if (/^utm_/i.test(key) || (/(^|\.)ha\.com$/i.test(url.hostname) && /^ic\d+$/i.test(key))) {
+      url.searchParams.delete(key);
+    }
+  }
+  url.searchParams.sort();
+  url.pathname = url.pathname.replace(/\/$/, "");
+  return [url.href, ...phillipsLotKeys(sale)];
+}
+
+export function validateCard(card, { id, buildDate = "2099-01-01", comparableSaleOwners } = {}) {
   const errs = [];
   const req = (cond, msg) => { if (!cond) errs.push(msg); };
 
@@ -66,18 +80,61 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
 
   const ev = card.market_evidence || {};
   req(Array.isArray(ev.comps), "market_evidence.comps must be an array");
+  if (ev.comparable_dial !== undefined) {
+    req(typeof ev.comparable_dial === "string" && ev.comparable_dial.trim() === ev.comparable_dial &&
+      ev.comparable_dial.length > 0, "market_evidence.comparable_dial must be a non-empty, trimmed string");
+  }
+  const seenSaleKeys = new Set();
+  const comparableKeys = new Set();
   for (const [i, c] of (ev.comps || []).entries()) {
+    if (typeof ev.comparable_dial === "string" && c.comparable !== false) {
+      req(typeof c.dial === "string" && c.dial.trim().toLowerCase() === ev.comparable_dial.toLowerCase(),
+        `comps[${i}].dial must match the comparable dial or be marked non-comparable`);
+    }
     req(isDate(c.date), `comps[${i}].date must be YYYY-MM-DD`);
     req(new Date(c.date) <= new Date(buildDate), `comps[${i}].date in the future`);
     req(Number.isFinite(c.price_usd) && c.price_usd > 0, `comps[${i}].price_usd must be finite and > 0`);
     req(VENUES.includes(c.venue), `comps[${i}].venue invalid`);
     req(isUrl(c.url), `comps[${i}].url must be a URL — no unsourced sales`);
+    if (isUrl(c.url)) {
+      const keys = saleKeys(c);
+      for (const key of keys) {
+        req(!seenSaleKeys.has(key), `comps[${i}].url repeats an auction lot already on this card`);
+        seenSaleKeys.add(key);
+      }
+      if (comparableSaleOwners && c.comparable !== false) {
+        const owner = keys.map((key) => comparableSaleOwners.get(key)).find(Boolean);
+        req(!owner, `comps[${i}] auction lot already comparable on ${owner}`);
+        for (const key of keys) comparableKeys.add(key);
+      }
+    }
+    if (c.date_source_url !== undefined) req(isUrl(c.date_source_url), `comps[${i}].date_source_url must be a URL`);
     req(BOX.includes(c.box_papers ?? null), `comps[${i}].box_papers invalid`);
     req(c.comparable === undefined || typeof c.comparable === "boolean", `comps[${i}].comparable must be boolean`);
     // Excluding a sale from the estimate is a judgement call — it must state its reason.
     if (c.comparable === false) {
       req(typeof c.condition === "string" && c.condition.length > 10,
         `comps[${i}] marked comparable:false needs a condition string explaining why`);
+    }
+  }
+
+  if (ev.lot_observations !== undefined) {
+    req(Array.isArray(ev.lot_observations), "market_evidence.lot_observations must be an array");
+    for (const [i, lot] of (Array.isArray(ev.lot_observations) ? ev.lot_observations : []).entries()) {
+      const k = `lot_observations[${i}]`;
+      if (!lot || typeof lot !== "object") { req(false, `${k} must be an object`); continue; }
+      const day = typeof lot.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(lot.date) ? new Date(lot.date) : null;
+      req(day && Number.isFinite(+day) && day.toISOString().slice(0, 10) === lot.date && lot.date <= buildDate, `${k}.date must be a valid past or current day`);
+      req(Number.isFinite(lot.amount) && lot.amount > 0, `${k}.amount must be positive and finite`);
+      req(typeof lot.currency === "string" && /^[A-Z]{3}$/.test(lot.currency), `${k}.currency must be a three-letter currency code`);
+      req(VENUES.includes(lot.venue), `${k}.venue invalid`);
+      req(isUrl(lot.url) && isUrl(lot.date_source_url), `${k} needs lot and date source URLs`);
+      req(typeof lot.configuration === "string" && lot.configuration.trim().length > 0, `${k}.configuration required`);
+      if (isUrl(lot.url)) {
+        const keys = saleKeys(lot);
+        req(!keys.some((key) => seenSaleKeys.has(key)), `${k}.url repeats an auction lot already on this card`);
+        for (const key of keys) seenSaleKeys.add(key);
+      }
     }
   }
 
@@ -100,6 +157,7 @@ export function validateCard(card, { id, buildDate = "2099-01-01" } = {}) {
   req(card.narrative && typeof card.narrative.story === "string" && card.narrative.story.length > 20, "narrative.story required");
   req(card.meta && isDate(card.meta.curated_date), "meta.curated_date required");
   req(Array.isArray(card.meta?.sources), "meta.sources must be an array (use [] if none) — the register renders its length unguarded");
+  if (!errs.length) for (const key of comparableKeys) comparableSaleOwners.set(key, card.id);
   return errs;
 }
 
@@ -107,10 +165,11 @@ if (process.argv[1].endsWith("validate_card.mjs")) {
   const files = process.argv.slice(2);
   if (!files.length) { console.error("usage: node scripts/validate_card.mjs <card.json>..."); process.exit(2); }
   let bad = 0;
+  const comparableSaleOwners = new Map();
   for (const f of files) {
     const card = JSON.parse(readFileSync(f, "utf8"));
     const id = f.split("/").at(-1).replace(/\.json$/, "");
-    const errs = validateCard(card, { id, buildDate: new Date().toISOString().slice(0, 10) });
+    const errs = validateCard(card, { id, buildDate: new Date().toISOString().slice(0, 10), comparableSaleOwners });
     if (errs.length) { bad++; console.error(`✗ ${f}\n  - ${errs.join("\n  - ")}`); }
     else console.log(`✓ ${f}`);
   }

@@ -11,7 +11,7 @@ import { COMPARE_MAX } from '../lib/compare-config.ts'
 import { TIER_LABEL, type Card } from '../lib/data.ts'
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 
-type Strength = 'strong' | 'neutral' | 'weak'
+type Strength = 'strong' | 'neutral' | 'weak' | 'unknown'
 
 function rarityClass(c: Card): Strength {
   const v = c.computed.scarcity.value
@@ -37,20 +37,20 @@ function resellClass(c: Card): Strength {
   const t = c.computed.resellability.tier
   if (t === 'High') return 'strong'
   if (t === 'Medium' || t === 'Low') return 'neutral'
-  return 'weak'
+  return 'unknown'
 }
 
 const STRENGTH_LABEL: Record<Strength, string> = {
   strong: 'STRONG',
   neutral: 'NEUTRAL',
   weak: 'WEAK',
+  unknown: 'UNKNOWN',
 }
 
 /** Rows are the questions a buyer or seller actually asks, in the order they ask them.
  *  Every row is one line tall so the eye can run across the set without re-reading. */
 const ROWS: { label: string; get: (c: Card) => React.ReactNode; group?: string }[] = [
-  { group: 'Market', label: 'Market estimate', get: (c) => c.computed.estimate.value != null ? usd(c.computed.estimate.value) : dash },
-  { label: 'Evidence', get: (c) => c.comp_summary ? `${c.comp_summary.n} sale${c.comp_summary.n === 1 ? '' : 's'}` : dash },
+  { group: 'Market', label: 'Sales on record', get: (c) => c.comp_summary ? `${c.comp_summary.n} sale${c.comp_summary.n === 1 ? '' : 's'}` : dash },
   { label: 'Confidence', get: (c) => c.computed.confidence.tier ?? dash },
   { label: 'Retail', get: (c) => c.retail.current_msrp_usd != null ? usd(c.retail.current_msrp_usd)
       : c.retail.msrp_history.at(-1) ? `${usd(c.retail.msrp_history.at(-1)!.price_usd)} (${c.retail.msrp_history.at(-1)!.effective_year})` : dash },
@@ -58,7 +58,7 @@ const ROWS: { label: string; get: (c: Card) => React.ReactNode; group?: string }
   { label: 'Δ 5y real', get: (c) => c.computed.change_5y.real_pct != null ? pct(c.computed.change_5y.real_pct) : dash },
   { label: 'Liquidity', get: (c) => c.computed.liquidity.tier },
 
-  { group: 'Standing', label: 'Scarcity', get: (c) => `${c.computed.scarcity.value} · ${c.computed.scarcity.tier}` },
+  { group: 'Standing', label: 'Scarcity', get: (c) => c.computed.scarcity.value == null ? dash : `${c.computed.scarcity.value} · ${c.computed.scarcity.tier}` },
   { label: 'Collectibility', get: (c) => c.computed.collectibility.value },
   { label: 'Story', get: (c) => c.provenance_events.length || dash },
   { label: 'Supply', get: (c) => c.identity.produced.discontinued ? 'Discontinued' : 'In production' },
@@ -104,11 +104,9 @@ export default function Compare() {
       <div className="cmp-head">
         <div>
           <p className="eyebrow">Compare</p>
-          <h1 className="pagetitle">Side by side, one line each</h1>
+          <h1 className="pagetitle">Compare watches</h1>
           <p className="lede">
-            Up to {COMPARE_MAX} references, hairline columns, four-axes verdict
-            at the top of every column. A museum vitrine for the dossier —
-            not a spreadsheet.
+            Compare up to {COMPARE_MAX} references. Price evidence comes first; objects and specifications follow.
           </p>
         </div>
         <div className="cmp-head-tools">
@@ -132,15 +130,33 @@ export default function Compare() {
           <Link className="src-a" to="/register">register</Link> down onto the compare shelf.
         </p>
       ) : (
+        <>
+        <table className="sales-table cmp-price-receipt" aria-label="Comparable estimates and their evidence dates">
+          <thead><tr><th scope="col">Reference</th><th scope="col" className="num">Estimate</th></tr></thead>
+          <tbody>{picked.map(c => {
+            const estimate = c.computed.estimate
+            return <tr key={c.id}>
+              <th scope="row"><Link className="src-a" to={`/w/${c.id}`}>{c.identity.brand} {c.identity.reference}</Link></th>
+              <td className="num">
+                {estimate.value == null ? 'No estimate' : <>
+                  <strong>{usd(estimate.value)}</strong>
+                  <span className="dossier-sale-detail micro dim">{estimate.stale ? 'Historical · ' : ''}{estimate.n} sales <span className="cmp-price-date">· {estimate.as_of ?? 'date unverified'}</span></span>
+                </>}
+              </td>
+            </tr>
+          })}</tbody>
+        </table>
         <div className="cmp-wrap">
           <div className="cmp-vitrine" data-count={picked.length}>
-            {picked.map((c) => (
+            {picked.map((c) => {
+              const portrait = c.media.find(image => image.match === 'exact_reference')
+              return (
               <article key={c.id} className="cmp-col">
                 <div className="cmp-col-head">
                   <span className="cmp-media">
-                    {c.media?.[0]
-                      ? <img src={c.media[0].url} alt={c.identity.name} loading="lazy" decoding="async"  width={400} height={300} />
-                      : <span className="rc-media-empty mono">NO IMAGE</span>}
+                    {portrait
+                      ? <img src={portrait.url} alt={`${c.identity.brand} ${c.identity.reference}`} loading="lazy" decoding="async" width={400} height={300} />
+                      : <span className="rc-media-empty mono">PHOTO UNVERIFIED</span>}
                   </span>
                   <Link to={`/w/${c.id}`} className="cmp-brand">{c.identity.brand}</Link>
                   <span className="cmp-name">{c.identity.name}</span>
@@ -160,9 +176,11 @@ export default function Compare() {
                   ))}
                 </dl>
               </article>
-            ))}
+              )
+            })}
           </div>
         </div>
+        </>
       )}
 
       {picked.length >= 2 && (

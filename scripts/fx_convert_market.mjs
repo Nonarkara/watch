@@ -74,7 +74,7 @@ for (const [, req] of need) {
     continue;
   }
   rates.set(`${req.date}|${req.from}`, r);
-  console.log(`  ${req.from}→USD ${r.rate} (ECB ${r.rate_date}) for ${req.lots} lots sold ${req.date}`);
+  console.log(`  ${req.from}→USD ${r.rate} (ECB ${r.rate_date}) for ${req.lots} lots at auction start ${req.date}`);
 }
 
 const converted = [];
@@ -98,7 +98,9 @@ for (const r of QUEUE.records) {
       rate: rate.rate,
       rate_date: rate.rate_date,
       provider: rate.provider,
-      note: 'Hammer struck in the sale currency; converted at the ECB reference rate for the last business day on or before the sale date.',
+      reference_date: r.sale_date,
+      date_basis: 'auction_start',
+      note: 'Published sale result converted at the last available ECB rate on or before the auction opening date, not a verified lot date.',
     },
   });
 }
@@ -115,7 +117,7 @@ if (WRITE) {
   writeFileSync(join(ROOT, 'data/market/fx-rates.json'), JSON.stringify({
     generated_at: new Date().toISOString(),
     provider: PROVIDER,
-    method: 'ECB reference rate for the last business day on or before the sale date. Frankfurter returns the last published business day, which is recorded verbatim as rate_date.',
+    method: 'ECB reference rate for the last business day on or before auction opening. Frankfurter returns the last published business day, recorded as rate_date.',
     rates: [...rates.values()],
   }, null, 2) + '\n');
 

@@ -18,6 +18,10 @@ Free, highly detailed, AI-curated + human-verified living archive for luxury and
 
 Every published number is a **pure function of on-card raw evidence + committed shared snapshots**. Nothing hand-entered in `computed`. Cards refuse to estimate below 3 comps and degrade honestly (reason codes, never fake numbers).
 
+A sale cohort that needs more than 36 months is historical, even if its newest sale is recent. A newest sale older than 365 days also makes an estimate historical. The collector calculator requires an explicit opt-in before using either kind of historical estimate.
+
+When an estimate exists, its confidence grade uses only the sales in its calculation window. Without an estimate, the grade describes the comparable evidence on file.
+
 **Market-evidence intake.** `npm run data:market:harvest` discovers completed Phillips watch
 auctions, saves compressed raw responses locally, parses all lots, exact-matches them to dossiers,
 deduplicates against existing comps, and writes a manifest plus `data/market/review-queue.json`.
@@ -82,6 +86,37 @@ Screen exposure is demand-side attention, never physical scarcity. Exact-referen
 
 ## Design Read — Mondrian register (2026-10-29)
 
+Dossier sale ledgers keep three columns at every width: venue with date and any exclusion,
+price with set or original currency, then the cited record. The price is the comparison
+anchor; the record is its exit. No separate swipe surface for a source link. At wide
+widths the historical marks and their verified records sit side by side, plot first.
+Filled squares are recorded sales; open circles are list prices by year. No mark
+extends beyond its recorded date or implies an unobserved price between records.
+
+Auction Census uses a column ledger. Coverage leads, the source and FX caveat sit
+with the total, and the auction records follow before the full methodology.
+Excluded lots show the published currency first and the approximate USD
+equivalent second. Auction-opening dates never read as verified lot dates.
+Rehome uses a workbench grid: choose the reference first, draft on the left and
+copy on the right when wide enough; phones can jump directly from draft to copy.
+The brief carries the evidence date even when it leaves the site.
+Venue costs use a column ledger: the selected baseline and date lead, seller
+and buyer figures sit beside the venue, and directory research stays below.
+Holding-period scenarios distinguish the owner's starting value from a stale
+dossier estimate. Historical figures require an explicit choice and never
+become today's value by passing through the calculator.
+Saved scenarios count every reference, including references absent from the
+build. A historical sum requires consent tied to the saved set and build.
+Compare leads with a dated price ledger. Full photos, verdicts and specs
+remain below it; saved and recent watch prices carry their own evidence date.
+The mobile masthead reserves room for all four 44px tools with a populated
+watchlist. A map pin replaces the city word only where the word crowds the mark.
+Data opens on a column receipt: estimates, comparable sales without estimates,
+and no comparable sales share one denominator. The chart is the first exit;
+wide screens use the adjacent track for photo, story, screen and retail coverage.
+The evidence plot fits the phone without swiping; only valid published scores
+become dots. Photo depth counts exact references, and zero remains a real score.
+
 **Read:** a ruled Mondrian composition on a quiet ground. Ink rules of three weights by role
 (3px structural floor under the masthead, 2px frame, 1px ledger), unequal modules sized to
 their content, one flat colour block per fold (yellow = where you are, in the nav; navy =
@@ -101,6 +136,25 @@ baseline stores self-written waiver reasons, which §11.12(b) forbids, and it wa
 validated end to end.
 
 ## Anti-Regression
+
+**Dossier design read (missing portrait):** A MoMA object label names the object
+and records what is known; absence is metadata, not an illustration. In the
+modular ledger the watch name leads when no photograph exists, followed by the
+compact source status and verdict. Wide screens pair identity and verdict in
+61.8/38.2 tracks; phone stacks the same reading order. No empty image track or
+added frame; keep the existing rule weights, colours, and photographed layout.
+
+**Evidence design read:** The dossier uses the same ruled object ledger. A
+published measure leads its row; a missing estimate states its reason in the
+open, and unavailable measures share one disclosure with their full limits.
+No placeholder chart or equal-size cells for missing values. Existing sale
+charts, attribution, and price qualifications keep their meaning and order.
+
+**Settlement design read:** Use the same modular instrument ledger, with the
+shared dollar axis as the focal point. Like a ruled MoMA object label, each
+range names what it measures outside its plotted length. Sale evidence and
+assumed payout percentages occupy separate tracks. No prose inside data marks;
+no implied likelihood, holding period, or fee schedule without evidence.
 
 Home geometry repair: `src/pages/home.css` deliberately replaces inflated
 full-width stat tiles and repeated card framing with an aligned editorial column

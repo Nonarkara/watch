@@ -6,19 +6,21 @@ import { TIER_LABEL, TIER_ORDER, BRAND_REGION, REGION_ORDER, REGION_LABEL, type 
 import { usd, pct, dash, yearsLabel } from '../lib/format.ts'
 import { loadMarketTrends } from '../lib/catalog.ts'
 import TrendSpark from '../components/TrendSpark.tsx'
-import HeroBanner from '../components/HeroBanner.tsx'
 
 type SortKey = 'collectibility' | 'scarcity' | 'trending' | 'market_desc' | 'market_asc' | 'delta' | 'az' | 'newest'
 const SORTS: { k: SortKey; label: string }[] = [
   { k: 'collectibility', label: 'COLLECTIBILITY' },
   { k: 'scarcity', label: 'SCARCITY' },
-  { k: 'trending', label: 'WATCHING TODAY' },
+  { k: 'trending', label: 'ATTENTION RANK' },
   { k: 'market_desc', label: 'MARKET ↓' },
   { k: 'market_asc', label: 'MARKET ↑' },
   { k: 'delta', label: 'VS RETAIL' },
   { k: 'newest', label: 'NEWEST' },
   { k: 'az', label: 'A–Z' },
 ]
+const COMPACT_TIER_LABEL: Record<Card['identity']['tier'], string> = {
+  trinity: 'Trinity', crown: 'Crown', haute: 'Haute', core: 'Core', attainable: 'Attainable',
+}
 
 export default function Register() {
   const data = useDataset()
@@ -32,11 +34,13 @@ export default function Register() {
   const [sort, setSort] = useState<SortKey>('collectibility')
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
   const [watchingRank, setWatchingRank] = useState<Map<string, number>>(new Map())
+  const [attentionDate, setAttentionDate] = useState<string | null>(null)
 
   useEffect(() => {
     loadMarketTrends().then((snap) => {
       if (!snap?.trending) return
       setWatchingRank(new Map(snap.trending.map((row) => [row.card_id, row.rank])))
+      setAttentionDate(snap.as_of)
     }).catch(() => {})
   }, [])
 
@@ -103,31 +107,21 @@ export default function Register() {
 
   return (
     <>
-      <HeroBanner
-        hue="navy"
-        size="md"
-        eyebrow="THE REGISTER"
-        title={<>Every reference,<br />with its evidence.</>}
-        subtitle={
-          <>
-            Market figures come from verified public sales; the indices are computed, sourced,
-            and show their own limits. Where evidence is thin, the register says so instead of
-            guessing.
-          </>
-        }
-        secondary={{ to: '/methodology', label: 'READ THE METHODOLOGY' }}
-        meta={
-          <div className="pop-panel">
-            <span className="bubble-kicker mono">THE HONEST PLOT</span>
-            <strong>{data?.count ?? '—'} references</strong>
-            <span>{data ? `${data.cards.filter((c) => c.comp_summary).length} with cited sales · ${data.cards.filter((c) => c.computed.estimate.value == null).length} without publishable estimates` : ''}</span>
-          </div>
-        }
-      />
+      <header className="register-heading">
+        <h1 className="pagetitle">The Register</h1>
+        {data && <p className="register-coverage">
+          <strong>{cards.length} references</strong> · {cards.filter((c) => c.comp_summary).length} with cited sales · {cards.filter((c) => c.computed.estimate.value == null).length} without publishable estimates
+        </p>}
+        <details className="register-method">
+          <summary>How we price watches</summary>
+          <p>Market figures come from verified public sales. The indices show their sources and limits. Where evidence is thin, the register leaves the price blank.</p>
+          <Link to="/methodology">Read the methodology →</Link>
+        </details>
+      </header>
 
-      <div className="controls">
+      <div className="controls register-controls">
         <div className="controls-row">
-          <input className="inp" type="search" placeholder="Search brand, reference, nickname…"
+          <input className="inp" type="search" placeholder="Brand, ref., nickname"
             value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search the register" />
           <select className="sel" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Filter by brand">
             <option value="all">ALL BRANDS</option>
@@ -159,7 +153,19 @@ export default function Register() {
           </div>
         </div>
 
-        <div className="chips" role="group" aria-label="Filter by region">
+        <div className="register-filter-selects" role="group" aria-label="Region and tier filters">
+          <select className="sel" aria-label="Filter by region" value={region}
+            onChange={(e) => { setRegion(e.target.value as typeof region); setBrand('all') }}>
+            <option value="all">ALL REGIONS</option>
+            {REGION_ORDER.map((r) => <option key={r} value={r}>{REGION_LABEL[r]}</option>)}
+          </select>
+          <select className="sel" aria-label="Filter by tier" value={tier}
+            onChange={(e) => setTier(e.target.value as typeof tier)}>
+            <option value="all">ALL TIERS</option>
+            {TIER_ORDER.map((t) => <option key={t} value={t} title={TIER_LABEL[t]}>{COMPACT_TIER_LABEL[t]}</option>)}
+          </select>
+        </div>
+        <div className="chips register-filter-chips" role="group" aria-label="Filter by region">
           <button className={'chip' + (region === 'all' ? ' on' : '')} aria-pressed={region === 'all'} onClick={() => { setRegion('all'); setBrand('all') }}>All regions</button>
           {REGION_ORDER.map((r) => {
             const n = cards.filter((c) => BRAND_REGION[c.identity.brand] === r).length
@@ -174,7 +180,7 @@ export default function Register() {
             )
           })}
         </div>
-        <div className="chips" role="group" aria-label="Filter by tier">
+        <div className="chips register-filter-chips" role="group" aria-label="Filter by tier">
           <button className={'chip' + (tier === 'all' ? ' on' : '')} aria-pressed={tier === 'all'} onClick={() => setTier('all')}>All</button>
           {TIER_ORDER.map((t) => (
             <button key={t} className={'chip' + (tier === t ? ' on' : '')} aria-pressed={tier === t} onClick={() => setTier(t)}>
@@ -182,13 +188,13 @@ export default function Register() {
             </button>
           ))}
         </div>
-        <p className="count-line mono" role="status" aria-live="polite" aria-atomic="true">{rows.length} OF {cards.length} REFERENCES</p>
+        <p className="count-line mono" role="status" aria-live="polite" aria-atomic="true">{rows.length} OF {cards.length} REFERENCES{attentionDate && (sort === 'trending' || viewMode === 'grid') ? ` · ATTENTION AS OF ${attentionDate}` : ''}</p>
       </div>
 
       {viewMode === 'grid' ? (
         <div className="card-grid-view">
           {rows.map((c) => (
-            <VisualCard key={c.id} c={c} watchingRank={watchingRank} />
+            <VisualCard key={c.id} c={c} watchingRank={watchingRank} attentionDate={attentionDate} />
           ))}
         </div>
       ) : (
@@ -200,13 +206,16 @@ export default function Register() {
         </>
       )}
 
-      {rows.length === 0 && <p className="boot mono">NO REFERENCES MATCH.</p>}
+      {data && rows.length === 0 && <p className="boot mono">NO REFERENCES MATCH.</p>}
     </>
   )
 }
 
-function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, number> }) {
+function VisualCard({ c, watchingRank, attentionDate }: { c: Card; watchingRank: Map<string, number>; attentionDate: string | null }) {
   const { has, toggle } = useCompare()
+  const [photoUnavailable, setPhotoUnavailable] = useState(false)
+  const photo = c.media.find(item => item.match === 'exact_reference') ?? c.media[0]
+  const relatedPhoto = photo?.match === 'reference_family'
   const inSet = has(c.id)
   const { estimate, premium, scarcity, collectibility, confidence } = c.computed
   const delta = premium.value
@@ -217,19 +226,23 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       draggable
       onDragStart={(e) => { e.dataTransfer.setData('text/watch-id', c.id); e.dataTransfer.effectAllowed = 'copy' }}
     >
-      <Link to={`/w/${c.id}`} className="rc-media-link">
-        <div className="rc-media">
-          {c.media[0]
-            ? <img src={c.media[0].url} alt={`${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`} loading="lazy" decoding="async" className="photo-img" width={400} height={300} />
-            : <span className="rc-media-empty mono">NO IMAGE</span>}
-        </div>
-      </Link>
+      {photo && !photoUnavailable ? (
+        <Link to={`/w/${c.id}`} className="rc-media-link">
+          <div className="rc-media">
+            <img src={photo.url} alt={relatedPhoto
+              ? `Related watch from ${c.identity.brand}, not reference ${c.identity.reference}`
+              : `${c.identity.brand} ${c.identity.reference} — ${c.identity.name}`}
+              loading="lazy" decoding="async" onError={() => setPhotoUnavailable(true)} className="photo-img" width={400} height={300} />
+          </div>
+          {relatedPhoto && <span className="rc-media-note mono">Related watch · not this reference</span>}
+        </Link>
+      ) : <p className="rc-media-empty mono">{photoUnavailable ? 'PHOTO COULD NOT LOAD' : 'NO PHOTO ON FILE'}</p>}
       <div className="rc-id">
         <span className="rc-brand">{c.identity.brand}</span>
         {trendRank != null && (
-          <span className="rc-trend-badge mono" title="In today's public-attention watchlist — Wikipedia pageviews; Google Trends when connected, not price">
+          <span className="rc-trend-badge mono" title={`Public attention as of ${attentionDate ?? 'date unavailable'} · not price`}>
             <span className="rc-trend-badge-dot" aria-hidden="true">●</span>
-            TODAY #{trendRank}
+            RANK #{trendRank}
           </span>
         )}
         <span className="rc-conf mono">{confidence.tier ?? dash}</span>
@@ -250,7 +263,7 @@ function VisualCard({ c, watchingRank }: { c: Card; watchingRank: Map<string, nu
       <TrendSpark sales={c.notable_sales ?? []} />
       <Link to={`/w/${c.id}`} className="rc-data-link">
         <dl className="rc-data">
-          <div><dt>Market</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
+          <div><dt>{estimate.value != null && estimate.stale ? 'Historical' : 'Market'}</dt><dd>{estimate.value != null ? usd(estimate.value) : dash}</dd></div>
           <div><dt>Vs retail</dt><dd className={delta != null && delta < 0 ? 'neg' : delta != null ? 'amber' : ''}>
             {delta != null ? pct(delta) : dash}</dd></div>
           <div><dt>Scarcity</dt><dd>{scarcity.value}<span className="dim">/100</span></dd></div>
@@ -271,7 +284,11 @@ function Row({ c }: { c: Card }) {
         <span className="l-ref mono">{c.identity.reference}</span>
         {c.identity.nickname && <span className="l-nick"> “{c.identity.nickname}”</span>}
       </span>
-      <span className="l-price">{estimate.value != null ? usd(estimate.value) : <span className="dim">{dash}</span>}</span>
+      <span className="l-price" data-estimate={estimate.value == null ? 'missing' : estimate.stale ? 'historical' : 'recent'}>
+        {estimate.value != null
+          ? <>{estimate.stale && <abbr title="Historical estimate" aria-label="Historical estimate">Hist.</abbr>}{usd(estimate.value)}</>
+          : <span className="dim">{dash}</span>}
+      </span>
       <span className="l-num hide-m">{delta != null ? <span className={delta < 0 ? 'neg' : ''}>{pct(delta)}</span> : <span className="dim">{dash}</span>}</span>
       <span className="l-num hide-m">{scarcity.value} <span className="dim micro">{scarcity.tier?.toUpperCase()}</span></span>
       <span className="l-num hide-m">{collectibility.value}</span>

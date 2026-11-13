@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "rolex-6265",
+  "identity": {
+    "brand": "Rolex",
+    "reference": "6265",
+    "name": "Cosmograph Daytona",
+    "nickname": null,
+    "collection": "Daytona",
+    "tier": "crown",
+    "produced": {
+      "start_year": 1969,
+      "end_year": null,
+      "end_year_note": "Phillips dates the end of production to the late 1980s, without specifying a year.",
+      "discontinued": true
+    },
+    "movement": { "caliber": "727", "type": "manual chronograph" },
+    "case": { "diameter_mm": null, "material": "Stainless steel (examples shown)", "bezel": "Metal tachymeter" },
+    "one_liner": "A hand-wound Daytona with screw-down pushers and a metal tachymeter bezel."
+  },
+  "retail": { "msrp_history": [], "current_msrp_usd": null },
+  "market_evidence": {
+    "comps": [],
+    "lot_observations": [
+      {
+        "date": "2026-06-14", "amount": 114300, "currency": "USD", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/232037",
+        "date_source_url": "https://www.phillips.com/auction/NY080126/overview",
+        "configuration": "Big Red, black dial; warranty, invoice and box."
+      },
+      {
+        "date": "2026-05-10", "amount": 57150, "currency": "CHF", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/178808",
+        "date_source_url": "https://www.phillips.com/auction/CH080226/overview",
+        "configuration": "Sigma dial, steel bracelet."
+      },
+      {
+        "date": "2026-05-10", "amount": 63500, "currency": "CHF", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/227410",
+        "date_source_url": "https://www.phillips.com/auction/CH080226/overview",
+        "configuration": "Steel bracelet; dial variant not named in the catalogue."
+      },
+      {
+        "date": "2026-05-10", "amount": 88900, "currency": "CHF", "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/178741",
+        "date_source_url": "https://www.phillips.com/auction/CH080226/overview",
+        "configuration": "Big Red; blank guarantee, repair receipts and box."
+      }
+    ],
+    "listing_observations": []
+  },
+  "scarcity_inputs": {
+    "brand_production_est": null,
+    "limited_edition": { "is_limited": false, "stated_size": null, "source_url": null },
+    "waitlist_evidence": [],
+    "auction_appearances_5y": null
+  },
+  "provenance_events": [],
+  "narrative": {
+    "story": "The 6265 pairs a metal tachymeter bezel with the screw-down pushers of its black-bezel sibling, the 6263. The calibre 727 is hand-wound.",
+    "collector_notes": "Start with the dial and the accessories, not the reference alone. The four Phillips lots here differ in dial or documentation and are not pooled into an estimate.",
+    "starter_alternative": null
+  },
+  "meta": {
+    "curated_by": "codex",
+    "curated_date": "2026-11-13",
+    "sources": [
+      "https://www.phillips.com/detail/rolex/227410",
+      "https://www.phillips.com/detail/rolex/232037",
+      "https://www.phillips.com/detail/rolex/178808",
+      "https://www.phillips.com/detail/rolex/178741"
+    ]
+  }
+}

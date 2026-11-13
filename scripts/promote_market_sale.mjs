@@ -2,12 +2,13 @@
 // Promote one reviewed intake record into one card. This command is intentionally
 // single-record: scraping scales discovery; judgment stays explicit and auditable.
 
-import { readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isDryRun } from './lib/fetch.mjs';
 import { validateCard } from './validate_card.mjs';
 import { writePublicMarketIntake } from './lib/market-intake.mjs';
+import { comparableDialIssue, existingCompKeys, matchesExistingComp, resolvePromotionDate } from './lib/market-harvest.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const QUEUE_FILE = join(ROOT, 'data/market/review-queue.json');
@@ -36,7 +37,9 @@ if (decision === 'variant' && (!note || note.trim().length < 12)) {
 const queue = JSON.parse(readFileSync(QUEUE_FILE, 'utf8'));
 const record = queue.records.find((item) => item.source_id === id);
 if (!record) throw new Error(`${id} is not in the current review queue`);
-if (!record.card_id) throw new Error(`${id} has no exact card match`);
+if (typeof record.card_id !== 'string' || !/^[a-z0-9]+(?:-+[a-z0-9]+)*$/.test(record.card_id)) {
+  throw new Error(`${id} has no valid card ID`);
+}
 if (!record.realized || record.currency !== 'USD') throw new Error(`${id} is not a realized USD sale`);
 if (!record.detail) throw new Error(`${id} has no detail snapshot; re-harvest with a larger --max-details`);
 if (record.status === 'duplicate' || record.status === 'promoted') throw new Error(`${id} is already represented on a card`);
@@ -48,26 +51,41 @@ if (decision === 'variant' && record.reasons.some((reason) => fatalVariantReason
   throw new Error(`${id} has unresolved evidence errors: ${record.reasons.join(', ')}`);
 }
 
-const cardFile = join(ROOT, 'data/cards', `${record.card_id}.json`);
+const cardDir = join(ROOT, 'data/cards');
+const cardName = `${record.card_id}.json`;
+const cardFile = join(cardDir, cardName);
 const card = JSON.parse(readFileSync(cardFile, 'utf8'));
-const duplicate = card.market_evidence.comps.some((comp) => comp.url === record.source_url ||
-  (comp.date === record.sale_date && comp.venue === 'phillips' && comp.price_usd === record.realized));
+const dialIssue = comparableDialIssue(card.market_evidence.comparable_dial, record.detail.dial);
+if (decision === 'comparable' && dialIssue) throw new Error(`${id} cannot be promoted as comparable: ${dialIssue}`);
+const verifiedDate = resolvePromotionDate(record, { date: arg('sale-date'), source: arg('date-source') });
+const duplicate = matchesExistingComp({ ...record, sale_date: verifiedDate.date, sale_date_basis: 'reviewed' }, record.card_id,
+  existingCompKeys({ cards: [{ id: record.card_id, comps: card.market_evidence.comps }] }));
 if (duplicate) throw new Error(`${id} duplicates a comp already on ${record.card_id}`);
 
 const conditionParts = [record.detail.year, record.detail.material, record.detail.accessories, note]
   .filter(Boolean).map((value) => value.trim());
 const comp = {
-  date: record.sale_date,
+  date: verifiedDate.date,
+  date_source_url: verifiedDate.source,
   price_usd: record.realized,
   venue: 'phillips',
   url: record.source_url,
   condition: conditionParts.join('; ').slice(0, 800) || null,
   box_papers: record.detail.box_papers ?? null,
+  auction_code: record.auction_code,
+  lot_number: record.lot_number,
 };
+if (record.detail.dial) comp.dial = record.detail.dial;
 if (decision === 'variant') comp.comparable = false;
 
 card.market_evidence.comps.push(comp);
-const errors = validateCard(card, { id: record.card_id, buildDate: TODAY });
+const comparableSaleOwners = new Map();
+for (const file of readdirSync(cardDir).filter((name) => name.endsWith('.json') && name !== cardName).sort()) {
+  const other = JSON.parse(readFileSync(join(cardDir, file), 'utf8'));
+  const issues = validateCard(other, { id: file.slice(0, -5), buildDate: TODAY, comparableSaleOwners });
+  if (issues.length) throw new Error(`cannot promote while ${file} is invalid: ${issues.join('; ')}`);
+}
+const errors = validateCard(card, { id: record.card_id, buildDate: TODAY, comparableSaleOwners });
 if (errors.length) throw new Error(`promotion would invalidate ${record.card_id}: ${errors.join('; ')}`);
 
 record.status = 'promoted';
@@ -77,6 +95,8 @@ record.review = {
   reviewer,
   reviewed_at: new Date().toISOString(),
   card_id: record.card_id,
+  sale_date: verifiedDate.date,
+  date_source_url: verifiedDate.source,
 };
 queue.generated_at = new Date().toISOString();
 queue.summary = {

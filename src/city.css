@@ -38,6 +38,12 @@ main.shell { background-color: var(--paper); background-clip: content-box; }
   white-space: nowrap;
 }
 .city-toggle-btn:hover { background: var(--surface); }
+.city-toggle-pin { display: none; }
+@media (max-width: 460px) {
+  .city-toggle-btn { width: 44px; padding: 0; justify-content: center; }
+  .city-toggle-name { display: none; }
+  .city-toggle-pin { display: block; }
+}
 .city-toggle-menu {
   position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
   margin: 0; padding: 0; list-style: none;

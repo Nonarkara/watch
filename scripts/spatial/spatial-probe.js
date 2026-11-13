@@ -205,7 +205,8 @@
     var doc = d.documentElement;
 
     // ---- 5a. the page scrolls sideways ------------------------------------
-    if (doc.scrollWidth > doc.clientWidth + 1) {
+    var documentOverflow = doc.scrollWidth - doc.clientWidth;
+    if (documentOverflow > 1) {
       var worst = null;
       var every = d.querySelectorAll("*");
       for (var i = 0; i < every.length; i++) {
@@ -215,8 +216,8 @@
           if (!worst || over > worst.over) worst = { over: over, s: sel(every[i]) };
         }
       }
-      push(F, "overflow", worst ? worst.s : "document", worst ? worst.over : 0,
-        "the page scrolls sideways by " + Math.round(worst ? worst.over : 0) + "px");
+      push(F, "overflow", worst ? worst.s : "document", documentOverflow,
+        "the page scrolls sideways by " + documentOverflow + "px");
     }
 
     // ---- 1 and 2. dead space, orphans --------------------------------------
@@ -496,6 +497,7 @@
     // container is reported with its width: the gate can then see whether
     // the sweep ever landed on the cliff.
     var containers = [];
+    var rootFontPx = parseFloat(win.getComputedStyle(d.documentElement).fontSize);
     var cands = main.querySelectorAll("*");
     for (var qi = 0; qi < cands.length; qi++) {
       var qc = cands[qi];
@@ -503,10 +505,18 @@
       if (!qcs.containerType || qcs.containerType === "normal") continue;
       var qcr = qc.getBoundingClientRect();
       if (!qcr.width) continue;
+      var contentWidth = parseFloat(qcs.width);
+      if (!Number.isFinite(contentWidth)) contentWidth = qcr.width;
+      if (qcs.boxSizing === "border-box") {
+        contentWidth -= parseFloat(qcs.paddingLeft) + parseFloat(qcs.paddingRight) +
+          parseFloat(qcs.borderLeftWidth) + parseFloat(qcs.borderRightWidth);
+      }
       containers.push({
         sel: sel(qc),
-        w: Math.round(qcr.width * 100) / 100,
+        w: Math.round(contentWidth * 100) / 100,
         name: qcs.containerName || "",
+        fontPx: parseFloat(qcs.fontSize),
+        rootFontPx: rootFontPx,
       });
     }
     rec.containers = containers;

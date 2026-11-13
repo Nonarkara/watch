@@ -70,12 +70,12 @@ export default function Economy() {
 
       <section className="sect">
         <div className="section-rule">
-          <h2>What our own evidence shows, by quarter</h2>
-          <span className="mono micro dim">MEDIAN PRICE OF VERIFIED SALES</span>
+          <h2>Rolex sales in the register</h2>
+          <span className="mono micro dim">PUBLISHED AUCTION RESULTS</span>
         </div>
         <MarketChart cards={data?.cards ?? []} brand="Rolex" height={300} />
         <p className="micro dim" style={{ marginTop: 'var(--space-sm)' }}>
-          Open the About page to see the same chart across brands and the public market events that explain the lines.{' '}
+          See published sales across brands and the market events alongside them.{' '}
           <Link className="src-a" to="/about#the-market">All brands and the event overlay →</Link>
         </p>
       </section>

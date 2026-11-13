@@ -10,7 +10,7 @@
  *   - Teddy Baldassarre movie-watches roundup is the editorial cross-check URL
  *   - Shared card portraits are not silently reused as if they were distinct stills
  */
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -294,7 +294,7 @@ const ICONS = [
     release_year: 2022,
     identification: 'reported',
     match_level: 'family_only',
-    matched_card_ids: ['tagheuer-carrera-glassbox-cbs2210'],
+    matched_card_ids: [],
     source_url: TEDDY,
     media: {
       type: 'image',
@@ -413,6 +413,14 @@ const enrichedRolex = rolex.sightings.map((s) => {
 
 // Icons first (visual wow), then Rolex Watch-ID harvest.
 const sightings = [...ICONS, ...enrichedRolex]
+const cardsDir = join(ROOT, 'data/cards')
+const cardIds = new Set(readdirSync(cardsDir).filter(name => name.endsWith('.json'))
+  .map(name => JSON.parse(readFileSync(join(cardsDir, name), 'utf8')).id))
+for (const sighting of sightings) {
+  for (const id of sighting.matched_card_ids) {
+    if (!cardIds.has(id)) throw new Error(`Screen sighting ${sighting.id} links to missing dossier ${id}`)
+  }
+}
 const screenTitles = new Set(sightings.map((s) => `${s.media_type}:${s.title}`))
 
 const snapshot = {

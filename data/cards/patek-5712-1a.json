@@ -31,19 +31,27 @@
   "market_evidence": {
     "comps": [
       {
-        "date": "2024-06-08",
+        "date": "2024-06-09",
         "price_usd": 101600,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/patek-philippe/NY080124/129",
-        "condition": null,
-        "box_papers": null
+        "condition": "Steel bracelet; certificate and presentation box on record",
+        "box_papers": "full_set"
       },
       {
-        "date": "2024-11-24",
-        "price_usd": 81576,
+        "date": "2023-12-09",
+        "price_usd": 82550,
         "venue": "phillips",
-        "url": "https://www.phillips.com/auction/HK080124",
-        "condition": "2013, blue dial, certificate, presentation box",
+        "url": "https://www.phillips.com/detail/patek-philippe/190077",
+        "condition": "Circa 2013; steel bracelet, certificate and boxes",
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2022-06-11",
+        "price_usd": 138600,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/patek-philippe/NY080222/3",
+        "condition": "Circa 2009; catalogued as new old stock, with certificate, tag and boxes",
         "box_papers": "full_set"
       }
     ],

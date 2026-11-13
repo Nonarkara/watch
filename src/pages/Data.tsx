@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import { BIBLE_STATS } from '../lib/bible'
-import HeroBanner from '../components/HeroBanner.tsx'
 import EvidenceField from '../components/EvidenceField.tsx'
 
 type DataState = {
@@ -24,6 +23,7 @@ type MarketIntakeRecord = {
   realized: number | null
   currency: string | null
   sale_date: string | null
+  auction_date?: string | null
   source_url: string
   status: string
   reasons: string[]
@@ -92,6 +92,14 @@ export default function Data() {
       .catch(() => setMarketIntake(null))
   }, [])
 
+  useEffect(() => {
+    if (!data) return
+    const id = window.location.hash.slice(1)
+    if (!/^(how-we-work|method-[1-7]|evidence-field-title)$/.test(id)) return
+    const frame = requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView())
+    return () => cancelAnimationFrame(frame)
+  }, [data])
+
   if (!data) return null
 
   const sources = [
@@ -130,7 +138,7 @@ export default function Data() {
   ] as const
 
   const cardStats = {
-    withImage: data.cards.filter((c) => c.media.length > 0).length,
+    withImage: data.cards.filter(c => c.media.some(photo => photo.match === 'exact_reference')).length,
     withComps: data.cards.filter((c) => c.comp_summary).length,
     withEstimate: data.cards.filter((c) => c.computed.estimate.value != null).length,
     withProvenance: data.cards.filter((c) => c.provenance_events.length > 0).length,
@@ -139,12 +147,19 @@ export default function Data() {
     withMsrp: data.cards.filter((c) => c.retail.msrp_history.length > 0 || c.retail.current_msrp_usd != null).length,
   }
   const methodCoverage = [
-    ['Licensed photo', cardStats.withImage],
+    ['Exact-reference photo', cardStats.withImage],
     ['Sale evidence', cardStats.withComps],
     ['Publishable estimate', cardStats.withEstimate],
     ['Sourced provenance', cardStats.withProvenance],
     ['Retail history', cardStats.withMsrp],
   ] as const
+  const salesWithoutEstimate = data.cards.filter(c => c.computed.estimate.value == null && c.comp_summary).length
+  const historicalEstimates = data.cards.filter(c => c.computed.estimate.value != null && c.computed.estimate.stale).length
+  const recentEstimates = cardStats.withEstimate - historicalEstimates
+  const priceCoverage = [
+    { key: 'sales', label: 'Sales, no estimate', count: salesWithoutEstimate },
+    { key: 'missing', label: 'No comparable sales', count: data.count - cardStats.withEstimate - salesWithoutEstimate },
+  ]
   const visibleIntake = marketIntake?.records
     .filter((record) => record.status === 'ready_for_review' || record.status === 'quarantined')
     .sort((a, b) => Number(b.status === 'ready_for_review') - Number(a.status === 'ready_for_review'))
@@ -152,65 +167,42 @@ export default function Data() {
 
   return (
     <>
-      <HeroBanner
-        hue="navy"
-        size="md"
-        eyebrow={`DATA · ${data.count} REFERENCES · BUILD ${data.built}`}
-        title={<>How Time Pop<br />collects its evidence.</>}
-        subtitle={
-          <>
-            Every published number traces to a cited public source or is computed from cited
-            evidence. This page is the audit trail: what we collect, where it comes from, and
-            how fresh the build you are reading is.
-          </>
-        }
-        primary={{ to: '#how-we-work', label: 'READ THE METHODOLOGY' }}
-        secondary={{ to: '/methodology', label: 'SEE THE RULEBOOK' }}
-        meta={
-          <div className="pop-panel data-meta">
-            <span className="bubble-kicker mono">THE RULE</span>
-            <strong>No cited comps, no estimate.</strong>
-            <span>The visible refusals are load-bearing. {data.count - cardStats.withEstimate} of {data.count} dossiers do not clear the estimate gate today. That is the system working.</span>
+      <div className="data-coverage">
+        <div className="data-coverage-primary">
+        <p className="eyebrow">Data · build {data.built}</p>
+        <h1 className="pagetitle">What can we price?</h1>
+        <p className="lede">{data.count} references. An estimate needs at least three comparable sales.</p>
+        <div className="data-coverage-bar" aria-hidden="true">
+          <span data-basis="estimated" style={{ flexGrow: recentEstimates }} />
+          <span data-basis="historical" style={{ flexGrow: historicalEstimates }} />
+          {priceCoverage.map(({ key, count }) => <span key={key} data-basis={key} style={{ flexGrow: count }} />)}
+        </div>
+        <dl className="data-coverage-rows" aria-label="Price evidence coverage">
+          <div>
+            <dt>Estimates</dt>
+            <dd className="data-estimate-split mono">
+              <span data-basis="estimated"><i aria-hidden="true" />{recentEstimates} recent</span>
+              <span data-basis="historical"><i aria-hidden="true" />{historicalEstimates} historical</span>
+            </dd>
           </div>
-        }
-      />
-
-      <Link to="/" className="crumb">← HOME</Link>
-
-      <section className="data-cards">
-        <div className="data-card">
-          <span className="eyebrow">IMAGE COVERAGE</span>
-          <strong>{cardStats.withImage}/{data.count}</strong>
-          <span className="dim">{Math.round((cardStats.withImage / data.count) * 100)}% of dossiers carry a verified CC-licensed photo</span>
+          {priceCoverage.map(({ key, label, count }) => <div key={key} data-basis={key}>
+            <dt><i aria-hidden="true" />{label}</dt><dd className="mono">{count} / {data.count}</dd>
+          </div>)}
+        </dl>
+        <div className="data-coverage-links">
+          <a href="#evidence-field-title" className="src-a">Chart ↓</a>
+          <a href="#how-we-work" className="src-a">Method ↓</a>
+          <Link to="/methodology" className="src-a">Rulebook →</Link>
         </div>
-        <div className="data-card">
-          <span className="eyebrow">SALE EVIDENCE</span>
-          <strong>{cardStats.withComps}/{data.count}</strong>
-          <span className="dim">dossiers with at least one comparable cited sale</span>
         </div>
-        <div className="data-card">
-          <span className="eyebrow">STORY</span>
-          <strong>{cardStats.totalEvents}</strong>
-          <span className="dim">dated, sourced events across {cardStats.withProvenance} cards</span>
-        </div>
-        <div className="data-card">
-          <span className="eyebrow">SCREEN</span>
-          <strong>{cardStats.withExactScreen}</strong>
-          <span className="dim">dossiers carry at least one exact-reference film or TV sighting</span>
-        </div>
-        <div className="data-card">
-          <span className="eyebrow">RETAIL HISTORY</span>
-          <strong>{cardStats.withMsrp}</strong>
-          <span className="dim">dossiers with at least one MSRP data point</span>
-        </div>
-        <div className="data-card">
-          <span className="eyebrow">BUILD DATE</span>
-          <strong className="mono">{data.built}</strong>
-          <span className="dim">snapshotted at build time; pure functions of inputs</span>
-        </div>
-      </section>
-
-      <EvidenceField cards={data.cards} built={data.built} />
+        <EvidenceField cards={data.cards} built={data.built} />
+        <dl className="data-coverage-secondary" aria-label="Other evidence in the archive">
+          <div><dt>Exact photos</dt><dd>{cardStats.withImage} references</dd></div>
+          <div><dt>Story</dt><dd>{cardStats.totalEvents} events across {cardStats.withProvenance} references</dd></div>
+          <div><dt>On screen</dt><dd>{cardStats.withExactScreen} references with exact sightings</dd></div>
+          <div><dt>Retail</dt><dd>{cardStats.withMsrp} references with a price on record</dd></div>
+        </dl>
+      </div>
 
       {marketIntake && (
         <section className="data-intake" aria-labelledby="data-intake-title">
@@ -237,7 +229,7 @@ export default function Data() {
                 </div>
                 <div className="data-intake-price">
                   <strong>{intakeMoney(record.realized, record.currency)}</strong>
-                  <small className="mono">REALIZED {record.sale_date ?? 'DATE MISSING'}</small>
+                  <small className="mono">{record.sale_date ? `SOLD ${record.sale_date}` : record.auction_date ? `AUCTION START ${record.auction_date}` : 'DATE UNVERIFIED'}</small>
                 </div>
                 <div className="data-intake-state">
                   <span className="mono">{record.status === 'ready_for_review' ? 'READY · NOT YET A COMP' : 'HELD'}</span>
@@ -286,15 +278,50 @@ export default function Data() {
       </section>
 
       <section className="data-methodology" id="how-we-work" aria-label="How we work, in full">
-        <div className="data-methodology-copy">
         <h2>How we work, in full.</h2>
         <p className="data-methodology-lede">
-          A watch enters the register the way a good answer enters a room: it carries its
-          sources. Everything that follows is the work of being honest about that — a single
-          loop that runs from <em>is this watch worth a dossier</em> to <em>what number can
-          we publish</em> to <em>what will we refuse to invent</em>. We will walk through it
-          once, end to end.
+          What gets a dossier, what counts as a comparable sale, and when we leave the price blank.
+          Start with the evidence ledger or jump to a step.
         </p>
+
+        <aside className="data-methodology-rail" aria-label="Live methodology ledger">
+          <p className="eyebrow">LIVE METHOD LEDGER</p>
+          <nav className="method-map" aria-label="Method sections">
+            <p className="method-rail-title mono">THE SEVEN CHECKPOINTS</p>
+            {[
+              ['01', 'Admission', '#method-1'],
+              ['02', 'The dossier', '#method-2'],
+              ['03', 'Honesty ladder', '#method-3'],
+              ['04', 'Card to wire', '#method-4'],
+              ['05', 'Four axes', '#method-5'],
+              ['06', 'Build and test', '#method-6'],
+              ['07', 'The rule', '#method-7'],
+            ].map(([number, label, href]) => (
+              <a href={href} key={href}><span className="mono">{number}</span><strong>{label}</strong><span>↓</span></a>
+            ))}
+          </nav>
+          <div className="method-refusal">
+            <strong>{data.count - cardStats.withEstimate}</strong>
+            <span className="mono">OF {data.count} DOSSIERS DO NOT PUBLISH A MARKET ESTIMATE</span>
+            <p>{cardStats.withEstimate} references clear the current comparable-sale gate. A blank price is a result, not unfinished UI.</p>
+          </div>
+
+          <div className="method-coverage" aria-label="Evidence coverage">
+            <p className="method-rail-title mono">EVIDENCE ON FILE</p>
+            {methodCoverage.map(([label, count]) => (
+              <div className="method-coverage-row" key={label}>
+                <div><span>{label}</span><strong className="mono">{count}/{data.count}</strong></div>
+                <span className="method-coverage-track" role="img" aria-label={`${label}: ${count} of ${data.count}`}>
+                  <span style={{ width: `${Math.round((count / data.count) * 100)}%` }} />
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="method-build mono">PUBLIC BUILD {data.built} · METHOD V{data.methodology_version}</p>
+        </aside>
+
+        <div className="data-methodology-copy">
 
         <h3 id="method-1">1. The first question: is this watch worth a dossier?</h3>
         <p>
@@ -305,10 +332,8 @@ export default function Data() {
           the catalogue has it or the secondary market trades it, and a reader in 2026 can
           plausibly go out and buy one. Or the reference is in <strong>the field's standard
           bibliography</strong> — the watch literature we curate in the Bible tab treats it as
-          a canonical example. Without one of those three, we skip the dossier. There are
-          roughly {data.count} watches in the register today; there are roughly 20,000
-          references that would qualify as "luxury watches" if you grep Wikipedia. The cut
-          is real.
+          a canonical example. Without one of those three, we skip the dossier. This build
+          covers {data.count} references; it is a selection, not a census of watchmaking.
         </p>
 
         <h3 id="method-2">2. The dossier, in one sitting</h3>
@@ -334,9 +359,9 @@ export default function Data() {
           <em>production timeline</em> — these are set by the brand and we treat them as
           citation-level. The next rung is <strong>sale evidence</strong> — comparable sales
           at the same configuration, with the same case material, the same dial variant. A
-          single comp is an anecdote; three comps at a venue, in a window, are a market. The
-          next rung is <strong>provenance</strong> — a sourced event that puts a number on the
-          watch's cultural weight (Newman's own Daytona, the 5960P Phillips result, the
+          single sale is evidence, but it cannot support a market estimate on its own. The
+          next rung is <strong>provenance</strong> — a sourced event that helps explain the
+          watch's cultural history (Newman's own Daytona, the 5960P Phillips result, the
           Murph prop release). The next rung is <strong>screen and media</strong> — exact
           reference matches in film or TV, the Ted Talks the watch appeared on, the
           magazine covers. The last rungs are <em>liquidity</em> (how many comps per year)
@@ -399,53 +424,14 @@ export default function Data() {
 
         <h3 id="method-7">7. The rule, restated</h3>
         <p>
-          The system has one rule: <em>no cited comps, no estimate</em>. Every published
-          number on the site traces to at least three comparable sales at cited venues on
-          cited dates, or it does not publish. The visible refusals — the
-          <code>—</code>s on the page — are load-bearing. They are what make the published
-          numbers believable. A reader who sees <strong>{data.count} references, {cardStats.withComps} with
-          sale evidence, {cardStats.totalEvents} sourced provenance events, and 0 invented prices</strong>
-          {' '}can trust those counts because the build computes them from the same public dataset.
+          A <strong>market estimate</strong> requires at least three eligible comparable sales.
+          Retail prices, individual sale results, and model scores are different figures, with
+          different sources and limits. Of {data.count} references in this build, {cardStats.withComps}{' '}
+          have comparable sales on file and {cardStats.withEstimate} qualify for an estimate.
+          Where the estimate is missing, the dossier says why.
         </p>
         </div>
 
-        <aside className="data-methodology-rail" aria-label="Live methodology ledger">
-          <p className="eyebrow">LIVE METHOD LEDGER</p>
-          <div className="method-refusal">
-            <strong>{data.count - cardStats.withEstimate}</strong>
-            <span className="mono">OF {data.count} DOSSIERS DO NOT PUBLISH A MARKET ESTIMATE</span>
-            <p>{cardStats.withEstimate} references clear the current comparable-sale gate. A blank price is a result, not unfinished UI.</p>
-          </div>
-
-          <div className="method-coverage" aria-label="Evidence coverage">
-            <p className="method-rail-title mono">EVIDENCE ON FILE</p>
-            {methodCoverage.map(([label, count]) => (
-              <div className="method-coverage-row" key={label}>
-                <div><span>{label}</span><strong className="mono">{count}/{data.count}</strong></div>
-                <span className="method-coverage-track" role="img" aria-label={`${label}: ${count} of ${data.count}`}>
-                  <span style={{ width: `${Math.round((count / data.count) * 100)}%` }} />
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <nav className="method-map" aria-label="Method sections">
-            <p className="method-rail-title mono">THE SEVEN CHECKPOINTS</p>
-            {[
-              ['01', 'Admission', '#method-1'],
-              ['02', 'The dossier', '#method-2'],
-              ['03', 'Honesty ladder', '#method-3'],
-              ['04', 'Card to wire', '#method-4'],
-              ['05', 'Four axes', '#method-5'],
-              ['06', 'Build and test', '#method-6'],
-              ['07', 'The rule', '#method-7'],
-            ].map(([number, label, href]) => (
-              <a href={href} key={href}><span className="mono">{number}</span><strong>{label}</strong><span>↓</span></a>
-            ))}
-          </nav>
-
-          <p className="method-build mono">PUBLIC BUILD {data.built} · METHOD V{data.methodology_version}</p>
-        </aside>
       </section>
 
       <section className="data-sources">

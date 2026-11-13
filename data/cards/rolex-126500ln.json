@@ -42,19 +42,11 @@
   "market_evidence": {
     "comps": [
       {
-        "date": "2024-12-07",
+        "date": "2024-12-08",
         "price_usd": 40640,
         "venue": "phillips",
         "url": "https://www.phillips.com/detail/rolex/NY080424/106",
         "condition": null,
-        "box_papers": "full_set"
-      },
-      {
-        "date": "2023-05-15",
-        "price_usd": 44450,
-        "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "126500LN, 2023, full set",
         "box_papers": "full_set"
       },
       {

@@ -21,7 +21,26 @@
   },
   "market_evidence": {
     "comps": [
-      { "date": "2024-06-08", "price_usd": 13970, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080124/2", "condition": null, "box_papers": "full_set" }
+      { "date": "2024-06-08", "price_usd": 13970, "venue": "phillips", "url": "https://www.phillips.com/detail/rolex/NY080124/2", "condition": "Circa 2018 steel Oyster-bracelet watch, case 21N2N293, with guarantee and presentation box.", "box_papers": "full_set" },
+      {
+        "date": "2026-10",
+        "price_usd": 15240,
+        "venue": "phillips",
+        "url": "https://www.phillips.com/detail/rolex/233319",
+        "auction_code": "NY080426",
+        "lot_number": "47",
+        "condition": "Circa 2013 steel Oyster-bracelet watch, case 744Q5863. Exact lot close not verified; month precision only.",
+        "box_papers": null
+      },
+      {
+        "date": "2022-03-29",
+        "price_usd": 27720,
+        "venue": "christies",
+        "url": "https://onlineonly.christies.com/s/watches-online-dubai-edit/rolex-gmt-master-ii-ref-116710blnr-batman-steel-automatic-dual-time-81/145909",
+        "date_source_url": "https://onlineonly.christies.com/s/watches-online-dubai-edit/rolex-gmt-master-ii-ref-116710blnr-batman-steel-automatic-dual-time-81/145909",
+        "condition": "Circa 2016 steel example, case 96N28017, with original Rolex guarantee and presentation box.",
+        "box_papers": "full_set"
+      }
     ],
     "listing_observations": []
   },

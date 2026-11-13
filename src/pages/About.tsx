@@ -1,6 +1,6 @@
 // About — the project's story, the four theories, the heuristics, and the watchmaking context
 // Dr Non asked for. Sits between Methodology (the rulebook) and Paper (the academic version).
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDataset } from '../lib/dataset-context.ts'
 import HeroBanner from '../components/HeroBanner.tsx'
@@ -201,6 +201,12 @@ export default function About() {
     return data.cards.reduce((sum, c) => sum + (c.provenance_events?.length ?? 0), 0)
   }, [data])
 
+  useEffect(() => {
+    if (!data || window.location.hash !== '#the-market') return
+    const frame = requestAnimationFrame(() => document.getElementById('the-market')?.scrollIntoView())
+    return () => cancelAnimationFrame(frame)
+  }, [data])
+
   if (!data) return null
 
   return (
@@ -212,7 +218,7 @@ export default function About() {
         title={<>A register that refuses to lie,<br />a system that refuses to guess.</>}
         subtitle={
           <>
-            Time Pop is a free, evidence-first catalog of around 300 luxury and collectible
+            Time Pop is a free, evidence-first catalog of {data.count} luxury and collectible
             watches. This page is the story of how it was built, what its theories are,
             and how to read it as a buyer, a seller, a curious observer, or a person
             whose hobby just produced a $30,000 question.
@@ -223,13 +229,16 @@ export default function About() {
         meta={
           <div className="pop-panel about-meta">
             <span className="bubble-kicker mono">THE FOUNDER</span>
-            <strong>One watch on my wrist. 261 in the register.</strong>
+            <strong>One watch on my wrist. {data.count} in the register.</strong>
             <span>The system refuses the same answer the founder would refuse if he were the buyer. That is the proof of the system.</span>
           </div>
         }
       />
 
-      <Link to="/" className="crumb">← HOME</Link>
+      <div className="about-shortcuts">
+        <Link to="/" className="crumb">← HOME</Link>
+        <a href="#the-market" className="src-a">Published sales ↓</a>
+      </div>
 
       <section className="about-statement" aria-label="Project at a glance">
         <div className="ast-row">
@@ -870,10 +879,10 @@ export default function About() {
 
       <section className="sect" id="the-market">
         <div className="section-rule">
-          <h2>What prices are doing right now</h2>
-          <div className="market-toggle">
+          <h2>Published sales by date</h2>
+          <div className="market-toggle" role="group" aria-label="Filter published sales by brand">
             {(['Rolex', 'Patek Philippe', 'All'] as const).map((b) => (
-              <button key={b} type="button" className={'chip' + (brand === b ? ' on' : '')} onClick={() => setBrand(b)}>
+              <button key={b} type="button" className={'chip' + (brand === b ? ' on' : '')} aria-pressed={brand === b} onClick={() => setBrand(b)}>
                 {b.toUpperCase()}
               </button>
             ))}

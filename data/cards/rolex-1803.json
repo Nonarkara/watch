@@ -5,7 +5,7 @@
     "brand": "Rolex",
     "reference": "1803",
     "name": "Day-Date",
-    "nickname": "President",
+    "nickname": "President · Champagne dial",
     "collection": "Day-Date",
     "tier": "crown",
     "produced": {
@@ -19,7 +19,7 @@
     },
     "case": {
       "diameter_mm": 36,
-      "material": "18k yellow gold (also white and rose gold)",
+      "material": "18k yellow gold",
       "bezel": "fluted gold"
     },
     "one_liner": "The vintage Day-Date of 1959-1978 — the pie-pan-dial 'President' associated with heads of state."
@@ -29,13 +29,15 @@
     "current_msrp_usd": null
   },
   "market_evidence": {
+    "comparable_dial": "Champagne",
     "comps": [
       {
         "date": "2016-04-05",
         "price_usd": 10000,
         "venue": "christies",
         "url": "https://onlineonly.christies.com/s/christies-watches-online-time-spring/day-date-ref-1803-14/26398",
-        "condition": null,
+        "dial": "Champagne",
+        "condition": "Yellow-gold President bracelet from an earlier year; dial appears relumed",
         "box_papers": null
       },
       {
@@ -43,15 +45,37 @@
         "price_usd": 11250,
         "venue": "christies",
         "url": "https://onlineonly.christies.com/s/christies-watches-online-swiss-icons/rolex-day-date-ref-1803-172/56372",
-        "condition": null,
+        "dial": "Champagne",
+        "condition": "Apparent replacement hands; catalogue does not specify the gold color",
+        "box_papers": null,
+        "comparable": false
+      },
+      {
+        "date": "2024-06-03",
+        "price_usd": 13750,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-ref-1803-gold-day-date-circa-1972/a/5556-54103.s",
+        "dial": "Champagne",
+        "condition": "Circa 1972 yellow gold on a gold President bracelet",
         "box_papers": null
       },
       {
-        "date": "2023-05-15",
-        "price_usd": 14605,
-        "venue": "phillips",
-        "url": "https://www.dist.phillips.com/content/web/auction-results/auctionResultsFile_NY010523.pdf",
-        "condition": "1803 Day-Date, 1970s",
+        "date": "2024-06-03",
+        "price_usd": 16250,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-well-preserved-18k-yellow-gold-day-date-ref-1803-circa-1967-box-and-papers/a/5556-54104.s",
+        "dial": "Champagne",
+        "condition": "Circa 1967 yellow gold on a gold President bracelet",
+        "box_papers": "full_set"
+      },
+      {
+        "date": "2026-01-19",
+        "price_usd": 6562.5,
+        "venue": "other_auction",
+        "url": "https://jewelry.ha.com/itm/timepieces/wristwatch/rolex-18k-yellow-gold-day-date-ref-1803/a/21189-12026.s",
+        "dial": "Silver",
+        "condition": "Silver dial and leather strap, not the champagne-dial President bracelet configuration",
+        "comparable": false,
         "box_papers": null
       }
     ],
@@ -83,7 +107,7 @@
   ],
   "narrative": {
     "story": "The 1803 is the reference most people mean by vintage President: 36mm gold case, fluted bezel, pie-pan dial, and the non-quickset calibers 1555 and 1556. Its association with power is literal — Lyndon Johnson wore a Day-Date in office, and the President bracelet name attached to the model in that era. Long production and high volume keep entry prices reasonable for a solid-gold vintage Rolex.",
-    "collector_notes": "Most are yellow gold; white and rose gold examples are scarcer and trade higher. Original dials matter — refinished dials are endemic on this reference. Non-quickset day and date is normal, not a defect.",
+    "collector_notes": "The estimate covers yellow gold, a champagne dial, and a gold President bracelet. Other metals and strap configurations are separate. Check dial originality and bracelet wear. Non-quickset day and date is normal.",
     "starter_alternative": null
   },
   "meta": {

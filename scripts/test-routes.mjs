@@ -3,6 +3,14 @@
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import assert from "node:assert/strict";
+import { widthBreakpoints, widthBreakpointTerms } from "./spatial/width-breakpoints.mjs";
+
+assert.deepEqual(widthBreakpoints("(min-width: 721px) and (max-width:1000px)"), [721, 1000]);
+assert.deepEqual(widthBreakpoints("(width<=600px),(width>=48rem),(400px<width<800px)"), [600, 768, 400, 800]);
+assert.deepEqual(widthBreakpoints("(prefers-reduced-motion:reduce) and (height>=400px)"), []);
+assert.deepEqual(widthBreakpointTerms("pom-scores (min-width:15em) and (width<32rem)"), [
+  { value: 15, unit: "em" }, { value: 32, unit: "rem" },
+]);
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const routes = new Set(
@@ -130,10 +138,10 @@ assert.ok(pomPageSrc.includes('OWNERSHIP COST: USER ASSUMPTION') && pomPageSrc.i
   'net outcomes must label user costs and show the break-even growth requirement');
 assert.ok(pomPageSrc.includes('Net break-even appears by year') && pomPageSrc.includes('ASSUMPTIONS, NOT A FORECAST'),
   'net outcomes must turn the table into an explicit, bounded model read');
-assert.ok(pomPageSrc.includes('Current market value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
+assert.ok(pomPageSrc.includes('Your starting value · USD') && pomPageSrc.includes('What you paid · USD (optional)')
   && pomPageSrc.includes('Net vs cost basis'),
   'single-watch math must keep current valuation separate from owner cost basis');
-assert.ok(pomPageSrc.includes('OWNER SCENARIO · LIVE') && pomPageSrc.includes('YEARS SPACED TO SCALE · BOXES ARE SELECTED READOUTS')
+assert.ok(pomPageSrc.includes('OWNER SCENARIO · ASSUMPTIONS') && pomPageSrc.includes('USD · AXIS LABELS ROUNDED')
   && pomPageSrc.includes('ScenarioCurve'),
   'owner scenario must expose the same gross, net, and cost-basis rows as a live time curve');
 assert.ok(pomPageSrc.includes('Search watch references') && pomPageSrc.includes("watchScope === 'anchored'")
@@ -262,7 +270,7 @@ assert.ok(!dossierSrc.includes('EXPLORE ROLEX ON SCREEN'),
 assert.ok(dossierSrc.includes('loadMarketTrends') && dossierSrc.includes('In public attention'),
   'Dossier evidence tab must surface today\'s attention when the card is on the watchlist');
 const registerSrc = readFileSync(join(ROOT, "src/pages/Register.tsx"), "utf8");
-assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('WATCHING TODAY'),
+assert.ok(registerSrc.includes("'trending'") && registerSrc.includes('ATTENTION RANK'),
   'Register must sort today\'s attention watchlist first when asked');
 console.log('✓ ticker / grail / related / attention wiring holds');
 

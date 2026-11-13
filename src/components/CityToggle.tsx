@@ -89,10 +89,15 @@ export function CityToggle({
         className="city-toggle-btn mono"
         aria-expanded={open}
         aria-controls="city-options"
+        aria-label={`Change city, currently ${current.name}`}
         onClick={() => setOpen((v) => !v)}
         title={`The page stands in ${current.name}. Change the city.`}
       >
-        {current.name.toUpperCase()}
+        <span className="city-toggle-name">{current.name.toUpperCase()}</span>
+        <svg className="city-toggle-pin" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7">
+          <path d="M19 9c0 5-7 11-7 11S5 14 5 9a7 7 0 1 1 14 0Z" />
+          <circle cx="12" cy="9" r="2" />
+        </svg>
       </button>
       {open && (
         <ul className="city-toggle-menu" id="city-options" aria-label="City">

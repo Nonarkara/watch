@@ -20,7 +20,7 @@ import {
 const ATTENTION_HISTORY_KEY = 'watch.attention.history.v1'
 
 function movementLabel(pulse: SavedAttentionPulse): string {
-  if (pulse.movement === 'current') return `TODAY #${pulse.current_rank}`
+  if (pulse.movement === 'current') return `RANK #${pulse.current_rank}`
   if (pulse.movement === 'new') return `NEW · #${pulse.current_rank}`
   if (pulse.movement === 'up') return `UP ${pulse.places} · #${pulse.current_rank}`
   if (pulse.movement === 'down') return `DOWN ${pulse.places} · #${pulse.current_rank}`
@@ -128,10 +128,10 @@ export default function Saved() {
                 <div>
                   <p className="eyebrow" id="saved-pulse-title">YOUR DAILY PULSE</p>
                   <strong className="saved-pulse-number">{currentAttentionCount}/{cards.length}</strong>
-                  <p className="saved-pulse-deck">saved references are in today&apos;s public-attention watchlist.</p>
+                  <p className="saved-pulse-deck">saved references appear in the latest available attention snapshot.</p>
                 </div>
                 <div className="saved-pulse-note">
-                  <span className="saved-pulse-live mono">● PUBLIC SIGNAL</span>
+                  <span className="saved-pulse-live mono">{trends.origin === 'live' ? 'FEED SNAPSHOT' : 'BUNDLED SNAPSHOT'}</span>
                   <p>Search and reading attention can precede demand, or mean nothing at all. It is context—not a price forecast.</p>
                 </div>
               </div>
@@ -148,19 +148,21 @@ export default function Saved() {
                   {pulseRows.map((row) => {
                     const card = byId.get(row.card_id)
                     if (!card) return null
-                    const media = card.media[0]
+                    const media = card.media.find(image => image.match === 'exact_reference') ?? card.media[0]
+                    const related = media?.match === 'reference_family'
                     const trend = trendByCard.get(row.card_id)
                     return (
                       <Link key={row.card_id} to={`/w/${row.card_id}`} className="saved-pulse-row">
                         <span className="saved-pulse-rank mono">{row.current_rank ?? '—'}</span>
                         <span className="saved-pulse-image">
                           {media
-                            ? <img src={media.url} alt="" loading="lazy" decoding="async"  width={400} height={300} />
+                            ? <img src={media.url} alt={related ? `Related watch, not reference ${card.identity.reference}` : ''} loading="lazy" decoding="async" width={400} height={300} />
                             : <span className="mono">NO PHOTO</span>}
                         </span>
                         <span className="saved-pulse-object">
                           <span className="saved-pulse-source mono">{card.identity.brand.toUpperCase()} · {card.identity.reference}</span>
                           <strong>{card.identity.name}</strong>
+                          {related && <span className="saved-pulse-photo-note mono">Related photo · not this reference</span>}
                           {trendSignal(trend) && <span className="saved-pulse-signal mono">{trendSignal(trend)}</span>}
                         </span>
                         <span className="saved-pulse-move mono" data-movement={row.movement}>{movementLabel(row)}</span>
@@ -169,7 +171,7 @@ export default function Saved() {
                   })}
                 </div>
               ) : (
-                <p className="saved-pulse-quiet">Quiet today. None of your saved references appears in the current top 20.</p>
+                <p className="saved-pulse-quiet">None of your saved references appears in this snapshot’s top 20.</p>
               )}
 
               <p className="saved-pulse-foot mono">
@@ -183,7 +185,7 @@ export default function Saved() {
           <section className="sect">
             <div className="saved-grid">
             {cards.map((c) => {
-              const m = c.media[0]
+              const m = c.media.find(image => image.match === 'exact_reference')
               const est = c.computed.estimate.value
               const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
               const trend = trendByCard.get(c.id)
@@ -199,9 +201,9 @@ export default function Saved() {
                     <span className="saved-cell-name">{c.identity.name}</span>
                     {c.identity.nickname && <span className="saved-cell-nick">“{c.identity.nickname}”</span>}
                     <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
-                    {trend && <span className="saved-cell-pulse mono">TODAY #{trend.rank} · {trendSignal(trend)}</span>}
+                    {trend && <span className="saved-cell-pulse mono">RANK #{trend.rank} · {trends?.as_of}{trendSignal(trend) && ` · ${trendSignal(trend)}`}</span>}
                     <span className="saved-cell-price mono">
-                      {est != null ? usd(est)
+                      {est != null ? <>{usd(est)}<small className="saved-price-date dim">{c.computed.estimate.stale ? 'Historical · ' : ''}{c.computed.estimate.as_of ?? 'date unverified'}</small></>
                         : msrp != null ? `${usd(msrp)} RETAIL`
                         : 'NO ESTIMATE'}
                     </span>
@@ -226,7 +228,7 @@ export default function Saved() {
           </p>
           <div className="saved-grid">
             {recentCards.map((c) => {
-              const m = c.media[0]
+              const m = c.media.find(image => image.match === 'exact_reference')
               const est = c.computed.estimate.value
               const msrp = c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd
               return (
@@ -242,7 +244,7 @@ export default function Saved() {
                     {c.identity.nickname && <span className="saved-cell-nick">“{c.identity.nickname}”</span>}
                     <span className="saved-cell-tier mono">{TIER_LABEL[c.identity.tier]}</span>
                     <span className="saved-cell-price mono">
-                      {est != null ? usd(est)
+                      {est != null ? <>{usd(est)}<small className="saved-price-date dim">{c.computed.estimate.stale ? 'Historical · ' : ''}{c.computed.estimate.as_of ?? 'date unverified'}</small></>
                         : msrp != null ? `${usd(msrp)} RETAIL`
                         : 'NO ESTIMATE'}
                     </span>
