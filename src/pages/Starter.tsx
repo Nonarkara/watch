@@ -85,8 +85,12 @@ export default function Starter() {
 function priceOf(c: Card): number | null {
   return c.computed.estimate.value ?? c.retail.current_msrp_usd ?? c.retail.msrp_history.at(-1)?.price_usd ?? null
 }
-function fmtPrice(c: Card): string {
-  if (c.computed.estimate.value != null) return usd(c.computed.estimate.value)
+function fmtPrice(c: Card) {
+  const estimate = c.computed.estimate
+  if (estimate.value != null) return <>
+    <span style={{ whiteSpace: 'nowrap' }}>{usd(estimate.value)}</span>{' '}
+    <span className="micro dim">{estimate.stale ? 'Historical estimate' : 'Market estimate'}{estimate.as_of && <> · <time dateTime={estimate.as_of}>{estimate.as_of}</time></>}</span>
+  </>
   if (c.retail.current_msrp_usd != null) return `${usd(c.retail.current_msrp_usd)} RETAIL`
   const last = c.retail.msrp_history.at(-1)
   return last ? `${usd(last.price_usd)} RETAIL (${last.effective_year})` : dash
