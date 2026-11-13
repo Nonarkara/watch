@@ -99,7 +99,6 @@
     "dead|div.vc-specs": "The venue card's specification rows (venue role, fee evidence) sit under the card header, and the card's height is set by the header's wrapped address beside it. Measured at 759px the 75.5px below the spec block is the card's own air above the visit link, and the card's border is the ledger's rule, not a frame drawn around a hole.",
     "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row.",
     "dead|span.vc-type-tag.mono": "The venue-type badge is a top-aligned marker in the card header row (`align-items: flex-start`), level with the first line of the venue name beside it. Measured at 718px the badge is 14px tall and the header row is 116px because the name and country wrap to three lines. The 102px under the badge is the card's own air, and a badge hung at the foot of the row would read as belonging to the spec table instead of to the name.",
-    "orphan|aside.wmp-time-rail": "The watchmaking timeline rail is a sticky rail, not a panel: it is `position: sticky; top: calc(var(--header-h) + 120px)` with `align-self: start` and `max-height: calc(100vh - ...); overflow-y: auto`, so the reader scrolls the rail itself and it never leaves the viewport. Measured at 1101px it fills 12% of a 6075px row because the timeline beside it is 6075px long. The rail is the timeline's column, not 6075px of nothing.",
     "dead|div.spotlight-ctas.mono": "The spotlight is a reading block in two columns: the story, and the actions. The actions sit at the TOP of their column (`align-self: flex-start`), level with the opening of the story beside them, because that is where the reader's eye already is when the paragraph starts. Measured at 878px the action block leaves 76px empty beneath it in a 108px row. That 76px is the story's column, which runs on for more lines underneath. Moving the actions to the foot of their column would move the hole above them instead of removing it; the space belongs to the story."
   },
   "exempt": [],
@@ -45431,14 +45430,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5362,
-            "detail": "aside.wmp-time-rail fills 12% of a row 6075px tall, leaving 5362px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45462,14 +45454,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45493,14 +45478,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45524,14 +45502,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45555,14 +45526,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45586,14 +45550,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45617,14 +45574,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45648,14 +45598,7 @@
         }
       },
       "1440": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45703,14 +45646,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -45734,14 +45670,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "orphan",
-            "sel": "aside.wmp-time-rail",
-            "metric": 5199,
-            "detail": "aside.wmp-time-rail fills 12% of a row 5903px tall, leaving 5199px empty"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 479,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
