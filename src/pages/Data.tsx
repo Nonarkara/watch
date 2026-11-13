@@ -332,10 +332,8 @@ export default function Data() {
           the catalogue has it or the secondary market trades it, and a reader in 2026 can
           plausibly go out and buy one. Or the reference is in <strong>the field's standard
           bibliography</strong> — the watch literature we curate in the Bible tab treats it as
-          a canonical example. Without one of those three, we skip the dossier. There are
-          roughly {data.count} watches in the register today; there are roughly 20,000
-          references that would qualify as "luxury watches" if you grep Wikipedia. The cut
-          is real.
+          a canonical example. Without one of those three, we skip the dossier. This build
+          covers {data.count} references; it is a selection, not a census of watchmaking.
         </p>
 
         <h3 id="method-2">2. The dossier, in one sitting</h3>
@@ -361,9 +359,9 @@ export default function Data() {
           <em>production timeline</em> — these are set by the brand and we treat them as
           citation-level. The next rung is <strong>sale evidence</strong> — comparable sales
           at the same configuration, with the same case material, the same dial variant. A
-          single comp is an anecdote; three comps at a venue, in a window, are a market. The
-          next rung is <strong>provenance</strong> — a sourced event that puts a number on the
-          watch's cultural weight (Newman's own Daytona, the 5960P Phillips result, the
+          single sale is evidence, but it cannot support a market estimate on its own. The
+          next rung is <strong>provenance</strong> — a sourced event that helps explain the
+          watch's cultural history (Newman's own Daytona, the 5960P Phillips result, the
           Murph prop release). The next rung is <strong>screen and media</strong> — exact
           reference matches in film or TV, the Ted Talks the watch appeared on, the
           magazine covers. The last rungs are <em>liquidity</em> (how many comps per year)
@@ -426,13 +424,11 @@ export default function Data() {
 
         <h3 id="method-7">7. The rule, restated</h3>
         <p>
-          The system has one rule: <em>no cited comps, no estimate</em>. Every published
-          number on the site traces to at least three comparable sales at cited venues on
-          cited dates, or it does not publish. The visible refusals — the
-          <code>—</code>s on the page — are load-bearing. They are what make the published
-          numbers believable. A reader who sees <strong>{data.count} references, {cardStats.withComps} with
-          sale evidence, {cardStats.totalEvents} sourced provenance events, and 0 invented prices</strong>
-          {' '}can trust those counts because the build computes them from the same public dataset.
+          A <strong>market estimate</strong> requires at least three eligible comparable sales.
+          Retail prices, individual sale results, and model scores are different figures, with
+          different sources and limits. Of {data.count} references in this build, {cardStats.withComps}{' '}
+          have comparable sales on file and {cardStats.withEstimate} qualify for an estimate.
+          Where the estimate is missing, the dossier says why.
         </p>
         </div>
 
