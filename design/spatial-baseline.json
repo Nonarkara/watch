@@ -8869,8 +8869,8 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8989,8 +8989,8 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -9613,8 +9613,8 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10165,8 +10165,8 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10429,8 +10429,8 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
