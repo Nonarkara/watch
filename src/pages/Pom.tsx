@@ -588,7 +588,7 @@ function ValueLab() {
           <div className="pom-lab-controls">
             <label className="pom-baseline-field">
               <span>Scenario starting value · THB</span>
-              <input type="number" min="1" step="100000" inputMode="numeric" value={pomBaseline}
+              <input id="pom-collection-start" type="number" min="1" step="100000" inputMode="numeric" value={pomBaseline}
                 onChange={(event) => setPomBaseline(event.target.value)} />
               <small>Prefilled with the midpoint of the 2018 article range. Replace it with a current appraisal if you have one.</small>
             </label>
