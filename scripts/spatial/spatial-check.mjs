@@ -382,7 +382,15 @@ function arrived(d) {
   } catch (e) { /* no font API in this document */ }
   var imgs = d.getElementsByTagName('img');
   for (var i = 0; i < imgs.length; i++) {
-    if (!imgs[i].complete) return false;
+    var img = imgs[i];
+    if (img.complete) continue;
+    // An explicitly sized lazy image below the fold may never be requested.
+    // Its reserved box is still measured; visible or unsized images must settle.
+    if (img.loading === 'lazy' &&
+        Number(img.getAttribute('width')) > 0 &&
+        Number(img.getAttribute('height')) > 0 &&
+        img.getBoundingClientRect().top >= d.defaultView.innerHeight) continue;
+    return false;
   }
   return true;
 }

@@ -7,6 +7,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { runInNewContext } from 'node:vm'
 import { sitemapPaths } from './spatial/sitemap-routes.mjs'
 
 const checkedInReceipt = JSON.parse(readFileSync(new URL('../design/spatial-baseline.json', import.meta.url), 'utf8'))
@@ -14,6 +15,27 @@ assert.equal(checkedInReceipt.version, 2, 'the checked-in spatial baseline must 
 
 const tmp = mkdtempSync(join(tmpdir(), 'watch-spatial-replay-'))
 const checker = fileURLToPath(new URL('./spatial/spatial-check.mjs', import.meta.url))
+const readinessSource = readFileSync(checker, 'utf8').match(/^function arrived\(d\) \{[\s\S]*?^\}/m)?.[0]
+assert.ok(readinessSource, 'the browser harness must define its image readiness check')
+const arrived = runInNewContext(`(${readinessSource})`, { stillLoading: (doc) => doc.booting })
+const imageReady = ({ top = 800, width = 400, height = 300, loading = 'lazy', complete = false } = {}, doc = {}) =>
+  arrived({
+    defaultView: { innerHeight: 800 },
+    getElementsByTagName: () => [{
+      complete, loading,
+      getAttribute: (name) => ({ width, height })[name],
+      getBoundingClientRect: () => ({ top }),
+    }],
+    ...doc,
+  })
+assert.equal(imageReady(), true, 'a sized lazy image below the fold does not block first-screen measurement')
+assert.equal(imageReady({ top: 799 }), false, 'a partially visible lazy image still blocks')
+assert.equal(imageReady({ width: null }), false, 'an unsized image may change layout')
+assert.equal(imageReady({ height: 0 }), false, 'a zero-sized reservation is not evidence')
+assert.equal(imageReady({ loading: 'eager' }), false, 'eager images still settle')
+assert.equal(imageReady({ complete: true, top: 0 }), true, 'a completed visible image does not block')
+assert.equal(imageReady({}, { fonts: { status: 'loading' } }), false, 'fonts still settle')
+assert.equal(imageReady({}, { booting: true }), false, 'a route placeholder is not ready')
 const artifact = join(tmp, 'measurements.json')
 const receipt = join(tmp, 'baseline.json')
 const cell = (route, w) => ({
