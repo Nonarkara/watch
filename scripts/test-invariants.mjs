@@ -453,6 +453,15 @@ for (const key of ["synthetic_exact", "synthetic_family", "synthetic_iconic", "s
   const canonical = JSON.parse(readFileSync(new URL("../data/shared/screen_sightings.json", import.meta.url), "utf8"));
   const errs = validateSightings(canonical);
   assert.deepEqual(errs, [], `canonical screen data must validate — errors: ${errs.join("; ")}`);
+  const published = JSON.parse(readFileSync(new URL("../public/data/screen_sightings.json", import.meta.url), "utf8"));
+  const register = JSON.parse(readFileSync(new URL("../public/data.json", import.meta.url), "utf8"));
+  const ids = new Set(register.cards.map(card => card.id));
+  assert.deepEqual(published, canonical, "Screen snapshots must agree");
+  for (const sighting of published.sightings) {
+    for (const id of sighting.matched_card_ids) assert.ok(ids.has(id), `${sighting.id} links to missing dossier ${id}`);
+  }
+  assert.deepEqual(published.sightings.find(s => s.id === "tag-carrera-ryan-gosling-gray-man").matched_card_ids, [],
+    "The 2022 three-hand Carrera sighting must not point to the 2023 Glassbox chronograph");
 }
 
 console.log("✓ all invariants hold");
