@@ -2238,7 +2238,7 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 .buy-code p { color: var(--dim); max-width: 64ch; }
 @media (min-width: 880px) { .buy-code { display: grid; grid-template-columns: repeat(2, 1fr); } }
 
-.market-toggle { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.market-toggle { display: flex; gap: var(--space-xs); }
 
 .market-chart { margin: var(--space-md) 0; border: var(--border); background: var(--bg); padding: var(--space-md); }
 .market-chart-head { display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: var(--space-md); }
@@ -2260,7 +2260,9 @@ main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) 
 @media (max-width: 560px) {
   .market-chart { padding: 8px; }
   .market-chart-head, .market-chart-legend { gap: 8px 12px; margin-bottom: 8px; }
-  .about-page #the-market .section-rule { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+}
+@media (max-width: 640px) {
+  .about-page #the-market .section-rule { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: var(--space-sm); }
 }
 @media (max-width: 319px) {
   .market-chart-legend { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }

@@ -64,9 +64,19 @@ function verifyMarket() {
         assert(evaluate("document.querySelector('.market-chart-sources:not(.market-chart-outliers)').open"))
       }
     }
-    browser('set', 'viewport', '239', '900')
-    browser('open', base + '/about#the-market')
-    browser('wait', '#the-market .market-toggle button')
+    for (const width of [1440, 1024, 641, 640, 601, 600, 599, 598, 561, 390, 239]) {
+      browser('set', 'viewport', String(width), '900')
+      browser('open', base + '/about#the-market')
+      browser('wait', '#the-market .market-toggle button')
+      const group = evaluate(`document.fonts.ready.then(() => {
+        const filters = document.querySelector('.market-toggle');
+        const buttons = [...filters.children].map(button => button.getBoundingClientRect());
+        return { count: buttons.length, rows: new Set(buttons.map(box => box.top)).size,
+          fit: buttons.every(box => box.left >= 0 && box.right <= innerWidth + 1) &&
+            filters.scrollWidth <= filters.clientWidth + 1 && document.documentElement.scrollWidth <= innerWidth + 1 };
+      })`)
+      assert(group.count === 3 && group.rows === 1 && group.fit, JSON.stringify({ width, ...group }))
+    }
     assert(evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), 'About and its chart filters must fit at 239px')
     browser('click', '#the-market .market-toggle button:last-child')
     browser('wait', '#the-market svg[aria-label^="All observed"]')
