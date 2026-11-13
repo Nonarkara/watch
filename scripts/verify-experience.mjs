@@ -231,6 +231,23 @@ function verifyMarket() {
       return document.documentElement.scrollWidth === innerWidth && cards.length > 0 &&
         cards.every(card => card.scrollWidth <= card.clientWidth + 1 && card.querySelector('.vc-quote-box'));
     })`), 'Marketplace fee scenarios must not push venue cards beyond a narrow viewport')
+    browser('open', base + '/starter')
+    browser('wait', '.ladder-row time')
+    assert(evaluate(`Promise.all([document.fonts.ready, fetch('/data.json').then(response => response.json())]).then(([, data]) => {
+      const cards = new Map(data.cards.map(card => ['/w/' + card.id, card]));
+      const rows = [...document.querySelectorAll('.ladder-row')];
+      let dated = 0;
+      const valid = rows.every(row => {
+        const estimate = cards.get(row.getAttribute('href'))?.computed.estimate;
+        if (estimate?.value == null) return true;
+        const price = row.lastElementChild;
+        if (estimate.as_of) dated++;
+        return price.textContent.includes(estimate.stale ? 'Historical estimate' : 'Market estimate') &&
+          (!estimate.as_of || price.querySelector('time')?.dateTime === estimate.as_of);
+      });
+      return dated > 0 && valid && document.documentElement.scrollWidth === innerWidth &&
+        rows.every(row => row.scrollWidth <= row.clientWidth + 1);
+    })`), 'Starter estimates must disclose the dated price basis without widening narrow rows')
   } finally {
     browser('close')
     session = mainSession
