@@ -40009,7 +40009,7 @@
       "390": {
         "findings": [],
         "firstAction": {
-          "y": 1207,
+          "y": 376,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40129,7 +40129,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40153,7 +40153,7 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40753,7 +40753,7 @@
       "768": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41305,7 +41305,7 @@
       "1024": {
         "findings": [],
         "firstAction": {
-          "y": 719,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41569,7 +41569,7 @@
       "1440": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
