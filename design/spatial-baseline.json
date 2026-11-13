@@ -94,11 +94,8 @@
     "allowedSizes": null
   },
   "reasons": {
-    "dead|aside.data-methodology-rail": "The methodology rail is a sticky rail beside the audit ledger, not a card: `align-self: start` and `position: sticky; top: 24px` from 880px, so it stays beside the reader while the long evidence table scrolls under it. Measured at 880px the rail's own box is 928px tall inside a 3121px row, and the column beside it is 2193px taller. The space below the rail is the audit's length, not a hole in the rail.",
     "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is.",
-    "dead|div.vc-specs": "The venue card's specification rows (venue role, fee evidence) sit under the card header, and the card's height is set by the header's wrapped address beside it. Measured at 759px the 75.5px below the spec block is the card's own air above the visit link, and the card's border is the ledger's rule, not a frame drawn around a hole.",
     "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row.",
-    "dead|span.vc-type-tag.mono": "The venue-type badge is a top-aligned marker in the card header row (`align-items: flex-start`), level with the first line of the venue name beside it. Measured at 718px the badge is 14px tall and the header row is 116px because the name and country wrap to three lines. The 102px under the badge is the card's own air, and a badge hung at the foot of the row would read as belonging to the spec table instead of to the name.",
     "dead|div.spotlight-ctas.mono": "The spotlight is a reading block in two columns: the story, and the actions. The actions sit at the TOP of their column (`align-self: flex-start`), level with the opening of the story beside them, because that is where the reader's eye already is when the paragraph starts. Measured at 878px the action block leaves 76px empty beneath it in a 108px row. That 76px is the story's column, which runs on for more lines underneath. Moving the actions to the foot of their column would move the hole above them instead of removing it; the space belongs to the story."
   },
   "exempt": [],
@@ -13266,14 +13263,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2193,
-            "detail": "aside.data-methodology-rail leaves 2193px empty beneath it in a 3121px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13297,14 +13287,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13328,14 +13311,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13359,14 +13335,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2166,
-            "detail": "aside.data-methodology-rail leaves 2166px empty beneath it in a 3095px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13390,14 +13359,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13421,14 +13383,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13452,14 +13407,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 2060,
-            "detail": "aside.data-methodology-rail leaves 2060px empty beneath it in a 2989px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13483,14 +13431,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 375,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13514,14 +13455,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13545,14 +13479,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1953,
-            "detail": "aside.data-methodology-rail leaves 1953px empty beneath it in a 2885px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13576,14 +13503,7 @@
         }
       },
       "998": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13607,14 +13527,7 @@
         }
       },
       "999": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13638,14 +13551,7 @@
         }
       },
       "1000": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13669,14 +13575,7 @@
         }
       },
       "1001": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2754px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13700,14 +13599,7 @@
         }
       },
       "1023": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1820,
-            "detail": "aside.data-methodology-rail leaves 1820px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13731,14 +13623,7 @@
         }
       },
       "1024": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1841,
-            "detail": "aside.data-methodology-rail leaves 1841px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13762,14 +13647,7 @@
         }
       },
       "1025": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1841,
-            "detail": "aside.data-methodology-rail leaves 1841px empty beneath it in a 2755px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13793,14 +13671,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13824,14 +13695,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13855,14 +13719,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1839,
-            "detail": "aside.data-methodology-rail leaves 1839px empty beneath it in a 2757px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13886,14 +13743,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13917,14 +13767,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -13948,14 +13791,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1863,
-            "detail": "aside.data-methodology-rail leaves 1863px empty beneath it in a 2763px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14075,14 +13911,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14106,14 +13935,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -14137,14 +13959,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "aside.data-methodology-rail",
-            "metric": 1858,
-            "detail": "aside.data-methodology-rail leaves 1858px empty beneath it in a 2764px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 383,
           "sel": "a.hero-banner-btn.hero-banner-btn--primary"
@@ -23420,14 +23235,7 @@
         }
       },
       "718": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23451,14 +23259,7 @@
         }
       },
       "719": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23482,14 +23283,7 @@
         }
       },
       "720": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23513,14 +23307,7 @@
         }
       },
       "721": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23544,14 +23331,7 @@
         }
       },
       "722": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23575,20 +23355,7 @@
         }
       },
       "759": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23612,20 +23379,7 @@
         }
       },
       "760": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23649,20 +23403,7 @@
         }
       },
       "761": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23686,20 +23427,7 @@
         }
       },
       "767": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23747,20 +23475,7 @@
         }
       },
       "769": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23784,20 +23499,7 @@
         }
       },
       "799": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23821,20 +23523,7 @@
         }
       },
       "800": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23858,20 +23547,7 @@
         }
       },
       "801": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 402,
           "sel": "select.sel.field"
@@ -23895,14 +23571,7 @@
         }
       },
       "878": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 386,
           "sel": "select.sel.field"
@@ -23926,14 +23595,7 @@
         }
       },
       "879": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 386,
           "sel": "select.sel.field"
@@ -23957,14 +23619,7 @@
         }
       },
       "880": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -23988,14 +23643,7 @@
         }
       },
       "881": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24019,14 +23667,7 @@
         }
       },
       "899": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24050,14 +23691,7 @@
         }
       },
       "900": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24081,14 +23715,7 @@
         }
       },
       "901": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24112,14 +23739,7 @@
         }
       },
       "919": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24143,14 +23763,7 @@
         }
       },
       "920": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24174,14 +23787,7 @@
         }
       },
       "921": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24205,14 +23811,7 @@
         }
       },
       "959": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24236,14 +23835,7 @@
         }
       },
       "960": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24267,14 +23859,7 @@
         }
       },
       "961": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 81,
-            "detail": "span.vc-type-tag.mono leaves 81px empty beneath it in a 95px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24466,20 +24051,7 @@
         }
       },
       "1099": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24503,20 +24075,7 @@
         }
       },
       "1100": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24540,20 +24099,7 @@
         }
       },
       "1101": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24577,20 +24123,7 @@
         }
       },
       "1279": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24614,20 +24147,7 @@
         }
       },
       "1280": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24651,20 +24171,7 @@
         }
       },
       "1281": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24688,20 +24195,7 @@
         }
       },
       "1359": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24725,20 +24219,7 @@
         }
       },
       "1360": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24762,20 +24243,7 @@
         }
       },
       "1361": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24823,20 +24291,7 @@
         }
       },
       "1535": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24860,20 +24315,7 @@
         }
       },
       "1536": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
@@ -24897,20 +24339,7 @@
         }
       },
       "1537": {
-        "findings": [
-          {
-            "kind": "dead",
-            "sel": "div.vc-specs",
-            "metric": 76,
-            "detail": "75.5px of empty space under div.vc-specs"
-          },
-          {
-            "kind": "dead",
-            "sel": "span.vc-type-tag.mono",
-            "metric": 102,
-            "detail": "span.vc-type-tag.mono leaves 102px empty beneath it in a 116px row"
-          }
-        ],
+        "findings": [],
         "firstAction": {
           "y": 353,
           "sel": "select.sel.field"
