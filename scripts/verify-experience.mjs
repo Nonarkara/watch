@@ -156,6 +156,17 @@ function verifyMarket() {
       document.documentElement.scrollWidth === innerWidth)`), 'Pom search must stay readable after Clear appears at 239px')
     browser('press', 'Escape')
     assert(evaluate("document.querySelector('.pom-watch-search input').value === ''"))
+    for (const width of [239, 272]) {
+      browser('set', 'viewport', String(width), '900')
+      browser('open', base + '/pom')
+      browser('wait', '#pom-collection-panel .pom-baseline-field input')
+      assert(evaluate(`document.fonts.ready.then(() => {
+        const input = document.querySelector('#pom-collection-panel .pom-baseline-field input');
+        return input.value.length > 0 && input.scrollWidth <= input.clientWidth + 1 &&
+          document.documentElement.scrollWidth === innerWidth;
+      })`), 'Pom collection starting value must fit at ' + width + 'px')
+    }
+    browser('set', 'viewport', '239', '900')
     browser('open', base + '/signals')
     browser('wait', '.scarcity-row')
     assert(evaluate(`document.fonts.ready.then(() => {
