@@ -22637,7 +22637,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22661,7 +22661,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22685,7 +22685,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 526,
+          "y": 373,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22733,7 +22733,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22757,7 +22757,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22781,7 +22781,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 472,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22805,7 +22805,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 456,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
@@ -22829,7 +22829,7 @@
       "480": {
         "findings": [],
         "firstAction": {
-          "y": 456,
+          "y": 320,
           "sel": "select.sel.field"
         },
         "chrome": {
