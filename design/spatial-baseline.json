@@ -94,8 +94,7 @@
     "allowedSizes": null
   },
   "reasons": {
-    "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is.",
-    "dead|p": "The screen card's description paragraph is followed by the status note and the action row, both pinned to the card's foot by `margin-top: auto`, so the rows stay equal height and the ledger's rules stay straight across all three columns. Measured at 919px the paragraph ends 216px above the action row. That gap is the slack between this card's text and the longest description in its row."
+    "dead|div.market-toggle": "The market toggle is baseline-aligned with a section heading that wraps to three lines at this width (`align-items: baseline`). Measured at 481px the heading is 100.8px tall and the toggle 22px, so the 79px under the toggle is the heading's own last line. The toggle belongs to the first line, where the reader's eye already is."
   },
   "exempt": [],
   "provenance": {
