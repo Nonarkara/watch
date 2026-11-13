@@ -8797,8 +8797,8 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 276,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8821,8 +8821,8 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 276,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8845,8 +8845,8 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 450,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8893,8 +8893,8 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8917,8 +8917,8 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8941,8 +8941,8 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -8965,8 +8965,8 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 844,
@@ -9013,8 +9013,8 @@
       "481": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9037,8 +9037,8 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9061,8 +9061,8 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9085,8 +9085,8 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9109,8 +9109,8 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9133,8 +9133,8 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9157,8 +9157,8 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9181,8 +9181,8 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9205,8 +9205,8 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9229,8 +9229,8 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9253,8 +9253,8 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9277,8 +9277,8 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9301,8 +9301,8 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9325,8 +9325,8 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9349,8 +9349,8 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9373,8 +9373,8 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9397,8 +9397,8 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9421,8 +9421,8 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9445,8 +9445,8 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9469,8 +9469,8 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9493,8 +9493,8 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9517,8 +9517,8 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9541,8 +9541,8 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9565,8 +9565,8 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9589,8 +9589,8 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9637,8 +9637,8 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9661,8 +9661,8 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9685,8 +9685,8 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9709,8 +9709,8 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9733,8 +9733,8 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9757,8 +9757,8 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 429,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 251,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9781,8 +9781,8 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9805,8 +9805,8 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9829,8 +9829,8 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9853,8 +9853,8 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9877,8 +9877,8 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9901,8 +9901,8 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9925,8 +9925,8 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9949,8 +9949,8 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9973,8 +9973,8 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 396,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -9997,8 +9997,8 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10021,8 +10021,8 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10045,8 +10045,8 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10069,8 +10069,8 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10093,8 +10093,8 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10117,8 +10117,8 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10141,8 +10141,8 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10189,8 +10189,8 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10213,8 +10213,8 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10237,8 +10237,8 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10261,8 +10261,8 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 1000,
@@ -10285,8 +10285,8 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10309,8 +10309,8 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10333,8 +10333,8 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10453,8 +10453,8 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10477,8 +10477,8 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -10501,8 +10501,8 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 404,
-          "sel": "a.hero-banner-btn.hero-banner-btn--primary"
+          "y": 218,
+          "sel": "select#brand-tier"
         },
         "chrome": {
           "vh": 900,
@@ -39937,7 +39937,7 @@
       "359": {
         "findings": [],
         "firstAction": {
-          "y": 1518,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -39961,7 +39961,7 @@
       "360": {
         "findings": [],
         "firstAction": {
-          "y": 1318,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -39985,7 +39985,7 @@
       "361": {
         "findings": [],
         "firstAction": {
-          "y": 1318,
+          "y": 408,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40033,7 +40033,7 @@
       "459": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40057,7 +40057,7 @@
       "460": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40081,7 +40081,7 @@
       "461": {
         "findings": [],
         "firstAction": {
-          "y": 1043,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40105,7 +40105,7 @@
       "479": {
         "findings": [],
         "firstAction": {
-          "y": 1022,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40177,7 +40177,7 @@
       "558": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40201,7 +40201,7 @@
       "559": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40225,7 +40225,7 @@
       "560": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40249,7 +40249,7 @@
       "561": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40273,7 +40273,7 @@
       "598": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40297,7 +40297,7 @@
       "599": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40321,7 +40321,7 @@
       "600": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40345,7 +40345,7 @@
       "601": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40369,7 +40369,7 @@
       "619": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40393,7 +40393,7 @@
       "620": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40417,7 +40417,7 @@
       "621": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40441,7 +40441,7 @@
       "638": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40465,7 +40465,7 @@
       "639": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40489,7 +40489,7 @@
       "640": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40513,7 +40513,7 @@
       "641": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40537,7 +40537,7 @@
       "718": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40561,7 +40561,7 @@
       "719": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40585,7 +40585,7 @@
       "720": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40609,7 +40609,7 @@
       "721": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40633,7 +40633,7 @@
       "722": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40657,7 +40657,7 @@
       "759": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40681,7 +40681,7 @@
       "760": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40705,7 +40705,7 @@
       "761": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40729,7 +40729,7 @@
       "767": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40777,7 +40777,7 @@
       "769": {
         "findings": [],
         "firstAction": {
-          "y": 917,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40801,7 +40801,7 @@
       "799": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40825,7 +40825,7 @@
       "800": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40849,7 +40849,7 @@
       "801": {
         "findings": [],
         "firstAction": {
-          "y": 889,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40873,7 +40873,7 @@
       "878": {
         "findings": [],
         "firstAction": {
-          "y": 847,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40897,7 +40897,7 @@
       "879": {
         "findings": [],
         "firstAction": {
-          "y": 847,
+          "y": 355,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40921,7 +40921,7 @@
       "880": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40945,7 +40945,7 @@
       "881": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40969,7 +40969,7 @@
       "899": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -40993,7 +40993,7 @@
       "900": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41017,7 +41017,7 @@
       "901": {
         "findings": [],
         "firstAction": {
-          "y": 761,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41041,7 +41041,7 @@
       "919": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41065,7 +41065,7 @@
       "920": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41089,7 +41089,7 @@
       "921": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41113,7 +41113,7 @@
       "959": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41137,7 +41137,7 @@
       "960": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41161,7 +41161,7 @@
       "961": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41185,7 +41185,7 @@
       "998": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41209,7 +41209,7 @@
       "999": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41233,7 +41233,7 @@
       "1000": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41257,7 +41257,7 @@
       "1001": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41281,7 +41281,7 @@
       "1023": {
         "findings": [],
         "firstAction": {
-          "y": 740,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41329,7 +41329,7 @@
       "1025": {
         "findings": [],
         "firstAction": {
-          "y": 719,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41353,7 +41353,7 @@
       "1099": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41377,7 +41377,7 @@
       "1100": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41401,7 +41401,7 @@
       "1101": {
         "findings": [],
         "firstAction": {
-          "y": 698,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41425,7 +41425,7 @@
       "1279": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41449,7 +41449,7 @@
       "1280": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41473,7 +41473,7 @@
       "1281": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41593,7 +41593,7 @@
       "1535": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41617,7 +41617,7 @@
       "1536": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
@@ -41641,7 +41641,7 @@
       "1537": {
         "findings": [],
         "firstAction": {
-          "y": 677,
+          "y": 322,
           "sel": "button.chip.on"
         },
         "chrome": {
