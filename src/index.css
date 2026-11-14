@@ -967,7 +967,7 @@ details.why p { color: var(--dim); font-size: var(--text-micro); letter-spacing:
   aspect-ratio: 4 / 3; background: var(--paper-2); margin-bottom: var(--space-md);
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.rc-media img { width: 100%; height: 100%; object-fit: contain; }
+.rc-media img { width: 100%; height: 100%; object-fit: contain; overflow-wrap: anywhere; }
 .rc-media-empty { font-size: var(--text-micro); letter-spacing: .06em; color: var(--dim); }
 .rc-id { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
 .rc-brand { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: .04em; text-transform: uppercase; color: var(--amber); }
