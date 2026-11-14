@@ -87,7 +87,17 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     # Each runner freshly loads its own routes at every required width.
-    timeout-minutes: 20
+    #
+    # 30 minutes, measured. The slowest shard across the last three
+    # successful runs took 13 minutes: 12 shards observed, 7 to 13 minutes,
+    # and the same shard was the slow one every time. 30 is more than twice
+    # that, so a slow runner day does not kill a legitimate sweep. 20 was
+    # only 1.5x the measured worst case and would turn a slow day into a
+    # gate failure that is not a measurement failure — the reader would be
+    # told the layout broke when the layout was never measured. It was 50
+    # before the minutes pass, which is a hung shard burning 50 minutes of
+    # quota to say nothing.
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
