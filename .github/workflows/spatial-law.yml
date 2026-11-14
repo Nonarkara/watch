@@ -8,8 +8,10 @@
 # Why it measures the DEPLOYED site rather than a fresh build:
 #
 #   The build and unit tests run in the separate gate workflow. This check
-#   measures the bytes a visitor receives. Scheduled and push runs observe
-#   production; a manual run can target an immutable Pages preview.
+#   measures the bytes a visitor receives. A push to main and the daily cron
+#   observe production. A manual dispatch on main can still name an immutable
+#   Pages preview. Any other ref starts no runners. Pull requests keep the
+#   gate workflow, and a skipped dispatch is not a measurement pass.
 #
 #   The build-time gate still runs before every deploy, locally:
 #     npm run spatial:gate      build -> measure copy -> prerender -> gate
@@ -34,6 +36,7 @@
 name: Spatial law
 
 on:
+  # Not on pull_request. A PR push stays on the cheap gate workflow.
   workflow_dispatch:
     inputs:
       preview_url:
@@ -50,11 +53,15 @@ permissions:
   contents: read
 
 concurrency:
-  group: spatial-law-${{ inputs.preview_url || 'production' }}
+  # One group for every workflow_dispatch, push, and schedule on this ref.
+  # A different preview URL must not open a second group.
+  group: spatial-law-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   target:
+    # Runners start only on main: a push, the daily cron, or a manual dispatch.
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     outputs:
       base: ${{ steps.target.outputs.base }}
@@ -75,9 +82,12 @@ jobs:
           echo "base=$target" >> "$GITHUB_OUTPUT"
   measure:
     needs: target
+    # Same main-only guard as target. success() still applies, so a failed
+    # or skipped target does not start the shard runners.
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     # Each runner freshly loads its own routes at every required width.
-    timeout-minutes: 50
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
@@ -117,7 +127,7 @@ jobs:
           retention-days: 7
   gate:
     needs: [target, measure]
-    if: ${{ !cancelled() && needs.target.result == 'success' }}
+    if: ${{ github.ref == 'refs/heads/main' && !cancelled() && needs.target.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
