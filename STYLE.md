@@ -127,6 +127,9 @@ worse than the thing it flags.
 - colour #11364B: navy is structure. The ledger plate and the counter-field.
 - colour #55B8B1: teal is information. The four axes and the sourced figures.
 - colour #7FC8DD: sky is the quiet one. Credits and links on dark.
+- colour #f5f5f0: the house paper. Dr Non's warm off-white, shared across the estate's design tokens; it is the ground the site stands on.
+- colour #f59e0b: the house accent. One amber, in the shared tokens; this site's own accent is coral, and the amber is what the estate's other products use.
+- colour #b85c28: the same house amber darkened for legibility on the light theme. It is the estate's token, not this site's choice, and it is named here so a reviewer does not take the estate's paper for a default.
 
 ## Protected voice
 
