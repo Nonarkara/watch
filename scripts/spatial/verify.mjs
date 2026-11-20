@@ -31,21 +31,24 @@ const ROOT = join(HERE, '..', '..');
 
 function run(script, args) {
   return new Promise((resolve) => {
+    // The child's words go to the console as they happen. A gate that
+    // prints nothing for forty minutes is a gate nobody trusts, and the
+    // person running it cannot tell a slow sweep from a hung one.
     const child = spawn(process.execPath, [join(HERE, script), ...args], {
       cwd: ROOT,
       stdio: ['ignore', 'pipe', 'pipe'],
       env: process.env,
     });
     let out = '';
-    child.stdout.on('data', (d) => { out += d.toString(); });
-    child.stderr.on('data', (d) => { out += d.toString(); });
+    const relay = (d) => { out += d.toString(); process.stdout.write(d); };
+    child.stdout.on('data', relay);
+    child.stderr.on('data', relay);
     child.on('close', (code) => resolve({ code, out }));
   });
 }
 
 console.log('── the gate ──');
 const gate = await run('spatial-check.mjs', ['--dir', '.spatial-dist', '--baseline', 'design/spatial-baseline.json']);
-console.log(gate.out.trim());
 if (gate.code !== 0) {
   console.error('\nFAIL — the gate did not pass. The page has changed shape and the change has not been written down.');
   process.exit(1);
@@ -54,7 +57,6 @@ if (gate.code !== 0) {
 console.log('\n── the falsifier: does the gate bite? ──');
 const falsify = await run('spatial-falsify.mjs', ['.spatial-dist']);
 const out = falsify.out;
-console.log(out.trim());
 
 const caught = (out.match(/^\s*· caught:/gm) || []).length;
 const failedLines = out.split('\n').filter((l) => /^\s*✗/.test(l));
