@@ -70,9 +70,11 @@ and `--date-source=<Phillips session or lot URL>`. The auction opening date alon
 ## Layout verification
 
 The scheduled Spatial law workflow measures production. To measure a release
-candidate, run it manually on the candidate branch with its immutable Pages
-preview URL (for example, `https://1234abcd.watch-1de.pages.dev/`). A green
-production monitor does not clear a preview.
+candidate, dispatch the workflow on `main` and supply the candidate's immutable
+Pages URL as `preview_url` (for example, `https://1234abcd.watch-1de.pages.dev/`).
+Dispatches on other branches skip the jobs. Neither a skipped run nor a green
+production monitor clears a preview. This preview check uses the checker on
+`main`; test changes to the checker itself locally from the candidate checkout.
 
 The site-wide receipt does not cover individual dossiers. Run
 `npm run spatial:dossiers -- --base <immutable-preview-url>` alongside it
@@ -98,6 +100,12 @@ Check that the `gate` workflow passed for that commit, then exercise the candida
 Pages preview. The scheduled `Spatial law` workflow checks production; its result is not
 proof that a preview passes. Run `npm run spatial:gate` and `npm run spatial:falsify` on the
 built candidate when changing layout or the spatial tooling.
+
+If GitHub Actions cannot start a job, record it as unrun. From the clean Node 24
+checkout, you can still run `npm ci --ignore-scripts`,
+`npm audit --omit=dev --audit-level=high`, `npm run build`, `npm test`, and
+`npm run lint` for local evidence. Those results do not replace the hosted gate
+or verify a GitHub Actions dependency update.
 
 `npm run deploy` runs the production dependency audit, lint, build, and tests before
 uploading to the Pages production branch. It does not enforce GitHub status checks or
