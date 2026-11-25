@@ -167,6 +167,35 @@
 .home-page .research-ledger { padding: 16px; gap: 16px; }
 .home-page .research-ledger h2 { font-size: 24px; }
 .home-page .ledger-lines p { padding: 8px 0; }
+.home-page .trending-now-strip {
+  display: flex; flex-wrap: wrap; gap: 1px; background: var(--ink);
+}
+.home-page .trending-now-strip > li {
+  flex: 1 1 168px; min-width: 0; border: 0; background: var(--paper);
+}
+@media (min-width: 640px) {
+.home-page .trending-now-cell {
+  grid-template-columns: 32px minmax(0, 1fr); gap: 4px 8px;
+  padding: 12px; min-height: 0; height: 100%; align-content: start;
+}
+.home-page .trending-now-rank { grid-column: 1; grid-row: 1; align-self: start; font-size: 24px; }
+.home-page .trending-now-body { display: contents; }
+.home-page .trending-now-brand { grid-column: 2; grid-row: 1; align-self: center; }
+.home-page .trending-now-name { grid-column: 1 / -1; grid-row: 2; }
+.home-page .trending-now-signal { grid-column: 1 / -1; grid-row: 3; }
+.home-page .trending-now-media {
+  grid-column: 1 / -1; grid-row: 4; width: 40px; height: 40px;
+}
+.home-page .trending-now-media.reference-photo-missing {
+  width: auto; height: auto; font-size: 10px;
+}
+}
+@media (min-width: 640px) and (max-width: 959px) {
+  .home-page .trending-now-strip > li { flex-basis: calc((100% - 2px) / 3); }
+}
+@media (max-width: 639px) {
+  .home-page .trending-now-strip > li { flex-basis: 100%; }
+}
 .home-page .art-band-stage { --art-bleed: 100%; }
 @media (max-width: 879px) {
   .home-page .hero-ledger-grid { display: grid; grid-template-columns: repeat(4, max-content); }

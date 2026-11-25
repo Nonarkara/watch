@@ -1758,9 +1758,9 @@ details.why summary { min-height: 20px; }
   .dsr-evidence-ledger .mcell .why[open] { justify-self: stretch; }
 }
 
-/* Sections stop drifting apart. The bottom padding adds 60px to clear the
-   fixed compare dock so the last row of cards isn't overlapped. */
-main.shell { padding-top: var(--space-lg); padding-bottom: calc(var(--space-xl) + 60px); }
+/* Reserve dock clearance only while there is a comparison shelf to clear. */
+main.shell { padding-top: var(--space-lg); padding-bottom: var(--space-md); }
+body:has(.cdock) main.shell { padding-bottom: calc(var(--space-xl) + 60px); }
 .sect { margin: var(--space-lg) 0; }
 .sect-h { padding-bottom: 6px; margin-bottom: 10px; }
 .honest { padding: 12px 14px; }

@@ -35,6 +35,32 @@ try {
       receipt.push({name,...m})
       if (name === 'after') {
         assert(m.pageWidth <= width + 1, `overflow ${width}`)
+        const ranking = evaluate(`(() => {
+          const strip=document.querySelector('.trending-now-strip'),rows={};
+          for(const cell of strip.children){const y=Math.round(cell.getBoundingClientRect().top);rows[y]=(rows[y]||0)+1}
+          return {rows:Object.values(rows),height:strip.getBoundingClientRect().height,
+            footerGap:document.querySelector('footer').getBoundingClientRect().top-document.querySelector('.research-ledger').getBoundingClientRect().bottom};
+        })()`)
+        if(width>=640) assert(ranking.rows.every(n=>n>=2), `ranking orphan ${width}: ${ranking.rows}`)
+        if(width>=960) assert(ranking.height<=150, `ranking inflated ${width}: ${ranking.height}`)
+        assert(ranking.footerGap<=48, `empty comparison reserve ${width}: ${ranking.footerGap}`)
+        Object.assign(m,{ranking})
+        if(width===1024){
+          const orphan=evaluate(`(() => {
+            const strip=document.querySelector('.trending-now-strip'),old=strip.style.cssText,rows={};
+            strip.style.display='grid';strip.style.gridTemplateColumns='repeat(4,1fr)';
+            for(const cell of strip.children){const y=Math.round(cell.getBoundingClientRect().top);rows[y]=(rows[y]||0)+1}
+            strip.style.cssText=old;return Object.values(rows).includes(1);
+          })()`)
+          assert(orphan,'old four-plus-one layout must fail the ranking gate')
+          const voidReturned=evaluate(`(() => {
+            const main=document.querySelector('main.shell'),old=main.style.paddingBottom;
+            main.style.paddingBottom='100px';
+            const gap=document.querySelector('footer').getBoundingClientRect().top-document.querySelector('.research-ledger').getBoundingClientRect().bottom;
+            main.style.paddingBottom=old;return gap>48;
+          })()`)
+          assert(voidReturned,'old comparison reserve must fail the footer-gap gate')
+        }
         assert(m.stats.every(w=>w<=125), `stretch-to-fill stat returned at ${width}`)
         assert(m.ledger.height <= (width<880 ? 190 : 140), `ledger too tall ${width}`)
         assert(m.action.bottom <= (width===1280 ? 720 : 844), `browse action below first screen ${width}`)

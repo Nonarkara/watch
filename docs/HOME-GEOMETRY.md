@@ -57,3 +57,21 @@ The browser gate measures the actual name ink with a Range, checks desktop colum
 width and shared row, and restores the expanding middle track to prove proximity
 fails. It verifies archive image metadata and dispatches an image failure to test
 the honest fallback. Capture `middle-*.png`, not only the first screen.
+
+## November 26: attention wrapping and idle shelf reserve
+
+Independent pixel review found five attention records wrapping as four plus one
+at 1024px (194.6px strip height), and a 124px empty interval between the final
+research ledger and footer. The modular ranking now uses five records together
+from 960px, three plus two at tablet widths, and the existing phone list below
+640px. Rank, identity, signal, and media status remain together; no record or
+qualification was removed. Main reserves the old shelf clearance only while
+the comparison shelf exists; the idle footer interval is now 40px.
+
+`verify:home` rejects a singleton ranking row from 640px, a ranking over 150px
+from 960px, and an idle footer interval over 48px. At 1024px it restores the
+four-column layout and 100px bottom padding separately; both must fail.
+These are default-text budgets, not height limits in the UI: enlarged text
+and additional evidence remain free to wrap. Screenshots and real-browser
+checks cover phone, tablet, desktop and breakpoint neighbors. The site-wide
+receipt remains unchanged; these task budgets supplement rather than waive it.
