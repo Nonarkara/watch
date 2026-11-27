@@ -15,9 +15,13 @@ assert.equal(checkedInReceipt.version, 2, 'the checked-in spatial baseline must 
 
 const tmp = mkdtempSync(join(tmpdir(), 'watch-spatial-replay-'))
 const checker = fileURLToPath(new URL('./spatial/spatial-check.mjs', import.meta.url))
-const readinessSource = readFileSync(checker, 'utf8').match(/^function arrived\(d\) \{[\s\S]*?^\}/m)?.[0]
+const checkerSource = readFileSync(checker, 'utf8')
+const styleSource = checkerSource.match(/^function styleState\(d\) \{[\s\S]*?^\}/m)?.[0]
+const readinessSource = checkerSource.match(/^function arrived\(d\) \{[\s\S]*?^\}/m)?.[0]
+assert.ok(styleSource, 'the browser harness must define its stylesheet check')
 assert.ok(readinessSource, 'the browser harness must define its image readiness check')
-const arrived = runInNewContext(`(${readinessSource})`, { stillLoading: (doc) => doc.booting })
+const arrived = runInNewContext(`${styleSource}\n(${readinessSource})`, { stillLoading: (doc) => doc.booting, URL })
+const styleState = runInNewContext(`(${styleSource})`, { URL })
 const imageReady = ({ top = 800, width = 400, height = 300, loading = 'lazy', complete = false } = {}, doc = {}) =>
   arrived({
     defaultView: { innerHeight: 800 },
@@ -36,6 +40,41 @@ assert.equal(imageReady({ loading: 'eager' }), false, 'eager images still settle
 assert.equal(imageReady({ complete: true, top: 0 }), true, 'a completed visible image does not block')
 assert.equal(imageReady({}, { fonts: { status: 'loading' } }), false, 'fonts still settle')
 assert.equal(imageReady({}, { booting: true }), false, 'a route placeholder is not ready')
+const styleDoc = (link, entries = []) => ({
+  baseURI: 'http://127.0.0.1:9/paper/',
+  defaultView: {
+    innerHeight: 800,
+    location: { origin: 'http://127.0.0.1:9' },
+    matchMedia: (query) => ({ matches: query !== 'print' }),
+    performance: { getEntriesByType: () => entries },
+  },
+  querySelectorAll: (selector) => selector.includes('stylesheet') ? [link] : [],
+})
+const sameOrigin = 'http://127.0.0.1:9/assets/site.css'
+assert.equal(imageReady({ complete: true }, styleDoc({
+  href: sameOrigin, media: '', disabled: false, sheet: { cssRules: { length: 12 } },
+})), true, 'a stylesheet that has rules does not delay a settled page')
+assert.equal(imageReady({ complete: true }, styleDoc({
+  href: sameOrigin, media: '', disabled: false, sheet: null,
+})), false, 'a same-origin stylesheet still in flight is not a measurement')
+assert.equal(imageReady({ complete: true }, styleDoc({
+  href: sameOrigin, media: '', disabled: false, sheet: null,
+}, [{ name: sameOrigin, responseEnd: 40 }])), true, 'a finished stylesheet with no rules does not consume the settle cap')
+assert.equal(imageReady({ complete: true }, styleDoc({
+  href: 'https://fonts.googleapis.com/css?family=Spectral', media: '', disabled: false, sheet: null,
+})), true, 'a cross-origin webfont sheet is not the page stylesheet')
+assert.equal(imageReady({ complete: true }, styleDoc({
+  href: sameOrigin, media: 'print', disabled: false, sheet: null,
+})), true, 'a print stylesheet does not block a screen measurement')
+assert.equal(styleState({
+  baseURI: 'http://127.0.0.1:9/paper/',
+  defaultView: {
+    location: { origin: 'http://127.0.0.1:9' },
+    matchMedia: () => ({ matches: true }),
+    performance: { getEntriesByType: () => [{ name: sameOrigin, responseEnd: 12 }] },
+  },
+  querySelectorAll: () => [{ href: sameOrigin, media: '', disabled: false, sheet: { cssRules: { length: 0 } } }],
+}), 'failed', 'a sheet that arrived with no rules is a failed stylesheet')
 const artifact = join(tmp, 'measurements.json')
 const receipt = join(tmp, 'baseline.json')
 const cell = (route, w) => ({

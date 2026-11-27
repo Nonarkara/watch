@@ -373,9 +373,84 @@ function stillLoading(d) {
   return false;
 }
 
+// Has this document's own stylesheet actually applied?
+//
+// 'ready'   — every same-origin stylesheet that applies at this viewport has
+//             rules in the CSSOM.
+// 'pending' — one of those requests is still in flight. Waiting can help.
+// 'failed'  — the request finished and left no rules. Waiting will not help;
+//             the navigation has to be tried again.
+//
+// A cross-origin sheet (the webfont CSS) is not this signal. It cannot
+// create or remove the header, and a sheet the page is not allowed to read
+// must not stall the sweep.
+//
+// The failure this distinguishes: on 2026-11-24 the live gate recorded
+// /paper/ at 767px with a top chrome of 0. The same run recorded 141px,
+// header.hdr, at 761px and at 768px. The 0px cell's type ramp was the
+// browser's own — 16px body, 24px h2, 32px h1 — and the h2 still said
+// "The hypothesis", so the page had rendered and the site's stylesheet had
+// not applied. The user-agent body margin is 8px. The probe only counts an
+// in-flow header whose top is within 2px of the viewport, so the header was
+// present and was not counted. The receipt still said 141px, and the gate
+// reported a chrome that shrank to nothing. The page had not changed. The
+// stylesheet for that one navigation had not arrived.
+function styleState(d) {
+  var view = d.defaultView;
+  if (!view || typeof d.querySelectorAll !== 'function') return 'ready';
+  var links;
+  try { links = d.querySelectorAll('link[rel~="stylesheet"]'); }
+  catch (e) { return 'ready'; }
+  var entries = [];
+  try { entries = view.performance.getEntriesByType('resource'); }
+  catch (e2) { entries = []; }
+  var pending = false;
+  var failed = false;
+  for (var i = 0; i < links.length; i++) {
+    var link = links[i];
+    if (link.disabled) continue;
+    var media = String(link.media || '').trim();
+    if (media && media !== 'all') {
+      try { if (!view.matchMedia(media).matches) continue; }
+      catch (e3) { /* an unreadable media query is treated as applying */ }
+    }
+    var href = link.href || '';
+    if (!href) continue;
+    var local = false;
+    try { local = new URL(href, d.baseURI).origin === view.location.origin; }
+    catch (e4) { local = false; }
+    if (!local) continue;
+    var rules = 0;
+    try {
+      rules = link.sheet && link.sheet.cssRules ? link.sheet.cssRules.length : 0;
+    } catch (e5) {
+      // A sheet that exists but cannot be read has still been applied.
+      if (link.sheet) continue;
+    }
+    if (rules > 0) continue;
+    var finished = false;
+    for (var j = 0; j < entries.length; j++) {
+      if (entries[j].name === href && entries[j].responseEnd > 0) { finished = true; break; }
+    }
+    if (finished) failed = true;
+    else pending = true;
+  }
+  // A request still in flight can still apply. A finished request with no
+  // rules will not start applying if this document keeps waiting.
+  if (pending) return 'pending';
+  if (failed) return 'failed';
+  return 'ready';
+}
+
 // Is everything that can arrive late here yet?
 function arrived(d) {
   if (stillLoading(d)) return false;
+  // A stylesheet that is still coming will change the geometry when it
+  // lands, and that landing is not a DOM mutation — the link was in the
+  // document from the start. A settle that only watches the DOM will accept
+  // the unstyled page. A stylesheet that has already failed is not going to
+  // land; waiting out the cap on it would add seconds to every bad cell.
+  if (styleState(d) === 'pending') return false;
   try {
     var ff = d.fonts;
     if (ff && ff.status && ff.status !== 'loaded') return false;
@@ -554,7 +629,11 @@ function rendered(d, cb) {
   })();
 }
 
-function loadPage(route, w, h, cb) {
+function loadPage(route, w, h, cb, attempt) {
+  // A navigation whose stylesheet did not apply is measured again. Two
+  // further tries, not a sweep: the failure is one cell, and the next fetch
+  // of the same sheet is how that cell becomes the page a reader gets.
+  attempt = attempt || 1;
   var token = ++TOKEN;
   var done = false;
   function finish(rec) {
@@ -661,6 +740,32 @@ function loadPage(route, w, h, cb) {
           // comparing defaultView cannot tell the two documents apart —
           // the probe's presence is the only honest test.
           if (typeof wv.__SPATIAL_MEASURE__ !== 'function') return wait();
+          // An unstyled document is not a layout. Recording it makes a
+          // header that is standing 8px down, under the user-agent margin,
+          // look like a header that disappeared. Reload the cell. If the
+          // sheet still does not apply, say so — that is a measurement that
+          // could not be read, not a chrome the receipt should adopt.
+          var styles = styleState(d);
+          if (styles !== 'ready') {
+            if (attempt < 3) {
+              try {
+                fetch('/__spatial-results', {
+                  method: 'POST',
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({
+                    progress: 'stylesheet did not apply, reloading ' + route + ' @' + w +
+                      'px (' + styles + ', attempt ' + (attempt + 1) + ')',
+                  }),
+                });
+              } catch (e) { /* the reload is the point; the note is not */ }
+              return loadPage(route, w, h, cb, attempt + 1);
+            }
+            return finish({
+              route: route,
+              w: w,
+              error: 'the page stylesheets did not apply',
+            });
+          }
           measureDoc(d, route, w, finish);
           });
         });
